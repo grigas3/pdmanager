@@ -1,0 +1,13 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context="com.pdmanager.views.ClinicianActivity">
+    <item android:id="@+id/action_mainsettings" android:title="@string/action_lock"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_example" android:title="Example"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+
+</menu>
+<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/menu/technician.xml -->

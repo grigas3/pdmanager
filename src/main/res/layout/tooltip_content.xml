@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#0f0"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:src="@android:drawable/btn_dialog" />
+
+    <TextView
+        android:id="@+id/chart_tooltip_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#cac"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/chart_tooltip_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#fac"
+        android:textSize="12sp" />
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_dataform_pill"
+        style="@style/DataFormImageView"
+        android:layout_width="0dp"
+        android:layout_weight="1"/>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="wrap_content">
+        <EditText
+            android:inputType="text"
+            android:hint="medication"
+            android:id="@+id/data_form_text_editor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</LinearLayout>
+<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/reservation_pill_editor.xml -->

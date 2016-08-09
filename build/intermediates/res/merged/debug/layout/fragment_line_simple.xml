@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent.ExampleFragment">
+
+
+    <include layout="@layout/patient_header"></include>
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Data"
+        android:background="#8EB4F5"
+        android:visibility="invisible"
+        android:padding="5dp"
+        android:id="@+id/button"
+        />
+    <TextView
+        android:id="@+id/headerTextView"
+        android:layout_width="wrap_content"
+        android:textSize="24dp"
+        android:textColor="#ea8807"
+        android:layout_height="wrap_content" android:text="To"/>
+
+    <View
+        android:id="@+id/sepManagement1"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#d8e2d8" />
+    <ProgressBar
+        android:id="@+id/busy_BusyIndicator"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        />
+    <com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView
+        android:id="@+id/chart"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/MatchParent.Chart" />
+
+
+
+
+</LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+
+</LinearLayout>
+<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_line_simple.xml -->

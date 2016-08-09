@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="drawerDivider">#FFD2D2D2</color>
+    <color name="controlBackground">#FF00BBBC</color>
+    <color name="controlBackgroundHighlighted">#FF584B45</color>
+    <color name="listItemBottomBorder">#FFBCBCBC</color>
+    <color name="telerikGreen">#2DB245</color>
+    <color name="grey_text_color">#E64A19</color>
+    <color name="light_grey">#E64A19</color>
+    <color name="dark_grey_text_color">#E64A19</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="Black">#ffffffff</color>
+    <color name="axesPriceColor">#A666CE</color>
+    <color name="axesVolumeColor">#4FB6E7</color>
+    <color name="black">#000000</color>
+    <color name="exampleInfoBackground">#FFFBFBFB</color>
+    <color name="aboutPageVersionTextColor">#FF595959</color>
+    <color name="aboutPageVersionNumberColor">#FF2CB145</color>
+    <color name="exampleGroupDescriptionColor">#FF454545</color>
+    <color name="panZoomHighColor">#A666CE</color>
+    <color name="panZoomLowColor">#9DCC00</color>
+    <color name="panZoomCloseColor">#F9BA1A</color>
+    <color name="primary_title_background">#bc0006</color>
+    <color name="secondary_title_background">#342db2</color>
+
+    <color name="calendar_range_price_color">#511749</color>
+    <color name="calendar_event_text_color">#737373</color>
+    <color name="calendar_background_range_example">#F2F2F2</color>
+    <color name="calendar_example_background">#FFDDDDDD</color>
+    <color name="list_item_text_color">#FF454545</color>
+
+    <!--Gradient colors for the ExampleActivity background. Resolved automatically by applying the Fragment short name of each example group to the _example_menu_color# string.-->
+
+    <!--Chart-->
+    <color name="chart_example_menu_color1">#ff001337</color>
+    <color name="chart_example_menu_color2">#ff004173</color>
+    <color name="chart_example_menu_color3">#ff00a5c2</color>
+    <color name="chart_example_menu_color4">#ff018e86</color>
+    <!--DataForm-->
+    <color name="dataform_example_menu_color1">#ff001337</color>
+    <color name="dataform_example_menu_color2">#ff004173</color>
+    <color name="dataform_example_menu_color3">#ff00a5c2</color>
+    <color name="dataform_example_menu_color4">#ff018e86</color>
+    <!--Calendar-->
+    <color name="calendar_example_menu_color1">#ff3f1e55</color>
+    <color name="calendar_example_menu_color2">#ffae4887</color>
+    <color name="calendar_example_menu_color3">#ffff818f</color>
+    <color name="calendar_example_menu_color4">#fff0514e</color>
+    <!--Side Drawer-->
+    <color name="drawer_example_menu_color1">#ff1a2250</color>
+    <color name="drawer_example_menu_color2">#ff685d9e</color>
+    <color name="drawer_example_menu_color3">#ffc791ba</color>
+    <color name="drawer_example_menu_color4">#fff28e5e</color>
+    <!--ListView-->
+    <color name="listview_example_menu_color1">#ff16a3b1</color>
+    <color name="listview_example_menu_color2">#ff16a3b1</color>
+    <color name="listview_example_menu_color3">#ff93d1be</color>
+    <color name="listview_example_menu_color4">#fff29474</color>
+    <color name="legend_bg">#bbffffff</color>
+
+    <color name="transparentBlack">#66000000</color>
+    <color name="transparentWhite">#FFFFFFFF</color>
+    <color name="listViewToolbarColor">#FF6E40</color>
+    <color name="listViewHorizontalLayoutHeaderColor">#E64A19</color>
+
+
+    <color name="list_view_reporder_selectable_foreground">#FFEEEEEE</color>
+    <color name="list_view_example_reorder_bgcolor">#FFEEEEEE</color>
+    <color name="list_view_example_reorder_todo_background">#FF88D4C4</color>
+    <color name="list_view_example_reorder_todo_active_background">#FF00CCA1</color>
+    <color name="list_view_example_reorder_shopping_background">#FFF3C7B9</color>
+    <color name="list_view_example_reorder_shopping_active_background">#FFFF6E40</color>
+    <color name="list_view_example_reorder_complete_background">#FFFFA200</color>
+    <color name="list_view_example_reorder_delete_background">#FFE5503A</color>
+
+    <color name="list_view_example_selection_bgcolor">#FFE4D8D4</color>
+    <color name="list_view_example_selection_menu_foreground">#FFDAD3D0</color>
+    <color name="list_view_example_selection_action_mode_background">#FF5D4037</color>
+    <color name="list_view_example_selection_line_separator_color">#FFD2C7C3</color>
+    <color name="list_view_example_selection_behind_delete">#FFFF1744</color>
+    <color name="list_view_example_selection_behind_fav">#FFF3AF40</color>
+    <color name="list_view_example_selection_selected_title">#FF262120</color>
+    <color name="list_view_example_selection_selected_content">#C7262120</color>
+    <color name="list_view_example_selection_item_title">#FF262120</color>
+    <color name="list_view_example_selection_item_content">#8A262120</color>
+    <color name="list_view_example_selection_item_pressed_state">#16000000</color>
+    <color name="list_view_example_selection_item_normal_state">#E4D8D4</color>
+    <color name="list_view_example_selection_item_selected_state">#C2B0A9</color>
+
+    <color name="list_view_example_deck_title_background">#BD7937</color>
+    <color name="list_view_example_deck_recipe_title_background">#FF9E40</color>
+
+    <color name="step_pager_previous_tab_color">#BF1E2D</color>
+    <color name="step_pager_selected_tab_color">#BF1E2D</color>
+    <color name="step_pager_selected_last_tab_color">#BF1E2D</color>
+    <color name="step_pager_next_tab_color">#10000000</color>
+
+    <color name="review_green">#BF1E2D</color>
+
+    <color name="text_light">#BF1E2D</color>
+    <!--Gradient colors for the ExampleActivity background. Resolved automatically by applying the Fragment short name of each example group to the _example_menu_color# string.-->
+</resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent.ExampleFragment">
+
+    <include layout="@layout/patient_header"></include>
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/obsParamsLayout"
+        android:layout_width="150dp"
+        android:orientation="vertical"
+
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/code"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/sepManagement2"
+            android:layout_height="wrap_content" android:text="Observation"/>
+        <Spinner
+            android:id="@+id/obsCodeSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/code"
+
+
+            android:enabled="true"
+
+            android:spinnerMode="dialog"
+            android:gravity="end"
+            android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/agg"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/obsCodeSpinner"
+            android:layout_height="wrap_content" android:text="Aggregate"/>
+        <Spinner
+            android:id="@+id/obsAggSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/code"
+
+
+            android:enabled="true"
+
+            android:spinnerMode="dialog"
+            android:gravity="end"
+            android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/fromTitle"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/obsAggSpinner"
+            android:layout_height="wrap_content" android:text="From"/>
+        <EditText
+            android:inputType="none"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:editable="false"
+            android:id="@+id/fromPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginRight="-4dp"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginStart="-4dp"/>
+
+
+        />
+        <TextView
+            android:id="@+id/toTitle"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/title"
+            android:layout_height="wrap_content" android:text="To"/>
+        <EditText
+            android:inputType="none"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:editable="false"
+            android:id="@+id/toPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginRight="-4dp"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginStart="-4dp"/>
+
+
+        />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Data"
+            android:id="@+id/button"
+            android:padding="5dp"
+            android:background="#8EB4F5"
+            android:layout_below="@+id/title"
+            android:layout_toRightOf="@+id/title" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/sepManagement1"
+        android:layout_width="1dp"
+
+        android:layout_height="fill_parent"
+        android:layout_toEndOf="@+id/obsParamsLayout"
+        android:layout_toRightOf="@+id/obsParamsLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#d8e2d8" />
+
+    <LinearLayout
+        android:id="@+id/chart_layout"
+        android:layout_toEndOf="@+id/sepManagement1"
+        android:layout_toRightOf="@+id/sepManagement1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <ProgressBar
+            android:id="@+id/busy_BusyIndicator"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            />
+        <com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView
+            android:id="@+id/chart"
+            style="@style/MatchParent.Chart" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+
+</LinearLayout>
+<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout-land/fragment_line.xml -->

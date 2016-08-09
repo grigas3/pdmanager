@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#77c4d3"
+            android:orientation="vertical">
+
+
+            <!--Seperator Tile-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#ea2e"
+                android:orientation="vertical">
+
+                <!--Heart Rate Switch-->
+
+
+                <!--Show Heart Beats-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--Tremor Tile-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:orientation="vertical">
+
+                <!--Heart Rate Switch-->
+                <!--Pedometer Switch-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Tremor"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#478bca" />
+
+
+                </LinearLayout>
+
+                <!--Show Heart Beats-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="30dp"
+                        android:src="@drawable/tremor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textAmplitude"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="-20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="3"
+                            android:gravity="bottom|center_horizontal"
+                            android:text="--"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#478bca"
+                            android:textSize="100dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="top|center"
+                            android:text="UPDRS"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#478BCA"
+                            android:textSize="30dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Band Fit Status-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:id="@+id/tableTremor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!--Seperator Tile-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#ea2e"
+                android:orientation="vertical">
+
+                <!--Heart Rate Switch-->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Dyskinesia"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#ffffff" />
+
+
+                </LinearLayout>
+                <!--Show Heart Beats-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_purple"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:padding="30dp"
+                            android:src="@drawable/dyskinesia" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textDyskinesia"
+                                android:layout_width="fill_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="-20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="3"
+                                android:gravity="bottom|center_horizontal"
+                                android:text="--"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="100dp" />
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="top|center"
+                                android:text="Has Dyskinesia?"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="@android:color/background_light"
+                                android:textColorHighlight="@android:color/background_light"
+                                android:textSize="24dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TableLayout
+                            android:id="@+id/tableLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <!--Pedometer Tile-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#77c4d3"
+                android:orientation="vertical">
+
+                <!--Pedometer Switch-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Activity"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#daede2" />
+
+
+                </LinearLayout>
+
+                <!--Show Steps-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="40dp"
+                        android:src="@drawable/steps" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textActivity"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="-10dp"
+                            android:layout_weight="3"
+                            android:gravity="bottom|center_horizontal"
+                            android:text="--"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#daede2"
+                            android:textSize="35dp" />
+
+
+                        <TextView
+                            android:id="@+id/textTotalSteps"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center|center"
+                            android:text="-- steps"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#daede2"
+                            android:textSize="20dp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--Heart Rate Tile-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#ea2e49"
+                android:orientation="vertical">
+
+                <!--Heart Rate Switch-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Heart Rate"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#ffffff" />
+
+
+                </LinearLayout>
+
+                <!--Show Heart Beats-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="30dp"
+                        android:src="@drawable/heart" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textHeartRate"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="-20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="3"
+                            android:gravity="bottom|center_horizontal"
+                            android:text="--"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#daede2"
+                            android:textSize="100dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="top|center"
+                            android:text="bpm"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#daede2"
+                            android:textSize="30dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Band Fit Status-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:id="@+id/tableHeartRate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:text="Band Fit:"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="#daede2" />
+
+                            <TextView
+                                android:id="@+id/textHeartRateQuality"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="4dp"
+                                android:text="-"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="#daede2" />
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

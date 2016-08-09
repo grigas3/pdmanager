@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="roboto"
+            android:text="Hi there!"
+            android:textSize="@dimen/tips_title_font_size" />
+
+        <TextView
+            android:id="@+id/txtTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="roboto"
+            android:linksClickable="true"
+            android:text="@string/tips_presenter_content"
+            android:textSize="@dimen/tips_font_size" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@color/transparent"
+            android:minHeight="0dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="22dp"
+            android:paddingRight="0dp"
+            android:paddingTop="6dp"
+            android:text="@string/tips_presenter_got_it_text"
+            android:textColor="@color/controlBackground" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleButton">
+        <attr name="cb_color" format="color" />
+        <attr name="cb_pressedRingWidth" format="dimension" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="labelTextColor" format="color" />
+        <attr name="labelSeparation" format="dimension" />
+        <attr name="axisThickness" format="dimension" />
+        <attr name="axisColor" format="color" />
+        <attr name="dataThickness" format="dimension" />
+        <attr name="dataColor" format="color" />
+        <attr name="gridThickness" format="dimension" />
+        <attr name="gridColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ScrollingTabView">
+        <attr name="contentHeight" format="dimension" />
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ScrollingTabViewTheme">
+        <attr name="scrollingTabViewStyle" format="reference" />
+        <attr name="scrollingTabStyle" format="reference" />
+    </declare-styleable>
+
+</resources>

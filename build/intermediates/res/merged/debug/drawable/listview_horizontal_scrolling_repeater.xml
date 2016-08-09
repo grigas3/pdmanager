@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/listview_wood_pattern"
+    android:tileMode="repeat" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/listview_horizontal_scrolling_repeater.xml -->

@@ -1,0 +1,60 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_45 (Oracle Corporation)
+
+Name: res/layout-v11/on_demand_manual.xml
+SHA1-Digest: wSQlex8dRizfZBETFBFf+WhASOw=
+
+Name: res/values/values.xml
+SHA1-Digest: sbbl6j+Ge87kS/GeYd1MH/vgVe0=
+
+Name: res/drawable/pressable_item_background.xml
+SHA1-Digest: HBQ1tnuVMBCBsPZ/bM6nA672A9U=
+
+Name: classes.jar
+SHA1-Digest: orSUx3UHG8bhtSNDjKtwK/7mbjM=
+
+Name: res/layout/simple_list_item.xml
+SHA1-Digest: qnEfyleRsjRZS7CcaZTggkOFTdo=
+
+Name: res/layout/on_demand_manual.xml
+SHA1-Digest: pEqBtJhKLZhOUM8eP9DHVJFP2jI=
+
+Name: res/drawable/gingerbread_background.xml
+SHA1-Digest: J4jpoQ7qg8nSYvnttdE2B97t04o=
+
+Name: res/drawable/shade_bottom.xml
+SHA1-Digest: jk++gK13sa1QZ92eEViuPL3BzNg=
+
+Name: res/layout/simple_empty_content.xml
+SHA1-Digest: sXcOYKvjkWEZZR5/ND0ciFAbACo=
+
+Name: res/drawable/shade_corner.xml
+SHA1-Digest: vSsAfxE5DxY2RU2mqMvLHUlD7Bc=
+
+Name: res/drawable/selectable_item_background.xml
+SHA1-Digest: 55vFI5hFTpY4SyD6U7kPoE7BVRw=
+
+Name: res/layout/on_demand_automatic.xml
+SHA1-Digest: KnOK37Kfbrzg5Carem5nqzemWzs=
+
+Name: AndroidManifest.xml
+SHA1-Digest: DYz1y4d2ANXGpS8O0w9clH8knb8=
+
+Name: aapt/AndroidManifest.xml
+SHA1-Digest: DYz1y4d2ANXGpS8O0w9clH8knb8=
+
+Name: res/drawable/shade_right.xml
+SHA1-Digest: 5chkIj9bA2zg0O5Q9zIhoG4Xd84=
+
+Name: res/drawable-v21/pressable_item_background.xml
+SHA1-Digest: DMrbHvrsd8OUdfvuuM0kBJ500dg=
+
+Name: res/layout-v11/simple_list_item.xml
+SHA1-Digest: ot6RdsCeX/tPFXfi5U7sFQZm1MU=
+
+Name: R.txt
+SHA1-Digest: qR7VxdfiHFQVHZSZXBUrgVZulWA=
+
+Name: res/layout/simple_group_header_item.xml
+SHA1-Digest: b+6QNzOGU+RICaaiueapYlfZDAs=
+

@@ -1,0 +1,65 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: sY6+RQ4DWdnxCfSpiwTT6GRIwA0=
+Created-By: 1.7.0_45 (Oracle Corporation)
+SHA1-Digest-Manifest: 8w5vzXFEKBJ2E/cq9gs3lT5WEPM=
+
+Name: res/values/values.xml
+SHA1-Digest: TTLQEQ5bjZZhsSxEk71SQCe2hhs=
+
+Name: res/layout/legend_item_view.xml
+SHA1-Digest: Ue0W83upKheg69eHXjO9XmgVoXo=
+
+Name: res/xml/chart_palettes_default_light.xml
+SHA1-Digest: Chxaphc+NK9q1epHoLj9UwyG1HI=
+
+Name: classes.jar
+SHA1-Digest: jKL6GccBO3kAehwtNYnxqnE3sAA=
+
+Name: res/layout/default_trackball_content.xml
+SHA1-Digest: VIdOJ+aEqSZx04IQ2B8m4Ogzkbo=
+
+Name: res/layout/default_tooltip_scatter_bubble_content.xml
+SHA1-Digest: rMG7FZzxrk+kaTyqL8wobxcEHN4=
+
+Name: res/layout/default_trackball_item_content.xml
+SHA1-Digest: Zif4a6JASACtVZFvm41/MXpB+E8=
+
+Name: res/layout/range_trackball_item_content.xml
+SHA1-Digest: 0UbEN5noKB7AVZDzqoTJIYDceVs=
+
+Name: res/layout/default_tooltip_scatter_content.xml
+SHA1-Digest: pl5BiMyEdj77MJwWqKvaQNgxH7s=
+
+Name: res/layout/default_tooltip_ohlc_content.xml
+SHA1-Digest: 6ll11nb1Mz/Wi0TXBiYTFXHCE/w=
+
+Name: AndroidManifest.xml
+SHA1-Digest: e/GJ5lxy9KNi7p2qNdi+1geKz60=
+
+Name: aapt/AndroidManifest.xml
+SHA1-Digest: FOhdHhZjSQHuM11MY8Vqf84pP8U=
+
+Name: res/layout/radlegendcontrol.xml
+SHA1-Digest: /2sCUm6BMicisR64Egt5C1ff4s0=
+
+Name: res/layout/ohlc_trackball_item_content.xml
+SHA1-Digest: lGg+P1bBVaWKMAkBkdNibfJiito=
+
+Name: res/xml/chart_palettes_default_dark.xml
+SHA1-Digest: p0oZo3h9/fskB+N3b/DFaedhcUk=
+
+Name: res/layout/radchartbase.xml
+SHA1-Digest: T6eE4ddIIUWfd78fzhRAxb1foJM=
+
+Name: res/layout/trackball_container.xml
+SHA1-Digest: 6d/ftTVPpSHUT0smWZF4UwCm4nQ=
+
+Name: res/xml/chart_palettes_dark_selected.xml
+SHA1-Digest: +cXfExe1KbTChSVcSibY1CclH6k=
+
+Name: R.txt
+SHA1-Digest: 37LoVN+wll4/xFYEUyPpGOrcG9E=
+
+Name: res/xml/chart_palettes_light_selected.xml
+SHA1-Digest: 81dGsfY3W7u7GmYlAB3RoCcTLzM=
+

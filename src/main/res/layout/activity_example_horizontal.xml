@@ -1,0 +1,124 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.telerik.ExampleActivity">
+
+    <FrameLayout
+        android:id="@+id/menuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnSendFeedback"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/example_feedback" />
+
+                <Button
+                    android:id="@+id/btnAddFavourite"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/example_favourite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnViewCode"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/example_view_code" />
+
+                <Button
+                    android:id="@+id/btnViewInfo"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/example_info" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnPrev"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/example_prev" />
+
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/example_next" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/descriptionPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="14dp"
+            android:paddingTop="12dp"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="roboto-medium"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <com.telerik.common.InputBlocker
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:elevation="4dp">
+
+        <FrameLayout
+            android:id="@+id/exampleContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+    </com.telerik.common.InputBlocker>
+
+    <com.telerik.primitives.AnimatedTextStrip
+        android:id="@+id/animatedTextStrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:elevation="5dp" />
+</FrameLayout>

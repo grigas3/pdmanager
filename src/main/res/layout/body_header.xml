@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="center"
+        android:src="@drawable/telerik_logo_about" />
+
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/versionStringPascalCase"
+        android:textColor="@color/aboutPageVersionTextColor"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/version"
+        android:text="@string/version_name"
+        android:textColor="@color/aboutPageVersionNumberColor"
+        android:textSize="14sp" />
+</merge>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pdmanager.home"
+    android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="com.microsoft.band.service.access.BIND_BAND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.compass"
+        android:required="false" />
+
+    <!-- To auto-complete the email Value field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="com.pdmanager.core.PDApplicationContext"
+        android:allowBackup="true"
+        android:icon="@drawable/pdmanagerhome"
+        android:label="@string/app_name"
+        android:theme="@style/ApplicationTheme" >
+        <service android:name="com.pdmanager.core.RecordingService" />
+
+        <receiver android:name="com.pdmanager.core.PDBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.pdmanager.views.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/BrandedActionBarTheme" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.SplashActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.BS11Activity"
+            android:label="PDManager" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.NMSSActivity"
+            android:label="PDManager" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.LoginActivity"
+            android:label="PDManager"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.FilesActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.dropbox.core.android.AuthActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask" >
+            <intent-filter>
+
+                <!-- Change this to be db- followed by your app key -->
+                <data android:scheme="db-7tl4ec82n8e2r67" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.HelpActivity"
+            android:label="@string/title_activity_help" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.PatientChartActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.TestMedicationOrderActivity"
+            android:label="@string/title_activity_clinician" >
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.ClinicianActivity"
+            android:label="@string/title_activity_clinician"
+            android:theme="@style/BrandedActionBarTheme" >
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".views.SearchPatientActivity" />
+        </activity>
+        <activity android:name="com.pdmanager.views.SearchPatientActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

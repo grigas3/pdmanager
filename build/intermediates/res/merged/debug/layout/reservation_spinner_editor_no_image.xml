@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Spinner android:id="@+id/data_form_spinner_editor"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.AppCompat.Spinner.Underlined"
+    android:layout_width="0dp"
+    android:layout_weight="4"
+    android:layout_height="wrap_content"/>
+<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/reservation_spinner_editor_no_image.xml -->
