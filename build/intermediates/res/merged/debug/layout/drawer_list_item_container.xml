@@ -5,10 +5,10 @@
     android:background="@drawable/navigation_drawer_list_bg_selector">
 
     <TextView
-        android:duplicateParentState="true"
         android:id="@+id/drawerItemTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:duplicateParentState="true"
         android:gravity="center_vertical"
         android:minHeight="?android:attr/listPreferredItemHeightSmall"
         android:paddingLeft="15dp"

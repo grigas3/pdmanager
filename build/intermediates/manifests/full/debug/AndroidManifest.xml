@@ -56,17 +56,14 @@
         <activity
             android:name="com.pdmanager.views.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/BrandedActionBarTheme" >
-        </activity>
+            android:theme="@style/BrandedActionBarTheme" />
         <activity
             android:name="com.pdmanager.views.SplashActivity"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name" />
         <activity
             android:name="com.pdmanager.views.HomeActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.pdmanager.views.BS11Activity"
             android:label="PDManager" >
@@ -88,8 +85,7 @@
         <activity
             android:name="com.pdmanager.views.FilesActivity"
             android:configChanges="orientation|keyboard"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask" />
         <activity
             android:name="com.dropbox.core.android.AuthActivity"
             android:configChanges="orientation|keyboard"
@@ -107,12 +103,10 @@
         </activity>
         <activity
             android:name="com.pdmanager.views.HelpActivity"
-            android:label="@string/title_activity_help" >
-        </activity>
+            android:label="@string/title_activity_help" />
         <activity
             android:name="com.pdmanager.views.PatientChartActivity"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name" />
         <activity
             android:name="com.pdmanager.views.TestMedicationOrderActivity"
             android:label="@string/title_activity_clinician" >

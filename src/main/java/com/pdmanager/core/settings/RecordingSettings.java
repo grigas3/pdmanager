@@ -36,6 +36,10 @@ public class RecordingSettings {
     private String muserName;
     private String mPassword;
     private long mExpirationTick;
+
+
+    private boolean mRecordFiles = true;
+    private boolean mUseDetectors = false;
     //   private boolean mbandaccEnabled=true;
     //  private boolean mbandgyroEnabled=true;
     //  private boolean mheartRateEnabled=true;
@@ -72,6 +76,9 @@ public class RecordingSettings {
                 //   mbandgyroEnabled = pref.getBoolean("BandGyro", mbandgyroEnabled);
                 mdevEnabled = pref.getBoolean("Device", mdevEnabled);
                 mStartHour = pref.getInt("StartHour", mStartHour);
+                mRecordFiles = pref.getBoolean("RecordFiles", mRecordFiles);
+                mUseDetectors = pref.getBoolean("UseDetectors", mUseDetectors);
+
                 mStopHour = pref.getInt("StopHour", mStopHour);
                 mSensorDelay = pref.getInt("SensorDelay", mSensorDelay);
                 mSessionRunning = pref.getBoolean("SessionRunning", mSessionRunning);
@@ -421,5 +428,29 @@ public class RecordingSettings {
     public void setRole(String token) {
         this.mRole = token;
         SetPref("Role", token);
+    }
+
+
+    public boolean getRecordFiles() {
+
+
+        return mRecordFiles;
+    }
+
+    public void setRecordFiles(boolean token) {
+        this.mRecordFiles = token;
+        SetPref("RecordFiles", token);
+    }
+
+
+    public boolean getUseDetectors() {
+
+
+        return mUseDetectors;
+    }
+
+    public void setUseDetectors(boolean token) {
+        this.mUseDetectors = token;
+        SetPref("UseDetectors", token);
     }
 }

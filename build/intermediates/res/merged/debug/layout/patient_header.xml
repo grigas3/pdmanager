@@ -1,120 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/controlImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@color/controlBackground"
+                android:scaleType="centerInside"
+                android:src="@drawable/person2" />
+        </FrameLayout>
 
         <LinearLayout
-            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="@dimen/example_list_item_text_margin_left"
+            android:layout_marginRight="@dimen/example_list_item_text_margin_right"
+            android:layout_marginTop="2dp"
+            android:orientation="vertical">
 
-            android:elevation="2dp"
-            android:padding="2dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Line series"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/example_list_item_title_fontsize" />
+
+                <TextView
+                    android:id="@+id/statusView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="Status"
+                    android:textColor="#ff2233" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dobView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DOB birth"
+                    android:textColor="@color/list_item_text_color"
+                    android:textSize="@dimen/example_list_item_fontsize" />
 
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="left"
-                android:background="@color/white">
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/controlImage"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@color/controlBackground"
-                    android:src="@drawable/person2"
-                    android:scaleType="centerInside" />
-            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/example_list_item_text_margin_left"
-                android:layout_marginRight="@dimen/example_list_item_text_margin_right"
-                android:layout_marginBottom="2dp"
                 android:layout_marginTop="2dp"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ywpView"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="9dp"
+                    android:text="Years with PD"
 
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/nameView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Line series"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/example_list_item_title_fontsize" />
-                    <TextView
-                        android:id="@+id/statusView"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Status"
-                        android:gravity="right"
-                        android:textColor="#ff2233"
-                        />
+                    android:textSize="@dimen/example_list_item_fontsize" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lastVisitView"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
+                    android:gravity="right"
+                    android:text="Last Visit"
 
-                    <TextView
-                        android:id="@+id/dobView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DOB birth"
-                        android:textColor="@color/list_item_text_color"
-                        android:textSize="@dimen/example_list_item_fontsize" />
+                    android:textSize="@dimen/example_list_item_fontsize" />
 
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:id="@+id/ywpView"
-                        android:paddingLeft="9dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Years with PD"
-
-
-                        android:textSize="@dimen/example_list_item_fontsize" />
-
-                    <TextView
-                        android:id="@+id/lastVisitView"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Last Visit"
-                        android:gravity="right"
-
-                        android:textSize="@dimen/example_list_item_fontsize" />
-
-                </LinearLayout>
             </LinearLayout>
-</LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
     <View
         android:id="@+id/sepManagement1"
-        android:layout_height="1dp"
         android:layout_width="fill_parent"
-        android:layout_marginTop="2dp"
+        android:layout_height="1dp"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
         android:background="#ff2234" />
 
 

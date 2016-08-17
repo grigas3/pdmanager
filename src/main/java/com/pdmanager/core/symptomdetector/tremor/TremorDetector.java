@@ -35,6 +35,32 @@ public class TremorDetector {
     }
 
 
+    private double extractHomogenity(SignalCollection ads) throws Exception {
+
+        int i, j;
+        int k = ads.getSize() / 5;
+
+        double minE = 10000;
+        double maxE = -10000;
+        double s = 0;
+
+        for (i = 0; i < 5; i++) {
+
+            s = ads.sum_energy(i * k, (i + 1) * k - 1);
+            if (s > maxE)
+                maxE = s;
+            if (s < minE)
+                minE = s;
+
+        }
+
+
+        return (maxE - minE) / (maxE + minE + 0.0000001);
+
+
+    }
+
+
     /**
      * First decision for tremor
      *
@@ -120,6 +146,20 @@ public class TremorDetector {
         return 0;
     }
 
+    public double testSDS3(NamedSignalCollection signalCollection, int o, int l) {
+        try {
+            double sds3 = extractHomogenity(signalCollection.get___idx(SignalDictionary.TremorGyroHighPass).getWindow(o, l));
+
+
+            return sds3;
+        } catch (Exception ex) {
+
+
+        }
+
+        return 0;
+    }
+
     public int detectTremor(NamedSignalCollection signalCollection) {
 
 
@@ -130,6 +170,7 @@ public class TremorDetector {
 
             double sds4 = extractSDSEnergy(signalCollection.get___idx(SignalDictionary.OriginalGyro));
             double sds = extractSDSEnergy(signalCollection.get___idx(SignalDictionary.TremorGyroHighPass));
+            double sds3 = extractHomogenity(signalCollection.get___idx(SignalDictionary.TremorGyroHighPass));
             double sds2 = extractSDSEnergy(signalCollection.get___idx(SignalDictionary.TremorGyroLowPass));
             double gs1 = extractGS1Feature(signalCollection.get___idx(SignalDictionary.TremorAccLowPass));
             double a19 = extractA19Feature(signalCollection.get___idx(SignalDictionary.TremorAccLowPass));
@@ -142,7 +183,7 @@ public class TremorDetector {
                 return -1;
             else {
 
-                hasTremor = firstDecision(a3, aE, gs1, a19) && secondDecision(a3, a2);
+                hasTremor = firstDecision(a3, aE, gs1, a19) && secondDecision(a3, a2) & sds3 < 0.5;
 
 
                 return hasTremor ? 1 : 0;

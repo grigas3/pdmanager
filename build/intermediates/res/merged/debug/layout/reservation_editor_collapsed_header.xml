@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:visibility="gone"
     android:id="@+id/data_form_text_viewer_header"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content"
+    android:visibility="gone" />
 <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/reservation_editor_collapsed_header.xml -->

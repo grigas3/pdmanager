@@ -4,16 +4,16 @@
     <item android:id="@android:id/background">
         <shape android:shape="line">
             <stroke
-                android:color="#746964"
-                android:width="2dp" />
+                android:width="2dp"
+                android:color="#746964" />
         </shape>
     </item>
     <item android:id="@android:id/progress">
         <clip>
             <shape android:shape="line">
                 <stroke
-                    android:color="#FC8055"
-                    android:width="2dp" />
+                    android:width="2dp"
+                    android:color="#FC8055" />
             </shape>
         </clip>
     </item>

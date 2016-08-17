@@ -12,7 +12,8 @@
         </shape>
     </item>
     <item>
-        <bitmap android:src="@drawable/fewclouds"
-            android:gravity="center"/>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/fewclouds" />
     </item>
 </layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-land/tuesday_pressed.xml -->

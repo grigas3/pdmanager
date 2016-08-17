@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item  android:drawable="@drawable/listview_layouts_button_bg"/>
+    <item android:drawable="@drawable/listview_layouts_button_bg" />
 
     <item>
         <bitmap
-            android:src="@drawable/ic_list_view"
-            android:gravity="center" />
+            android:gravity="center"
+            android:src="@drawable/ic_list_view" />
     </item>
 </layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-hdpi/ic_listview_layouts_list_drawable.xml -->

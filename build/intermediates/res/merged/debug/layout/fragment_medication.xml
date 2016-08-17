@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:orientation="vertical"
-        android:background="#aaffffff"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="9">
+        android:layout_weight="9"
+        android:background="#aaffffff"
+        android:orientation="vertical">
+
         <View
+            android:id="@+id/separator"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:id="@+id/separator"/>
+            android:layout_height="2dp" />
+
         <com.telerik.widget.list.RadListView
             android:id="@+id/listView"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp" />
     </LinearLayout>
 
     <FrameLayout
@@ -25,13 +29,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
+
         <Button
             android:id="@+id/destinationEnquiry"
-            android:text="@string/list_view_slide_enquiry"
             style="?android:attr/borderlessButtonStyle"
-            android:textSize="12sp"
-            android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:text="@string/list_view_slide_enquiry"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
     </FrameLayout>
 </LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_medication.xml -->

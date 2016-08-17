@@ -64,6 +64,9 @@ public class CommunicationManager {
         codemap.put("MedicationOrder", "http://pdmanager.3dnetmedical.com/api/medicationorders");
         codemap.put("PatientCalendar", "http://pdmanager.3dnetmedical.com/api/observations");
         codemap.put("Observation", "http://pdmanager.3dnetmedical.com/api/observations");
+        codemap.put("Alert", "http://195.130.121.79/PD/api/Alert");
+        codemap.put("UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
+        codemap.put("Device", "http://195.130.121.79/PD/api/Device");
 
         //MedicationIntake
         codemap.put("MedicationIntake", "http://pdmanager.3dnetmedical.com/api/medicationadministrations");
@@ -80,6 +83,8 @@ public class CommunicationManager {
         codemap.put("Log", "http://195.130.121.79/PD/api/Log");
         codemap.put("Alert", "http://195.130.121.79/PD/api/Alert");
         codemap.put("UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
+
+        codemap.put("Device", "http://195.130.121.79/PD/api/Device");
 
 
     }

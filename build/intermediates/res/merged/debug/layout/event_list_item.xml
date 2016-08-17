@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="90dp"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:elevation="2dp">
+    android:elevation="2dp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -28,9 +28,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="@dimen/example_list_item_text_margin_left"
             android:layout_marginRight="@dimen/example_list_item_text_margin_right"
-            android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical">
 
@@ -51,37 +51,36 @@
                 android:textSize="@dimen/example_list_item_fontsize" />
 
 
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/valueView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24dp"
-                android:gravity="right"
                 android:layout_margin="12dp"
+                android:gravity="right"
                 android:text="Value"
-
                 android:textColor="#ff2233"
-                />
-        <TextView
-            android:id="@+id/statusView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
 
-            android:text="Status"
-            android:gravity="right"
-            android:textColor="#ff2233"
-            />
-</LinearLayout>
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/statusView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+
+                android:gravity="right"
+                android:text="Status"
+                android:textColor="#ff2233" />
+        </LinearLayout>
     </LinearLayout>
 
 

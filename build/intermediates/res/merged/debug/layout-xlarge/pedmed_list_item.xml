@@ -3,42 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/example_group_list_item_size"
     android:background="@color/white"
-    android:orientation="vertical"
     android:elevation="2dp"
+    android:orientation="vertical"
     android:padding="6dp">
 
 
     <LinearLayout
+        android:id="@+id/layoutView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/layoutView"
         android:orientation="horizontal">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/example_list_item_text_margin_bottom"
             android:layout_marginLeft="@dimen/example_list_item_text_margin_left"
             android:layout_marginRight="@dimen/example_list_item_text_margin_right"
-            android:layout_marginBottom="@dimen/example_list_item_text_margin_bottom"
             android:layout_marginTop="@dimen/example_list_item_text_margin_top"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:textAlignment="center">
 
-            <TextView
-                android:id="@+id/productView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/example_list_item_title_fontsize" />
+                <TextView
+                    android:id="@+id/productView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/example_list_item_title_fontsize" />
 
 
-                    <TextView
+                <TextView
                     android:id="@+id/instructionsView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,8 +49,7 @@
                     android:textSize="@dimen/example_list_item_fontsize" />
 
 
-
-                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,9 +59,9 @@
 
                 <TextView
                     android:id="@+id/prescriberView"
-                    android:paddingLeft="9dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="9dp"
                     android:text="Prescriber"
 
 
@@ -82,9 +82,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
-
 
 
 </FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout-xlarge/pedmed_list_item.xml -->

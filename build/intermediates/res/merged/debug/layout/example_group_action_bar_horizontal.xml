@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@color/transparent"
     android:clipToPadding="false"
-    android:orientation="vertical"
-    android:elevation="5dp">
+    android:elevation="5dp"
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -36,9 +36,9 @@
                 android:id="@+id/hamburger"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
                 android:layout_marginLeft="19dp"
                 android:layout_marginRight="19dp"
-                android:layout_gravity="left|top"
                 android:background="@drawable/hamburger" />
         </LinearLayout>
 

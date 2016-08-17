@@ -2,11 +2,10 @@
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeightLarge"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    android:gravity="center_vertical"
     android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:gravity="center_vertical"
     android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
     android:paddingRight="?android:attr/listPreferredItemPaddingRight"
-    android:textSize="30sp"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:textColor="#555555"
-    /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/mylist.xml -->
+    android:textSize="30sp" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/mylist.xml -->

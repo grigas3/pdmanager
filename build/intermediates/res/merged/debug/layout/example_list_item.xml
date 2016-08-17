@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/example_group_list_item_size"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:elevation="2dp">
+    android:elevation="2dp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -29,9 +29,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/example_list_item_text_margin_bottom"
             android:layout_marginLeft="@dimen/example_list_item_text_margin_left"
             android:layout_marginRight="@dimen/example_list_item_text_margin_right"
-            android:layout_marginBottom="@dimen/example_list_item_text_margin_bottom"
             android:layout_marginTop="@dimen/example_list_item_text_margin_top"
             android:orientation="vertical">
 
@@ -58,8 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="@dimen/example_group_list_item_badge_left_margin"
-        android:layout_marginBottom="2dp">
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="@dimen/example_group_list_item_badge_left_margin">
 
         <ImageView
             android:id="@+id/badgeImage"
@@ -85,9 +85,9 @@
         android:padding="16dp" />
 
     <!--<View-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="@dimen/example_item_base_line_thickness"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:background="@color/listItemBottomBorder" />-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="@dimen/example_item_base_line_thickness"-->
+    <!--android:layout_gravity="bottom"-->
+    <!--android:background="@color/listItemBottomBorder" />-->
 
 </FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_list_item.xml -->

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:background="#0f0">
+    android:background="#0f0"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <ImageView
         android:layout_width="match_parent"
@@ -17,15 +17,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="12sp"
-        android:textColor="#cac" />
+        android:textColor="#cac"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/chart_tooltip_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="12sp"
-        android:textColor="#fac" />
+        android:textColor="#fac"
+        android:textSize="12sp" />
 
 </LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/tooltip_content.xml -->

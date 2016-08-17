@@ -9,8 +9,8 @@
     </item>
 
     <item
-        android:right="@dimen/tab_indicator_height"
-        android:bottom="1dp">
+        android:bottom="1dp"
+        android:right="@dimen/tab_indicator_height">
         <shape android:shape="rectangle">
             <solid android:color="#252939" />
         </shape>

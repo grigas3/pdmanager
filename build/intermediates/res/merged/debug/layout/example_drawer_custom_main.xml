@@ -8,32 +8,32 @@
         android:id="@+id/heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FF6E40"
         android:padding="15dp"
         android:text="RECIPES"
-        android:textSize="25sp"
         android:textColor="#FFEAE6"
-        android:background="#FF6E40"/>
+        android:textSize="25sp" />
 
     <GridView
         android:id="@+id/gridView"
-        android:layout_below="@id/heading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/heading"
         android:gravity="top"
         android:numColumns="2"
-        android:stretchMode="columnWidth"
+        android:paddingBottom="-3dp"
         android:paddingRight="-3dp"
-        android:paddingBottom="-3dp"/>
+        android:stretchMode="columnWidth" />
 
     <ImageButton
         android:id="@+id/refine_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/listview_layouts_fab"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginRight="0dp"
+        android:background="@drawable/listview_layouts_fab" />
 </RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_drawer_custom_main.xml -->

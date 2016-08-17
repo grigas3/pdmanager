@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:text="@string/list_view_reorder_empty"
-    android:textSize="16sp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_view_reorder_empty.xml -->
+    android:text="@string/list_view_reorder_empty"
+    android:textSize="16sp" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_view_reorder_empty.xml -->

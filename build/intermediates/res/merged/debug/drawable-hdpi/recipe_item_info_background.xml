@@ -2,10 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <gradient
-                android:startColor="#00ffffff"
-                android:endColor="#ffffffff"
-                android:angle="270" />
+            <gradient android:angle="270" android:endColor="#ffffffff" android:startColor="#00ffffff" />
         </shape>
     </item>
 </selector><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-hdpi/recipe_item_info_background.xml -->

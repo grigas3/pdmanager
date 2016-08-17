@@ -2,11 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
     <TextView
-        android:layout_gravity="start|top"
-        android:textColor="#BF3136"
         android:id="@+id/data_form_cancel_editor_button"
         android:layout_width="wrap_content"
-        android:layout_height="45dp" />
+        android:layout_height="45dp"
+        android:layout_gravity="start|top"
+        android:textColor="#BF3136" />
 </FrameLayout>
 <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/data_form_cancel_editor_button.xml -->

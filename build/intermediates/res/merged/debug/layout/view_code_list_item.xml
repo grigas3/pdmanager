@@ -6,17 +6,17 @@
     android:paddingRight="15dp">
 
     <TextView
+        android:id="@+id/view_code_item_text"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:textSize="14sp"
+        android:layout_centerVertical="true"
         android:gravity="center"
-        android:id="@+id/view_code_item_text"/>
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/view_code_image"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_gravity="right|center_vertical"/>
+        android:layout_gravity="right|center_vertical" />
 </FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/view_code_list_item.xml -->

@@ -35,9 +35,9 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <com.telerik.primitives.ExamplesGridView
                 android:id="@+id/headerListView"
@@ -46,14 +46,12 @@
                 android:choiceMode="singleChoice"
                 android:divider="@color/transparent"
                 android:dividerHeight="0px"
-                android:listSelector="@drawable/navigation_drawer_list_root_selector"/>
+                android:listSelector="@drawable/navigation_drawer_list_root_selector" />
 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:background="@color/drawerDivider" />
-
-        
 
 
             <com.telerik.primitives.ExamplesGridView

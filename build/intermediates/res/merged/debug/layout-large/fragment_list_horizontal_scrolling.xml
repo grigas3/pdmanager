@@ -25,8 +25,8 @@
                 android:id="@+id/txtRecommended"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="6dp"
                 android:text="RECOMMENDED RECIPES"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -38,8 +38,8 @@
             android:layout_height="16dp"
             android:layout_below="@+id/header"
             android:layout_gravity="bottom"
-            android:paddingBottom="8dp"
             android:layout_marginLeft="50dp"
+            android:paddingBottom="8dp"
             android:scaleType="center" />
 
     </RelativeLayout>

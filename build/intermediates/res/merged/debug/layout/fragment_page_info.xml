@@ -20,109 +20,111 @@
     <TextView style="@style/WizardPageTitle" />
 
 
-
-    <ScrollView android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:scrollbarStyle="outsideOverlay">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView style="@style/WizardFormLabel"
+            <TextView
+                style="@style/WizardFormLabel"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:textSize="35sp"
                 android:text="INSTRUCTIONS:"
-                />
+                android:textSize="35sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="People differ in the ways they act and think in different situations."
                 android:id="@+id/textView"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text=" "
+                android:scrollbarStyle="outsideOverlay"
+                android:text="People differ in the ways they act and think in different situations."
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
                 android:id="@+id/textViewgap1"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="This is a test to measure some of the ways in which you act and think. "
+                android:scrollbarStyle="outsideOverlay"
+                android:text=" "
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
                 android:id="@+id/textView2"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text=" "
+                android:scrollbarStyle="outsideOverlay"
+                android:text="This is a test to measure some of the ways in which you act and think. "
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
                 android:id="@+id/textViewgap2"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Read each statement and select the appropriate answer."
-                android:id="@+id/textView3"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:scrollbarStyle="outsideOverlay"
                 android:text=" "
-                android:id="@+id/textViewgap3"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Answer quickly and honestly."
-                android:id="@+id/textView4"
-                android:layout_gravity="center_vertical"
-                android:scrollbarStyle="outsideOverlay"/>
+                android:scrollbarStyle="outsideOverlay"
+                android:text="Read each statement and select the appropriate answer."
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
+            <TextView
+                android:id="@+id/textViewgap3"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:text=" "
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:text="Answer quickly and honestly."
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
         </LinearLayout>

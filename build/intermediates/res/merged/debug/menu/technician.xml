@@ -1,12 +1,18 @@
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.pdmanager.views.ClinicianActivity">
-    <item android:id="@+id/action_mainsettings" android:title="@string/action_lock"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_example" android:title="Example"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_mainsettings"
+        android:orderInCategory="100"
+        android:title="@string/action_lock"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_example"
+        android:orderInCategory="100"
+        android:title="Example"
+        app:showAsAction="never" />
 
 
 </menu>

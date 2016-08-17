@@ -4,8 +4,8 @@
     android:id="@+id/chart_tooltip_pointer"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:pointerSize="17dp"
-    app:pointerFill="#f0f">
+    app:pointerFill="#f0f"
+    app:pointerSize="17dp">
 
     <FrameLayout
         android:id="@+id/chart_data_point_content_container"

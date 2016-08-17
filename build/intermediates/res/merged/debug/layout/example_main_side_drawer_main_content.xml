@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/drawerSettingsToolbar"
-        android:background="#F66C38"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#F66C38">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/hamburger"
-                android:layout_gravity="center_vertical"
-                android:background="#00000000"
-                android:src="@drawable/navigation_drawer_hamburger"
-                android:layout_marginLeft="-14dp"
                 android:layout_width="50dp"
-                android:layout_height="50dp" />
-            <TextView
-                android:layout_marginLeft="30dp"
-                android:textColor="#ffffff"
-                android:id="@+id/txtMyRecipes"
-                android:textSize="20sp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:text="My Recipes"
+                android:layout_marginLeft="-14dp"
+                android:background="#00000000"
+                android:src="@drawable/navigation_drawer_hamburger" />
+
+            <TextView
+                android:id="@+id/txtMyRecipes"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:text="My Recipes"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -38,6 +41,6 @@
         android:id="@+id/main_recipe_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingRight="-3dp"
-        android:paddingBottom="-3dp"/>
+        android:paddingBottom="-3dp"
+        android:paddingRight="-3dp" />
 </LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_main_side_drawer_main_content.xml -->

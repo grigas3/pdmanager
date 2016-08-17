@@ -3,68 +3,67 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/MatchParent.ExampleFragment">
 
-  <!--  <include layout="@layout/patient_header"></include>-->
+    <!--  <include layout="@layout/patient_header"></include>-->
 
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin"
-    android:layout_height="fill_parent">
     <LinearLayout
-        android:id="@+id/obsParamsLayout"
         android:layout_width="fill_parent"
-        android:orientation="horizontal"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
 
-        android:layout_height="wrap_content">
-
-
-
-        <TextView
-            android:id="@+id/code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Observation"/>
-        <Spinner
-            android:id="@+id/obsCodeSpinner"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/obsParamsLayout"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
+            android:orientation="horizontal">
 
 
-            android:enabled="true"
+            <TextView
+                android:id="@+id/code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Observation" />
 
-            android:spinnerMode="dialog"
+            <Spinner
+                android:id="@+id/obsCodeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-             />
+
+                android:enabled="true"
+
+                android:spinnerMode="dialog"
+
+                />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#8EB4F5"
+            android:padding="5dp"
+            android:text="Get Data" />
+
+        <ProgressBar
+            android:id="@+id/busy_BusyIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
+        <com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView
+            android:id="@+id/chart"
+            style="@style/MatchParent.Chart"
+            android:layout_height="fill_parent"
+
+            />
 
 
     </LinearLayout>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Get Data"
-        android:background="#8EB4F5"
-        android:padding="5dp"
-        android:id="@+id/button"
-        />
-    <ProgressBar
-        android:id="@+id/busy_BusyIndicator"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        />
-    <com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView
-        android:id="@+id/chart"
-        android:layout_height="fill_parent"
-        style="@style/MatchParent.Chart"
-
-       />
-
-
-
-</LinearLayout>
     <!-- TODO: Update blank fragment layout -->
 
 

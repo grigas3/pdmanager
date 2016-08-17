@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="85dp"
     android:background="@color/white"
-    android:orientation="vertical"
     android:elevation="2dp"
+    android:orientation="vertical"
     android:padding="6dp">
 
 
@@ -17,23 +17,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/example_list_item_text_margin_bottom"
             android:layout_marginLeft="@dimen/example_list_item_text_margin_left"
             android:layout_marginRight="@dimen/example_list_item_text_margin_right"
-            android:layout_marginBottom="@dimen/example_list_item_text_margin_bottom"
             android:layout_marginTop="@dimen/example_list_item_text_margin_top"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:textAlignment="center">
 
                 <TextView
                     android:id="@+id/codeView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Code"
                     android:paddingLeft="6dp"
+                    android:text="Code"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
@@ -43,8 +44,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="Text"
                     android:gravity="right"
+                    android:text="Text"
                     android:textColor="@color/list_item_text_color"
                     android:textSize="18sp" />
 
@@ -59,9 +60,9 @@
 
                 <TextView
                     android:id="@+id/prescriberView"
-                    android:paddingLeft="6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="6dp"
                     android:text="Prescriber"
 
 
@@ -82,7 +83,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout-w720dp/clinicalinfo_list_item.xml -->

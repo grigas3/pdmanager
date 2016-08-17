@@ -36,6 +36,9 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     private Spinner mSendorDelaySpin;
 
     private HashSet<Switch> mSensorMap = new HashSet<Switch>();
+    private boolean enableSpinnerListener = false;
+    private Switch mSwitchRecordFile;
+    private Switch mSwitchUseDetectors;
     private CompoundButton.OnCheckedChangeListener mToggleSensorSection = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -76,8 +79,16 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
                     settings.setDevEnabled(isChecked);
 
 
-                }
+                } else if (sw == mSwitchUseDetectors) {
 
+                    settings.setUseDetectors(isChecked);
+
+                } else if (sw == mSwitchRecordFile) {
+
+                    settings.setRecordFiles(isChecked);
+
+
+                }
 
             } else
 
@@ -86,9 +97,9 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
             }
 
 
+
         }
     };
-    private boolean enableSpinnerListener = false;
 
 
     public RecordingSettingsFragment() {
@@ -139,6 +150,13 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         //  mSwitchST.setOnCheckedChangeListener(mToggleSensorSection);
         mSwitchDevAcc.setOnCheckedChangeListener(mToggleSensorSection);
+
+
+        mSwitchRecordFile = (Switch) rootView.findViewById(R.id.switchRecordFile);
+        mSwitchRecordFile.setOnCheckedChangeListener(mToggleSensorSection);
+
+        mSwitchUseDetectors = (Switch) rootView.findViewById(R.id.switchUseDetectors);
+        mSwitchUseDetectors.setOnCheckedChangeListener(mToggleSensorSection);
 //        mSwitchHeartRate.setOnCheckedChangeListener(mToggleSensorSection);
         //      mSwitchBandAcc.setOnCheckedChangeListener(mToggleSensorSection);
         //    mSwitchBandGyro.setOnCheckedChangeListener(mToggleSensorSection);
@@ -200,7 +218,8 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
             mSwitchBandSensors.setChecked(settings.isBandEnabled());
 
             mSwitchDevAcc.setChecked(settings.isDevEnabled());
-
+            mSwitchRecordFile.setChecked(settings.getRecordFiles());
+            mSwitchUseDetectors.setChecked(settings.getUseDetectors());
 
             mStartHourSpin.setSelection(settings.getStartHour() - 6);
             mEndHourSpin.setSelection(settings.getStopHour() - 6);

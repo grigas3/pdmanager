@@ -8,6 +8,7 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="0dp"
@@ -16,42 +17,36 @@
             android:orientation="vertical">
 
 
-
-
-
-
-
-    <!--Seperator Tile-->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#ea2e"
-        android:orientation="vertical">
-
-        <!--Heart Rate Switch-->
-
-
-        <!--Show Heart Beats-->
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:orientation="horizontal">
-
+            <!--Seperator Tile-->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
+                android:background="#ea2e"
                 android:orientation="vertical">
 
+                <!--Heart Rate Switch-->
+
+
+                <!--Show Heart Beats-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
             </LinearLayout>
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
 
 
             <!--Tremor Tile-->
@@ -68,7 +63,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp" >
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -149,11 +144,6 @@
             </LinearLayout>
 
 
-
-
-
-
-
             <!--Seperator Tile-->
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -168,7 +158,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp" >
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -202,13 +192,13 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_purple"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_weight="3"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="0dp"
@@ -222,7 +212,7 @@
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
                             android:layout_weight="1"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/textDyskinesia"
@@ -245,8 +235,8 @@
                                 android:text="Has Dyskinesia?"
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="24dp"
-                                android:textColorHighlight="@android:color/background_light" />
+                                android:textColorHighlight="@android:color/background_light"
+                                android:textSize="24dp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -254,7 +244,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <TableLayout
                             android:id="@+id/tableLayout"
@@ -279,7 +269,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp" >
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -304,7 +294,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:padding="40dp"
-                        android:src="@drawable/steps"/>
+                        android:src="@drawable/steps" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -356,7 +346,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp" >
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -460,8 +450,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>

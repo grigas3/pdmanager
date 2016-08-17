@@ -2,14 +2,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.pdmanager.views.FilesActivity">
-    <item android:id="@+id/action_main" android:title="Main"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_main"
+        android:orderInCategory="100"
+        android:title="Main"
+        app:showAsAction="never" />
 
-    <item android:id="@+id/action_syncFiles" android:title="Sync Files"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_refreshFiles" android:title="Refresh"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_clearFiles" android:title="Clear Files"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_syncFiles"
+        android:orderInCategory="100"
+        android:title="Sync Files"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_refreshFiles"
+        android:orderInCategory="100"
+        android:title="Refresh"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clearFiles"
+        android:orderInCategory="100"
+        android:title="Clear Files"
+        app:showAsAction="never" />
 </menu>
 <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/menu/menu_files.xml -->

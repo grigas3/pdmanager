@@ -7,24 +7,24 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/item_layout_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <ImageView
-            android:visibility="gone"
             android:id="@+id/imgReorder"
-            android:contentDescription="@string/list_view_selection_reorder"
-            android:paddingStart="6dp"
-            android:paddingLeft="6dp"
-            android:paddingEnd="8dp"
-            android:paddingRight="8dp"
-            android:src="@drawable/ic_listview_selection_reorder"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/list_view_selection_reorder"
+            android:paddingEnd="8dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="8dp"
+            android:paddingStart="6dp"
+            android:src="@drawable/ic_listview_selection_reorder"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,44 +44,47 @@
                 android:id="@+id/txtContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingTop="4dp"
-                android:paddingBottom="8dp"
-                android:ellipsize="end"
-                android:maxLines="3"
                 android:textColor="@color/list_view_example_selection_item_content"
                 android:textSize="14sp" />
 
-            </LinearLayout>
-
         </LinearLayout>
 
+    </LinearLayout>
+
     <FrameLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:background="@color/list_view_example_selection_item_selected_state"
         android:id="@+id/item_layout_deleted"
-        android:visibility="gone"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/list_view_example_selection_item_selected_state"
+        android:orientation="vertical"
+        android:visibility="gone">
+
         <TextView
-            android:text="@string/list_view_selection_deleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
-            android:textSize="16sp"
             android:padding="16dp"
+            android:text="@string/list_view_selection_deleted"
             android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="16sp" />
+
         <TextView
-            android:text="@string/list_view_selection_undo"
-            tools:ignore="UnusedAttribute"
-            android:fontFamily="sans-serif-medium"
             android:id="@+id/item_deleted_undo"
-            android:layout_gravity="end|center_vertical"
-            android:textSize="14sp"
-            android:padding="16dp"
-            android:textColor="#3D5AFE"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:fontFamily="sans-serif-medium"
+            android:padding="16dp"
+            android:text="@string/list_view_selection_undo"
+            android:textColor="#3D5AFE"
+            android:textSize="14sp"
+            tools:ignore="UnusedAttribute" />
     </FrameLayout>
 
     <View

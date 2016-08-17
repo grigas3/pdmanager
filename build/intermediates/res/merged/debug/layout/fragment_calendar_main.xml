@@ -12,24 +12,26 @@
         android:background="#FFEEEEEE">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
             <ImageButton
+                android:id="@+id/btnUpCaret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/transparent"
                 android:padding="8dp"
-                android:id="@+id/btnUpCaret"
-                android:src="@drawable/up_caret_grey"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:src="@drawable/up_caret_grey" />
+
             <Spinner
                 android:id="@+id/calendarModesSpinner"
 
-                android:layout_gravity="center_vertical"
                 android:layout_width="160dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
         <Button
@@ -91,14 +93,14 @@
             android:dividerHeight="16dp" />
 
         <Button
+            android:id="@+id/btnGotoDay"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="View data of specific day"
-            android:id="@+id/btnGotoDay"
-            android:background="#8EB4F5"
             android:layout_below="@+id/title"
-            android:layout_toRightOf="@+id/title" />
+            android:layout_toRightOf="@+id/title"
+            android:background="#8EB4F5"
+            android:padding="10dp"
+            android:text="View data of specific day" />
     </LinearLayout>
 
 

@@ -5,21 +5,22 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_dataform_pill"
         style="@style/DataFormImageView"
         android:layout_width="0dp"
-        android:layout_weight="1"/>
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:src="@drawable/ic_dataform_pill" />
 
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_weight="4"
-        android:layout_height="wrap_content">
-        <Spinner android:id="@+id/data_form_spinner_editor"
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_weight="4">
+
+        <Spinner xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/data_form_spinner_editor"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
 
     </FrameLayout>

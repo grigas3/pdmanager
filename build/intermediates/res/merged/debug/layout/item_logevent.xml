@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="6dip" >
+    android:padding="6dip">
 
     <TextView
         android:id="@+id/textView1"
@@ -56,7 +56,6 @@
         android:layout_above="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
         android:text="TextView" />
-
 
 
 </RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/item_logevent.xml -->

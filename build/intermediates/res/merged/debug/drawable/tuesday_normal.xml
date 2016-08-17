@@ -14,8 +14,8 @@
 
     <item>
         <bitmap
-            android:src="@drawable/fewclouds"
-            android:gravity="center" />
+            android:gravity="center"
+            android:src="@drawable/fewclouds" />
     </item>
 </layer-list>
 

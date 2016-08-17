@@ -19,7 +19,8 @@
 
     <TextView style="@style/WizardPageTitle" />
 
-    <ListView android:id="@android:id/list"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
 
@@ -30,53 +31,53 @@
 
 
     <TextView
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
-
-        android:text="Severity"
-        android:textSize="30sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
 
         android:scrollbarStyle="outsideOverlay"
-        />
+        android:text="Severity"
 
-    <Spinner android:id="@+id/spinnerSeverity"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/spinnerSeverity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
 
+        android:background="@drawable/downarrow"
         android:paddingLeft="16dp"
+
         android:paddingRight="16dp"
-        
+        android:scrollbarStyle="outsideOverlay"
         android:spinnerMode="dropdown"
         android:textSize="40sp"
-        android:background="@drawable/downarrow"
-        android:scrollbarStyle="outsideOverlay"
 
         />
 
     <TextView
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
 
+        android:scrollbarStyle="outsideOverlay"
         android:text="Frequency"
-        android:textSize="30sp"
 
-        android:scrollbarStyle="outsideOverlay"
-        />
+        android:textSize="30sp" />
 
-    <Spinner android:id="@+id/spinnerFrequency"
+    <Spinner
+        android:id="@+id/spinnerFrequency"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
 
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-
-        android:spinnerMode="dropdown"
         android:background="@drawable/downarrow"
+        android:paddingLeft="16dp"
+
+        android:paddingRight="16dp"
         android:scrollbarStyle="outsideOverlay"
+        android:spinnerMode="dropdown"
 
         />
 
