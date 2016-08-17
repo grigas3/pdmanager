@@ -113,18 +113,24 @@
     <color name="chart_example_menu_color2">#ff004173</color>
     <color name="chart_example_menu_color3">#ff00a5c2</color>
     <color name="chart_example_menu_color4">#ff018e86</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_colors.xml -->
+    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values/values.xml -->
     <eat-comment/>
-    <color name="common_action_bar_splitter">#d2d2d2</color>
-    <color name="common_signin_btn_dark_text_default">@android:color/white</color>
-    <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
-    <color name="common_signin_btn_dark_text_focused">@android:color/white</color>
-    <color name="common_signin_btn_dark_text_pressed">@android:color/white</color>
-    <color name="common_signin_btn_default_background">#FFDD4B39</color>
-    <color name="common_signin_btn_light_text_default">#FF737373</color>
-    <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
-    <color name="common_signin_btn_light_text_focused">#FF737373</color>
-    <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+    <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
+    <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
+    <color name="common_google_signin_btn_text_dark_pressed">@android:color/white</color>
+    <color name="common_google_signin_btn_text_light_default">#90000000</color>
+    <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_light_focused">#90000000</color>
+    <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
+    <color name="common_plus_signin_btn_text_dark_default">@android:color/white</color>
+    <color name="common_plus_signin_btn_text_dark_disabled">#FFAAAAAA</color>
+    <color name="common_plus_signin_btn_text_dark_focused">@android:color/white</color>
+    <color name="common_plus_signin_btn_text_dark_pressed">@android:color/white</color>
+    <color name="common_plus_signin_btn_text_light_default">#FF737373</color>
+    <color name="common_plus_signin_btn_text_light_disabled">#FFAAAAAA</color>
+    <color name="common_plus_signin_btn_text_light_focused">#FF737373</color>
+    <color name="common_plus_signin_btn_text_light_pressed">#DE000000</color>
     <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="controlBackground">#FF00BBBC</color>
@@ -363,6 +369,7 @@
     <declare-styleable name="ScrollingTabViewTheme"><attr format="reference" name="scrollingTabViewStyle"/><attr format="reference" name="scrollingTabStyle"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Params"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="SignInButton"><attr format="reference|enum" name="buttonSize"><enum name="standard" value="0"/><enum name="wide" value="1"/><enum name="icon_only" value="2"/></attr><attr format="reference|enum" name="colorScheme"><enum name="dark" value="0"/><enum name="light" value="1"/><enum name="auto" value="2"/></attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="reference" name="track"/><attr name="android:textOn"/><attr name="android:textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="boolean" name="splitTrack"/><attr format="boolean" name="showText"/></declare-styleable>
@@ -596,9 +603,9 @@
     <integer name="example_controls_list_fragment_columns_wrap">3</integer>
     <integer name="example_list_fragment_columns">1</integer>
     <integer name="example_list_fragment_columns_wrap">2</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/version.xml -->
+    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/res/values/values.xml -->
     <eat-comment/>
-    <integer name="google_play_services_version">7095000</integer>
+    <integer name="google_play_services_version">9452000</integer>
     <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
@@ -674,40 +681,32 @@
     <eat-comment/>
     <string name="choose_band_label">Choose band</string>
     <string name="choose_vibration_pattern_label">Choose pattern</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_strings.xml -->
+    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values/values.xml -->
     <eat-comment/>
-    <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>
-    <string name="common_android_wear_update_text">This app won\'t run unless you update the Android Wear app.</string>
-    <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
-    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
-    <string msgid="227660514972886228" name="common_google_play_services_enable_text">This app won\'t work unless you enable Google Play services.</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
-    <string name="common_google_play_services_error_notification_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
     <string msgid="7153882981874058840" name="common_google_play_services_install_button">Get Google Play services</string>
-    <string msgid="2122112764540849864" name="common_google_play_services_install_text_phone">This app won\'t run without Google Play services, which are missing from your phone.</string>
-    <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet">This app won\'t run without Google Play services, which are missing from your tablet.</string>
+    <string msgid="2122112764540849864" name="common_google_play_services_install_text_phone"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are missing from your phone.</string>
+    <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are missing from your tablet.</string>
     <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
-    <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
-    <string name="common_google_play_services_invalid_account_title">Invalid Account</string>
-    <string name="common_google_play_services_needs_enabling_title">An application requires Google Play services to be enabled.</string>
-    <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
-    <string name="common_google_play_services_network_error_title">Network Error</string>
-    <string name="common_google_play_services_notification_needs_installation_title">An application requires installation of Google Play services.</string>
-    <string name="common_google_play_services_notification_needs_update_title">An application requires an update for Google Play services.</string>
     <string name="common_google_play_services_notification_ticker">Google Play services error</string>
-    <string name="common_google_play_services_sign_in_failed_text">Error signing in the specified account. Please choose a different account.</string>
-    <string name="common_google_play_services_sign_in_failed_title">Sign in failed</string>
-    <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
-    <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
+    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/res/values/values.xml -->
+    <eat-comment/>
+    <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. If the problem persists, please contact the developer for assistance.</string>
+    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values/values.xml -->
+    <eat-comment/>
+    <string name="common_google_play_services_unsupported_text"><ns1:g id="app_name">%1$s</ns1:g> relies on Google Play services, which is not supported by your device. Contact the manufacturer for assistance.</string>
     <string name="common_google_play_services_unsupported_title">Google Play services</string>
     <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
-    <string msgid="9053896323427875356" name="common_google_play_services_update_text">This app won\'t run unless you update Google Play services.</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update Google Play services.</string>
     <string msgid="6006316683626838685" name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are currently updating.</string>
+    <string name="common_google_play_services_updating_title">Google Play services are updating</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <string name="commono_google_play_services_api_unavailable_text">This app requires one or more Google Play services that are not currently
-available. Please contact the developer for assistance.</string>
     <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="connect_label">Start</string>
@@ -729,6 +728,7 @@ available. Please contact the developer for assistance.</string>
     <string name="favoritesStringAllCaps">FAVORITES</string>
     <string name="favoritesStringPascalCase">Favorites</string>
     <string name="finish">Submit your answers</string>
+    <string name="gcm_defaultSenderId">17891298727</string>
     <string name="get_colors_label">Get Colors</string>
     <string name="get_fw_version_label">Get FW Version</string>
     <string name="get_hw_version_label">Get HW Version</string>

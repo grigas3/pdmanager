@@ -37,7 +37,7 @@ public class RecordingSettings {
     private String mPassword;
     private long mExpirationTick;
 
-
+    private boolean mDevTokenSended = false;
     private boolean mRecordFiles = true;
     private boolean mUseDetectors = false;
     //   private boolean mbandaccEnabled=true;
@@ -78,6 +78,7 @@ public class RecordingSettings {
                 mStartHour = pref.getInt("StartHour", mStartHour);
                 mRecordFiles = pref.getBoolean("RecordFiles", mRecordFiles);
                 mUseDetectors = pref.getBoolean("UseDetectors", mUseDetectors);
+                mDevTokenSended = pref.getBoolean("DevTokenSended", mDevTokenSended);
 
                 mStopHour = pref.getInt("StopHour", mStopHour);
                 mSensorDelay = pref.getInt("SensorDelay", mSensorDelay);
@@ -452,5 +453,17 @@ public class RecordingSettings {
     public void setUseDetectors(boolean token) {
         this.mUseDetectors = token;
         SetPref("UseDetectors", token);
+    }
+
+
+    public boolean getDevTokenSended() {
+
+
+        return mDevTokenSended;
+    }
+
+    public void setDevTokenSended(boolean token) {
+        this.mDevTokenSended = token;
+        SetPref("DevTokenSended", token);
     }
 }

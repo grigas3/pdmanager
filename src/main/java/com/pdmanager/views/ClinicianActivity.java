@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,9 +24,12 @@ import android.widget.FrameLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.pdmanager.core.PDApplicationContext;
 import com.pdmanager.core.R;
 import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.gcm.RegistrationIntentService;
 import com.pdmanager.views.drawers.ClinicianDrawerFragment;
 import com.telerik.common.TelerikActivityHelper;
 import com.telerik.common.TrackedApplication;
@@ -40,23 +44,20 @@ import java.util.HashMap;
 public class ClinicianActivity extends ActionBarActivity implements ClinicianDrawerFragment.NavigationDrawerCallbacks,
         ActionBar.OnNavigationListener, TransitionHandler, SpinnerAdapter, TrackedActivity, FragmentManager.OnBackStackChangedListener {
 
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private static final String CPTAG = "CHECKPLAYSERVICES";
     private ColorDrawable currentBgColor;
-
     private int redFrom;
     private int redTo;
-
     private int greenFrom;
     private int greenTo;
-
     private int blueFrom;
     private int blueTo;
-
     private ActionBar actionBar;
     private PDApplicationContext app;
     private ClinicianDrawerFragment mClinicianDrawerFragment;
     private TipsPresenter tipsPresenter;
     private int lastNavigationItemIndex = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,13 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
             this.app.trackScreenOpened(this);
         }
 
+        if (checkPlayServices()) {
+            // Start IntentService to register this application with GCM.
+            Intent sintent = new Intent(this, RegistrationIntentService.class);
+            startService(sintent);
+            // startService(intent);
+        }
+
     }
 
     private void doPatientSearch(String query) {
@@ -119,7 +127,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
         this.invalidateActionbar();
         this.gotoMainFragment();
     }
-
 
     private void gotoMainFragment() {
         Fragment newFragment = new ClinicianHomeFragment();
@@ -175,7 +182,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.clinician, menu);
@@ -212,7 +218,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
 
         return false;
     }
-
 
     private void loadSectionFromIntent(Intent intent, boolean addToBackStack) {
 
@@ -324,7 +329,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
         }
     }
 
-
     private void invalidateBackground() {
 
     }
@@ -378,7 +382,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
         return 2;
     }
 
-
     @Override
     public Object getItem(int position) {
         if (position == 0) {
@@ -431,7 +434,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
         return null;
     }
 
-
     @Override
     public void onNavigationDrawerSectionSelected(String section) {
         this.addFragmentForSection(section, true);
@@ -445,7 +447,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
         //  this.app.openAction(this, control);
     }
 
-
     @Override
     public void onNavigationDrawerOpened() {
 
@@ -456,6 +457,26 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
 
     }
 
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(CPTAG, "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
 
 }
 
