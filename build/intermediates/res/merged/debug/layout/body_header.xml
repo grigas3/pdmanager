@@ -33,4 +33,4 @@
         android:text="@string/version_name"
         android:textColor="@color/aboutPageVersionNumberColor"
         android:textSize="14sp" />
-</merge><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/body_header.xml -->
+</merge>

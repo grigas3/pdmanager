@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\fragment_patient_medicationorder.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-large\\fragment_patient_medicationorder.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\list_view_patientchart_layout.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-large\\list_view_patientchart_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\medorder_list_item.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-large\\medorder_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\fragment_indicators.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-large\\fragment_indicators.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\fragment_files.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-large\\fragment_files.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\fragment_list_horizontal_scrolling.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-large\\fragment_list_horizontal_scrolling.xml"
+    }
+]

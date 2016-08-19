@@ -105,4 +105,4 @@
             </com.telerik.widget.list.RadListView>
         </com.telerik.common.CustomLinearLayout>
     </ScrollView>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_list_horizontal_scrolling.xml -->
+</LinearLayout>

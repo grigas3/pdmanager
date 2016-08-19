@@ -4,4 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</com.telerik.widget.calendar.RadCalendarView><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/calendar_range_spinner_calendar.xml -->
+</com.telerik.widget.calendar.RadCalendarView>

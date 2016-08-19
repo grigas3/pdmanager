@@ -22,4 +22,3 @@
         android:title="Logout"
         app:showAsAction="never" />
 </menu>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/menu/main.xml -->

@@ -19,4 +19,4 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_gravity="right|center_vertical" />
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/view_code_list_item.xml -->
+</FrameLayout>

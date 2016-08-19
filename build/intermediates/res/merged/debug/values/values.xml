@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string-array name="indicators_range_button_text">
         <item>Range: <b>1 M</b></item>
         <item>Range: <b>6 M</b></item>
@@ -14,24 +12,14 @@
         <item>1 year</item>
         <item>5 years</item>
     </string-array>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <attr format="boolean" name="applyDefaultPalette"/>
     <attr format="boolean" name="areBarsRounded"/>
     <attr format="boolean" name="clipToPlotArea"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <attr format="color" name="fillColor"/>
     <attr format="float" name="gapLength"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <attr format="color" name="labelColor"/>
     <attr format="string" name="labelFont"/>
     <attr format="integer" name="labelFontStyle"/>
@@ -48,8 +36,6 @@
     <attr format="boolean" name="showLabels"/>
     <attr format="color" name="strokeColor"/>
     <attr format="dimension" name="strokeWidth"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
@@ -59,38 +45,22 @@
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="Black">#ffffffff</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="aboutPageVersionNumberColor">#FF2CB145</color>
     <color name="aboutPageVersionTextColor">#FF595959</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="axesPriceColor">#A666CE</color>
     <color name="axesVolumeColor">#4FB6E7</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="black">#000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -99,8 +69,6 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="calendar_background_range_example">#F2F2F2</color>
     <color name="calendar_event_text_color">#737373</color>
     <color name="calendar_example_background">#FFDDDDDD</color>
@@ -113,8 +81,6 @@
     <color name="chart_example_menu_color2">#ff004173</color>
     <color name="chart_example_menu_color3">#ff00a5c2</color>
     <color name="chart_example_menu_color4">#ff018e86</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
@@ -131,22 +97,14 @@
     <color name="common_plus_signin_btn_text_light_disabled">#FFAAAAAA</color>
     <color name="common_plus_signin_btn_text_light_focused">#FF737373</color>
     <color name="common_plus_signin_btn_text_light_pressed">#DE000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="controlBackground">#FF00BBBC</color>
     <color name="controlBackgroundHighlighted">#FF584B45</color>
     <color name="dark_grey_text_color">#E64A19</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Input-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="data_form_list_selected">#cccccc</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="dataform_example_menu_color1">#ff001337</color>
     <color name="dataform_example_menu_color2">#ff004173</color>
     <color name="dataform_example_menu_color3">#ff00a5c2</color>
     <color name="dataform_example_menu_color4">#ff018e86</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
     <color name="design_fab_shadow_start_color">#44000000</color>
@@ -156,14 +114,10 @@
     <color name="design_fab_stroke_top_outer_color">#2EFFFFFF</color>
     <color name="design_snackbar_background_color">#323232</color>
     <color name="design_textinput_error_color">#FFDD2C00</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="drawerDivider">#FFD2D2D2</color>
     <color name="drawer_example_menu_color1">#ff1a2250</color>
     <color name="drawer_example_menu_color2">#ff685d9e</color>
@@ -171,37 +125,19 @@
     <color name="drawer_example_menu_color4">#fff28e5e</color>
     <color name="exampleGroupDescriptionColor">#FF454545</color>
     <color name="exampleInfoBackground">#FFFBFBFB</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="grey_text_color">#E64A19</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="groupHeaderTextColor">#88000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="legend_bg">#bbffffff</color>
     <color name="light_grey">#E64A19</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="listAccentColor">#FF009688</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="listItemBottomBorder">#FFBCBCBC</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="listItemTextColor">#DF000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="listViewHorizontalLayoutHeaderColor">#E64A19</color>
     <color name="listViewToolbarColor">#FF6E40</color>
     <color name="list_item_text_color">#FF454545</color>
@@ -232,8 +168,6 @@
     <color name="listview_example_menu_color2">#ff16a3b1</color>
     <color name="listview_example_menu_color3">#ff93d1be</color>
     <color name="listview_example_menu_color4">#fff29474</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -246,16 +180,10 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="panZoomCloseColor">#F9BA1A</color>
     <color name="panZoomHighColor">#A666CE</color>
     <color name="panZoomLowColor">#9DCC00</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="pressedColor">#16000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -264,45 +192,27 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="primary_title_background">#bc0006</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="red">#FFFF0000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="review_green">#BF1E2D</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="secondary_title_background">#342db2</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="selectionColor">#20000000</color>
     <color name="shadeColor">#22000000</color>
     <color name="shadeColorCenter">#05000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="step_pager_next_tab_color">#10000000</color>
     <color name="step_pager_previous_tab_color">#BF1E2D</color>
     <color name="step_pager_selected_last_tab_color">#BF1E2D</color>
     <color name="step_pager_selected_tab_color">#BF1E2D</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="telerikGreen">#2DB245</color>
     <color name="text_light">#BF1E2D</color>
     <color name="transparent">#00000000</color>
@@ -381,8 +291,6 @@
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/></declare-styleable>
     <declare-styleable name="ViewBackgroundHelper"><attr name="android:background"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_end_material">0dp</dimen>
@@ -450,25 +358,15 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="action_bar_drop_down_min_width">135dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="calendar_example_arrows_spacing">13dp</dimen>
     <dimen name="calendar_range_example_height">232dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="card_deck_translation">8dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="chart_margin_top">10dp</dimen>
     <dimen name="customAnnotationSize">36dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Input-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="date_text_size_year_mode">10sp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_fab_border_width">0.5dp</dimen>
     <dimen name="design_fab_content_size">24dp</dimen>
@@ -497,12 +395,8 @@
     <dimen name="design_tab_scrollable_min_width">72dp</dimen>
     <dimen name="design_tab_text_size">14sp</dimen>
     <dimen name="design_tab_text_size_2line">12sp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="drawer_caption_fontsize">20dp</dimen>
     <dimen name="example_group_action_bar_control_logo_left_margin">60dp</dimen>
     <dimen name="example_group_action_button_width">55dp</dimen>
@@ -530,30 +424,18 @@
     <dimen name="example_list_wrap_item_text_margin_top">12dp</dimen>
     <dimen name="example_list_wrap_item_title_fontsize">17sp</dimen>
     <dimen name="example_side_drawer_width">304dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Primitives-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="legend_stroke_width">1dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="line_examples_dummy_text_margin_top">10dp</dimen>
     <dimen name="list_view_slide_item_fab_margin">12dp</dimen>
     <dimen name="list_view_slide_item_width">-1.0px</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="pie_margin">20dp</dimen>
     <dimen name="step_pager_tab_height">3dp</dimen>
     <dimen name="step_pager_tab_spacing">4dp</dimen>
@@ -561,59 +443,33 @@
     <dimen name="tab_indicator_height">2dp</dimen>
     <dimen name="tips_font_size">15sp</dimen>
     <dimen name="tips_title_font_size">23sp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="trackball_indicator_radius">5dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="weather_data_button_padding_bottom">4dp</dimen>
     <dimen name="weather_data_button_padding_right">0dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
     <item name="up" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item name="view_offset_helper" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <integer name="design_snackbar_text_max_lines">2</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <integer name="example_controls_list_fragment_columns">2</integer>
     <integer name="example_controls_list_fragment_columns_wrap">3</integer>
     <integer name="example_list_fragment_columns">1</integer>
     <integer name="example_list_fragment_columns_wrap">2</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/res/values/values.xml -->
-    <eat-comment/>
     <integer name="google_play_services_version">9452000</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/refs.xml -->
-    <eat-comment/>
     <item name="fragment_logevent" type="layout">@layout/fragment_logevent_list</item>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -633,19 +489,13 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="aboutString">About</string>
     <string name="action_example">Example action</string>
     <string name="action_lock">Lock</string>
     <string name="action_login">Login</string>
     <string name="action_settings">Settings</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="action_sign_in">Login</string>
     <string name="action_sign_in_short">Login as technician</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="actionbar_section_highlighted">Highlighted</string>
     <string name="allControlsStringPascalCase">All controls</string>
     <string name="allStringAllCaps">ALL</string>
@@ -657,11 +507,7 @@
     <string name="analytics_message_title">Help us improve Telerik Examples</string>
     <string name="app_key">7tl4ec82n8e2r67</string>
     <string name="app_name">PDManager</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="area_chart_title">Monthly sales revenue, 2014</string>
     <string name="bar_series_title">Performance summary, 2014</string>
     <string name="base_label">Base</string>
@@ -674,15 +520,9 @@
     <string name="calendar_range_title">Need a place to stay?</string>
     <string name="cancel_button_text">Cancel</string>
     <string name="change_label">Change</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="choose_band_label">Choose band</string>
     <string name="choose_vibration_pattern_label">Choose pattern</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values/values.xml -->
-    <eat-comment/>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -691,11 +531,7 @@
     <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are missing from your tablet.</string>
     <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
     <string name="common_google_play_services_notification_ticker">Google Play services error</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. If the problem persists, please contact the developer for assistance.</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="common_google_play_services_unsupported_text"><ns1:g id="app_name">%1$s</ns1:g> relies on Google Play services, which is not supported by your device. Contact the manufacturer for assistance.</string>
     <string name="common_google_play_services_unsupported_title">Google Play services</string>
     <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
@@ -707,32 +543,32 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="connect_label">Start</string>
     <string name="could_not_change_setting">Could not change setting</string>
+    <string name="default_web_client_id" translatable="false">984518775022-qa2jdnf39j5tbohne78lb4c1cb0kutg5.apps.googleusercontent.com</string>
     <string name="disconnect_label">Disconnect</string>
     <string name="documentation">Check out the product documentation.</string>
     <string name="documentation_example_info">Check out the documentation.</string>
     <string name="drawerCaption">Telerik examples</string>
     <string name="emptyContentString">Already have any favorite demos? Add them here by choosing \'Add to Favorites\' from the overflow menu or the example context menu.</string>
     <string name="empty_range_selection_text">Select period of stay</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="favoritesStringAllCaps">FAVORITES</string>
     <string name="favoritesStringPascalCase">Favorites</string>
     <string name="finish">Submit your answers</string>
-    <string name="gcm_defaultSenderId">17891298727</string>
+    <string name="firebase_database_url" translatable="false">https://pdmanageralerting.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">984518775022</string>
     <string name="get_colors_label">Get Colors</string>
     <string name="get_fw_version_label">Get FW Version</string>
     <string name="get_hw_version_label">Get HW Version</string>
     <string name="get_image_label">Get image</string>
+    <string name="google_api_key" translatable="false">AIzaSyBOqDl8rqDCZuYqAcaOAxjTXiVhUkm7PXg</string>
+    <string name="google_app_id" translatable="false">1:984518775022:android:3d85edaf8e09cd89</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBOqDl8rqDCZuYqAcaOAxjTXiVhUkm7PXg</string>
+    <string name="google_storage_bucket" translatable="false">pdmanageralerting.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="high_contrast_label">High contrast</string>
@@ -750,11 +586,7 @@
     <string name="line_examples_title">Monthly sales revenue, (2014)</string>
     <string name="list_view_deck_image_desc">Recipe</string>
     <string name="list_view_deck_title">NEW RECIPES</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <string name="list_view_default_empty_content">No items</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="list_view_layout_modes_dialog_title">Choose food type</string>
     <string name="list_view_reorder_btn_list1">TO DO LIST</string>
     <string name="list_view_reorder_btn_list2">SHOPPING LIST</string>
@@ -783,21 +615,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="next">Next</string>
     <string name="ok_button_text">OK</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <string name="on_demand_manual_button_busy">LOADING…</string>
     <string name="on_demand_manual_button_idle">LOAD MORE</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="pie_series_title">International sales by country, 2014</string>
     <string name="prev">Previous</string>
     <string name="productPage">Check out the product page.</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="review">Review</string>
     <string name="scatter_series_title">Mean hourly earnings in the UK (private vs public)</string>
     <string name="search_title">Search</string>
@@ -809,11 +633,7 @@
     <string name="settings_label">Settings</string>
     <string name="spinners_title">International Software Company</string>
     <string name="startButton">Start</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="submit_confirm_button">Submit</string>
     <string name="submit_confirm_message">Are you sure?</string>
     <string name="theme_colors_label">Theme colors</string>
@@ -825,11 +645,7 @@
     <string name="title_activity_files">FilesActivity</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="title_activity_home">HomeActivity</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="title_activity_login">Login as technician</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_view_code">View code</string>
     <string name="title_annotation_section">Annotation</string>
@@ -842,12 +658,8 @@
     <string name="title_settings_section">Settings</string>
     <string name="title_theme_section">Theme</string>
     <string name="title_tiles_section">Tiles</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Common-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <string name="trial_message">To get access to the latest updates across Android suite and Telerik\'s dedicated support please purchase a commercial license now.</string>
     <string name="trial_message_caption">Telerik UI for Android Trial</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="user_statistics_setting">Send anonymous usage statistics</string>
     <string name="versionStringPascalCase">Version</string>
     <string name="version_code">2015.3.0</string>
@@ -855,19 +667,13 @@
     <string name="versioning_label">Versions</string>
     <string name="vibrate_label">Vibrate</string>
     <string name="vibration_label">Vibration</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="ActionBarTitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#eee</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="AnnotationsRadioButton">
         <item name="android:layout_marginRight">1dp</item>
         <item name="android:layout_width">0dp</item>
@@ -886,11 +692,7 @@
         <item name="android:gravity">top|center</item>
         <item name="android:textColor">@color/white</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="ApplicationTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="AxesCheckbox">
         <item name="android:textColor">@color/white</item>
         <item name="android:paddingBottom">10dp</item>
@@ -900,8 +702,6 @@
         <item name="android:layout_weight">.50</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="AxisStyle">
         <item name="lineThickness">1dp</item>
         <item name="tickThickness">1dp</item>
@@ -927,8 +727,6 @@
     <style name="AxisStyle.LineAxisStyle.CartesianAxisStyle.DateTimeContinuousAxisStyle">
 
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="BarTabHorizontal" parent="Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/tab_selector</item>
         <item name="android:minHeight">76dp</item>
@@ -941,8 +739,6 @@
         <item name="android:minWidth">76dp</item>
         <item name="android:padding">0dp</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>
@@ -1878,8 +1674,6 @@
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
         <item name="tabIndicatorColor">?attr/colorAccent</item>
@@ -1890,15 +1684,11 @@
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="BrandedActionBarTheme" parent="DarkTheme">
         <item name="android:actionBarStyle">@style/MainActivityActionBar</item>
         <item name="android:actionDropDownStyle">@style/SpinnerDropDownStyle</item>
         <item name="actionDropDownStyle">@style/SpinnerDropDownStyle</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="ChartAnnotationStyle">
         <item name="clipToPlotArea">true</item>
     </style>
@@ -1950,8 +1740,6 @@
         <item name="areBarsRounded">true</item>
         <item name="roundBarsRadius">2</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="DarkTheme" parent="ApplicationTheme">
         <item name="android:actionBarStyle">@style/ExamplesActivityActionBar</item>
         <item name="android:actionBarDivider">@drawable/tab_divider</item>
@@ -1967,8 +1755,6 @@
     <style name="DarkThemeLandscape" parent="DarkTheme">
         <item name="scrollingTabStyle">@style/BarTabVertical</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="DataFormImageView">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
@@ -1992,8 +1778,6 @@
     <style name="ExampleGroupBarTabHorizontal" parent="android:Widget.Holo.Tab">
         <item name="android:background">#00000000</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="ExampleGroupDarkTheme" parent="DarkTheme">
         <item name="android:actionBarStyle">@style/MainActivityActionBar</item>
         <item name="scrollingTabViewStyle">@style/ExampleGroupScrollingTabViewStyle</item>
@@ -2004,8 +1788,6 @@
         <item name="android:windowContentOverlay">@null</item>
 
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="ExampleGroupScrollingTabViewStyle" parent="android:Widget.Holo.HorizontalScrollView">
         <item name="android:background">#00000000</item>
     </style>
@@ -2072,8 +1854,6 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:paddingBottom">2dp</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
@@ -2172,11 +1952,7 @@
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Spinner"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="RadChartBaseStyle"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Primitives-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="RadScrollViewStyle">
         <item name="fillViewport">false</item>
         <item name="scrollMode">vertical</item>
@@ -2184,8 +1960,6 @@
     <style name="RadScrollViewTheme">
         <item name="radScrollViewStyle">@style/RadScrollViewStyle</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
@@ -2232,8 +2006,6 @@
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="ScrollingTabViewStyle" parent="android:Widget.Holo.HorizontalScrollView">
         <item name="android:background">#FF252939</item>
     </style>
@@ -2242,8 +2014,6 @@
         <item name="android:paddingRight">12dp</item>
 
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
     <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
@@ -2300,8 +2070,6 @@
     </style>
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
@@ -2326,8 +2094,6 @@
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="textAllCaps">true</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="TextAppearance.StatusBar.EventContent" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Info" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Line2" parent=""/>
@@ -2339,13 +2105,9 @@
     </style>
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="TextAppearanceFinish" parent="android:TextAppearance.DeviceDefault.Medium">
         <item name="android:textColor">#fff</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Theme.AppCompat" parent="Base.Theme.AppCompat"/>
     <style name="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"/>
     <style name="Theme.AppCompat.Dialog" parent="Base.Theme.AppCompat.Dialog"/>
@@ -2368,8 +2130,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="Theme.ChartTheme" parent="android:Theme.Light">
         <item name="AxisStyle">@style/AxisStyle</item>
         <item name="LineAxisStyle">@style/AxisStyle.LineAxisStyle</item>
@@ -2408,8 +2168,6 @@
             @style/ChartAnnotationStyle.CartesianCustomAnnotationStyle
         </item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
@@ -2508,8 +2266,6 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Widget.Design.AppBarLayout" parent="android:Widget">
         <item name="elevation">@dimen/design_appbar_elevation</item>
         <item name="android:background">?attr/colorPrimary</item>
@@ -2559,8 +2315,6 @@
         <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
         <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="WizardFormLabel">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

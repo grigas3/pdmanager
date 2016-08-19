@@ -131,4 +131,4 @@
         android:layout_gravity="bottom"
         android:paddingBottom="8dp"
         android:scaleType="center" />
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_group_action_bar_horizontal.xml -->
+</RelativeLayout>

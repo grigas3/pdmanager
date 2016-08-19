@@ -45,4 +45,4 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
     </FrameLayout>
-</android.support.v7.widget.Toolbar><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/data_form_edit_toolbar.xml -->
+</android.support.v7.widget.Toolbar>

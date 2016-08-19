@@ -11,4 +11,4 @@
     android:paddingRight="10dp"
     android:text="Highlighted"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    android:textColor="@color/white" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/actionbar_spinner_main_item.xml -->
+    android:textColor="@color/white" />

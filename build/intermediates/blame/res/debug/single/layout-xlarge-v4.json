@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\activity_login.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-xlarge\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\event_group_item.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-xlarge\\event_group_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\activity_medorder.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-xlarge\\activity_medorder.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\pedmed_list_item.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-xlarge\\pedmed_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\reservation_pill_editor.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-xlarge\\reservation_pill_editor.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\fragment_patient_test.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-xlarge\\fragment_patient_test.xml"
+    }
+]

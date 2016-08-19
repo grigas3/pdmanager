@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/technicials_dialog_btn_pressed" android:state_pressed="true" />
-    <item android:drawable="@drawable/technicials_dialog_btn_idle" android:state_pressed="false" />
-</selector><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-hdpi/technicials_dialog_btn.xml -->

@@ -43,4 +43,4 @@
         android:id="@+id/data_form_validation_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/reservation_editor_layout.xml -->
+</LinearLayout>

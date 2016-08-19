@@ -36,4 +36,4 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:background="@drawable/listview_layouts_fab" />
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_drawer_custom_main.xml -->
+</RelativeLayout>

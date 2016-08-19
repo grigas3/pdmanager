@@ -1,0 +1,1486 @@
+[
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\technicials_dialog_btn_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\technicials_dialog_btn_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_open_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_open_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_less.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_less.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_calendar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bg_calendar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_check.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\btn_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_feedback_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_feedback_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_expand.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_expand.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\rain.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\rain.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_item_overflow.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_item_overflow.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_high_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_high_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_show_menu_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_show_menu_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_open.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_open.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_circle_margin.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_circle_margin.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_guest_white.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_guest_white.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_wrap_view.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_wrap_view.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\telerik_logo_about.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\telerik_logo_about.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_2.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_2.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_selection_fav1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_selection_fav1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\showerrain.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\showerrain.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_light_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_close_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_close_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\rainnight.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\rainnight.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_remove_favourite.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_remove_favourite.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\friday.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\friday.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_add_fav.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_add_fav.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\technicials_dialog_btn.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\technicials_dialog_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_indicators.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_indicators.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_layouts_button_active.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_layouts_button_active.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_settings.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_close_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_close_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_menu_bg_disabled.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_menu_bg_disabled.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_calendar_pink.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_calendar_pink.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_line_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_line_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_info_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_info_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_arrow_right.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_arrow_right.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thunderstorm.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\thunderstorm.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_light_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_more.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_more.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dataform_add.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\dataform_add.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_accept.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_action_accept.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_layouts_fab.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_layouts_fab.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_3.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_3.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_financial.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_financial.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_axes.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_axes.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\up_caret_grey.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\up_caret_grey.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_deck_dislike.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_deck_dislike.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\orange_thumb.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\orange_thumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_calendar_location.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_calendar_location.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_selector_horizontal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_selector_horizontal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_selector.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_layouts_button_bg.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_layouts_button_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_unchecked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_unchecked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_dataform.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_dataform.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_7.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_7.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_4.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_4.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\recipe_item_info_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\recipe_item_info_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_dislike.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_dislike.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_dataform.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bg_dataform.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tuesday_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tuesday_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\navigation_drawer_list_root_selector.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\navigation_drawer_list_root_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_shadow.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_shadow.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_calendar_white.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_calendar_white.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_layouts_staggered.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_staggered.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_deck_of_cards.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_deck_of_cards.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_feedback.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_feedback.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_view.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_view.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_main_action_bar_icon.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_main_action_bar_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\navigation_drawer_list_bg_selector.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\navigation_drawer_list_bg_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\line_1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\line_1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\background_repeater.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\background_repeater.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_inline_events.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_inline_events.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_open_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_open_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_5.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_5.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_listview.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bg_listview.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_high.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_high.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_cancel.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_action_cancel.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\navigation_drawer_hamburger.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\navigation_drawer_hamburger.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_range_selection.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_range_selection.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\line_5.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\line_5.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\orange_progress.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\orange_progress.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_horizontal_layout.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_horizontal_layout.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thursday_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\thursday_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_next.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_next.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_divider.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_divider.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_behind_fav.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_behind_fav.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_3.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_3.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_reorder_shopping_selection.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_reorder_shopping_selection.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\image004.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\image004.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_phone_white.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_phone_white.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\hmb.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Primitives-2015.3.1113-trial-release\\res\\drawable-hdpi\\hmb.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bg_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_horizontal_scrolling_repeater.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_horizontal_scrolling_repeater.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_behind_delete.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_behind_delete.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_dataform.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_dataform.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_arrow_left.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_arrow_left.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thursday_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\thursday_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\splash.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\splash.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_drawer_gradient_bg.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_drawer_gradient_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_calendar_calendar_1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_calendar_calendar_1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_high_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_high_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_guests_number.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_guests_number.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_show_bg.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\btn_show_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_close_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_close_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\rhomb_green.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\rhomb_green.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_circle_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_circle_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\area_2.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\area_2.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_bg_inactive.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_bg_inactive.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pie_5.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pie_5.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_toggle_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_toggle_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\indicators_btn.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\indicators_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_layouts_wrap.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_wrap.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_prev.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_prev.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_reorder_todo_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_reorder_todo_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_table.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_table.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_8.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_8.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\reservation_spinner_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\reservation_spinner_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\spinner_underline.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\spinner_underline.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\artificial_padding.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\artificial_padding.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\axes_volume.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\axes_volume.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_pie_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_pie_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_high_normal_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_high_normal_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_search.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_search.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\area_6.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\area_6.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_group_show_menu.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_group_show_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_view_code.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_view_code.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_open_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_open_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\sidedrawer_navdrawer_user.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\sidedrawer_navdrawer_user.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_prev_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_prev_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\viewcode_check.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\viewcode_check.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_reorder.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_reorder.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_like.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_like.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_favourite_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_favourite_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\line_7.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\line_7.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_name_footer.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_name_footer.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_listview.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_listview.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_custom_content.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_custom_content.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_arrow.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_full_open_on_phone.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_menu_bg_selected.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_menu_bg_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_info_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_info_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\area_4.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\area_4.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_open_normal_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_open_normal_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_selection.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_selection.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_remove_favourite_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_remove_favourite_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_5.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_5.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\scatteredclouds.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\scatteredclouds.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_view_code_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_view_code_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_prev_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_prev_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_bg_inactive_horizontal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_bg_inactive_horizontal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\annotations_title_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\annotations_title_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\area_1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\area_1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_group_toggle_layout_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_group_toggle_layout_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_deck_like.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_deck_like.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pie_1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pie_1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_feedback_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_feedback_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\up_caret.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\up_caret.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_next_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_next_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\splash_error.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\splash_error.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_toggle_unchecked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_toggle_unchecked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_info.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_layouts_wrap_drawable.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_wrap_drawable.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_close.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_phone.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\axes_volume_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\axes_volume_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_4.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_4.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_nav_calendar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_nav_calendar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_high_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_high_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_layouts_refine.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_refine.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_button.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_bg_active_horizontal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_bg_active_horizontal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\reservation_time_drawable.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\reservation_time_drawable.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\financial_1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\financial_1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_code.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_code.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_selection_reorder.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_selection_reorder.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\financial_2.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\financial_2.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\brokenclouds.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\brokenclouds.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_guest.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_guest.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fewclouds.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\fewclouds.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\actionbar_spinner_arrow.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\actionbar_spinner_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\up_caret_white.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\up_caret_white.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_menu_bg_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_menu_bg_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_low_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_low_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\indicators_btn_idle.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\indicators_btn_idle.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_group_toggle_layout_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_group_toggle_layout_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_1.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_1.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_scatter_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_scatter_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_calendar_rooms.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_calendar_rooms.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\inline_events_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\inline_events_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_area_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_area_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab_bg_active.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tab_bg_active.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tuesday_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tuesday_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_sidedrawer.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_sidedrawer.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_layouts_staggered_drawable.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_staggered_drawable.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_calendar_calendar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_calendar_calendar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_calendar_guests.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_calendar_guests.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bubble.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bubble.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_favourite.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_favourite.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tuesday.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\tuesday.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_2.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_2.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\monday_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\monday_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\line_3.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\line_3.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_refresh.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_action_refresh.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_overflow.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_overflow.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_horizontal_scrolling_bg.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_horizontal_scrolling_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_remove_fav.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_remove_fav.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_reorder_todo_selection.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_reorder_todo_selection.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_1.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_1.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_view_code_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_view_code_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\rhomb_new.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\rhomb_new.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_listview_slide_gradient.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_listview_slide_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_sidedrawer.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_sidedrawer.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\splash_normal.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\splash_normal.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_circle_unchecked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_circle_unchecked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_favourite_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_favourite_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_show_menu.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_show_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_calendar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_calendar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_reorder_delete.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_reorder_delete.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_calendar_sun.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_calendar_sun.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\area_5.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\area_5.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\background_pattern.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\background_pattern.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\navigation_drawer_item_selected.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\navigation_drawer_item_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fewcloudsnight.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\fewcloudsnight.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wednesday.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\wednesday.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\area_3.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\area_3.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_layouts_button_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_layouts_button_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_next_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_next_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_slideview.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_slideview.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_feedback.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_feedback.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thursday.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\thursday.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_selection_fav.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_selection_fav.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_7.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_7.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\calendar_pic_6.jpg",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\calendar_pic_6.jpg"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_search.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_list_calendar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_list_calendar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_radio_checked_circle.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_radio_checked_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_close_normal_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_close_normal_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_layouts_list_drawable.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_list_drawable.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_dataform_calendar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_dataform_calendar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\scatter.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\scatter.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_low.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_low.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\snow.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\snow.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\drawer_position_button.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\drawer_position_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_nav_sidedrawer.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_nav_sidedrawer.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\data_form_reservation_selectable.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\data_form_reservation_selectable.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\navigation_drawer_item_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\navigation_drawer_item_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_menu_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_menu_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\skyisclearnight.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\skyisclearnight.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\spinner_drop_down_background.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\spinner_drop_down_background.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bar_6.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bar_6.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wednesday_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\wednesday_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_light_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_collapse.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_collapse.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_info.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\icon_info.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_sidedrawer.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\bg_sidedrawer.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_show_menu_toggled.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_show_menu_toggled.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_reorder_complete.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_reorder_complete.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\axes_price.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\axes_price.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_menu_bg_disabled_selected.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_menu_bg_disabled_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_group_toggle_layout.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_group_toggle_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_actionbar_overflow.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_actionbar_overflow.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\telerik_logo.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\telerik_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pie_4.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pie_4.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_low_normal_landscape.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_low_normal_landscape.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_btn_show_menu_rotated.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_btn_show_menu_rotated.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\monday.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\monday.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\axes_price_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\axes_price_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_pan_zoom.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_pan_zoom.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\technicials_dialog_btn_idle.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\technicials_dialog_btn_idle.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\indicators_btn_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\indicators_btn_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_low_checked.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_low_checked.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_listview_selection_delete.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_listview_selection_delete.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_reorder_shopping_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_reorder_shopping_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pan_zoom_checkbox_low_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pan_zoom_checkbox_low_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_nav_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_nav_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\monday_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\monday_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_nav_dataform.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_nav_dataform.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_nav_listview.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_nav_listview.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\drawable-hdpi\\abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_view_selection_item_background.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\list_view_selection_item_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_edit.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_action_edit.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\axes_volume_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\axes_volume_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_annotations.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_annotations.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_drawer.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_drawer.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_bar_chart.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_bar_chart.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_check_white.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_check_white.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_menu_white.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\ic_menu_white.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\listview_slideview_fab.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\listview_slideview_fab.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pie_2.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\pie_2.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wednesday_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\wednesday_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\skyisclear.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\skyisclear.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\hamburger.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\hamburger.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\axes_price_normal.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\axes_price_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_focused.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_plus_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\screen_layout.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\screen_layout.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\spinner_arrow.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\spinner_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\example_remove_favourite_pressed.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-hdpi\\example_remove_favourite_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png"
+    }
+]

@@ -15,4 +15,4 @@
         android:paddingLeft="15dp"
         android:textColor="@color/white"
         android:textSize="18sp" />
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/view_code_main_item.xml -->
+</RelativeLayout>

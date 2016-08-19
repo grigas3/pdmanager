@@ -73,4 +73,4 @@
         android:layout_marginRight="15dp"
         android:textColor="#8F8C8B"
         android:textSize="12sp" />
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/data_form_reservation_list_item.xml -->
+</FrameLayout>

@@ -5,4 +5,4 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-</com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_drawer_custom_control.xml -->
+</com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer>

@@ -11,4 +11,4 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/med_group_item.xml -->
+</RelativeLayout>

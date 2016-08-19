@@ -8,4 +8,4 @@
     android:paddingRight="?android:attr/listPreferredItemPaddingRight"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:textColor="#555555"
-    android:textSize="30sp" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/mylist.xml -->
+    android:textSize="30sp" />

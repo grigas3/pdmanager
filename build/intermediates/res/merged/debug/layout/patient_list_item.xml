@@ -155,4 +155,4 @@
         android:padding="16dp"
         android:src="@drawable/ic_action_tick" />
 
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/patient_list_item.xml -->
+</FrameLayout>

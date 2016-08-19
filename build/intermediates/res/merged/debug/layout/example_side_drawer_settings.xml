@@ -159,4 +159,4 @@
             android:textOff="Bottom"
             android:textOn="Bottom" />
     </LinearLayout>
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_side_drawer_settings.xml -->
+</RelativeLayout>

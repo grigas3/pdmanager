@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\clinicalinfo_list_item.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-w720dp\\clinicalinfo_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\fragment_logevent_new.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-w720dp\\fragment_logevent_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\fragment_patient_allergy.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-w720dp\\fragment_patient_allergy.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\fragment_about.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-w720dp\\fragment_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\fragment_patient_clinicalinfo.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\layout-w720dp\\fragment_patient_clinicalinfo.xml"
+    }
+]

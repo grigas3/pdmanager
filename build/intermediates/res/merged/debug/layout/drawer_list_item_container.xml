@@ -15,4 +15,4 @@
         android:text="[Sample text goes here]"
         android:textAppearance="?android:attr/textAppearanceListItem"
         android:textColor="@color/black" />
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/drawer_list_item_container.xml -->
+</LinearLayout>

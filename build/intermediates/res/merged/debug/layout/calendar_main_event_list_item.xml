@@ -53,4 +53,4 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </FrameLayout>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/calendar_main_event_list_item.xml -->
+</LinearLayout>

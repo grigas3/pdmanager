@@ -5,4 +5,4 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:text="@string/list_view_reorder_empty"
-    android:textSize="16sp" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_view_reorder_empty.xml -->
+    android:textSize="16sp" />

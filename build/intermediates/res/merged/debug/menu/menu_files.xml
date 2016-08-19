@@ -24,4 +24,3 @@
         android:title="Clear Files"
         app:showAsAction="never" />
 </menu>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/menu/menu_files.xml -->

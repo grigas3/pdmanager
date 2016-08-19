@@ -18,4 +18,3 @@
     <item android:drawable="@color/review_green" />
     <item android:drawable="@drawable/selectable_item_background" />
 </layer-list>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/finish_background.xml -->

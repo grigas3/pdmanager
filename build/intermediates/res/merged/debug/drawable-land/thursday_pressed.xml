@@ -15,4 +15,4 @@
             android:gravity="center"
             android:src="@drawable/scatteredclouds" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-land/thursday_pressed.xml -->
+</layer-list>

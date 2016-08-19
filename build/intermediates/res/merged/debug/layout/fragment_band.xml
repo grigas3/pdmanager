@@ -132,4 +132,4 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
     </RelativeLayout>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_band.xml -->
+</LinearLayout>

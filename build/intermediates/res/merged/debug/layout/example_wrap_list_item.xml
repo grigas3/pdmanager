@@ -77,4 +77,4 @@
         <!--android:layout_gravity="bottom"-->
         <!--android:background="@color/listItemBottomBorder" />-->
     </FrameLayout>
-</com.telerik.primitives.SquareLinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_wrap_list_item.xml -->
+</com.telerik.primitives.SquareLinearLayout>

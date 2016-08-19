@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\ic_listview_action_bar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-land-xhdpi\\ic_listview_action_bar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\ic_dataform_action_bar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-land-xhdpi\\ic_dataform_action_bar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\ic_sidedrawer_action_bar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-land-xhdpi\\ic_sidedrawer_action_bar.png"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi-v4\\ic_chart_action_bar.png",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-land-xhdpi\\ic_chart_action_bar.png"
+    }
+]

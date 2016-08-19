@@ -48,4 +48,4 @@
         android:layout_height="3dp"
         android:layout_gravity="bottom"
         android:background="@color/light_grey" />
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/calendar_range_list_item.xml -->
+</FrameLayout>

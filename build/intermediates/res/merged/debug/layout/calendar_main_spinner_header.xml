@@ -13,4 +13,4 @@
         android:textColor="@color/dark_grey_text_color"
         android:textSize="18sp"
         android:textStyle="bold" />
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/calendar_main_spinner_header.xml -->
+</FrameLayout>

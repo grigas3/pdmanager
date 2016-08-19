@@ -172,4 +172,4 @@
         android:layout_gravity="center_horizontal"
         android:text="Submit" />
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_annotation.xml -->
+</LinearLayout>

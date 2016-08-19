@@ -15,4 +15,4 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:inputType="none" />
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/reservation_date_editor.xml -->
+</FrameLayout>

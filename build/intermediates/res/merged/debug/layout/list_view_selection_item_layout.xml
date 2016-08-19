@@ -92,4 +92,4 @@
         android:layout_height="1dp"
         android:layout_gravity="bottom"
         android:background="@color/list_view_example_selection_line_separator_color" />
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_view_selection_item_layout.xml -->
+</FrameLayout>

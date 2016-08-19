@@ -30,4 +30,4 @@
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="#3C48A2" />
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_side_drawer_drawer.xml -->
+</LinearLayout>

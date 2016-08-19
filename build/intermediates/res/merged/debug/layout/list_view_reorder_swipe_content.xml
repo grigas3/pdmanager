@@ -35,4 +35,4 @@
             android:contentDescription="@string/list_view_reorder_delete"
             android:src="@drawable/ic_listview_reorder_delete" />
     </FrameLayout>
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_view_reorder_swipe_content.xml -->
+</RelativeLayout>

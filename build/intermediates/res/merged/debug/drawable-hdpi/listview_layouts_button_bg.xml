@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/listview_layouts_button_active" android:state_checked="true" />
-    <item android:drawable="@drawable/listview_layouts_button_normal" />
-</selector><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-hdpi/listview_layouts_button_bg.xml -->

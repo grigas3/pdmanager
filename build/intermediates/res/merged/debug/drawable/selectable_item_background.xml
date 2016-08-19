@@ -20,4 +20,3 @@
     <item android:drawable="@drawable/item_focused" android:state_selected="true" />
     <item android:drawable="@android:color/transparent" />
 </selector>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/selectable_item_background.xml -->

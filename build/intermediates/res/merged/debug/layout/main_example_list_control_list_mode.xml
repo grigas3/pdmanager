@@ -21,4 +21,4 @@
         android:layout_gravity="center_vertical"
         android:textColor="@color/white" />
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/main_example_list_control_list_mode.xml -->
+</LinearLayout>

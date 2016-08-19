@@ -38,4 +38,4 @@
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start" />
-</android.support.v4.widget.DrawerLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/activity_example_group_horizontal.xml -->
+</android.support.v4.widget.DrawerLayout>

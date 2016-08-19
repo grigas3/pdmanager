@@ -70,4 +70,4 @@
         android:text="@string/calendar_range_how_to_text"
         android:textSize="14sp" />
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/calendar_range_popup.xml -->
+</LinearLayout>

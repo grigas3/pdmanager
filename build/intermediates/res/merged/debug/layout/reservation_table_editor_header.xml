@@ -3,4 +3,4 @@
     android:id="@+id/data_form_text_viewer_header"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textColor="#ACAAA9" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/reservation_table_editor_header.xml -->
+    android:textColor="#ACAAA9" />

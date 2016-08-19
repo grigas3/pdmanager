@@ -3,4 +3,4 @@
     android:id="@+id/settingsExampleDrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" /><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_side_drawer_settings_drawer.xml -->
+    android:orientation="vertical" />

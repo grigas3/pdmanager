@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-uk/values-uk.xml -->
-    <eat-comment/>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Перейти на головний"</string>
     <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
     <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
@@ -21,8 +19,6 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Надіслати через"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Надіслати через %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Згорнути"</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values-uk/values.xml -->
-    <eat-comment/>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Увімкнути"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Додаток <ns1:g id="APP_NAME">%1$s</ns1:g> не працюватиме, якщо не ввімкнути сервіси Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Увімкнути сервіси Google Play"</string>
@@ -31,11 +27,7 @@
     <string msgid="1701766622451829291" name="common_google_play_services_install_text_tablet">"Додаток <ns1:g id="APP_NAME">%1$s</ns1:g> не працюватиме без сервісів Google Play, яких немає на вашому планшеті."</string>
     <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Установити сервіси Google Play"</string>
     <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Помилка сервісів Google Play"</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/res/values-uk/values.xml -->
-    <eat-comment/>
     <string msgid="9089562800660647919" name="common_google_play_services_unknown_issue">"У додатка <ns1:g id="APP_NAME">%1$s</ns1:g> виникла проблема із сервісами Google Play. Якщо проблема не зникне, зверніться по допомогу до розробника."</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/res/values-uk/values.xml -->
-    <eat-comment/>
     <string msgid="1064791666906610763" name="common_google_play_services_unsupported_text">"Додаток <ns1:g id="APP_NAME">%1$s</ns1:g> працює завдяки сервісам Google Play, які не підтримуються на вашому пристрої. Зверніться по допомогу до виробника."</string>
     <string msgid="539866123733096737" name="common_google_play_services_unsupported_title">"Сервіси Google Play"</string>
     <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Оновити"</string>
@@ -47,7 +39,5 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Відкрити на телефоні"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Увійти"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Увійти в облік. запис Google"</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-uk/values-uk.xml -->
-    <eat-comment/>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

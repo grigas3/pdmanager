@@ -39,4 +39,4 @@
             android:textColor="#ffffff"
             android:textSize="12sp" />
     </FrameLayout>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_medication.xml -->
+</LinearLayout>

@@ -10,4 +10,4 @@
     <com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView
         android:id="@+id/chart"
         style="@style/MatchParent.Chart" />
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_bar.xml -->
+</LinearLayout>
