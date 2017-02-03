@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="0ad33eb600f3d80bdff5ce355c90d5533ade652a">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-analytics-impl-9.4.0_69548f27dfe1b824fdf683001f7374509c9cf8f8.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="a440fb3fec30ff925e9f601cc458fb6671834cb2">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-9.4.0_5675e24944a2bab58d03544ff8b4c3fa51222e16.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="17d337151706ca08866af86bda54db664ff41a83">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\instant-run-bootstrap_1c0d38405a347a72818366ca4a0cd48f97f0402e.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="88848548ab56d4fbf3d2d1b0c85bf1ff9b4c1f4b">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-9.4.0_c3d4f93428422d6e144b63c07f83f7f8443cb32c.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\Input-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="e4891cf0bcd719346eb2fd7f233d3eb0d7ccdb27">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Input-2015.3.1113-trial-release_b226dc5f614e2d60bd0c12b289415bea2fe25d0d.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.4.0_3b1711aea0e4c58e14887cc354692bf76efad235.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="18b5697c65c4fe5b7381613b8b8ae9ac52e26fa7">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-9.4.0_3981948553590a2a03e861f4c38611ad96ce202d.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\libs\GraphView-4.0.1.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="8bd182a66f13dedad362bfbf992be96de2be5969">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\GraphView-4.0.1_50100a4580113aa8e086a34d56d9467e7f13a06b.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\List-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="a2b494c775071bc6e1b523438cab702bfee66e33">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-List-2015.3.1113-trial-release_1aa643bae2f51f5fb579dbec1519ef50e7b9ca10.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\Data-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="5ad62a3e8471d29e09d6ede118257f18e8a0fa8b">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Data-2015.3.1113-trial-release_d245341e34d538e6f2dd2686e63f16d77acc70c4.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.0_e87cb4e94a66cc3133cd6e45b086afd82919177d.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\libs\microsoft-band-1.3.20105.2.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="2cb3684c1f128306a627239759ab82dfca4aebc9">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\microsoft-band-1.3.20105.2_c8fe03d59e3962dbdf409bdefb0fb6328be911a3.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\internal_impl-23.1.0_e74f514e2f8a9a656c44019806ae7b25da6f079e.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\Common-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="3f628c165bc9857fdb32ce48ca25bfdfb4629010">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Common-2015.3.1113-trial-release_874af442f22983788a3d532ea70bc53d9a5a8cb6.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="3b7173b3df4c7029699919414400041f64519e34">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-9.4.0_90523b95263e4c31c1b407ebfaff38ed0bb3fcb5.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\hamcrest-core-1.3_4de43520e370d871dc2ec506eebd0f3f9df9b22c.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\Primitives-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="4db12e114e75cdf9798a31591b69e9347c8ed1b4">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Primitives-2015.3.1113-trial-release_a0734706babfe9782ad5fb6464c2dddc5a44b20e.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.0_14d0e9943617504546c1fa987feff6528043620d.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\libs\tape-1.2.3.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="a56c013cdf3af49efec795ebecfc866612f815eb">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\tape-1.2.3_a8289e6c3ddc7ade3d5ac7c2eee0465dfeac04cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="ba47b210d36301e237ccfea860eaada04590f12a">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-analytics-9.4.0_ce7eed0e2e9db9fba22779d55c7c4db53d9e4093.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.0\support-annotations-23.1.0.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\support-annotations-23.1.0_4781e2b18baf7607184a4a0bd0ebccf55526fa11.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\Chart-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="a082af38e5670ea0a03575804a5231b3bb0c69ff">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Chart-2015.3.1113-trial-release_a2366dd613b8aaf5ee6b7d3270d6e5f82e9fd456.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\libs\dropbox-core-sdk-2.0-beta-2.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="79c603fa58da6124547151931938fe0f26c34741">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\dropbox-core-sdk-2.0-beta-2_5a9c95bd21b7be5a5f95f4a810c33b4756641635.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\junit-4.12_3c1ca6965c493819b1e8a607fa1c4d3011643992.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.0_cfa943c4409011db42472cf5a322fdceb8cb1b6d.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\libs\jackson-core-2.6.1.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="892d15011456ea3563319b27bdd612dbc89bb776">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\jackson-core-2.6.1_437407d8ea9ce2e46f0a6454bcef4329d86d5078.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="ece40b09e9d4d488bc270cf6af5a9af73bc1cfa3">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-9.4.0_18927a337fc499e93bb93396a5549c8990b75c71.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.4.0_beb9212a37566a3f615804d2f0eb0e76f18fdf99.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="1e6f05fbaddf0ece63cbe97de48576388b2a59e6">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\instant-run_f174d88aa24d1eefcbb5eb143b86ca58fe673a4b.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.4.0_a91297024c987da41946e96191545ca56d2f8068.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="4b6d9b70f93bbeb872d0948bc064ae3f3f2bcbac">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-messaging-9.4.0_1bfd73370e6010b878d72e6dfc03f799a0b379e1.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.android.support\design\23.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.0_fd33096afe967b294639f714784c0fba0d83868a.jar" />
+    </item>
+    <item
+        jar="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="59a16a4a42d25b2c243dd1e8aea87d06895b4a06">
+        <dex dex="C:\Users\IP\AndroidStudioProjects\pdmanager\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-9.4.0_bcff136598d7919e37ce51389fb9693c5e680dc5.jar" />
+    </item>
+
+</items>

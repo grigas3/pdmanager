@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="19"
+    density="hdpi"
+    format="7"
+    timestamp="8377832165732"
+    token="7323825185396136409" >
+
+    <task
+        name="javac"
+        duration="5731" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="6144" />
+    <task
+        name="verifier"
+        duration="2020" />
+
+    <artifact
+        location="C:\Users\IP\AndroidStudioProjects\pdmanager\build\outputs\apk\pdmanager-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="8377832165732" >
+        <artifact
+            location="C:\Users\IP\AndroidStudioProjects\pdmanager\build\outputs\apk\pdmanager-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

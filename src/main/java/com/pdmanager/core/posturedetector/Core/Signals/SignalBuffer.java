@@ -157,6 +157,13 @@ public class SignalBuffer extends BaseMath {
         return s;
     }
 
+    public double sum_energy(int st, int et) {
+
+        double s = 0;
+        for (int j = st; j < et && j < size; j++)
+            s += buffer[j] * buffer[j];
+        return s;
+    }
     public double sum_diff_energy() {
 
         double s = 0;

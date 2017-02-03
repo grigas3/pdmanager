@@ -144,6 +144,7 @@ public class TremorDetectorTest {
             double f3 = 442.8556;
             double gs1 = 0.0247;
             double a2 = 178.1615;
+            double a3 = 178.1615;
 
             int ii = 0;
             //double gs1=0.0210;
@@ -152,13 +153,15 @@ public class TremorDetectorTest {
             double af3 = d.testAE(s, ii, 187);
             double ags1 = d.testGS1(s, ii, 187);
             double aa2 = d.testA2(s, ii, 187);
-
+            double sds3 = d.testSDS3(s, ii, 187);
             // assertTrue(100*Math.abs((af1-f1)/f1)<5);
             //   assertTrue(100*Math.abs((af2-(f2))/f2)<5);
             //    assertTrue(100*Math.abs((af3-f3)/f3)<5);
             assertTrue(100 * Math.abs((ags1 - gs1) / gs1) < 1);
             //    assertTrue(100*Math.abs((aa2-a2)/a2)<5);
 
+
+            assertTrue(sds3 > 0.9);
         } catch (Exception ex) {
 
         }
@@ -318,4 +321,6 @@ public class TremorDetectorTest {
 
 
 }
+
+
 

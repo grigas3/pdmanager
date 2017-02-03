@@ -212,6 +212,17 @@ public class SignalCollection {
         return s;
     }
 
+    public double sum_energy(int st, int ed) throws Exception {
+        double s = 0;
+        for (int i = 0; i < signals; i++) {
+
+
+            s += buffers[i].sum_energy(st, ed);
+
+        }
+
+        return s;
+    }
     public double sum_diff_energy() throws Exception {
         double s = 0;
         for (int i = 0; i < signals; i++) {

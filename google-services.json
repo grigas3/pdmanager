@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "984518775022",
+    "firebase_url": "https://pdmanageralerting.firebaseio.com",
+    "project_id": "pdmanageralerting",
+    "storage_bucket": "pdmanageralerting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984518775022:android:431ae7b35782039e",
+        "android_client_info": {
+          "package_name": "com.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984518775022-qa2jdnf39j5tbohne78lb4c1cb0kutg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOqDl8rqDCZuYqAcaOAxjTXiVhUkm7PXg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984518775022:android:3d85edaf8e09cd89",
+        "android_client_info": {
+          "package_name": "com.pdmanager.home"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984518775022-qa2jdnf39j5tbohne78lb4c1cb0kutg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOqDl8rqDCZuYqAcaOAxjTXiVhUkm7PXg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
