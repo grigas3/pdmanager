@@ -1,19 +1,43 @@
 [
     {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_default_light.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_default_light.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_default_light.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_default_light.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_default_dark.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_default_dark.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\xml\\authenticator.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Patient\\oidclib\\unspecified\\res\\xml\\authenticator.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_light_selected.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_light_selected.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\xml\\searchable.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\xml\\searchable.xml"
+    },
+    {
         "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_light_selected.xml",
         "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_light_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_default_dark.xml",
+        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_default_dark.xml"
     },
     {
         "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_dark_selected.xml",
         "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_dark_selected.xml"
     },
     {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_default_light.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_default_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_default_dark.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_default_dark.xml"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\xml\\chart_palettes_dark_selected.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\xml\\chart_palettes_dark_selected.xml"
     },
     {
         "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\xml\\searchable.xml",
