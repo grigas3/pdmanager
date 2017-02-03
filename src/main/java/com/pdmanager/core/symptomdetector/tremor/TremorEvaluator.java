@@ -1,6 +1,8 @@
 package com.pdmanager.core.symptomdetector.tremor;
 
 
+import android.util.Log;
+
 import com.pdmanager.common.DataTypes;
 import com.pdmanager.common.data.AccData;
 import com.pdmanager.common.data.AccReading;
@@ -13,14 +15,20 @@ import com.pdmanager.common.interfaces.IDataProcessor;
 import com.pdmanager.core.posturedetector.Core.Signals.NamedSignalCollection;
 import com.pdmanager.core.posturedetector.Core.Signals.SignalCollection;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by george on 3/6/2016.
+ * Tremor Evaluator
  */
 public class TremorEvaluator implements IDataProcessor {
 
 
+
+    private static final String TAG="TREMOREVALUATOR";
+
+    //Private fields
     private SignalCollection accSignal;
     private SignalCollection gyroSignal;
     private TremorDetector detector;
@@ -35,7 +43,25 @@ public class TremorEvaluator implements IDataProcessor {
     private Object lock1 = new Object();
 
 
-    public TremorEvaluator(IDataHandler phander, double fs) {
+    /**
+     * Constructor
+     * @param pHander Data Handler (to pass the output of the classifier)
+     * @param fs Sampling Frequency
+     */
+    public TremorEvaluator(IDataHandler pHander, double fs) {
+
+        handler = pHander;
+
+
+
+    }
+
+    /**
+     * Init
+     * @param fs Sampling frequency
+     */
+    private void init(double fs)
+    {
         try {
 
             signalCollection = new NamedSignalCollection();
@@ -46,25 +72,35 @@ public class TremorEvaluator implements IDataProcessor {
             accSignal = new SignalCollection(3, w);
             gyroSignal = new SignalCollection(3, w);
             estimator = new TremorEstimator(w, fs);
-            handler = phander;
 
         } catch (Exception ex) {
 
-
+            Log.e(TAG,"Contructor ACC",ex.getCause());
         }
 
 
     }
 
+    /**
+     * Returns if Data Type is required by the model
+     * @param dataType
+     * @return Required or not
+     */
     @Override
     public boolean requiresData(int dataType) {
 
         return dataType == DataTypes.ACCELEROMETER || dataType == DataTypes.GYRO;
     }
 
+    /**
+     * Add Data
+     * @param data The interface to get data
+     */
     @Override
     public void addData(ISensorData data) {
 
+
+        //In tremor we have two different buffers on for acc and one for gyro
         if (data.getDataType() == DataTypes.ACCELEROMETER)
             handleAcc(data);
         else
@@ -83,22 +119,34 @@ public class TremorEvaluator implements IDataProcessor {
 
     }
 
+    /**
+     * Handle Accelerometer
+     * @param data
+     */
     private void handleAcc(ISensorData data) {
 
         AccData acc = (AccData) data;
         AccReading vals = acc.getValue();
         TremorData s = null;
         synchronized (lock1) {
-            if (accSampleCount == accSignal.getSize() - 1) {
 
-                if (gyroSampleCount == accSignal.getSize() - 1) {
+            //If both buffers are full
+            if (accSampleCount == accSignal.getSize() - 1&&gyroSampleCount == accSignal.getSize() - 1) {
 
 
+
+
+                //TODO: Important. In the final implementation buffers should be copied to tmp buffers and all the processing should be performed in ASYNC TASK or Thread (see DataBuffer)
+                
                     try {
 
+                        //Preprocessing
                         accpreprocessor.process(accSignal, signalCollection);
                         gyropreprocessor.process(gyroSignal, signalCollection);
                         float updrs = 0;
+
+
+                        //Tremor Detection
                         int res = detector.detectTremor(signalCollection);
                         if (res == 1) {
 
@@ -113,9 +161,8 @@ public class TremorEvaluator implements IDataProcessor {
 
                         }
 
-
+                        ///Create a tremor observation
                         s = new TremorData();
-
                         Date d = new Date();
                         s.setTimestamp(d);
                         s.setTicks(d.getTime());
@@ -126,19 +173,23 @@ public class TremorEvaluator implements IDataProcessor {
                     } catch (Exception ex) {
 
 
+                        Log.e(TAG,"HANDLE ACC",ex.getCause());
+
                     }
 
+                    //Zero sample count
 
                     gyroSampleCount = 0;
                     accSampleCount = 0;
 
 
-                }
+
 
 
             } else {
 
 
+                //Otherwise add sample buffer
                 try {
                     accSignal.setValue(0, accSampleCount, vals.getX());
                     accSignal.setValue(1, accSampleCount, vals.getY());
@@ -147,7 +198,7 @@ public class TremorEvaluator implements IDataProcessor {
 
 
                 } catch (Exception ex) {
-
+                    Log.e(TAG,"HANDLE ACC",ex.getCause());
                 }
 
             }
@@ -170,6 +221,8 @@ public class TremorEvaluator implements IDataProcessor {
         synchronized (lock1) {
             if (gyroSampleCount == gyroSignal.getSize() - 1) {
 
+                //Buffer full
+                //Handle Acc will
 
             } else {
 
@@ -182,7 +235,7 @@ public class TremorEvaluator implements IDataProcessor {
 
 
                 } catch (Exception ex) {
-
+                    Log.e(TAG,"HANDLE GYRO",ex.getCause());
                 }
 
             }
