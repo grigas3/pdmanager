@@ -27,7 +27,7 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.pdmanager.views.ClinicianActivity;
+import com.pdmanager.views.clinician.ClinicianActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

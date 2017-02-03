@@ -318,6 +318,34 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         this.tileManager = manager;
     }
 
+
+    private boolean checkPermissions(Activity activity)
+    {
+
+        boolean requiresPermissions=false;
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+
+            requiresPermissions=true;
+
+        }
+
+        int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
+
+        if (permission2 != PackageManager.PERMISSION_GRANTED) {
+            requiresPermissions=true;
+        }
+
+        int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
+
+        if (permission3 != PackageManager.PERMISSION_GRANTED) {
+            requiresPermissions=true;
+        }
+
+        return requiresPermissions;
+    }
+
     /**
      * Checks if the app has permission to write to device storage
      * <p>
@@ -959,7 +987,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
         protected void onPostExecute(PatientMedicationResult result) {
-
+            busyIndicator.setVisibility(View.INVISIBLE);
+            layout.setVisibility(View.VISIBLE);
 
             if(!result.hasError()) {
                 MedManager manager = new MedManager(getContext());
@@ -968,8 +997,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 //Add Medication Orders
                 manager.addMedicationOrders(result.orders);
 
-                busyIndicator.setVisibility(View.INVISIBLE);
-                layout.setVisibility(View.VISIBLE);
+
 
             }
             /*

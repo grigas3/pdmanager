@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="armeabi-v7a,armeabi"
-    api-level="19"
+    api-level="23"
     density="hdpi"
-    format="7"
-    timestamp="8377832165732"
-    token="7323825185396136409" >
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="1223310173270695"
+    token="4069101945239318874"
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="5731" />
+        duration="2944" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="6144" />
+        duration="43" />
     <task
         name="verifier"
-        duration="2020" />
+        duration="2" />
 
     <artifact
-        location="C:\Users\IP\AndroidStudioProjects\pdmanager\build\outputs\apk\pdmanager-debug.apk"
-        type="MAIN" />
+        location="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+        type="DEX" />
 
-    <build timestamp="8377832165732" >
+    <build
+        timestamp="1218090403388780"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\IP\AndroidStudioProjects\pdmanager\build\outputs\apk\pdmanager-debug.apk"
+            location="E:\Rigas\PDManager\Android\Patient\build\outputs\apk\Patient-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="1218684358174953"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="1219296434879128"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="1223310173270695"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

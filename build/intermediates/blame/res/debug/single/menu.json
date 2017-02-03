@@ -1,13 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\technician.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\technician.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\menu_home.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\menu_home.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main3.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\menu\\menu_main3.xml"
     },
@@ -16,16 +8,8 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\menu\\clinician.xml"
     },
     {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\global.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\global.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\menu_files.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\menu\\menu_files.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\menu_auth.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\menu_auth.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\menu_home.xml",
@@ -34,18 +18,6 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\main_menu.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\menu\\main_menu.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\clinician.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\clinician.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\main.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\menu_help.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\menu_help.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
@@ -62,10 +34,6 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\menu_help.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\menu\\menu_help.xml"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\menu\\menu_files.xml",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\menu\\menu_files.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\menu\\technician.xml",

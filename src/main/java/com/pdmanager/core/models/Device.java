@@ -20,7 +20,9 @@ public String Identifier;
     public String Version;
 
 
-    protected Device(Parcel in) {
+
+
+    public Device(Parcel in) {
         Identifier = in.readString();
         PatientId = in.readString();
         OrganizationId = in.readString();
@@ -44,6 +46,16 @@ public String Identifier;
             return new Device[size];
         }
     };
+
+    public Device(String patientId, String id, String android, String deviceName) {
+        super();
+
+        PatientId=patientId;
+        Identifier=id;
+        Type=android;
+        Model=deviceName;
+
+    }
 
     @Override
     public int describeContents() {

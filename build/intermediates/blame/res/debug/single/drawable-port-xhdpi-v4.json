@@ -4,34 +4,6 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xhdpi\\slqsm.jpg"
     },
     {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\ic_chart_action_bar.png",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\ic_chart_action_bar.png"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\ic_listview_action_bar.png",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\ic_listview_action_bar.png"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\ic_dataform_action_bar.png",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\ic_dataform_action_bar.png"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\ic_calendar_action_bar.png",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\ic_calendar_action_bar.png"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\screen_range_selection.jpg",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\screen_range_selection.jpg"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\ic_sidedrawer_action_bar.png",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\ic_sidedrawer_action_bar.png"
-    },
-    {
-        "merged": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\ic_dataform_action_bar_1.png",
-        "source": "C:\\Users\\IP\\AndroidStudioProjects\\pdmanager\\src\\main\\res\\drawable-port-xhdpi\\ic_dataform_action_bar_1.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi-v4\\screen_range_selection.jpg",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xhdpi\\screen_range_selection.jpg"
     }
