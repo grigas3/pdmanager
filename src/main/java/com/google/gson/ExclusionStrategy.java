@@ -26,7 +26,7 @@ package com.google.gson;
  * <p>The following are a few examples that shows how you can use this exclusion mechanism.
  * <p/>
  * <p><strong>Exclude fields and objects based on a particular class type:</strong>
- * <pre class="Code">
+ * <pre class="Type">
  * private static class SpecificClassExclusionStrategy implements ExclusionStrategy {
  * private final Class&lt;?&gt; excludedThisClass;
  * <p/>
@@ -45,7 +45,7 @@ package com.google.gson;
  * </pre>
  * <p/>
  * <p><strong>Excludes fields and objects based on a particular annotation:</strong>
- * <pre class="Code">
+ * <pre class="Type">
  * public &#64interface FooAnnotation {
  * // some implementation here
  * }
@@ -65,7 +65,7 @@ package com.google.gson;
  * <p>Now if you want to configure {@code Gson} to use a user defined exclusion strategy, then
  * the {@code GsonBuilder} is required. The following is an example of how you can use the
  * {@code GsonBuilder} to configure Gson to use one of the above sample:
- * <pre class="Code">
+ * <pre class="Type">
  * ExclusionStrategy excludeStrings = new UserDefinedExclusionStrategy(String.class);
  * Gson gson = new GsonBuilder()
  * .setExclusionStrategies(excludeStrings)
@@ -77,7 +77,7 @@ package com.google.gson;
  * however, you would register it with the
  * {@link GsonBuilder#addDeserializationExclusionStrategy(ExclusionStrategy)} method.
  * For example:
- * <pre class="Code">
+ * <pre class="Type">
  * ExclusionStrategy excludeStrings = new UserDefinedExclusionStrategy(String.class);
  * Gson gson = new GsonBuilder()
  * .addDeserializationExclusionStrategy(excludeStrings)

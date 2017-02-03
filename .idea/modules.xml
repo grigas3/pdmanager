@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Home.iml" filepath="$PROJECT_DIR$/../Home.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PDManager.iml" filepath="$PROJECT_DIR$/PDManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Patient.iml" filepath="$PROJECT_DIR$/Patient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/oidclib/oidclib.iml" filepath="$PROJECT_DIR$/libs/oidclib/oidclib.iml" />
     </modules>
   </component>
 </project>

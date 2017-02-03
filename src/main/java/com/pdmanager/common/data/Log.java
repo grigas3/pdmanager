@@ -10,6 +10,7 @@ public class Log {
     private long mTimestamp;
     private String mMessage;
     private String mType;
+    private String mSource;
 
     public int getID() {
         return mid;
@@ -40,5 +41,13 @@ public class Log {
         this.mMessage = mMessage;
     }
 
+
+    public String getSource() {
+        return mSource;
+    }
+
+    public void setSource(String mMessage) {
+        this.mSource = mSource;
+    }
 
 }

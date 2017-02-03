@@ -17,25 +17,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:baselineAligned="true"
     android:minHeight="?android:listPreferredItemHeightSmall"
     android:orientation="horizontal"
-    android:baselineAligned="true"
+    android:paddingBottom="12dp"
     android:paddingLeft="?android:listPreferredItemPaddingLeft"
     android:paddingRight="?android:listPreferredItemPaddingRight"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp">
+    android:paddingTop="12dp">
 
-    <TextView android:id="@+id/text3"
+    <TextView
+        android:id="@+id/text3"
         style="?android:textAppearanceMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="25sp"
-        android:gravity="center"/>
-
-
-
+        android:gravity="center"
+        android:textSize="25sp" />
 
 
 </LinearLayout>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_item_review_small_title.xml -->

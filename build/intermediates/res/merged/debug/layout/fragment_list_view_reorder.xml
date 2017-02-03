@@ -7,79 +7,83 @@
 
     <TextView
         android:id="@+id/header"
-        android:visibility="gone"
-        android:text="@string/list_view_reorder_header"
-        android:textSize="22sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="32dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/list_view_reorder_header"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:visibility="gone" />
 
     <LinearLayout
-        android:baselineAligned="false"
-        android:orientation="horizontal"
         android:id="@+id/menuContainer"
-        android:layout_below="@id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
         <FrameLayout
             android:id="@+id/menuItemToDo"
-            android:background="@drawable/list_view_reorder_todo_selection"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/list_view_reorder_todo_selection">
+
             <TextView
                 android:id="@+id/toDoListText"
-                android:text="@string/list_view_reorder_btn_list1"
-                android:gravity="start|bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="12dp"
-                android:paddingTop="28dp"
+                android:background="@drawable/list_view_reorder_todo_background"
+                android:gravity="start|bottom"
                 android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
-                android:textSize="14sp"
 
-                android:background="@drawable/list_view_reorder_todo_background"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:paddingTop="28dp"
+                android:text="@string/list_view_reorder_btn_list1"
+                android:textSize="14sp" />
         </FrameLayout>
+
         <FrameLayout
             android:id="@+id/menuItemShopping"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:background="@drawable/list_view_reorder_shopping_selection"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_marginStart="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/list_view_reorder_shopping_selection">
+
             <TextView
                 android:id="@+id/shoppingListText"
-                android:text="@string/list_view_reorder_btn_list2"
-                android:gravity="start|bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:paddingTop="28dp"
+                android:background="@drawable/list_view_reorder_shopping_background"
+                android:gravity="start|bottom"
                 android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
-                android:textSize="14sp"
 
-                android:background="@drawable/list_view_reorder_shopping_background"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:paddingTop="28dp"
+                android:text="@string/list_view_reorder_btn_list2"
+                android:textSize="14sp" />
         </FrameLayout>
     </LinearLayout>
 
     <com.telerik.widget.list.RadListView
-        android:layout_marginTop="12dp"
-        android:layout_below="@id/menuContainer"
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/menuContainer"
+        android:layout_marginTop="12dp">
 
     </com.telerik.widget.list.RadListView>
 
-</RelativeLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_list_view_reorder.xml -->
+</RelativeLayout>

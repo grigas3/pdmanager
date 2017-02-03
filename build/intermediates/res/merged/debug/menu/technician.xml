@@ -1,13 +1,35 @@
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context="com.pdmanager.views.ClinicianActivity">
-    <item android:id="@+id/action_mainsettings" android:title="@string/action_lock"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_example" android:title="Example"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.pdmanager.views.patient.TechnicianActivity">
+    <item
+        android:id="@+id/action_clearlog"
+        android:orderInCategory="100"
+        android:title="Clear Log"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_syncms"
+        android:orderInCategory="100"
+        android:title="Sync Health"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_lock"
+        android:orderInCategory="100"
+        android:title="Lock"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_sendqueue"
+        android:orderInCategory="100"
+        android:title="Send Queue"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Logout"
+        app:showAsAction="never" />
 
 
 </menu>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/menu/technician.xml -->

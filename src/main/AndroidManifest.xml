@@ -7,10 +7,12 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
     <uses-permission android:name="com.microsoft.band.service.access.BIND_BAND_SERVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -22,7 +24,33 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
+    <permission
+        android:name="com.oovoo.sdk.oovoosdksampleshow.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.oovoo.sdk.oovoosdksampleshow.gcm.permission.C2D_MESSAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
     <uses-feature
         android:name="android.hardware.sensor.gyroscope"
         android:required="false" />
@@ -40,57 +68,78 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name=".PDApplicationContext"
+        android:name=".PDPilotAppContext"
         android:allowBackup="true"
         android:icon="@drawable/pdmanagerhome"
         android:label="@string/app_name"
         android:theme="@style/ApplicationTheme">
-        <service android:name=".RecordingService" />
+        <service android:name="com.pdmanager.services.RecordingService" />
 
         <receiver android:name=".PDBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <activity
-            android:name="com.pdmanager.views.MainActivity"
+            android:name="com.pdmanager.views.patient.MedAlertActivity"
+        android:launchMode="singleTask"
+        android:taskAffinity=""
+        android:excludeFromRecents="true">
+    </activity>
+        <activity
+            android:name="com.pdmanager.views.patient.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/BrandedActionBarTheme"></activity>
-        <activity
-            android:name="com.pdmanager.views.SplashActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name="com.pdmanager.views.HomeActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
-
-        <activity
-            android:name="com.pdmanager.views.BS11Activity"
-            android:label="PDManager">
-
-        </activity>
-        <activity
-            android:name="com.pdmanager.views.NMSSActivity"
-            android:label="PDManager">
-
-        </activity>
-        <activity
-            android:name="com.pdmanager.views.LoginActivity"
-            android:label="PDManager"
-            android:windowSoftInputMode="adjustResize|stateVisible">
+            android:theme="@style/BrandedActionBarTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+
+                    <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
-            android:name="com.pdmanager.views.FilesActivity"
+            android:name="com.pdmanager.views.call.SplashActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.pdmanager.views.HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.pdmanager.views.patient.TechnicianActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.patient.MSSyncActivity"
+            android:label="PDManager">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.clinician.BS11Activity"
+            android:label="PDManager" />
+        <activity
+            android:name="com.pdmanager.views.clinician.NMSSActivity"
+            android:label="PDManager" />
+        <activity
+            android:name="com.pdmanager.views.common.LoginActivity"
+            android:label="PDManager"
+            android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.patient.FilesActivity"
             android:configChanges="orientation|keyboard"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name="com.dropbox.core.android.AuthActivity"
             android:configChanges="orientation|keyboard"
@@ -107,30 +156,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pdmanager.views.HelpActivity"
-            android:label="@string/title_activity_help"></activity>
+            android:name="com.pdmanager.views.common.HelpActivity"
+            android:label="@string/title_activity_help" />
         <activity
-            android:name="com.pdmanager.views.PatientChartActivity"
-            android:label="@string/app_name"></activity>
-
+            android:name="com.pdmanager.views.clinician.PatientChartActivity"
+            android:label="@string/app_name" />
         <activity
             android:name="com.pdmanager.views.TestMedicationOrderActivity"
-            android:label="@string/title_activity_clinician">
-
-        </activity>
-
+            android:label="@string/title_activity_clinician" />
         <activity
-            android:name="com.pdmanager.views.ClinicianActivity"
+            android:name="com.pdmanager.views.clinician.ClinicianActivity"
             android:label="@string/title_activity_clinician"
             android:theme="@style/BrandedActionBarTheme">
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value=".views.SearchPatientActivity" />
-
-
         </activity>
-        <activity android:name="com.pdmanager.views.SearchPatientActivity">
-
+        <activity android:name="com.pdmanager.views.clinician.SearchPatientActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
 
@@ -140,8 +182,30 @@
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
-
         </activity>
+        <!-- [START oidc_activities] -->
+        <activity
+            android:name="com.lnikkila.oidc.authenticator.AuthenticatorActivity"
+            android:theme="@style/Theme.OidcLib" />
+        <activity android:name="com.lnikkila.oidc.authenticator.OIDCClientConfigurationActivity" />
+        <!-- [END oidc_activitie] -->
+
+
+
+        <!-- [END firebase_iid_service] -->
+
+        <service android:name="com.lnikkila.oidc.authenticator.AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+
+
     </application>
 
 </manifest>

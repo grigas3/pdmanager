@@ -69,6 +69,8 @@ public class HRMonitoring implements IDataProcessor {
                 if (stCount >= MAXST) {
 
 
+
+
                     Observation obs = new Observation(stMean / stCount, "ST", hrD.getTicks(), mpID);
                     tmpObservations.add(obs);
                     stCount = 0;

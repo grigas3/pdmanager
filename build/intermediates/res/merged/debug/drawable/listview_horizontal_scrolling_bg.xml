@@ -6,8 +6,8 @@
         </shape>
     </item>
     <!--<item>-->
-        <!--<bitmap-->
-            <!--android:src="@drawable/listview_horizontal_bg"-->
-            <!--android:tileMode="repeat" />-->
+    <!--<bitmap-->
+    <!--android:src="@drawable/listview_horizontal_bg"-->
+    <!--android:tileMode="repeat" />-->
     <!--</item>-->
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/listview_horizontal_scrolling_bg.xml -->
+</layer-list>

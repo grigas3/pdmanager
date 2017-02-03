@@ -11,4 +11,4 @@
             android:gravity="center"
             android:src="@drawable/icon_code" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/example_view_code_pressed.xml -->
+</layer-list>

@@ -1,13 +1,29 @@
 package com.pdmanager.core.communication;
 
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Environment;
+import android.text.format.Time;
 import android.util.Log;
 
+import com.microsoft.band.BandClient;
+import com.microsoft.band.BandException;
+import com.microsoft.band.BandPendingResult;
+import com.microsoft.band.ConnectionState;
+import com.pdmanager.common.Util;
 import com.pdmanager.core.interfaces.IJsonRequestHandler;
 import com.pdmanager.core.models.PDEntity;
+import com.pdmanager.services.RecordingService;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by george on 6/1/2016.
@@ -64,9 +80,10 @@ public class CommunicationManager {
         codemap.put("MedicationOrder", "http://pdmanager.3dnetmedical.com/api/medicationorders");
         codemap.put("PatientCalendar", "http://pdmanager.3dnetmedical.com/api/observations");
         codemap.put("Observation", "http://pdmanager.3dnetmedical.com/api/observations");
-
-        //MedicationIntake
+        codemap.put("UsageStatistic", "http://pdmanager.3dnetmedical.com/api/usagestatistics");
+        codemap.put("Alert", "http://pdmanager.3dnetmedical.com/api/logs");
         codemap.put("MedicationIntake", "http://pdmanager.3dnetmedical.com/api/medicationadministrations");
+        codemap.put("Device", "http://pdmanager.3dnetmedical.com/api/devices");
     }
 
     private void initCodeMap() {
@@ -154,17 +171,15 @@ public class CommunicationManager {
 
 
         try {
+
+
+
             if (items.size() > 0) {
 
 
-                T item = items.get(0);
-                String uri = getUri("POST", item.getPDType());
-                String json = JsonSerializationHelper.toJson(items);
-                if (mHandler != null) {
+                new SendItemsTask<T>(mHandler).execute(items);
 
-                    mHandler.AddRequest(new JsonStorage(json, uri));
 
-                }
 
             }
 
@@ -174,6 +189,118 @@ public class CommunicationManager {
         }
 
 
+    }
+    public <T extends PDEntity> void SendItems(ArrayList<T> items,boolean writeFile) {
+
+        if (writeFile) {
+
+            new WriteItemsTask<T>(mHandler).execute(items);
+        }
+        SendItems(items);
+
+
+    }
+    ////Connect Task
+    /// The connect task asynchronously tries to connect to Microsoft Band
+    private class SendItemsTask<T extends PDEntity> extends AsyncTask<ArrayList<T>, Void, Boolean> {
+
+
+        private IJsonRequestHandler tHandler;
+
+        SendItemsTask(IJsonRequestHandler phandler)
+        {
+
+            this.tHandler=phandler;
+        }
+
+
+        @Override
+        protected Boolean doInBackground(ArrayList<T>... clientParams) {
+
+            ArrayList<T> items = null;
+            try {
+                items = clientParams[0];
+               // if (items.size() > 0) {
+
+
+                    T item = items.get(0);
+                    String uri = getUri("POST", item.getPDType());
+                    String json = JsonSerializationHelper.toJson(items);
+                    if (tHandler != null) {
+
+                        tHandler.AddRequest(new JsonStorage(json, uri));
+
+                    }
+
+
+
+
+
+
+            } catch (Exception ex) {
+
+                Util.handleException("Send Items Async", ex);
+
+                return false;
+                // handle BandException
+            }
+
+            return true;
+        }
+
+        protected void onPostExecute(Boolean result) {
+
+
+            //TODO: Probably do something
+        }
+    }
+
+
+
+    ////Connect Task
+    /// The connect task asynchronously tries to connect to Microsoft Band
+    private class WriteItemsTask<T extends PDEntity> extends AsyncTask<ArrayList<T>, Void, Boolean> {
+
+
+        private IJsonRequestHandler tHandler;
+
+        WriteItemsTask(IJsonRequestHandler phandler)
+        {
+
+            this.tHandler=phandler;
+        }
+
+
+        @Override
+        protected Boolean doInBackground(ArrayList<T>... clientParams) {
+
+            ArrayList<T> items = null;
+            try {
+                items = clientParams[0];
+                // if (items.size() > 0) {
+
+
+                T item = items.get(0);
+
+                JsonSerializationHelper.toJsonFile(items,item.getPDType());
+
+
+            } catch (Exception ex) {
+
+                Util.handleException("Write Items Async", ex);
+
+                return false;
+                // handle BandException
+            }
+
+            return true;
+        }
+
+        protected void onPostExecute(Boolean result) {
+
+
+            //TODO: Probably do something
+        }
     }
 
 

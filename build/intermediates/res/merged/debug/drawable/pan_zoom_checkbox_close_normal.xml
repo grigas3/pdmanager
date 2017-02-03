@@ -6,4 +6,4 @@
             <solid android:color="@color/panZoomCloseColor" />
         </shape>
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/pan_zoom_checkbox_close_normal.xml -->
+</layer-list>

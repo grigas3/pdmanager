@@ -22,7 +22,7 @@ import java.lang.reflect.Type;
  * This interface is implemented to create instances of a class that does not define a no-args
  * constructor. If you can modify the class, you should instead add a private, or public
  * no-args constructor. However, that is not possible for library classes, such as JDK classes, or
- * a third-party library that you do not have source-Code of. In such cases, you should define an
+ * a third-party library that you do not have source-Type of. In such cases, you should define an
  * instance creator for the class. Implementations of this interface should be registered with
  * {@link GsonBuilder#registerTypeAdapter(Type, Object)} method before Gson will be able to use
  * them.
@@ -50,7 +50,7 @@ import java.lang.reflect.Type;
  * }
  * </pre>
  * <p/>
- * <p>However, let us assume that the developer does not have access to the source-Code of the
+ * <p>However, let us assume that the developer does not have access to the source-Type of the
  * {@code Id} class, or does not want to define a no-args constructor for it. The developer
  * can solve this problem by defining an {@code InstanceCreator} for {@code Id}:</p>
  * <p/>

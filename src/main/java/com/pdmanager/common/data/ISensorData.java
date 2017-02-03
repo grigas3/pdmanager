@@ -11,5 +11,6 @@ public interface ISensorData {
     String getDisplay();
 
     String getRawDisplay();
+    //ISensorData[] CreateArray(int n);
 
 }

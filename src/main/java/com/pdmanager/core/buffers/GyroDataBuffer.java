@@ -15,7 +15,7 @@ public class GyroDataBuffer extends DataBuffer<GyroData> {
 
     private String name;
 
-    public GyroDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public GyroDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

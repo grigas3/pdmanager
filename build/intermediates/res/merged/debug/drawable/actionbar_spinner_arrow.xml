@@ -6,4 +6,4 @@
             android:gravity="right|center_vertical"
             android:src="@drawable/spinner_arrow" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/actionbar_spinner_arrow.xml -->
+</layer-list>

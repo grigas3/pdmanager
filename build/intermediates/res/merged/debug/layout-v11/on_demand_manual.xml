@@ -7,4 +7,4 @@
     android:textSize="14sp"
     android:textColor="@color/listAccentColor"
     style="?android:attr/borderlessButtonStyle"
-    android:text="@string/on_demand_manual_button_idle"/><!-- From: file:/C:/_J/jobs/BuildAll_Upload_2015q3sp/workspace/List/src/main/res/layout-v11/on_demand_manual.xml --><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/layout-v11/on_demand_manual.xml -->
+    android:text="@string/on_demand_manual_button_idle"/><!-- From: file:/C:/_J/jobs/BuildAll_Upload_2015q3sp/workspace/List/src/main/res/layout-v11/on_demand_manual.xml -->

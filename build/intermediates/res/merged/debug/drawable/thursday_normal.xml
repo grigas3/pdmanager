@@ -14,9 +14,8 @@
 
     <item>
         <bitmap
-            android:src="@drawable/scatteredclouds"
-            android:gravity="center" />
+            android:gravity="center"
+            android:src="@drawable/scatteredclouds" />
     </item>
 </layer-list>
 
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/thursday_normal.xml -->

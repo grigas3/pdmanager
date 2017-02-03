@@ -7,9 +7,9 @@ package com.pdmanager.core.posturedetector.Core.Interfaces;
 import com.pdmanager.core.posturedetector.Core.Signals.NamedSignalCollection;
 
 /*
- * This Code was developed by George Rigas
+ * This Type was developed by George Rigas
  * in 2015 for project AMI Health.
- * The copyrights of the Code belong to Medlab (UOI).
+ * The copyrights of the Type belong to Medlab (UOI).
  * */
 
 /**

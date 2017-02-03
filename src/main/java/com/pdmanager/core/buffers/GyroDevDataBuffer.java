@@ -16,7 +16,7 @@ public class GyroDevDataBuffer extends DataBuffer<GyroMData> {
     private final byte[] dbytes = new byte[8];
     private String name;
 
-    public GyroDevDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public GyroDevDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

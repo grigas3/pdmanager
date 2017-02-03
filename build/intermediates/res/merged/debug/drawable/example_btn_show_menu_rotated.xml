@@ -7,4 +7,4 @@
             <bitmap android:src="@drawable/btn_show_bg" />
         </rotate>
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/example_btn_show_menu_rotated.xml -->
+</layer-list>

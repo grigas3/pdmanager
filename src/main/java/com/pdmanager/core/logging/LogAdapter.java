@@ -29,7 +29,7 @@ public class LogAdapter {
     public LogAdapter open() throws SQLException {
 
 
-        mDbHelper = new DBHandler(mCtx);
+        mDbHelper = DBHandler.getInstance(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         dbOpen = true;
         return this;
@@ -42,18 +42,37 @@ public class LogAdapter {
         }
     }
 
+    public void clearAlerts() {
+
+        mDbHelper = DBHandler.getInstance(mCtx);
+        mDbHelper.clearTable(DBHandler.TABLE_ALERTS);
+        mDbHelper.close();
+        //mCtx.getContentResolver().notifyChange(DBHandler.URI_TABLE_USERS, null);
+
+    }
 
     public void clearLog() {
 
-        mDbHelper = new DBHandler(mCtx);
-        mDb = mDbHelper.getWritableDatabase();
-        mDb.delete(DBHandler.TABLE_LOGS, null, null);
+        mDbHelper = DBHandler.getInstance(mCtx);
+        mDbHelper.clearTable(DBHandler.TABLE_LOGS);
         mDbHelper.close();
+
+
         mCtx.getContentResolver().notifyChange(DBHandler.URI_TABLE_USERS, null);
 
     }
 
+    public void clearCommQueue() {
 
+
+        mDbHelper = DBHandler.getInstance(mCtx);
+        mDbHelper.clearTable(DBHandler.TABLE_JREQUESTS);
+        mDbHelper.close();
+       /*
+        mCtx.getContentResolver().notifyChange(DBHandler.URI_TABLE_USERS, null);
+        */
+
+    }
     public Cursor fetchLogs() {
 
 

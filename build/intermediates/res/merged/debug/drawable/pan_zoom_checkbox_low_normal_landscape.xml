@@ -6,4 +6,4 @@
             <solid android:color="@color/panZoomLowColor" />
         </shape>
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/pan_zoom_checkbox_low_normal_landscape.xml -->
+</layer-list>

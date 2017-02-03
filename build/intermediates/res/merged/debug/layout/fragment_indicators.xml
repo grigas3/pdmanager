@@ -42,18 +42,18 @@
             android:id="@+id/technicals_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="TECHNICALS"
             android:background="@drawable/indicators_btn"
-            android:layout_marginLeft="5dp" />
+            android:text="TECHNICALS" />
 
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".70"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_weight=".70">
 
         <com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView
             android:id="@+id/chart_main"
@@ -91,4 +91,3 @@
     </FrameLayout>
 
 </LinearLayout>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_indicators.xml -->

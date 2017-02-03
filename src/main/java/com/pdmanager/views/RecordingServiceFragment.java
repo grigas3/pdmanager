@@ -1,15 +1,20 @@
 package com.pdmanager.views;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ContentValues;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.CalendarContract;
+import android.support.v4.app.ActivityCompat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.Log;
@@ -20,22 +25,34 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.microsoft.band.BandPendingResult;
+import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.BandSensorManager;
 import com.microsoft.band.sensors.HeartRateConsentListener;
-import com.pdmanager.controls.CircleButton;
 import com.pdmanager.core.R;
-import com.pdmanager.core.RecordingService;
+import com.pdmanager.core.alerting.UserAlertManager;
+import com.pdmanager.core.communication.DataReceiver;
+import com.pdmanager.core.interfaces.IBandTileManager;
 import com.pdmanager.core.interfaces.ISensorStatusListener;
 import com.pdmanager.core.interfaces.IServiceStatusListener;
 import com.pdmanager.core.logging.LogHandler;
+import com.pdmanager.core.medication.MedManager;
+import com.pdmanager.core.models.Device;
+import com.pdmanager.core.models.DeviceResult;
+import com.pdmanager.core.models.PatientMedicationResult;
 import com.pdmanager.core.sensor.IHeartRateAccessProvider;
 import com.pdmanager.core.sensor.RecordingServiceHandler;
 import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.services.RecordingService;
+import com.pdmanager.views.patient.MSSyncActivity;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -43,17 +60,43 @@ import java.util.TimerTask;
 public class RecordingServiceFragment extends BasePDFragment implements FragmentListener, IServiceStatusListener, ISensorStatusListener, IHeartRateAccessProvider, HeartRateConsentListener {
 
 
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static final int REQUEST_CONTACTS = 1;
+    private static final int REQUEST_PHONE_STATE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+
+
+    };
+    private static String[] PERMISSIONS_CONTACTS = {
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.WRITE_CONTACTS,
+
+
+    };
+    private static String[] PERMISSIONS_PHONE = {
+            Manifest.permission.READ_PHONE_STATE
+
+
+    };
     final Handler handler = new Handler();
-    private CircleButton mButtonConnect;
+    private Button mButtonConnect;
     private Button mButtonChooseBand;
     private Button mButtonSetLimits;
+    private Button mButtonRequireStorPermissions;
+    private Button mbuttonGetMedications;
+    private Button mbuttonMSHealthSync;
+    private Button mGetDevice;
+    private IBandTileManager tileManager;
+    private TextView mDeviceId;
     private EditText mLow;
     private EditText mHigh;
+    private TextView mTextLoggedIn;
     private EditText mDuration;
-
-
+    private ProgressBar busyIndicator;
+    private LinearLayout layout;
     private ImageView mBandSensorImage;
-
     private boolean bandRequired = true;
     private Timer myTimer;
     private TextView mSensorStatus;
@@ -61,8 +104,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     // Handle connect/disconnect requests.
     //
     private TextView mMonitoringStatus;
-
-
     private View.OnClickListener mButtonCheckClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View button) {
@@ -72,7 +113,56 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         }
     };
+    private View.OnClickListener mButtonDeviceClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View button) {
 
+
+            RecordingSettings settings = new RecordingSettings(getContext());
+            //new MSSyncActivity.SyncHealthDataTask(settings.getPatientID(),settings.getToken()).execute(result);
+
+            new GetDeviceTask(settings.getPatientID(), settings.getToken()).execute();
+
+
+            //new GetObservationsTask().execute(new ObservationParams("TEST01","001"));
+
+            //new GetCodesTask().execute();
+            //    new GetPatientsTask().execute();
+
+
+        }
+    };
+    private View.OnClickListener mbuttonGetMedicationsListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View button) {
+
+
+            busyIndicator.setVisibility(View.VISIBLE);
+            layout.setVisibility(View.INVISIBLE);
+            new GetMedicationTask(getPatientCode(), getAccessToken()).execute();
+
+        }
+    };
+    private View.OnClickListener mbuttonMSHealthSyncListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View button) {
+
+
+            Intent mainIntent = new Intent(getActivity(), MSSyncActivity.class);
+            getActivity().startActivity(mainIntent);
+
+
+        }
+    };
+    private View.OnClickListener mButtonRequirePermissions = new View.OnClickListener() {
+        @Override
+        public void onClick(View button) {
+
+
+            requireStoragePermissions(getActivity());
+
+        }
+    };
     //
     // If there are multiple bands, the "choose band" button is enabled and
     // launches a dialog where we can select the band to use.
@@ -100,10 +190,10 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                 LogHandler.getInstance().Log("Session Stopped by user");
                 mButtonConnect.setEnabled(false);
-                mButtonConnect.setColor(Color.GRAY);
-
-
+                mButtonConnect.setBackgroundColor(Color.GRAY);
                 settings.setSessionRunning(false);
+
+
                 getService().StopRecording();
 
             } else
@@ -149,7 +239,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 //                                    mButtonConnect.setColor(Color.GREEN);
                         LogHandler.getInstance().Log("Session started by user");
                         mButtonConnect.setEnabled(false);
-                        mButtonConnect.setColor(Color.GRAY);
+                        mButtonConnect.setBackgroundColor(Color.GRAY);
 
 
                         //     AddReminders(settings.getStartHour(),settings.getStopHour(),settings);
@@ -159,12 +249,19 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                     } else {
 
+
+                        ///IN ANDROID 23+ WE NEED TO ASK FOR EXTRA STORAGE PERMISSIONS
+                        requireStoragePermissions(getActivity());
+
                         Time today = new Time(Time.getCurrentTimezone());
                         today.setToNow();
                         settings.setSessionFolder(CreateFolder(today));
                         LogHandler.getInstance().Log("Session started by user");
                         mButtonConnect.setEnabled(false);
-                        mButtonConnect.setColor(Color.GRAY);
+                        mButtonConnect.setBackgroundColor(Color.GRAY);
+                        UserAlertManager.newInstance(getContext()).clearAll();
+
+
                         getService().StartRecording();
 
                                  /*   if (!res) {
@@ -194,6 +291,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             }
 
+
             //    }
 
             //   refreshControls();
@@ -210,11 +308,59 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         }
     };
-
-
     public RecordingServiceFragment() {
 
 
+    }
+
+    public void setTileManager(IBandTileManager manager) {
+
+        this.tileManager = manager;
+    }
+
+    /**
+     * Checks if the app has permission to write to device storage
+     * <p>
+     * If the app does not has permission then the user will be prompted to grant permissions
+     *
+     * @param activity
+     */
+    public void requireStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+
+
+        int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
+
+        if (permission2 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_CONTACTS,
+                    REQUEST_CONTACTS
+            );
+        }
+
+
+        int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
+
+        if (permission3 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_PHONE,
+                    REQUEST_PHONE_STATE
+            );
+        }
     }
 
     public boolean isBluetoothEnabled() {
@@ -413,12 +559,39 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_band, container, false);
 
-        mButtonConnect = (CircleButton) rootView.findViewById(R.id.buttonConnect);
+
+        mGetDevice = (Button) rootView.findViewById(R.id.buttonGetDevice);
+        mDeviceId = (TextView) rootView.findViewById(R.id.textDeviceId);
+        mGetDevice.setOnClickListener(mButtonDeviceClickListener);
+
+
+        mButtonConnect = (Button) rootView.findViewById(R.id.buttonConnect);
         mButtonConnect.setOnClickListener(mButtonConnectClickListener);
+
+
+        mButtonRequireStorPermissions = (Button) rootView.findViewById(R.id.buttonRequirePermissions);
+        mButtonRequireStorPermissions.setOnClickListener(mButtonRequirePermissions);
+
+
+        mbuttonGetMedications = (Button) rootView.findViewById(R.id.buttonGetMedications);
+        mbuttonGetMedications.setOnClickListener(mbuttonGetMedicationsListener);
+
+        mbuttonMSHealthSync = (Button) rootView.findViewById(R.id.buttonGetMSHealth);
+        mbuttonMSHealthSync.setOnClickListener(mbuttonMSHealthSyncListener);
 
 
         mMonitoringStatus = (TextView) rootView.findViewById(R.id.textConnectionStatus);
         mSensorStatus = (TextView) rootView.findViewById(R.id.textSensorStatus);
+
+        busyIndicator = (ProgressBar) rootView.findViewById(R.id.sync_progress);
+
+        layout = (LinearLayout) rootView.findViewById(R.id.mainLayout);
+
+        mDeviceId.setText(RecordingSettings.newInstance(this.getContext()).getDeviceId());
+
+
+
+        mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
         /*
         mSwitchHeartRate = (Switch) rootView.findViewById(R.id.heartRateSwitch);
 
@@ -458,6 +631,28 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         refreshControls();
     }
 
+    private void updateLoggedInInfo()
+    {
+        RecordingSettings settings =getSettings();
+        if (settings != null) {
+
+            if (settings.getLoggedIn()) {
+
+                mTextLoggedIn.setText(" Logged in as "+settings.getUserName());
+
+                mTextLoggedIn.setTextColor(Color.GREEN);
+            }
+            else
+            {
+                mTextLoggedIn.setText("Not Logged In");
+                mTextLoggedIn.setTextColor(Color.YELLOW);
+            }
+
+        }
+    }
+
+
+
     private RecordingService getService() {
         return RecordingServiceHandler.getInstance().getService();
     }
@@ -472,41 +667,60 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 @Override
                 public void run() {
 
-                    RecordingService service = getService();
-                    if (service != null) {
+                    try {
+
+                        RecordingService service = getService();
+                        if (service != null) {
 
 
-                        if (mButtonConnect != null) {
-                            mButtonConnect.setEnabled(true);
+                            if (mButtonConnect != null) {
+                                mButtonConnect.setEnabled(true);
 
-                            if (service.getSessionMustRun()) {
 
-                                mButtonConnect.setColor(Color.RED);
-                                mButtonConnect.setImageResource(R.drawable.ic_action_stop);
-                            } else {
+                                if (service.getSessionMustRun()) {
 
-                                mButtonConnect.setColor(Color.GREEN);
-                                mButtonConnect.setImageResource(R.drawable.ic_action_play);
+                                    mButtonConnect.setBackgroundColor(Color.RED);
+                                    mButtonConnect.setText("Stop");
+                                    mbuttonMSHealthSync.setEnabled((false));
+                                    //mButtonConnect.setImageResource(R.drawable.ic_action_stop);
+                                } else {
 
-                                //  mButtonConnect.setText("Start");
+                                    mButtonConnect.setBackgroundColor(Color.GREEN);
+                                    mButtonConnect.setText("Start");
+                                    mbuttonMSHealthSync.setEnabled((true));
+                                    // mButtonConnect.setImageResource(R.drawable.ic_action_play);
+
+                                    //  mButtonConnect.setText("Start");
+
+                                }
+
+
+                            } else
+
+                            {
+
+                                mButtonConnect.setEnabled(false);
+                                mButtonConnect.setBackgroundColor(Color.GREEN);
+                                mButtonConnect.setText("Start");
+                                //  mButtonConnect.setImageResource(R.drawable.ic_action_play);
+                                mButtonConnect.setEnabled(true);
+
+                                mbuttonMSHealthSync.setEnabled((true));
+
 
                             }
 
 
-                        } else
-
-                        {
-
-                            mButtonConnect.setEnabled(false);
-                            mButtonConnect.setColor(Color.GREEN);
-                            mButtonConnect.setImageResource(R.drawable.ic_action_play);
-                            mButtonConnect.setEnabled(true);
-
-
                         }
+
+                        updateLoggedInInfo();
                     }
+                    catch (Exception ex)
+                    {
 
+                        Log.e(("SERVICE FRAGMENT"),"Refresh Controls",ex.getCause());
 
+                    }
                 }
             });
         }
@@ -639,5 +853,152 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             }
         }
     }
+
+    private class GetDeviceTask extends AsyncTask<Void, Void, DeviceResult> {
+
+
+        private String code;
+        private String accessToken;
+
+        public GetDeviceTask(String pcode, String a) {
+
+
+            this.code = pcode;
+            this.accessToken = a;
+
+        }
+
+
+        @Override
+        protected DeviceResult doInBackground(Void... clientParams) {
+
+            DeviceResult res = new DeviceResult();
+
+            try {
+
+                DataReceiver receiver = new DataReceiver(accessToken);
+
+                List<Device> devices = receiver.GetDevices(code);
+
+                if (devices.size() > 0) {
+
+
+                    for (Device d : devices) {
+
+                        if (d.PatientId.equals(code)) {
+                            res.DeviceId = d.Id;
+
+                        }
+
+                    }
+
+
+                    res.HasError = false;
+
+
+                }
+            } catch (Exception e) {
+                res.HasError = true;
+            }
+
+            return res;
+
+        }
+
+        protected void onPostExecute(DeviceResult result) {
+
+            if (!result.HasError) {
+                RecordingSettings settings = new RecordingSettings(getContext());
+                mDeviceId.setText(result.DeviceId);
+                settings.setDeviceId(result.DeviceId);
+            }
+
+            if (tileManager != null)
+                tileManager.createTile();
+
+
+        }
+
+    }
+
+    private class GetMedicationTask extends AsyncTask<Void, Void, PatientMedicationResult> {
+
+        private String accessToken;
+        private String patientCode;
+
+        public GetMedicationTask(String code, String a) {
+
+            this.patientCode = code;
+            this.accessToken = a;
+        }
+
+        @Override
+        protected PatientMedicationResult doInBackground(Void... clientParams) {
+            PatientMedicationResult res = new PatientMedicationResult();
+            BandPendingResult<ConnectionState> pendingResult = null;
+            try {
+                DataReceiver receiver = new DataReceiver(accessToken);
+
+
+                res.orders = receiver.GetMedicationOrders(patientCode);
+
+
+                return res;
+
+            } catch (Exception ex) {
+
+
+                Log.e("MEDS","Get Meds",ex.getCause());
+                res.setError(true);
+                //Util.handleException("Getting data", ex);
+
+                // handle BandException
+            }
+            return res;
+        }
+
+
+        protected void onPostExecute(PatientMedicationResult result) {
+
+
+            if(!result.hasError()) {
+                MedManager manager = new MedManager(getContext());
+                //Clear Medication Orders
+                manager.clearMedOrders();
+                //Add Medication Orders
+                manager.addMedicationOrders(result.orders);
+
+                busyIndicator.setVisibility(View.INVISIBLE);
+                layout.setVisibility(View.VISIBLE);
+
+            }
+            /*
+
+            busyIndicator.setVisibility(View.INVISIBLE);
+
+            List<PendingMedication> res = filterCurrentOrders(result);
+            //TODO PROPERLY CHECK CONNECTION
+            if (res != null) {
+                if (res.size() == 0) {
+
+
+                    emptyList.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.INVISIBLE);
+                } else {
+
+                    emptyList.setVisibility(View.INVISIBLE);
+                    listView.setVisibility(View.VISIBLE);
+                }
+                adapter = new PendingMedOrderAdapter(res);
+
+
+                listView.setAdapter(adapter);
+            }
+
+            */
+
+        }
+    }
+
 
 }

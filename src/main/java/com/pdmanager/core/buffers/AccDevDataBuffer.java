@@ -17,7 +17,7 @@ public class AccDevDataBuffer extends DataBuffer<AccMData> {
     private final byte[] dbytes = new byte[8];
     private String name;
 
-    public AccDevDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public AccDevDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

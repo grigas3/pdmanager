@@ -24,4 +24,4 @@
         android:textColor="@color/white"
         android:textSize="12sp" />
 
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/calendar_main_event_list_allday_item.xml -->
+</FrameLayout>

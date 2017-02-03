@@ -179,7 +179,7 @@ public class NavigationDrawerFragment extends Fragment {
             mDrawerLayout.openDrawer(mFragmentContainerView);
         }
 
-        // Defer Code dependent on restoration of previous instance state.
+        // Defer Type dependent on restoration of previous instance state.
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -249,10 +249,6 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

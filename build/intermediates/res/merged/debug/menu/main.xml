@@ -1,16 +1,14 @@
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context="com.pdmanager.views.MainActivity">
-
-    <item android:id="@+id/action_clearlog" android:title="Clear Log"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.pdmanager.views.patient.MainActivity">
 
 
-    <item android:id="@+id/action_sendqueue" android:title="Send Queue"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_logout" android:title="Logout"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_technician"
+        android:orderInCategory="100"
+        android:title="Technician"
+        app:showAsAction="never" />
+
 </menu>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/menu/main.xml -->

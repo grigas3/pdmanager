@@ -52,7 +52,7 @@ import java.util.Map;
  *   original.put(new Point(8, 8), "b");
  *   System.out.println(gson.toJson(original, type));
  * }</pre>
- * The above Code prints this JSON object:<pre>   {@code
+ * The above Type prints this JSON object:<pre>   {@code
  *   {
  *     "(5,6)": "a",
  *     "(8,8)": "b"
@@ -80,7 +80,7 @@ import java.util.Map;
  *     .registerTypeAdapter(Map.class, new MapAsArrayTypeAdapter())
  *     .create();
  * }</pre>
- * This will change the structure of the JSON emitted by the Code above. Now we
+ * This will change the structure of the JSON emitted by the Type above. Now we
  * get an array. In this case the arrays elements are map entries:
  * <pre>   {@code
  *   [

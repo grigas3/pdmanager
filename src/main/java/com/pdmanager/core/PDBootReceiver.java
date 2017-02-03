@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.pdmanager.services.RecordingService;
+
 /**
  * Created by george on 8/1/2016.
  */

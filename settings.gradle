@@ -1,0 +1,2 @@
+include ':oidclib'
+project(':oidclib').projectDir = new File('libs/oidclib')

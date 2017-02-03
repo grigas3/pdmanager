@@ -74,7 +74,7 @@ import static com.google.gson.stream.JsonScope.NONEMPTY_OBJECT;
  *     }
  *   }
  * ]}</pre>
- * This Code encodes the above structure: <pre>   {@code
+ * This Type encodes the above structure: <pre>   {@code
  *   public void writeJsonStream(OutputStream out, List<Message> messages) throws IOException {
  *     JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
  *     writer.setIndent("    ");

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string-array name="indicators_range_button_text">
         <item>Range: <b>1 M</b></item>
         <item>Range: <b>6 M</b></item>
@@ -14,24 +12,22 @@
         <item>1 year</item>
         <item>5 years</item>
     </string-array>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
+    <string-array name="oidc_authextras">
+        <item>prompt|login</item>
+        <item>access_type|offline</item>
+    </string-array>
+    <string-array name="oidc_scopes">
+        <item>mshealth.ReadProfile</item>
+        <item>mshealth.ReadActivityHistory</item>
+    </string-array>
     <attr format="boolean" name="applyDefaultPalette"/>
     <attr format="boolean" name="areBarsRounded"/>
     <attr format="boolean" name="clipToPlotArea"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <attr format="color" name="fillColor"/>
     <attr format="float" name="gapLength"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <attr format="color" name="labelColor"/>
     <attr format="string" name="labelFont"/>
     <attr format="integer" name="labelFontStyle"/>
@@ -48,49 +44,40 @@
     <attr format="boolean" name="showLabels"/>
     <attr format="color" name="strokeColor"/>
     <attr format="dimension" name="strokeWidth"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
     <bool name="abc_action_bar_expanded_action_views_exclusive">true</bool>
-    <bool name="abc_allow_stacked_button_bar">false</bool>
+    <bool name="abc_allow_stacked_button_bar">true</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <bool name="oidc_encryptKeyAskPin">false</bool>
+    <bool name="oidc_oauth2only">true</bool>
+    <bool name="webview_allow_js">true</bool>
     <color name="Black">#ffffffff</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="aboutPageVersionNumberColor">#FF2CB145</color>
     <color name="aboutPageVersionTextColor">#FF595959</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="accent">#FF6F00</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="axesPriceColor">#A666CE</color>
     <color name="axesVolumeColor">#4FB6E7</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="background">#fafafa</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="bar_dark_color">#CECECE</color>
+    <color name="bar_light_color">#F2F2F2</color>
+    <color name="bar_meduim_color">#DFDEE0</color>
     <color name="black">#000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="black_overlay">#66000000</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -99,8 +86,6 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="calendar_background_range_example">#F2F2F2</color>
     <color name="calendar_event_text_color">#737373</color>
     <color name="calendar_example_background">#FFDDDDDD</color>
@@ -113,34 +98,26 @@
     <color name="chart_example_menu_color2">#ff004173</color>
     <color name="chart_example_menu_color3">#ff00a5c2</color>
     <color name="chart_example_menu_color4">#ff018e86</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_colors.xml -->
-    <eat-comment/>
-    <color name="common_action_bar_splitter">#d2d2d2</color>
-    <color name="common_signin_btn_dark_text_default">@android:color/white</color>
-    <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
-    <color name="common_signin_btn_dark_text_focused">@android:color/white</color>
-    <color name="common_signin_btn_dark_text_pressed">@android:color/white</color>
-    <color name="common_signin_btn_default_background">#FFDD4B39</color>
-    <color name="common_signin_btn_light_text_default">#FF737373</color>
-    <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
-    <color name="common_signin_btn_light_text_focused">#FF737373</color>
-    <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="color_preloader_center">#FFCCCB</color>
+    <color name="color_preloader_end">#00FF00</color>
+    <color name="color_preloader_start">#FF0000</color>
+    <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
+    <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
+    <color name="common_google_signin_btn_text_dark_pressed">@android:color/white</color>
+    <color name="common_google_signin_btn_text_light_default">#90000000</color>
+    <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
+    <color name="common_google_signin_btn_text_light_focused">#90000000</color>
+    <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
     <color name="controlBackground">#FF00BBBC</color>
     <color name="controlBackgroundHighlighted">#FF584B45</color>
+    <color name="controller_grey">#EAEAEA</color>
     <color name="dark_grey_text_color">#E64A19</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Input-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="data_form_list_selected">#cccccc</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="dataform_example_menu_color1">#ff001337</color>
     <color name="dataform_example_menu_color2">#ff004173</color>
     <color name="dataform_example_menu_color3">#ff00a5c2</color>
     <color name="dataform_example_menu_color4">#ff018e86</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
     <color name="design_fab_shadow_start_color">#44000000</color>
@@ -149,15 +126,13 @@
     <color name="design_fab_stroke_top_inner_color">#1AFFFFFF</color>
     <color name="design_fab_stroke_top_outer_color">#2EFFFFFF</color>
     <color name="design_snackbar_background_color">#323232</color>
-    <color name="design_textinput_error_color">#FFDD2C00</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="design_textinput_error_color_dark">#FFFF6E6E</color>
+    <color name="design_textinput_error_color_light">#FFD50000</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="divider">#a8a8a8</color>
     <color name="drawerDivider">#FFD2D2D2</color>
     <color name="drawer_example_menu_color1">#ff1a2250</color>
     <color name="drawer_example_menu_color2">#ff685d9e</color>
@@ -165,40 +140,31 @@
     <color name="drawer_example_menu_color4">#fff28e5e</color>
     <color name="exampleGroupDescriptionColor">#FF454545</color>
     <color name="exampleInfoBackground">#FFFBFBFB</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="foreground">#000000</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="green">#00FF00</color>
     <color name="grey_text_color">#E64A19</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="groupHeaderTextColor">#88000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="half_transparent_grey">#9FA2A2A2</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
+    <color name="hint_color">#D3D3D3</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="icons">#FFFFFF</color>
+    <color name="image_holder_bg">#EAEAEA</color>
     <color name="legend_bg">#bbffffff</color>
+    <color name="light_green">#90EE90</color>
     <color name="light_grey">#E64A19</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
+    <color name="light_red">#FFCCCB</color>
     <color name="listAccentColor">#FF009688</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="listItemBottomBorder">#FFBCBCBC</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="listItemTextColor">#DF000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="listViewHorizontalLayoutHeaderColor">#E64A19</color>
     <color name="listViewToolbarColor">#FF6E40</color>
     <color name="list_item_text_color">#FF454545</color>
+    <color name="list_view_bg">#DADFEE</color>
     <color name="list_view_example_deck_recipe_title_background">#FF9E40</color>
     <color name="list_view_example_deck_title_background">#BD7937</color>
     <color name="list_view_example_reorder_bgcolor">#FFEEEEEE</color>
@@ -226,8 +192,6 @@
     <color name="listview_example_menu_color2">#ff16a3b1</color>
     <color name="listview_example_menu_color3">#ff93d1be</color>
     <color name="listview_example_menu_color4">#fff29474</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -240,65 +204,59 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="navigation_bar_color">#000000</color>
     <color name="panZoomCloseColor">#F9BA1A</color>
     <color name="panZoomHighColor">#A666CE</color>
     <color name="panZoomLowColor">#9DCC00</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="pressedColor">#16000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="primary">#FFC107</color>
+    <color name="primary_dark">#FFA000</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
     <color name="primary_material_light">@color/material_grey_100</color>
+    <color name="primary_text">#de000000</color>
     <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="primary_text_inv">#ffffff</color>
+    <color name="primary_text_inv_disable">#9e9c9c</color>
     <color name="primary_title_background">#bc0006</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
-    <color name="red">#FFFF0000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="red">#FF0000</color>
+    <color name="red_dark_color">#B30000</color>
     <color name="review_green">#BF1E2D</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
+    <color name="secondary_text">#8a000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
+    <color name="secondary_text_disabled">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="secondary_text_inv">#b3ffffff</color>
+    <color name="secondary_text_inv_disabled">#b3ffffff</color>
     <color name="secondary_title_background">#342db2</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <color name="selectionColor">#20000000</color>
+    <color name="send_dark_color">#515F9F</color>
+    <color name="send_light_color">#8897BF</color>
+    <color name="send_meduim_color">#5D6CA5</color>
     <color name="shadeColor">#22000000</color>
     <color name="shadeColorCenter">#05000000</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <color name="spinner_color_bg">#849599</color>
     <color name="step_pager_next_tab_color">#10000000</color>
     <color name="step_pager_previous_tab_color">#BF1E2D</color>
     <color name="step_pager_selected_last_tab_color">#BF1E2D</color>
-    <color name="step_pager_selected_tab_color"> #BF1E2D</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <color name="step_pager_selected_tab_color">#BF1E2D</color>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="telerikGreen">#2DB245</color>
+    <color name="text_color">#FFF</color>
+    <color name="text_field_color">#000</color>
     <color name="text_light">#BF1E2D</color>
+    <color name="text_shadow">#FFF</color>
     <color name="transparent">#00000000</color>
     <color name="transparentBlack">#66000000</color>
     <color name="transparentWhite">#FFFFFFFF</color>
@@ -312,10 +270,14 @@
     <declare-styleable name="AlertDialog"><attr name="android:layout"/><attr format="reference" name="buttonPanelSideLayout"/><attr format="reference" name="listLayout"/><attr format="reference" name="multiChoiceItemLayout"/><attr format="reference" name="singleChoiceItemLayout"/><attr format="reference" name="listItemLayout"/></declare-styleable>
     <declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/><attr format="boolean" name="expanded"/></declare-styleable>
     <declare-styleable name="AppBarLayout_LayoutParams"><attr name="layout_scrollFlags"><flag name="scroll" value="0x1"/><flag name="exitUntilCollapsed" value="0x2"/><flag name="enterAlways" value="0x4"/><flag name="enterAlwaysCollapsed" value="0x8"/><flag name="snap" value="0x10"/></attr><attr format="reference" name="layout_scrollInterpolator"/></declare-styleable>
+    <declare-styleable name="AppCompatImageView"><attr name="android:src"/><attr format="reference" name="srcCompat"/></declare-styleable>
     <declare-styleable name="AppCompatTextView"><attr format="reference|boolean" name="textAllCaps"/><attr name="android:textAppearance"/></declare-styleable>
+    <declare-styleable name="AppCompatTheme"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowNoTitle"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="dimension|fraction" name="windowFixedWidthMajor"/><attr format="dimension|fraction" name="windowFixedHeightMinor"/><attr format="dimension|fraction" name="windowFixedWidthMinor"/><attr format="dimension|fraction" name="windowFixedHeightMajor"/><attr format="dimension|fraction" name="windowMinWidthMajor"/><attr format="dimension|fraction" name="windowMinWidthMinor"/><attr name="android:windowIsFloating"/><attr name="android:windowAnimationStyle"/><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionOverflowMenuStyle"/><attr format="reference" name="actionBarPopupTheme"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarTheme"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeCutDrawable"/><attr format="reference" name="actionModeCopyDrawable"/><attr format="reference" name="actionModePasteDrawable"/><attr format="reference" name="actionModeSelectAllDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModeFindDrawable"/><attr format="reference" name="actionModeWebSearchDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="dialogTheme"/><attr format="dimension" name="dialogPreferredPadding"/><attr format="reference" name="listDividerAlertDialog"/><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="selectableItemBackgroundBorderless"/><attr format="reference" name="borderlessButtonStyle"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="dividerHorizontal"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="toolbarStyle"/><attr format="reference" name="toolbarNavigationButtonStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="reference" name="popupWindowStyle"/><attr format="reference|color" name="editTextColor"/><attr format="reference" name="editTextBackground"/><attr format="reference" name="imageButtonStyle"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="reference" name="searchViewStyle"/><attr format="dimension" name="listPreferredItemHeight"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemHeightLarge"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="textAppearanceListItem"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="reference" name="panelBackground"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/><attr format="color" name="colorPrimary"/><attr format="color" name="colorPrimaryDark"/><attr format="color" name="colorAccent"/><attr format="color" name="colorControlNormal"/><attr format="color" name="colorControlActivated"/><attr format="color" name="colorControlHighlight"/><attr format="color" name="colorButtonNormal"/><attr format="color" name="colorSwitchThumbNormal"/><attr format="reference" name="controlBackground"/><attr format="reference" name="alertDialogStyle"/><attr format="reference" name="alertDialogButtonGroupStyle"/><attr format="boolean" name="alertDialogCenterButtons"/><attr format="reference" name="alertDialogTheme"/><attr format="reference|color" name="textColorAlertDialogListItem"/><attr format="reference" name="buttonBarPositiveButtonStyle"/><attr format="reference" name="buttonBarNegativeButtonStyle"/><attr format="reference" name="buttonBarNeutralButtonStyle"/><attr format="reference" name="autoCompleteTextViewStyle"/><attr format="reference" name="buttonStyle"/><attr format="reference" name="buttonStyleSmall"/><attr format="reference" name="checkboxStyle"/><attr format="reference" name="checkedTextViewStyle"/><attr format="reference" name="editTextStyle"/><attr format="reference" name="radioButtonStyle"/><attr format="reference" name="ratingBarStyle"/><attr format="reference" name="ratingBarStyleIndicator"/><attr format="reference" name="ratingBarStyleSmall"/><attr format="reference" name="seekBarStyle"/><attr format="reference" name="spinnerStyle"/><attr format="reference" name="switchStyle"/></declare-styleable>
     <declare-styleable name="AreaSeries"><attr name="fillColor"/></declare-styleable>
     <declare-styleable name="Axis"><attr format="float" name="labelRotationAngle"/><attr name="lineThickness"/><attr format="enum" name="axisLastLabelVisibility"><enum name="Visible" value="0"/><enum name="Hidden" value="1"/><enum name="Clip" value="2"/></attr><attr name="labelSize"/><attr name="labelColor"/><attr name="labelMargin"/><attr name="labelFont"/><attr name="labelFontStyle"/><attr format="integer" name="majorTickOffset"/><attr format="integer" name="labelOffset"/><attr name="showLabels"/><attr name="labelFormat"/><attr format="enum" name="axisLabelFitMode"><enum name="None" value="0"/><enum name="Multiline" value="1"/><enum name="Rotate" value="2"/></attr><attr format="string" name="axisTitle"/><attr format="dimension" name="tickThickness"/><attr format="integer" name="labelInterval"/></declare-styleable>
     <declare-styleable name="BarSeries"><attr name="strokeWidth"/><attr name="strokeColor"/><attr name="fillColor"/><attr name="areBarsRounded"/><attr name="roundBarsRadius"/></declare-styleable>
+    <declare-styleable name="BottomSheetBehavior_Params"><attr format="dimension" name="behavior_peekHeight"/><attr format="boolean" name="behavior_hideable"/></declare-styleable>
+    <declare-styleable name="ButtonBarContainerTheme"><attr format="reference" name="metaButtonBarStyle"/><attr format="reference" name="metaButtonBarButtonStyle"/></declare-styleable>
     <declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable>
     <declare-styleable name="CalendarCellState"><attr format="boolean" name="state_calendar_cell_today"/></declare-styleable>
     <declare-styleable name="CalendarTheme"><attr format="reference" name="calendarStyle"/></declare-styleable>
@@ -335,16 +297,26 @@
     <declare-styleable name="CompoundButton"><attr name="android:button"/><attr format="color" name="buttonTint"/><attr name="buttonTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout_LayoutParams"><attr name="android:layout_gravity"/><attr format="string" name="layout_behavior"/><attr format="reference" name="layout_anchor"/><attr format="integer" name="layout_keyline"/><attr name="layout_anchorGravity"><flag name="top" value="0x30"/><flag name="bottom" value="0x50"/><flag name="left" value="0x03"/><flag name="right" value="0x05"/><flag name="center_vertical" value="0x10"/><flag name="fill_vertical" value="0x70"/><flag name="center_horizontal" value="0x01"/><flag name="fill_horizontal" value="0x07"/><flag name="center" value="0x11"/><flag name="fill" value="0x77"/><flag name="clip_vertical" value="0x80"/><flag name="clip_horizontal" value="0x08"/><flag name="start" value="0x00800003"/><flag name="end" value="0x00800005"/></attr></declare-styleable>
+    <declare-styleable name="CustomVideoPanel"><attr format="boolean" name="isCircleShape"/></declare-styleable>
     <declare-styleable name="DateTimeCategoricalAxis"><attr format="string" name="dateFormat"/><attr format="enum" name="dateTimeComponent"><enum name="Year" value="0"/><enum name="Quarter" value="1"/><enum name="Month" value="2"/><enum name="Week" value="3"/><enum name="Hour" value="4"/><enum name="Minute" value="5"/><enum name="Second" value="6"/><enum name="Millisecond" value="7"/><enum name="Date" value="8"/><enum name="TimeOfDay" value="9"/><enum name="Day" value="10"/><enum name="DayOfWeek" value="11"/><enum name="DayOfYear" value="12"/></attr></declare-styleable>
     <declare-styleable name="DateTimeContinuousAxis"><attr format="integer" name="maximumTicks"/><attr name="gapLength"/><attr format="float" name="majorStep"/><attr format="enum" name="majorStepUnit"><enum name="Year" value="0"/><enum name="Quarter" value="1"/><enum name="Month" value="2"/><enum name="Week" value="3"/><enum name="Day" value="4"/><enum name="Hour" value="5"/><enum name="Minute" value="6"/><enum name="Second" value="7"/><enum name="Millisecond" value="8"/></attr><attr name="plotMode"/></declare-styleable>
+    <declare-styleable name="DesignTheme"><attr format="reference" name="bottomSheetDialogTheme"/><attr format="reference" name="bottomSheetStyle"/><attr format="color" name="textColorError"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
-    <declare-styleable name="FloatingActionButton"><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
+    <declare-styleable name="DynamicAbsoluteLayout_Layout"><attr format="dimension" name="layout_x"/><attr format="dimension" name="layout_y"/></declare-styleable>
+    <declare-styleable name="FloatingActionButton"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/><attr format="boolean" name="useCompatPadding"/></declare-styleable>
     <declare-styleable name="ForegroundLinearLayout"><attr name="android:foreground"/><attr name="android:foregroundGravity"/><attr format="boolean" name="foregroundInsidePadding"/></declare-styleable>
     <declare-styleable name="LineAxis"><attr format="color" name="lineColor"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
-    <declare-styleable name="LoadingImageView"><attr format="enum" name="imageAspectRatioAdjust"><enum name="none" value="0"/><enum name="adjust_width" value="1"/><enum name="adjust_height" value="2"/></attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
+    <declare-styleable name="LoadingImageView"><attr name="imageAspectRatioAdjust">
+<enum name="none" value="0"/>
+
+<enum name="adjust_width" value="1"/>
+
+<enum name="adjust_height" value="2"/>
+
+</attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
@@ -359,23 +331,40 @@
     <declare-styleable name="RangeBarSeries"><attr name="strokeWidth"/><attr name="strokeColor"/><attr name="fillColor"/><attr name="areBarsRounded"/><attr name="roundBarsRadius"/></declare-styleable>
     <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/></declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
-    <declare-styleable name="ScrollingTabView"><attr format="dimension" name="contentHeight"/><attr format="enum" name="orientation"><enum name="horizontal" value="0"/><enum name="vertical" value="1"/></attr></declare-styleable>
+    <declare-styleable name="ScrollingTabView"><attr format="dimension" name="contentHeight"/><attr format="enum" name="orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr></declare-styleable>
     <declare-styleable name="ScrollingTabViewTheme"><attr format="reference" name="scrollingTabViewStyle"/><attr format="reference" name="scrollingTabStyle"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Params"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="SignInButton"><attr format="reference" name="buttonSize">
+<enum name="standard" value="0"/>
+
+<enum name="wide" value="1"/>
+
+<enum name="icon_only" value="2"/>
+
+</attr><attr format="reference" name="colorScheme">
+<enum name="dark" value="0"/>
+
+<enum name="light" value="1"/>
+
+<enum name="auto" value="2"/>
+
+</attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
-    <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/></declare-styleable>
+    <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="reference" name="track"/><attr name="android:textOn"/><attr name="android:textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="boolean" name="splitTrack"/><attr format="boolean" name="showText"/></declare-styleable>
+    <declare-styleable name="TabItem"><attr name="android:text"/><attr name="android:icon"/><attr name="android:layout"/></declare-styleable>
     <declare-styleable name="TabLayout"><attr format="color" name="tabIndicatorColor"/><attr format="dimension" name="tabIndicatorHeight"/><attr format="dimension" name="tabContentStart"/><attr format="reference" name="tabBackground"/><attr name="tabMode"><enum name="scrollable" value="0"/><enum name="fixed" value="1"/></attr><attr name="tabGravity"><enum name="fill" value="0"/><enum name="center" value="1"/></attr><attr format="dimension" name="tabMinWidth"/><attr format="dimension" name="tabMaxWidth"/><attr format="reference" name="tabTextAppearance"/><attr format="color" name="tabTextColor"/><attr format="color" name="tabSelectedTextColor"/><attr format="dimension" name="tabPaddingStart"/><attr format="dimension" name="tabPaddingTop"/><attr format="dimension" name="tabPaddingEnd"/><attr format="dimension" name="tabPaddingBottom"/><attr format="dimension" name="tabPadding"/></declare-styleable>
     <declare-styleable name="TextAppearance"><attr name="android:textSize"/><attr name="android:textColor"/><attr name="android:textStyle"/><attr name="android:typeface"/><attr name="textAllCaps"/><attr name="android:shadowColor"/><attr name="android:shadowDy"/><attr name="android:shadowDx"/><attr name="android:shadowRadius"/></declare-styleable>
-    <declare-styleable name="TextInputLayout"><attr format="reference" name="hintTextAppearance"/><attr name="android:hint"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/><attr format="boolean" name="counterEnabled"/><attr format="integer" name="counterMaxLength"/><attr format="reference" name="counterTextAppearance"/><attr format="reference" name="counterOverflowTextAppearance"/><attr name="android:textColorHint"/><attr format="boolean" name="hintAnimationEnabled"/></declare-styleable>
-    <declare-styleable name="Theme"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowNoTitle"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="dimension|fraction" name="windowFixedWidthMajor"/><attr format="dimension|fraction" name="windowFixedHeightMinor"/><attr format="dimension|fraction" name="windowFixedWidthMinor"/><attr format="dimension|fraction" name="windowFixedHeightMajor"/><attr format="dimension|fraction" name="windowMinWidthMajor"/><attr format="dimension|fraction" name="windowMinWidthMinor"/><attr name="android:windowIsFloating"/><attr name="android:windowAnimationStyle"/><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionOverflowMenuStyle"/><attr format="reference" name="actionBarPopupTheme"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarTheme"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeCutDrawable"/><attr format="reference" name="actionModeCopyDrawable"/><attr format="reference" name="actionModePasteDrawable"/><attr format="reference" name="actionModeSelectAllDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModeFindDrawable"/><attr format="reference" name="actionModeWebSearchDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="dialogTheme"/><attr format="dimension" name="dialogPreferredPadding"/><attr format="reference" name="listDividerAlertDialog"/><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="selectableItemBackgroundBorderless"/><attr format="reference" name="borderlessButtonStyle"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="dividerHorizontal"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="toolbarStyle"/><attr format="reference" name="toolbarNavigationButtonStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="reference" name="popupWindowStyle"/><attr format="reference|color" name="editTextColor"/><attr format="reference" name="editTextBackground"/><attr format="reference" name="imageButtonStyle"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="reference" name="searchViewStyle"/><attr format="dimension" name="listPreferredItemHeight"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemHeightLarge"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="textAppearanceListItem"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="reference" name="panelBackground"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/><attr format="color" name="colorPrimary"/><attr format="color" name="colorPrimaryDark"/><attr format="color" name="colorAccent"/><attr format="color" name="colorControlNormal"/><attr format="color" name="colorControlActivated"/><attr format="color" name="colorControlHighlight"/><attr format="color" name="colorButtonNormal"/><attr format="color" name="colorSwitchThumbNormal"/><attr format="reference" name="controlBackground"/><attr format="reference" name="alertDialogStyle"/><attr format="reference" name="alertDialogButtonGroupStyle"/><attr format="boolean" name="alertDialogCenterButtons"/><attr format="reference" name="alertDialogTheme"/><attr format="reference|color" name="textColorAlertDialogListItem"/><attr format="reference" name="buttonBarPositiveButtonStyle"/><attr format="reference" name="buttonBarNegativeButtonStyle"/><attr format="reference" name="buttonBarNeutralButtonStyle"/><attr format="reference" name="autoCompleteTextViewStyle"/><attr format="reference" name="buttonStyle"/><attr format="reference" name="buttonStyleSmall"/><attr format="reference" name="checkboxStyle"/><attr format="reference" name="checkedTextViewStyle"/><attr format="reference" name="editTextStyle"/><attr format="reference" name="radioButtonStyle"/><attr format="reference" name="ratingBarStyle"/><attr format="reference" name="seekBarStyle"/><attr format="reference" name="spinnerStyle"/><attr format="reference" name="switchStyle"/></declare-styleable>
+    <declare-styleable name="TextInputLayout"><attr format="reference" name="hintTextAppearance"/><attr name="android:hint"/><attr format="boolean" name="hintEnabled"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/><attr format="boolean" name="counterEnabled"/><attr format="integer" name="counterMaxLength"/><attr format="reference" name="counterTextAppearance"/><attr format="reference" name="counterOverflowTextAppearance"/><attr name="android:textColorHint"/><attr format="boolean" name="hintAnimationEnabled"/></declare-styleable>
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/><attr name="logo"/><attr format="string" name="logoDescription"/><attr format="color" name="titleTextColor"/><attr format="color" name="subtitleTextColor"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/></declare-styleable>
     <declare-styleable name="ViewBackgroundHelper"><attr name="android:background"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <declare-styleable name="com.pdmanager.VideoCallActivity.LocationableGLSurfaceView"><attr format="integer" name="locationIndex"/></declare-styleable>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_end_material">0dp</dimen>
@@ -443,38 +432,31 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="action_bar_drop_down_min_width">135dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_padding">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="calendar_example_arrows_spacing">13dp</dimen>
     <dimen name="calendar_range_example_height">232dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="card_deck_translation">8dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="chart_margin_top">10dp</dimen>
     <dimen name="customAnnotationSize">36dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Input-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="date_text_size_year_mode">10sp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="design_appbar_elevation">4dp</dimen>
+    <dimen name="design_bottom_sheet_modal_elevation">16dp</dimen>
+    <dimen name="design_bottom_sheet_modal_peek_height">256dp</dimen>
     <dimen name="design_fab_border_width">0.5dp</dimen>
-    <dimen name="design_fab_content_size">24dp</dimen>
     <dimen name="design_fab_elevation">6dp</dimen>
+    <dimen name="design_fab_image_size">24dp</dimen>
     <dimen name="design_fab_size_mini">40dp</dimen>
     <dimen name="design_fab_size_normal">56dp</dimen>
     <dimen name="design_fab_translation_z_pressed">6dp</dimen>
     <dimen name="design_navigation_elevation">16dp</dimen>
     <dimen name="design_navigation_icon_padding">32dp</dimen>
     <dimen name="design_navigation_icon_size">24dp</dimen>
-    <dimen name="design_navigation_max_width">320dp</dimen>
+    <dimen name="design_navigation_max_width">280dp</dimen>
     <dimen name="design_navigation_padding_bottom">8dp</dimen>
-    <dimen name="design_navigation_padding_top_default">0dp</dimen>
     <dimen name="design_navigation_separator_vertical_padding">8dp</dimen>
     <dimen name="design_snackbar_action_inline_max_width">128dp</dimen>
     <dimen name="design_snackbar_background_corner_radius">0dp</dimen>
@@ -490,12 +472,8 @@
     <dimen name="design_tab_scrollable_min_width">72dp</dimen>
     <dimen name="design_tab_text_size">14sp</dimen>
     <dimen name="design_tab_text_size_2line">12sp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="drawer_caption_fontsize">20dp</dimen>
     <dimen name="example_group_action_bar_control_logo_left_margin">60dp</dimen>
     <dimen name="example_group_action_button_width">55dp</dimen>
@@ -523,90 +501,87 @@
     <dimen name="example_list_wrap_item_text_margin_top">12dp</dimen>
     <dimen name="example_list_wrap_item_title_fontsize">17sp</dimen>
     <dimen name="example_side_drawer_width">304dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="grid_item_padding">2dip</dimen>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Primitives-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
+    <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
+    <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="legend_stroke_width">1dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="line_examples_dummy_text_margin_top">10dp</dimen>
     <dimen name="list_view_slide_item_fab_margin">12dp</dimen>
     <dimen name="list_view_slide_item_width">-1.0px</dimen>
+    <dimen name="main_margin">20dip</dimen>
+    <dimen name="main_padding">20dip</dimen>
+    <dimen name="main_row_height">40dip</dimen>
+    <dimen name="main_row_label_width">120dip</dimen>
+    <dimen name="main_row_text_width">220dip</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <dimen name="nfg_button_topmargin">50dip</dimen>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="pie_margin">20dp</dimen>
+    <item format="float" name="primary_text_disabled_alpha" type="dimen">0.26</item>
+    <item format="float" name="primary_text_inv_disabled_alpha" type="dimen">0.30</item>
+    <dimen name="row_margin">16dip</dimen>
+    <item format="float" name="secondary_text_disabled_alpha" type="dimen">0.30</item>
+    <item format="float" name="secondary_text_inv_disabled_alpha" type="dimen">0.30</item>
+    <dimen name="setting_horizontal_margin">12dp</dimen>
+    <dimen name="setting_vertical_margin">12dp</dimen>
     <dimen name="step_pager_tab_height">3dp</dimen>
     <dimen name="step_pager_tab_spacing">4dp</dimen>
     <dimen name="step_pager_tab_width">32dp</dimen>
     <dimen name="tab_indicator_height">2dp</dimen>
     <dimen name="tips_font_size">15sp</dimen>
     <dimen name="tips_title_font_size">23sp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <dimen name="trackball_indicator_radius">5dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
+    <dimen name="vc_controller_button_size">42dip</dimen>
+    <dimen name="vc_controller_height">55dip</dimen>
+    <dimen name="vc_surface_margin">5dp</dimen>
+    <dimen name="vc_surface_text_height">26dp</dimen>
     <dimen name="weather_data_button_padding_bottom">4dp</dimen>
     <dimen name="weather_data_button_padding_right">0dp</dimen>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
     <item name="up" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <item name="view_offset_helper" type="id"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
+    <integer name="bottom_sheet_slide_duration">150</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <integer name="design_snackbar_text_max_lines">2</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <integer name="example_controls_list_fragment_columns">2</integer>
     <integer name="example_controls_list_fragment_columns_wrap">3</integer>
     <integer name="example_list_fragment_columns">1</integer>
     <integer name="example_list_fragment_columns_wrap">2</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/version.xml -->
-    <eat-comment/>
-    <integer name="google_play_services_version">7095000</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <integer name="google_play_services_version">10084000</integer>
+    <integer name="oidc_encryptKeyPinDuration">0</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/refs.xml -->
-    <eat-comment/>
     <item name="fragment_logevent" type="layout">@layout/fragment_logevent_list</item>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <string name="OIDCClientIdOptionHint">Client Id</string>
+    <string name="OIDCFlowTypeOptionHint">Flow Type %1$s</string>
+    <string name="OIDCIssuerOptionHint">Issuer</string>
+    <string name="OIDCLoginnHint">LOG IN</string>
+    <string name="OIDCOptionsMandatoryError">Mandatory</string>
+    <string name="OIDCRedirectOptionHint">Redirect URL</string>
+    <string name="OIDCScopesOptionHint">Scopes (separed by space)</string>
+    <string name="OIDCSecretOptionHint">Client Password</string>
+    <string name="OIDCSetOptionsButton">SAVE CHANCES</string>
+    <string name="OIDCUserNameOptionHint">Username</string>
+    <string name="OIDCUserPwdOptionHint">Password</string>
+    <string name="OIDCuserOAuth2OptionHint">Use OAuth2 only</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -626,113 +601,114 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="aboutString">About</string>
+    <string name="account_authenticator_label">OIDC Lib Sample Account</string>
+    <string name="account_authenticator_type">com.my_own_account_type_identifier.account</string>
     <string name="action_example">Example action</string>
     <string name="action_lock">Lock</string>
     <string name="action_login">Login</string>
     <string name="action_settings">Settings</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="action_sign_in">Login</string>
     <string name="action_sign_in_short">Login as technician</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="actionbar_section_highlighted">Highlighted</string>
     <string name="allControlsStringPascalCase">All controls</string>
     <string name="allStringAllCaps">ALL</string>
     <string name="allStringPascalCase">All</string>
     <string name="all_day_string">ALL DAY</string>
+    <string name="all_receivers_offline">All receivers offline</string>
     <string name="analytics_message">It is our goal to always provide the best products and user experience to our customers. By enabling this option anonymous data will be collected and sent to Telerik detailing how the Telerik Examples application is being used. No information is collected that could be used to either identify or contact you. \nYou can change this anytime from the Settings menu.</string>
     <string name="analytics_message_dont_send">Do not send statistics</string>
     <string name="analytics_message_send"><b>Send statistics</b></string>
     <string name="analytics_message_title">Help us improve Telerik Examples</string>
+    <string name="answer">Answer</string>
     <string name="app_key">7tl4ec82n8e2r67</string>
     <string name="app_name">PDManager</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="area_chart_title">Monthly sales revenue, 2014</string>
+    <string name="audio_routes">Audio Routes</string>
+    <string name="authorizing">Authorizing</string>
+    <string name="back_camera">Back camera</string>
     <string name="bar_series_title">Performance summary, 2014</string>
     <string name="base_label">Base</string>
     <string name="bgnd_image_label">Background image</string>
     <string name="book_a_hotel_string">Book a hotel!</string>
+    <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="bubble_series_title">Investments - Equities &amp; Mutual Funds</string>
     <string name="calendar_range_how_to_text">Drag over the period of your stay or tap on your check-in and check-out dates</string>
     <string name="calendar_range_left_arrow_description">Tap to move to previous month</string>
     <string name="calendar_range_right_arrow_description">Tap to move to next month</string>
     <string name="calendar_range_title">Need a place to stay?</string>
+    <string name="call_busy">The call receiver is busy</string>
+    <string name="call_receiver_label">Call receiver Id:</string>
+    <string name="calling">Calling</string>
+    <string name="cancel">Cancel</string>
     <string name="cancel_button_text">Cancel</string>
+    <string name="change_camera">Change camera</string>
     <string name="change_label">Change</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
-    <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="characters_missing">Characters missing</string>
     <string name="choose_band_label">Choose band</string>
     <string name="choose_vibration_pattern_label">Choose pattern</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_strings.xml -->
-    <eat-comment/>
-    <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>
-    <string name="common_android_wear_update_text">This app won\'t run unless you update the Android Wear app.</string>
-    <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
-    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
-    <string msgid="227660514972886228" name="common_google_play_services_enable_text">This app won\'t work unless you enable Google Play services.</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
-    <string name="common_google_play_services_error_notification_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
-    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Get Google Play services</string>
-    <string msgid="2122112764540849864" name="common_google_play_services_install_text_phone">This app won\'t run without Google Play services, which are missing from your phone.</string>
-    <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet">This app won\'t run without Google Play services, which are missing from your tablet.</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are missing from your device.</string>
     <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
-    <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
-    <string name="common_google_play_services_invalid_account_title">Invalid Account</string>
-    <string name="common_google_play_services_needs_enabling_title">An application requires Google Play services to be enabled.</string>
-    <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
-    <string name="common_google_play_services_network_error_title">Network Error</string>
-    <string name="common_google_play_services_notification_needs_installation_title">An application requires installation of Google Play services.</string>
-    <string name="common_google_play_services_notification_needs_update_title">An application requires an update for Google Play services.</string>
     <string name="common_google_play_services_notification_ticker">Google Play services error</string>
-    <string name="common_google_play_services_sign_in_failed_text">Error signing in the specified account. Please choose a different account.</string>
-    <string name="common_google_play_services_sign_in_failed_title">Sign in failed</string>
-    <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
-    <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
-    <string name="common_google_play_services_unsupported_title">Google Play services</string>
+    <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are not supported by your device.</string>
     <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
-    <string msgid="9053896323427875356" name="common_google_play_services_update_text">This app won\'t run unless you update Google Play services.</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update Google Play services.</string>
     <string msgid="6006316683626838685" name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are currently updating.</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <string name="commono_google_play_services_api_unavailable_text">This app requires one or more Google Play services that are not currently
-available. Please contact the developer for assistance.</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="confirm">yes</string>
     <string name="connect_label">Start</string>
     <string name="could_not_change_setting">Could not change setting</string>
+    <string name="decline">Decline</string>
+    <string name="default_web_client_id" translatable="false">984518775022-qa2jdnf39j5tbohne78lb4c1cb0kutg5.apps.googleusercontent.com</string>
+    <string name="device_is_not_supported">Device is not supported!</string>
     <string name="disconnect_label">Disconnect</string>
     <string name="documentation">Check out the product documentation.</string>
     <string name="documentation_example_info">Check out the documentation.</string>
     <string name="drawerCaption">Telerik examples</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="editConfButton">OpenId Connect Client Configuration</string>
     <string name="emptyContentString">Already have any favorite demos? Add them here by choosing \'Add to Favorites\' from the overflow menu or the example context menu.</string>
     <string name="empty_range_selection_text">Select period of stay</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
+    <string name="enter_call_receiver">Enter call receiver</string>
+    <string name="enter_conference_id">Enter conference ID</string>
+    <string name="enter_receiver_id">Enter receiver Id</string>
+    <string name="enter_session_id">Enter conference id</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_username_toast">Please enter username</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="fail_to_send_message">Sending of message fail</string>
     <string name="favoritesStringAllCaps">FAVORITES</string>
     <string name="favoritesStringPascalCase">Favorites</string>
+    <string name="filters">Filters</string>
     <string name="finish">Submit your answers</string>
+    <string name="firebase_database_url" translatable="false">https://pdmanageralerting.firebaseio.com</string>
+    <string name="front_camera">Front camera</string>
+    <string name="gcm_defaultSenderId" translatable="false">984518775022</string>
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
     <string name="get_colors_label">Get Colors</string>
     <string name="get_fw_version_label">Get FW Version</string>
     <string name="get_hw_version_label">Get HW Version</string>
     <string name="get_image_label">Get image</string>
+    <string name="google_api_key" translatable="false">AIzaSyBOqDl8rqDCZuYqAcaOAxjTXiVhUkm7PXg</string>
+    <string name="google_app_id" translatable="false">1:984518775022:android:3d85edaf8e09cd89</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBOqDl8rqDCZuYqAcaOAxjTXiVhUkm7PXg</string>
+    <string name="google_storage_bucket" translatable="false">pdmanageralerting.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="high_contrast_label">High contrast</string>
@@ -743,18 +719,17 @@ available. Please contact the developer for assistance.</string>
     <string name="indicators_custom_dialog_indicators_title">SET INDICATORS</string>
     <string name="indicators_custom_dialog_trends_title">SET TREND LINES</string>
     <string name="indicators_range_dialog_title">Range</string>
+    <string name="info_participants">Participants info</string>
     <string name="internet_connectivity_prompt">Internet connectivity is required for this example.</string>
     <string name="isn_bold"><b>ISN</b></string>
+    <string name="join_session">Join Session</string>
+    <string name="joining_av_chat">Joining AV chat</string>
     <string name="label_your_email">Email</string>
     <string name="label_your_name">DIRECTIONS</string>
     <string name="line_examples_title">Monthly sales revenue, (2014)</string>
     <string name="list_view_deck_image_desc">Recipe</string>
     <string name="list_view_deck_title">NEW RECIPES</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <string name="list_view_default_empty_content">No items</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="list_view_layout_modes_dialog_title">Choose food type</string>
     <string name="list_view_reorder_btn_list1">TO DO LIST</string>
     <string name="list_view_reorder_btn_list2">SHOPPING LIST</string>
@@ -774,46 +749,71 @@ available. Please contact the developer for assistance.</string>
     <string name="list_view_slide_attractions">Attractions</string>
     <string name="list_view_slide_enquiry">SEND ENQUIRY</string>
     <string name="list_view_slide_image_desc">Destination</string>
+    <string name="logging_in">Logging in</string>
+    <string name="loginButtonText">Log in with OpenID Connect</string>
+    <string name="logoutButtonText">Logout (Removes account)</string>
     <string name="lowlight_label">Lowlight</string>
+    <string name="make_call_title">Make call</string>
     <string name="management_label">Press the button to start or stop a recording session</string>
+    <string name="me">Me</string>
+    <string name="medalertpart1">Did you get the</string>
+    <string name="medalertpart2">at</string>
+    <string name="medalertpart3">Your next </string>
+    <string name="medalertpart4">intake is at </string>
     <string name="monitoring_label">Monitoring</string>
     <string name="monitoringstatus_label">not monitoring</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="mute_camera">Mute camera</string>
     <string name="muted_label">Muted</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="next">Next</string>
+    <string name="ngfmess1">Press the button when you are NOT feeling good!</string>
+    <string name="ngfmess2">You have already pressed the not feeling good button!</string>
+    <string name="no_internet">No Internet Connection. Please check your internet connection or try again later.</string>
+    <string name="no_receivers">Please add a receiver!</string>
+    <string name="no_token_to_unsubscribe">There is no token to unsubscribe</string>
+    <string name="oidc_clientId">866b45b0-4169-42aa-bc56-18a28164a7ce</string>
+    <string name="oidc_clientSecret"/>
+    <string name="oidc_encryptKeyAlias">oidcEncryptionKey</string>
+    <string name="oidc_flowType">Code</string>
+    <string name="oidc_issuerId">http://www.in.gr</string>
+    <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>
+    <string name="ok">Ok</string>
     <string name="ok_button_text">OK</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <string name="on_demand_manual_button_busy">LOADING…</string>
     <string name="on_demand_manual_button_idle">LOAD MORE</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="op_authorizationEnpoint">https://login.live.com/oauth20_authorize.srf</string>
+    <string name="op_revocationEndpoint">https://www.example.com/oauth2/revoketoken</string>
+    <string name="op_tokenEndpoint">https://login.live.com/oauth20_token.srf</string>
+    <string name="op_userInfoEndpoint">https://api.microsofthealth.net/v1/me/Profile</string>
+    <string name="op_usualName">example</string>
     <string name="pie_series_title">International sales by country, 2014</string>
     <string name="prev">Previous</string>
     <string name="productPage">Check out the product page.</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="reject">no</string>
+    <string name="requestButton">Request protected Ressource</string>
+    <string name="resolution">Resolution</string>
+    <string name="resolution_not_supported">Resolution is not supported</string>
     <string name="review">Review</string>
+    <string name="room_title">Room</string>
     <string name="scatter_series_title">Mean hourly earnings in the UK (private vs public)</string>
     <string name="search_title">Search</string>
     <string name="secondary_text_label">Secondary text</string>
+    <string name="section_format">Hello World from section: %1$d</string>
     <string name="select_label">Select...</string>
+    <string name="session_id">Session ID</string>
     <string name="set_colors_label">Set Colors</string>
     <string name="set_image_label">Set image</string>
     <string name="settingsString">Settings</string>
     <string name="settings_label">Settings</string>
     <string name="spinners_title">International Software Company</string>
     <string name="startButton">Start</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <string name="start_call_title">Call</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="submit_confirm_button">Submit</string>
     <string name="submit_confirm_message">Are you sure?</string>
     <string name="theme_colors_label">Theme colors</string>
@@ -825,11 +825,10 @@ available. Please contact the developer for assistance.</string>
     <string name="title_activity_files">FilesActivity</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="title_activity_home">HomeActivity</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings_activity_login.xml -->
-    <eat-comment/>
     <string name="title_activity_login">Login as technician</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_med_alert">MedAlertActivity</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_view_code">View code</string>
     <string name="title_annotation_section">Annotation</string>
@@ -842,32 +841,45 @@ available. Please contact the developer for assistance.</string>
     <string name="title_settings_section">Settings</string>
     <string name="title_theme_section">Theme</string>
     <string name="title_tiles_section">Tiles</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Common-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+    <string name="tokensExpiredDialogButton">SignIn</string>
+    <string name="tokensExpiredDialogMsg">You need to signin again to continue</string>
+    <string name="tokensExpiredDialogTitle">Tokens have expire</string>
     <string name="trial_message">To get access to the latest updates across Android suite and Telerik\'s dedicated support please purchase a commercial license now.</string>
     <string name="trial_message_caption">Telerik UI for Android Trial</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <string name="unknown">Unknown camera</string>
+    <string name="unsubscribe_title">Unsubscribe</string>
+    <string name="use_custom_render">Use custom video render</string>
+    <string name="user_offline">User %s is offline</string>
     <string name="user_statistics_setting">Send anonymous usage statistics</string>
+    <string name="user_unsubscribe_error">Error to unsubscribe</string>
+    <string name="user_unsubscribed">User unsubscribed</string>
     <string name="versionStringPascalCase">Version</string>
     <string name="version_code">2015.3.0</string>
     <string name="version_name">Q3 2015</string>
     <string name="versioning_label">Versions</string>
     <string name="vibrate_label">Vibrate</string>
     <string name="vibration_label">Vibration</string>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
+    <string name="video_cannot_be_viewed">Video cannot be viewed!</string>
+    <string name="video_fitting_mode">Video Fitting Mode:</string>
+    <string name="video_orientation_anim">Video Orientation Anim:</string>
+    <string name="video_orientation_lock">Video Orientation Lock:</string>
+    <string name="welcome">Welcome!</string>
+    <string name="wrong_conference_id">Conference ID is not valid</string>
+    <string name="wrong_conference_id_space_character"> Space character is not allowed. </string>
     <style name="ActionBarTitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#eee</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
+    <style name="Animation.Design.BottomSheetDialog" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/design_bottom_sheet_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
+    </style>
     <style name="AnnotationsRadioButton">
         <item name="android:layout_marginRight">1dp</item>
         <item name="android:layout_width">0dp</item>
@@ -886,11 +898,9 @@ available. Please contact the developer for assistance.</string>
         <item name="android:gravity">top|center</item>
         <item name="android:textColor">@color/white</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="ApplicationTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
+    <style name="ApplicationTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="ApplicationTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="AxesCheckbox">
         <item name="android:textColor">@color/white</item>
         <item name="android:paddingBottom">10dp</item>
@@ -900,8 +910,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:layout_weight">.50</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="AxisStyle">
         <item name="lineThickness">1dp</item>
         <item name="tickThickness">1dp</item>
@@ -927,8 +935,6 @@ available. Please contact the developer for assistance.</string>
     <style name="AxisStyle.LineAxisStyle.CartesianAxisStyle.DateTimeContinuousAxisStyle">
 
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="BarTabHorizontal" parent="Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/tab_selector</item>
         <item name="android:minHeight">76dp</item>
@@ -941,8 +947,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:minWidth">76dp</item>
         <item name="android:padding">0dp</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>
@@ -1078,7 +1082,7 @@ available. Please contact the developer for assistance.</string>
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
         <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
     </style>
-    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="TextAppearance.AppCompat.Menu">
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="TextAppearance.AppCompat.Button">
         <item name="android:textColor">?attr/actionMenuTextColor</item>
         <item name="textAllCaps">@bool/abc_config_actionMenuItemAllCaps</item>
     </style>
@@ -1355,6 +1359,8 @@ available. Please contact the developer for assistance.</string>
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
 
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+        <item name="ratingBarStyleIndicator">@style/Widget.AppCompat.RatingBar.Indicator</item>
+        <item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>
         <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
         <!-- Button styles -->
@@ -1530,6 +1536,8 @@ available. Please contact the developer for assistance.</string>
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
 
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+        <item name="ratingBarStyleIndicator">@style/Widget.AppCompat.RatingBar.Indicator</item>
+        <item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>
         <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
         <!-- Button styles -->
@@ -1815,6 +1823,22 @@ available. Please contact the developer for assistance.</string>
         <item name="android:progressDrawable">@drawable/abc_ratingbar_full_material</item>
         <item name="android:indeterminateDrawable">@drawable/abc_ratingbar_full_material</item>
     </style>
+    <style name="Base.Widget.AppCompat.RatingBar.Indicator" parent="android:Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/abc_ratingbar_indicator_material</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_ratingbar_indicator_material</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:maxHeight">36dp</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:thumb">@null</item>
+    </style>
+    <style name="Base.Widget.AppCompat.RatingBar.Small" parent="android:Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/abc_ratingbar_small_material</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_ratingbar_small_material</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:thumb">@null</item>
+    </style>
     <style name="Base.Widget.AppCompat.SearchView" parent="android:Widget">
         <item name="layout">@layout/abc_search_view</item>
         <item name="queryBackground">@drawable/abc_textfield_search_material</item>
@@ -1866,7 +1890,7 @@ available. Please contact the developer for assistance.</string>
         <item name="subtitleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle</item>
         <item name="android:minHeight">?attr/actionBarSize</item>
         <item name="titleMargins">4dp</item>
-        <item name="maxButtonHeight">56dp</item>
+        <item name="maxButtonHeight">@dimen/abc_action_bar_default_height_material</item>
         <item name="collapseIcon">?attr/homeAsUpIndicator</item>
         <item name="collapseContentDescription">@string/abc_toolbar_collapse_description</item>
         <item name="contentInsetStart">16dp</item>
@@ -1878,8 +1902,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
         <item name="tabIndicatorColor">?attr/colorAccent</item>
@@ -1890,15 +1912,11 @@ available. Please contact the developer for assistance.</string>
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="BrandedActionBarTheme" parent="DarkTheme">
         <item name="android:actionBarStyle">@style/MainActivityActionBar</item>
         <item name="android:actionDropDownStyle">@style/SpinnerDropDownStyle</item>
         <item name="actionDropDownStyle">@style/SpinnerDropDownStyle</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="ChartAnnotationStyle">
         <item name="clipToPlotArea">true</item>
     </style>
@@ -1950,8 +1968,6 @@ available. Please contact the developer for assistance.</string>
         <item name="areBarsRounded">true</item>
         <item name="roundBarsRadius">2</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="DarkTheme" parent="ApplicationTheme">
         <item name="android:actionBarStyle">@style/ExamplesActivityActionBar</item>
         <item name="android:actionBarDivider">@drawable/tab_divider</item>
@@ -1959,14 +1975,14 @@ available. Please contact the developer for assistance.</string>
         <item name="scrollingTabStyle">@style/BarTabHorizontal</item>
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
-        <item name="android:actionModeBackground">@color/list_view_example_selection_action_mode_background</item>
+        <item name="android:actionModeBackground">
+            @color/list_view_example_selection_action_mode_background
+        </item>
         <item name="android:actionModeCloseDrawable">@drawable/up_caret_white</item>
     </style>
     <style name="DarkThemeLandscape" parent="DarkTheme">
         <item name="scrollingTabStyle">@style/BarTabVertical</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="DataFormImageView">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
@@ -1990,8 +2006,6 @@ available. Please contact the developer for assistance.</string>
     <style name="ExampleGroupBarTabHorizontal" parent="android:Widget.Holo.Tab">
         <item name="android:background">#00000000</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/themes.xml -->
-    <eat-comment/>
     <style name="ExampleGroupDarkTheme" parent="DarkTheme">
         <item name="android:actionBarStyle">@style/MainActivityActionBar</item>
         <item name="scrollingTabViewStyle">@style/ExampleGroupScrollingTabViewStyle</item>
@@ -2002,8 +2016,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:windowContentOverlay">@null</item>
 
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="ExampleGroupScrollingTabViewStyle" parent="android:Widget.Holo.HorizontalScrollView">
         <item name="android:background">#00000000</item>
     </style>
@@ -2019,6 +2031,16 @@ available. Please contact the developer for assistance.</string>
     <style name="ExamplesActivityActionBar" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">#FF252939</item>
         <item name="android:titleTextStyle">@style/ActionBarTitleTextStyle</item>
+    </style>
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+    <style name="FullscreenTheme" parent="ApplicationTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
     </style>
     <style name="ListViewListModeRadioButton">
         <item name="android:layout_width">wrap_content</item>
@@ -2070,8 +2092,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:layout_width">0dp</item>
         <item name="android:paddingBottom">2dp</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
@@ -2170,11 +2190,7 @@ available. Please contact the developer for assistance.</string>
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Spinner"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="RadChartBaseStyle"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Primitives-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="RadScrollViewStyle">
         <item name="fillViewport">false</item>
         <item name="scrollMode">vertical</item>
@@ -2182,8 +2198,6 @@ available. Please contact the developer for assistance.</string>
     <style name="RadScrollViewTheme">
         <item name="radScrollViewStyle">@style/RadScrollViewStyle</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
@@ -2230,8 +2244,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="ScrollingTabViewStyle" parent="android:Widget.Holo.HorizontalScrollView">
         <item name="android:background">#FF252939</item>
     </style>
@@ -2240,8 +2252,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:paddingRight">12dp</item>
 
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
     <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
@@ -2298,19 +2308,15 @@ available. Please contact the developer for assistance.</string>
     </style>
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.Design.Counter" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">?attr/colorControlActivated</item>
-    </style>
+    <style name="TextAppearance.Design.Counter" parent="TextAppearance.AppCompat.Caption"/>
     <style name="TextAppearance.Design.Counter.Overflow" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">@color/design_textinput_error_color</item>
+        <item name="android:textColor">?attr/textColorError</item>
     </style>
     <style name="TextAppearance.Design.Error" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">@color/design_textinput_error_color</item>
+        <item name="android:textColor">?attr/textColorError</item>
     </style>
     <style name="TextAppearance.Design.Hint" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textColor">?attr/colorControlActivated</item>
@@ -2324,8 +2330,6 @@ available. Please contact the developer for assistance.</string>
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="textAllCaps">true</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="TextAppearance.StatusBar.EventContent" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Info" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Line2" parent=""/>
@@ -2337,15 +2341,18 @@ available. Please contact the developer for assistance.</string>
     </style>
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="TextAppearanceFinish" parent="android:TextAppearance.DeviceDefault.Medium">
         <item name="android:textColor">#fff</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Theme.AppCompat" parent="Base.Theme.AppCompat"/>
     <style name="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"/>
+    <style name="Theme.AppCompat.DayNight" parent="Theme.AppCompat.Light"/>
+    <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar"/>
+    <style name="Theme.AppCompat.DayNight.Dialog" parent="Theme.AppCompat.Light.Dialog"/>
+    <style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert"/>
+    <style name="Theme.AppCompat.DayNight.Dialog.MinWidth" parent="Theme.AppCompat.Light.Dialog.MinWidth"/>
+    <style name="Theme.AppCompat.DayNight.DialogWhenLarge" parent="Theme.AppCompat.Light.DialogWhenLarge"/>
+    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"/>
     <style name="Theme.AppCompat.Dialog" parent="Base.Theme.AppCompat.Dialog"/>
     <style name="Theme.AppCompat.Dialog.Alert" parent="Base.Theme.AppCompat.Dialog.Alert"/>
     <style name="Theme.AppCompat.Dialog.MinWidth" parent="Base.Theme.AppCompat.Dialog.MinWidth"/>
@@ -2366,8 +2373,6 @@ available. Please contact the developer for assistance.</string>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/Chart-2015.3.1113-trial-release/res/values/values.xml -->
-    <eat-comment/>
     <style name="Theme.ChartTheme" parent="android:Theme.Light">
         <item name="AxisStyle">@style/AxisStyle</item>
         <item name="LineAxisStyle">@style/AxisStyle.LineAxisStyle</item>
@@ -2406,8 +2411,104 @@ available. Please contact the developer for assistance.</string>
             @style/ChartAnnotationStyle.CartesianCustomAnnotationStyle
         </item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
-    <eat-comment/>
+    <style name="Theme.Design" parent="Theme.AppCompat">
+        <item name="textColorError">@color/design_textinput_error_color_dark</item>
+    </style>
+    <style name="Theme.Design.BottomSheetDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/Widget.Design.BottomSheet.Modal</item>
+    </style>
+    <style name="Theme.Design.Light" parent="Theme.AppCompat.Light">
+        <item name="textColorError">@color/design_textinput_error_color_light</item>
+    </style>
+    <style name="Theme.Design.Light.BottomSheetDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/Widget.Design.BottomSheet.Modal</item>
+    </style>
+    <style name="Theme.Design.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Design.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.OidcLib" parent="Theme.AppCompat.NoActionBar">
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:colorForeground">@color/foreground</item>
+        <item name="android:textColorPrimary">@color/primary_text_sel</item>
+        <item name="android:textColorPrimaryInverse">@color/primary_text_inv_sel</item>
+        <item name="android:textColorSecondary">@color/secondary_text_sel</item>
+        <item name="android:textColorSecondaryInverse">@color/secondary_text_inv_sel</item>
+
+        <!--<item name="colorButtonNormal">@color/primary</item>-->
+
+        <item name="android:buttonStyle">@style/Theme.OidcLib.Button</item>
+        <item name="android:spinnerItemStyle">@style/Theme.OidcLib.SpinnerItem</item>
+        <item name="android:editTextStyle">@style/Theme.OidcLib.EditText</item>
+    </style>
+    <style name="Theme.OidcLib.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="colorButtonNormal">@color/primary</item>
+        <item name="android:textColor">@color/primary_text_inv</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:padding">10pt</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+    <style name="Theme.OidcLib.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:background">@color/primary</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+    <style name="Theme.OidcLib.SpinnerDropdown" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:textColor">@color/primary_text_inv_sel</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">50dp</item>
+    </style>
+    <style name="Theme.OidcLib.SpinnerItem" parent="Theme.OidcLib.SpinnerDropdown">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:textColor">@color/primary_text_sel</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="Theme.OidcLib.SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:backgroundTint">@color/primary</item>
+    </style>
+    <style name="Theme.OidcLib.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+    <style name="Theme.OidcLib.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textSize">18sp</item>
+    </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
@@ -2496,6 +2597,8 @@ available. Please contact the developer for assistance.</string>
     <style name="Widget.AppCompat.ProgressBar.Horizontal" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
     </style>
     <style name="Widget.AppCompat.RatingBar" parent="Base.Widget.AppCompat.RatingBar"/>
+    <style name="Widget.AppCompat.RatingBar.Indicator" parent="Base.Widget.AppCompat.RatingBar.Indicator"/>
+    <style name="Widget.AppCompat.RatingBar.Small" parent="Base.Widget.AppCompat.RatingBar.Small"/>
     <style name="Widget.AppCompat.SearchView" parent="Base.Widget.AppCompat.SearchView"/>
     <style name="Widget.AppCompat.SearchView.ActionBar" parent="Base.Widget.AppCompat.SearchView.ActionBar"/>
     <style name="Widget.AppCompat.SeekBar" parent="Base.Widget.AppCompat.SeekBar"/>
@@ -2506,11 +2609,15 @@ available. Please contact the developer for assistance.</string>
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
-    <eat-comment/>
     <style name="Widget.Design.AppBarLayout" parent="android:Widget">
         <item name="elevation">@dimen/design_appbar_elevation</item>
         <item name="android:background">?attr/colorPrimary</item>
+    </style>
+    <style name="Widget.Design.BottomSheet.Modal" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:elevation">@dimen/design_bottom_sheet_modal_elevation</item>
+        <item name="behavior_peekHeight">@dimen/design_bottom_sheet_modal_peek_height</item>
+        <item name="behavior_hideable">true</item>
     </style>
     <style name="Widget.Design.CollapsingToolbar" parent="android:Widget">
         <item name="expandedTitleMargin">32dp</item>
@@ -2557,8 +2664,6 @@ available. Please contact the developer for assistance.</string>
         <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
         <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
     </style>
-    <!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="WizardFormLabel">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

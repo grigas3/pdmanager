@@ -22,30 +22,34 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:text="Domain:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="40dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
 
         />
-    <TextView android:id="@+id/ddomain"
+
+    <TextView
+        android:id="@+id/ddomain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
 
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:text="Severity"
-        android:textSize="40sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp"
+        android:textStyle="bold"
 
         />
 
-    <ListView android:id="@+id/list1"
+    <ListView
+        android:id="@+id/list1"
         android:layout_width="match_parent"
 
         android:layout_height="0dp"
@@ -58,14 +62,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:text="Frequency"
-        android:textSize="40sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp"
+        android:textStyle="bold"
 
         />
 
-    <ListView android:id="@+id/list2"
+    <ListView
+        android:id="@+id/list2"
         android:layout_width="match_parent"
 
         android:layout_height="0dp"
@@ -74,8 +79,6 @@
         android:paddingRight="16dp"
         android:saveEnabled="false"
         android:scrollbarStyle="outsideOverlay" />
-
 
 
 </LinearLayout>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_page_double_choice.xml -->

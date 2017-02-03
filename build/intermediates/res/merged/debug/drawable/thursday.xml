@@ -3,4 +3,4 @@
     <item android:drawable="@drawable/thursday_normal" android:state_pressed="true" />
     <item android:drawable="@drawable/thursday_pressed" android:state_checked="true" />
     <item android:drawable="@drawable/thursday_normal" />
-</selector><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/thursday.xml -->
+</selector>

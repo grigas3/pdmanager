@@ -19,7 +19,7 @@ public class TrackedApplication extends StateAwareApplication implements TagMana
     public static final String HOME_SCREEN = "home-screen";
     public static final String CONTROL_SCREEN = "control-screen";
     public static final String EXAMPLE_SCREEN = "example-screen";
-    public static final String CODE_SCREEN = "Code-screen";
+    public static final String CODE_SCREEN = "Type-screen";
     public static final String INFO_SCREEN = "info-screen";
     public static final String SETTINGS_SCREEN = "settings-screen";
 

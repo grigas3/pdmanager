@@ -67,7 +67,7 @@ import java.io.Writer;
  * For primitive types this is means readers should make exactly one call to
  * {@code nextBoolean()}, {@code nextDouble()}, {@code nextInt()}, {@code
  * nextLong()}, {@code nextString()} or {@code nextNull()}. Writers should make
- * exactly one call to one of <Code>Value()</Code> or <Code>nullValue()</Code>.
+ * exactly one call to one of <Type>Value()</Type> or <Type>nullValue()</Type>.
  * For arrays, type adapters should start with a call to {@code beginArray()},
  * convert all elements, and finish with a call to {@code endArray()}. For
  * objects, they should start with {@code beginObject()}, convert the object,
@@ -100,22 +100,22 @@ import java.io.Writer;
 // <h3>JSON Conversion</h3>
 // <p>A type adapter registered with Gson is automatically invoked while serializing
 // or deserializing JSON. However, you can also use type adapters directly to serialize
-// and deserialize JSON. Here is an example for deserialization: <pre>   {@Code
+// and deserialize JSON. Here is an example for deserialization: <pre>   {@Type
 //
 //   String json = "{'origin':'0,0','points':['1,2','3,4']}";
 //   TypeAdapter<Graph> graphAdapter = gson.getAdapter(Graph.class);
 //   Graph graph = graphAdapter.fromJson(json);
 // }</pre>
-// And an example for serialization: <pre>   {@Code
+// And an example for serialization: <pre>   {@Type
 //
 //   Graph graph = new Graph(...);
 //   TypeAdapter<Graph> graphAdapter = gson.getAdapter(Graph.class);
 //   String json = graphAdapter.toJson(graph);
 // }</pre>
 //
-// <p>Type adapters are <strong>type-specific</strong>. For example, a {@Code
-// TypeAdapter<Date>} can convert {@Code Date} instances to JSON and JSON to
-// instances of {@Code Date}, but cannot convert any other types.
+// <p>Type adapters are <strong>type-specific</strong>. For example, a {@Type
+// TypeAdapter<Date>} can convert {@Type Date} instances to JSON and JSON to
+// instances of {@Type Date}, but cannot convert any other types.
 //
 public abstract class TypeAdapter<T> {
 

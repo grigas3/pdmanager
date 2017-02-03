@@ -7,7 +7,7 @@ import com.pdmanager.core.interfaces.INetworkStatusHandler;
 /**
  * Created by george on 27/1/2016.
  */
-public class BatchCommSender extends AsyncTask<CommunicationQueue, Void, Void> {
+public class BatchCommSender extends AsyncTask<ICommunicationQueue, Void, Void> {
 
 
     private INetworkStatusHandler mNetworkStatusHandler;
@@ -31,10 +31,10 @@ public class BatchCommSender extends AsyncTask<CommunicationQueue, Void, Void> {
 
 
     @Override
-    protected Void doInBackground(CommunicationQueue... params) {
+    protected Void doInBackground(ICommunicationQueue... params) {
 
 
-        CommunicationQueue mqueue = params[0];
+        ICommunicationQueue mqueue = params[0];
         boolean executeNext = false;
         JsonStorage request = null;
 
@@ -46,7 +46,7 @@ public class BatchCommSender extends AsyncTask<CommunicationQueue, Void, Void> {
             if (mNetworkStatusHandler.IsNetworkConnected()) {
 
                 if (executeNext)
-                    request = mqueue.peek();
+                    request = mqueue.poll();
 
 
                 if (request != null) {
@@ -59,10 +59,10 @@ public class BatchCommSender extends AsyncTask<CommunicationQueue, Void, Void> {
 
 
                         if (res) {
-                            mqueue.remove();
+
                             executeNext = true;
                         } else {
-
+                            mqueue.push(request);
                             executeNext = false;
                         }
 

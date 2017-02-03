@@ -15,7 +15,7 @@ public class HRDataBuffer extends DataBuffer<HRData> {
     private final byte[] dbytes = new byte[8];
     private String name;
 
-    public HRDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public HRDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

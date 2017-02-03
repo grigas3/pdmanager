@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-    <ProgressBar android:id="@+id/save_progress" style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp" android:visibility="gone" />
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/save_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/data_form_mainlayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:orientation="vertical">
 
-        <include layout="@layout/data_form_edit_toolbar"/>
+        <include layout="@layout/data_form_edit_toolbar" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <View android:layout_height="match_parent"
+                <View
                     android:layout_width="0dp"
-                    android:layout_weight="1"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
                 <TextView
-                    android:gravity="left"
-                    android:textColor="#B1AFAE"
-                    android:layout_marginTop="15dp"
-                    android:text="MED. ORDER DETAILS"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:layout_weight="4"
-                    android:layout_height="wrap_content" />
+                    android:gravity="left"
+                    android:text="MED. ORDER DETAILS"
+                    android:textColor="#B1AFAE" />
             </LinearLayout>
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <com.telerik.widget.dataform.visualization.RadDataForm
                     android:id="@+id/medorder_data_form"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </ScrollView>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/activity_testmedordercreate.xml -->
+</LinearLayout>

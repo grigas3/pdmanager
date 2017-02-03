@@ -1,16 +1,16 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinator_layout"
-    android:background="@drawable/listview_slideview_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/listview_slideview_bg"
     android:fitsSystemWindows="false">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:background="@color/transparent"
         android:layout_height="240dp"
+        android:background="@color/transparent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -23,12 +23,12 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:contentDescription="@string/list_view_slide_image_desc"
                 android:layout_width="@dimen/list_view_slide_item_width"
                 android:layout_height="240dp"
                 android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/list_view_slide_image_desc"
                 android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"/>
+                app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -40,34 +40,34 @@
 
             <View
                 android:id="@+id/line"
-                app:layout_collapseMode="parallax"
                 android:layout_width="@dimen/list_view_slide_item_width"
                 android:layout_height="2dp"
-                android:layout_gravity="bottom|center_horizontal" />
+                android:layout_gravity="bottom|center_horizontal"
+                app:layout_collapseMode="parallax" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
     <com.telerik.widget.list.RadListView
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/listView"
-        android:background="@color/white"
-        android:layout_gravity="center"
         android:layout_width="@dimen/list_view_slide_item_width"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.FloatingActionButton
-        android:src="@drawable/listview_slideview_fab"
-        app:fabSize="normal"
         android:id="@+id/fab"
-        app:borderWidth="0dp"
-        app:layout_anchor="@id/listView"
-        app:layout_anchorGravity="bottom|end"
-        android:layout_marginBottom="48dp"
-        android:layout_marginRight="@dimen/list_view_slide_item_fab_margin"
-        android:layout_marginEnd="@dimen/list_view_slide_item_fab_margin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="@dimen/list_view_slide_item_fab_margin"
+        android:layout_marginRight="@dimen/list_view_slide_item_fab_margin"
+        android:src="@drawable/listview_slideview_fab"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/listView"
+        app:layout_anchorGravity="bottom|end" />
 
-</android.support.design.widget.CoordinatorLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_list_view_slide_item.xml -->
+</android.support.design.widget.CoordinatorLayout>

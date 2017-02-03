@@ -6,4 +6,4 @@
             android:gravity="center"
             android:src="@drawable/ic_wrap_view" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/example_group_toggle_layout_pressed.xml -->
+</layer-list>

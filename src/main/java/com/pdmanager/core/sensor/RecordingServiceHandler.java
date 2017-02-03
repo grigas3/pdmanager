@@ -17,7 +17,7 @@
 //IN THE SOFTWARE.
 package com.pdmanager.core.sensor;
 
-import com.pdmanager.core.RecordingService;
+import com.pdmanager.services.RecordingService;
 
 public class RecordingServiceHandler {
 

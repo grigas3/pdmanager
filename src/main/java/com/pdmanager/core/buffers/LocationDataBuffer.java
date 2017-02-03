@@ -14,7 +14,7 @@ public class LocationDataBuffer extends DataBuffer<LocationData> {
 
     private String name;
 
-    public LocationDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public LocationDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

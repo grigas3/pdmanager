@@ -37,11 +37,8 @@ public class PatientDrawerActionsListAdapter extends ArrayAdapter<MenuAction> {
 
         this.controls = new ArrayList<MenuAction>();
 
-        MenuAction settings = new MenuAction();
-        settings.setActionInfo("Settings");
-        settings.setHeaderText("Settings");
 
-        settings.setFragmentName("RecordingSettingsFragment");
+
 
 
         MenuAction meds = new MenuAction();
@@ -51,22 +48,16 @@ public class PatientDrawerActionsListAdapter extends ArrayAdapter<MenuAction> {
         meds.setFragmentName("MedAdminFragment");
 
         MenuAction fileList = new MenuAction();
-        fileList.setActionInfo("Display");
-        fileList.setHeaderText("Display");
+        fileList.setActionInfo("Chat");
+        fileList.setHeaderText("Chat");
 
-        fileList.setFragmentName("SensorsFragment");
+        fileList.setFragmentName("ChatFragment");
 
-        MenuAction logList = new MenuAction();
-        logList.setActionInfo("Logs");
-        logList.setHeaderText("Logs");
 
-        logList.setFragmentName("LogEventFragment");
-
-        this.controls.add(settings);
 
         this.controls.add(meds);
         this.controls.add(fileList);
-        this.controls.add(logList);
+
 
 
     }

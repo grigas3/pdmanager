@@ -4,11 +4,11 @@
     android:id="@+id/actionBarTextView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:width="@dimen/action_bar_drop_down_min_width"
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:text="Highlighted"
-    android:textColor="@color/white"
     android:paddingLeft="0dp"
     android:paddingRight="10dp"
-    android:width="@dimen/action_bar_drop_down_min_width"/><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/actionbar_spinner_main_item.xml -->
+    android:text="Highlighted"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:textColor="@color/white" />

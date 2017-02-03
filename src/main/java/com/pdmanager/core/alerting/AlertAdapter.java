@@ -29,7 +29,7 @@ public class AlertAdapter {
     public AlertAdapter open() throws SQLException {
 
 
-        mDbHelper = new DBHandler(mCtx);
+        mDbHelper = DBHandler.getInstance(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         dbOpen = true;
         return this;
@@ -45,7 +45,7 @@ public class AlertAdapter {
 
     public void clearAlert() {
 
-        mDbHelper = new DBHandler(mCtx);
+        mDbHelper =  DBHandler.getInstance(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         mDb.delete(DBHandler.TABLE_ALERTS, null, null);
         mDbHelper.close();

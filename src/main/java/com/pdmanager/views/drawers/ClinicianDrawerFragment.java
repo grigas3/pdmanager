@@ -253,7 +253,7 @@ public class ClinicianDrawerFragment extends Fragment {
             }
         };
 
-        // Defer Code dependent on restoration of previous instance state.
+        // Defer Type dependent on restoration of previous instance state.
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {

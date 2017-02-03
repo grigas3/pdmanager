@@ -43,6 +43,16 @@ public class PendingMedication implements Parcelable {
     }
 
 
+    /**
+     *
+     * @param id Id
+     * @param mid Medication Order id
+     * @param m Medication
+     * @param t Time
+     * @param d Dose
+     * @param i Instructions
+     * @param s Status
+     */
     public PendingMedication(String id, String mid, String m, long t, String d, String i, String s) {
 
 

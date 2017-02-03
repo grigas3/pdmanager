@@ -9,10 +9,10 @@
     </item>
 
     <item
-        android:right="@dimen/tab_indicator_height"
-        android:bottom="1dp">
+        android:bottom="1dp"
+        android:right="@dimen/tab_indicator_height">
         <shape android:shape="rectangle">
             <solid android:color="#171923" />
         </shape>
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/tab_bg_active_horizontal.xml -->
+</layer-list>

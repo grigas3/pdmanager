@@ -2,6 +2,7 @@ package com.pdmanager.views;
 
 import android.app.Activity;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,17 +10,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.pdmanager.core.R;
+import com.pdmanager.core.communication.CommunicationManager;
+import com.pdmanager.core.communication.DataReceiver;
+import com.pdmanager.core.communication.DirectSender;
 import com.pdmanager.core.interfaces.IServiceStatusListener;
+import com.pdmanager.core.models.Device;
+import com.pdmanager.core.models.DeviceResult;
+import com.pdmanager.core.models.ObservationResult;
 import com.pdmanager.core.sensor.RecordingServiceHandler;
 import com.pdmanager.core.settings.RecordingSettings;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 
 public class RecordingSettingsFragment extends BasePDFragment implements FragmentListener, IServiceStatusListener {
@@ -33,9 +45,17 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     private Switch mSwitchDevAcc;
     private Spinner mStartHourSpin;
     private Spinner mEndHourSpin;
+
+    private Spinner mLangSpin;
     private Spinner mSendorDelaySpin;
 
     private HashSet<Switch> mSensorMap = new HashSet<Switch>();
+    private boolean enableSpinnerListener = false;
+    private Switch mSwitchRecordFile;
+    private Switch mSwitchUseDetectors;
+
+
+
     private CompoundButton.OnCheckedChangeListener mToggleSensorSection = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -76,8 +96,16 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
                     settings.setDevEnabled(isChecked);
 
 
-                }
+                } else if (sw == mSwitchUseDetectors) {
 
+                    settings.setUseDetectors(isChecked);
+
+                } else if (sw == mSwitchRecordFile) {
+
+                    settings.setRecordFiles(isChecked);
+
+
+                }
 
             } else
 
@@ -86,9 +114,9 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
             }
 
 
+
         }
     };
-    private boolean enableSpinnerListener = false;
 
 
     public RecordingSettingsFragment() {
@@ -137,8 +165,16 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         mSendorDelaySpin = (Spinner) rootView.findViewById(R.id.sensorDelaySpinner);
 
 
+        mLangSpin=(Spinner) rootView.findViewById(R.id.langSpin);
         //  mSwitchST.setOnCheckedChangeListener(mToggleSensorSection);
         mSwitchDevAcc.setOnCheckedChangeListener(mToggleSensorSection);
+
+
+        mSwitchRecordFile = (Switch) rootView.findViewById(R.id.switchRecordFile);
+        mSwitchRecordFile.setOnCheckedChangeListener(mToggleSensorSection);
+
+        mSwitchUseDetectors = (Switch) rootView.findViewById(R.id.switchUseDetectors);
+        mSwitchUseDetectors.setOnCheckedChangeListener(mToggleSensorSection);
 //        mSwitchHeartRate.setOnCheckedChangeListener(mToggleSensorSection);
         //      mSwitchBandAcc.setOnCheckedChangeListener(mToggleSensorSection);
         //    mSwitchBandGyro.setOnCheckedChangeListener(mToggleSensorSection);
@@ -155,6 +191,8 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         enableSpinnerListener = false;
         addItemsOnSpinners();
         addListenerOnSpinnerItemSelection();
+        //   mButtonPatients=(Button) rootView.findViewById(R.id.button);
+
 
 
         initSettings();
@@ -174,6 +212,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
 
     }
+
 
     @Override
     public void onAttach(Activity activity) {
@@ -200,10 +239,15 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
             mSwitchBandSensors.setChecked(settings.isBandEnabled());
 
             mSwitchDevAcc.setChecked(settings.isDevEnabled());
-
+            mSwitchRecordFile.setChecked(settings.getRecordFiles());
+            mSwitchUseDetectors.setChecked(settings.getUseDetectors());
 
             mStartHourSpin.setSelection(settings.getStartHour() - 6);
             mEndHourSpin.setSelection(settings.getStopHour() - 6);
+
+
+            mLangSpin.setSelection(getLangSelection(settings.getLang()));
+
 
             //mPatientCode.setSelection(getPatientSelection(settings.getPatientID()));
             //mOrganizationSpin.setSelection(getOrgSelection(settings.getOrganization()));
@@ -235,23 +279,35 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         Activity activity = getActivity();
         if (activity != null) {
-            final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
 
 
-                    for (Switch sw : mSensorMap) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
+
+                            for (Switch sw : mSensorMap) {
 
 
-                        sw.setSelected(true);
-                        sw.setEnabled(!running);
-                        sw.setClickable(!running);
+                                sw.setSelected(true);
+                                sw.setEnabled(!running);
+                                sw.setClickable(!running);
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Log.e("Settings Fragment","Refresh Controls",ex.getCause());
+                        }
+
+
                     }
+                });
 
 
-                }
-            });
+
 
         }
 
@@ -283,7 +339,24 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
 
     }
+    private int getLangSelection(String p) {
 
+
+        if (p == "en")
+            return 0;
+
+
+        if (p == "el")
+            return 1;
+
+
+        if (p == "it")
+            return 2;
+
+        return 0;
+
+
+    }
     // add items into spinner dynamically
     public void addItemsOnSpinners() {
 
@@ -329,8 +402,12 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         ArrayList<String> list3 = new ArrayList<String>();
 
-
-
+        list3.add("en");
+        list3.add("el");
+        list3.add("it");
+        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this.getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, list3);
+        mLangSpin.setAdapter(dataAdapter3);
 
      /*   for(int i=1;i<100;i++)
             list3.add(String.format("PAT%02d", i));
@@ -392,7 +469,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         mEndHourSpin.setOnItemSelectedListener(new EndHourSelectedListener());
         //   mOrganizationSpin.setOnItemSelectedListener(new OrgSelectedListener());
 
-
+        mLangSpin.setOnItemSelectedListener(new LangSelectedListener());
         // mPatientCode.setOnItemSelectedListener(new PatientSelectedListener());
         mSendorDelaySpin.setOnItemSelectedListener(new SensorDelaySelectedListener());
     }
@@ -515,7 +592,35 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         }
 
     }
+    private class LangSelectedListener implements AdapterView.OnItemSelectedListener {
 
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+
+            String lang ="en";
+            if (pos == 1)
+                lang = "el";
+            if (pos == 2)
+                lang = "it";
+
+
+            if (enableSpinnerListener) {
+
+                RecordingSettings settings = getSettings();
+                if (settings != null) {
+                    settings.setLang(lang);
+
+
+                }
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+
+    }
     private class PatientSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {

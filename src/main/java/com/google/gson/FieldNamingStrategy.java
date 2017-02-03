@@ -19,7 +19,7 @@ package com.google.gson;
 import java.lang.reflect.Field;
 
 /**
- * A mechanism for providing custom field naming in Gson.  This allows the client Code to translate
+ * A mechanism for providing custom field naming in Gson.  This allows the client Type to translate
  * field names into a particular convention that is not supported as a normal Java field
  * declaration rules.  For example, Java does not support "-" characters in a field name.
  *

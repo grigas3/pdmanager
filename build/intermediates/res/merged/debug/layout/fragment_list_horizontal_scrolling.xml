@@ -25,8 +25,8 @@
                 android:id="@+id/txtRecommended"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="6dp"
                 android:text="RECOMMENDED RECIPES"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -37,9 +37,9 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_below="@+id/header"
-            android:paddingBottom="8dp"
-            android:layout_marginLeft="50dp"
             android:layout_gravity="bottom"
+            android:layout_marginLeft="50dp"
+            android:paddingBottom="8dp"
             android:scaleType="center" />
 
     </RelativeLayout>
@@ -52,9 +52,9 @@
 
         <com.telerik.common.CustomLinearLayout
             android:id="@+id/listViewsHolder"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtDesserts"
@@ -105,4 +105,4 @@
             </com.telerik.widget.list.RadListView>
         </com.telerik.common.CustomLinearLayout>
     </ScrollView>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_list_horizontal_scrolling.xml -->
+</LinearLayout>

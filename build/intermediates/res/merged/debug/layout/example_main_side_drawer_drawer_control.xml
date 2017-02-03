@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/drawerFragmentDrawer"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerFragmentDrawer">
+    android:orientation="vertical">
 
-</com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_main_side_drawer_drawer_control.xml -->
+</com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer>

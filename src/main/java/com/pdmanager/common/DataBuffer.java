@@ -2,6 +2,8 @@ package com.pdmanager.common;
 
 import android.os.Environment;
 
+import com.pdmanager.common.data.BaseSensorData;
+import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.math.DoubleMath;
 
 import java.io.BufferedOutputStream;
@@ -33,6 +35,9 @@ public abstract class DataBuffer<T> {
     private long byteWritten = 0;
     private boolean mHeaderCreated = false;
     private boolean needSave = false;
+    private final  String newline = "\r\n";
+    private int itemCount=0;
+
 
     public DataBuffer(long mBuffer, long mTBuffer, String pfolder, String pfileName) {
         MAXBUFFER = mBuffer;
@@ -73,9 +78,11 @@ public abstract class DataBuffer<T> {
     public void finalize() {
 
         if (count > 0) {
-            final ArrayList<T> tmpItems = new ArrayList<>();
+            //final ArrayList<T> tmpItems = new ArrayList<>();
 
-            tmpItems.addAll(items);
+            //tmpItems.addAll(items);
+
+            final ArrayList<T> tmpItems=(ArrayList<T>)items.clone();
             count = 0;
             items.clear();
 
@@ -136,17 +143,13 @@ public abstract class DataBuffer<T> {
 
         //Adds the textbox data to the file
         try {
-            String newline = "\r\n";
+
             FileOutputStream fos = new FileOutputStream(saveFilePath, true);
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             DataOutputStream OutDataWriter = new DataOutputStream(bos);
 
 
             for (int j = 0; j < tmpItems.size(); j++) {
-
-
-                //ISensorData data = (ISensorData) tmpItems.get(j);
-
 
                 WriteItem(OutDataWriter, tmpItems.get(j));
                 byteWritten += rowSize;
@@ -170,18 +173,19 @@ public abstract class DataBuffer<T> {
 
     public void addItem(T item) {
 
-        final ArrayList<T> tmpItems = new ArrayList<>();
+        final ArrayList<T> tmpItems = new ArrayList<>();;
 
 
         synchronized (lock1) {
 
             count += rowSize;
             items.add(item);
-            if (count > MAXBUFFER) {
+            if (count >= MAXBUFFER) {
 
 
                 needSave = true;
                 //tmpItems=new ArrayList<>();
+                //  tmpItems=(ArrayList<T>)items.clone();
                 tmpItems.addAll(items);
                 items.clear();
                 count = 0;

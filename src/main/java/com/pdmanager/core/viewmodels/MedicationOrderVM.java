@@ -26,18 +26,95 @@ public class MedicationOrderVM extends NotifyPropertyChangedBase {
     private String dose2 = "50mg";
     private String dose3 = "50mg";
     private String dose4 = "50mg";
+    private String dose5 = "50mg";
     private boolean included1 = true;
     private boolean included2 = true;
     private boolean included3 = true;
     private boolean included4 = true;
+    private boolean included5 = true;
     private long reservationDate = Calendar.getInstance().getTimeInMillis();
     private long reservationTime1 = Calendar.getInstance().getTimeInMillis();
     private long reservationTime2 = Calendar.getInstance().getTimeInMillis();
     private long reservationTime3 = Calendar.getInstance().getTimeInMillis();
     private long reservationTime4 = Calendar.getInstance().getTimeInMillis();
+    private long reservationTime5 = Calendar.getInstance().getTimeInMillis();
+    private String dose6 = "50mg";
+    private String dose7= "50mg";
+    private String dose8 = "50mg";
+    private String dose9 = "50mg";
+    private String dose10 = "50mg";
+    private boolean included6 = true;
+    private boolean included7 = true;
+    private boolean included8 = true;
+    private boolean included9 = true;
+    private boolean included10 = true;
+    private long reservationDate6 = Calendar.getInstance().getTimeInMillis();
+    private long reservationTime7 = Calendar.getInstance().getTimeInMillis();
+    private long reservationTime8 = Calendar.getInstance().getTimeInMillis();
+    private long reservationTime9 = Calendar.getInstance().getTimeInMillis();
+    private long reservationTime10 = Calendar.getInstance().getTimeInMillis();
+
 
 
     public MedicationOrderVM() {
+
+    }
+
+    public static MedicationOrderVM getMedicationOrder(MedicationOrder order) {
+
+        MedicationOrderVM vm = new MedicationOrderVM();
+        vm.MedicationName = order.MedicationId;
+        vm.Instructions=order.Instructions;
+
+
+
+
+        List<MedTiming> timing = new ArrayList<>();
+    int count=1;
+        for (MedTiming time:order.getTimings()
+             ) {
+
+
+            switch (count) {
+                case 1: {
+                    vm.included1 = true;
+                    vm.reservationTime1 = time.Time;
+                    break;
+
+                }
+                case 2: {
+                    vm.included2 = true;
+                    vm.reservationTime2 = time.Time;
+                    break;
+
+                }
+
+                case 3: {
+                    vm.included3 = true;
+                    vm.reservationTime3 = time.Time;
+                    break;
+
+                }
+
+                case 4: {
+                    vm.included4 = true;
+                    vm.reservationTime4 = time.Time;
+                    break;
+
+                }
+
+
+                case 5: {
+                    vm.included5 = true;
+                    vm.reservationTime5 = time.Time;
+                    break;
+
+                }
+            }
+        }
+
+        return vm;
+
 
     }
 

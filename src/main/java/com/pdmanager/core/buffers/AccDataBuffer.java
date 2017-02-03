@@ -15,7 +15,7 @@ public class AccDataBuffer extends DataBuffer<AccData> {
     private String name;
 
 
-    public AccDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public AccDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

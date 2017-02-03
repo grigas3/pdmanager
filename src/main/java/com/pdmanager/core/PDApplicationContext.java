@@ -16,9 +16,8 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tagmanager.ContainerHolder;
-import com.pdmanager.views.ClinicianActivity;
-import com.pdmanager.views.MainActivity;
-import com.telerik.common.TrackedApplication;
+import com.pdmanager.views.clinician.ClinicianActivity;
+import com.pdmanager.views.patient.MainActivity;
 import com.telerik.common.google.ContainerHolderSingleton;
 import com.telerik.viewmodels.MenuAction;
 
@@ -31,13 +30,16 @@ import java.util.Set;
 /**
  * Created by George on 1/30/2016.
  */
-public class PDApplicationContext extends TrackedApplication implements Thread.UncaughtExceptionHandler {
+public class PDApplicationContext extends VideoApp implements Thread.UncaughtExceptionHandler {
 
     public static final String INTENT_CONTROL_ID = "CONTROL_ID";
     public static final String INTENT_Action_ID = "Action_ID";
     public static final String INTENT_SECTION_ID = "SECTION_ID";
     public static final String INTENT_PATIENT_CODE = "PATIENT_CODE";
     public static final String INTENT_ACCESS_TOKEN = "ACCESS_TOKEN";
+    public static final String INTENT_ALERT_ID = "ALERT_ID";
+    public static final String INTENT_ALERT_TYPE= "ALERT_TYPE";
+
     public static final String INTENT_SELECTED_DAY = "DAY";
     public static final String INTENT_PATIENT_NAME = "PATIENT_NAME";
     public static final String INTENT_SOURCE_MODEL_ID = "SOURCE_MODEL";
@@ -80,6 +82,8 @@ public class PDApplicationContext extends TrackedApplication implements Thread.U
         this.analyticsLearned = preferences.getBoolean(ANALYTICS_LEARNED_KEY, false);
         this.analyticsActive = preferences.getBoolean(ANALYTICS_ACTIVE_KEY, false);
         this.openedActionsCount = preferences.getInt(OPENED_ActionS_COUNT_KEY, 0);
+
+
     }
 
     public void addOnFavouritesChangedListener(FavouritesChangedListener listener) {
@@ -274,7 +278,9 @@ public class PDApplicationContext extends TrackedApplication implements Thread.U
 
     @Override
     public void uncaughtException(Thread thread, Throwable throwable) {
-        trackException(throwable);
+
+
+       // trackException(throwable);
 
         defaultUEHandler.uncaughtException(thread, throwable);
     }

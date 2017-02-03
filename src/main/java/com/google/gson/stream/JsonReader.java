@@ -83,7 +83,7 @@ import java.io.Reader;
  *     }
  *   }
  * ]}</pre>
- * This Code implements the parser for the above structure: <pre>   {@code
+ * This Type implements the parser for the above structure: <pre>   {@code
  * <p/>
  *   public List<Message> readJsonStream(InputStream in) throws IOException {
  *     JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
@@ -176,7 +176,7 @@ import java.io.Reader;
  * request forgery</a> attacks. In such an attack, a malicious site gains access
  * to a private JSON file by executing it with an HTML {@code <script>} tag.
  * <p/>
- * <p>Prefixing JSON files with <Code>")]}'\n"</Code> makes them non-executable
+ * <p>Prefixing JSON files with <Type>")]}'\n"</Type> makes them non-executable
  * by {@code <script>} tags, disarming the attack. Since the prefix is malformed
  * JSON, strict parsing fails when it is encountered. This class permits the
  * non-execute prefix when {@link #setLenient(boolean) lenient parsing} is
@@ -338,7 +338,7 @@ public class JsonReader implements Closeable {
      * <p/>
      * <ul>
      * <li>Streams that start with the <a href="#nonexecuteprefix">non-execute
-     * prefix</a>, <Code>")]}'\n"</Code>.
+     * prefix</a>, <Type>")]}'\n"</Type>.
      * <li>Streams that include multiple top-level values. With strict parsing,
      * each stream must contain exactly one top-level Value.
      * <li>Top-level values of any type. With strict parsing, the top-level
@@ -1360,7 +1360,7 @@ public class JsonReader implements Closeable {
      */
     private int nextNonWhitespace(boolean throwOnEof) throws IOException {
     /*
-     * This Code uses ugly local variables 'p' and 'l' representing the 'pos'
+     * This Type uses ugly local variables 'p' and 'l' representing the 'pos'
      * and 'limit' fields respectively. Using locals rather than fields saves
      * a few field reads for each whitespace character in a pretty-printed
      * document, resulting in a 5% speedup. We need to flush 'p' to its field

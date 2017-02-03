@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.pdmanager.common.data.PDAnnotData;
 import com.pdmanager.common.data.PDData;
 import com.pdmanager.core.R;
-import com.pdmanager.core.RecordingService;
+import com.pdmanager.services.RecordingService;
 import com.pdmanager.core.interfaces.IServiceStatusListener;
 import com.pdmanager.core.logging.LogHandler;
 import com.pdmanager.core.sensor.RecordingServiceHandler;

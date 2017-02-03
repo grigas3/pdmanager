@@ -2,12 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="13sp"
-        android:layout_margin="15dp"/>
+        android:layout_margin="15dp"
+        android:textSize="13sp" />
 </FrameLayout>
 
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_drawer_menu_list_item.xml -->

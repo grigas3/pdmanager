@@ -19,7 +19,8 @@
 
     <TextView style="@style/WizardPageTitle" />
 
-    <ListView android:id="@android:id/list"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0"
@@ -29,75 +30,75 @@
         android:scrollbarStyle="outsideOverlay" />
 
     <TextView
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
 
+        android:scrollbarStyle="outsideOverlay"
         android:text="Domain:"
-        android:textSize="30dp"
 
-        android:scrollbarStyle="outsideOverlay"
-        />
-    <TextView android:id="@+id/ddomain"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/listPreferredItemHeightSmall"
+        android:textSize="30dp" />
 
-       
-        android:scrollbarStyle="outsideOverlay"
-        />
     <TextView
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:id="@+id/ddomain"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
 
-        android:text="Severity"
-        android:textSize="30sp"
+
+        android:scrollbarStyle="outsideOverlay" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeightSmall"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
 
         android:scrollbarStyle="outsideOverlay"
-        />
+        android:text="Severity"
 
-    <Spinner android:id="@+id/spinnerSeverity"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/spinnerSeverity"
         android:layout_width="match_parent"
         android:layout_height="40sp"
         android:layout_weight="0"
+        android:background="@drawable/downarrow"
         android:paddingLeft="16dp"
+
         android:paddingRight="16dp"
-        
+        android:scrollbarStyle="outsideOverlay"
         android:spinnerMode="dialog"
         android:textSize="40sp"
-        android:background="@drawable/downarrow"
-        android:scrollbarStyle="outsideOverlay"
 
         />
 
     <TextView
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
-
-        android:text="Frequency"
-        android:textSize="30sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
 
         android:scrollbarStyle="outsideOverlay"
-        />
+        android:text="Frequency"
 
-    <Spinner android:id="@+id/spinnerFrequency"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/spinnerFrequency"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeightSmall"
         android:layout_weight="0"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-
-        android:spinnerMode="dropdown"
         android:background="@drawable/downarrow"
+        android:paddingLeft="16dp"
+
+        android:paddingRight="16dp"
         android:scrollbarStyle="outsideOverlay"
+        android:spinnerMode="dropdown"
 
         />
 
 </LinearLayout>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_page_spinner_commented.xml -->

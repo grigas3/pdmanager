@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.hardware.SensorManager;
 
+import java.util.UUID;
+
 /**
  * A class containing the recording settings
  * i.e. which devices are enabled and if we should display data
@@ -25,6 +27,7 @@ public class RecordingSettings {
     private int mStartHour = 8;
     private int mStopHour = 20;
     private long mRecordingStart = 0;
+    private long mlastNFG = 0;
     private String mtoken;
     private String mPatientID = "PAT01";
     private boolean mSessionRunning = false;
@@ -35,7 +38,12 @@ public class RecordingSettings {
     private int mAcquisitionInterval = 30;
     private String muserName;
     private String mPassword;
+    private String mDeviceId;
     private long mExpirationTick;
+
+    private boolean mDevTokenSended = false;
+    private boolean mRecordFiles = true;
+    private boolean mUseDetectors = false;
     //   private boolean mbandaccEnabled=true;
     //  private boolean mbandgyroEnabled=true;
     //  private boolean mheartRateEnabled=true;
@@ -52,6 +60,14 @@ public class RecordingSettings {
 
     }
 
+
+
+    public static RecordingSettings newInstance(Context context)
+    {
+
+        return new RecordingSettings(context);
+
+    }
 
     public RecordingSettings(Context context) {
 
@@ -72,6 +88,12 @@ public class RecordingSettings {
                 //   mbandgyroEnabled = pref.getBoolean("BandGyro", mbandgyroEnabled);
                 mdevEnabled = pref.getBoolean("Device", mdevEnabled);
                 mStartHour = pref.getInt("StartHour", mStartHour);
+                mRecordFiles = pref.getBoolean("RecordFiles", mRecordFiles);
+                mUseDetectors = pref.getBoolean("UseDetectors", mUseDetectors);
+                mDevTokenSended = pref.getBoolean("DevTokenSended", mDevTokenSended);
+
+                mLang = pref.getString("Lang", mLang);
+
                 mStopHour = pref.getInt("StopHour", mStopHour);
                 mSensorDelay = pref.getInt("SensorDelay", mSensorDelay);
                 mSessionRunning = pref.getBoolean("SessionRunning", mSessionRunning);
@@ -81,12 +103,20 @@ public class RecordingSettings {
                 mReminder1 = pref.getString("Reminder1", mReminder1);
                 mReminder2 = pref.getString("Reminder2", mReminder2);
 
+                mReminder2 = pref.getString("Reminder2", mReminder2);
+
+                mTileUUID = pref.getString("TileUUID", mTileUUID);
+
+
                 muserName = pref.getString("Username", muserName);
                 mPassword = pref.getString("Password", mPassword);
                 mExpirationTick = pref.getLong("Expiration", mExpirationTick);
+                mlastNFG = pref.getLong("LastNFG", mlastNFG);
                 mEvent1 = pref.getString("Event1", mEvent1);
                 mEvent2 = pref.getString("Event2", mEvent2);
                 mtoken = pref.getString("access-token", mtoken);
+
+                mDeviceId = pref.getString("DeviceId", mDeviceId);
                 mRole = pref.getString("Role", mRole);
 
 
@@ -312,9 +342,35 @@ public class RecordingSettings {
         SetPref("Password", h);
     }
 
+
+    private String mLang="en";
+    public String getLang() {
+        return mLang;
+
+    }
+
+    public void setLang(String h) {
+        mLang = h;
+        SetPref("Lang", h);
+    }
+
+
+
+
     public long getExpiration() {
         return mExpirationTick;
 
+    }
+
+
+    public long getLastNFG() {
+        return mlastNFG;
+
+    }
+
+    public void setLastNFG(long nfg) {
+         mlastNFG=nfg;
+        SetPref("LastNFG", nfg);
     }
 
    /* public String getOrganization() {
@@ -421,5 +477,66 @@ public class RecordingSettings {
     public void setRole(String token) {
         this.mRole = token;
         SetPref("Role", token);
+    }
+
+
+    public boolean getRecordFiles() {
+
+
+        return mRecordFiles;
+    }
+
+    public void setRecordFiles(boolean token) {
+        this.mRecordFiles = token;
+        SetPref("RecordFiles", token);
+    }
+
+
+    public boolean getUseDetectors() {
+
+
+        return mUseDetectors;
+    }
+
+    public void setUseDetectors(boolean token) {
+        this.mUseDetectors = token;
+        SetPref("UseDetectors", token);
+    }
+
+
+    public boolean getDevTokenSended() {
+
+
+        return mDevTokenSended;
+    }
+
+    public void setDevTokenSended(boolean token) {
+        this.mDevTokenSended = token;
+        SetPref("DevTokenSended", token);
+    }
+
+    public String getDeviceId() {
+
+
+        return mDeviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.mDeviceId = deviceId;
+        SetPref("DeviceId", deviceId);
+    }
+
+    String mTileUUID;
+    public String getTileUUID() {
+
+
+
+        return mTileUUID;
+    }
+
+    public void setTileUUID(UUID deviceId) {
+        this.mTileUUID = deviceId.toString();
+
+        SetPref("TileUUID", deviceId.toString());
     }
 }

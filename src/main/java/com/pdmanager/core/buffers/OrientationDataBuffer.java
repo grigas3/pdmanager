@@ -16,7 +16,7 @@ public class OrientationDataBuffer extends DataBuffer<OrientData> {
     private String name;
 
 
-    public OrientationDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public OrientationDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

@@ -33,11 +33,9 @@ import com.telerik.viewmodels.MenuAction;
  */
 public class PatientDrawerFragment extends Fragment {
 
-    public static final String NAV_DRAWER_SECTION_HOME = "RecordingServiceFragment";
-    public static final String NAV_DRAWER_SECTION_SETTINGS = "RecordingSettingsFragment";
-    public static final String NAV_DRAWER_SECTION_LOGS = "LogEventFragment";
-    public static final String NAV_DRAWER_SECTION_DISPLAY = "SensorsFragment";
+    public static final String NAV_DRAWER_SECTION_HOME = "NotFeelingGoodFragment";
     public static final String NAV_DRAWER_MEDADMIN = "MedAdminFragment";
+    public static final String NAV_DRAWER_CHAT = "ChatFragment";
     public static final String NAV_DRAWER_SECTION_ABOUT = "Help";
     /**
      * Remember the position of the selected item.
@@ -253,7 +251,7 @@ public class PatientDrawerFragment extends Fragment {
             }
         };
 
-        // Defer Code dependent on restoration of previous instance state.
+        // Defer Type dependent on restoration of previous instance state.
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {

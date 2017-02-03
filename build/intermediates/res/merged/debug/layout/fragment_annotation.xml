@@ -14,146 +14,150 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
+
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal"
-            android:layout_marginTop="10dp"
-            android:id="@+id/linearLayout2">
+            android:layout_marginTop="10dp">
 
             <TextView
+                android:id="@+id/linearLayout6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:textStyle="bold"
+                android:layout_height="wrap_content"
                 android:text="L.I.D.   "
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/linearLayout6" />
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-          >
-            <SeekBar
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:max="4"
+                android:textStyle="bold" />
 
-                android:id="@+id/lidBar"
-             />  <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="lid"
-            android:id="@+id/lidText"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            />
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            android:layout_marginTop="10dp"
-            android:id="@+id/linearLayou3">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textStyle="bold"
-                android:text="Bradyk"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                />
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-           >
-            <SeekBar
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:max="4"
-
-                android:id="@+id/bradBar"
-                />  <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="Bradykinesia"
-            android:id="@+id/bradText"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            android:layout_marginTop="10dp"
-            android:id="@+id/linearLayou4">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textStyle="bold"
-                android:text="Tremor"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                />
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-               >
-            <SeekBar
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:max="4"
+                android:orientation="vertical">
 
-                android:id="@+id/tremorBar"
-                />
+                <SeekBar
+                    android:id="@+id/lidBar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:max="4" />
+
                 <TextView
+                    android:id="@+id/lidText"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:textStyle="bold"
-                    android:text="tremor"
-                    android:id="@+id/tremorText"
+                    android:text="lid"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    />
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:id="@+id/linearLayou3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Bradyk"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <SeekBar
+                    android:id="@+id/bradBar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:max="4" />
+
+                <TextView
+                    android:id="@+id/bradText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Bradykinesia"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:id="@+id/linearLayou4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Tremor"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <SeekBar
+                    android:id="@+id/tremorBar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:max="4" />
+
+                <TextView
+                    android:id="@+id/tremorText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="tremor"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
@@ -162,10 +166,10 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:id="@+id/buttonSubmit"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:text="Submit" />
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_annotation.xml -->
+</LinearLayout>

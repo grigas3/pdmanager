@@ -2,23 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.pdmanager.views.MainActivity">
-
-    <item
-        android:id="@+id/action_clearlog"
-        android:orderInCategory="100"
-        android:title="Clear Log"
-        app:showAsAction="never" />
+    tools:context="com.pdmanager.views.patient.MainActivity">
 
 
     <item
-        android:id="@+id/action_sendqueue"
+        android:id="@+id/action_technician"
         android:orderInCategory="100"
-        android:title="Send Queue"
+        android:title="Technician"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_logout"
-        android:orderInCategory="100"
-        android:title="Logout"
-        app:showAsAction="never" />
+
 </menu>

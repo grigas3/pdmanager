@@ -133,6 +133,17 @@
     <string name="documentation">Check out the product documentation.</string>
     <string name="documentation_example_info">Check out the documentation.</string>
     <string name="productPage">Check out the product page.</string>
+    <string name="medalertpart1">Did you get the</string>
+    <string name="medalertpart2">at</string>
+
+    <string name="medalertpart3">Your next </string>
+    <string name="medalertpart4">intake is at </string>
+
+    <string name="confirm">yes</string>
+    <string name="reject">no</string>
+    <string name="ngfmess2">You have already pressed the not feeling good button!</string>
+    <string name="ngfmess1">Press the button when you are NOT feeling good!</string>
+
     <string name="next">Next</string>
     <string name="prev">Previous</string>
     <string name="finish">Submit your answers</string>
@@ -158,5 +169,84 @@
         <item>Range: <b>5 Y</b></item>
     </string-array>
 
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+    <!--OIDC  TokensExpiredDialog -->
+    <string name="loginButtonText">Log in with OpenID Connect</string>
+    <string name="editConfButton">OpenId Connect Client Configuration</string>
+    <string name="requestButton">Request protected Ressource</string>
+    <string name="logoutButtonText">Logout (Removes account)</string>
+
+    <!--OIDC TokensExpiredDialog -->
+    <string name="tokensExpiredDialogTitle">Tokens have expire</string>
+    <string name="tokensExpiredDialogMsg">You need to signin again to continue</string>
+    <string name="tokensExpiredDialogButton">SignIn</string>
+
+
+    <string name="authorizing">Authorizing</string>
+    <string name="logging_in">Logging in</string>
+    <string name="joining_av_chat">Joining AV chat</string>
+    <string name="me">Me</string>
+    <string name="front_camera">Front camera</string>
+    <string name="back_camera">Back camera</string>
+    <string name="mute_camera">Mute camera</string>
+    <string name="change_camera">Change camera</string>
+    <string name="resolution">Resolution</string>
+    <string name="audio_routes">Audio Routes</string>
+    <string name="filters">Filters</string>
+    <string name="enter_session_id">Enter conference id</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_username_toast">Please enter username</string>
+    <string name="no_internet">No Internet Connection. Please check your internet connection or try again later.</string>
+    <string name="enter_conference_id">Enter conference ID</string>
+    <string name="wrong_conference_id">Conference ID is not valid</string>
+    <string name="wrong_conference_id_space_character"> Space character is not allowed. </string>
+    <string name="session_id">Session ID</string>
+    <string name="info_participants">Participants info</string>
+    <string name="join_session">Join Session</string>
+    <string name="video_cannot_be_viewed">Video cannot be viewed!</string>
+    <string name="device_is_not_supported">Device is not supported!</string>
+    <string name="start_call_title">Call</string>
+    <string name="call_receiver_label">Call receiver Id:</string>
+    <string name="enter_receiver_id">Enter receiver Id</string>
+    <string name="enter_call_receiver">Enter call receiver</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="calling">Calling</string>
+    <string name="answer">Answer</string>
+    <string name="decline">Decline</string>
+    <string name="no_receivers">Please add a receiver!</string>
+    <string name="room_title">Room</string>
+    <string name="make_call_title">Make call</string>
+    <string name="use_custom_render">Use custom video render</string>
+	<string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+    <string name="all_receivers_offline">All receivers offline</string>
+    <string name="fail_to_send_message">Sending of message fail</string>
+    <string name="unknown">Unknown camera</string>
+    <string name="unsubscribe_title">Unsubscribe</string>
+    <string name="user_unsubscribed">User unsubscribed</string>
+    <string name="user_unsubscribe_error">Error to unsubscribe</string>
+    <string name="no_token_to_unsubscribe">There is no token to unsubscribe</string>
+    <string name="characters_missing">Characters missing</string>
+    <string name="user_offline">User %s is offline</string>
+    <string name="video_orientation_lock">Video Orientation Lock:</string>
+    <string name="video_orientation_anim">Video Orientation Anim:</string>
+    <string name="video_fitting_mode">Video Fitting Mode:</string>
+    <string name="resolution_not_supported">Resolution is not supported</string>
+    <string name="call_busy">The call receiver is busy</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="title_activity_med_alert">MedAlertActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="welcome">Welcome!</string>
 
 </resources>

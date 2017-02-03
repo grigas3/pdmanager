@@ -185,7 +185,7 @@ public final class GsonBuilder {
      *   original.put(new Point(8, 8), "b");
      *   System.out.println(gson.toJson(original, type));
      * }</pre>
-     * The above Code prints this JSON object:<pre>  {@code
+     * The above Type prints this JSON object:<pre>  {@code
      *   {
      *     "(5,6)": "a",
      *     "(8,8)": "b"

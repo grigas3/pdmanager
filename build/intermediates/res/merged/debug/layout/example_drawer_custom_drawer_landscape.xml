@@ -134,9 +134,9 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48px"
-            android:layout_marginRight="48px"
             android:layout_marginBottom="48px"
+            android:layout_marginRight="48px"
+            android:layout_marginTop="48px"
             android:button="@null"
             android:checked="true"
             android:drawableLeft="@drawable/btn_check"
@@ -146,8 +146,8 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48px"
             android:layout_marginRight="48px"
+            android:layout_marginTop="48px"
             android:button="@null"
             android:drawableLeft="@drawable/btn_check"
             android:text="Sour"
@@ -164,4 +164,4 @@
             android:textColor="#FEFEFE" />
     </LinearLayout>
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_drawer_custom_drawer_landscape.xml -->
+</LinearLayout>

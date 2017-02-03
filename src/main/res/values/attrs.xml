@@ -28,4 +28,24 @@
         <attr name="scrollingTabStyle" format="reference" />
     </declare-styleable>
 
+
+    <declare-styleable name="com.pdmanager.VideoCallActivity.LocationableGLSurfaceView">
+        <attr name="locationIndex" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="DynamicAbsoluteLayout_Layout">
+        <attr name="layout_x" format="dimension" />
+        <attr name="layout_y" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="CustomVideoPanel">
+        <attr name="isCircleShape" format="boolean" />
+    </declare-styleable>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
 </resources>

@@ -7,9 +7,9 @@ package com.pdmanager.core.posturedetector.FeatureExtractors;
 
 
 /*
- * This Code was developed by George Rigas
+ * This Type was developed by George Rigas
  * in 2014 for project PD-fusion.
- * The copyrights of the Code belong to Micrel.
+ * The copyrights of the Type belong to Micrel.
  * */
 
 import com.pdmanager.core.posturedetector.Core.BaseMath;

@@ -5,4 +5,4 @@
         android:startColor="@color/shadeColor"
         android:centerColor="@color/shadeColorCenter"
         android:endColor="@color/transparent" />
-</shape><!-- From: file:/C:/_J/jobs/BuildAll_Upload_2015q3sp/workspace/List/src/main/res/drawable/shade_corner.xml --><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/build/intermediates/exploded-aar/List-2015.3.1113-trial-release/res/drawable/shade_corner.xml -->
+</shape><!-- From: file:/C:/_J/jobs/BuildAll_Upload_2015q3sp/workspace/List/src/main/res/drawable/shade_corner.xml -->

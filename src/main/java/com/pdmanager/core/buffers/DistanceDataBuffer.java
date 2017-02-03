@@ -13,7 +13,7 @@ public class DistanceDataBuffer extends DataBuffer<PedoData> {
 
     private String name;
 
-    public DistanceDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public DistanceDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

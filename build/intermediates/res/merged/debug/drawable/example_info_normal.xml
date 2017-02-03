@@ -6,4 +6,4 @@
             android:gravity="center"
             android:src="@drawable/icon_info" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/example_info_normal.xml -->
+</layer-list>

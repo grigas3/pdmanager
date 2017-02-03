@@ -1,41 +1,70 @@
 package com.pdmanager.core.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by george on 6/1/2016.
  */
-public class UsageStatistic extends PDEntity {
+public class UsageStatistic extends PDEntity implements Parcelable {
 
 
     private long Timestamp;
-    private long Value;
-    private String Code;
-    private String PatientIdentifier = "PAT01";
+    private double Value;
+    private String CodeId;
 
-    public UsageStatistic(long value, String code, long t, String patient) {
+    private String PatientIdentifier = "PAT01";
+    private String DeviceId = "DEV01";
+
+    public UsageStatistic(double value, String code, long t, String patient,String deviceId) {
+
+        Id = "newid";
         this.Value = value;
-        this.Code = code;
+        this.CodeId = code;
         this.Timestamp = t;
 
         this.PatientIdentifier = patient;
+        this.DeviceId = deviceId;
         //SetPatientIdentifier();
     }
 
 
-    /*
-    private void SetPatientIdentifier()
-    {
 
-        RecordingSettings settings= RecordingSettingsHandler.getInstance().getSettings();
-        if(settings!=null)
-        {
+    protected UsageStatistic(Parcel in) {
+        Timestamp = in.readLong();
+        Value = in.readDouble();
+        CodeId = in.readString();
+        PatientIdentifier = in.readString();
+        DeviceId = in.readString();
+    }
 
-            PatientId=settings.getOrganization()+"_"+settings.getPatientID();
-
+    public static final Creator<UsageStatistic> CREATOR = new Creator<UsageStatistic>() {
+        @Override
+        public UsageStatistic createFromParcel(Parcel in) {
+            return new UsageStatistic(in);
         }
 
-    }
-    */
+        @Override
+        public UsageStatistic[] newArray(int size) {
+            return new UsageStatistic[size];
+        }
+    };
+
+    /*
+        private void SetPatientIdentifier()
+        {
+
+            RecordingSettings settings= RecordingSettingsHandler.getInstance().getSettings();
+            if(settings!=null)
+            {
+
+                PatientId=settings.getOrganization()+"_"+settings.getPatientID();
+
+            }
+
+        }
+        */
     public long getTimestamp() {
         return Timestamp;
     }
@@ -45,11 +74,11 @@ public class UsageStatistic extends PDEntity {
     }
 
     public String getCode() {
-        return Code;
+        return CodeId;
     }
 
     public void setCode(String mCode) {
-        this.Code = mCode;
+        this.CodeId = mCode;
     }
 
     public double getValue() {
@@ -63,5 +92,19 @@ public class UsageStatistic extends PDEntity {
     @Override
     public String getPDType() {
         return "UsageStatistic";
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(Timestamp);
+        dest.writeDouble(Value);
+        dest.writeString(CodeId);
+        dest.writeString(PatientIdentifier);
+        dest.writeString(DeviceId);
     }
 }

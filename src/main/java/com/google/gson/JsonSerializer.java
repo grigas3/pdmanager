@@ -43,7 +43,7 @@ import java.lang.reflect.Type;
  * </pre></p>
  * <p/>
  * <p>The default serialization of {@code Id(com.foo.MyObject.class, 20L)} will be
- * <Code>{"clazz":com.foo.MyObject,"Value":20}</Code>. Suppose, you just want the output to be
+ * <Type>{"clazz":com.foo.MyObject,"Value":20}</Type>. Suppose, you just want the output to be
  * the Value instead, which is {@code 20} in this case. You can achieve that by writing a custom
  * serializer:</p>
  * <p/>

@@ -34,12 +34,12 @@ import com.telerik.viewmodels.MenuAction;
 public class PatientChartDrawerFragment extends Fragment {
 
     public static final String NAV_DRAWER_SECTION_HOME = "Home";
-    public static final String NAV_DRAWER_SECTION_CHART = "com.pdmanager.views.PatientChartFragment";
-    public static final String NAV_DRAWER_SECTION_CALENDAR = "com.pdmanager.views.PatientCalendarFragment";
-    public static final String NAV_DRAWER_SECTION_OBS = "com.pdmanager.views.ObservationChartFragment";
-    public static final String NAV_DRAWER_SECTION_DIST = "com.pdmanager.views.DistributionChartFragment";
-    public static final String NAV_DRAWER_SECTION_ASS = "com.pdmanager.views.AssessmentFragment";
-    public static final String NAV_DRAWER_SECTION_LIST = "com.pdmanager.views.ClinicianActivity";
+    public static final String NAV_DRAWER_SECTION_CHART = "com.pdmanager.views.clinician.PatientChartFragment";
+    public static final String NAV_DRAWER_SECTION_CALENDAR = "com.pdmanager.views.clinician.PatientCalendarFragment";
+    public static final String NAV_DRAWER_SECTION_OBS = "com.pdmanager.views.clinician.ObservationChartFragment";
+    public static final String NAV_DRAWER_SECTION_DIST = "com.pdmanager.views.clinician.DistributionChartFragment";
+    public static final String NAV_DRAWER_SECTION_ASS = "com.pdmanager.views.clinician.AssessmentFragment";
+    public static final String NAV_DRAWER_SECTION_LIST = "com.pdmanager.views.clinician.ClinicianActivity";
     public static final String NAV_DRAWER_SECTION_FAVORITES = "Favorites";
     /**
      * Remember the position of the selected item.
@@ -256,7 +256,7 @@ public class PatientChartDrawerFragment extends Fragment {
             }
         };
 
-        // Defer Code dependent on restoration of previous instance state.
+        // Defer Type dependent on restoration of previous instance state.
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {

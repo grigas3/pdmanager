@@ -17,27 +17,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:textColor="#ffffff"
             android:text="daviddido@gmail.com"
+            android:textColor="#ffffff"
             android:textSize="18sp" />
 
         <ImageView
-            android:src="@drawable/sidedrawer_navdrawer_user"
             android:id="@+id/profile_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/profile_name"
-            android:layout_marginBottom="35dp"/>
+            android:layout_marginBottom="35dp"
+            android:src="@drawable/sidedrawer_navdrawer_user" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <ListView
-            android:choiceMode="singleChoice"
             android:id="@+id/side_menu_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice" />
     </LinearLayout>
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/example_main_side_drawer_drawer_content.xml -->
+</LinearLayout>

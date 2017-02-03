@@ -13,7 +13,7 @@
 
     <item>
         <bitmap
-            android:src="@drawable/skyisclear"
-            android:gravity="center" />
+            android:gravity="center"
+            android:src="@drawable/skyisclear" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable-land/wednesday_pressed.xml -->
+</layer-list>

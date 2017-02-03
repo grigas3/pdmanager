@@ -24,6 +24,7 @@ import com.pdmanager.core.interfaces.IObservationDataHandler;
 import com.pdmanager.core.models.Observation;
 import com.pdmanager.core.models.ObservationResult;
 import com.pdmanager.core.models.Patient;
+import com.pdmanager.views.clinician.PatientBaseChartFragmentManager;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 import com.telerik.android.common.Function;
 import com.telerik.widget.list.RadListView;

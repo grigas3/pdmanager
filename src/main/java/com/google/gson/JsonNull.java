@@ -46,7 +46,7 @@ public final class JsonNull extends JsonElement {
     }
 
     /**
-     * All instances of JsonNull have the same hash Code since they are indistinguishable
+     * All instances of JsonNull have the same hash Type since they are indistinguishable
      */
     @Override
     public int hashCode() {

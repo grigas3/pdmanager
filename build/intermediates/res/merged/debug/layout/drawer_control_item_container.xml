@@ -6,11 +6,12 @@
     android:layout_gravity="center"
     android:background="@drawable/navigation_drawer_list_bg_selector"
     android:orientation="horizontal">
+
     <TextView
-        android:duplicateParentState="true"
         android:id="@+id/controlName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:duplicateParentState="true"
         android:gravity="center_vertical"
         android:minHeight="?android:attr/listPreferredItemHeightSmall"
         android:paddingLeft="15dp"
@@ -19,4 +20,4 @@
         android:textColor="@color/black" />
 
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/drawer_control_item_container.xml -->
+</LinearLayout>

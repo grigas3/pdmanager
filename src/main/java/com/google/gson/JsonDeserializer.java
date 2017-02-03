@@ -42,7 +42,7 @@ import java.lang.reflect.Type;
  * </pre>
  * <p/>
  * <p>The default deserialization of {@code Id(com.foo.MyObject.class, 20L)} will require the
- * Json string to be <Code>{"clazz":com.foo.MyObject,"Value":20}</Code>. Suppose, you already know
+ * Json string to be <Type>{"clazz":com.foo.MyObject,"Value":20}</Type>. Suppose, you already know
  * the type of the field that the {@code Id} will be deserialized into, and hence just want to
  * deserialize it from a Json string {@code 20}. You can achieve that by writing a custom
  * deserializer:</p>

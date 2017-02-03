@@ -2,42 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/listview_slideview_bg"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:elevation="4dp"
-        app:contentInsetStart="0dp"
-        app:contentInsetLeft="0dp"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         android:background="#FFF2ED"
+        android:elevation="4dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
         tools:ignore="UnusedAttribute">
+
         <TextView
-            android:text="Destinations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
             android:fontFamily="sans-serif-medium"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:textSize="20sp"
+            android:text="Destinations"
             android:textColor="#0C649E"
-            android:layout_gravity="start|center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
         <com.telerik.widget.list.RadListView
             android:id="@+id/listView"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp" />
     </LinearLayout>
 
 
-</LinearLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/fragment_list_view_slide.xml -->
+</LinearLayout>

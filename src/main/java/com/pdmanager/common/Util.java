@@ -19,6 +19,7 @@ package com.pdmanager.common;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.util.Log;
 
 import com.pdmanager.core.logging.LogHandler;
 
@@ -30,8 +31,8 @@ public class Util {
 
     public static void handleException(String operation, Exception ex) {
 
-
-        LogHandler.getInstance().LogError(operation + ":" + ex.getMessage());
+        Log.e(operation,ex.getMessage(),ex.getCause());
+      //  LogHandler.getInstance().LogError(operation + ":" + ex.getMessage());
 
     }
 

@@ -6,14 +6,17 @@ import android.text.format.Time;
 import com.pdmanager.core.interfaces.IJsonRequestHandler;
 import com.squareup.tape.FileObjectQueue;
 
+import org.spongycastle.asn1.icao.ICAOObjectIdentifiers;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
  * Created by george on 11/1/2016.
  */
-public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements IJsonRequestHandler
+public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements IJsonRequestHandler,ICommunicationQueue
 
 {
 
@@ -25,19 +28,6 @@ public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements 
     }
 
 
-  /*  public ArrayList<File> GetCommFiles()
-    {
-
-        File pathToExternalStorage = Environment.getExternalStorageDirectory();
-        //to this path add a new directory path and create new App dir (InstroList) in /documents Dir
-
-        long unixTime = System.currentTimeMillis() / 1000L;
-
-        File appDirectory = new File(pathToExternalStorage.getAbsolutePath() + "/PDManager/" );
-        appDirectory.
-
-    }
-    */
 
     public static File CreateQueueFile() {
 
@@ -83,5 +73,36 @@ public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements 
 
 
         super.add(jsonRequest);
+    }
+    @Override
+    public boolean push(JsonStorage s) {
+        try {
+            super.add(s);
+            return true;
+        }
+        catch (Exception e)
+        {
+
+            return false;
+        }
+
+
+    }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public ArrayList<JsonStorage> getLastN(int n) {
+        return null;
+    }
+
+    @Override
+    public JsonStorage poll() {
+        JsonStorage res=super.peek();
+        super.remove();
+        return res;
     }
 }

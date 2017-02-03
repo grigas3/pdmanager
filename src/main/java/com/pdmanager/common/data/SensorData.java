@@ -8,7 +8,8 @@ import java.util.Date;
  */
 
 
-public abstract class SensorData<T> implements ISensorData {
+
+public abstract class SensorData<T> extends BaseSensorData implements ISensorData {
 
 
     protected T mValue;
@@ -69,4 +70,6 @@ public abstract class SensorData<T> implements ISensorData {
         return dformat.format(mTimestamp);
 
     }
+
+
 }

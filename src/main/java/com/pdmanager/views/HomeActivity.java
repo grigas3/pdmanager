@@ -14,8 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.core.R;
-import com.pdmanager.core.RecordingService;
+import com.pdmanager.services.RecordingService;
 import com.pdmanager.core.interfaces.IServiceStatusListener;
+import com.pdmanager.views.common.LoginActivity;
 
 
 public class HomeActivity extends ActionBarActivity implements IServiceStatusListener {

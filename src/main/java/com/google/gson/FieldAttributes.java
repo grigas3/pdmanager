@@ -62,7 +62,7 @@ public final class FieldAttributes {
 
     /**
      * <p>For example, assume the following class definition:
-     * <pre class="Code">
+     * <pre class="Type">
      * public class Foo {
      * private String bar;
      * private List&lt;String&gt; red;
@@ -84,7 +84,7 @@ public final class FieldAttributes {
      * Returns the {@code Class} object that was declared for this field.
      * <p/>
      * <p>For example, assume the following class definition:
-     * <pre class="Code">
+     * <pre class="Type">
      * public class Foo {
      * private String bar;
      * private List&lt;String&gt; red;
@@ -125,7 +125,7 @@ public final class FieldAttributes {
      * Returns {@code true} if the field is defined with the {@code modifier}.
      * <p/>
      * <p>This method is meant to be called as:
-     * <pre class="Code">
+     * <pre class="Type">
      * boolean hasPublicModifier = fieldAttribute.hasModifier(java.lang.reflect.Modifier.PUBLIC);
      * </pre>
      *

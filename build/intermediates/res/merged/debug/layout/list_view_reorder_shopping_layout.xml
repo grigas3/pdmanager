@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginBottom="1dp"
-    android:padding="16dp"
-    android:background="@drawable/list_view_reorder_shopping_background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="1dp"
+    android:background="@drawable/list_view_reorder_shopping_background"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/itemTitle"
-        android:textSize="16sp"
-
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/list_view_reorder_shopping_layout.xml -->
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+</FrameLayout>

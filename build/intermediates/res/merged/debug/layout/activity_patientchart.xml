@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pdmanager.views.PatientChartActivity">
+    tools:context="com.pdmanager.views.clinician.PatientChartActivity">
     <!-- As the main content view, the view below consumes the entire
              space available using match_parent in both dimensions. -->
     <RelativeLayout
@@ -12,11 +12,11 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.Toolbar
-            android:elevation="4dp"
             android:id="@+id/toolbar"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         </android.support.v7.widget.Toolbar>
 
@@ -35,13 +35,13 @@
                 android:layout_marginRight="@dimen/example_list_right_margin"
                 android:layout_marginTop="16dp"
                 android:background="@color/white"
-                android:elevation="3dp"/>
+                android:elevation="3dp" />
 
             <FrameLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/tipsPresenter"/>
+                android:layout_below="@+id/tipsPresenter" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -60,4 +60,3 @@
         android:layout_gravity="start" />
 
 </android.support.v4.widget.DrawerLayout>
-<!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/activity_patientchart.xml -->

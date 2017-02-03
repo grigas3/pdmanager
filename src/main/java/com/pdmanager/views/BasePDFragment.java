@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
+import com.pdmanager.core.PDApplicationContext;
 import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.core.settings.VideoSettings;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,13 @@ public abstract class BasePDFragment extends Fragment {
 
     }
 
+    protected String getPatientCode() {
+
+        RecordingSettings settings = getSettings();
+
+        return settings.getPatientID();
+
+    }
 
     protected String getAccessToken() {
 
@@ -123,4 +132,27 @@ public abstract class BasePDFragment extends Fragment {
     public interface ExampleLoadedListener {
         void onExampleLoaded(View root);
     }
+
+    public void setKeepScreenOn(boolean state){
+        if(getView() != null)
+            getView().setKeepScreenOn(state);
+    }
+
+    protected PDApplicationContext app(){
+        return ((PDApplicationContext) getActivity().getApplication()) ;
+    }
+
+    public VideoSettings videoSettings() {
+        return app().getSettings();
+    }
+
+    public BasePDFragment getBackFragment() {
+        return back_fragment;
+    }
+
+    public void setBackFragment(BasePDFragment back_fragment) {
+        this.back_fragment = back_fragment;
+    }
+    private BasePDFragment back_fragment = null ;
+
 }

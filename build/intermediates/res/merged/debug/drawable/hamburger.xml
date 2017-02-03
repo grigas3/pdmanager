@@ -6,4 +6,4 @@
             android:gravity="left|center_vertical"
             android:src="@drawable/navigation_drawer_hamburger" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/hamburger.xml -->
+</layer-list>

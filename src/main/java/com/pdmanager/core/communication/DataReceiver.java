@@ -1,7 +1,10 @@
 package com.pdmanager.core.communication;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.pdmanager.core.models.Device;
 import com.pdmanager.core.models.MedicationIntake;
 import com.pdmanager.core.models.MedicationOrder;
 import com.pdmanager.core.models.Observation;
@@ -71,9 +74,10 @@ public class DataReceiver {
             return meds;
         } catch (Exception e) {
 
-            return new ArrayList<MedicationOrder>();
-        }
 
+            Log.e("DATARECEIVER","Get Medication Orders",e.getCause());
+        }
+        return new ArrayList<MedicationOrder>();
         //   MedOrderListResult res=new MedOrderListResult();
         //  res.Data=meds;
 
@@ -114,7 +118,7 @@ public class DataReceiver {
 
 
         CommunicationManager manager = new CommunicationManager(accessToken);
-        String param = "?patientId=" + patientId + "&Code=" + code;
+        String param = "?patientId=" + patientId + "&Type=" + code;
 
 
         if (from != null)
@@ -134,6 +138,44 @@ public class DataReceiver {
 
 
     }
+
+
+
+    public List<Device> GetDevices(String patientId) {
+
+
+        CommunicationManager manager = new CommunicationManager(accessToken);
+
+
+        String aggrs = "";
+
+
+        String param = "";
+        try {
+            param = "/find?take=0&skip=0&filter=" + URLEncoder.encode("{'patientid':'" + patientId + "'}", "UTF-8") + "&sort=&sortdir=false&lastmodified=";
+        } catch (Exception ex) {
+
+
+        }
+
+
+        try {
+
+
+            String jsonResponse = manager.Get("Device", param);
+            List<Device> devices = gson.fromJson(jsonResponse, new TypeToken<List<Device>>() {
+            }.getType());
+
+            return devices;
+        } catch (Exception e) {
+
+        }
+
+        return new ArrayList<Device>();
+
+
+    }
+
 
     public List<Observation> GetObservations(String patientId, String code, long datefrom, long dateto, int aggr) {
 

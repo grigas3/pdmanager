@@ -7,10 +7,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:text="@string/analytics_message" />
     </ScrollView>
-</FrameLayout><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/layout/analytics_message.xml -->
+</FrameLayout>

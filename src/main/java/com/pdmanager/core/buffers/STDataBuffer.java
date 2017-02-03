@@ -14,7 +14,7 @@ public class STDataBuffer extends DataBuffer<STData> {
 
     private String name;
 
-    public STDataBuffer(long mBuffer, String pfolder, String pfileName) {
+    public STDataBuffer(int mBuffer, String pfolder, String pfileName) {
 
 
         super(mBuffer, pfolder, pfileName);

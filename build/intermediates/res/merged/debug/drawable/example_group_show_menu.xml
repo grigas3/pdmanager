@@ -3,7 +3,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <bitmap
-            android:src="@drawable/ic_actionbar_overflow"
-            android:gravity="center" />
+            android:gravity="center"
+            android:src="@drawable/ic_actionbar_overflow" />
     </item>
-</layer-list><!-- From: file:/E:/Rigas/PDManager/Android/Home/PDManager/src/main/res/drawable/example_group_show_menu.xml -->
+</layer-list>
