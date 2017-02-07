@@ -200,7 +200,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     private Looper mServiceLooper;
     //  private ServiceHandler mServiceHandler;
     private Date sessionStart;
-    private ArrayList<IDataHandler> handlers = new ArrayList<IDataHandler>();
+    private ArrayList<IDataHandler> dataHandlers = new ArrayList<IDataHandler>();
     private ArrayList<IServiceStatusListener> listeners = new ArrayList<IServiceStatusListener>();
     private ArrayList<ISensorStatusListener> sensorListeners = new ArrayList<ISensorStatusListener>();
     private volatile boolean mIsHandlerScheduled;
@@ -310,14 +310,14 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     public void registerHandler(IDataHandler handler) {
 
 
-        if (!handlers.contains(handler))
-            handlers.add(handler);
+        if (!dataHandlers.contains(handler))
+            dataHandlers.add(handler);
 
     }
 
     public void unregisterHandler(IDataHandler handler) {
-        if (handlers.contains(handler))
-            handlers.remove(handler);
+        if (dataHandlers.contains(handler))
+            dataHandlers.remove(handler);
 
     }
 
@@ -356,6 +356,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
 
     }
+
+
+
+
 
     private void notifyListeners() {
 
@@ -2080,9 +2084,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         addDataToProcessors(data);
 
 
-        for (int i = 0; i < handlers.size(); i++) {
+        for (int i = 0; i < dataHandlers.size(); i++) {
 
-            handlers.get(i).handleData(data);
+            dataHandlers.get(i).handleData(data);
 
         }
     }
@@ -2566,6 +2570,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 //OK CHECK FOR NEXT MEDICATION MESSAGE
                 UserAlert alert = manager.getNextMedication();
                 if (alert != null) {
+
                     manager.setLastMessage(alert.getSource());
                 }
                 return alert;
@@ -2587,14 +2592,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
 
             if (alert != null) {
+
+
                 AddBandMessage(alert.getTitle(), alert.getMessage(), alert.getExpiration(), true);
             }
 
-        /*    if(mClient!=null&&alert!=null) {
-                BandMessageTask.newInstance(mClient, RecordingSettings.GetRecordingSettings(mContext).getTileUUID()).execute(alert);
-
-            }
-        */
 
 
         }

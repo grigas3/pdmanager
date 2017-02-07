@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Stores OpenID Connect provider endpoints. -->
+<resources>
+    <string name="op_authorizationEnpoint">https://login.live.com/oauth20_authorize.srf</string>
+    <string name="op_tokenEndpoint">https://login.live.com/oauth20_token.srf</string>
+    <string name="op_userInfoEndpoint">https://api.microsofthealth.net/v1/me/Profile</string>
+    <string name="op_revocationEndpoint">https://www.example.com/oauth2/revoketoken</string>
+</resources>

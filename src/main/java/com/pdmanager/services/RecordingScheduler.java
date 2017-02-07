@@ -25,23 +25,44 @@ public class RecordingScheduler implements IDataProcessor {
     private boolean postPone=false;
     private boolean nonWearingPostPone=true;
     private int intervalsToAcquire=1;
-    private static int baseInterval=5*60;
+    private static int baseInterval=1*60;
     private static int durationHours=6;
-    private  int skipIntervals;
+
     private  int lastSampleTick=0;
     private int intervalToNoWearingRation=5;
     private  int notWearingIntervalsFound=0;
 
     //MAIN BAND FREQ IS 62.5 ==125/2
-    private static int samplesPerInterval=125*baseInterval/2;
+    private static int samplesPerInterval=5*125*baseInterval/2;
     private long lastAcquisition=0;
     public RecordingScheduler(int startHour,int endHour)
     {
-        skipIntervals=(int)Math.floor((endHour-startHour)/durationHours)-1;
+
+        calculateSkip(startHour,endHour);
+    }
+
+
+    public static long calculateSkipTest(int startHour,int endHour)
+    {
+        RecordingScheduler r=new RecordingScheduler(startHour,endHour);
+        return r.plannedStop;
+
+    }
+
+
+    //Planned stop after 5 minutes
+    private void calculateSkip(int startHour,int endHour)
+    {
+
+        double r=endHour-startHour;
+        double p=durationHours;
+
+        double skipMinutes=(Math.max(0,-(5*(p - r))/p));
+        //  skipIntervals=(int)Math.floor((endHour-startHour)/durationHours)-1;
         intervalsToAcquire=1;
 
         //IN MILLISECONDS
-        plannedStop=skipIntervals*baseInterval*1000;
+        plannedStop=(long)(skipMinutes*baseInterval*1000);
     }
 
 

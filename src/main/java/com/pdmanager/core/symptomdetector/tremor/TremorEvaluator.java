@@ -137,7 +137,7 @@ public class TremorEvaluator implements IDataProcessor {
 
 
                 //TODO: Important. In the final implementation buffers should be copied to tmp buffers and all the processing should be performed in ASYNC TASK or Thread (see DataBuffer)
-                
+
                     try {
 
                         //Preprocessing
