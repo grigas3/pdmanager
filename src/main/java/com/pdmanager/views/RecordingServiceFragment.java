@@ -264,19 +264,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                         getService().StartRecording();
 
-                                 /*   if (!res) {
-                                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                                        alert.setTitle("Error");
-                                        alert.setMessage("Check Band is connected or disable band recording");
-                                        alert.setPositiveButton("OK", null);
-                                        alert.show();
-                                        LogHandler.getInstance().LogError("Could not Start session");
-                                        mButtonConnect.setEnabled(true);
-                                        mButtonConnect.setColor(Color.GREEN);
 
-                                    }
-                                    else
-                                    */
 
                         {
 
@@ -620,6 +608,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
         mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
+        mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
+
+        if(checkPermissions(this.getActivity()))
+        {
+            ((TextView) rootView.findViewById(R.id.textFilePermission)).setTextColor(Color.GREEN);
+        }
         /*
         mSwitchHeartRate = (Switch) rootView.findViewById(R.id.heartRateSwitch);
 

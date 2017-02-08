@@ -31,15 +31,25 @@
             android:paddingRight="@dimen/setting_horizontal_margin"
             android:paddingTop="@dimen/setting_vertical_margin"
             android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/buttonLogin"
 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+
+                android:text="GET "
+                />
             <TextView
                 android:id="@+id/textLoggedIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_toRightOf="@+id/buttonLogin"
                 android:layout_marginTop="12dp"
                 android:layout_marginLeft="10dp"
                 android:text="You are logged in as "
+                android:textColor="@color/red_dark_color"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textStyle="bold" />
 
@@ -73,6 +83,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="10dp"
             android:text="Device Permissions"
+            android:textColor="@color/red_dark_color"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold" />
 
@@ -105,10 +116,13 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="10dp"
             android:text="Sync Patient Medications"
+            android:textColor="@color/red_dark_color"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold" />
 
     </RelativeLayout>
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -138,18 +152,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Get Patient Device"
+                    android:textColor="@color/red_dark_color"
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold" />
 
 
 
-                    <TextView
-                        android:id="@+id/textDeviceId"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No device"
-                        android:layout_marginLeft="10dp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textDeviceId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No device"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold" />
 
 
 
@@ -157,7 +172,46 @@
             </LinearLayout>
 
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/setting_vertical_margin"
+            android:paddingLeft="@dimen/setting_horizontal_margin"
+            android:paddingRight="@dimen/setting_horizontal_margin"
+            android:paddingTop="@dimen/setting_vertical_margin">
 
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginTop="2dp">
+                <Button
+                    android:id="@+id/buttonCreateTile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:checked="true"
+                    android:enabled="true"
+                    android:text="CREATE"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create Band Tile"
+                    android:textColor="@color/red_dark_color"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold" />
+
+
+
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
         <View
             android:id="@+id/sepMedications"
             android:layout_width="fill_parent"
@@ -184,67 +238,45 @@
             android:src="@drawable/ic_action_play"
             android:text="@string/connect_label"
             android:background="#00ff00" />
-        <TextView
-            android:id="@+id/textManagement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dip"
-            android:layout_toRightOf="@+id/buttonConnect"
-            android:text="@string/management_label"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textStyle="bold" />
-
-
-
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-      >
-
-
-        <TextView
-            android:id="@+id/textConnectionStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:text="@string/monitoringstatus_label"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-    </RelativeLayout>
-
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-       >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            android:layout_marginTop="10dp">
+            android:orientation="horizontal"
+            android:layout_toRightOf="@+id/buttonConnect"
+            >
 
+
+            <TextView
+                android:id="@+id/textConnectionStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:text="@string/monitoringstatus_label"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/textSensorStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textSensorStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+
+
+
     </RelativeLayout>
+
+
+
+
+
 
 
 
@@ -253,8 +285,8 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/buttonConnect"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
             android:background="@android:color/darker_gray" />
 
     <RelativeLayout
@@ -284,6 +316,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="10dp"
             android:text="Sync MS Health"
+            android:textColor="@color/red_dark_color"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold" />
 

@@ -145,10 +145,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     }
 
 
-    @Override
-    public void update(UserAlert alert) {
 
-    }
 
 
     @Override

@@ -17,10 +17,10 @@ import com.pdmanager.views.patient.AlertPDFragment;
 
 public interface IAlertFragmentManager {
 
-    void registerFragment(String alertType,AlertPDFragment fragment);
-    void gotoAlertFragment(String alertId);
-    void gotoNextFragment();
-    void setDefaultFragment(AlertPDFragment pDefaultFragment);
+    //void registerFragment(String alertType,AlertPDFragment fragment);
+    //void gotoAlertFragment(String alertId);
+    //void gotoNextFragment();
+    //void setDefaultFragment(AlertPDFragment pDefaultFragment);
 
     void startAutoUpdate();
     void stopAutoUpdate();

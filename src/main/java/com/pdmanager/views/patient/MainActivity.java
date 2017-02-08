@@ -37,6 +37,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -250,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
             if (alertType != null && alertId != null) {
                 Log.d("MAINACTIVITY",alertType);
-                this.alertFragmentManager.gotoAlertFragment(alertId);
+                //this.alertFragmentManager.gotoAlertFragment(alertId);
 
             }
             else
@@ -266,16 +267,26 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         }
 
 
+        initFragment();
     }
 
+
+    private void initFragment()
+    {
+        patientHomeFragment=new PatientHomeFragment();
+        FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, patientHomeFragment);
+        fragmentTransaction.commit();
+    }
     private void setupAlertFragmentManager() {
 
-        patientHomeFragment=new PatientHomeFragment();
+
         this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
-        this.alertFragmentManager.setDefaultFragment(patientHomeFragment);
-        this.alertFragmentManager.registerFragment("MED",new MedAlertFragment());
+      //  this.alertFragmentManager.setDefaultFragment(patientHomeFragment);
+//        this.alertFragmentManager.registerFragment("MED",new MedAlertFragment());
         //this.alertFragmentManager.registerFragment("TEST",R.id.fragment_alert_test);
-        this.alertFragmentManager.gotoNextFragment();
+  //      this.alertFragmentManager.gotoNextFragment();
         //  this.alertFragmentManager.startAutoUpdate();
 
     }

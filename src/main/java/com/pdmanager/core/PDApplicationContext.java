@@ -39,6 +39,8 @@ public class PDApplicationContext extends VideoApp implements Thread.UncaughtExc
     public static final String INTENT_ACCESS_TOKEN = "ACCESS_TOKEN";
     public static final String INTENT_ALERT_ID = "ALERT_ID";
     public static final String INTENT_ALERT_TYPE= "ALERT_TYPE";
+    public static final String INTENT_ALERT_SOURCE= "ALERTSOURCE_ID";
+    public static final String INTENT_ALERT= "ALERT";
 
     public static final String INTENT_SELECTED_DAY = "DAY";
     public static final String INTENT_PATIENT_NAME = "PATIENT_NAME";

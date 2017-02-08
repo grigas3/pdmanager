@@ -313,7 +313,7 @@ private boolean timeRunning=false;
             //TODO PROPERLY CHECK CONNECTION
 
 
-/*
+
            UserAlertManager amanager=new UserAlertManager(getContext());
             MedManager manager=new MedManager(getContext());
            amanager.clearAll();
@@ -336,7 +336,7 @@ private boolean timeRunning=false;
 
             //LocalNotificationTask.newInstance(getContext()).execute(new UserAlert("Test","Test","MED",0,0,"MED"));
 
-*/
+
 
             RecordingSettings.newInstance(getContext()).setLastNFG(t);
             updateLayout();

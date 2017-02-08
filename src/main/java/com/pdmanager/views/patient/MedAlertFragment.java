@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.pdmanager.controls.CircleButton;
+import com.pdmanager.core.PDApplicationContext;
 import com.pdmanager.core.R;
 import com.pdmanager.core.alerting.IUserAlertManager;
 import com.pdmanager.core.alerting.UserAlertManager;
@@ -117,27 +118,20 @@ public class MedAlertFragment extends AlertPDFragment {
 
 
         }
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            medId = bundle.getString(PDApplicationContext.INTENT_ALERT_ID, null);
+            currentAlertId = bundle.getString(PDApplicationContext.INTENT_ALERT_SOURCE, null);
 
-        //Get From Bundle
+            //Get From Bundle
 
-        if (medId != null) {
-            MedManager manager=new MedManager(this.getContext());
-            currentMedOrder=manager.getPendingMedication(medId);
+            if (medId != null) {
+                MedManager manager = new MedManager(this.getContext());
+                currentMedOrder = manager.getPendingMedication(medId);
 
+            }
         }
-        //This occured in tests...but ok let cover it
-        if(currentMedOrder==null)
-        {
-          //  if(currentAlertId!=null)
-          //  {
 
-          //      UserAlertManager.newInstance(getContext()).setNotActive(currentAlertId);
-          //  }
-
-
-         //   notifyFragmentManager();
-
-        }
         if(title!=null)
         {
             if(currentMedOrder!=null) {
@@ -177,31 +171,16 @@ public class MedAlertFragment extends AlertPDFragment {
 
 
     private String medId;
-    @Override
+  /*  @Override
     public void update(UserAlert alert ) {
 
 
         this.currentAlertId = alert.getId();
         this.medId=alert.getSource();
 
-      /*  if (medId != null) {
-
-            try {
-                MedManager manager = new MedManager(getContext());
-                currentMedOrder = manager.getPendingMedication(medId);
-
-            }
-            catch (Exception ex)
-            {
-
-
-                Log.d("UPDATE MEDFRA",ex.getMessage());
-            }
-
-        }
-        */
 
     }
+    */
     @Override
     public void onResume()
     {

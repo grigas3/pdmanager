@@ -11,6 +11,8 @@ import com.pdmanager.core.alerting.IUserAlertManager;
 import com.pdmanager.core.interfaces.IAlertFragmentManager;
 import com.pdmanager.core.models.UserAlert;
 import com.pdmanager.views.patient.AlertPDFragment;
+import com.pdmanager.views.patient.MedAlertFragment;
+import com.pdmanager.views.patient.NotFeelingGoodFragment;
 
 import java.util.HashMap;
 import java.util.Timer;
@@ -32,7 +34,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
     FragmentActivity mainActivity;
     IUserAlertManager alertManager;
-    AlertPDFragment defaultFragment;
+ //   AlertPDFragment defaultFragment;
     boolean onDefaultFragment=true;
 
     HashMap<String, AlertPDFragment> fragmentCache = new HashMap<String, AlertPDFragment>();
@@ -51,6 +53,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
     }
 
 
+    /*
     @Override
     public void setDefaultFragment(AlertPDFragment pDefaultFragment) {
 
@@ -71,6 +74,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         }
     }
 
+    */
 
     private AlertPDFragment getFragmentByAlert(UserAlert alert)
     {
@@ -78,7 +82,19 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
         String section = alert.getAlertType();
 
-        onDefaultFragment=true;
+        if(section=="MED")
+        {
+
+            MedAlertFragment fragment= new MedAlertFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
+            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
+            fragment.setArguments(bundle);
+            newFragment=fragment;
+        }
+
+     /*   onDefaultFragment=true;
 
         if (fragmentCache.containsKey(section)) {
             Log.d(TAG, "Fragment from Cache");
@@ -91,11 +107,12 @@ public class AlertFragmentManager implements IAlertFragmentManager {
                 return newFragment;
             }
 
+
         }
+    */
 
 
-
-    return defaultFragment;
+    return newFragment;
     }
 
 
@@ -110,7 +127,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
             return getFragmentByAlert(alert);
 
         } else
-            return defaultFragment;
+            return null;
     }
 
 
@@ -125,17 +142,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
             //Get Fragment based on alert
             AlertPDFragment fragment= getFragmentByAlert(alert);
-
-            fragment.update(alert);
-            /*
-            Bundle args = new Bundle();
-            args.putString("AlertID", alert.getSource());
-            fragment.setArguments(args);
-            */
-            //Fragment update from alert
-
-            // Default Fragment =false
-            onDefaultFragment=false;
+              onDefaultFragment=false;
 
             return fragment;
             
@@ -143,7 +150,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         } else {
 
 
-            return defaultFragment;
+            return null;
         }
     }
 
@@ -161,7 +168,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         }
 
     }
-    public void gotoAlertFragment(String id)
+  /*  public void gotoAlertFragment(String id)
     {
 
         AlertPDFragment fragment=getAlertFragment(id);
@@ -176,9 +183,10 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
 
     }
+    */
 
 
-    public void gotoNextFragment()
+   /* public void gotoNextFragment()
     {
 
         AlertPDFragment fragment=getNextFragment();
@@ -193,13 +201,33 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         
         
     }
+    */
     
     protected void setFragment(AlertPDFragment fragment) {
-        FragmentManager fragmentManager = mainActivity.getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction =
+
+
+        if(fragment!=null) {
+            FragmentManager fragmentManager = mainActivity.getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction =
+                    fragmentManager.beginTransaction();
+
+            fragmentTransaction.addToBackStack(null);
+            fragment.show(fragmentTransaction, "dialog");
+
+        }
+        else
+
+        {
+
+            Log.e("FRAGMENT_MANAGER","Null Fragment");
+
+        }
+
+   /*     FragmentTransaction fragmentTransaction =
                 fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
+        */
     }
 
     private Timer timer = null;
