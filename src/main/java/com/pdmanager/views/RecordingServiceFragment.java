@@ -51,6 +51,8 @@ import com.pdmanager.core.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.patient.MSSyncActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
@@ -86,6 +88,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     private Button mButtonSetLimits;
     private Button mButtonRequireStorPermissions;
     private Button mbuttonGetMedications;
+    private TextView mTextGetMedication;
     private Button mbuttonMSHealthSync;
     private Button mGetDevice;
     private IBandTileManager tileManager;
@@ -606,7 +609,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         mDeviceId.setText(RecordingSettings.newInstance(this.getContext()).getDeviceId());
 
 
-
+        this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
         mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
         mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
 
@@ -990,6 +993,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 manager.clearMedOrders();
                 //Add Medication Orders
                 manager.addMedicationOrders(result.orders);
+                mTextGetMedication.setTextColor(Color.GREEN);
 
 
 
