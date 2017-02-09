@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi\\ic_sidedrawer_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xxhdpi\\ic_sidedrawer_action_bar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi\\ic_dataform_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xxhdpi\\ic_dataform_action_bar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi\\ic_chart_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xxhdpi\\ic_chart_action_bar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi\\ic_listview_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xxhdpi\\ic_listview_action_bar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi\\ic_dataform_action_bar_1.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xxhdpi\\ic_dataform_action_bar_1.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi\\ic_calendar_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-port-xxhdpi\\ic_calendar_action_bar.png"
+    }
+]

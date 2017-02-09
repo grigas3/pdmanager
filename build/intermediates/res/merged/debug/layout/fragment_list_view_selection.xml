@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/list_view_example_selection_bgcolor">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="#FFF2ED"
+        android:elevation="4dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        tools:ignore="UnusedAttribute">
+
+        <FrameLayout
+            android:id="@+id/toolbarStandardModeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/list_view_selection_header"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/btnReorder"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center_vertical"
+                android:contentDescription="@string/list_view_selection_reorder"
+                android:paddingEnd="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:src="@drawable/ic_listview_selection_reorder" />
+        </FrameLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <RelativeLayout
+            android:id="@+id/exampleMainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="InconsistentLayout">
+
+            <LinearLayout
+                android:id="@+id/menuContainer"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/menuItemAll"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/list_view_selection_menu_background"
+
+                    android:gravity="center"
+                    android:text="@string/list_view_selection_btn_list1"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/menuItemFavorites"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/list_view_selection_menu_background"
+
+                    android:gravity="center"
+                    android:text="@string/list_view_selection_btn_list2"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <com.telerik.widget.list.RadListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/menuContainer" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/selectedBlogPostView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/list_view_example_selection_bgcolor"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:visibility="gone"
+            tools:ignore="InconsistentLayout">
+
+            <TextView
+                android:id="@+id/selectedBlogPostTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="@color/list_view_example_selection_selected_title"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/selectedBlogPostContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="4dp"
+                android:textColor="@color/list_view_example_selection_selected_content" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

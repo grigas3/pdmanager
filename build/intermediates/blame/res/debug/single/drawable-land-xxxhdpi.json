@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi\\ic_dataform_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-land-xxxhdpi\\ic_dataform_action_bar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi\\ic_pill_2.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-land-xxxhdpi\\ic_pill_2.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi\\ic_control_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-land-xxxhdpi\\ic_control_action_bar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi\\ic_sidedrawer_action_bar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-land-xxxhdpi\\ic_sidedrawer_action_bar.png"
+    }
+]

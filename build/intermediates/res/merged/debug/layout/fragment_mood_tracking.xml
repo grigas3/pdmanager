@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/busy_BusyIndicator"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saving..."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            />
+        <ProgressBar
+            android:layout_below="@+id/textSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:id="@+id/container_mood_select"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:textSize="26sp"
+                android:textStyle="bold|italic"
+                android:text="How are you today?"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:id="@+id/mood_excellent"
+                    android:tag="excellent"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_excellent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="Excellent"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mood_good"
+                    android:tag="good"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_good"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="Good"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mood_okay"
+                    android:tag="okay"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_okay"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="Okay"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mood_bad"
+                    android:tag="bad"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_bad"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="Bad"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mood_awfull"
+                    android:tag="awfull"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_awfull"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="Awfull"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_act_select"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:gravity="center"
+                android:textSize="26sp"
+                android:textStyle="bold|italic"
+                android:text="What did you do?"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/act_home"
+                    android:tag="home"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/act_home"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="At home"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/act_work"
+                    android:tag="work"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/act_work"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="At work"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/act_relax"
+                    android:tag="relax"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/act_relax"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="Relaxing"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/act_exercise"
+                    android:tag="exercise"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/act_exercise"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="Exercising"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/act_rest"
+                    android:tag="rest"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/act_rest"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="Laying"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/act_social"
+                    android:tag="socialize"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/act_social"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="Socializing"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other: "
+                    android:textColor="#1D89E4"
+                    android:textSize="20sp"
+                    android:layout_gravity="right|center_vertical"
+                    android:labelFor="@+id/exercise_other_mood"
+                    />
+
+                <EditText
+                    android:id="@+id/act_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#1D89E4"
+                    android:textColor="#1D89E4"
+                    android:singleLine="true"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_mood_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@android:color/transparent"
+        android:text="❮"
+        android:gravity="center"
+        android:textColor="#1D89E4"
+        android:textSize="26sp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/button_mood_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/button_blue_corner_radius"
+        android:text="❯"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="26sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

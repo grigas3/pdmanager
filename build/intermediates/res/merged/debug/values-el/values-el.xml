@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="indicators_range_button_text">
+        <item>Range: <b>1 M</b></item>
+        <item>Range: <b>6 M</b></item>
+        <item>Range: <b>1 Y</b></item>
+        <item>Range: <b>5 Y</b></item>
+    </string-array>
+    <string-array name="indicators_range_options">
+        <item>1 month</item>
+        <item>6 months</item>
+        <item>1 year</item>
+        <item>5 years</item>
+    </string-array>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Πλοήγηση στην αρχική σελίδα"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Πλοήγηση προς τα επάνω"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Περισσότερες επιλογές"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Τέλος"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Προβολή όλων"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Επιλέξτε κάποια εφαρμογή"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Αναζήτηση…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Διαγραφή ερωτήματος"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Ερώτημα αναζήτησης"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Αναζήτηση"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Υποβολή ερωτήματος"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Φωνητική αναζήτηση"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Κοινή χρήση με"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Κοινή χρήση με %s"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Σύμπτυξη"</string>
+    <string name="aboutString">About</string>
+    <string name="action_example">Example action</string>
+    <string name="action_lock">Lock</string>
+    <string name="action_login">Login</string>
+    <string name="action_settings">Settings</string>
+    <string name="actionbar_section_highlighted">Highlighted</string>
+    <string name="allControlsStringPascalCase">All controls</string>
+    <string name="allStringAllCaps">ALL</string>
+    <string name="allStringPascalCase">All</string>
+    <string name="all_day_string">ALL DAY</string>
+    <string name="all_receivers_offline">All receivers offline</string>
+    <string name="analytics_message">It is our goal to always provide the best products and user experience to our customers. By enabling this option anonymous data will be collected and sent to Telerik detailing how the Telerik Examples application is being used. No information is collected that could be used to either identify or contact you. \nYou can change this anytime from the Settings menu.</string>
+    <string name="analytics_message_dont_send">Do not send statistics</string>
+    <string name="analytics_message_send"><b>Send statistics</b></string>
+    <string name="analytics_message_title">Help us improve Telerik Examples</string>
+    <string name="answer">Answer</string>
+    <string name="app_key">7tl4ec82n8e2r67</string>
+    <string name="app_name">PDManager</string>
+    <string name="area_chart_title">Monthly sales revenue, 2014</string>
+    <string name="audio_routes">Audio Routes</string>
+    <string name="authorizing">Authorizing</string>
+    <string name="back_camera">Back camera</string>
+    <string name="bar_series_title">Performance summary, 2014</string>
+    <string name="base_label">Base</string>
+    <string name="bgnd_image_label">Background image</string>
+    <string name="book_a_hotel_string">Book a hotel!</string>
+    <string name="bubble_series_title">Investments - Equities &amp; Mutual Funds</string>
+    <string name="calendar_range_how_to_text">Drag over the period of your stay or tap on your check-in and check-out dates</string>
+    <string name="calendar_range_left_arrow_description">Tap to move to previous month</string>
+    <string name="calendar_range_right_arrow_description">Tap to move to next month</string>
+    <string name="calendar_range_title">Need a place to stay?</string>
+    <string name="call_busy">The call receiver is busy</string>
+    <string name="call_receiver_label">Call receiver Id:</string>
+    <string name="calling">Calling</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_button_text">Cancel</string>
+    <string name="change_camera">Change camera</string>
+    <string name="change_label">Change</string>
+    <string name="characters_missing">Characters missing</string>
+    <string name="choose_band_label">Choose band</string>
+    <string name="choose_vibration_pattern_label">Choose pattern</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Ενεργοποίηση"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> δεν θα λειτουργήσει εάν δεν έχετε ενεργοποιήσει τις υπηρεσίες Google Play."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Ενεργοποίηση υπηρεσιών Google Play"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"Εγκατάσταση"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> δεν μπορεί να εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες λείπουν από τη συσκευή σας."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Λήψη υπηρεσιών Google Play"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Σφάλμα Υπηρεσιών Google Play"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> αντιμετωπίζει κάποιο πρόβλημα με τις υπηρεσίες Google Play. Προσπαθήστε ξανά."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> δεν θα εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες δεν υποστηρίζονται από τη συσκευή σας."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Ενημέρωση"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> θα εκτελεστεί αφού ενημερώσετε τις Υπηρεσίες Google Play."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Ενημέρωση υπηρεσιών Google Play"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"Η εφαρμογή <ns1:g id="APP_NAME">%1$s</ns1:g> δεν θα εκτελεστεί χωρίς τις υπηρεσίες Google Play, οι οποίες ενημερώνονται αυτήν τη στιγμή."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Απαιτείται νέα έκδοση των υπηρεσιών Google Play. Θα ενημερωθεί σύντομα."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"Άνοιγμα σε τηλέφωνο"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Σύνδεση"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Συνδεθείτε με το Google"</string>
+    <string name="confirm">Ναι</string>
+    <string name="connect_label">Start</string>
+    <string name="could_not_change_setting">Could not change setting</string>
+    <string name="decline">Decline</string>
+    <string name="device_is_not_supported">Device is not supported!</string>
+    <string name="disconnect_label">Disconnect</string>
+    <string name="documentation">Check out the product documentation.</string>
+    <string name="documentation_example_info">Check out the documentation.</string>
+    <string name="drawerCaption">Telerik examples</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="editConfButton">OpenId Connect Client Configuration</string>
+    <string name="emptyContentString">Already have any favorite demos? Add them here by choosing \'Add to Favorites\' from the overflow menu or the example context menu.</string>
+    <string name="empty_range_selection_text">Select period of stay</string>
+    <string name="enter_call_receiver">Enter call receiver</string>
+    <string name="enter_conference_id">Enter conference ID</string>
+    <string name="enter_receiver_id">Enter receiver Id</string>
+    <string name="enter_session_id">Enter conference id</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_username_toast">Please enter username</string>
+    <string name="fail_to_send_message">Sending of message fail</string>
+    <string name="favoritesStringAllCaps">FAVORITES</string>
+    <string name="favoritesStringPascalCase">Favorites</string>
+    <string name="filters">Filters</string>
+    <string name="finish">Submit your answers</string>
+    <string name="front_camera">Front camera</string>
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
+    <string name="get_colors_label">Get Colors</string>
+    <string name="get_fw_version_label">Get FW Version</string>
+    <string name="get_hw_version_label">Get HW Version</string>
+    <string name="get_image_label">Get image</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="high_contrast_label">High contrast</string>
+    <string name="highlight_label">Highlight</string>
+    <string name="hint_your_email">Optional</string>
+    <string name="hint_your_name">e.g. Larry</string>
+    <string name="homeString">Home</string>
+    <string name="indicators_custom_dialog_indicators_title">SET INDICATORS</string>
+    <string name="indicators_custom_dialog_trends_title">SET TREND LINES</string>
+    <string name="indicators_range_dialog_title">Range</string>
+    <string name="info_participants">Participants info</string>
+    <string name="internet_connectivity_prompt">Internet connectivity is required for this example.</string>
+    <string name="isn_bold"><b>ISN</b></string>
+    <string name="join_session">Join Session</string>
+    <string name="joining_av_chat">Joining AV chat</string>
+    <string name="label_your_email">Email</string>
+    <string name="label_your_name">DIRECTIONS</string>
+    <string name="line_examples_title">Monthly sales revenue, (2014)</string>
+    <string name="list_view_deck_image_desc">Recipe</string>
+    <string name="list_view_deck_title">NEW RECIPES</string>
+    <string name="list_view_layout_modes_dialog_title">Choose food type</string>
+    <string name="list_view_reorder_btn_list1">TO DO LIST</string>
+    <string name="list_view_reorder_btn_list2">SHOPPING LIST</string>
+    <string name="list_view_reorder_complete">complete</string>
+    <string name="list_view_reorder_delete">delete</string>
+    <string name="list_view_reorder_empty">No tasks</string>
+    <string name="list_view_reorder_header">TASKS</string>
+    <string name="list_view_selection_btn_list1">ALL</string>
+    <string name="list_view_selection_btn_list2">FAVORITES</string>
+    <string name="list_view_selection_delete">del</string>
+    <string name="list_view_selection_deleted">Deleted.</string>
+    <string name="list_view_selection_fav">fav</string>
+    <string name="list_view_selection_header">Reading list</string>
+    <string name="list_view_selection_header_in_reorder">Reorder</string>
+    <string name="list_view_selection_reorder">reorder</string>
+    <string name="list_view_selection_undo">UNDO</string>
+    <string name="list_view_slide_attractions">Attractions</string>
+    <string name="list_view_slide_enquiry">SEND ENQUIRY</string>
+    <string name="list_view_slide_image_desc">Destination</string>
+    <string name="logging_in">Logging in</string>
+    <string name="loginButtonText">Log in with OpenID Connect</string>
+    <string name="logoutButtonText">Logout (Removes account)</string>
+    <string name="lowlight_label">Lowlight</string>
+    <string name="make_call_title">Make call</string>
+    <string name="management_label">Press the button to start or stop a recording session</string>
+    <string name="me">Me</string>
+    <string name="medalertpart1">Πήρατε το χάπι σας </string>
+    <string name="medalertpart2">στις</string>
+    <string name="medalertpart3">Το επομενο χάπι  </string>
+    <string name="medalertpart4">είναι στις </string>
+    <string name="monitoring_label">Monitoring</string>
+    <string name="monitoringstatus_label">not monitoring</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="mute_camera">Mute camera</string>
+    <string name="muted_label">Muted</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="next">Next</string>
+    <string name="ngfmess1">Πατηστε το κουμπί όταν ΔΕΝ νοιώθετε καλά!</string>
+    <string name="ngfmess2">Πατήσατε ήδη το κουμπί πριν λίγο!</string>
+    <string name="no_internet">No Internet Connection. Please check your internet connection or try again later.</string>
+    <string name="no_receivers">Please add a receiver!</string>
+    <string name="no_token_to_unsubscribe">There is no token to unsubscribe</string>
+    <string name="ok">Ok</string>
+    <string name="ok_button_text">OK</string>
+    <string name="pie_series_title">International sales by country, 2014</string>
+    <string name="prev">Previous</string>
+    <string name="productPage">Check out the product page.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="reject">Οχι</string>
+    <string name="requestButton">Request protected Ressource</string>
+    <string name="resolution">Resolution</string>
+    <string name="resolution_not_supported">Resolution is not supported</string>
+    <string name="review">Review</string>
+    <string name="room_title">Room</string>
+    <string name="scatter_series_title">Mean hourly earnings in the UK (private vs public)</string>
+    <string name="search_title">Search</string>
+    <string name="secondary_text_label">Secondary text</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="select_label">Select...</string>
+    <string name="session_id">Session ID</string>
+    <string name="set_colors_label">Set Colors</string>
+    <string name="set_image_label">Set image</string>
+    <string name="settingsString">Settings</string>
+    <string name="settings_label">Settings</string>
+    <string name="spinners_title">International Software Company</string>
+    <string name="startButton">Start</string>
+    <string name="start_call_title">Call</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="submit_confirm_button">Submit</string>
+    <string name="submit_confirm_message">Are you sure?</string>
+    <string name="theme_colors_label">Theme colors</string>
+    <string name="tips_presenter_content">Telerik Examples highlights the controls included in Telerik UI for Android - Chart, Calendar, DataForm, ListView and SideDrawer.</string>
+    <string name="tips_presenter_got_it_text">GOT IT!</string>
+    <string name="title_activity_auth">AuthActivity</string>
+    <string name="title_activity_chart">ChartActivity</string>
+    <string name="title_activity_clinician">ClinicianActivity</string>
+    <string name="title_activity_files">FilesActivity</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_med_alert">MedAlertActivity</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_view_code">View code</string>
+    <string name="title_annotation_section">Annotation</string>
+    <string name="title_basics_section">Session</string>
+    <string name="title_log_section">Log</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_sensors_section">Display</string>
+    <string name="title_settings_section">Settings</string>
+    <string name="title_theme_section">Theme</string>
+    <string name="title_tiles_section">Tiles</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+    <string name="tokensExpiredDialogButton">SignIn</string>
+    <string name="tokensExpiredDialogMsg">You need to signin again to continue</string>
+    <string name="tokensExpiredDialogTitle">Tokens have expire</string>
+    <string name="unknown">Unknown camera</string>
+    <string name="unsubscribe_title">Unsubscribe</string>
+    <string name="use_custom_render">Use custom video render</string>
+    <string name="user_offline">User %s is offline</string>
+    <string name="user_statistics_setting">Send anonymous usage statistics</string>
+    <string name="user_unsubscribe_error">Error to unsubscribe</string>
+    <string name="user_unsubscribed">User unsubscribed</string>
+    <string name="versionStringPascalCase">Version</string>
+    <string name="version_code">2015.3.0</string>
+    <string name="version_name">Q3 2015</string>
+    <string name="versioning_label">Versions</string>
+    <string name="vibrate_label">Vibrate</string>
+    <string name="vibration_label">Vibration</string>
+    <string name="video_cannot_be_viewed">Video cannot be viewed!</string>
+    <string name="video_fitting_mode">Video Fitting Mode:</string>
+    <string name="video_orientation_anim">Video Orientation Anim:</string>
+    <string name="video_orientation_lock">Video Orientation Lock:</string>
+    <string name="welcome">Καλως ήρθατε!</string>
+    <string name="wrong_conference_id">Conference ID is not valid</string>
+    <string name="wrong_conference_id_space_character"> Space character is not allowed. </string>
+</resources>
