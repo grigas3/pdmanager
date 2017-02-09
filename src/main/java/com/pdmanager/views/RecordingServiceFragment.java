@@ -88,7 +88,10 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     private Button mButtonSetLimits;
     private Button mButtonRequireStorPermissions;
     private Button mbuttonGetMedications;
+    private Button mButtonCreateTile;
+    
     private TextView mTextGetMedication;
+    private TextView mTextGetDevice;
     private Button mbuttonMSHealthSync;
     private Button mGetDevice;
     private IBandTileManager tileManager;
@@ -123,7 +126,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             RecordingSettings settings = new RecordingSettings(getContext());
             //new MSSyncActivity.SyncHealthDataTask(settings.getPatientID(),settings.getToken()).execute(result);
-
+            busyIndicator.setVisibility(View.VISIBLE);
+            layout.setVisibility(View.INVISIBLE);
             new GetDeviceTask(settings.getPatientID(), settings.getToken()).execute();
 
 
@@ -153,6 +157,20 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             Intent mainIntent = new Intent(getActivity(), MSSyncActivity.class);
             getActivity().startActivity(mainIntent);
+
+
+        }
+    };
+
+
+    private View.OnClickListener mbuttonCreateTileListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View button) {
+
+
+            if (tileManager != null)
+                tileManager.createTile();
+
 
 
         }
@@ -599,6 +617,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         mbuttonMSHealthSync.setOnClickListener(mbuttonMSHealthSyncListener);
 
 
+        mButtonCreateTile = (Button) rootView.findViewById(R.id.buttonCreateTile);
+        mButtonCreateTile.setOnClickListener(mbuttonCreateTileListener);
+
+        
+        
         mMonitoringStatus = (TextView) rootView.findViewById(R.id.textConnectionStatus);
         mSensorStatus = (TextView) rootView.findViewById(R.id.textSensorStatus);
 
@@ -611,7 +634,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
         mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
-        mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
+        mTextGetDevice=(TextView) rootView.findViewById(R.id.textGetDevice);
 
         if(checkPermissions(this.getActivity()))
         {
@@ -931,15 +954,16 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         }
 
         protected void onPostExecute(DeviceResult result) {
+            busyIndicator.setVisibility(View.INVISIBLE);
+            layout.setVisibility(View.VISIBLE);
 
             if (!result.HasError) {
                 RecordingSettings settings = new RecordingSettings(getContext());
                 mDeviceId.setText(result.DeviceId);
                 settings.setDeviceId(result.DeviceId);
+                mTextGetDevice.setTextColor(Color.GREEN);
             }
 
-            if (tileManager != null)
-                tileManager.createTile();
 
 
         }

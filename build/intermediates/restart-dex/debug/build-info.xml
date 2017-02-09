@@ -5,43 +5,33 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="8848853951818"
-    token="4069101945239318874" >
+    timestamp="99474984210094"
+    token="4069101945239318874"
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="6556" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="8933" />
     <task
         name="verifier"
-        duration="0" />
+        duration="2377" />
+
+    <artifact
+        location="E:\Rigas\PDManager\Android\Patient\build\outputs\apk\Patient-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="5444403710018"
+        timestamp="99474984210094"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\Rigas\PDManager\Android\Patient\build\outputs\apk\Patient-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="6266906683644"
-        verifier="METHOD_ADDED" >
-        <artifact
-            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="8848853951818" />
-    <build
-        timestamp="1223310173270695"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

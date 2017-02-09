@@ -3,24 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="985be85104f6d0c5c5e51e7b7e60d8883a98ac64">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.0_d9e22d4ba8516307fb8c0b623490ff2f8cd6726e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client-gson\1.21.0\37de4d5c38d1961c49bff32873623dc1cf375dd9\google-api-client-gson-1.21.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="37de4d5c38d1961c49bff32873623dc1cf375dd9">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-gson-1.21.0_f6afaa2fd7f4b8ff3b87b63c97ed9ad76a35f84d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -45,6 +27,150 @@
         revision="24.0.1"
         sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
         <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_af55318df0b2392a8fcab66cb309d14c3d7c5b45\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\libs\microsoft-band-1.3.20105.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2cb3684c1f128306a627239759ab82dfca4aebc9">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\2\microsoft-band-1.3.20105.2_6de7585d0916180b1162a835625ec34ef86ac5bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a61005619e43f203768ff3f224137def6f029e50">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.0_d2980668890679ae128f6c4e148093781cfbd576\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ce6e6e59212db0893fc36e5b579cf319a84aade8">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.0_2e363c89ec096c31afaf4b0395fe9f574984424c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Data-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="5ad62a3e8471d29e09d6ede118257f18e8a0fa8b">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-Data-2015.3.1113-trial-release_3be05f24bf9f8f94a5a61eb5f6e915cd9e17a09b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ddfa80ca49f1334afea1f9aa93148be73f73cd0f">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.0_0ce5d48cfb3da9e19489535b2d889467fa9e33d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Input-2015.3.1113-trial-release\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e4891cf0bcd719346eb2fd7f233d3eb0d7ccdb27">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-Input-2015.3.1113-trial-release_f716f14d607c394e448f1edb67d1e07468a623e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="75dbc3537bc912d077b3db2f5ac72d5b43644b2c">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.0_afa2a398cbe6aeedd72b7a0fd65aa19d52b6acf8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a92e646a8f7399556513b5cc61e32feac298750c">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6a53306c60ccec234bffa9f4f0990de18c4d0cef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3660967212b89195e628670db181ed86e3307569">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.0_dc7233f9a823671fde9fd8b70373e96f6058388c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.madgag.spongycastle\core\1.54.0.0\de79c5f8c67234f0d0073e00ed1f3bab0e5d1e67\core-1.54.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="de79c5f8c67234f0d0073e00ed1f3bab0e5d1e67">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\core-1.54.0.0_9f0d2df35f8e2b948cf200169d8430e180bd22c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client\1.21.0\42631630fe1276d4d6d6397bb07d53a4e4fec278\google-http-client-1.21.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="42631630fe1276d4d6d6397bb07d53a4e4fec278">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-1.21.0_ae8a3aa59ccb05b450e00bbc09ba6d2ea2d9aa8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\libs\oovoosdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="10c6f6aac3f6561de9ed857d90c3972e0c4e54f5">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\2\oovoosdk_efd418db88ef812effbcfea6f4647d787632d826\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c7ed3fd9d5a9687980dac6c504abd91ad3dfa238">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.0_6da50dbb87c081f50064576296677d5de8a059df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_8471ecc8c3c43fdd6c80c6f6d0d0a3eeb7e0ce1f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="985be85104f6d0c5c5e51e7b7e60d8883a98ac64">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.0_d9e22d4ba8516307fb8c0b623490ff2f8cd6726e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client-gson\1.21.0\37de4d5c38d1961c49bff32873623dc1cf375dd9\google-api-client-gson-1.21.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="37de4d5c38d1961c49bff32873623dc1cf375dd9">
+        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-gson-1.21.0_f6afaa2fd7f4b8ff3b87b63c97ed9ad76a35f84d\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,33 +210,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\libs\microsoft-band-1.3.20105.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="2cb3684c1f128306a627239759ab82dfca4aebc9">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\2\microsoft-band-1.3.20105.2_6de7585d0916180b1162a835625ec34ef86ac5bb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="a61005619e43f203768ff3f224137def6f029e50">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.0_d2980668890679ae128f6c4e148093781cfbd576\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ce6e6e59212db0893fc36e5b579cf319a84aade8">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.0_2e363c89ec096c31afaf4b0395fe9f574984424c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Rigas\PDManager\Android\Patient\libs\jackson-core-2.6.1.jar"
         jumboMode="true"
         optimize="true"
@@ -126,15 +225,6 @@
         revision="24.0.1"
         sha1="3f628c165bc9857fdb32ce48ca25bfdfb4629010">
         <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-Common-2015.3.1113-trial-release_26bba3981b2b84e666c1c5b22353b76569c87233\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Data-2015.3.1113-trial-release\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="5ad62a3e8471d29e09d6ede118257f18e8a0fa8b">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-Data-2015.3.1113-trial-release_3be05f24bf9f8f94a5a61eb5f6e915cd9e17a09b\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -183,15 +273,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ddfa80ca49f1334afea1f9aa93148be73f73cd0f">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.0_0ce5d48cfb3da9e19489535b2d889467fa9e33d5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\List-2015.3.1113-trial-release\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -201,20 +282,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Input-2015.3.1113-trial-release\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="e4891cf0bcd719346eb2fd7f233d3eb0d7ccdb27">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-Input-2015.3.1113-trial-release_f716f14d607c394e448f1edb67d1e07468a623e8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="0268a1fa12bea3387305d7f8102505bc18689b63">
+        sha1="b9ae2323cee7494797993a3fa79cdadd47f1d0f1">
         <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_eb15017e5ecb701226c0eea7b0692fb45444203d\classes.dex" />
     </item>
     <item
@@ -237,15 +309,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="75dbc3537bc912d077b3db2f5ac72d5b43644b2c">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.0_afa2a398cbe6aeedd72b7a0fd65aa19d52b6acf8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.google.oauth-client\google-oauth-client\1.21.0\61ec42bbfc51aafde5eb8b4923c602c5b5965bc2\google-oauth-client-1.21.0.jar"
         jumboMode="true"
         optimize="true"
@@ -255,30 +318,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ae6b0bf1ea117bf54558b999d1064a3b4a993956">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6a53306c60ccec234bffa9f4f0990de18c4d0cef\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="3347c3e7056fabc88bdbd8fdae65ddf2b674d977">
         <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.0_ba0e32a804417ebeb5bd41c8df6b84c4fa67a6b0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="3660967212b89195e628670db181ed86e3307569">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.0_dc7233f9a823671fde9fd8b70373e96f6058388c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -318,30 +363,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.madgag.spongycastle\core\1.54.0.0\de79c5f8c67234f0d0073e00ed1f3bab0e5d1e67\core-1.54.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="de79c5f8c67234f0d0073e00ed1f3bab0e5d1e67">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\core-1.54.0.0_9f0d2df35f8e2b948cf200169d8430e180bd22c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.github.kevinsawicki\http-request\6.0\910c844ccd4653c9f6895dc4b7adce6372a4da03\http-request-6.0.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="910c844ccd4653c9f6895dc4b7adce6372a4da03">
         <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\http-request-6.0_e9bd4931dbbade68c41e6d90e3ebe1abd7c4fc66\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\george\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client\1.21.0\42631630fe1276d4d6d6397bb07d53a4e4fec278\google-http-client-1.21.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="42631630fe1276d4d6d6397bb07d53a4e4fec278">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-1.21.0_ae8a3aa59ccb05b450e00bbc09ba6d2ea2d9aa8e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -363,24 +390,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\libs\oovoosdk.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="10c6f6aac3f6561de9ed857d90c3972e0c4e54f5">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\2\oovoosdk_efd418db88ef812effbcfea6f4647d787632d826\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="c7ed3fd9d5a9687980dac6c504abd91ad3dfa238">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.0_6da50dbb87c081f50064576296677d5de8a059df\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\Rigas\PDManager\Android\Patient\libs\GraphView-4.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -396,15 +405,6 @@
         revision="24.0.1"
         sha1="a082af38e5670ea0a03575804a5231b3bb0c69ff">
         <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-Chart-2015.3.1113-trial-release_1c62bc35ba1b916e1d1ed7a78b2b0393d13ac0f1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="E:\Rigas\PDManager\Android\Patient\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_8471ecc8c3c43fdd6c80c6f6d0d0a3eeb7e0ce1f\classes.dex" />
     </item>
 
 </items>

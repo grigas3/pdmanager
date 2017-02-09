@@ -82,7 +82,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
         String section = alert.getAlertType();
 
-        if(section=="MED")
+        if(section!=null&&section.toUpperCase()=="MED")
         {
 
             MedAlertFragment fragment= new MedAlertFragment();
