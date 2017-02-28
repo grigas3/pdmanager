@@ -20,7 +20,7 @@ package com.pdmanager.views.clinician;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.pdmanager.core.viewmodels.BS11WizardModel;
+import com.pdmanager.viewmodels.BS11WizardModel;
 import com.pdmanager.views.common.BaseTestActivity;
 import com.pdmanager.views.BaseTestPagerAdapter;
 import com.wizard.model.AbstractWizardModel;

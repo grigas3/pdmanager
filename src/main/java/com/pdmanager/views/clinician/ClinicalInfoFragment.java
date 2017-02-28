@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.adapters.ClinicalInfoAdapter;
-import com.pdmanager.core.models.ClinicalInfo;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.R;
+import com.pdmanager.adapters.ClinicalInfoAdapter;
+import com.pdmanager.models.ClinicalInfo;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 import com.telerik.android.common.Function;

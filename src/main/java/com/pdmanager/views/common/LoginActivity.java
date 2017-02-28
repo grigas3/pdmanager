@@ -25,11 +25,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.RESTClient;
-import com.pdmanager.core.models.LoginModel;
-import com.pdmanager.core.models.LoginResult;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.R;
+import com.pdmanager.communication.RESTClient;
+import com.pdmanager.models.LoginModel;
+import com.pdmanager.models.LoginResult;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.MainActivity;
 import com.pdmanager.views.clinician.ClinicianActivity;
 

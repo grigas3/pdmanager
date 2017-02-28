@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.oovoo.sdk.interfaces.VideoRender;
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 
 /**

@@ -10,8 +10,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 import com.oovoo.sdk.api.LogSdk;
-import com.pdmanager.core.VideoApp;
-import com.pdmanager.core.settings.VideoSettings;
+import com.pdmanager.app.VideoApp;
+import com.pdmanager.settings.VideoSettings;
 
 
 public class RegistrationIntentService extends IntentService {

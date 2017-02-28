@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.interfaces.IEventDetailNavigator;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.R;
+import com.pdmanager.interfaces.IEventDetailNavigator;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 

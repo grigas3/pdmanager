@@ -6,8 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.viewmodels.MedicationOrderVM;
+import com.pdmanager.R;
+import com.pdmanager.viewmodels.MedicationOrderVM;
 import com.telerik.android.common.Function2;
 import com.telerik.widget.dataform.visualization.DataFormGroupLayoutManager;
 import com.telerik.widget.dataform.visualization.DataFormLinearLayoutManager;

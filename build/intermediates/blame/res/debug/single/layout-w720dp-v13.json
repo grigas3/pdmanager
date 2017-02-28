@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\fragment_medlist.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout-w720dp\\fragment_medlist.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout-w720dp-v13\\fragment_patient_home.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout-w720dp\\fragment_patient_home.xml"
     },

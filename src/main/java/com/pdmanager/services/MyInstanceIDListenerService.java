@@ -4,8 +4,8 @@ import android.content.Intent;
 
 import com.google.android.gms.iid.InstanceIDListenerService;
 import com.oovoo.sdk.api.LogSdk;
-import com.pdmanager.core.VideoApp;
-import com.pdmanager.core.settings.VideoSettings;
+import com.pdmanager.app.VideoApp;
+import com.pdmanager.settings.VideoSettings;
 
 public class MyInstanceIDListenerService extends InstanceIDListenerService {
 

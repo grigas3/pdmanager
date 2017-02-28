@@ -19,7 +19,7 @@ import com.oovoo.sdk.api.ooVooClient;
 import com.oovoo.sdk.api.ui.VideoPanel;
 import com.oovoo.sdk.interfaces.VideoFrame;
 import com.oovoo.sdk.interfaces.VideoRender;
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.pdmanager.views.gl.GLESHelper;
 
 import javax.microedition.khronos.egl.EGLConfig;

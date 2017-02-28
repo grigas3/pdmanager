@@ -23,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.telerik.common.contracts.TransitionHandler;
 import com.telerik.primitives.ExamplesGridView;
 import com.telerik.viewmodels.MenuAction;
@@ -36,6 +36,7 @@ public class TechnicianDrawerFragment extends Fragment {
     public static final String NAV_DRAWER_SECTION_HOME = "RecordingServiceFragment";
     public static final String NAV_DRAWER_SECTION_SETTINGS = "RecordingSettingsFragment";
     public static final String NAV_DRAWER_SECTION_LOGS = "LogEventFragment";
+    public static final String NAV_DRAWER_SECTION_MEDS = "MedListFragment";
     public static final String NAV_DRAWER_SECTION_DISPLAY = "SensorsFragment";
     public static final String NAV_DRAWER_SECTION_FILES = "FilesFragment";
     public static final String NAV_DRAWER_SECTION_ABOUT = "Help";

@@ -18,12 +18,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pdmanager.common.data.LogEvent;
-import com.pdmanager.core.R;
-import com.pdmanager.core.logging.LogAdapter;
-import com.pdmanager.core.logging.LogCursorAdapter;
-import com.pdmanager.core.logging.LogLoader;
-import com.pdmanager.core.logging.LogObserver;
-import com.pdmanager.core.persistence.DBHandler;
+import com.pdmanager.R;
+import com.pdmanager.logging.LogAdapter;
+import com.pdmanager.logging.LogCursorAdapter;
+import com.pdmanager.logging.LogLoader;
+import com.pdmanager.logging.LogObserver;
+import com.pdmanager.persistence.DBHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,28 +68,7 @@ public class LogEventFragment extends Fragment implements FragmentListener, Load
         super.onCreate(savedInstanceState);
         initAdapter(getActivity());
 
-        /*
 
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<LogEvent>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, logEvents){
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-
-                View view = super.getView(position, convertView, parent);
-                TextView Value = (TextView) view.findViewById(android.R.id.text1);
-                LogEvent c=(LogEvent)this.getItem(position);
-                if(c!=null&&c.getLogType()==2)
-                {
-
-                    Value.setTextColor(Color.RED);
-                }
-
-                return view;
-            }
-        };
-        */
 
     }
 
@@ -113,19 +92,7 @@ public class LogEventFragment extends Fragment implements FragmentListener, Load
         } catch (Exception ex) {
 
 
-            /*try {
-                mGridView = (GridView) view.findViewById(android.R.id.list);
 
-                if (mAdapter != null) {
-                    mGridView.setAdapter(mAdapter);
-                    getLoaderManager().initLoader(LOADER_ID, null, this).forceLoad();
-                }
-            }catch(Exception ex1) {
-
-
-                Log.d("Error",ex1.toString());
-            }
-            */
 
         }
 
@@ -183,7 +150,7 @@ public class LogEventFragment extends Fragment implements FragmentListener, Load
 
         } catch (Exception ex) {
 
-            Log.d("AA", "Aa");
+            Log.d(TAG, ex.getMessage());
 
         }
 
@@ -215,7 +182,7 @@ public class LogEventFragment extends Fragment implements FragmentListener, Load
 
         /**
          * Registering content observer for this cursor, When this cursor Value will be change
-         * This will notify our loader to reload its data*/
+         * This will setNotified our loader to reload its data*/
         LogObserver cursorObserver = new LogObserver(new Handler(), loader);
         c.registerContentObserver(cursorObserver);
         c.setNotificationUri(getActivity().getContentResolver(), DBHandler.URI_TABLE_USERS);

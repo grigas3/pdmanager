@@ -12,9 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.dropbox.core.android.Auth;
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.DropboxClient;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.R;
+import com.pdmanager.communication.DropboxClient;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.FragmentListener;
 

@@ -6,7 +6,6 @@ package com.pdmanager.views.patient;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +16,16 @@ import android.widget.TextView;
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.pdmanager.controls.CircleButton;
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.R;
-import com.pdmanager.core.alerting.IUserAlertManager;
-import com.pdmanager.core.alerting.UserAlertManager;
-import com.pdmanager.core.communication.CommunicationManager;
-import com.pdmanager.core.communication.DirectSender;
-import com.pdmanager.core.interfaces.IAlertFragmentManager;
-import com.pdmanager.core.medication.MedManager;
-import com.pdmanager.core.models.MedicationIntake;
-import com.pdmanager.core.models.MedicationOrder;
-import com.pdmanager.core.models.Observation;
-import com.pdmanager.core.models.PendingMedication;
-import com.pdmanager.core.models.UserAlert;
-import com.pdmanager.core.settings.RecordingSettings;
-import com.pdmanager.views.BasePDFragment;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.R;
+import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.medication.MedManager;
+import com.pdmanager.models.MedicationIntake;
+import com.pdmanager.models.MedicationOrder;
+import com.pdmanager.models.Observation;
+import com.pdmanager.models.PendingMedication;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -449,7 +443,7 @@ public class MedAlertFragment extends AlertPDFragment {
             //TODO PROPERLY CHECK CONNECTION
 
 
-           // new MedAdminFragment.GetMedicationTask(patientCode, accessToken).execute();
+           // new MedListFragment.GetMedicationTask(patientCode, accessToken).execute();
 
 
         }

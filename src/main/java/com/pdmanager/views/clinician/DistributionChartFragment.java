@@ -16,10 +16,10 @@ import android.widget.Spinner;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.DataReceiver;
-import com.pdmanager.core.models.Observation;
-import com.pdmanager.core.models.ObservationCode;
+import com.pdmanager.R;
+import com.pdmanager.communication.DataReceiver;
+import com.pdmanager.models.Observation;
+import com.pdmanager.models.ObservationCode;
 import com.pdmanager.views.charts.AreaFragment;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 import com.telerik.widget.chart.engine.axes.common.AxisLabelFitMode;

@@ -8,7 +8,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.tagmanager.ContainerHolder;
 import com.google.android.gms.tagmanager.DataLayer;
 import com.google.android.gms.tagmanager.TagManager;
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.telerik.common.licensing.KeysRetriever;
 
 import java.util.ArrayList;

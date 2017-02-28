@@ -29,7 +29,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.wizard.model.CustomerInfoPage;
 
 public class CustomerInfoFragment extends Fragment {

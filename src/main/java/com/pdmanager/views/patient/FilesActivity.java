@@ -13,11 +13,11 @@ import android.widget.Toast;
 
 import com.dropbox.core.android.Auth;
 import com.dropbox.core.v2.DbxFiles;
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.DropboxClient;
-import com.pdmanager.core.communication.UploadDropboxFileTask;
-import com.pdmanager.core.communication.UploadDropboxFilesTask;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.R;
+import com.pdmanager.communication.DropboxClient;
+import com.pdmanager.communication.UploadDropboxFileTask;
+import com.pdmanager.communication.UploadDropboxFilesTask;
+import com.pdmanager.settings.RecordingSettings;
 
 import java.io.File;
 import java.util.ArrayList;

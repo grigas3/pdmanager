@@ -23,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.telerik.common.contracts.TransitionHandler;
 import com.telerik.primitives.ExamplesGridView;
 import com.telerik.viewmodels.MenuAction;

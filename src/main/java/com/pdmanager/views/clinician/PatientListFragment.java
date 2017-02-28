@@ -17,12 +17,12 @@ import android.widget.TextView;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.R;
-import com.pdmanager.core.adapters.PatientAdapter;
-import com.pdmanager.core.communication.DataReceiver;
-import com.pdmanager.core.models.Patient;
-import com.pdmanager.core.models.PatientListResult;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.R;
+import com.pdmanager.adapters.PatientAdapter;
+import com.pdmanager.communication.DataReceiver;
+import com.pdmanager.models.Patient;
+import com.pdmanager.models.PatientListResult;
 import com.pdmanager.views.BasePDFragment;
 import com.telerik.widget.list.ListViewAdapter;
 import com.telerik.widget.list.RadListView;

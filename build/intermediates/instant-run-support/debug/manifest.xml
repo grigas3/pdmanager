@@ -74,7 +74,7 @@
     <uses-permission android:name="com.pdmanager.home.permission.C2D_MESSAGE" />
 
     <application
-        name="com.pdmanager.core.PDPilotAppContext"
+        name="com.pdmanager.app.PDPilotAppContext"
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
         android:icon="@drawable/pdmanagerhome"
@@ -82,7 +82,7 @@
         android:theme="@style/ApplicationTheme" >
         <service android:name="com.pdmanager.services.RecordingService" />
 
-        <receiver android:name="com.pdmanager.core.PDBootReceiver" >
+        <receiver android:name="com.pdmanager.app.PDBootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

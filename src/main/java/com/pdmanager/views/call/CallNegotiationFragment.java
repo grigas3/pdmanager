@@ -15,9 +15,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.VideoApp.CallNegotiationListener;
-import com.pdmanager.core.VideoApp.MessageCompletionHandler;
+import com.pdmanager.R;
+import com.pdmanager.app.VideoApp.CallNegotiationListener;
+import com.pdmanager.app.VideoApp.MessageCompletionHandler;
 import com.pdmanager.call.CNMessage;
 import com.pdmanager.call.CNMessage.CNMessageType;
 import com.pdmanager.views.BasePDFragment;

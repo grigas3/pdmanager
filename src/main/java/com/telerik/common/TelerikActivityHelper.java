@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 
 /**

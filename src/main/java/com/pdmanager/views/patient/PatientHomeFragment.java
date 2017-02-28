@@ -6,7 +6,6 @@ package com.pdmanager.views.patient;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -15,36 +14,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.microsoft.band.BandPendingResult;
-import com.microsoft.band.ConnectionState;
-import com.pdmanager.controls.CircleButton;
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.CommunicationManager;
-import com.pdmanager.core.communication.DirectSender;
-import com.pdmanager.core.interfaces.ISensorStatusListener;
-import com.pdmanager.core.interfaces.IServiceStatusListener;
-import com.pdmanager.core.models.Observation;
-import com.pdmanager.core.models.UserAlert;
-import com.pdmanager.core.sensor.RecordingServiceHandler;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.R;
+import com.pdmanager.alerting.IAlertDisplay;
+import com.pdmanager.interfaces.ISensorStatusListener;
+import com.pdmanager.interfaces.IServiceStatusListener;
+import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.services.RecordingService;
-import com.pdmanager.views.patient.MoodTrackingFragment;
-import com.pdmanager.views.RecordingServiceFragment;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PatientHomeFragment extends AlertPDFragment implements IServiceStatusListener,ISensorStatusListener {
+public class PatientHomeFragment extends AlertPDFragment implements IServiceStatusListener,ISensorStatusListener,IAlertDisplay {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -194,6 +180,24 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     @Override
     public void notifySensorStatusChanged(boolean status) {
 
+    }
+
+    @Override
+    public void setAlertDisplay(final String messageTxt) {
+
+        Activity activity = getActivity();
+        if (activity != null) {
+
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    if(message!=null)
+                    message.setText(messageTxt);
+
+                }
+            });
+        }
     }
 
     class HomeTimerTask extends TimerTask {

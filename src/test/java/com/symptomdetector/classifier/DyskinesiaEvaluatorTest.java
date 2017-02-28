@@ -10,8 +10,8 @@ import com.pdmanager.common.data.AccReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.LIDData;
 import com.pdmanager.common.interfaces.IDataHandler;
-import com.pdmanager.core.posturedetector.Core.Signals.SignalCollection;
-import com.pdmanager.core.symptomdetector.dyskinesia.DyskinesiaEvaluator;
+import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
+import com.pdmanager.symptomdetector.dyskinesia.DyskinesiaEvaluator;
 
 import org.junit.Test;
 

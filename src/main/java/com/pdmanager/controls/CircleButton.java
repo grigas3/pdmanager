@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 public class CircleButton extends ImageView {
 

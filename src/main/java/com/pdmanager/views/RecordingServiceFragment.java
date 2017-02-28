@@ -34,24 +34,22 @@ import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.BandSensorManager;
 import com.microsoft.band.sensors.HeartRateConsentListener;
-import com.pdmanager.core.R;
-import com.pdmanager.core.alerting.UserAlertManager;
-import com.pdmanager.core.communication.DataReceiver;
-import com.pdmanager.core.interfaces.IBandTileManager;
-import com.pdmanager.core.interfaces.ISensorStatusListener;
-import com.pdmanager.core.interfaces.IServiceStatusListener;
-import com.pdmanager.core.logging.LogHandler;
-import com.pdmanager.core.medication.MedManager;
-import com.pdmanager.core.models.Device;
-import com.pdmanager.core.models.DeviceResult;
-import com.pdmanager.core.models.PatientMedicationResult;
-import com.pdmanager.core.sensor.IHeartRateAccessProvider;
-import com.pdmanager.core.sensor.RecordingServiceHandler;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.R;
+import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.communication.DataReceiver;
+import com.pdmanager.interfaces.IBandTileManager;
+import com.pdmanager.interfaces.ISensorStatusListener;
+import com.pdmanager.interfaces.IServiceStatusListener;
+import com.pdmanager.logging.LogHandler;
+import com.pdmanager.medication.MedManager;
+import com.pdmanager.models.Device;
+import com.pdmanager.models.DeviceResult;
+import com.pdmanager.models.PatientMedicationResult;
+import com.pdmanager.sensor.IHeartRateAccessProvider;
+import com.pdmanager.sensor.RecordingServiceHandler;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.patient.MSSyncActivity;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.List;
@@ -1014,10 +1012,22 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             if(!result.hasError()) {
                 MedManager manager = new MedManager(getContext());
                 //Clear Medication Orders
-                manager.clearMedOrders();
+                manager.clearAll();
                 //Add Medication Orders
                 manager.addMedicationOrders(result.orders);
                 mTextGetMedication.setTextColor(Color.GREEN);
+
+
+
+            }
+            else
+            {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                alert.setTitle("Error");
+                alert.setMessage("Could not get medications. Check your internet connection and that the medications are property defined.");
+                alert.setPositiveButton("OK", null);
+                alert.show();
 
 
 

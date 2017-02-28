@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.R;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.telerik.android.common.Util;
 import com.telerik.widget.chart.visualization.behaviors.ChartSelectionBehavior;

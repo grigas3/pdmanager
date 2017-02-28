@@ -28,7 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.wizard.model.Page;
 import com.wizard.model.SingleFixedChoicePage;
 

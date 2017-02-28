@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.R;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.R;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.telerik.widget.list.ListViewAdapter;
 import com.telerik.widget.list.RadListView;

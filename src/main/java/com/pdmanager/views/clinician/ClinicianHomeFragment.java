@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.pdmanager.views.BasePDFragment;
 
 /**

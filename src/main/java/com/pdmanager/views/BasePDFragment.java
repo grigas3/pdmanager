@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.settings.RecordingSettings;
-import com.pdmanager.core.settings.VideoSettings;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.settings.RecordingSettings;
+import com.pdmanager.settings.VideoSettings;
 
 import java.util.ArrayList;
 

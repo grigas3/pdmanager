@@ -24,13 +24,13 @@ import com.oovoo.sdk.interfaces.VideoDevice;
 import com.oovoo.sdk.interfaces.ooVooSdkResult;
 import com.oovoo.sdk.interfaces.ooVooSdkResultListener;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.VideoApp;
-import com.pdmanager.core.settings.VideoSettings;
+import com.pdmanager.R;
+import com.pdmanager.app.VideoApp;
+import com.pdmanager.settings.VideoSettings;
 
-import com.pdmanager.core.VideoApp.CallControllerListener;
-import com.pdmanager.core.VideoApp.NetworkListener;
-import com.pdmanager.core.VideoApp.ParticipantsListener;
+import com.pdmanager.app.VideoApp.CallControllerListener;
+import com.pdmanager.app.VideoApp.NetworkListener;
+import com.pdmanager.app.VideoApp.ParticipantsListener;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.patient.MainActivity.MenuList;
 import com.pdmanager.views.SignalBar;

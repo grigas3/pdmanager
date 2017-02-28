@@ -2,7 +2,7 @@
 manifest
 ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:2:1-211:12
 	package
-		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:3:5-33
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:3:5-28
 		INJECTED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml
 		INJECTED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml
 	android:versionName
@@ -267,15 +267,15 @@ MERGED from [com.android.support:support-v4:24.0.0] E:\Rigas\PDManager\Android\P
 	android:theme
 		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:75:9-48
 	android:name
-		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:71:9-42
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:71:9-59
 service#com.pdmanager.services.RecordingService
 ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:76:9-75
 	android:name
 		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:76:18-72
-receiver#com.pdmanager.core.PDBootReceiver
+receiver#com.pdmanager.app.PDBootReceiver
 ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:78:9-82:20
 	android:name
-		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:78:19-49
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:78:19-66
 intent-filter#android.intent.action.BOOT_COMPLETED
 ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:79:13-81:29
 action#android.intent.action.BOOT_COMPLETED

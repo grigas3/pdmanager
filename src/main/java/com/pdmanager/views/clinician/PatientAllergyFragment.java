@@ -10,11 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.adapters.AllergyAdapter;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.R;
+import com.pdmanager.adapters.AllergyAdapter;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
-import com.pdmanager.views.clinician.PatientChartFragment;
 import com.telerik.widget.list.RadListView;
 
 import java.util.List;

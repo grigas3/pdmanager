@@ -2,7 +2,7 @@ package com.pdmanager.views;
 
 import android.app.Activity;
 
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.settings.RecordingSettings;
 
 /**
  * Created by George on 6/18/2016.

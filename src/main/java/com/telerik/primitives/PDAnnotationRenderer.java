@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v4.util.LruCache;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.telerik.android.common.math.RadRect;
 import com.telerik.android.common.math.RadSize;
 import com.telerik.widget.chart.engine.decorations.annotations.custom.CustomAnnotationRenderer;

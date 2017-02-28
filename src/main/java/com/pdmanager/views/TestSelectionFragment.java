@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 
-import com.pdmanager.core.PDApplicationContext;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.views.clinician.BS11Activity;
 import com.pdmanager.views.clinician.NMSSActivity;
 

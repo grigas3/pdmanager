@@ -1,7 +1,7 @@
 package com.symptomdetector.classifier;
 
 
-import com.pdmanager.core.posturedetector.Core.Signals.SignalCollection;
+import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

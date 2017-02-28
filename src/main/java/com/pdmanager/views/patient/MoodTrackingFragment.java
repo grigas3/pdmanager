@@ -1,13 +1,10 @@
 package com.pdmanager.views.patient;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.microsoft.band.BandPendingResult;
-import com.microsoft.band.ConnectionState;
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.CommunicationManager;
-import com.pdmanager.core.communication.DirectSender;
-import com.pdmanager.core.communication.DirectSenderTask;
-import com.pdmanager.core.communication.IDirectSendCallback;
-import com.pdmanager.core.models.Observation;
-import com.pdmanager.core.settings.RecordingSettings;
-import com.pdmanager.views.BasePDFragment;
+import com.pdmanager.R;
+import com.pdmanager.communication.DirectSenderTask;
+import com.pdmanager.communication.IDirectSendCallback;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.FragmentListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Marko Koren on 11.1.2017.

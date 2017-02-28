@@ -41,7 +41,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 import java.util.ArrayList;
 

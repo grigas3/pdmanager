@@ -10,14 +10,14 @@ import com.pdmanager.common.data.GyroData;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.TremorData;
 import com.pdmanager.common.interfaces.IDataHandler;
-import com.pdmanager.core.posturedetector.Core.Signals.NamedSignalCollection;
-import com.pdmanager.core.posturedetector.Core.Signals.SignalCollection;
-import com.pdmanager.core.posturedetector.SignalProcessing.SignalDictionary;
-import com.pdmanager.core.symptomdetector.tremor.TremorAccPreprocess;
-import com.pdmanager.core.symptomdetector.tremor.TremorDetector;
-import com.pdmanager.core.symptomdetector.tremor.TremorEstimator;
-import com.pdmanager.core.symptomdetector.tremor.TremorEvaluator;
-import com.pdmanager.core.symptomdetector.tremor.TremorGyroPreprocess;
+import com.pdmanager.posturedetector.Core.Signals.NamedSignalCollection;
+import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
+import com.pdmanager.posturedetector.SignalProcessing.SignalDictionary;
+import com.pdmanager.symptomdetector.tremor.TremorAccPreprocess;
+import com.pdmanager.symptomdetector.tremor.TremorDetector;
+import com.pdmanager.symptomdetector.tremor.TremorEstimator;
+import com.pdmanager.symptomdetector.tremor.TremorEvaluator;
+import com.pdmanager.symptomdetector.tremor.TremorGyroPreprocess;
 
 import org.junit.Test;
 

@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.clinician.PatientChartFragment;
 import com.telerik.widget.list.ListViewAdapter;

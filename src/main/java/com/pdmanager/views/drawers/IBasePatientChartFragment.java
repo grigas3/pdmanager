@@ -1,6 +1,6 @@
 package com.pdmanager.views.drawers;
 
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.models.Patient;
 
 /**
  * Created by George on 6/5/2016.

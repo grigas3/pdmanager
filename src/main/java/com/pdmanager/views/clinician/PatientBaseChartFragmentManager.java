@@ -4,8 +4,8 @@ package com.pdmanager.views.clinician;
 import android.view.View;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.R;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 
 /**

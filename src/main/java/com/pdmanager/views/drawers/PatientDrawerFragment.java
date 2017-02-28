@@ -23,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.telerik.common.contracts.TransitionHandler;
 import com.telerik.primitives.ExamplesGridView;
 import com.telerik.viewmodels.MenuAction;
@@ -34,7 +34,7 @@ import com.telerik.viewmodels.MenuAction;
 public class PatientDrawerFragment extends Fragment {
 
     public static final String NAV_DRAWER_SECTION_HOME = "NotFeelingGoodFragment";
-    public static final String NAV_DRAWER_MEDADMIN = "MedAdminFragment";
+    public static final String NAV_DRAWER_MEDADMIN = "MedListFragment";
     public static final String NAV_DRAWER_CHAT = "ChatFragment";
     public static final String NAV_DRAWER_SECTION_ABOUT = "Help";
     /**

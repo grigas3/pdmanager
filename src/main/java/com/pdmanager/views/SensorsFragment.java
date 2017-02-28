@@ -30,7 +30,7 @@ import com.pdmanager.common.data.HRData;
 import com.pdmanager.common.data.HRReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.interfaces.IDataHandler;
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 
 public class SensorsFragment extends Fragment implements FragmentListener, IDataHandler {

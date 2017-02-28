@@ -14,8 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.tagmanager.ContainerHolder;
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.R;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.R;
 import com.telerik.common.TrackedApplication;
 import com.telerik.common.google.ContainerHolderSingleton;
 

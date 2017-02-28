@@ -12,7 +12,7 @@ public final class R {
 		public static final int white = 0x7f0d00cc;
 	}
 	public static final class layout {
-		public static final int trial_message = 0x7f030119;
+		public static final int trial_message = 0x7f03011a;
 	}
 	public static final class string {
 		public static final int trial_message = 0x7f070126;

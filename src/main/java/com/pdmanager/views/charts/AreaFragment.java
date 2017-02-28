@@ -6,9 +6,9 @@ package com.pdmanager.views.charts;
 
 import android.view.View;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.models.Observation;
-import com.pdmanager.core.models.ObservationCode;
+import com.pdmanager.R;
+import com.pdmanager.models.Observation;
+import com.pdmanager.models.ObservationCode;
 import com.telerik.widget.chart.visualization.behaviors.ChartSelectionBehavior;
 import com.telerik.widget.chart.visualization.behaviors.ChartSelectionMode;
 import com.telerik.widget.chart.visualization.cartesianChart.RadCartesianChartView;

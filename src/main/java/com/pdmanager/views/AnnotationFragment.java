@@ -11,11 +11,11 @@ import android.widget.TextView;
 
 import com.pdmanager.common.data.PDAnnotData;
 import com.pdmanager.common.data.PDData;
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.pdmanager.services.RecordingService;
-import com.pdmanager.core.interfaces.IServiceStatusListener;
-import com.pdmanager.core.logging.LogHandler;
-import com.pdmanager.core.sensor.RecordingServiceHandler;
+import com.pdmanager.interfaces.IServiceStatusListener;
+import com.pdmanager.logging.LogHandler;
+import com.pdmanager.sensor.RecordingServiceHandler;
 
 import java.util.Date;
 import java.util.Formatter;

@@ -2,12 +2,10 @@ package com.pdmanager.views.patient;
 
 import android.support.v4.app.DialogFragment;
 
-import com.pdmanager.core.alerting.IUserAlertManager;
-import com.pdmanager.core.alerting.UserAlertManager;
-import com.pdmanager.core.interfaces.IAlertFragmentManager;
-import com.pdmanager.core.models.UserAlert;
-import com.pdmanager.core.settings.RecordingSettings;
-import com.pdmanager.views.BasePDFragment;
+import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.interfaces.IAlertFragmentManager;
+import com.pdmanager.models.UserAlert;
+import com.pdmanager.settings.RecordingSettings;
 
 /**
  * Created by george on 15/1/2017.

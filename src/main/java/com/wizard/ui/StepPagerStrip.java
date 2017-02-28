@@ -28,7 +28,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 public class StepPagerStrip extends View {
     private static final int[] ATTRS = new int[]{

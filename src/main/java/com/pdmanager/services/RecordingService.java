@@ -67,39 +67,39 @@ import com.pdmanager.common.data.STReading;
 import com.pdmanager.common.interfaces.IDataHandler;
 import com.pdmanager.common.interfaces.IDataProcessor;
 import com.pdmanager.common.interfaces.IPDToastWriter;
-import com.pdmanager.core.FileDataProcessor;
-import com.pdmanager.core.PostureDataProcessor;
-import com.pdmanager.core.alerting.UserAlertManager;
-import com.pdmanager.core.communication.CommunicationManager;
-import com.pdmanager.core.communication.CommunicationRunner;
-import com.pdmanager.core.communication.ICommunicationQueue;
-import com.pdmanager.core.communication.JsonStorage;
-import com.pdmanager.core.communication.NetworkStatus;
-import com.pdmanager.core.communication.SQLCommunicationList;
-import com.pdmanager.core.interfaces.IJsonRequestHandler;
-import com.pdmanager.core.interfaces.INetworkStatusHandler;
-import com.pdmanager.core.interfaces.ISensorStatusListener;
-import com.pdmanager.core.interfaces.IServiceStatusListener;
-import com.pdmanager.core.interfaces.ITokenUpdater;
-import com.pdmanager.core.location.PDLocationListener;
-import com.pdmanager.core.logging.ILogHandler;
-import com.pdmanager.core.medication.MedManager;
-import com.pdmanager.core.models.Alert;
-import com.pdmanager.core.models.LoginModel;
-import com.pdmanager.core.models.UsageStatistic;
-import com.pdmanager.core.models.UserAlert;
-import com.pdmanager.core.monitoring.ActivityMonitoring;
-import com.pdmanager.core.monitoring.VitalMonitoring;
-import com.pdmanager.core.notification.BandMessage;
-import com.pdmanager.core.notification.BandMessageQueue;
-import com.pdmanager.core.notification.BandMessageTask;
-import com.pdmanager.core.persistence.DBHandler;
-import com.pdmanager.core.sensor.IHeartRateAccessProvider;
-import com.pdmanager.core.settings.RecordingSettings;
-import com.pdmanager.core.symptomdetector.aggregators.TremorAggregator;
-import com.pdmanager.core.symptomdetector.dyskinesia.DyskinesiaEvaluator;
-import com.pdmanager.core.symptomdetector.tremor.HandPostureDetector;
-import com.pdmanager.core.symptomdetector.tremor.TremorEvaluator;
+import com.pdmanager.FileDataProcessor;
+import com.pdmanager.app.PostureDataProcessor;
+import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.CommunicationRunner;
+import com.pdmanager.communication.ICommunicationQueue;
+import com.pdmanager.communication.JsonStorage;
+import com.pdmanager.communication.NetworkStatus;
+import com.pdmanager.communication.SQLCommunicationList;
+import com.pdmanager.interfaces.IJsonRequestHandler;
+import com.pdmanager.interfaces.INetworkStatusHandler;
+import com.pdmanager.interfaces.ISensorStatusListener;
+import com.pdmanager.interfaces.IServiceStatusListener;
+import com.pdmanager.interfaces.ITokenUpdater;
+import com.pdmanager.location.PDLocationListener;
+import com.pdmanager.logging.ILogHandler;
+import com.pdmanager.medication.MedManager;
+import com.pdmanager.models.Alert;
+import com.pdmanager.models.LoginModel;
+import com.pdmanager.models.UsageStatistic;
+import com.pdmanager.models.UserAlert;
+import com.pdmanager.monitoring.ActivityMonitoring;
+import com.pdmanager.monitoring.VitalMonitoring;
+import com.pdmanager.notification.BandMessage;
+import com.pdmanager.notification.BandMessageQueue;
+import com.pdmanager.notification.BandMessageTask;
+import com.pdmanager.persistence.DBHandler;
+import com.pdmanager.sensor.IHeartRateAccessProvider;
+import com.pdmanager.settings.RecordingSettings;
+import com.pdmanager.symptomdetector.aggregators.TremorAggregator;
+import com.pdmanager.symptomdetector.dyskinesia.DyskinesiaEvaluator;
+import com.pdmanager.symptomdetector.tremor.HandPostureDetector;
+import com.pdmanager.symptomdetector.tremor.TremorEvaluator;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -133,7 +133,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     private final Handler toastHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-
 
             try {
                 String message = (String) msg.obj;
@@ -309,7 +308,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     public void registerHandler(IDataHandler handler) {
 
-
         if (!dataHandlers.contains(handler))
             dataHandlers.add(handler);
 
@@ -358,9 +356,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     }
 
 
-
-
-
     private void notifyListeners() {
 
         for (int i = 0; i < listeners.size(); i++) {
@@ -386,11 +381,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public void ProcessLog(String logType, String message) {
 
-
         DBHandler handler = null;
         SQLiteDatabase sqlDB = null;
         try {
-
 
             long unixTime = System.currentTimeMillis() / 1000L;
 
@@ -407,7 +400,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
 
         } catch (Exception ex) {
-            Log.d(TAG, "Process Log", ex.getCause());
+            LogError("Process Log", ex.getCause());
 
         } finally {
 
@@ -432,7 +425,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public boolean onUnbind(Intent intent) {
 
-
         return super.onUnbind(intent);
         //  return mBinder;
     }
@@ -440,7 +432,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public void onCreate() {
         // The service is being created
-
 
         manager = new CommunicationManager(this);
         InitProcessors();
@@ -460,12 +451,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void InitProcessors() {
 
-
         if (recordFiles()) {
             fileProcessor = new FileDataProcessor();
             processors.add(fileProcessor);
         }
-
 
         if (scheduler == null) {
             RecordingSettings settings = RecordingSettings.newInstance(this);
@@ -477,10 +466,8 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         try {
 
-
             ///Get Patient ID
             String pid = getPatient();
-
 
             ///Check if setting have enabled use of detectors
             if (useDetectors()) {
@@ -494,11 +481,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 processors.add(handPostureDetector);
                 processors.add(tremorAggregator);
 
-
                 ///Add HR Monitoring
                 vitalMonitoring = new VitalMonitoring(manager, pid);
                 processors.add(vitalMonitoring);
-
 
                 ///Add Activity Monitoring
                 activityMonitoring = new ActivityMonitoring(manager, pid);
@@ -516,15 +501,17 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void startTimer() {
 
+        if (timer != null) {
+            try {
+                timer = new Timer();
+                timer.scheduleAtFixedRate(new mainTask(this), 30000, 60000);
 
-        try {
-            timer = new Timer();
-            timer.scheduleAtFixedRate(new mainTask(this), 30000, 60000);
+            } catch (Exception ex) {
 
-        } catch (Exception ex) {
-
-            LogError("Timer", ex);
+                LogError("Timer", ex);
+            }
         }
+
     }
 
     private void stopTimer() {
@@ -539,7 +526,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     public void WriteToastMessage(String message) {
 
-
         Message s = new Message();
         s.obj = message;
         toastHandler.sendMessage(s);
@@ -549,18 +535,15 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private boolean scheduledRun() {
 
-
         // if(schedulerPause)
         //  return false;
 
         RecordingSettings settings = RecordingSettings.GetRecordingSettings(this);
 
-
         if (settings != null) {
             Calendar c = Calendar.getInstance();
 
             int hourOfDay = c.get(Calendar.HOUR_OF_DAY);
-
 
             return !(hourOfDay < settings.getStartHour() || hourOfDay >= settings.getStopHour());
 
@@ -572,9 +555,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     public boolean getSessionMustRun() {
 
-
         RecordingSettings settings = RecordingSettings.GetRecordingSettings(this);
-
 
         if (settings != null) {
             return settings.getSessionRunning();
@@ -586,7 +567,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public void AddRequest(JsonStorage jsonRequest) {
 
-
         if (queue != null)
             queue.push(jsonRequest);
 
@@ -594,12 +574,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void startCommQueue() {
 
-
         if (queue == null) {
 
             try {
                 Gson gson = new Gson();
-
 
                 // queue = new CommunicationQueue(CommunicationQueue.CreateQueueFile(), new JsonConverter<JsonStorage>(gson, JsonStorage.class));
 
@@ -622,7 +600,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     }
 
     private void stopCommQueue() {
-
 
         if (queueRunner != null)
             queueRunner.setQueueRunning(false);
@@ -650,19 +627,16 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public boolean IsNetworkConnected() {
 
-
         boolean ret = false;
 
         try {
-
 
             ret = NetworkStatus.IsNetworkConnected(this);
 
 
         } catch (Exception ex) {
 
-
-            Log.e(TAG, "Error while checking for network connection", ex.getCause());
+            LogError("Error while checking for network connection", ex.getCause());
 
         }
 
@@ -676,7 +650,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         if (!bluetoothEnabled) {
 
-
             try {
                 BluetoothAdapter mAdapter = BluetoothAdapter.getDefaultAdapter();
                 mAdapter.enable();
@@ -689,11 +662,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 LogError("Cannot activate bluetooth Band Sensors");
                 //LogInfoError("Cannot activate bluetooth Band Sensors");
 
-
             }
 
-
-            //requireBluetooth();
+            //activateBluetooth();
 
         }
 
@@ -768,7 +739,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void updateUsageStatistics() {
 
-
         long unixTime = System.currentTimeMillis();
 
         ///if (unixTime - lastUsageTimestamp > 30* 1000) {
@@ -781,7 +751,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 UsageStatistic obs1 = new UsageStatistic(bandsamples, "001", unixTime, patient, deviceId);
                 UsageStatistic obs2 = new UsageStatistic(devsamples, "002", unixTime, patient, deviceId);
                 UsageStatistic obs3 = new UsageStatistic(hrsamples, "003", unixTime, patient, deviceId);
-
 
                 ArrayList<UsageStatistic> obsArray = new ArrayList<>();
 
@@ -797,20 +766,18 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
             } catch (Exception ex) {
 
-                Log.e(TAG, ex.getMessage(), ex.getCause());
+                LogError(ex.getMessage(), ex.getCause());
             }
         }
 
 
     }
 
-
     ///TODO: ....DO IT ALL ASYNC!!!!!
     //TODO: Add band messages and notifications in a queue and execute them from here.
     //TODO:this will neglect the probability of  duplicate Band Clients
 
     private void checkForUserNotifications() {
-
 
         long unixTime = System.currentTimeMillis();
 
@@ -824,7 +791,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                     UserAlert alert = alertmanager.getUnNotified();
 
-
                     if (alert != null) {
                         bandMessageQueue.add(new BandMessage(alert.getTitle(), alert.getMessage(), alert.getExpiration(), false));
                     }
@@ -834,13 +800,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                     }
                     */
-                    alertmanager.notify(alert);
+                    alertmanager.setNotified(alert);
                 }
 
 
             } catch (Exception ex) {
 
-                Log.e(TAG, ex.getMessage(), ex.getCause());
+                LogError(ex.getMessage(), ex.getCause());
             }
 
         }
@@ -852,7 +818,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     private void checkForMedAlerts() {
         long unixTime = System.currentTimeMillis();
         if ((unixTime - lastMedAlertCheck) / 1000 > 60) {
-            Log.d(TAG, "Check Medication");
+            LogDebug("Check Medication");
 
             lastMedAlertCheck = unixTime;
 
@@ -861,7 +827,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
             } catch (Exception ex) {
 
-                Log.e(TAG, ex.getMessage(), ex.getCause());
+                LogError(ex.getMessage(), ex.getCause());
 
             }
 
@@ -872,15 +838,12 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void checkForAlerts() throws InterruptedException {
 
-
         if (sessionRunning) {
             long unixTime = System.currentTimeMillis();
 
             if (mBandEnabled) {
 
-
                 if ((unixTime - lastBandAcquisition) / 1000 > 60) {
-
 
                     if (mBandAcquiring) {
                         LogFatal("Band has at least 60 seconds to acquire", 2);
@@ -888,11 +851,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                     }
 
-
                     boolean shoudTryReconnect = true;
                     if (mClient != null) {
                         if (mClient.getConnectionState() == ConnectionState.DISPOSED) {
-
 
                             LogInfo("Connection Disposed");
 
@@ -901,19 +862,16 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                         if (mClient.getConnectionState() == ConnectionState.CONNECTED) {
 
-
                             if (!bandSensorsRegistered) {
 
                                 try {
-
 
                                     lockBandClient();
                                     initSensorListeners();
 
                                 } catch (Exception ex) {
 
-
-                                    Log.e(TAG, "ALERT REGISTER LISTENERS", ex.getCause());
+                                    LogError("ALERT REGISTER LISTENERS", ex.getCause());
                                 } finally {
                                     unlockBandClient();
                                 }
@@ -923,7 +881,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                             LogInfo("Connection CONNECTED");
 
                             if (connectedStateFound > 10) {
-
 
                                 shoudTryReconnect = true;
 
@@ -937,7 +894,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                         if (mClient.getConnectionState() == ConnectionState.BOUND) {
 
-
                             LogDebug("Connection BOUND");
 
 
@@ -945,17 +901,14 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                         if (mClient.getConnectionState() == ConnectionState.UNBOUND) {
 
-
                             LogDebug("Connection UNBOUND");
 
 
                         }
                     }
 
-
                     ///TRY TO RECONNECT IF NOT CONNECTED EVERY 1 MIN
                     if (shoudTryReconnect && (unixTime - lastBandConnectionTry) > bandReconnectAttemptInterval) {
-
 
                         connectedStateFound = 0;
                         ReconnectBand(restartBluetoothAdaptor);
@@ -979,10 +932,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                     }
 
-
                     forwardBandMessages();
 
-                    Log.d(TAG, "Service Running  and receiving data...");
+                    LogDebug("Service Running  and receiving data...");
                     mFatalError = false;
                     mBandAcquiring = true;
                 }
@@ -997,9 +949,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void forwardBandMessages() {
 
-
         if (mClient != null && mClient.isConnected() && !bandMessageQueue.isEmpty()) {
-
 
             BandMessage message = bandMessageQueue.poll();
 
@@ -1009,7 +959,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                     BandMessageTask.newInstance(mClient, RecordingSettings.GetRecordingSettings(getApplicationContext()).getTileUUID()).execute(message);
 
                 } catch (Exception e) {
-                    Log.e(TAG, e.getMessage(), e.getCause());
+                    LogError(e.getMessage(), e.getCause());
 
                 }
 
@@ -1026,7 +976,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         //OK NOW DISABLE AND ENABLE AGAIN THE BLUETOOTH
         boolean be = isBluetoothEnabled();
         BluetoothAdapter mAdapter = BluetoothAdapter.getDefaultAdapter();
-
 
         try {
 
@@ -1048,11 +997,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         if (scheduler != null) {
 
-
             if (!schedulerPause) {
 
                 if (scheduler.shouldPause() > 0) {
-
 
                     ///DISCONNECT IF NEEDED
                     if (mClient != null) {
@@ -1066,14 +1013,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                             }
 
-
                             disconnectBand();
                             mClient = null;
 
 
                         } catch (Exception ex) {
 
-                            Log.d(TAG, ex.getMessage());
+                            LogDebug(ex.getMessage());
 
                         }
 
@@ -1083,7 +1029,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 }
 
             } else {
-
 
                 if (scheduler.isResumed()) {
 
@@ -1110,7 +1055,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                     ConnectToBand();
                     */
 
-
                 }
             }
         }
@@ -1118,24 +1062,37 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     }
 
+
+    /**
+     * Lock Band Client
+     * @throws InterruptedException
+     */
     private void lockBandClient() throws InterruptedException {
 
         available.acquire();
 
     }
 
+
+    /**
+     * Unlock Band Client
+     * @throws InterruptedException
+     */
     private void unlockBandClient() throws InterruptedException {
 
         available.release();
 
     }
 
-    private synchronized void disconnectBand() throws InterruptedException {
 
+    /**
+     * Disconnect Band
+     * @throws InterruptedException
+     */
+    private synchronized void disconnectBand() throws InterruptedException {
 
         int tries = 0;
         if (mClient.isConnected()) {
-
 
             boolean disconnected = false;
             do {
@@ -1144,9 +1101,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                     //Lock Band Client
                     lockBandClient();
 
-
                     if (mClient != null && mClient.isConnected()) {
-
 
                         if (bandSensorsRegistered) {
                             BandSensorManager mgr = mClient.getSensorManager();
@@ -1160,11 +1115,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                 } catch (Exception ex) {
 
-
                     LogError("Error while disconnecting: " + ex.getMessage());
                     //MINOR Exception
                 } finally {
-
 
                     //Finally unlock band client
                     unlockBandClient();
@@ -1186,18 +1139,14 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
      *
      * @throws InterruptedException
      */
-
     private synchronized void ReconnectBand(boolean dorestartBluetoothAdaptor) throws InterruptedException {
-
 
         boolean reconnect = true;
         if (mBandEnabled) {
 
-
             try {
                 ///DISCONNECT IF NEEDED
                 if (mClient != null) {
-
 
                     lockBandClient();
 
@@ -1214,9 +1163,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                             //Lock Band Client
 
-
                             if (mClient != null && mClient.isConnected()) {
-
 
                                 LogInfo("Disconnecting Band for reconnection");
                                 mClient.disconnect().await(60, TimeUnit.SECONDS);
@@ -1225,7 +1172,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                             disconnected = true;
 
                         } catch (Exception ex) {
-
 
                             LogError("Error while disconnecting: " + ex.getMessage());
                             //MINOR Exception
@@ -1242,14 +1188,12 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                 }
 
-
                 //NEXT RESTART BLUETOOTH IF THIS STRATEGY IS APPLIED
                 if (dorestartBluetoothAdaptor) {
 
                     //OK NOW DISABLE AND ENABLE AGAIN THE BLUETOOTH
                     boolean be = isBluetoothEnabled();
                     BluetoothAdapter mAdapter = BluetoothAdapter.getDefaultAdapter();
-
 
                     try {
 
@@ -1292,13 +1236,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                         //Just make bluetooth is enabled
                         try {
 
-
                             BluetoothAdapter mAdapter = BluetoothAdapter.getDefaultAdapter();
 
                             mAdapter.enable();
                             reconnect = false;
                             //Thread.sleep(10000);
-
 
                         } catch (Exception ex) {
                             LogError("Error while disconnecting/connecting bluetooth: " + ex.getMessage());
@@ -1337,9 +1279,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
      *
      * @return If the Band sensor is connected
      */
-
     public boolean IsConnected() {
-
 
         return mClient != null && mClient.isConnected();
 
@@ -1351,7 +1291,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
      */
     private void requireHeartRatePermissions() {
 
-
         if (mClient != null) {
             BandSensorManager sensorMgr = mClient.getSensorManager();
             if (sensorMgr.getCurrentHeartRateConsent() !=
@@ -1359,7 +1298,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 // user has not consented, request it
                 // the calling class is both an Activity and implements
                 // HeartRateConsentListener
-
 
                 this.heartRateAccessProvider.requestHeartRateConsent(sensorMgr);
 
@@ -1371,13 +1309,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void unRegisterBandSensors(BandSensorManager sensorMgr) throws Exception {
 
-
         if (mAccBandEnabled) {
 
             LogInfo("UnRegister Band Accelerometer");
             sensorMgr.unregisterAccelerometerEventListener(mAccelerometerEventListener);
         }
-
 
         if (mPedoEnabled) {
             //
@@ -1385,13 +1321,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             sensorMgr.unregisterPedometerEventListener(mPedometerEventListener);
         }
 
-
         if (mSTEnabled) {
 
             LogInfo("UnRegister Band Skin Temperature");
             sensorMgr.unregisterSkinTemperatureEventListener(mSTEventListener);
         }
-
 
         if (mGyroBandEnabled) {
             LogInfo("UnRegister Gyro Accelerometer");
@@ -1404,7 +1338,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             sensorMgr.unregisterHeartRateEventListener(mHeartRateEventListener);
 
         }
-
 
         bandSensorsRegistered = false;
 
@@ -1433,11 +1366,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         if (receiverRegistered) {
 
-
             unregisterReceiver(mReceiver);
             receiverRegistered = false;
         }
-
 
         if (locListener != null) {
 
@@ -1458,13 +1389,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         if (mClient != null && mClient.isConnected()) {
 
             try {
 
                 BandSensorManager sensorMgr = mClient.getSensorManager();
-
 
                 //LogInfo("Cannot activate bluetooth Band Sensors");
                 LogInfo("Unregister Band Sensors");
@@ -1486,16 +1415,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         if (mAccDeviceEnabled) {
             try {
-
 
                 LogInfo("Unregister device sensors");
                 senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
                 senSensorManager.unregisterListener(this);
             } catch (Exception ex) {
-
 
                 LogError("Unregister device sensors error");
                 //  Util.handleException("Unregister device sensors",ex);
@@ -1503,16 +1429,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         ///Mark that session is not running
         sessionRunning = false;
 
         if (fileProcessor != null)
             fileProcessor.finalize();
 
-
         notifyListeners();
-
 
         LogWarn("Service stopped", 1);
 
@@ -1522,7 +1445,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     }
 
     private void InitBluetoothListener() {
-
 
         if (!receiverRegistered) {
             registerReceiver(mReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
@@ -1541,11 +1463,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                 if (mPairedBands.length > 0) {
 
-
                     mClient = manager.create(this, mPairedBands[0]);
 
                 } else {
-
 
                     if (!mFatalError) {
                         mFatalError = true;
@@ -1560,7 +1480,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 }
 
             } catch (Exception ex) {
-
 
                 LogFatal("Exception while connecting to band", 3);
             }
@@ -1584,7 +1503,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private boolean StartReader() {
 
-
         if (fileProcessor != null)
             fileProcessor.initialize();
         String pid = getPatient();
@@ -1596,7 +1514,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             tremorAggregator.setPatient(pid);
         if (activityMonitoring != null)
             activityMonitoring.setPatient(pid);
-
 
         RecordingSettings settings = RecordingSettings.GetRecordingSettings(this);//Handler.getInstance().getSettings();
         mBandEnabled = settings.isBandEnabled();
@@ -1610,12 +1527,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         mLocationEnabled = settings.isLocationEnabled();
         deviceId = settings.getDeviceId();
 
-
         if (mLocationEnabled) {
 
             if (locListener == null)
                 locListener = new PDLocationListener(this);
-
 
             try {
                 LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -1633,18 +1548,15 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         sessionRunning = true;
 
         if (mAccDeviceEnabled) {
             try {
 
-
                 RegisterDeviceSensors();
 
 
             } catch (Exception ex) {
-
 
                 Util.handleException("Register Device Sensors", ex);
 
@@ -1672,7 +1584,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         if (mBandEnabled) {
 
-
             try {
                 ConnectToBand();
 
@@ -1685,53 +1596,53 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         return true;
     }
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-
-        Log.d(TAG, "Services start command");
+        LogDebug("Services start command");
 
         if (!sessionRunning) {
-
 
             if (getSessionMustRun()) {
 
                 StartRecording();
             }
 
-            InitBluetoothListener();
 
+        } else {
+
+            startTimer();
+            startCommQueue();
 
         }
-
+        InitBluetoothListener();
 
         // If we get killed, after returning from here, restart
         return START_STICKY;
     }
 
+
+    /**
+     * Start Recording
+     */
     public void StartRecording() {
 
-        WriteToastMessage("pdmanager starting");
+       // WriteToastMessage("pdmanager starting");
+        LogDebug("PDManager starting");
 
         startTimer();
         startCommQueue();
 
         if (scheduledRun()) {
-
-
             ///First enable bluetooth
             enableBluetooth();
-
-
             ///Start Reader
             StartReader();
-
         }
-
 
         notifyListeners();
 
@@ -1741,47 +1652,45 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public void onDestroy() {
 
-
-        Log.d(TAG, "Services destroy");
-
+        LogDebug("Services destroy");
         stopTimer();
         StopReader();
         stopCommQueue();
 
     }
 
+    /**
+     * Check if bluetooth is enabled
+     * @return
+     */
     private boolean isBluetoothEnabled() {
-
 
         try {
             BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
 
             if (mBluetoothAdapter != null) {
                 return mBluetoothAdapter.isEnabled();
 
             }
-
             return false;
-
 
         } catch (Exception ex) {
 
             return false;
         }
-
     }
 
-    private void requireBluetooth() {
+    /**
+     * Activate Bluetooth
+     */
+    private void activateBluetooth() {
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter != null) {
             if (!mBluetoothAdapter.isEnabled()) {
 
-
                 try {
                     bluetoothEnabled = false;
-
 
                     Intent intentBtEnabled = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     // The REQUEST_ENABLE_BT constant passed to startActivityForResult() is a locally defined integer (which must be greater than 0), that the system passes back to you in your onActivityResult()
@@ -1791,11 +1700,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                 } catch (Exception ex) {
 
-
-                    Log.e(TAG, "Error In getting bluetooth information");
+                    LogError("Error In getting bluetooth information");
                 }
 
-                //startActivityForResult(intentBtEnabled, REQUEST_ENABLE_BT);
             }
         } else {
 
@@ -1805,9 +1712,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     }
 
+    /**
+     * Register Band Sensors
+     * @param sensorMgr Band Sensor Manager
+     * @throws BandException A band exception
+     */
     private void registerBandSensors(BandSensorManager sensorMgr) throws BandException {
         if (mHeartRateEnabled) {
-
 
             LogInfo("Band Heart Rate Sensor registered");
             //LogInfo("Band Heart Rate Sensor registered");
@@ -1844,7 +1755,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         if (mPedoEnabled) {
 
             LogInfo("Band Pedo registered");
@@ -1871,6 +1781,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         bandSensorsRegistered = true;
     }
 
+    /**
+     * Register Device Sensors
+     */
     private void RegisterDeviceSensors() {
 
         ///Get Device Sensors
@@ -1882,12 +1795,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         Sensor senGyro = senSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         List<Sensor> deviceSensors = senSensorManager.getSensorList(Sensor.TYPE_ALL);
 
-
         ///Check Device Sensors
         boolean hasMagneticSensor = false;
         boolean hasGravitySensor = false;
         boolean hasAccelerationSensor = false;
-
 
         for (int i = 0; i < deviceSensors.size(); i++) {
             if (deviceSensors.get(i).getType() == Sensor.TYPE_MAGNETIC_FIELD) {
@@ -1895,24 +1806,20 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
             }
 
-
             if (deviceSensors.get(i).getType() == Sensor.TYPE_GRAVITY) {
                 hasGravitySensor = true;
 
             }
-
 
             if (deviceSensors.get(i).getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
                 hasLinearAccelerationSensor = true;
 
             }
 
-
             if (deviceSensors.get(i).getType() == Sensor.TYPE_GYROSCOPE) {
                 hasGyroscopeSensor = true;
 
             }
-
 
             if (deviceSensors.get(i).getType() == Sensor.TYPE_ACCELEROMETER) {
                 hasAccelerationSensor = true;
@@ -1921,14 +1828,12 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         if (hasLinearAccelerationSensor && hasGravitySensor && hasMagneticSensor) {
 
             hasAllDeviceSensors = true;
             LogInfo("Device Linear Accelerometer registered");
             LogInfo("Device Magnetic Sensor registered");
             LogInfo("Device Gravity registered");
-
 
             senSensorManager.registerListener(this, senlinAccelerometer, SensorManager.SENSOR_DELAY_GAME);
 
@@ -1941,14 +1846,12 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         }
         if (hasAccelerationSensor) {
 
-
             LogInfo("Device Accelerometer registered");
             senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_GAME);
 
         }
 
         if (hasGyroscopeSensor) {
-
 
             LogInfo("Device Gyroscope registered");
             senSensorManager.registerListener(this, senGyro, SensorManager.SENSOR_DELAY_GAME);
@@ -1962,28 +1865,22 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
      */
     private void initSensorListeners() {
 
-
         if (mClient != null && mClient.isConnected()) {
-
 
             if (!bandSensorsRegistered) {
                 BandSensorManager sensorMgr = mClient.getSensorManager();
 
-
                 // Turn on the appropriate sensor
                 try {
-
 
                     registerBandSensors(sensorMgr);
 
 
                 } catch (Exception ex) {
 
-                    Log.d(TAG, "Init Sensors Listener", ex.getCause());//.printStackTrace();
+                    LogError("Init Sensors Listener", ex.getCause());//.printStackTrace();
 
-                    //  Util.showExceptionAlert(getActivity(), "Register sensor listener", ex);
                 } finally {
-
 
                 }
 
@@ -1993,11 +1890,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     }
 
-    //
-    // This method is scheduled to run on the UI thread after a sensor event has been received.
-    // We clear our "is scheduled" flag and then update the UI controls for any new sensor
-    // events (which we also clear).
-    //
+    /**
+     * This method is scheduled to run on the UI thread after a sensor event has been received.
+     * We clear our "is scheduled" flag and then update the UI controls for any new sensor
+     * events (which we also clear).
+     */
     private void handlePendingSensorReports() {
         // Because we clear this flag before reading the sensor events, it's possible that a
         // newly-generated event will schedule the handler to run unnecessarily. This is
@@ -2027,7 +1924,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
 
         }
-
 
         BandSkinTemperatureEvent stevent = mPendingSTEvent.getAndSet(null);
         //BandPedometerEvent pedometerEvent = mPendingPedometerEvent.getAndSet(null);
@@ -2064,7 +1960,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             handleData(pData);
         }
 
-
         BandAccelerometerEvent accEvent = mPendingAccelerometerEvent.getAndSet(null);
         if (accEvent != null) {
             AccData accData = new AccData();
@@ -2075,14 +1970,16 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             bandsamples++;
         }
 
-
         lastBandAcquisition = System.currentTimeMillis();
     }
 
+    /**
+     * Handle Data
+     * @param data Data to Handle
+     */
     public void handleData(ISensorData data) {
 
         addDataToProcessors(data);
-
 
         for (int i = 0; i < dataHandlers.size(); i++) {
 
@@ -2091,6 +1988,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         }
     }
 
+    /**
+     * Add Data to processors
+     * @param data Data to add
+     */
     private void addDataToProcessors(ISensorData data) {
         for (int i = 0; i < processors.size(); i++)
             if (processors.get(i).requiresData(data.getDataType()))
@@ -2121,9 +2022,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         Sensor mySensor = sensorEvent.sensor;
 
-
         if (sensorEvent.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-
 
             ////Push Orientation Data
             GyroMData accData = new GyroMData();
@@ -2131,12 +2030,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             accData.setTimestamp(new Date());
             accData.setTicks(sensorEvent.timestamp);
 
-
             handleData(accData);
 
         }
         if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-
 
             AccMData accData = new AccMData();
             accData.setValue(new AccReading(sensorEvent.values[0] / gforce, sensorEvent.values[1] / gforce, sensorEvent.values[2] / gforce));
@@ -2149,7 +2046,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
 
         }
-
 
         if (hasAllDeviceSensors) {
 
@@ -2177,16 +2073,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
             }
 
-
             if (linearAccelerationAcquired) {
-
 
                 linearAccelerationAcquired = false;
 
                 boolean success = SensorManager.getRotationMatrix(R, RINV, gravityMatrix, magneticFieldMatrix);
 
                 if (success) {
-
 
                     SensorManager.getOrientation(R, orientVals);
                     float azimuth = (float) Math.toDegrees(orientVals[0]);
@@ -2201,7 +2094,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                     handleData(orData);
 
-
                     relativacc[0] = linearAcceleration[0];
                     relativacc[1] = linearAcceleration[1];
                     relativacc[2] = linearAcceleration[2];
@@ -2209,7 +2101,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                     Matrix.invertM(RINV, 0, R, 0);
                     Matrix.multiplyMV(trueAcceleration, 0, RINV, 0, relativacc, 0);
-
 
                     ////Push Data
                     AccMCData accData = new AccMCData();
@@ -2220,8 +2111,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                     handleData(accData);
                 } else {
 
-
-                    Log.d(TAG, "onSensorChanged .");
+                    LogDebug("onSensorChanged .");
                 }
 
 
@@ -2233,8 +2123,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     private void LogFatal(String e, int code) {
 
-
-        Log.e(TAG, e);
+        LogError(e);
         mFatalError = true;
         mFatalErrorCode = code;
         ProcessLog("FATAL", e);
@@ -2244,34 +2133,36 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     }
 
-    private void LogError(String e) {
+    private void LogError(String source) {
 
+        Log.e(TAG,source);
+        ProcessLog(TAG, source);
 
-        Log.e(TAG, e);
-        ProcessLog(TAG, e);
+    }
+
+    private void LogError(String source, Throwable cause) {
+
+        Log.e(TAG,source, cause);
+        ProcessLog(TAG, source);
 
     }
 
     private void LogError(String e, Exception ex) {
 
-
-        Log.e(TAG, e, ex.getCause());
+        Log.e(TAG,e, ex.getCause());
         ProcessLog(TAG, e);
 
     }
 
     private void LogInfo(String e) {
 
-
         Log.i("INFO", e);
-        //  ProcessLog("INFO", e);
-
 
     }
 
     private void LogDebug(String e) {
-        Log.d(TAG, e);
-        ProcessLog("WARNING", e);
+        Log.d(TAG,e);
+
 
     }
 
@@ -2298,7 +2189,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
-
         //LogInfo(1,"Accuracy Changed  to"+i);
 
     }
@@ -2308,13 +2198,13 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         try {
             String title = "FATAL ERROR";
 
-            Log.e(TAG, message);
+            LogDebug(message);
 
             ArrayList<Alert> alerts = new ArrayList<>();
             alerts.add(new Alert(title, message, code, System.currentTimeMillis(), deviceId));
             manager.SendItems(alerts);
         } catch (Exception ex) {
-            Log.e(TAG, ex.getMessage());
+            LogError(ex.getMessage());
         }
 
 
@@ -2330,7 +2220,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
      */
     private void SendAlert(String title, String message, String code) {
 
-
         try {
 
             Log.i(code, message);
@@ -2339,7 +2228,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             manager.SendItems(alerts);
 
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            LogDebug(ex.getMessage());
 
         }
 
@@ -2354,11 +2243,9 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
      */
     public boolean isAllRecording() {
 
-
         boolean allOK = true;
         long t = System.currentTimeMillis();
         if (mBandEnabled) {
-
 
             if (t - lastBandAcquisition > 60 * 1000) {
 
@@ -2378,7 +2265,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         }
 
-
         return allOK;
 
 
@@ -2386,13 +2272,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
     public int getFatalErrorCode() {
 
-
         return mFatalErrorCode;
 
     }
 
     public boolean hasFatalError() {
-
 
         return mFatalError;
 
@@ -2406,11 +2290,14 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         } catch (Exception ex) {
 
-            Log.e(TAG, "Add Band MEssage", ex.getCause());
+            LogError("Add Band MEssage", ex.getCause());
         }
 
     }
 
+    /**
+     * Main Task
+     */
     private class mainTask extends TimerTask {
 
         private final IPDToastWriter writer;
@@ -2425,15 +2312,14 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             //  toastHandler.sendEmptyMessage(0);
 
 
+
             boolean bandActionTaken = false;
 
             if (!schedulerPause) {
 
-
                 if (!scheduledRun()) {
 
                     if (sessionRunning) {
-
 
                         ///Notify user using toast messagfe
                         if (toastHandler != null) {
@@ -2441,7 +2327,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                             s.obj = "Service stopped for today";
                             toastHandler.sendMessage(s);
                         }
-
 
                         ///Notify Server
                         LogInfo("Service stopped for today");
@@ -2455,13 +2340,11 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                 } else {
 
-
                     boolean sessionMustRun = getSessionMustRun();
 
                     if (sessionMustRun) {
 
                         enableBluetooth();
-
 
                         //IF Session Not Running
                         if (!sessionRunning) {
@@ -2480,23 +2363,22 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 if (!bandActionTaken) {
 
                     try {
+
                         checkForAlerts();
 
                     } catch (InterruptedException ex) {
 
-                        Log.e(TAG, "EX ON SCHEDULING", ex.getCause());
+                        LogError("EX ON SCHEDULING", ex.getCause());
                     } catch (Exception ex) {
 
-                        Log.e(TAG, "EX ON SCHEDULING", ex.getCause());
+                        LogError("EX ON SCHEDULING", ex.getCause());
                     }
 
                 }
 
-
                 ///Check For Alert only if
 
             }
-
 
             if (!bandActionTaken) {
 
@@ -2505,10 +2387,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
                 } catch (InterruptedException ex) {
 
-                    Log.e(TAG, "EX ON SCHEDULING", ex.getCause());
+                    LogError("EX ON SCHEDULING", ex.getCause());
                 } catch (Exception ex) {
 
-                    Log.e(TAG, "EX ON SCHEDULING", ex.getCause());
+                    LogError("EX ON SCHEDULING", ex.getCause());
                 }
 
             }
@@ -2550,14 +2432,14 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
         @Override
         protected UserAlert doInBackground(Void... clientParams) {
 
-
-            Log.d(TAG, "Check Medication");
-
+            LogDebug("Check Medication");
 
             ///First clear all alerts
             try {
                 MedManager manager = new MedManager(mContext);
                 UserAlertManager alertmanager = new UserAlertManager(mContext);
+
+
 
                 ///Check for alert
                 int ret = manager.pendingMedication();
@@ -2565,7 +2447,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                     UserAlert alert = manager.getPendingMedAlert(ret);
                     alertmanager.add(alert);
                 }
-
 
                 //OK CHECK FOR NEXT MEDICATION MESSAGE
                 UserAlert alert = manager.getNextMedication();
@@ -2578,7 +2459,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
             } catch (Exception ex) {
 
-                Log.e(TAG, ex.getMessage());
+                LogError(ex.getMessage());
             }
             return null;
         }
@@ -2590,13 +2471,10 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
          */
         protected void onPostExecute(UserAlert alert) {
 
-
             if (alert != null) {
-
 
                 AddBandMessage(alert.getTitle(), alert.getMessage(), alert.getExpiration(), true);
             }
-
 
 
         }
@@ -2621,34 +2499,34 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             UserAlertManager alertmanager = new UserAlertManager(mContext);
 
             try {
+
+                alertmanager.deleteExpired();
+
                 if (alertmanager.anyUnNotified()) {
 
                     UserAlert alert = alertmanager.getUnNotified();
 
-                    alertmanager.notify(alert);
+                    alertmanager.setNotified(alert);
 
                     return alert;
                 }
 
             } catch (Exception ex) {
 
-                Log.e(TAG, "Create ALERT TASK", ex.getCause());
+                LogError("Create ALERT TASK", ex.getCause());
 
             }
-
 
             return null;
         }
 
         protected void onPostExecute(UserAlert alert) {
 
-
             bandMessageQueue.add(new BandMessage(alert.getTitle(), alert.getMessage(), alert.getExpiration(), false));
 
 
         }
     }
-
 
     ////Connect Task
     /// The connect task asynchronously tries to connect to Microsoft Band
@@ -2660,9 +2538,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
             try {
                 pendingResult = clientParams[0].connect();
 
-
                 ConnectionState result = pendingResult.await();
-
 
                 return new ConnectionResult(result);
 
@@ -2686,7 +2562,6 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
 
         protected void onPostExecute(ConnectionResult result) {
 
-
             if (result.hasException()) {
                 LogError("Error disconnecting from Microsoft Band " + result.getException().getMessage());
 
@@ -2705,15 +2580,12 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 }
                 if (mClient != null && result.getState() == ConnectionState.BOUND) {
 
-
                     LogInfo("Bound to Microsoft Band...needs res");
 
                 }
                 if (mClient != null && result.getState() == ConnectionState.DISPOSED) {
 
-
                     try {
-
 
                         mClient.disconnect().await(60, TimeUnit.SECONDS);
 
@@ -2731,7 +2603,7 @@ public class RecordingService extends Service implements IDataHandler, SensorEve
                 unlockBandClient();
 
             } catch (Exception ex) {
-                Log.e(TAG, "Error Realising Band", ex.getCause());
+                LogError("Error Realising Band", ex.getCause());
             }
 
             notifyListeners();

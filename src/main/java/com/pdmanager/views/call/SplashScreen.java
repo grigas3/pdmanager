@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.oovoo.sdk.api.ooVooClient;
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 
 public class SplashScreen extends Fragment {

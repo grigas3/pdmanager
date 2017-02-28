@@ -20,8 +20,9 @@ import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.pdmanager.core.communication.DeviceRegistrer;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.app.VideoApp;
+import com.pdmanager.communication.DeviceRegistrer;
+import com.pdmanager.settings.RecordingSettings;
 
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
@@ -74,6 +75,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
                     DeviceRegistrer reg = new DeviceRegistrer(accessToken, patient);
                     reg.Register(token);
                     settings.setDevTokenSended(true);
+
                 }
             } catch (Exception ex) {
 
@@ -81,5 +83,15 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
             }
 
         }
+    }
+
+
+    private void sendRegistrationToVideoService(String token)
+    {
+
+
+        VideoApp application = (VideoApp) getApplication();
+
+        application.subscribe(token);
     }
 }

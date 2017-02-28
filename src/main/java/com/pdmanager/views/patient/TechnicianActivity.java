@@ -43,7 +43,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,47 +66,33 @@ import com.microsoft.band.tiles.BandTile;
 import com.pdmanager.call.CNMessage;
 import com.pdmanager.common.ConnectionResult;
 import com.pdmanager.common.Util;
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.PDPilotAppContext;
-import com.pdmanager.core.R;
-import com.pdmanager.core.VideoApp;
-import com.pdmanager.core.adapters.PendingMedOrderAdapter;
-import com.pdmanager.core.communication.BatchCommSender;
-import com.pdmanager.core.communication.DataReceiver;
-import com.pdmanager.core.communication.NetworkStatus;
-import com.pdmanager.core.communication.SQLCommunicationQueue;
-import com.pdmanager.core.interfaces.IBandTileManager;
-import com.pdmanager.core.interfaces.INetworkStatusHandler;
-import com.pdmanager.core.logging.LogAdapter;
-import com.pdmanager.core.medication.MedManager;
-import com.pdmanager.core.models.MedTiming;
-import com.pdmanager.core.models.MedicationIntake;
-import com.pdmanager.core.models.MedicationOrder;
-import com.pdmanager.core.models.PatientMedicationResult;
-import com.pdmanager.core.models.PendingMedication;
-import com.pdmanager.core.sensor.RecordingServiceHandler;
-import com.pdmanager.core.settings.RecordingSettings;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.app.PDPilotAppContext;
+import com.pdmanager.R;
+import com.pdmanager.app.VideoApp;
+import com.pdmanager.communication.BatchCommSender;
+import com.pdmanager.communication.NetworkStatus;
+import com.pdmanager.communication.SQLCommunicationQueue;
+import com.pdmanager.interfaces.IBandTileManager;
+import com.pdmanager.interfaces.INetworkStatusHandler;
+import com.pdmanager.logging.LogAdapter;
+import com.pdmanager.sensor.RecordingServiceHandler;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.LogEventFragment;
 import com.pdmanager.views.RecordingServiceFragment;
 import com.pdmanager.views.RecordingSettingsFragment;
-import com.pdmanager.views.SensorsFragment;
 import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.drawers.TechnicianDrawerFragment;
-import com.telerik.common.TelerikActivityHelper;
 import com.telerik.common.TrackedApplication;
 import com.telerik.common.contracts.TrackedActivity;
 import com.telerik.common.contracts.TransitionHandler;
 import com.telerik.primitives.TipsPresenter;
 import com.telerik.viewmodels.MenuAction;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 //import com.pdmanager.services.RegistrationIntentService;
 
@@ -130,7 +115,7 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
     private RecordingServiceFragment bandFragment;
     private LogEventFragment logFragment;
     private RecordingSettingsFragment recordingSettingsFragment;
-    private MedAdminFragment medAdminFragment;
+    private MedListFragment medAdminFragment;
 
 
 
@@ -766,6 +751,8 @@ public void createTile()
 
             }  else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_LOGS)) {
                 newFragment = new LogEventFragment();
+            } else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_MEDS)) {
+                newFragment = new MedListFragment();
             } else {
                 if (bandFragment == null) {
                     bandFragment = new RecordingServiceFragment();

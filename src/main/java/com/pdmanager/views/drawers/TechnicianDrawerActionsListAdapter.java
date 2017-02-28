@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.pdmanager.core.PDApplicationContext;
-import com.pdmanager.core.PDPilotAppContext;
-import com.pdmanager.core.R;
+import com.pdmanager.app.PDPilotAppContext;
+import com.pdmanager.R;
 import com.telerik.viewmodels.MenuAction;
 
 import java.util.ArrayList;
@@ -58,7 +57,11 @@ public class TechnicianDrawerActionsListAdapter extends ArrayAdapter<MenuAction>
         logList.setHeaderText("Logs");
 
         logList.setFragmentName("LogEventFragment");
+        MenuAction medList = new MenuAction();
+        medList.setActionInfo("Medications");
+        medList.setHeaderText("Medications");
 
+        medList.setFragmentName("MedListFragment");
         MenuAction fileList = new MenuAction();
         fileList.setActionInfo("Files");
         fileList.setHeaderText("Files");
@@ -71,6 +74,7 @@ public class TechnicianDrawerActionsListAdapter extends ArrayAdapter<MenuAction>
         this.controls.add(displayList);
         this.controls.add(fileList);
         this.controls.add(logList);
+        this.controls.add(medList);
 
 
     }

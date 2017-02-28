@@ -20,8 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.models.Patient;
+import com.pdmanager.R;
+import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.TestAssessmentFragment;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;

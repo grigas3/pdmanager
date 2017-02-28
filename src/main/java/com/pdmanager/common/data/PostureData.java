@@ -2,7 +2,7 @@ package com.pdmanager.common.data;
 
 
 import com.pdmanager.common.DataTypes;
-import com.pdmanager.core.posturedetector.Core.PostureTypes;
+import com.pdmanager.posturedetector.Core.PostureTypes;
 
 /**
  * Created by admin on 16/5/2015.

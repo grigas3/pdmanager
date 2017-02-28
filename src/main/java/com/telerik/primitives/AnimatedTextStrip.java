@@ -19,7 +19,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 
 
 public class AnimatedTextStrip extends ViewGroup {

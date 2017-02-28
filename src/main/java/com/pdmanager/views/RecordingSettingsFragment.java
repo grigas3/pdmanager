@@ -2,7 +2,6 @@ package com.pdmanager.views;
 
 import android.app.Activity;
 import android.hardware.SensorManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,28 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import com.pdmanager.core.R;
-import com.pdmanager.core.communication.CommunicationManager;
-import com.pdmanager.core.communication.DataReceiver;
-import com.pdmanager.core.communication.DirectSender;
-import com.pdmanager.core.interfaces.IServiceStatusListener;
-import com.pdmanager.core.models.Device;
-import com.pdmanager.core.models.DeviceResult;
-import com.pdmanager.core.models.ObservationResult;
-import com.pdmanager.core.sensor.RecordingServiceHandler;
-import com.pdmanager.core.settings.RecordingSettings;
-
-import org.w3c.dom.Text;
+import com.pdmanager.R;
+import com.pdmanager.interfaces.IServiceStatusListener;
+import com.pdmanager.sensor.RecordingServiceHandler;
+import com.pdmanager.settings.RecordingSettings;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 
 public class RecordingSettingsFragment extends BasePDFragment implements FragmentListener, IServiceStatusListener {

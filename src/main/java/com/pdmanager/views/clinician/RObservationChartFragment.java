@@ -13,12 +13,11 @@ import android.widget.TextView;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.core.R;
-import com.pdmanager.core.adapters.ObservationParams;
-import com.pdmanager.core.communication.DataReceiver;
-import com.pdmanager.core.models.Observation;
+import com.pdmanager.R;
+import com.pdmanager.adapters.ObservationParams;
+import com.pdmanager.communication.DataReceiver;
+import com.pdmanager.models.Observation;
 import com.pdmanager.views.charts.AreaFragment;
-import com.pdmanager.views.clinician.PatientBaseChartFragmentManager;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 import com.telerik.widget.chart.engine.axes.common.AxisLabelFitMode;
 import com.telerik.widget.chart.engine.axes.common.DateTimeComponent;

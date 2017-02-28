@@ -4,8 +4,8 @@ package com.symptomdetector.classifier; /**
  */
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.interfaces.IDataHandler;
-import com.pdmanager.core.posturedetector.Core.Signals.SignalCollection;
-import com.pdmanager.core.symptomdetector.tremor.HandPostureDetector;
+import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
+import com.pdmanager.symptomdetector.tremor.HandPostureDetector;
 
 
 import org.junit.Test;

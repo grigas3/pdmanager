@@ -65,6 +65,39 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
+
+/*
+        String property = data.getString("property");
+        String body = data.getString("body");
+
+        LogSdk.d(TAG, "GcmListenerService :: From     : " + from);
+        LogSdk.d(TAG, "GcmListenerService :: full     : " + data.toString());
+        LogSdk.d(TAG, "GcmListenerService :: property : " + property);
+        LogSdk.d(TAG, "GcmListenerService :: body     : " + body);
+
+        PDManagerVideoApp application = (PDManagerVideoApp) getApplication();
+
+        Intent intent = new Intent(application.getContext(), CallActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(application.getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder b = new NotificationCompat.Builder(application.getContext());
+
+        b.setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setTicker(property != null ? property : from)
+                .setContentTitle(property != null ? property : from)
+                .setContentText(body)
+                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                .setContentIntent(contentIntent)
+                .setContentInfo("Info");
+
+
+        NotificationManager notificationManager = (NotificationManager) application.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.setNotified(1, b.build());
+*/
+
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
     }

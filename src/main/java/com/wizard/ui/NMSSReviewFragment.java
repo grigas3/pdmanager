@@ -28,7 +28,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pdmanager.core.R;
+import com.pdmanager.R;
 import com.wizard.model.AbstractWizardModel;
 import com.wizard.model.ModelCallbacks;
 import com.wizard.model.Page;
