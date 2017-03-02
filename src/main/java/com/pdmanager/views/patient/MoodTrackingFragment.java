@@ -2,16 +2,18 @@ package com.pdmanager.views.patient;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.pdmanager.R;
 import com.pdmanager.communication.DirectSenderTask;
@@ -27,7 +29,7 @@ import java.util.Date;
 /**
  * Created by Marko Koren on 11.1.2017.
  */
-public class MoodTrackingFragment extends DialogFragment implements FragmentListener,IDirectSendCallback {
+public class MoodTrackingFragment extends AlertPDFragment implements FragmentListener,IDirectSendCallback {
     private static final String LOG_TAG = MoodTrackingFragment.class.getName();
 
     private View selectedMoodView;
@@ -48,8 +50,9 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
     private LinearLayout actRest;
     private LinearLayout actSocial;
     private EditText actOther;
-    private Button buttonBack;
-    private Button buttonNext;
+    private TextView chooseText;
+//    private Button buttonBack;
+    private RelativeLayout buttonNext;
     private RelativeLayout busyIndicator;
     private LinearLayout layout;
 
@@ -110,11 +113,18 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.length() > 0) buttonNext.setVisibility(View.VISIBLE);
-                else buttonNext.setVisibility(View.GONE);
+                if(s.length() > 0) {
+                    buttonNext.setVisibility(View.VISIBLE);
+                    chooseText.setVisibility(View.GONE);
+                }
+                else if (selectedActivityViews.size() < 1) {
+                    buttonNext.setVisibility(View.GONE);
+                    chooseText.setVisibility(View.VISIBLE);
+                }
             }
         });
-        buttonNext = (Button) rootView.findViewById(R.id.button_mood_next);
+        chooseText = (TextView) rootView.findViewById(R.id.mood_act_choose);
+        buttonNext = (RelativeLayout) rootView.findViewById(R.id.button_mood_next);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,7 +132,8 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
                     moodContainer.setVisibility(View.GONE);
                     actContainer.setVisibility(View.VISIBLE);
                     buttonNext.setVisibility(View.GONE);
-                    buttonBack.setVisibility(View.VISIBLE);
+//                    buttonBack.setVisibility(View.VISIBLE);
+                    chooseText.setVisibility(View.VISIBLE);
                 } else {
                     Date date1 = new Date();
                     date1.setHours(0);
@@ -145,7 +156,7 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
                         selectedActivities.add(view.getTag().toString());
                     }
                     if(actOther.getText().length() > 0) {
-                        observations.add(new Observation(1, patientCode,actOther.getTag().toString(), cal1.getTimeInMillis()));
+                        observations.add(new Observation(1, patientCode,actOther.getText().toString(), cal1.getTimeInMillis()));
                         selectedActivities.add(actOther.getText().toString());
                     }
                     busyIndicator.setVisibility(View.VISIBLE);
@@ -159,16 +170,16 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
                 }
             }
         });
-        buttonBack = (Button) rootView.findViewById(R.id.button_mood_back);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actContainer.setVisibility(View.GONE);
-                moodContainer.setVisibility(View.VISIBLE);
-                buttonNext.setVisibility(View.VISIBLE);
-                buttonBack.setVisibility(View.GONE);
-            }
-        });
+//        buttonBack = (Button) rootView.findViewById(R.id.button_mood_back);
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                actContainer.setVisibility(View.GONE);
+//                moodContainer.setVisibility(View.VISIBLE);
+//                buttonNext.setVisibility(View.VISIBLE);
+//                buttonBack.setVisibility(View.GONE);
+//            }
+//        });
     }
 
     public void changeMood(View view) {
@@ -176,6 +187,7 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
             selectedMoodView.setSelected(false);
         selectedMoodView = view;
         selectedMoodView.setSelected(true);
+        chooseText.setVisibility(View.GONE);
         buttonNext.setVisibility(View.VISIBLE);
     }
 
@@ -193,8 +205,10 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
         }
         if(selectedActivityViews.size() > 0) {
             buttonNext.setVisibility(View.VISIBLE);
-        } else {
+            chooseText.setVisibility(View.GONE);
+        } else if (actOther.getText().toString().length() < 1){
             buttonNext.setVisibility(View.GONE);
+            chooseText.setVisibility(View.VISIBLE);
         }
 
     }
@@ -223,6 +237,21 @@ public class MoodTrackingFragment extends DialogFragment implements FragmentList
         layout.setVisibility(View.VISIBLE);
 
         long t=(System.currentTimeMillis());
-        dismiss();
+        PatientHomeFragment patientHomeFragment = new PatientHomeFragment();
+        FragmentTransaction fragmentTransaction =
+                getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, patientHomeFragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 }

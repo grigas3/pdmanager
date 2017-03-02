@@ -20,120 +20,498 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
 
-        android:src="@drawable/loginicon" />
+    <!--android:src="@drawable/loginicon" />-->
+
 
     <LinearLayout
-        android:id="@+id/email_login_form"
+        android:id="@+id/patient_home_notifications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button_patient_home_green"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/textWelcome"
+        <ImageView
+            android:id="@+id/patient_home_notifications_img"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/welcome"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_notif_g">
 
-        <TextView
-            android:id="@+id/textNextMedication"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/holo_red_light"
-            android:text="Your next medication ..... "
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        </ImageView>
 
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
 
             <TextView
-                android:id="@+id/textConnectionStatus"
-                android:layout_width="match_parent"
+                android:id="@+id/patient_home_notifications_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:gravity="center"
-                android:text="@string/monitoringstatus_label"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-        </RelativeLayout>
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+                android:text="Notifications"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/patient_home_notifications_act"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_check_sm_g" />
+
+                <TextView
+                    android:id="@+id/patient_home_notifications_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="Clear"
+                    android:textAllCaps="true"
+                    android:textColor="#555"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textSensorStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text=""
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </RelativeLayout>
-
-
-
-        <Button
-            android:id="@+id/nfgButton"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#B43323"
-            android:padding="20dp"
-            android:drawablePadding="20dp"
-            android:gravity="left|center"
-            android:text="Not Feeling Good"
-            android:textColor="@android:color/white"
-            android:drawableLeft="@drawable/ic_action_nfg_small"
-            android:textStyle="bold"
-            android:backgroundTint="@android:color/holo_red_dark" />
-
-
-        <Button
-            android:id="@+id/moodButton"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#B43323"
-            android:padding="20dp"
-            android:drawablePadding="20dp"
-            android:gravity="left|center"
-            android:text="Mood"
-            android:textColor="@android:color/white"
-            android:drawableLeft="@drawable/ic_action_nfg_small"
-            android:textStyle="bold"
-            android:backgroundTint="@android:color/holo_blue_dark" />
+        </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patient_home_cognition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button_patient_home_green"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/patient_home_cognition_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_cog_g">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/patient_home_cognition_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cognition tests"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/patient_home_cognition_act"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_check_sm_g" />
+
+                <TextView
+                    android:id="@+id/patient_home_cognition_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="Next in 6 hours"
+                    android:textAllCaps="true"
+                    android:textColor="#555"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patient_home_mood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button_patient_home_green"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/patient_home_mood_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_mood_g">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/patient_home_mood_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mood tracking"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/patient_home_mood_act"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_check_sm_g" />
+
+                <TextView
+                    android:id="@+id/patient_home_mood_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="Next in 1 day"
+                    android:textAllCaps="true"
+                    android:textColor="#555"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patient_home_meds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button_patient_home_green"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/patient_home_meds_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_med_g">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/patient_home_meds_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medicine taking"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/patient_home_meds_act"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_check_sm_g" />
+
+                <TextView
+                    android:id="@+id/patient_home_meds_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="Next in 1 day"
+                    android:textAllCaps="true"
+                    android:textColor="#555"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patient_home_speech"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button_patient_home_green"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/patient_home_speech_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_speech_g">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/patient_home_speech_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speech analysis"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/patient_home_speech_act"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_check_sm_g" />
+
+                <TextView
+                    android:id="@+id/patient_home_speech_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="Next in 1 day"
+                    android:textAllCaps="true"
+                    android:textColor="#555"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patient_home_sensors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_patient_home_green"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/patient_home_sensors_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_sens_g">
+
+        </ImageView>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/patient_home_sensors_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passive sensors"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/patient_home_sensors_act"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_check_sm_g" />
+
+                <TextView
+                    android:id="@+id/patient_home_sensors_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:text="Working"
+                    android:textAllCaps="true"
+                    android:textColor="#555"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/email_login_form"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textWelcome"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:text="@string/welcome"-->
+    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textNextMedication"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:textColor="@android:color/holo_red_light"-->
+    <!--android:text="Your next medication ..... "-->
+    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--&gt;-->
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/textConnectionStatus"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+
+    <!--android:gravity="center"-->
+    <!--android:text="@string/monitoringstatus_label"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+
+    <!--</RelativeLayout>-->
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--&gt;-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="fill_horizontal"-->
+    <!--android:layout_marginTop="10dp">-->
+
+    <!--</LinearLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textSensorStatus"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text=""-->
+    <!--android:textAppearance="?android:attr/textAppearanceSmall" />-->
+    <!--</RelativeLayout>-->
+
+
+    <!--<Button-->
+    <!--android:id="@+id/nfgButton"-->
+    <!--style="?android:textAppearanceSmall"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:background="#B43323"-->
+    <!--android:padding="20dp"-->
+    <!--android:drawablePadding="20dp"-->
+    <!--android:gravity="left|center"-->
+    <!--android:text="Not Feeling Good"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:drawableLeft="@drawable/ic_action_nfg_small"-->
+    <!--android:textStyle="bold"-->
+    <!--android:backgroundTint="@android:color/holo_red_dark" />-->
+
+
+    <!--<Button-->
+    <!--android:id="@+id/moodButton"-->
+    <!--style="?android:textAppearanceSmall"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:background="#B43323"-->
+    <!--android:padding="20dp"-->
+    <!--android:drawablePadding="20dp"-->
+    <!--android:gravity="left|center"-->
+    <!--android:text="Mood"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:drawableLeft="@drawable/ic_action_nfg_small"-->
+    <!--android:textStyle="bold"-->
+    <!--android:backgroundTint="@android:color/holo_blue_dark" />-->
+
+    <!--</LinearLayout>-->
 
 
 </LinearLayout>

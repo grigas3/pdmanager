@@ -248,6 +248,184 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="welcome">Welcome!</string>
+    <!--<string name="welcome">Welcome!</string>-->
+	
+	<!-- cognition -->
 
+	<string name="emotion_recognition_task">Emotion Recognition Task</string>
+    <string name="paired_associates_learning">Paired Associates Learning</string>
+    <string name="pattern_recognition_memory">Pattern Recognition Memory</string>
+    <string name="spatial_working_memory">Spatial Working Memory</string>
+    <string name="spatial_span">Spatial Span</string>
+    <string name="stop_signal_task">Stop Signal Task</string>
+    <string name="attention_switching_task">Attention Switching Task</string>
+    <string name="visual_analogue_scale">Visual Analogue Scale</string>
+    <string name="wisconsin_card_sorting_test">Wisconsin Card Sorting</string>
+    <string name="london_towers_test">London Towers</string>
+        <string name="target">Target:</string>
+        <string name="movement">Movement</string>
+    <string name="level">Level</string>
+	<string name="title_menu10">Visual Learning</string>
+
+    <string name="menuFirst">Finger Tapping Test</string>
+    <string name="menuSecond">Cognitive Tests</string>
+
+    <string name="title_menu1">ERT</string>
+    <string name="title_menu2">PAL</string>
+    <string name="title_menu3">PRM</string>
+    <string name="title_menu4">SWM</string>
+    <string name="title_menu5">SSP</string>
+    <string name="title_menu6">SST</string>
+    <string name="title_menu7">AST</string>
+    <string name="title_menu8">VAS</string>
+    <string name="title_menu9">WCS</string>
+	
+    <string name="start">Start</string>
+    <!--<string name="next">Next</string>-->
+    <string name="True">True</string>
+    <string name="False">False</string>
+    <string name="direction">DIRECTION</string>
+    <string name="position">POSITION</string>
+    <string name="congruent">CONGRUENT</string>
+    <string name="incongruent">INCONGRUENT</string>
+    <string name="taskFinished">Task finished</string>
+    <string name="question">Question</string>
+    <string name="moves">moves</string>
+
+    <string name="ic_launcher">ic_launcher</string>
+
+    <string name="pal_instruction">In this test you will see 6 white boxes and they will open in a random order. There will be a pattern in one of the boxes and you have to remember which box it is in.</string>
+    <string name="pal_instructions_choose">Touch the box where you saw the pattern appear.</string>
+    <string name="pal_feedback">All correct.</string>
+    <string name="pal_patterns">patterns</string>
+    <string name="pal_levels">Level</string>
+    <string name="pal_all_correct">All correct!</string>
+    <string name="pal_all_try_again">Try again</string>
+    <string name="pal_errors">errors</string>
+    <string name="pal_results">Results of Paired Associates Learning Task:</string>
+
+    <string name="prm_instruction">A box will appear. Several patterns will appear inside the box, one after the other. Look carefully and try to remember the patterns you see.</string>
+    <string name="prm_instruction_choose">A short while ago you saw some patterns. Now there are two patterns. Touch the one you saw before.</string>
+    <string name="prm_results">Results of Pattern Recognition Memory Task:</string>
+    <string name="prm_reverse">Reverse</string>
+    <string name="prm_random">Random</string>
+    <string name="prm_levels">Level</string>
+    <string name="prm_patterns">patterns</string>
+
+    <string name="swm_instruction">You will see some coloured boxes on the screen. In one box will be a blue token. Touch the boxes to look for a blue token. You have to collect enough tokens to fill the black hole on the right of the screen. To collect the token, touch the black hole. A token will never appear in the same box more than once.</string>
+    <string name="swm_results">Results of Spatial Working Memory Task:</string>
+    <string name="swm_levels">Level</string>
+	<string name="instruction_start_swm">You will see different boxes containing a blue square or not. Find the square and put it in the column on the left.</string>
+    
+    <string name="ssp_instruction">For this test, you will see some squares on the screen and these will change colour one by one. Remember the order in which the squares changes colour. You will hear a tone to tell you the sequence has finished. Then, touch the squares in the same order that they changed colour.</string>
+    <string name="ssp_results">Results of Spatial Span Task:</string>
+    <string name="spatialSpan_instruction">You will see a sequence of purple squares appear, touch the boxes in the same order.</string>
+    <string name="ssp_levels">Level</string>
+    <string name="ssp_trial">Trial</string>
+    <string name="ssp_patterns">patterns</string>
+	
+    <string name="sst_instruction_first">First part of test: an arrow will appear in a circle, pointing either to the left or to the right. When you see the arrow pointing to the left, press the left arrow button. When you see the arrow pointing to the right, press the right arrow button. Press the buttons as quickly as you can, whilst trying to avoid making mistakes.</string>
+    <string name="sst_instruction_second">Second part of test: an arrow will appear in a circle, pointing either to the left or to the right. When you see the arrow pointing to the left, press the left arrow button. When you see the arrow pointing to the right, press the right arrow button. BUT, if you hear a BEEP immediately after an arrow appears, DO NOT press either button. Press the buttons as quickly as you can, whilst trying to avoid making mistakes.</string>
+    <string name="sst_results">Results of Stop Signal Task:</string>
+    <string name="sst_left">LEFT</string>
+    <string name="sst_right">RIGHT</string>
+    <string name="sst_trial">Trial</string>
+    <string name="sst_too_late">Too late!</string>
+    <string name="sst_wrong">Wrong</string>
+
+    <string name="ast_instruction">An arrow will appear in the screen, use the buttons below to answer the questions. They can ask you to indicate the position where the arrow is located or the direction of the arrow.</string>
+    <string name="ast_cue_arrowDirection">Which DIRECTION?</string>
+    <string name="ast_cue_arrowPosition">Which POSITION?</string>
+    <string name="ast_results">Results of Attention Switching Task:</string>
+    <string name="ast_left">LEFT</string>
+    <string name="ast_right">RIGHT</string>
+
+    <string name="vas_instruction">You must respond to the questions as they appear on the screen by touching the on-screen slider and moving it to the appropriate position on the scale.</string>
+    <string name="vas_results">Results of Visual Analogue Scale:</string>
+    <string name="vas_question_minValue">0</string>
+    <string name="vas_question_maxValue">100</string>
+    <string name="vas_question1">Do you feel happy today?</string>
+    <string name="vas_minValue_Q1">No</string>
+    <string name="vas_maxValue_Q1">Yes</string>
+    <string name="vas_question2">Do you feel relaxed?</string>
+    <string name="vas_minValue_Q2">No</string>
+    <string name="vas_maxValue_Q2">Yes</string>
+    <string name="vas_question3">Do you find hard to concentrate today?</string>
+    <string name="vas_minValue_Q3">No</string>
+    <string name="vas_maxValue_Q3">Yes</string>
+    <string name="vas_question4">Do you feel motivated in doing your tests today?</string>
+    <string name="vas_minValue_Q4">No</string>
+    <string name="vas_maxValue_Q4">Yes</string>
+    <string name="vas_question5">Are you in ON/OFF state, in this moment?</string>
+    <string name="vas_minValue_Q5">No</string>
+    <string name="vas_maxValue_Q5">Yes</string>
+    <string name="vas_question6">Do you feel any pain or cramps?</string>
+    <string name="vas_minValue_Q6">No</string>
+    <string name="vas_maxValue_Q6">Yes</string>
+    <string name="vas_question7">How did you sleep last night?</string>
+    <string name="vas_minValue_Q7">Bad</string>
+    <string name="vas_maxValue_Q7">Fine</string>
+    <string name="vas_question8">Do you feel angry today?</string>
+    <string name="vas_minValue_Q8">A lot</string>
+    <string name="vas_maxValue_Q8">Not at all</string>
+
+    <string name="vas2_s0">Strongly\ndisagree</string>
+    <string name="vas2_s1">Disagree</string>
+    <string name="vas2_s2">\nNeutral</string>
+    <string name="vas2_s3">Agree</string>
+    <string name="vas2_s4">Strongly\nagree</string>
+	<string name="vas2_question1">Do you feel happy today?</string>
+
+    <string name="palprm_instruction">Now you will see a series of coupled pictures. Please, try to remember the couples because, then, you will be presented only with one picture of the couple and you will have to choose the other one, picking the right one among 4 options. You will repeat the same exercise three time, with the same couples, so you will get more familiar with them.</string>
+    <string name="london_towers_instruction">In this test you will have 3 sticks and 3 marbles of different colors. You will have to arrange this marbles according to the disposition displayed in the figure on the left side of the screen.</string>
+    <string name="wisconsin_instruction">In this test, you can view 4 cards, I would like that you put each card that will be displayed under one of the guide card where you think it’s more appropriate to. Please consider that you can match the cards according to shape, color or number criteria. I will tell you if you are doing right with a green tick or if you’re doing wrong displaying a red cross. You will have a feedback after each move.</string>
+
+    <string name="fttoneTvInstructions">Tap on the green area as fast as you can during 10 seconds. You can start when you wish.</string>
+    <string name="fttoneTvTap">Tap Here!</string>
+    <string name="fttoneTvTimeNumberOfTaps">taps</string>
+    <string name="fttoneTvTime">Time</string>
+    <string name="fttoneTvSeconds">seconds</string>
+
+    <string name="fttTwoTvInstructions">Use two fingers to tap alternatively on the right and left buttons as fast as you can during 10 seconds. You can start when you wish.</string>
+    <string name="fttTwoTvTap">Tap Here!</string>
+    <string name="fttTwoTvTimeNumberOfTaps">taps</string>
+    <string name="fttTwoTvTime">Time</string>
+    <string name="fttTwoTvSeconds">seconds</string>
+
+    <string name="fttEndMessage">Well done! you have finished.</string>
+    <string name="fttEndButtonRepeat">Take another test</string>
+    <string name="fttEndButtonExit">Exit</string>
+    
+    <string name="palprm_title0">Remember the following pair of icons</string>
+    <string name="palprm_title1">Choose the icon that matches the pair previously shown with the left icon</string>
+
+    <string name="welcome">Welcome to PD Manager.\nPlease choose one of the options below.</string>
+    <string name="configure_user">Configure user profile</string>
+    <string name="perform_tests">Perform tests</string>
+    <string name="choose_username">Please type the name of the user this tests are addressed to:</string>
+    <string name="start_daily_tests">You have scheduled to perform a set of daily tests!</string>
+    <string name="end_tests">You have ended this set of daily tests!</string>
+    <string name="end_test_query">Are you sure you want to end this test set?</string>
+    <string name="username">user name</string>
+    <string name="next_config">Next</string>
+    <string name="end_config">End configuration</string>
+    <!--<string name="ok">Ok</string>-->
+    <string name="choose_hour0">When will the user perform the tests (before 12am)?</string>
+    <string name="choose_hour1">When will the user perform the tests (after 12am)?</string>
+    <string name="choose_dow">Choose the days of week the user will perform the tests.</string>
+    <string name="config_ok">The configuration was completed successfully.</string>
+    <string name="smonday">Mo</string>
+    <string name="stuesday">Tu</string>
+    <string name="swednesday">We</string>
+    <string name="sthursday">Th</string>
+    <string name="sfriday">Fr</string>
+    <string name="ssaturday">Sa</string>
+    <string name="ssunday">Su</string>
+
+    <string name="menuThird">Voice test</string>
+    <string name="speech_instruction">In this test you will have to pronunce out loud the \"AAAAH\" phonema during five seconds when you are indicated.</string>
+    <string name="speech_wait">Wait for the countdown to end in order to start</string>
+    <string name="speech_start">Speak out loud \"AAAH\" until the countdown ends!</string>
+    <string name="start_speech">Start!</string>
+	
 </resources>

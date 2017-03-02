@@ -247,5 +247,183 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="welcome">Καλως ήρθατε!</string>
+    <!--<string name="welcome">Καλως ήρθατε!</string>-->
+
+    <!--cognition-->
+
+    <string name="emotion_recognition_task">Δοκιμασία Αναγνώρισης Συναισθημάτων</string>
+    <string name="paired_associates_learning">Δοκιμασία Συνδιαστικής Μάθησης</string>
+    <string name="pattern_recognition_memory">Μνήμη Αναγνώρισης Μοτίβων</string>
+    <string name="spatial_working_memory">Δοκιμασία Χωρικής Μνήμης</string>
+    <string name="spatial_span">Δοκιμασία Οπτικοχωρικής Μνήμης</string>
+    <string name="stop_signal_task">Δοκιμασία Αναστολής Αυτόματης Απάντησης</string>
+    <string name="attention_switching_task">Δοκιμασία Εναλλαγής Προσοχής</string>
+    <string name="visual_analogue_scale">Οπτική Αναλογική Κλίμακα</string>
+    <string name="wisconsin_card_sorting_test">Δοκιμασία Ταξινόμησης Καρτών του Wisconsin</string>
+    <string name="london_towers_test">Δοκιμασία London Towers</string>
+    <string name="target">Στόχος:</string>
+    <string name="movement">Κίνηση</string>
+    <string name="level">Επίπεδο</string>
+    <string name="title_menu10">Οπτική Μάθηση</string>
+
+    <string name="menuFirst">Test Επαναλήψεων με το Δάχτυλο</string>
+    <string name="menuSecond">Γνωσιακά Tests</string>
+
+    <string name="title_menu1">ΑΣΚ</string>
+    <string name="title_menu2">ΣΜ</string>
+    <string name="title_menu3">ΑΜ</string>
+    <string name="title_menu4">ΧΕ</string>
+    <string name="title_menu5">ΧΒ</string>
+    <string name="title_menu6">ΑΠ</string>
+    <string name="title_menu7">ΕΠ</string>
+    <string name="title_menu8">ΟΑΚ</string>
+    <string name="title_menu9">ΤΚW</string>
+
+    <string name="start">Έναρξη</string>
+    <!--<string name="next">Επόμενο</string>-->
+    <string name="True">Αληθές</string>
+    <string name="False">Ψευδές</string>
+    <string name="direction">ΚΑΤΕΥΘΥΝΣΗ</string>
+    <string name="position">ΘΕΣΗ</string>
+    <string name="congruent">Συγκλίνων</string>
+    <string name="incongruent">Παρεκλίνουσα</string>
+    <string name="taskFinished">Ολοκλήρωση δοκιμασίας</string>
+    <string name="question">Ερώτηση</string>
+    <string name="moves">κινήσεις</string>
+
+    <string name="ic_launcher">ic_launcher</string>
+
+    <string name="pal_instruction">Σε αυτό το τεστ θα δεις 6 λευκά κουτιά που θα ανοίγουν σε τυχαία σειρά. Θυμίσου σε ποιο κουτί θα εμφανιστεί το σχέδιο.</string>
+    <string name="pal_instructions_choose">Επέλεξε το κουτί στο οποίο εμφανίστηκε το σχέδιο.</string>
+    <string name="pal_feedback">Όλα σωστά.</string>
+    <string name="pal_patterns">σχέδια</string>
+    <string name="pal_levels">επίπεδο</string>
+    <string name="pal_all_correct">Όλα σωστά!</string>
+    <string name="pal_all_try_again">Προσπάθησε ξανά</string>
+    <string name="pal_errors">λάθη</string>
+    <string name="pal_results">Αποτελέσματα Αξιολόγησης Συνδιαστικής Μάθησης:</string>
+
+    <string name="prm_instruction">Διαφορετικά σχέδια εμφανίζονται στο κουτί το ένα μετά το άλλο. Κοίτα προσεκτικά και θυμίσου τα σχέδια.</string>
+    <string name="prm_instruction_choose">Επέλεξε το σχέδιο που είδες πριν.</string>
+    <string name="prm_results">Αποτελέσματα Αξιολόγησης Αναγνώρισης Μοτίβων:</string>
+    <string name="prm_reverse">Αντίστροφη</string>
+    <string name="prm_random">Τυχαία</string>
+    <string name="prm_levels">Επίπεδο</string>
+    <string name="prm_patterns">σχέδια</string>
+
+    <string name="swm_instruction">Θα δεις ορισμένα λευκά κουτιά. Σε ένα από αυτά υπάρχει μια μπλε κάρτα. Βρες το κουτί με την μπλε κάρτα. Πρέπει να μαζέψεις αρκετές κάρτες για να γεμίσεις τα μαύρα κουτιά στα δεξιά της οθόνης. Για να συλλέξεις την κάρτα επέλεξε το μαύρο κουτί. Μια κάρτα ποτέ δεν εμφανίζεται στο ίδιο λευκό κουτί δύο φορές.</string>
+    <string name="swm_results">Αποτελέσματα Αξιολόγησης Χωρικής Μνήμης:</string>
+    <string name="swm_levels">Επίπεδο</string>
+    <string name="instruction_start_swm">Θα δεις διάφορα κουτιά που μπορεί να περιέχουν ένα μπλε τετράγωνο. Βρες το τετράγωνο και τοποθετησέ το στην στήλη στα αριστερά.</string>
+
+    <string name="ssp_instruction">Για αυτό το τεστ,θα δεις μερικά τετράγωνα στην οθόνη που θα αλλάζουν χρώμα ένα ένα. Θυμίσου την σειρά με την οποία τα τετράγωνα αλλάζουν χρώμα . Θα ακούσεις έναν ήχο όταν ολοκληρωθεί η ακολουθία. Στην συνέχεια επέλεξε τα τετράγωνα με την σειρά κατά την οποία άλλαξαν χρώμα.</string>
+    <string name="ssp_results">Αποτελέσματα Αξιολόγησης Οπτικοχωρικής Μνήμης:</string>
+    <string name="spatialSpan_instruction">Θα δεις μια ακολουθία από μωβ τετράγωνα να εμφανίζονται μέσα στα κουτιά, επέλεξε τα κουτιά με την ίδια σειρά που εμφανίστηκαν τα μωβ τετράγωνα.</string>
+    <string name="ssp_levels">Επίπεδο</string>
+    <string name="ssp_trial">Δοκιμή</string>
+    <string name="ssp_patterns">Σχέδια</string>
+
+    <string name="sst_instruction_first">Πρώτο μέρος του τεστ: ένα βέλος εμφανίζεται σε ένα κύκλο, δείχνοντας αριστερά ή δεξιά. Όταν δεις το βέλος να δείχνει αριστερά, πάτησε το κουμπί με το αριστερό βέλος. Όταν δεις το βέλος να δείχνει δεξιά, πάτησε το κουμπί με το δεξιό βέλος. Πάτησε κάθε φορά τα κουμπιά όσο πιο γρήγορα μπορείς, αποφεύγοντας τα λάθη.</string>
+    <string name="sst_instruction_second">Δεύτερο μέρος του τεστ: ένα βέλος εμφανίζεται σε ένα κύκλο, δείχνοντας αριστεά ή δεξιά. Όταν δεις το βέλος να δείχνει αριστερά, πάτησε το κουμπί με το αριστερό βέλος. Όταν δεις το βέλος να δείχνει δεξιά, πάτησε το κουμπί με το δεξιό βέλος. Αλλά εάν ακούσεις ένα ΜΠΙΠ αμέσως αφότου ένα βέλος εμφανιστεί μην πατάς τίποτα. Πάτησε κάθε φορά τα κουμπιά όσο πιο γρήγορα μπορείς, αποφεύγοντας τα λάθη.</string>
+    <string name="sst_results">Αποτελέσματα Ελέγχου Παρορμητικότητας:</string>
+    <string name="sst_left">ΑΡΙΣΤΕΡΑ</string>
+    <string name="sst_right">ΔΕΞΙΑ</string>
+    <string name="sst_trial">Δοκιμή</string>
+    <string name="sst_too_late">Πολύ αργά!</string>
+    <string name="sst_wrong">Λάθος</string>
+
+    <string name="ast_instruction">Ένα βέλος θα εμφανιστεί στην οθόνη, χρησιμοποίησε τα κουμπιά παρακάτω για να απαντήσεις στις ερωτήσεις. Μπορεί να χρειαστεί να υποδείξεις είτε την θέση που είναι τοποθετημένο το βέλος στην οθόνη ειίτε την κατεύθυνση που δείχνει το βέλος.</string>
+    <string name="ast_cue_arrowDirection">Ποια ΚΑΤΕΥΘΥΝΣΗ?</string>
+    <string name="ast_cue_arrowPosition">Ποια ΘΕΣΗ?</string>
+    <string name="ast_results">Αποτελέσματα Αξιολόγησης Εναλλαγής Προσοχής:</string>
+    <string name="ast_left">ΑΡΙΣΤΕΡΑ</string>
+    <string name="ast_right">ΔΕΞΙΑ</string>
+
+    <string name="vas_instruction">Πρέπει να απαντήσεις σε 8 ερωτήσεις επιλέγοντας την κατάλληλη θέση στην κλίμακα.</string>
+    <string name="vas_results">Αποτελέσματα Οπτικής Αναλογικής Κλίμακας:</string>
+    <string name="vas_question_minValue">0</string>
+    <string name="vas_question_maxValue">100</string>
+    <string name="vas_question1">Πως αισθάνεσαι σήμερα?</string>
+    <string name="vas_minValue_Q1">Λυπημένος</string>
+    <string name="vas_maxValue_Q1">Χαρούμενος</string>
+    <string name="vas_question2">Αισθάνεσαι χαλαρός/ ήρεμος?</string>
+    <string name="vas_minValue_Q2">Όχι</string>
+    <string name="vas_maxValue_Q2">Ναι</string>
+    <string name="vas_question3">Δυσκολεύεσαι να συγκεντρωθείς σήμερα?</string>
+    <string name="vas_minValue_Q3">Όχι</string>
+    <string name="vas_maxValue_Q3">Ναι</string>
+    <string name="vas_question4">Έχεις κίνητρο να κάνεις τα τεστ σου σήμερα?</string>
+    <string name="vas_minValue_Q4">Όχι</string>
+    <string name="vas_maxValue_Q4">Ναι</string>
+    <string name="vas_question5">Είσαι σε ON/OFF κατάσταση αυτή την στιγμή?</string>
+    <string name="vas_minValue_Q5">Όχι</string>
+    <string name="vas_maxValue_Q5">Ναι</string>
+    <string name="vas_question6">Αισθάνεσαι πόνο ή κράμπες?</string>
+    <string name="vas_minValue_Q6">Όχι</string>
+    <string name="vas_maxValue_Q6">Ναι</string>
+    <string name="vas_question7">Πως κοιμήθηκες χτες?</string>
+    <string name="vas_minValue_Q7">Όχι Καλά</string>
+    <string name="vas_maxValue_Q7">Καλά</string>
+    <string name="vas_question8">Αισθάνεσαι θυμωμένος σήμερα?</string>
+    <string name="vas_minValue_Q8">Καθόλου</string>
+    <string name="vas_maxValue_Q8">Πολύ</string>
+
+    <string name="vas2_s0">Διαφωνώ Απόλυτα</string>
+    <string name="vas2_s1">Διαφωνώ</string>
+    <string name="vas2_s2">Ουδέτερος</string>
+    <string name="vas2_s3">Συμφωνώ</string>
+    <string name="vas2_s4">Συμφωνώ Απόλυτα</string>
+    <string name="vas2_question1">Αισθάνεσαι χαρούμενος σήμερα</string>
+
+    <string name="palprm_instruction">Τώρα θα δεις μια σειρά από εικόνες σε ζευγάρια. Προσπάθησε να θυμάσαι τα ζευγάρια γιατί στην συνέχεια θα σου εμφανίζετια μόνο η μία εικόνα και θα πρέπει να επιλέξεις το ζευγάρι της διαλέγοντας ανάμεσα από 4 πιθανές επιλογές. Θα επαναλάβεις την δοκιμασία 3 φορές, με τα ίδια ζευγάρια, ώστε να εξοικειωθείς με αυτά.</string>
+    <string name="london_towers_instruction">Σε αυτό το τεστ θα έχετε 3 ραβδιά και 3 βόλους διαφορετικών χρωμάτων. Θα πρέπει να τοποθετήσετε τους βόλους σύμφωνα με την διάταξη στην εικόνα στα αριστερά.</string>
+    <string name="wisconsin_instruction">Σε αυτό το τεστ θα δείτε 4 κάρτες. Θα πρέπει να τοποθετήσετε κάθε κάρτα κάτω από μία από τις υπάρχουσες κάρτες όπου νομίζετε ότι ταιριάζει. Μπορείτε να ταξινομείτε τις κάρτες βάσει σχήματος, χρώματος ή αριθμού.</string>
+
+    <string name="fttoneTvInstructions">Πάτα με το δάχτυλο στην πράσινη επιφάνεια όσες περισσότερες φορές και όσο πιο γρήγορα μπορείς για 10 δευτερόλεπτα.</string>
+    <string name="fttoneTvTap">Πάτα εδώ!</string>
+    <string name="fttoneTvTimeNumberOfTaps">Επαναλήψεις</string>
+    <string name="fttoneTvTime">Χρόνος</string>
+    <string name="fttoneTvSeconds">δευτερόλεπτα</string>
+
+    <string name="fttTwoTvInstructions">Χρησιμοποίησε και τα δύο δάκτυλα για να πατάς εναλλάξ το δεξί και το αριστερό κουμπί με τα δάχτυλα όσο πιο γρήγορα μπορείς για 10 δευτερόλεπτα.</string>
+    <string name="fttTwoTvTap">Πάτα εδώ!</string>
+    <string name="fttTwoTvTimeNumberOfTaps">Επαναλήψεις</string>
+    <string name="fttTwoTvTime">Χρόνος</string>
+    <string name="fttTwoTvSeconds">δευτερόλεπτα</string>
+
+    <string name="fttEndMessage">Μπράβο! Τελείωσες.</string>
+    <string name="fttEndButtonRepeat">Κάνε ένα άλλο τεστ</string>
+    <string name="fttEndButtonExit">Έξοδος</string>
+
+    <string name="palprm_title0">Θυμίσου το παρακάτω ζευγάρι εικόνων</string>
+    <string name="palprm_title1">Επέλεξε την εικόνα που ταιριάζει με το ζευγάρι που είδες πριν λίγο στα αριστερά</string>
+
+    <string name="welcome">Καλώς ήρθες στο PD_manager</string>
+    <string name="configure_user">Διαμόρφωση Προφίλ</string>
+    <string name="perform_tests">Κάνε Τέστ</string>
+    <string name="choose_username">Παρακαλώ πληκτρολόγησε το όνομα του χρήστη που θα κάνει το τεστ:</string>
+    <string name="start_daily_tests">Έχεις κάποια προγραμματισμένα καθημερινά τεστ!</string>
+    <string name="end_tests">Ολοκλήρωσες τα τεστ για σήμερα!</string>
+    <string name="end_test_query">Είσαι σίγουρος ότι θες να κλείσεις αυτά τα τεστ?</string>
+    <string name="username">Όνομα Χρήστη</string>
+    <string name="next_config">Επόμενο</string>
+    <string name="end_config">Τέλος διαμόρφωσης προφίλ</string>
+    <!--<string name="ok">Ok</string>-->
+    <string name="choose_hour0">Πότε θα εκτελέσει ο χρήστης τα τεστ (πριν τις 12μμ)?</string>
+    <string name="choose_hour1">Πότε θα εκτελέσει ο χρήστης τα τεστ (μετά τις 12μμ)?</string>
+    <string name="choose_dow">Όρισε ποιες μέρες της εβδομάδας ο χρήστης θα εκτελεί τεστ.</string>
+    <string name="config_ok">Η παραμετροποίηση ολοκληρώθηκε επιτυχημένα.</string>
+    <string name="smonday">Δε</string>
+    <string name="stuesday">Τρ</string>
+    <string name="swednesday">Τε</string>
+    <string name="sthursday">Πε</string>
+    <string name="sfriday">Πα</string>
+    <string name="ssaturday">Σα</string>
+    <string name="ssunday">Κυ</string>
+
+    <string name="menuThird">Φωνητικό test</string>
+    <string name="speech_instruction">Σε αυτό το τεστ πρέπει να πεις το επιφώνημα \"AAAA\" για 5 δευτερόλεπτα όταν σου ζητηθεί.</string>
+    <string name="speech_wait">Περίμενε να τελειώσει η αντίστροφη μέτρηση για να ξεκινήσεις</string>
+    <string name="speech_start">Φώναξε δυνατά \"AAAA\" μέχρι να τελειώσει ο χρόνος</string>
+    <string name="start_speech">Ξεκίνα!</string>
 </resources>

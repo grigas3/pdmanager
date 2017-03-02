@@ -10,10 +10,10 @@
     <color name="dark_grey_text_color">#E64A19</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffffff</color>
-    <color name="Black">#ffffffff</color>
+    <!--<color name="Black">#ffffffff</color>-->
     <color name="axesPriceColor">#A666CE</color>
     <color name="axesVolumeColor">#4FB6E7</color>
-    <color name="black">#000000</color>
+    <!--<color name="black">#000000</color>-->
     <color name="exampleInfoBackground">#FFFBFBFB</color>
     <color name="aboutPageVersionTextColor">#FF595959</color>
     <color name="aboutPageVersionNumberColor">#FF2CB145</color>

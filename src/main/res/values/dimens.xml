@@ -86,5 +86,15 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
 
+    <!--cognition-->
+
+    <dimen name="prm_picto_size">100dp</dimen>
+    <dimen name="prm_picto_layout_size">240dp</dimen>
+    <dimen name="pal_picto_size">60dp</dimen>
+    <dimen name="pal_picto_layout_size">200dp</dimen>
+    <dimen name="ast_picto_size">80dp</dimen>
+
+    <dimen name="corner_radius">4dp</dimen>
+    <dimen name="layer_padding">3dp</dimen>
 
 </resources>

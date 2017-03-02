@@ -5,15 +5,19 @@ package com.pdmanager.views.patient;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +27,7 @@ import com.pdmanager.interfaces.ISensorStatusListener;
 import com.pdmanager.interfaces.IServiceStatusListener;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.views.patient.cognition.MainMenu;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,9 +46,25 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     TextView message;
     private Button mButtonNGG;
     private Button mButtonMood;
-    private TextView mSensorStatus;
-    private TextView mMonitoringStatus;
+    //private TextView mSensorStatus;
+    //private TextView mMonitoringStatus;
+    private LinearLayout mNotifications;
+    private ImageView mNotificationsImage;
+    private TextView mNotificationsTitle;
+    private ImageView mNotificationsAct;
+    private TextView mNotificationsText;
 
+    private LinearLayout mSensors;
+    private ImageView mSensorsImage;
+    private TextView mSensorsTitle;
+    private ImageView mSensorsAct;
+    private TextView mSensorsText;
+
+
+    private LinearLayout mMood;
+    private LinearLayout mCognition;
+    private LinearLayout mSpeech;
+    private boolean debugToggle = false;
     private RelativeLayout layout;
     public PatientHomeFragment() {
     }
@@ -65,8 +86,8 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_patient_home, container, false);
 
-
-        message = (TextView) rootView.findViewById(R.id.textWelcome);
+    //    mMonitoringStatus = (TextView) rootView.findViewById(R.id.patient_home_sensors_text);
+      /*  message = (TextView) rootView.findViewById(R.id.textWelcome);
         mTextNextMed =(TextView) rootView.findViewById(R.id.textNextMedication);
         mButtonNGG =(Button) rootView.findViewById(R.id.nfgButton);
 
@@ -111,9 +132,84 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
             }
         });
+        */
 
 
+        mNotifications = (LinearLayout) rootView.findViewById(R.id.patient_home_notifications);
+        mNotificationsImage = (ImageView) rootView.findViewById(R.id.patient_home_notifications_img);
+        mNotificationsTitle = (TextView) rootView.findViewById(R.id.patient_home_notifications_title);
+        mNotificationsAct = (ImageView) rootView.findViewById(R.id.patient_home_notifications_act);
+        mNotificationsText = (TextView) rootView.findViewById(R.id.patient_home_notifications_text);
 
+        mSensors = (LinearLayout) rootView.findViewById(R.id.patient_home_sensors);
+        mSensorsImage = (ImageView) rootView.findViewById(R.id.patient_home_sensors_img);
+        mSensorsTitle = (TextView) rootView.findViewById(R.id.patient_home_sensors_title);
+        mSensorsAct = (ImageView) rootView.findViewById(R.id.patient_home_sensors_act);
+        mSensorsText = (TextView) rootView.findViewById(R.id.patient_home_sensors_text);
+
+        mMood = (LinearLayout) rootView.findViewById(R.id.patient_home_mood);
+        mCognition = (LinearLayout) rootView.findViewById(R.id.patient_home_cognition);
+        mSpeech = (LinearLayout) rootView.findViewById(R.id.patient_home_speech);
+
+        mNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                debugToggle = !debugToggle;
+                if(debugToggle) {
+                    mNotifications.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_blue));
+                    mNotificationsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_notif_w));
+                    mNotificationsTitle.setTextColor(Color.WHITE);
+                    mNotificationsAct.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_w));
+                    mNotificationsText.setTextColor(Color.WHITE);
+                    mNotificationsText.setText("Display now");
+                } else {
+                    mNotifications.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+                    mNotificationsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_notif_g));
+                    mNotificationsTitle.setTextColor(Color.BLACK);
+                    mNotificationsAct.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
+                    mNotificationsText.setTextColor(Color.parseColor("#555555"));
+                    mNotificationsText.setText("Clear");
+                }
+            }
+        });
+
+        mCognition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("LOG", "test");
+                startActivity(new Intent(getActivity(), MainMenu.class));
+            }
+        });
+
+        mMood.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction =
+//                        fragmentManager.beginTransaction();
+//                MoodTrackingFragment ffragment=new MoodTrackingFragment();
+//                fragmentTransaction.addToBackStack(null);
+//                ffragment.show(fragmentTransaction, "dialog");
+                MoodTrackingFragment moodTrackingFragment = new MoodTrackingFragment();
+                FragmentTransaction fragmentTransaction =
+                        getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, moodTrackingFragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        mSpeech.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                SpeechAnalysisFragment speechAnalysisFragment = new SpeechAnalysisFragment();
+                FragmentTransaction fragmentTransaction =
+                        getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, speechAnalysisFragment);
+                fragmentTransaction.commit();
+            }
+        });
 
 
 
@@ -200,6 +296,43 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         }
     }
 
+    private void showMonitoringError(String error)
+    {
+
+        mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_red));
+     //   mSensorsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
+        mSensorsTitle.setTextColor(Color.WHITE);
+        mSensorsAct.setVisibility(View.INVISIBLE);
+        mSensorsText.setTextColor(Color.WHITE);
+        //mSensorsText.setTextColor(Color.parseColor("#ff3333"));
+        mSensorsText.setText(error);
+    }
+    private void showMonitoringOK()
+    {
+
+        mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+     //   mSensorsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
+        mSensorsTitle.setTextColor(Color.BLACK);
+        mSensorsAct.setVisibility(View.VISIBLE);
+        mSensorsText.setTextColor(Color.parseColor("#555555"));
+        mSensorsText.setText("WORKING");
+
+
+    }
+    private void showNotMonitoring()
+    {
+
+        mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_grey));
+        //mSensorsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
+        mSensorsTitle.setTextColor(Color.WHITE);
+        mSensorsAct.setVisibility(View.INVISIBLE);
+        mSensorsText.setTextColor(Color.WHITE);
+        //mSensorsText.setTextColor(Color.parseColor("#e2e2e2"));
+        mSensorsText.setText("Not Monitoring");
+
+
+    }
+
     class HomeTimerTask extends TimerTask {
         public void run() {
 
@@ -216,14 +349,18 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                         RecordingService service = RecordingServiceHandler.getInstance().getService();
                         if (service != null && service.isSessionRunning()) {
 
-                            mMonitoringStatus.setTextColor(Color.GREEN);
-                           mMonitoringStatus.setText("monitoring");
+                        //   mMonitoringStatus.setTextColor(Color.GREEN);
+                      //     mMonitoringStatus.setText("monitoring");
 
-                            if (mSensorStatus != null) {
-                                mSensorStatus.setVisibility(View.VISIBLE);
+
+
+
+                            //    mSensorStatus.setVisibility(View.VISIBLE);
                                 if (service.isAllRecording()) {
-                                    mSensorStatus.setText("ALL OK");
-                                    mSensorStatus.setTextColor(Color.GREEN);
+
+                                    showMonitoringOK();
+                                    //showMonitoringError("Something is wrong");
+
                                 } else
 
                                 {
@@ -241,7 +378,8 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                         }
 
                                         if (service.getFatalErrorCode() == 1) {
-                                            mSensorStatus.setText("Band is not paired...please re-pair your Band from the band device...PLEASE ASK YOUR TECHNICIAN IF YOU NEED MORE INFO");
+                                            //mMonitoringStatus.setText("SOMETHING IS WROKGBand is not paired...please re-pair your Band from the band device...PLEASE ASK YOUR TECHNICIAN IF YOU NEED MORE INFO");
+
 
 
                                         } else
@@ -257,19 +395,18 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                       //  mSensorStatus.setText("Something is wrong...restart the application");
 
                                     }
-                                    mSensorStatus.setTextColor(Color.RED);
+                                    showMonitoringError("Something is wrong");
+
                                 }
-                            }
+
 
 
                         } else {
 
-                            mMonitoringStatus.setText("not monitoring");
-                            mMonitoringStatus.setTextColor(Color.RED);
+                        showNotMonitoring();
 
-
-                            if (mSensorStatus != null)
-                                mSensorStatus.setVisibility(View.INVISIBLE);
+                           // if (mSensorStatus != null)
+                             //   mSensorStatus.setVisibility(View.INVISIBLE);
                         }
 
                     }

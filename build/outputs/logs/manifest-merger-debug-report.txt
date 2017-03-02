@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:2:1-211:12
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:2:1-378:12
 	package
 		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:3:5-28
 		INJECTED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml
@@ -233,7 +233,7 @@ ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:67:5-
 	android:name
 		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:67:22-69
 application
-ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:70:5-209:19
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:70:5-376:19
 MERGED from [:Common-2015.3.1113-trial-release:] E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Common-2015.3.1113-trial-release\AndroidManifest.xml:11:5-12:19
 MERGED from [:Data-2015.3.1113-trial-release:] E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Data-2015.3.1113-trial-release\AndroidManifest.xml:11:5-12:19
 MERGED from [:Primitives-2015.3.1113-trial-release:] E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\Primitives-2015.3.1113-trial-release\AndroidManifest.xml:11:5-12:19
@@ -468,6 +468,194 @@ ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:202:1
 		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:204:17-54
 	android:name
 		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:203:17-69
+activity#com.pdmanager.views.patient.cognition.MainMenu
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:210:9-215:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:214:13-53
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:213:13-45
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:212:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:211:13-74
+activity#com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:217:9-222:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:220:13-53
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:221:13-45
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:219:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:218:13-89
+activity#com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:224:9-228:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:227:13-53
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:226:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:225:13-100
+activity#com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestTwo
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:230:9-234:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:233:13-53
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:232:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:231:13-100
+activity#com.pdmanager.views.patient.cognition.fingertapping.FingerTappingEnd
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:236:9-240:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:239:13-53
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:238:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:237:13-96
+activity#com.pdmanager.views.patient.cognition.speech.SpeechTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:242:9-247:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:245:13-53
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:246:13-45
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:244:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:243:13-83
+activity#com.pdmanager.views.patient.cognition.cognitive.PairedAssociatesLearningTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:249:9-258:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:254:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:251:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:253:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:252:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:250:13-104
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:255:13-257:97
+	android:value
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:257:17-94
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:256:17-63
+activity#com.pdmanager.views.patient.cognition.cognitive.PALPRM
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:260:9-268:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:264:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:262:13-49
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:263:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:261:13-82
+activity#com.pdmanager.views.patient.cognition.cognitive.PatternRecognitionMemoryTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:270:9-278:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:274:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:272:13-48
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:273:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:271:13-104
+activity#com.pdmanager.views.patient.cognition.cognitive.SpatialWorkingMemoryTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:280:9-289:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:283:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:282:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:285:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:284:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:281:13-100
+activity#com.pdmanager.views.patient.cognition.cognitive.SpatialSpanTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:291:9-300:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:296:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:293:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:295:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:294:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:292:13-91
+activity#com.pdmanager.views.patient.cognition.cognitive.StopSignalTaskTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:302:9-311:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:307:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:304:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:306:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:305:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:303:13-94
+activity#com.pdmanager.views.patient.cognition.cognitive.WisconsinCardSorting
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:313:9-323:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:318:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:315:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:317:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:316:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:314:13-96
+activity#com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:325:9-335:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:330:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:327:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:329:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:328:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:326:13-92
+activity#com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:337:9-346:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:342:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:339:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:341:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:340:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:338:13-102
+activity#com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:348:9-357:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:353:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:350:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:352:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:351:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:349:13-99
+activity#com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest2
+ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:359:9-368:20
+	android:screenOrientation
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:364:13-54
+	android:label
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:361:13-48
+	android:parentActivityName
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:363:13-103
+	android:theme
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:362:13-69
+	android:name
+		ADDED from E:\Rigas\PDManager\Android\Patient\src\main\AndroidManifest.xml:360:13-100
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:10.0.0] E:\Rigas\PDManager\Android\Patient\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.0\AndroidManifest.xml:19:9-172
 	android:exported

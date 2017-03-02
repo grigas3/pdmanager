@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_account_authenticator.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Patient\\oidclib\\unspecified\\res\\drawable-xhdpi-v4\\ic_account_authenticator.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_account_authenticator.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Patient\\oidclib\\unspecified\\res\\drawable-xhdpi-v4\\ic_account_authenticator.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\calendar_pic_6.jpg",

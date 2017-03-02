@@ -205,6 +205,173 @@
         </service>
 
 
+        <!--cognition-->
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.MainMenu"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/app_name"
+            android:screenOrientation="userPortrait">
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userPortrait"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userPortrait" >
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestTwo"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userPortrait" >
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingEnd"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userPortrait" >
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.speech.SpeechTest"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userPortrait"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.PairedAssociatesLearningTest"
+            android:label="@string/title_menu2"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.PALPRM"
+            android:label="@string/title_menu10"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.PatternRecognitionMemoryTest"
+            android:label="@string/title_menu3"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.SpatialWorkingMemoryTest"
+            android:label="@string/title_menu4"
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.SpatialSpanTest"
+            android:label="@string/title_menu5"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.StopSignalTaskTest"
+            android:label="@string/title_menu6"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.WisconsinCardSorting"
+            android:label="@string/title_menu9"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+                />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest"
+            android:label="@string/title_menu9"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+                />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest"
+            android:label="@string/title_menu7"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest"
+            android:label="@string/title_menu8"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+        <activity
+            android:name="com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest2"
+            android:label="@string/title_menu8"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
+            android:screenOrientation="userLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
+        </activity>
+
+
+
+
+
+
 
     </application>
 

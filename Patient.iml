@@ -144,6 +144,7 @@
     <orderEntry type="library" exported="" name="support-v4-24.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-5.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="shadows-core-3.0" level="project" />
+    <orderEntry type="library" exported="" name="jgrapht-core-0.9.2" level="project" />
     <orderEntry type="library" exported="" name="Common-2015.3.1113-trial-release-" level="project" />
     <orderEntry type="library" exported="" name="Primitives-2015.3.1113-trial-release-" level="project" />
     <orderEntry type="library" exported="" name="design-23.4.0" level="project" />
@@ -151,6 +152,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="icu4j-53.1" level="project" />
     <orderEntry type="library" exported="" name="Data-2015.3.1113-trial-release-" level="project" />
     <orderEntry type="library" exported="" name="oovoosdk" level="project" />
+    <orderEntry type="library" exported="" name="TarsosDSP-Android-latest" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-impl-10.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="robolectric-resources-3.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />

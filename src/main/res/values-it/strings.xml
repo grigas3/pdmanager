@@ -140,7 +140,7 @@
     <string name="ngfmess2">Πατήσατε ήδη το κουμπί πριν λίγο!</string>
     <string name="ngfmess1">Πατηστε το κουμπί όταν ΔΕΝ νοιώθετε καλά!</string>
 
-    <string name="next">Next</string>
+    <!--<string name="next">Next</string>-->
     <string name="prev">Previous</string>
     <string name="finish">Submit your answers</string>
     <string name="review">Review</string>
@@ -206,7 +206,7 @@
     <string name="call_receiver_label">Call receiver Id:</string>
     <string name="enter_receiver_id">Enter receiver Id</string>
     <string name="enter_call_receiver">Enter call receiver</string>
-    <string name="ok">Ok</string>
+    <!--<string name="ok">Ok</string>-->
     <string name="cancel">Cancel</string>
     <string name="calling">Calling</string>
     <string name="answer">Answer</string>
@@ -243,5 +243,181 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
+    <!--cognition-->
 
+    <string name="emotion_recognition_task">Emotion Recognition Task</string>
+    <string name="paired_associates_learning">Paired Associates Learning</string>
+    <string name="pattern_recognition_memory">Pattern Recognition Memory</string>
+    <string name="spatial_working_memory">Spatial Working Memory</string>
+    <string name="spatial_span">Spatial Span</string>
+    <string name="stop_signal_task">Stop Signal Task</string>
+    <string name="attention_switching_task">Attention Switching Task</string>
+    <string name="visual_analogue_scale">Visual Analogue Scale</string>
+    <string name="wisconsin_card_sorting_test">Wisconsin Card Sorting</string>
+    <string name="london_towers_test">London Towers</string>
+    <string name="target">Obiettivo:</string>
+    <string name="movement">Movimento</string>
+    <string name="level">Livello</string>
+    <string name="title_menu10">Visual Learning</string>
+
+    <string name="menuFirst">Finger Tapping Test</string>
+    <string name="menuSecond">Cognitive Tests</string>
+
+    <string name="title_menu1">ERT</string>
+    <string name="title_menu2">PAL</string>
+    <string name="title_menu3">PRM</string>
+    <string name="title_menu4">SWM</string>
+    <string name="title_menu5">SSP</string>
+    <string name="title_menu6">SST</string>
+    <string name="title_menu7">AST</string>
+    <string name="title_menu8">VAS</string>
+    <string name="title_menu9">WCS</string>
+
+    <string name="start">Inizio</string>
+    <string name="next">Prossimo</string>
+    <string name="True">Vero</string>
+    <string name="False">Falso</string>
+    <string name="direction">Direzione</string>
+    <string name="position">Posizione</string>
+    <string name="congruent">CONGRUENT</string>
+    <string name="incongruent">INCONGRUENT</string>
+    <string name="taskFinished">Esercizio completato</string>
+    <string name="question">Domanda</string>
+    <string name="moves">mosse</string>
+
+    <string name="ic_launcher">ic_launcher</string>
+
+    <string name="pal_instruction">In questo test vedrai 6 scatole bianche aprirsi in ordine casuale. All\'interno delle scatole vedrai comparire delle figure. Il tuo compito è ricordare in quale scatola si trova la figura presentata al centro dello schermo.</string>
+    <string name="pal_instructions_choose">Tocca la scatola in cui hai visto comparire la figura.</string>
+    <string name="pal_feedback">Corretto!</string>
+    <string name="pal_patterns">figure</string>
+    <string name="pal_levels">Livello</string>
+    <string name="pal_all_correct">Corretto</string>
+    <string name="pal_all_try_again">Prova di nuovo</string>
+    <string name="pal_errors">errori</string>
+    <string name="pal_results">Risultati di Paired Associates Learning:</string>
+
+    <string name="prm_instruction">Vedrai comparire consecutivamente diverse figure in un riquadro. Fai molta attenzione e prova a ricordare le figure che vengono presentate.</string>
+    <string name="prm_instruction_choose">Adesso ci sono due figure, tra queste quale hai visto prima?</string>
+    <string name="prm_results">Risultati di Pattern Recognition Memory:</string>
+    <string name="prm_reverse">Ordine inverso</string>
+    <string name="prm_random">Ordine casuale</string>
+    <string name="prm_levels">Livello</string>
+    <string name="prm_patterns">figure</string>
+
+    <string name="swm_instruction">Ora vedrai alcune scatole colorate sullo schermo. Una di queste scatole contiene un gettone blu. Tocca le scatole per cercare il gettone blu. Devi raccogliere abbastanza gettoni per riempire tutte le scatole nere a lato dello schermo. Per raccogliere il gettone, tocca la scatola nera a lato dopo averlo trovato. Il gettone si troverà sempre in una scatola diversa.</string>
+    <string name="swm_results">Risultati di Spatial Working Memory:</string>
+    <string name="swm_levels">Livello</string>
+    <string name="instruction_start_swm">Vedrai diverse scatole alcune contenenti un quadrato blu e altre no. Trova il quadrato blu e inseriscilo nella colonna a sinistra.</string>
+
+    <string name="ssp_instruction">In questo esercizio vedrai sullo schermo alcuni quadrati illuminarsi. Ricorda l\'ordine in cui i quadrati si sono illuminati. Sentirai un suono che ti dirà quando la sequenza è terminata. A quel punto tocca i quadrati nello stesso ordine in cui li hai visti illuminarsi.</string>
+    <string name="ssp_results">Risultati di Spatial Span</string>
+    <string name="spatialSpan_instruction">Vedrai una sequenza di quadrati viola apparire, tocca le scatole nello stesso ordine.</string>
+    <string name="ssp_levels">Livello</string>
+    <string name="ssp_trial">Prova</string>
+    <string name="ssp_patterns">figure</string>
+
+    <string name="sst_instruction_first">Prima parte: una freccia comparirà dentro un cerchio indicando destra o sinistra. Quando vedrai la freccia puntare a sinistra premi il pulsante a sinistra. Quando vedrai la freccia puntare a destra premi il pulsante a destra. Premi i pulsanti il più velocemente possibile cercando però di non commettere errori.</string>
+    <string name="sst_instruction_second">Seconda parte: una freccia comparirà dentro un cerchio indicando destra o sinistra. Quando vedrai la freccia puntare a sinistra premi il pulsante a sinistra. Quando vedrai la freccia puntare a destra premi il pulsante a destra. Ma nel caso tu senta un SUONO dopo che la freccia è apparsa, NON PREMERE nessun pulsante. Premi i pulsanti il più velocemente possibile cercando però di non commettere errori.</string>
+    <string name="sst_results">Risultati di Stop Signal Task</string>
+    <string name="sst_left">SINISTRA</string>
+    <string name="sst_right">DESTRA</string>
+    <string name="sst_trial">Prova</string>
+    <string name="sst_too_late">Troppo tardi</string>
+    <string name="sst_wrong">Sbagliato</string>
+
+    <string name="ast_instruction">Una freccia apparirà sullo schermo, usa i pulsanti in basso per rispondere alle domande. Ti verrà chiesto di indicare la posizione in cui si trova la freccia o la direzione che inidica la freccia.</string>
+    <string name="ast_cue_arrowDirection">Quale DIREZIONE?</string>
+    <string name="ast_cue_arrowPosition">Quale POSIZIONE?</string>
+    <string name="ast_results">Risultati di Attention Switching Task:</string>
+    <string name="ast_left">SINISTRA</string>
+    <string name="ast_right">DESTRA</string>
+
+    <string name="vas_instruction">Adesso rispondi a 8 domande che appariranno sullo schermo toccando la barra e spostandola sulla posizione che ritieni più opportuna.</string>
+    <string name="vas_results">Risultati di Visual Analogue Scale:</string>
+    <string name="vas_question_minValue">0</string>
+    <string name="vas_question_maxValue">100</string>
+    <string name="vas_question1">Come ti senti oggi?</string>
+    <string name="vas_minValue_Q1">Triste</string>
+    <string name="vas_maxValue_Q1">Felice</string>
+    <string name="vas_question2">Ti senti rilassato?</string>
+    <string name="vas_minValue_Q2">No</string>
+    <string name="vas_maxValue_Q2">Sì</string>
+    <string name="vas_question3">Ti senti concentrato oggi?</string>
+    <string name="vas_minValue_Q3">No</string>
+    <string name="vas_maxValue_Q3">Sì</string>
+    <string name="vas_question4">Ti senti motivato a svolgere le tue attività?</string>
+    <string name="vas_minValue_Q4">No</string>
+    <string name="vas_maxValue_Q4">Sì</string>
+    <string name="vas_question5">Sei in OFF o in ON in questo momento</string>
+    <string name="vas_minValue_Q5">OFF</string>
+    <string name="vas_maxValue_Q5">ON</string>
+    <string name="vas_question6">Hai crampi o dolore di qualche tipo?</string>
+    <string name="vas_minValue_Q6">No</string>
+    <string name="vas_maxValue_Q6">Sì</string>
+    <string name="vas_question7">Come hai dormito la scorsa notte?</string>
+    <string name="vas_minValue_Q7">Male</string>
+    <string name="vas_maxValue_Q7">Bene</string>
+    <string name="vas_question8">Ti senti arrabbiato oggi?</string>
+    <string name="vas_minValue_Q8">Molto</string>
+    <string name="vas_maxValue_Q8">Per niente</string>
+
+    <string name="vas2_s0">Completamente in disaccordo</string>
+    <string name="vas2_s1">In disaccordo</string>
+    <string name="vas2_s2">Neutrale</string>
+    <string name="vas2_s3">D\'accordo</string>
+    <string name="vas2_s4">Completamente d\'accordo</string>
+    <string name="vas2_question1">Ti senti felice oggi?</string>
+
+    <string name="palprm_instruction">Ora vedrà una serie di coppie di immagini. Presti attenzione e cerchi di memorizzare le coppie, perché successivamente le sarà presentata solo un’immagine della coppia e lei dovrà ricordare l’immagine ad essa associata, scegliendo l’opzione corretta tra 4 possibili alternative. Ripeterà lo stesso esercizio pertre volte, con le stesse coppie di immagini, in modo che le risulteranno via via più familiari.</string>
+    <string name="london_towers_instruction">Qui ci sono tre bastoncini di diversa lunghezza e tre palline di colore diverso. Lei dovrà mettere le palline secondo le disposizioni che le mostrerò.</string>
+    <string name="wisconsin_instruction">Queste che ha davanti sono quattro carte guida; vorrei che lei mettesse ciascuna di queste carte che le ho dato in mano sotto una delle carte guida dove lei pensa che sia opportuno metterle.  Tenga conto che è possibile accoppiare le carte secondo i criteri di numero, forma e colore.Le dirò io se è giusto mostrando una spunta verde o sbagliato con una croce rossa, le sarà data una risposta dopo ogni mossa.</string>
+
+    <string name="fttoneTvInstructions">Premi ripetutamente con un dito sull\'area verde il più velocemente possibile entro i prossimi 10 secondi. Comincia quando vuoi.</string>
+    <string name="fttoneTvTap">Premi qui!</string>
+    <string name="fttoneTvTimeNumberOfTaps">colpi</string>
+    <string name="fttoneTvTime">Tempo</string>
+    <string name="fttoneTvSeconds">secondi</string>
+
+    <string name="fttTwoTvInstructions">Usa due dita per premere alternativamente sui pulsanti destro e sinistro il più velocemente possibile durante i prossimi 10 secondi. Comincia quando vuoi.</string>
+    <string name="fttTwoTvTap">Premi qui!</string>
+    <string name="fttTwoTvTimeNumberOfTaps">colpi</string>
+    <string name="fttTwoTvTime">Tempo</string>
+    <string name="fttTwoTvSeconds">secondi</string>
+
+    <string name="fttEndMessage">Molto bene! L\'esercizio è terminato.</string>
+    <string name="fttEndButtonRepeat">Esegui un altro test</string>
+    <string name="fttEndButtonExit">Esci</string>
+
+    <string name="palprm_title0">Ricorda le seguenti coppie di icone</string>
+    <string name="palprm_title1">Scegli l\'icona che corrisponde alla coppia precedentemente mostrata con l\'icona sinistra</string>
+
+    <string name="welcome">Benvenuto nel PD_manager</string>
+    <string name="configure_user">Configurazione profilo utente</string>
+    <string name="perform_tests">Esegui test</string>
+    <string name="choose_username">Per favore inserisci il nome dell\'utente associato a questi test:</string>
+    <string name="start_daily_tests">Hai programmato di eseguire una serie di test al giorno!</string>
+    <string name="end_tests">Hai concluso questa serie di test quotidiane!</string>
+    <string name="end_test_query">Sei sicuro di voler concludere questa serie di test?</string>
+    <string name="username">nome utente</string>
+    <string name="next_config">Prossimo</string>
+    <string name="end_config">Configurazione finale</string>
+    <string name="ok">Ok</string>
+    <string name="choose_hour0">Indicare quando l\'utente effettuerà i test (prima delle 12:00)</string>
+    <string name="choose_hour1">Indicare quando l\'utente effettuerà i test (dopo le 12:00)</string>
+    <string name="choose_dow">Scegliere i giorni della settimana in cui l\'utente effettuerà i test.</string>
+    <string name="config_ok">La configurazione è stata completata con successo.</string>
+    <string name="smonday">Lu</string>
+    <string name="stuesday">Ma</string>
+    <string name="swednesday">Me</string>
+    <string name="sthursday">Gi</string>
+    <string name="sfriday">Ve</string>
+    <string name="ssaturday">Sa</string>
+    <string name="ssunday">Do</string>
+
+    <string name="menuThird">Prova vocale</string>
+    <string name="speech_instruction">In questo test, devi pronunciare ad alta voce il fonema \"AAAAH\" per cinque secondi quando indicato.</string>
+    <string name="speech_wait">Attendi che termini il conto alla rovescia prima di incominciare</string>
+    <string name="speech_start">Pronuncia ad alta voce \"AAAAH\" fino alla fine del conto alla rovescia!</string>
+    <string name="start_speech">Inizia!</string>
 </resources>

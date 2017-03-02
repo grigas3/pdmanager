@@ -12,12 +12,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\screen_layout.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\background_pattern.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\background_pattern.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_calendar_calendar.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_calendar_calendar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\background_pattern.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\background_pattern.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_calendar_location.png",
@@ -36,12 +36,24 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\icon_add_fav.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\bar_7.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\bar_7.png"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_cog_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_cog_g.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_med_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_med_g.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\screen_axes.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\screen_axes.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\bar_7.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\bar_7.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_mood_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_mood_g.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\drawer_shadow.9.png",
@@ -96,6 +108,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\bar_5.png"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_notif_w.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_notif_w.png"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_calendar_rooms.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_calendar_rooms.png"
     },
@@ -110,6 +126,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sdk_c_effects_disabled.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_c_effects_disabled.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_menu_overflow.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_menu_overflow.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\thunderstorm.png",
@@ -180,6 +200,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\splash_normal.png"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_med_w.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_med_w.png"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\screen_calendar.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\screen_calendar.png"
     },
@@ -232,6 +256,14 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_dataform_calendar_pink.png"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_speech_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_speech_g.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_check_sm_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_check_sm_g.png"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sdk_ic_phones_disabled.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_phones_disabled.png"
     },
@@ -240,12 +272,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_source.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_listview_layouts_refine.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_refine.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\line_5.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\line_5.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_listview_layouts_refine.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_listview_layouts_refine.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_list_calendar.png",
@@ -260,12 +292,20 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_calendar_calendar_1.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_edit.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_action_edit.png"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_btn_pause.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_btn_pause.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\empty_avatar.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\empty_avatar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_edit.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_action_edit.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_mood_w.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_mood_w.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\scatteredclouds.png",
@@ -288,6 +328,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_dataform_phone.png"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_sens_w.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_sens_w.png"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sdk_ic_ear_tap.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_ear_tap.png"
     },
@@ -296,12 +340,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\showerrain.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_main.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_main.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\area_5.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\area_5.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_main.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_main.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\listview_layouts_fab.png",
@@ -362,6 +406,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_actionbar_overflow.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_actionbar_overflow.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_check_sm_w.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_check_sm_w.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_listview_selection_reorder.png",
@@ -428,6 +476,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_bluetooth_tap.png"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_sens_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_sens_g.png"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_search.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_search.png"
     },
@@ -458,6 +510,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sdk_ic_speaker_disabled.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_speaker_disabled.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_chevron_right.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_chevron_right.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\scatter.png",
@@ -498,6 +554,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_info.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\icon_info.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\logo.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\logo.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_feedback.png",
@@ -596,6 +656,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\join_btn_tap.9.png"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_cog_w.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_cog_w.png"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_remove_fav.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\icon_remove_fav.png"
     },
@@ -622,6 +686,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\speech_bubble_green.9.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\speech_bubble_green.9.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_notif_g.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_notif_g.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_listview_layouts_staggered.png",
@@ -724,12 +792,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\pie_2.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sdk_ic_camera_disabled.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_camera_disabled.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_list_chart.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_list_chart.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sdk_ic_camera_disabled.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\sdk_ic_camera_disabled.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\bg_listview.png",
@@ -802,5 +870,9 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_more.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\icon_more.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_rec_btn.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-hdpi\\ic_rec_btn.png"
     }
 ]

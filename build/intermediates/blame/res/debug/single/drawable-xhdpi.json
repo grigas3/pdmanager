@@ -1,31 +1,31 @@
 [
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\snow.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\snow.png"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_list_calendar.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_list_calendar.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\bar_8.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\bar_8.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_list_calendar.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_list_calendar.png"
-    },
-    {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\bg_chart.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\bg_chart.png"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\snow.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\snow.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\screen_horizontal_layout.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\screen_horizontal_layout.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_list_dataform.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_list_dataform.png"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\bg_chart.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\bg_chart.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\scatteredclouds.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\scatteredclouds.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_list_dataform.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_list_dataform.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\pie_4.png",
@@ -516,12 +516,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_listview_reorder_delete.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_listview_reorder_complete.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_listview_reorder_complete.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\screen_dataform.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\screen_dataform.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_listview_reorder_complete.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xhdpi\\ic_listview_reorder_complete.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\sidedrawer_navdrawer_user.png",

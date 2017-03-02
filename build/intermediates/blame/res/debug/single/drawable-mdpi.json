@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_listview_selection_fav1.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_listview_selection_fav1.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_dataform_guest.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_dataform_guest.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_listview_selection_fav1.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_listview_selection_fav1.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\screen_scatter_chart.png",
@@ -44,12 +44,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\fewclouds.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_action_edit.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_action_edit.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\pie_5.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\pie_5.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_action_edit.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_action_edit.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\skyisclear.png",
@@ -68,12 +68,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_nav_sidedrawer.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\bar_7.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\bar_7.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_list_calendar.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\ic_list_calendar.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\bar_7.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\bar_7.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\brokenclouds.png",
@@ -84,12 +84,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\viewcode_check.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\screen_line_chart.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\screen_line_chart.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\screen_custom_content.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\screen_custom_content.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\screen_line_chart.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-mdpi\\screen_line_chart.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_listview_layouts_refine.png",

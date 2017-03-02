@@ -40,6 +40,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\example_side_drawer_drawer.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\london_towers.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\london_towers.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\trial_message.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Common-2015.3.1113-trial-release\\res\\layout\\trial_message.xml"
     },
@@ -92,16 +96,20 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\tips_presenter.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\palprm.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\palprm.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_root_layout.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_root_layout.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\video_item.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\video_item.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\listview_slideitem_header.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\listview_slideitem_header.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\video_item.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\video_item.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\pedmed_list_item.xml",
@@ -124,6 +132,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\data_form_reservation_date_editor.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_speech_analysis.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_speech_analysis.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_reorder_swipe_content.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\list_view_reorder_swipe_content.xml"
     },
@@ -144,16 +156,20 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_line_multi.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_line_multi.xml"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_patient_allergy.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_patient_allergy.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_big_media_narrow.xml"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_line_multi.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_line_multi.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_ast_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_ast_test.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_band.xml",
@@ -162,6 +178,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\activity_end.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\activity_end.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_line.xml",
@@ -188,16 +208,20 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\reservation_time_editor.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\speechactivity.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\speechactivity.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\simple_group_header_item.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\List-2015.3.1113-trial-release\\res\\layout\\simple_group_header_item.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_selection_group_header_layout.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\list_view_selection_group_header_layout.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\navigation_drawer_content.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Primitives-2015.3.1113-trial-release\\res\\layout\\navigation_drawer_content.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_selection_group_header_layout.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\list_view_selection_group_header_layout.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_area.xml",
@@ -332,6 +356,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\tooltip_content.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\finger_tapping_test_one.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\finger_tapping_test_one.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\reservation_table_editor_header.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\reservation_table_editor_header.xml"
     },
@@ -384,6 +412,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\list_item_review_small_title.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_vas_test_agreement.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_vas_test_agreement.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list_horizontal_scrolling.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_list_horizontal_scrolling.xml"
     },
@@ -398,6 +430,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_reorder_todo_layout.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\list_view_reorder_todo_layout.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_sst_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_sst_test.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
@@ -438,6 +474,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list_view_selection.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_list_view_selection.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\finger_tapping_test_two.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\finger_tapping_test_two.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_reorder_shopping_layout.xml",
@@ -488,6 +528,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_day.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\activity_start.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\activity_start.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\drawer_blur_fade_layer.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Primitives-2015.3.1113-trial-release\\res\\layout\\drawer_blur_fade_layer.xml"
     },
@@ -520,8 +564,16 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\inline_event.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_vas_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_vas_test.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\drawer_list_item_container.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\drawer_list_item_container.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_main_menu.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_main_menu.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_toggle_button_editor.xml",
@@ -636,6 +688,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\main_menu.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\main_menu.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\calendar_main_event_list_item.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\calendar_main_event_list_item.xml"
     },
@@ -646,6 +702,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_patient_medicationorder.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_patient_medicationorder.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_prm_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_prm_test.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_medication.xml",
@@ -712,6 +772,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\example_drawer_custom_main.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_pal_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_pal_test.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_text_editor.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_text_editor.xml"
     },
@@ -764,6 +828,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_number_picker.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_swm_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_swm_test.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\activity_medorder.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\activity_medorder.xml"
     },
@@ -772,8 +840,16 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_pal_test_two.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_pal_test_two.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list_view_slide.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_list_view_slide.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\wisconsin_cards.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\wisconsin_cards.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_horizontal_scrolling_ondemand_indicator.xml",
@@ -960,6 +1036,10 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_time_editor.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\cognitive_ssp_test.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\cognitive_ssp_test.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_menu_item_layout.xml"
     },
@@ -1108,12 +1188,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_day_observations.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_page_customer_info.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_page_customer_info.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_group_layout.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_group_layout.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_page_customer_info.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_page_customer_info.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_checkbox_editor.xml",
