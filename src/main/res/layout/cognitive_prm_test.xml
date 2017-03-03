@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|center_vertical"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/prm_info"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="TEXT"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFF"
+            android:textSize="25dp"
+            android:paddingTop="35dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="@dimen/prm_picto_layout_size"
+            android:layout_height="@dimen/prm_picto_size"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:gravity="right">
+            <ImageButton
+                android:layout_width="@dimen/prm_picto_size"
+                android:layout_height="@dimen/prm_picto_size"
+                android:layout_gravity="left"
+                android:scaleType="fitXY"
+                android:id="@+id/imageButtonLeft" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/prm_picto_size"
+            android:layout_height="@dimen/prm_picto_size"
+            android:layout_centerHorizontal="true"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/prm_picto_size"
+                android:layout_height="@dimen/prm_picto_size"
+                android:scaleType="fitXY"
+                android:gravity="center_horizontal|center_vertical"
+                android:id="@+id/imageViewCentral" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/prm_picto_layout_size"
+            android:layout_height="@dimen/prm_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="left">
+            <ImageButton
+                android:layout_width="@dimen/prm_picto_size"
+                android:layout_height="@dimen/prm_picto_size"
+                android:gravity="right"
+                android:scaleType="fitXY"
+                android:id="@+id/imageButtonRight" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

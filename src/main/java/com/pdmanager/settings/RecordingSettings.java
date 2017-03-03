@@ -54,6 +54,11 @@ public class RecordingSettings {
     private String mEvent1;
     private String mEvent2;
     private String mRole;
+    private int mCognHour1;
+    private int mCognHour2;
+    private int mMoodHour;
+
+
 
     public RecordingSettings() {
 
@@ -95,6 +100,11 @@ public class RecordingSettings {
                 mLang = pref.getString("Lang", mLang);
 
                 mStopHour = pref.getInt("StopHour", mStopHour);
+
+                mCognHour1 = pref.getInt("CognHour1", mCognHour1);
+                mCognHour2 = pref.getInt("CognHour2", mCognHour2);
+                mMoodHour = pref.getInt("MoodHour", mMoodHour);
+
                 mSensorDelay = pref.getInt("SensorDelay", mSensorDelay);
                 mSessionRunning = pref.getBoolean("SessionRunning", mSessionRunning);
                 mRecordingStart = pref.getLong("RecordingStart", mRecordingStart);
@@ -538,5 +548,27 @@ public class RecordingSettings {
         this.mTileUUID = deviceId.toString();
 
         SetPref("TileUUID", deviceId.toString());
+    }
+    public int getCognHour1() {
+        return this.mCognHour1;
+    }
+    public void setCognHour1(int cognHour1) {
+        this.mCognHour1 = cognHour1;
+    }
+
+    public int getCognHour2() {
+        return this.mCognHour2;
+    }
+    public void setCognHour2(int cognHour2) {
+        this.mCognHour2 = cognHour2;
+    }
+
+
+
+    public int getMoodHour() {
+        return this.mMoodHour;
+    }
+    public void setMoodHour(int moodHour) {
+        this.mMoodHour = moodHour;
     }
 }

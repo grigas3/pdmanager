@@ -12,6 +12,7 @@ import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.views.patient.AlertPDFragment;
 import com.pdmanager.views.patient.MedAlertFragment;
+import com.pdmanager.views.patient.MoodTrackingFragment;
 
 import java.util.HashMap;
 import java.util.Timer;
@@ -85,6 +86,29 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         {
 
             MedAlertFragment fragment= new MedAlertFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
+            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
+            fragment.setArguments(bundle);
+            newFragment=fragment;
+        }
+
+        else if(section!=null&&section.toUpperCase()=="MOOD")
+        {
+
+            MoodTrackingFragment fragment= new MoodTrackingFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
+            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
+            fragment.setArguments(bundle);
+            newFragment=fragment;
+        }
+        else if(section!=null&&section.toUpperCase()=="COGNITIVE")
+        {
+
+            MoodTrackingFragment fragment= new MoodTrackingFragment();
 
             Bundle bundle = new Bundle();
             bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());

@@ -31,7 +31,11 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     // private Switch mSwitchBandAcc;
     //private Switch mSwitchBandGyro;
     private Switch mSwitchDevAcc;
+    private Spinner mCognitiveTestHour2;
+    private Spinner mCognitiveTestHour1;
+    private Spinner mMoodHour;
     private Spinner mStartHourSpin;
+
     private Spinner mEndHourSpin;
 
     private Spinner mLangSpin;
@@ -142,16 +146,15 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         mSwitchBandSensors.setOnCheckedChangeListener(mToggleSensorSection);
 
 
-        //mPatientCode=(Spinner) rootView.findViewById(R.id.patientCode);
+
+        mCognitiveTestHour1 = (Spinner) rootView.findViewById(R.id.cognHourSpinner1);
+        mCognitiveTestHour2 = (Spinner) rootView.findViewById(R.id.cognHourSpinner2);
+        mMoodHour = (Spinner) rootView.findViewById(R.id.moodSetHour);
+
 
 
         mSwitchDevAcc = (Switch) rootView.findViewById(R.id.switchDeviceSensors);
-        //   mSwitchHeartRate = (Switch) rootView.findViewById(R.id.switchHeartRate);
-//        mSwitchST = (Switch) rootView.findViewById(R.id.switchST);
-        //      mSwitchBandAcc= (Switch) rootView.findViewById(R.id.switchBandAccelerometer);
-        //    mSwitchBandGyro= (Switch) rootView.findViewById(R.id.switchBandGyroscope);
         mSendorDelaySpin = (Spinner) rootView.findViewById(R.id.sensorDelaySpinner);
-
 
         mLangSpin=(Spinner) rootView.findViewById(R.id.langSpin);
         //  mSwitchST.setOnCheckedChangeListener(mToggleSensorSection);
@@ -163,19 +166,9 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         mSwitchUseDetectors = (Switch) rootView.findViewById(R.id.switchUseDetectors);
         mSwitchUseDetectors.setOnCheckedChangeListener(mToggleSensorSection);
-//        mSwitchHeartRate.setOnCheckedChangeListener(mToggleSensorSection);
-        //      mSwitchBandAcc.setOnCheckedChangeListener(mToggleSensorSection);
-        //    mSwitchBandGyro.setOnCheckedChangeListener(mToggleSensorSection);
-
-
-        //mOrganizationSpin = (Spinner) rootView.findViewById(R.id.organizationSpinner);
-
-        //  mSensorMap.add(mSwitchST);
-        //mSensorMap.add(mSwitchHeartRate);
-        //mSensorMap.add(mSwitchBandAcc);
-        //mSensorMap.add(mSwitchBandGyro);
         mSensorMap.add(mSwitchDevAcc);
         mSensorMap.add(mSwitchBandSensors);
+
         enableSpinnerListener = false;
         addItemsOnSpinners();
         addListenerOnSpinnerItemSelection();
@@ -364,7 +357,12 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
                 android.R.layout.simple_spinner_dropdown_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mStartHourSpin.setAdapter(dataAdapter);
+
         mEndHourSpin.setAdapter(dataAdapter);
+        mCognitiveTestHour1.setAdapter(dataAdapter);
+        mCognitiveTestHour2.setAdapter(dataAdapter);
+        mMoodHour.setAdapter(dataAdapter);
+
 
         ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, list1);
@@ -455,6 +453,9 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         mStartHourSpin.setOnItemSelectedListener(new StartHourSelectedListener());
         mEndHourSpin.setOnItemSelectedListener(new EndHourSelectedListener());
+        mCognitiveTestHour1.setOnItemSelectedListener(new CognHour1SelectedListener());
+        mCognitiveTestHour2.setOnItemSelectedListener(new CognHour2SelectedListener());
+        mMoodHour.setOnItemSelectedListener(new MoodHourSelectedListener());
         //   mOrganizationSpin.setOnItemSelectedListener(new OrgSelectedListener());
 
         mLangSpin.setOnItemSelectedListener(new LangSelectedListener());
@@ -518,6 +519,80 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
                 }
             }
 
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+
+    }
+
+
+    private class CognHour1SelectedListener implements AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+            int hour = pos + 6;
+
+            if (enableSpinnerListener) {
+                RecordingSettings settings = getSettings();
+                if (settings != null) {
+
+                    settings.setCognHour1(hour);
+
+
+                }
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+
+    }
+
+    private class CognHour2SelectedListener implements AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+            int hour = pos + 6;
+
+            if (enableSpinnerListener) {
+                RecordingSettings settings = getSettings();
+                if (settings != null) {
+
+                    settings.setCognHour2(hour);
+
+
+                }
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+
+    }
+
+
+    private class MoodHourSelectedListener implements AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+            int hour = pos + 6;
+
+            if (enableSpinnerListener) {
+                RecordingSettings settings = getSettings();
+                if (settings != null) {
+
+                    settings.setMoodHour(hour);
+
+
+                }
+            }
         }
 
         @Override

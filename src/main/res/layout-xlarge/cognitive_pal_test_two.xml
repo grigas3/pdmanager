@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:background="@color/black"
+    android:gravity="center_horizontal|center_vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="@dimen/pal_picto_layout_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:gravity="right">
+
+            <ImageButton
+                android:id="@+id/box1bis"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_black"
+                android:layout_gravity="left"
+                />
+
+            <ImageButton
+                android:id="@+id/box1"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_white"
+                android:layout_gravity="left"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/pal_picto_layout_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:gravity="left">
+
+            <ImageButton
+                android:id="@+id/box2bis"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:layout_gravity="right"
+
+                android:background="@drawable/button_pal_black" />
+
+            <ImageButton
+                android:id="@+id/box2"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:layout_gravity="right"
+
+                android:background="@drawable/button_pal_white" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/box3bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:background="@drawable/button_pal_black"
+            android:scaleType="fitXY"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+
+        <ImageButton
+            android:id="@+id/box3"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white" />
+
+        <TextView
+            android:id="@+id/pal_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEXT"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFF"
+            android:textSize="40dp"
+            android:paddingTop="30dp"/>
+
+        <ImageButton
+            android:id="@+id/box4bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_black"  />
+
+        <ImageButton
+            android:id="@+id/box4"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical" >
+
+        <ImageView
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:id="@+id/viewer" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/box5bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_black" />
+
+        <ImageButton
+            android:id="@+id/box5"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white" />
+
+        <ImageButton
+            android:id="@+id/box6bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_black"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageButton
+            android:id="@+id/box6"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="@dimen/pal_picto_layout_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="right">
+
+            <ImageButton
+                android:id="@+id/box8bis"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_black"
+                android:layout_gravity="left"
+                />
+
+            <ImageButton
+                android:id="@+id/box8"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_white"
+                android:layout_gravity="left"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/pal_picto_layout_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:gravity="left">
+
+            <ImageButton
+                android:id="@+id/box7bis"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:layout_gravity="right"
+                android:background="@drawable/button_pal_black" />
+
+            <ImageButton
+                android:id="@+id/box7"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:layout_gravity="right"
+
+                android:background="@drawable/button_pal_white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

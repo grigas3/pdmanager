@@ -19,4 +19,5 @@ public interface IMedManager {
     UserAlert getPendingMedAlert(int medid);
     boolean setLastMessage(String id);
 
+    List<UserAlert> getAlerts();
 }

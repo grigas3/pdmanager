@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:background="@color/black"
+    android:gravity="center_horizontal|center_vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|center_vertical">
+
+            <ImageButton
+                android:id="@+id/case1bis"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_black"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"/>
+
+            <ImageButton
+                android:id="@+id/case1"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_white"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/case2bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:background="@drawable/button_pal_black"
+            android:scaleType="fitXY"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+
+        <ImageButton
+            android:id="@+id/case2"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white" />
+
+        <TextView
+            android:id="@+id/pal_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEXT"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFF"
+            android:textSize="40dp"
+            android:paddingTop="30dp"/>
+
+        <ImageButton
+            android:id="@+id/case3bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_black"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageButton
+            android:id="@+id/case3"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical" >
+
+    <ImageView
+        android:layout_width="@dimen/pal_picto_size"
+        android:layout_height="@dimen/pal_picto_size"
+        android:scaleType="fitXY"
+        android:id="@+id/viewer" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/case4bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_black"
+            />
+
+        <ImageButton
+            android:id="@+id/case4"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white" />
+
+        <ImageButton
+            android:id="@+id/case5bis"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_black"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageButton
+            android:id="@+id/case5"
+            android:layout_width="@dimen/pal_picto_size"
+            android:layout_height="@dimen/pal_picto_size"
+            android:scaleType="fitXY"
+            android:background="@drawable/button_pal_white"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|center_vertical">
+
+            <ImageButton
+                android:id="@+id/case6bis"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_black"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageButton
+                android:id="@+id/case6"
+                android:layout_width="@dimen/pal_picto_size"
+                android:layout_height="@dimen/pal_picto_size"
+                android:scaleType="fitXY"
+                android:background="@drawable/button_pal_white"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

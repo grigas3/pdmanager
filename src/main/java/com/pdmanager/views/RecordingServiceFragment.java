@@ -35,6 +35,7 @@ import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.BandSensorManager;
 import com.microsoft.band.sensors.HeartRateConsentListener;
 import com.pdmanager.R;
+import com.pdmanager.alerting.IUserAlertManager;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.DataReceiver;
 import com.pdmanager.interfaces.IBandTileManager;
@@ -45,6 +46,7 @@ import com.pdmanager.medication.MedManager;
 import com.pdmanager.models.Device;
 import com.pdmanager.models.DeviceResult;
 import com.pdmanager.models.PatientMedicationResult;
+import com.pdmanager.models.UserAlert;
 import com.pdmanager.sensor.IHeartRateAccessProvider;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.settings.RecordingSettings;
@@ -192,6 +194,30 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         }
     };
+
+
+    private void initAlerts(RecordingSettings settings)
+    {
+
+        IUserAlertManager alertManager=UserAlertManager.newInstance(getContext());
+
+        alertManager.clearAll();
+
+        MedManager manager = new MedManager(this.getContext());
+        ///Check for alert
+        List<UserAlert> alerts = manager.getAlerts();
+        for(UserAlert alert:alerts)
+        {
+            alertManager.add(alert);
+
+        }
+
+
+      //  UserAlert cognAlert1=new UserAlert((settings.getCognHour1());
+
+
+    }
+
     ///Connect button listener
     private View.OnClickListener mButtonConnectClickListener = new View.OnClickListener() {
         @Override
@@ -278,7 +304,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         LogHandler.getInstance().Log("Session started by user");
                         mButtonConnect.setEnabled(false);
                         mButtonConnect.setBackgroundColor(Color.GRAY);
-                        UserAlertManager.newInstance(getContext()).clearAll();
+
+
 
 
                         getService().StartRecording();

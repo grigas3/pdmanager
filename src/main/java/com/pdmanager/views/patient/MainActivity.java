@@ -227,12 +227,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         }
 
-        // this.setupNavigationDrawer(savedInstanceState);
 
-
-        // Prevents the drawer from being opened at the time of the first launch.
-        //com.telerik.android.common.Util.getLayoutPart(this, R.id.drawer_layout, DrawerLayout.class).closeDrawer(Gravity.LEFT);
-        //   this.getSupportFragmentManager().addOnBackStackChangedListener(this);
         if (savedInstanceState == null) {
 
         }
@@ -247,8 +242,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
 
             if (alertType != null && alertId != null) {
+
                 Log.d("MAINACTIVITY",alertType);
-                //this.alertFragmentManager.gotoAlertFragment(alertId);
 
             }
             else
@@ -278,13 +273,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     }
     private void setupAlertFragmentManager() {
 
-
         this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
-      //  this.alertFragmentManager.setDefaultFragment(patientHomeFragment);
-//        this.alertFragmentManager.registerFragment("MED",new MedAlertFragment());
-        //this.alertFragmentManager.registerFragment("TEST",R.id.fragment_alert_test);
-  //      this.alertFragmentManager.gotoNextFragment();
-        //  this.alertFragmentManager.startAutoUpdate();
 
     }
 
@@ -294,15 +283,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         super.onDestroy();
     }
 
-    /*
-    @Override
-    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-        //THIS FUNCTIONALITY WILL BE USED IN THE NEXT VERSION OF THE EXAMPLES.
-        Fragment controlsFragment = this.getSupportFragmentManager().findFragmentById(R.id.container);
-        this.lastNavigationItemIndex = itemPosition;
-        return false;
-    }
-    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -339,20 +319,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             alertFragmentManager.startAutoUpdate();
     }
 
-   /* private void loadSectionFromIntent(Intent intent, boolean addToBackStack) {
-
-    }
-
-    private void addFragmentForSection(String section, boolean addToBackStack) {
-        Fragment newFragment = this.getSectionFragment(section);
-
-        this.manageTipsPresenter(newFragment);
-        this.app.loadFragment(this, newFragment, R.id.container, addToBackStack);
-        this.invalidateOptionsMenu();
-
-//        this.invalidateOptionsMenu();
-    }
-    */
 
     @Override
     protected void onStop() {
@@ -452,19 +418,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             alertDialog.show();
         }
 
-
-
-
-         /*   RecordingSettings settings = new RecordingSettings(this);
-            settings.setLoggedIn(false);
-
-
-            Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
-            MainActivity.this.startActivity(mainIntent);
-            finish();
-            */
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -477,13 +430,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        /*this.lastNavigationItemIndex = savedInstanceState.getInt("spinner_selection", this.lastNavigationItemIndex);
-        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
-        if (currentFragment instanceof BasePDFragment) {
-            this.invalidateActionbar();
-            this.actionBar.setSelectedNavigationItem(this.lastNavigationItemIndex);
-        }
-        */
 
     }
 
@@ -639,25 +585,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
     }
 
-    /* private void setupNavigationDrawer(Bundle savedInstanceState) {
-
-
-         mPatientDrawerFragment = (PatientDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-         // Set up the drawer.
-         mPatientDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
-
-         if (savedInstanceState == null) {
-             if (!this.getIntent().hasExtra(PDApplicationContext.INTENT_SECTION_ID)) {
-                 String selectedSection = mPatientDrawerFragment.selectedSection() == null ? PatientDrawerFragment.NAV_DRAWER_SECTION_HOME : mPatientDrawerFragment.selectedSection();
-                 this.addFragmentForSection(selectedSection, false);
-             }
-         } else {
-             Fragment currentFragment = this.getSupportFragmentManager().findFragmentById(R.id.container);
-             this.manageTipsPresenter(currentFragment);
-         }
-     }
-
- */
     private void invalidateActionbarTitle() {
 
     }
@@ -690,48 +617,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         public void fill(View view, ContextMenu menu);
     }
 
- /*   @Override
-    public void onNavigationDrawerSectionSelected(String section) {
-        this.addFragmentForSection(section, true);
-    }
-
-    @Override
-    public void onNavigationDrawerControlSelected(MenuAction control) {
-
-
-        //    if(control.getShortFragmentName()==PatientDrawerFragment.NAV_DRAWER_SECTION_FILES)
-        //      this.app.openActivity(this, FilesActivity.class);
-//        else {
-        this.addFragmentForSection(control.getShortFragmentName(), true);
-        //      }
-
-        //
-    }
-
-    @Override
-    public void onNavigationDrawerOpened() {
-
-    }
-
-    @Override
-    public void onNavigationDrawerClosed() {
-
-    }
-    */
-
-   /* @Override
-    public void onBackStackChanged() {
-        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
-        manageTipsPresenter(currentFragment);
-        if (currentFragment instanceof PatientDrawerFragment.SectionInfoProvider) {
-
-
-            mPatientDrawerFragment.updateSelectedSection(((PatientDrawerFragment.SectionInfoProvider) currentFragment).getSectionName());
-        }
-
-        invalidateActionbar();
-    }
-    */
 
     public class ClearLog extends AsyncTask<LogAdapter, Void, Boolean> {
 

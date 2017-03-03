@@ -15,6 +15,7 @@ import com.pdmanager.models.UserAlert;
 import com.pdmanager.persistence.DBHandler;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -243,6 +244,11 @@ public class MedManager implements IMedManager {
         return ret;
 
 
+    }
+
+    @Override
+    public List<UserAlert> getAlerts() {
+        return new ArrayList<UserAlert>();
     }
 
     private boolean shouldTake(long time) {
