@@ -10,7 +10,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.microsoft.band.BandPendingResult;
@@ -74,6 +76,9 @@ public abstract class BaseTestActivity extends FragmentActivity implements
 
     }
 
+
+
+
     protected abstract AbstractWizardModel getWizard();
 
 
@@ -124,12 +129,12 @@ public abstract class BaseTestActivity extends FragmentActivity implements
             }
         });
 
-
+/*
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mPager.getCurrentItem() == mCurrentPageSequence.size()) {
-                    DialogFragment dg = new DialogFragment() {
+                    DialogFragment dg =DialogFragment.instantiate() {
                         @Override
                         public Dialog onCreateDialog(Bundle savedInstanceState) {
                             return new AlertDialog.Builder(getActivity())
@@ -161,7 +166,7 @@ public abstract class BaseTestActivity extends FragmentActivity implements
                 }
             }
         });
-
+*/
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

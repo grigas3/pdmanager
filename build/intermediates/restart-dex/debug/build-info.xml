@@ -5,46 +5,33 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="555183479798673"
+    timestamp="888059775885188"
     token="4069101945239318874"
-    verifier="COMPATIBLE" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="2761" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="757" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="72" />
+        duration="1808" />
     <task
         name="verifier"
-        duration="5" />
+        duration="1153" />
 
     <artifact
-        location="E:\Rigas\PDManager\Android\Patient\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
-    <artifact
-        location="E:\Rigas\PDManager\Android\Patient\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="E:\Rigas\PDManager\Android\Patient\build\outputs\apk\Patient-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="555004474125183"
-        verifier="BINARY_MANIFEST_FILE_CHANGE" >
+        timestamp="888059775885188"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\Rigas\PDManager\Android\Patient\build\outputs\apk\Patient-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="555183479798673"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="E:\Rigas\PDManager\Android\Patient\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

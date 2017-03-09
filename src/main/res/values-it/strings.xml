@@ -165,7 +165,7 @@
         <item>Range: <b>5 Y</b></item>
     </string-array>
 
-    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
 
     <!--OIDC  TokensExpiredDialog -->
     <string name="loginButtonText">Log in with OpenID Connect</string>

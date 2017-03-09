@@ -12,10 +12,15 @@
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-   public *;
-}
+-dontwarn okio.**
+-dontwarn okhttp3.**
+-dontwarn com.google.appengine.**
+-dontwarn javax.servlet.**
 
+# Support classes for compatibility with older API versions
+
+-dontwarn android.support.**
+-dontnote android.support.**
 # Needed to keep generic types and @Key annotations accessed via reflection
 -keepattributes Signature,RuntimeVisibleAnnotations,AnnotationDefault
 -keepclassmembers class * {

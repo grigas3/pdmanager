@@ -301,6 +301,15 @@ public class UserAlertManager implements IUserAlertManager {
 
 
 
+    public void updateExpirationDate(UserAlert alert)
+    {
+
+
+
+
+
+    }
+
     /**
      * Delete Expired Alerts
      */
@@ -413,7 +422,6 @@ public class UserAlertManager implements IUserAlertManager {
 
 
             db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + id, null);
-
             ret = true;
 
         } finally {

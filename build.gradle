@@ -31,8 +31,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
         }
         application {
             debuggable true
@@ -43,6 +44,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions{
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+        abortOnError false
     }
     testOptions
             {
@@ -67,7 +73,7 @@ dependencies {
     compile(name: 'Chart-2015.3.1113-trial-release', ext: 'aar')
     compile(name: 'List-2015.3.1113-trial-release', ext: 'aar')
     //add the dependency for google firebase messaging
-    compile project(':oidclib')
+   compile project(':oidclib')
     compile files('libs/oovoosdk.jar')
 
     // Optional -- Mockito framework
@@ -77,7 +83,7 @@ dependencies {
     compile   'com.android.support:recyclerview-v7:23.4.0'
     compile    'com.android.support:design:23.4.0'
     compile    'com.google.android.gms:play-services-analytics:10.0.0'
-    compile     'junit:junit:4.12'
+    //compile     'junit:junit:4.12'
     compile    'com.google.firebase:firebase-messaging:10.0.0'
     //compile    'com.google.android.gms:play-services-appindexing:9.8.0'
     compile     'com.android.support:support-v4:23.4.0'
