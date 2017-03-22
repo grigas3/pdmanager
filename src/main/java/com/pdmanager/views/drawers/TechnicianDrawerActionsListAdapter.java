@@ -42,6 +42,11 @@ public class TechnicianDrawerActionsListAdapter extends ArrayAdapter<MenuAction>
         settings.setHeaderText("Settings");
 
         settings.setFragmentName("RecordingSettingsFragment");
+        MenuAction scheduling = new MenuAction();
+        scheduling.setActionInfo("Scheduling");
+        scheduling.setHeaderText("Scheduling");
+
+        scheduling.setFragmentName("RecordingSchedulingFragment");
 
 
 
@@ -70,11 +75,11 @@ public class TechnicianDrawerActionsListAdapter extends ArrayAdapter<MenuAction>
 
 
         this.controls.add(settings);
-
-        this.controls.add(displayList);
+        this.controls.add(scheduling);
+    //    this.controls.add(displayList);
         this.controls.add(fileList);
         this.controls.add(logList);
-        this.controls.add(medList);
+     //   this.controls.add(medList);
 
 
     }

@@ -304,10 +304,7 @@ public class SpeechTest extends SoundFeedbackActivity
      */
     public boolean isDispatcherNull()
     {
-        if(dispatcher == null)
-            return true;
-        else
-            return false;
+        return dispatcher == null;
     }
 
     /**

@@ -35,6 +35,7 @@ public class TechnicianDrawerFragment extends Fragment {
 
     public static final String NAV_DRAWER_SECTION_HOME = "RecordingServiceFragment";
     public static final String NAV_DRAWER_SECTION_SETTINGS = "RecordingSettingsFragment";
+    public static final String NAV_DRAWER_SECTION_SCHEDULING = "RecordingSchedulingFragment";
     public static final String NAV_DRAWER_SECTION_LOGS = "LogEventFragment";
     public static final String NAV_DRAWER_SECTION_MEDS = "MedListFragment";
     public static final String NAV_DRAWER_SECTION_DISPLAY = "SensorsFragment";

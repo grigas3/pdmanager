@@ -9,7 +9,7 @@ import com.pdmanager.common.data.AccReading;
 import com.pdmanager.common.data.GyroData;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.TremorData;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.posturedetector.Core.Signals.NamedSignalCollection;
 import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
 import com.pdmanager.posturedetector.SignalProcessing.SignalDictionary;
@@ -254,7 +254,7 @@ public class TremorDetectorTest {
             assert false;
         }
     }
-    private class TestTDataHandler implements IDataHandler
+    private class TestTDataHandler implements ISensorDataHandler
     {
 
 

@@ -599,7 +599,7 @@ public class GLESHelper {
         protected int		_duration;
         protected Boolean	_animate;
         protected long		_startTime;
-    };
+    }
 
     private class AnimatedRotation
     {
@@ -621,11 +621,8 @@ public class GLESHelper {
 
         public boolean isCompleted()
         {
-            if ((_deviceRotationAnimation == null || _deviceRotationAnimation.completed())
-                    && (_videoRotationAnimation == null || _videoRotationAnimation.completed()))
-                return true;
-            else
-                return false;
+            return (_deviceRotationAnimation == null || _deviceRotationAnimation.completed())
+                    && (_videoRotationAnimation == null || _videoRotationAnimation.completed());
         }
 
         public int[] getBestRotationAngles(int startangle, int endangle)
@@ -740,7 +737,7 @@ public class GLESHelper {
         }
     }
 
-    public static interface VideoAnimationListener {
+    public interface VideoAnimationListener {
         void onVideoRotationAnimation();
     }
 

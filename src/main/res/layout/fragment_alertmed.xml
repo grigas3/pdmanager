@@ -42,7 +42,7 @@
                 android:layout_marginBottom="2dp"
                 android:layout_marginLeft="10dp"
 
-                android:text="DID YOU TAKE THE 14:50 LEVODOPA PILL?"
+                android:text="@string/medicationConfirm"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold" />
 

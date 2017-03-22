@@ -9,7 +9,7 @@ import com.pdmanager.common.data.AccData;
 import com.pdmanager.common.data.AccReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.LIDData;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
 import com.pdmanager.symptomdetector.dyskinesia.DyskinesiaEvaluator;
 
@@ -24,7 +24,7 @@ public class DyskinesiaEvaluatorTest {
 
 
 
-    private class TestPDataHandler implements IDataHandler
+    private class TestPDataHandler implements ISensorDataHandler
     {
 
         private int numOfPostures=0;

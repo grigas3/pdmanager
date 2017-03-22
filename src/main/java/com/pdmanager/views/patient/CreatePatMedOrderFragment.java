@@ -304,7 +304,7 @@ public class CreatePatMedOrderFragment extends BasePDFragment implements View.On
             try {
 
                 MedicationOrder params = clientParams[0];
-                DirectSender sender = new DirectSender(getAccessToken());
+                DirectSender sender = new DirectSender(getAccessToken(),getContext());
                 CommunicationManager mCommManager = new CommunicationManager(sender);
 
                 mCommManager.SendItem(params);

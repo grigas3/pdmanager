@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable;
 
 /**
  * Created by ginev on 10/04/2014.
- * <p/>
  * A custom drawable class that draws a isosceles triangle using the
  * bottom edge of the bounds of this drawable as a base and the centre of the top edge of
  * the bounds as

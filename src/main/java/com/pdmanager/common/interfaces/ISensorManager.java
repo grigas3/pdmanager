@@ -12,17 +12,42 @@ import com.pdmanager.common.data.ISensorData;
 public interface ISensorManager {
 
 
+    /**
+     * Connect
+     * @return
+     */
     AsyncTask connect();
 
+    /**
+     * Disconnect
+     * @return
+     */
     AsyncTask disconnect();
 
-    void setDataHandler(IDataHandler handler);
+    /**
+     * Set Data Handler
+     * @param handler
+     */
+    void setDataHandler(ISensorDataHandler handler);
 
+
+    /**
+     * Is Connected
+     * @return
+     */
     boolean isConnected();
 
 
+    /**
+     * Handle Data. Called whenever new data are available
+     * @param data
+     */
     void handleData(ISensorData data);
 
+    /**
+     * Set Context
+     * @param context
+     */
     void setContext(Activity context);
 
 }

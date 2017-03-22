@@ -54,9 +54,13 @@ public class RecordingSettings {
     private String mEvent1;
     private String mEvent2;
     private String mRole;
-    private int mCognHour1;
-    private int mCognHour2;
-    private int mMoodHour;
+    private int mCognHour1=10;
+    private int mCognHour2=20;
+    private int mMoodHour=19;
+    private int mMedHour1=12;
+    private int mMedHour2=22;
+    private int mDiaryHour=21;
+
 
 
 
@@ -103,7 +107,11 @@ public class RecordingSettings {
 
                 mCognHour1 = pref.getInt("CognHour1", mCognHour1);
                 mCognHour2 = pref.getInt("CognHour2", mCognHour2);
-                mMoodHour = pref.getInt("MoodHour", mMoodHour);
+
+                mMedHour1 = pref.getInt("MedHour1", mMedHour1);
+                mMedHour2 = pref.getInt("MedHour2", mMedHour2);
+
+                mDiaryHour = pref.getInt("MoodHour", mDiaryHour);
 
                 mSensorDelay = pref.getInt("SensorDelay", mSensorDelay);
                 mSessionRunning = pref.getBoolean("SessionRunning", mSessionRunning);
@@ -565,10 +573,38 @@ public class RecordingSettings {
 
 
 
+
+
+
+
+
+
+    public int getMedHour1() {
+        return this.mMedHour1;
+    }
+    public void setMedHour1(int cognHour1) {
+        this.mMedHour1 = cognHour1;
+    }
+
+    public int getMedHour2() {
+        return this.mMedHour2;
+    }
+    public void setMedHour2(int cognHour2) {
+        this.mMedHour2 = cognHour2;
+    }
+
     public int getMoodHour() {
         return this.mMoodHour;
     }
     public void setMoodHour(int moodHour) {
         this.mMoodHour = moodHour;
+    }
+
+
+    public int getDiaryHour() {
+        return this.mDiaryHour;
+    }
+    public void setDiaryHour(int diaryHour) {
+        this.mDiaryHour = diaryHour;
     }
 }

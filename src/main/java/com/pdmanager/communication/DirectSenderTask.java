@@ -39,7 +39,7 @@ public class DirectSenderTask extends AsyncTask<ArrayList<Observation>, Void, Bo
             DirectSender sender = new DirectSender(accessToken);
             CommunicationManager mCommManager = new CommunicationManager(sender);
 
-            ArrayList<Observation> obsC = (ArrayList<Observation>)clientParams[0];
+            ArrayList<Observation> obsC = clientParams[0];
             mCommManager.SendItems(obsC,true);
             return true;
 

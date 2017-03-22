@@ -72,9 +72,7 @@ public class RecordingScheduler implements IDataProcessor {
     @Override
     public boolean requiresData(int dataType) {
 
-        if(dataType== DataTypes.HR||dataType== DataTypes.ACCELEROMETER)
-            return true;
-        return false;
+        return dataType == DataTypes.HR || dataType == DataTypes.ACCELEROMETER;
     }
 
     @Override

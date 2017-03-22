@@ -72,7 +72,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
                 if (!accessToken.isEmpty()) {
 
-                    DeviceRegistrer reg = new DeviceRegistrer(accessToken, patient);
+                    DeviceRegistrer reg = new DeviceRegistrer(accessToken, patient,getApplicationContext());
                     reg.Register(token);
                     settings.setDevTokenSended(true);
 

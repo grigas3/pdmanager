@@ -11,6 +11,7 @@ import com.pdmanager.alerting.IUserAlertManager;
 import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.views.patient.AlertPDFragment;
+import com.pdmanager.views.patient.DiaryTrackingFragment;
 import com.pdmanager.views.patient.MedAlertFragment;
 import com.pdmanager.views.patient.MoodTrackingFragment;
 
@@ -93,6 +94,17 @@ public class AlertFragmentManager implements IAlertFragmentManager {
             fragment.setArguments(bundle);
             newFragment=fragment;
         }
+        else if(section!=null&&section.toUpperCase()=="DIARY")
+        {
+
+            DiaryTrackingFragment fragment= new DiaryTrackingFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
+            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
+            fragment.setArguments(bundle);
+            newFragment=fragment;
+        }
 
         else if(section!=null&&section.toUpperCase()=="MOOD")
         {
@@ -159,7 +171,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
     private AlertPDFragment getNextFragment() {
         onDefaultFragment=true;
-        UserAlert alert=alertManager.getActive();
+        UserAlert alert=alertManager.getFirstActive();
 
         if (alert != null) {
 

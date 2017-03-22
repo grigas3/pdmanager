@@ -1,5 +1,6 @@
 package com.pdmanager.communication;
 
+import android.content.Context;
 import android.os.Build;
 
 import com.pdmanager.models.Device;
@@ -11,10 +12,12 @@ public class DeviceRegistrer {
 
     String accessToken;
     String patientId;
+    Context mContext;
 
-    public DeviceRegistrer(String pid, String paccessToken) {
+    public DeviceRegistrer(String pid, String paccessToken,Context pContext) {
         this.patientId = pid;
         this.accessToken = paccessToken;
+        this.mContext=pContext;
 
     }
 
@@ -54,7 +57,7 @@ public class DeviceRegistrer {
     public void Register(String id) {
 
 
-        DirectSender sender = new DirectSender(accessToken);
+        DirectSender sender = new DirectSender(accessToken,mContext);
         CommunicationManager mCommManager = new CommunicationManager(sender);
         mCommManager.SendItem(getDevice(id));
     }

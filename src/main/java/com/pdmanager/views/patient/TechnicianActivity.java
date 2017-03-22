@@ -80,6 +80,7 @@ import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.LogEventFragment;
+import com.pdmanager.views.RecordingSchedulingFragment;
 import com.pdmanager.views.RecordingServiceFragment;
 import com.pdmanager.views.RecordingSettingsFragment;
 import com.pdmanager.views.common.LoginActivity;
@@ -115,6 +116,8 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
     private RecordingServiceFragment bandFragment;
     private LogEventFragment logFragment;
     private RecordingSettingsFragment recordingSettingsFragment;
+    private RecordingSchedulingFragment recordingSchedulingFragment;
+
     private MedListFragment medAdminFragment;
 
 
@@ -690,8 +693,8 @@ public void createTile()
         }
     }
 
-    public static interface MenuList {
-        public void fill(View view, ContextMenu menu);
+    public interface MenuList {
+        void fill(View view, ContextMenu menu);
     }
 
 
@@ -711,7 +714,10 @@ public void createTile()
             fragmentCache.put(TechnicianDrawerFragment.NAV_DRAWER_SECTION_HOME, recordingSettingsFragment);
         }
 
-
+        if (recordingSchedulingFragment == null) {
+            recordingSchedulingFragment = new RecordingSchedulingFragment();
+            fragmentCache.put(TechnicianDrawerFragment.NAV_DRAWER_SECTION_SCHEDULING, recordingSchedulingFragment);
+        }
         if(filesFragment==null)
         {
             filesFragment=new FilesFragment();
@@ -742,6 +748,13 @@ public void createTile()
 
 
                 newFragment = filesFragment;
+            } else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_SCHEDULING)) {
+
+                if (recordingSchedulingFragment == null)
+                    recordingSchedulingFragment = new RecordingSchedulingFragment();
+
+                newFragment = recordingSchedulingFragment;
+
             } else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_SETTINGS)) {
 
                 if (recordingSettingsFragment == null)

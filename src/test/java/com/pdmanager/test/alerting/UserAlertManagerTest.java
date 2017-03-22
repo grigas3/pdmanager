@@ -53,7 +53,7 @@ public class UserAlertManagerTest {
         assertTrue(h1);
 
         ///Get alert
-        Alert alert=manager.getActive();
+        Alert alert=manager.getFirstActive();
         //Assert correct title
         assertEquals( alert.Source,"12");
 
@@ -74,4 +74,37 @@ public class UserAlertManagerTest {
 
 
 
+
+    @Test
+    public void test_updateAlerts() {
+
+
+
+        UserAlertManager manager=new UserAlertManager(RuntimeEnvironment.application);
+
+        ///First clear all alerts
+        manager.clearAll();
+
+
+        ///Add alertr
+        long exp1= (System.currentTimeMillis())+5*60*1000;
+        long exp2= (System.currentTimeMillis())+30*60*1000;
+        manager.add("Test","TAKE YOUR MED","MED","12",exp1);
+        manager.add("Test","TAKE YOUR MED","MED","12",exp2);
+
+
+
+        boolean h1=manager.anyActive();
+
+        assertTrue(h1);
+        manager.updateAlerts("MED");
+        boolean h2=manager.anyActive();
+
+        assertTrue(!h2);
+
+
+
+        assert true;
+
+    }
 }

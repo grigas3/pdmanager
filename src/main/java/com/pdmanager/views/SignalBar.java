@@ -53,8 +53,8 @@ public class SignalBar extends RatingBar {
 		for (int i = 1; i <= MAX_LEVEL; ++i) {
 			final float cx = (float)((MAX_LEVEL - i - 1) + 0.5)*sw/2;
 			final float r = sw/1.5f;
-			float x = (float)(w/2 + r/2);
-			float y = (float)(h/2);
+			float x = w/2 + r/2;
+			float y = h/2;
 			float deltaY = ((y/2)/MAX_LEVEL)*i;
  
 			paint.setStrokeWidth((float) -1.0);

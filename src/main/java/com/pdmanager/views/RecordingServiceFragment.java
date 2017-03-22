@@ -35,7 +35,6 @@ import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.BandSensorManager;
 import com.microsoft.band.sensors.HeartRateConsentListener;
 import com.pdmanager.R;
-import com.pdmanager.alerting.IUserAlertManager;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.DataReceiver;
 import com.pdmanager.interfaces.IBandTileManager;
@@ -54,6 +53,7 @@ import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.patient.MSSyncActivity;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -64,6 +64,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int REQUEST_CONTACTS = 1;
+    private static final int REQUEST_RECORD = 1;
     private static final int REQUEST_PHONE_STATE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -77,6 +78,13 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
     };
+
+    private static String[] PERMISSIONS_RECORD = {
+            Manifest.permission.RECORD_AUDIO
+
+
+    };
+
     private static String[] PERMISSIONS_PHONE = {
             Manifest.permission.READ_PHONE_STATE
 
@@ -180,7 +188,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         public void onClick(View button) {
 
 
-            requireStoragePermissions(getActivity());
+            requirePermissions(getActivity());
 
         }
     };
@@ -196,7 +204,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     };
 
 
-    private void initAlerts(RecordingSettings settings)
+   /* private void initAlerts(RecordingSettings settings)
     {
 
         IUserAlertManager alertManager=UserAlertManager.newInstance(getContext());
@@ -217,6 +225,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
     }
+    */
 
     ///Connect button listener
     private View.OnClickListener mButtonConnectClickListener = new View.OnClickListener() {
@@ -296,7 +305,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
                         ///IN ANDROID 23+ WE NEED TO ASK FOR EXTRA STORAGE PERMISSIONS
-                        requireStoragePermissions(getActivity());
+                        requirePermissions(getActivity());
 
                         Time today = new Time(Time.getCurrentTimezone());
                         today.setToNow();
@@ -307,7 +316,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
 
-
+                        initAlerts(settings);
                         getService().StartRecording();
 
 
@@ -333,6 +342,74 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         }
     };
+
+
+    private long getTimeFromHour(long hour)
+    {
+        Date date1 = new java.util.Date();
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(date1);
+      //  cal1.set(cal1.get(Calendar.YEAR),cal1.get(Calendar.MONTH),cal1.get(Calendar.DAY_OF_MONTH),cal1.get(Calendar.HOUR_OF_DAY),0,0);
+
+        return cal1.getTimeInMillis()+30*60*1000;
+    }
+
+
+    private void initAlerts( RecordingSettings settings)
+    {
+
+        Date date1 = new java.util.Date();
+        //RecordingSettings settings = RecordingSettings.GetRecordingSettings(this.getContext());
+
+
+        long cognHour1=settings.getCognHour1();
+
+        long cognHour2=settings.getCognHour2();
+
+        long medHour1=settings.getMedHour1();
+        long medHour2=settings.getMedHour2();
+        long moodHour=settings.getMoodHour();
+        long diary=settings.getDiaryHour();
+
+
+
+
+
+
+
+        UserAlertManager manager=new UserAlertManager(this.getContext());
+        manager.clearAll();
+        String msg=this.getContext().getString(com.pdmanager.R.string.cognitiveAlertMsg);
+        manager.add(new UserAlert("PDManager",msg,"COGN1",date1.getTime(),getTimeFromHour(cognHour1),"SYSTEM"));
+
+
+        manager.add(new UserAlert("PDManager",msg,"COGN2",date1.getTime(),getTimeFromHour(cognHour2),"SYSTEM"));
+
+
+        manager.add(new UserAlert("PDManager",msg,"MED",date1.getTime(),getTimeFromHour(medHour1),"SYSTEM"));
+        manager.add(new UserAlert("PDManager",msg,"MED",date1.getTime(),getTimeFromHour(medHour2),"SYSTEM"));
+
+        manager.add(new UserAlert("PDManager",msg,"MOOD",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
+
+        //Test
+        //getTimeFromHour(diary)
+        manager.add(new UserAlert("PDManager",msg,"DIARY",date1.getTime(),getTimeFromHour(diary),"SYSTEM"));
+
+
+
+        manager.add(new UserAlert("PDManager",msg,"FT",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
+
+        manager.add(new UserAlert("PDManager",msg,"VT",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
+
+        manager.add(new UserAlert("PDManager",msg,"VA",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
+
+
+
+
+
+    }
+
+
     private CompoundButton.OnCheckedChangeListener mToggleSensorSection = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -380,14 +457,17 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         return requiresPermissions;
     }
 
-    /**
+
+
+
+   /**
      * Checks if the app has permission to write to device storage
      * <p>
      * If the app does not has permission then the user will be prompted to grant permissions
      *
      * @param activity
      */
-    public void requireStoragePermissions(Activity activity) {
+    public void requirePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
@@ -421,6 +501,18 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                     activity,
                     PERMISSIONS_PHONE,
                     REQUEST_PHONE_STATE
+            );
+        }
+
+
+        int permission4 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO);
+
+        if (permission4 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_RECORD,
+                    REQUEST_RECORD
             );
         }
     }
@@ -635,15 +727,15 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         mButtonRequireStorPermissions.setOnClickListener(mButtonRequirePermissions);
 
 
-        mbuttonGetMedications = (Button) rootView.findViewById(R.id.buttonGetMedications);
-        mbuttonGetMedications.setOnClickListener(mbuttonGetMedicationsListener);
+    //    mbuttonGetMedications = (Button) rootView.findViewById(R.id.buttonGetMedications);
+    //    mbuttonGetMedications.setOnClickListener(mbuttonGetMedicationsListener);
 
         mbuttonMSHealthSync = (Button) rootView.findViewById(R.id.buttonGetMSHealth);
         mbuttonMSHealthSync.setOnClickListener(mbuttonMSHealthSyncListener);
 
 
-        mButtonCreateTile = (Button) rootView.findViewById(R.id.buttonCreateTile);
-        mButtonCreateTile.setOnClickListener(mbuttonCreateTileListener);
+    //    mButtonCreateTile = (Button) rootView.findViewById(R.id.buttonCreateTile);
+    //    mButtonCreateTile.setOnClickListener(mbuttonCreateTileListener);
 
         
         
@@ -657,7 +749,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         mDeviceId.setText(RecordingSettings.newInstance(this.getContext()).getDeviceId());
 
 
-        this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
+      //  this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
         mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
         mTextGetDevice=(TextView) rootView.findViewById(R.id.textGetDevice);
 

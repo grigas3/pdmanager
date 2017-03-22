@@ -288,7 +288,7 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
     private boolean sendCNMessage(CNMessageType type, long timeout, MessageCompletionHandler completionHandler) {
         ArrayList<String> toList = new ArrayList<String>();
         for (int i = 0; i < callReceiverAdapter.getCount(); i++) {
-            CallReceiverAdapter.CallReceiver receiver = (CallReceiverAdapter.CallReceiver) callReceiverAdapter.getItem(i);
+            CallReceiverAdapter.CallReceiver receiver = callReceiverAdapter.getItem(i);
 
             if (receiver.isCallEnabled() && toList.size() < MAX_CALL_RECEIVERS) {
                 toList.add(receiver.getReceiverId());

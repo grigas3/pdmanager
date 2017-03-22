@@ -420,10 +420,17 @@
     <string name="sfriday">Πα</string>
     <string name="ssaturday">Σα</string>
     <string name="ssunday">Κυ</string>
-
+    <string name="cognitiveAlertMsg">Time for your test</string>
+    <string name="medicationConfirm">Πήρατε τα τελευταία φάρμακα σας?</string>
     <string name="menuThird">Φωνητικό test</string>
     <string name="speech_instruction">Σε αυτό το τεστ πρέπει να πεις το επιφώνημα \"AAAA\" για 5 δευτερόλεπτα όταν σου ζητηθεί.</string>
     <string name="speech_wait">Περίμενε να τελειώσει η αντίστροφη μέτρηση για να ξεκινήσεις</string>
     <string name="speech_start">Φώναξε δυνατά \"AAAA\" μέχρι να τελειώσει ο χρόνος</string>
     <string name="start_speech">Ξεκίνα!</string>
+    <string name="next_hour" formatted="false">Επόμενο σε  %1$d  ώρα(ες)</string>
+    <string name="next_day" formatted="false">Επόμενο σε  %1$d  μερα(ες)</string>
+    <string name="now" formatted="false">Τώρα</string>
+    <string name="next_minute" formatted="false">Επόμενο σε  %1$d  λεπτό(ά)</string>
+    <string name="patient_med_instructions" >Press yes if you have taken all your medication today up to now. If not please press not.</string>
+    <string name="task_number" formatted="false">Έχετε %1$d δοκιμασίες να κάνετε</string>
 </resources>

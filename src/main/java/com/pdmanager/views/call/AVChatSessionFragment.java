@@ -45,7 +45,7 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
 
         private final int value;
 
-        private CameraState(int value) {
+        CameraState(int value) {
             this.value = value;
         }
 

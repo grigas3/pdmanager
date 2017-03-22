@@ -699,6 +699,6 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         }
 
     }
-};
+}
 
 

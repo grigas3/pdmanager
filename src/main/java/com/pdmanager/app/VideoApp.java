@@ -278,8 +278,8 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         fireApplicationStateEvent(Operation.Error, Operation.Authorized, autorize_result.getDescription());
     }
 
-    public static interface OperationChangeListener {
-        public void onOperationChange(Operation state);
+    public interface OperationChangeListener {
+        void onOperationChange(Operation state);
     }
 
     public synchronized void login(final String username, String displayName, final boolean isDoctor) {
@@ -724,14 +724,14 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         return participants;
     }
 
-    public static interface ParticipantsListener {
-        public void onParticipantJoined(String userId, String userData);
+    public interface ParticipantsListener {
+        void onParticipantJoined(String userId, String userData);
 
-        public void onParticipantLeft(String userId);
+        void onParticipantLeft(String userId);
 
-        public void onRemoteVideoStateChanged(String userId, RemoteVideoState state, sdk_error error);
+        void onRemoteVideoStateChanged(String userId, RemoteVideoState state, sdk_error error);
 
-        public void onTransmitStateChanged(boolean state, sdk_error err);
+        void onTransmitStateChanged(boolean state, sdk_error err);
     }
 
     @Override
@@ -904,8 +904,8 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         doLeave(listener);
     }
 
-    public static interface CallControllerListener {
-        public void updateController();
+    public interface CallControllerListener {
+        void updateController();
     }
 
     public void setControllerListener(CallControllerListener controllerListener) {
@@ -1078,10 +1078,10 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         return ooVooClient.getSdkVersion();
     }
 
-    public static interface NetworkListener {
-        public void onNetworkSignalStrength(int level);
+    public interface NetworkListener {
+        void onNetworkSignalStrength(int level);
 
-        public void onNetworkSecurityState(boolean isSecure);
+        void onNetworkSecurityState(boolean isSecure);
     }
 
     public boolean isTablet() {
@@ -1125,12 +1125,12 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         ooVooClient.setLogLevel(LogLevel.fromString(logLevel));
     }
 
-    public static interface MessageCompletionHandler {
-        public void onHandle(boolean sent);
+    public interface MessageCompletionHandler {
+        void onHandle(boolean sent);
     }
 
-    public static interface CallNegotiationListener {
-        public void onMessageReceived(final CNMessage cnMessage);
+    public interface CallNegotiationListener {
+        void onMessageReceived(final CNMessage cnMessage);
     }
 
     public void addCallNegotiationListener(CallNegotiationListener listener) {
@@ -1141,8 +1141,8 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         callNegotiationListeners.remove(listener);
     }
 
-    public static interface CameraListener {
-        public void onCameraClosed();
+    public interface CameraListener {
+        void onCameraClosed();
     }
 
     public void setCameraListener(CameraListener listener) {

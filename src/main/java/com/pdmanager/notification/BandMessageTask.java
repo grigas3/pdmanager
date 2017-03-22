@@ -47,7 +47,7 @@ public class BandMessageTask extends AsyncTask<BandMessage, Void, Void> {
                 BandMessage alert = params[0];
 
 
-                if(alert!=null) {
+               if(alert!=null) {
                     if (alert.isMessage()) {
                         mClient.getNotificationManager().sendMessage(UUID.fromString(mTileUUID),
                                 alert.getTitle(), alert.getMessage(), new java.util.Date(alert.getTimestamp()), MessageFlags.NONE).await();
@@ -57,6 +57,8 @@ public class BandMessageTask extends AsyncTask<BandMessage, Void, Void> {
                                 alert.getTitle(), alert.getMessage()).await();
                     }
                 }
+
+                //Just vibrate for now
                 mClient.getNotificationManager().vibrate(VibrationType.NOTIFICATION_ALARM);
 
             }

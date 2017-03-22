@@ -4,7 +4,6 @@ import android.graphics.BitmapFactory;
 
 /**
  * Created by ginev on 2/9/2015.
- * <p/>
  * Various helper methods used to decode and display images across the examples application.
  */
 public class ImageUtils {

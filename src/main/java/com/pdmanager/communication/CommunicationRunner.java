@@ -75,6 +75,10 @@ public class CommunicationRunner implements Runnable {
         //
     }
 
+
+    /**
+     * Run with quue
+     */
     private void runWithQueue()
     {
 
@@ -171,6 +175,9 @@ public class CommunicationRunner implements Runnable {
 
     }
 
+    /**
+     * Run with List instead of blocking queue
+     */
     private void runWithList()
     {
         ArrayList<JsonStorage> request = new ArrayList<>();

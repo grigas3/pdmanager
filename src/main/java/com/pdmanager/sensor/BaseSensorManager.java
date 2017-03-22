@@ -1,14 +1,14 @@
 package com.pdmanager.sensor;
 
 import com.pdmanager.common.data.ISensorData;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.common.interfaces.ISensorManager;
 
 
 public abstract class BaseSensorManager
         implements ISensorManager {
 
-    private IDataHandler mDataHandler;
+    private ISensorDataHandler mDataHandler;
 
     public BaseSensorManager() {
     }
@@ -19,7 +19,7 @@ public abstract class BaseSensorManager
     }
 
 
-    public void setDataHandler(IDataHandler handler) {
+    public void setDataHandler(ISensorDataHandler handler) {
         mDataHandler = handler;
     }
 

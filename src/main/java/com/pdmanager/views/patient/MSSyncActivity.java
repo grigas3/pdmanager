@@ -28,13 +28,13 @@ import com.lnikkila.oidc.authenticator.OIDCClientConfigurationActivity;
 import com.lnikkila.oidc.security.UserNotAuthenticatedWrapperException;
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.common.exceptions.TokenDecryptionException;
 import com.pdmanager.R;
+import com.pdmanager.common.exceptions.TokenDecryptionException;
 import com.pdmanager.logging.ILogHandler;
 import com.pdmanager.monitoring.MSHealthDataHandler;
 import com.pdmanager.persistence.DBHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.APIUtility;
 import com.pdmanager.views.HomeActivity;
 
@@ -44,17 +44,15 @@ import java.util.Map;
 
 public class MSSyncActivity extends Activity implements ILogHandler {
 
-    private OIDCAccountManager accountManager;
-    private Account availableAccounts[];
     private static final int RENEW_REFRESH_TOKEN = 2016;
     private static final String TAG = HomeActivity.class.getSimpleName();
     private static final String protectedResUrl = "https://api.microsofthealth.net/v1/me/Activities/";
-
     protected String userInfoEndpoint;
-
-    private int selectedAccountIndex;
     RecordingService mService;
     boolean mBound = false;
+    private OIDCAccountManager accountManager;
+    private Account availableAccounts[];
+    private int selectedAccountIndex;
     private TextView progressText;
     private ProgressBar progressBar;
     private Button mssyncButton;
@@ -68,16 +66,14 @@ public class MSSyncActivity extends Activity implements ILogHandler {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mssync);
         accountManager = new OIDCAccountManager(getActivity());
-        progressText=(TextView) this.findViewById(R.id.textView6);
-        progressBar=(ProgressBar) this.findViewById(R.id.progressBar);
-        mssyncButton=(Button) this.findViewById(R.id.mssyncButton);
+        progressText = (TextView) this.findViewById(R.id.textView6);
+        progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
+        mssyncButton = (Button) this.findViewById(R.id.mssyncButton);
         userInfoEndpoint = getString(R.string.op_userInfoEndpoint);
 
-        mssyncButton.setOnClickListener(new View.OnClickListener()
-        {
+        mssyncButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 // do something
                 refreshAvailableAccounts();
                 doLogin(v);
@@ -91,8 +87,6 @@ public class MSSyncActivity extends Activity implements ILogHandler {
     @Override
     protected void onResume() {
 
-
-
         super.onResume();
     }
 
@@ -101,10 +95,7 @@ public class MSSyncActivity extends Activity implements ILogHandler {
         super.onStart();
 
 
-
     }
-
-
 
     //endregion
 
@@ -123,7 +114,6 @@ public class MSSyncActivity extends Activity implements ILogHandler {
      * Called when the user taps the big yellow button.
      */
     public void doLogin(final View view) {
-
 
         switch (availableAccounts.length) {
             // No account has been created, let's create one now
@@ -200,8 +190,7 @@ public class MSSyncActivity extends Activity implements ILogHandler {
     }
 
 
-    private void showSyncing()
-    {
+    private void showSyncing() {
 
         progressText.setText("Syncing with Microsoft Health....");
         progressBar.setVisibility(View.VISIBLE);
@@ -210,24 +199,22 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
     }
 
-    private void showSyncing(String message)
-    {
+    private void showSyncing(String message) {
         progressText.setText(message);
         progressBar.setVisibility(View.VISIBLE);
         progressText.setVisibility(View.VISIBLE);
         mssyncButton.setVisibility(View.INVISIBLE);
 
     }
-    private void hideSyncing()
-    {
+
+    private void hideSyncing() {
         progressBar.setVisibility(View.INVISIBLE);
         progressText.setVisibility(View.INVISIBLE);
         mssyncButton.setVisibility(View.VISIBLE);
 
     }
 
-    private Activity getActivity()
-    {
+    private Activity getActivity() {
 
         return this;
     }
@@ -235,17 +222,16 @@ public class MSSyncActivity extends Activity implements ILogHandler {
     @Override
     public void ProcessLog(String logType, String message) {
 
-        SQLiteDatabase sqlDB=null;
+        SQLiteDatabase sqlDB = null;
 
-        DBHandler handler=null;
+        DBHandler handler = null;
         try {
-
 
             long unixTime = System.currentTimeMillis() / 1000L;
 
-             handler =  DBHandler.getInstance(this);
+            handler = DBHandler.getInstance(this);
 
-             sqlDB = handler.getWritableDatabase();
+            sqlDB = handler.getWritableDatabase();
 
             ContentValues values = new ContentValues();
 
@@ -254,22 +240,18 @@ public class MSSyncActivity extends Activity implements ILogHandler {
             values.put(DBHandler.COLUMN_TIMESTAMP, unixTime);
             sqlDB.insert(DBHandler.TABLE_LOGS, null, values);
 
-
-
             //mCtx.getContentResolver().notifyChange(DBHandler.URI_TABLE_USERS, null);
 
         } catch (Exception ex) {
             Log.d("Error", ex.getMessage());
 
-        }
-        finally {
+        } finally {
 
-            if(sqlDB!=null)
+            if (sqlDB != null)
                 sqlDB.close();
 
-            if(handler!=null)
+            if (handler != null)
                 handler.close();
-
 
 
         }
@@ -278,11 +260,18 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
     //region Background tasks
 
+    ///Sync Data
+    private void SyncData(Map result) {
+
+        RecordingSettings settings = new RecordingSettings(this);
+        new SyncHealthDataTask(settings.getPatientID(), settings.getToken()).execute(result);
+
+    }
+
     private class LoginTask extends AsyncTask<Account, Void, Map> {
 
         @Override
         protected void onPreExecute() {
-
 
             showSyncing();
         }
@@ -306,12 +295,10 @@ public class MSSyncActivity extends Activity implements ILogHandler {
             } catch (UserNotAuthenticatedWrapperException e) {
                 //FIXME: we gotta handle this somehow
 
-            }
-            catch (TokenDecryptionException e) {
+            } catch (TokenDecryptionException e) {
                 Log.w(TAG, "Token Decryption error", e);
 
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.w(TAG, "Another error occured", e);
 
 
@@ -325,9 +312,6 @@ public class MSSyncActivity extends Activity implements ILogHandler {
         @Override
         protected void onPostExecute(Map result) {
 
-
-
-
             if (result == null) {
                 hideSyncing();
                 Toast.makeText(getActivity(),
@@ -335,26 +319,14 @@ public class MSSyncActivity extends Activity implements ILogHandler {
                         Toast.LENGTH_SHORT).show();
 
                 new LogoutTask(false).execute(availableAccounts[selectedAccountIndex]);
-            }
-            else {
+            } else {
                 new ProtectedResTask().execute(availableAccounts[selectedAccountIndex]);
 
             }
-           /* progressBar.setVisibility(View.INVISIBLE);
 
-            if (result == null) {
-                loginButton.setText("Couldn't get user info");
-            } else {
-                //loginButton.setText("Logged in as " + result.get("given_name"));
-                loginButton.setText("Logged in as " + result.get("firstName"));
-                Log.i(TAG, "We manage to login user to server");
-
-
-            }
-            */
         }
 
-        private void handleTokenExpireException(Account account, IOException e){
+        private void handleTokenExpireException(Account account, IOException e) {
             if (e.getMessage().contains("Access Token not valid")) {
                 accountManager.invalidateAllAccountTokens(account);
                 Log.i(TAG, "User should authenticate one more");
@@ -389,6 +361,8 @@ public class MSSyncActivity extends Activity implements ILogHandler {
         }
     }
 
+
+
     private class ProtectedResTask extends AsyncTask<Account, Void, Map> {
 
         @Override
@@ -407,9 +381,9 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
             try {
 
-                Log.v("test",APIUtility.getJson(accountManager, protectedResUrl, account, null).toString());
+                Log.v("test", APIUtility.getJson(accountManager, protectedResUrl, account, null).toString());
                 return APIUtility.getJson(accountManager, protectedResUrl, account, null);
-            } catch (AuthenticatorException | OperationCanceledException|TokenDecryptionException |IOException e) {
+            } catch (AuthenticatorException | OperationCanceledException | TokenDecryptionException | IOException e) {
                 e.printStackTrace();
             } catch (UserNotAuthenticatedWrapperException e) {
                 //FIXME: we gotta handle this somehow
@@ -422,7 +396,6 @@ public class MSSyncActivity extends Activity implements ILogHandler {
          */
         @Override
         protected void onPostExecute(Map result) {
-
 
             hideSyncing();
 
@@ -440,30 +413,14 @@ public class MSSyncActivity extends Activity implements ILogHandler {
                 SyncData(result);
 
 
-
             }
         }
     }
 
-
-    ///Sync Data
-    private void SyncData(Map result)
-    {
-
-
-        RecordingSettings settings=new RecordingSettings(this);
-        new SyncHealthDataTask(settings.getPatientID(),settings.getToken()).execute(result);
-
-    }
-
+    /**
+     * Sync Data with PD_Manager Cloud
+     */
     private class SyncHealthDataTask extends AsyncTask<Map, Void, Boolean> {
-        @Override
-        protected void onPreExecute() {
-
-            showSyncing("Sending to PD Manager server...");
-
-        }
-
         private String accessToken;
         private String patientCode;
 
@@ -474,19 +431,23 @@ public class MSSyncActivity extends Activity implements ILogHandler {
         }
 
         @Override
+        protected void onPreExecute() {
+
+            showSyncing("Sending to PD Manager server...");
+
+        }
+
+        @Override
         protected Boolean doInBackground(Map... clientParams) {
 
             BandPendingResult<ConnectionState> pendingResult = null;
             try {
 
-
                 Map result = clientParams[0];
 
-                MSHealthDataHandler  mhandler = new MSHealthDataHandler(accessToken,patientCode);
+                MSHealthDataHandler mhandler = new MSHealthDataHandler(accessToken, patientCode);
 
                 mhandler.handleData(result);
-
-
 
                 return true;
 
@@ -500,7 +461,6 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
 
         protected void onPostExecute(Boolean result) {
-
 
             hideSyncing();
             // MSHealthManager manager=new MSHealthManager()
@@ -516,13 +476,12 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
         private boolean requestServerLogout;
 
-        public LogoutTask(boolean requestServerLogout){
+        public LogoutTask(boolean requestServerLogout) {
             this.requestServerLogout = requestServerLogout;
         }
 
         @Override
         protected void onPreExecute() {
-
 
             showSyncing();
 
@@ -552,8 +511,7 @@ public class MSSyncActivity extends Activity implements ILogHandler {
                     Toast.makeText(getActivity(),
                             "Session closed",
                             Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     //TODO: show error message "Couldn't remove account"
                 }
             } else {

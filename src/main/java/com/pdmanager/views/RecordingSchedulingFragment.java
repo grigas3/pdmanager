@@ -22,89 +22,27 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 
-public class RecordingSettingsFragment extends BasePDFragment implements FragmentListener, IServiceStatusListener {
+public class RecordingSchedulingFragment extends BasePDFragment implements FragmentListener, IServiceStatusListener {
 
 
-    private Switch mSwitchBandSensors;
-    //private Switch mSwitchHeartRate;
-    //private Switch mSwitchST;
-    // private Switch mSwitchBandAcc;
-    //private Switch mSwitchBandGyro;
-    private Switch mSwitchDevAcc;
+    private Spinner mCognitiveTestHour2;
+    private Spinner mCognitiveTestHour1;
+    private Spinner mMoodHour;
+    private Spinner mStartHourSpin;
 
+    private Spinner mEndHourSpin;
+    private Spinner mDiaryHour;
+    private Spinner mMedAlertHour2;
+    private Spinner mMedAlertHour1;
 
-    private Spinner mLangSpin;
-    private Spinner mSendorDelaySpin;
 
     private HashSet<Switch> mSensorMap = new HashSet<Switch>();
     private boolean enableSpinnerListener = false;
-    private Switch mSwitchRecordFile;
-    private Switch mSwitchUseDetectors;
 
 
 
-    private CompoundButton.OnCheckedChangeListener mToggleSensorSection = new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            // Turn on the appropriate sensor
-            Switch sw = (Switch) buttonView;
 
-            final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
-
-
-            RecordingSettings settings = getSettings();
-
-
-            if (!running) {
-
-                if (sw == mSwitchBandSensors) {
-
-
-                    settings.setBandEnabled(isChecked);
-                    if (isChecked) {
-
-                        mSendorDelaySpin.setEnabled(true);
-
-                    } else {
-
-
-                        mSendorDelaySpin.setEnabled(false);
-
-
-
-                    }
-
-
-                } else if (sw == mSwitchDevAcc) {
-
-
-                    settings.setDevEnabled(isChecked);
-
-
-                } else if (sw == mSwitchUseDetectors) {
-
-                    settings.setUseDetectors(isChecked);
-
-                } else if (sw == mSwitchRecordFile) {
-
-                    settings.setRecordFiles(isChecked);
-
-
-                }
-
-            } else
-
-            {
-
-            }
-
-
-
-        }
-    };
-
-
-    public RecordingSettingsFragment() {
+    public RecordingSchedulingFragment() {
         // Required empty public constructor
     }
 
@@ -129,31 +67,22 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_settings_scheduling, container, false);
 
 
-         //Switch Setup
-        mSwitchBandSensors = (Switch) rootView.findViewById(R.id.switchBandSensors);
-        mSwitchBandSensors.setOnCheckedChangeListener(mToggleSensorSection);
-
+        mStartHourSpin = (Spinner) rootView.findViewById(R.id.startHourSpinner);
+        mEndHourSpin = (Spinner) rootView.findViewById(R.id.stopHourSpinner);
 
 
 
-        mSwitchDevAcc = (Switch) rootView.findViewById(R.id.switchDeviceSensors);
-        mSendorDelaySpin = (Spinner) rootView.findViewById(R.id.sensorDelaySpinner);
+        mCognitiveTestHour1 = (Spinner) rootView.findViewById(R.id.cognHourSpinner1);
+        mCognitiveTestHour2 = (Spinner) rootView.findViewById(R.id.cognHourSpinner2);
+        mMoodHour = (Spinner) rootView.findViewById(R.id.moodSetHour);
 
-        mLangSpin=(Spinner) rootView.findViewById(R.id.langSpin);
-        //  mSwitchST.setOnCheckedChangeListener(mToggleSensorSection);
-        mSwitchDevAcc.setOnCheckedChangeListener(mToggleSensorSection);
+        mMedAlertHour1 = (Spinner) rootView.findViewById(R.id.medSetHour1);
+        mMedAlertHour2 = (Spinner) rootView.findViewById(R.id.medSetHour2);
+        mDiaryHour = (Spinner) rootView.findViewById(R.id.diaryHour);
 
-
-        mSwitchRecordFile = (Switch) rootView.findViewById(R.id.switchRecordFile);
-        mSwitchRecordFile.setOnCheckedChangeListener(mToggleSensorSection);
-
-        mSwitchUseDetectors = (Switch) rootView.findViewById(R.id.switchUseDetectors);
-        mSwitchUseDetectors.setOnCheckedChangeListener(mToggleSensorSection);
-        mSensorMap.add(mSwitchDevAcc);
-        mSensorMap.add(mSwitchBandSensors);
 
         enableSpinnerListener = false;
         addItemsOnSpinners();
@@ -203,21 +132,27 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
             enableSpinnerListener = false;
             RecordingSettings settings = getSettings();
-            mSwitchBandSensors.setChecked(settings.isBandEnabled());
-
-            mSwitchDevAcc.setChecked(settings.isDevEnabled());
-            mSwitchRecordFile.setChecked(settings.getRecordFiles());
-            mSwitchUseDetectors.setChecked(settings.getUseDetectors());
+              mStartHourSpin.setSelection(settings.getStartHour() - 6);
+            mEndHourSpin.setSelection(settings.getStopHour() - 6);
 
 
 
+            mCognitiveTestHour1.setSelection(settings.getCognHour1() - 6);
+            mCognitiveTestHour2.setSelection(settings.getCognHour2() - 6);
 
-            mLangSpin.setSelection(getLangSelection(settings.getLang()));
 
 
-            //mPatientCode.setSelection(getPatientSelection(settings.getPatientID()));
-            //mOrganizationSpin.setSelection(getOrgSelection(settings.getOrganization()));
-            mSendorDelaySpin.setSelection(getDelaySelection(settings.getSensorDelay()));
+            mMedAlertHour1.setSelection(settings.getMedHour1() - 6);
+            mMedAlertHour2.setSelection(settings.getMedHour2() - 6);
+
+
+
+            mDiaryHour.setSelection(settings.getDiaryHour() - 6);
+            mMoodHour.setSelection(settings.getMoodHour() - 6);
+
+
+
+
             enableSpinnerListener = true;
         } catch (Exception ex) {
 
@@ -341,49 +276,18 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mStartHourSpin.setAdapter(dataAdapter);
 
+        mEndHourSpin.setAdapter(dataAdapter);
+        mCognitiveTestHour1.setAdapter(dataAdapter);
+        mCognitiveTestHour2.setAdapter(dataAdapter);
+        mMoodHour.setAdapter(dataAdapter);
+        mMedAlertHour1.setAdapter(dataAdapter);
+        mMedAlertHour2.setAdapter(dataAdapter);
+        mDiaryHour.setAdapter(dataAdapter);
 
         ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, list1);
-        mSendorDelaySpin.setAdapter(dataAdapter1);
-
-
-/*        ArrayList<String> list2 = new ArrayList<String>();
-
-
-
-        list2.add(RecordingSettings.UOI);
-        list2.add(RecordingSettings.IRCCS);
-        list2.add(RecordingSettings.URI);
-        list2.add(RecordingSettings.UNIVERSITYOFSURREY);
-        list2.add(RecordingSettings.FONDAZIONESANTALUCIA);
-
-
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this.getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, list2);
-        mOrganizationSpin.setAdapter(dataAdapter2);
-        */
-
-
-        ArrayList<String> list3 = new ArrayList<String>();
-
-        list3.add("en");
-        list3.add("el");
-        list3.add("it");
-        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this.getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, list3);
-        mLangSpin.setAdapter(dataAdapter3);
-
-     /*   for(int i=1;i<100;i++)
-            list3.add(String.format("PAT%02d", i));
-
-
-
-
-        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this.getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, list3);
-        mPatientCode.setAdapter(dataAdapter3);
-        */
 
     }
 
@@ -430,12 +334,17 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
     public void addListenerOnSpinnerItemSelection() {
 
+        mStartHourSpin.setOnItemSelectedListener(new StartHourSelectedListener());
+        mEndHourSpin.setOnItemSelectedListener(new EndHourSelectedListener());
+        mCognitiveTestHour1.setOnItemSelectedListener(new CognHour1SelectedListener());
+        mCognitiveTestHour2.setOnItemSelectedListener(new CognHour2SelectedListener());
+        mMoodHour.setOnItemSelectedListener(new MoodHourSelectedListener());
 
-        //   mOrganizationSpin.setOnItemSelectedListener(new OrgSelectedListener());
 
-        mLangSpin.setOnItemSelectedListener(new LangSelectedListener());
-        // mPatientCode.setOnItemSelectedListener(new PatientSelectedListener());
-        mSendorDelaySpin.setOnItemSelectedListener(new SensorDelaySelectedListener());
+        mMedAlertHour1.setOnItemSelectedListener(new MedAlert1SelectedListener());
+        mMedAlertHour2.setOnItemSelectedListener(new MedAlert2SelectedListener());
+        mDiaryHour.setOnItemSelectedListener(new DiarySelectedListener());
+
     }
 
     /*

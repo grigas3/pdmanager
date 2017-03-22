@@ -133,7 +133,8 @@ public class Alert extends PDEntity implements Parcelable {
     }
 
     public String getAlertType() {
-        return Type;
+
+        return Type.toLowerCase();
     }
 
     public void setAlertType(String mType) {

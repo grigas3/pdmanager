@@ -9,7 +9,7 @@ import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.LIDData;
 import com.pdmanager.common.data.TremorData;
 import com.pdmanager.common.data.UPDRS;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.common.interfaces.IDataProcessor;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.posturedetector.SignalProcessing.Filters.FIRD;
@@ -34,7 +34,7 @@ public class DyskinesiaEvaluator extends BaseAggregator implements IDataProcesso
     int totalTremorCount = 0;
     double[] features;
     DyskinesiaDetClassifier classifier;
-    IDataHandler handler;
+    ISensorDataHandler handler;
     private double segm_duration;
     private float amp_thresh;
     private float height_thresh;
@@ -52,7 +52,7 @@ public class DyskinesiaEvaluator extends BaseAggregator implements IDataProcesso
      *
      * @param fs Frequency
      */
-    public DyskinesiaEvaluator(CommunicationManager manager, String patientIdentifier, IDataHandler phandler, double fs) throws Exception {
+    public DyskinesiaEvaluator(CommunicationManager manager, String patientIdentifier, ISensorDataHandler phandler, double fs) throws Exception {
 
         super(manager, patientIdentifier);
 

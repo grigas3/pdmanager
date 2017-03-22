@@ -263,7 +263,7 @@ private boolean timeRunning=false;
 
 
 
-                DirectSender sender = new DirectSender(accessToken);
+                DirectSender sender = new DirectSender(accessToken,getContext());
                 CommunicationManager mCommManager = new CommunicationManager(sender);
 
 

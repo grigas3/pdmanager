@@ -11,6 +11,8 @@ import com.pdmanager.persistence.DBHandler;
 
 import java.util.ArrayList;
 
+import se.simbio.encryption.Encryption;
+
 /**
  * Created by george on 5/1/2017.
  */
@@ -30,8 +32,23 @@ public class SQLCommunicationList implements  ICommunicationQueue, IJsonRequestH
     public void close() {
 
     }
+    private String decryptJson(String jsonBody)
+    {
+        String key = "YourKey";
+        String salt = "YourSalt";
+        byte[] iv = new byte[16];
+        Encryption encryption = Encryption.getDefault(key, salt, iv);
+        return  encryption.decryptOrNull(jsonBody);
+    }
 
-
+    private String encryptJson(String jsonBody)
+    {
+        String key = "YourKey";
+        String salt = "YourSalt";
+        byte[] iv = new byte[16];
+        Encryption encryption = Encryption.getDefault(key, salt, iv);
+        return  encryption.encryptOrNull(jsonBody);
+    }
     public ArrayList<JsonStorage> getLastN(int n) {
         SQLiteDatabase db = null;
 

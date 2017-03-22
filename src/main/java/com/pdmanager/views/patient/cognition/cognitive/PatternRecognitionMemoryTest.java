@@ -194,11 +194,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
         prmInfo.setVisibility(View.VISIBLE);
         prmInfo.setText(message);
 
-        if (levelTypes[level-1] == 0) {
-            isReverseOrder = true;
-        } else {
-            isReverseOrder = false;
-        }
+        isReverseOrder = levelTypes[level - 1] == 0;
 
         timer = new CountDownTimer(TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
             @Override

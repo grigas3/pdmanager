@@ -50,62 +50,53 @@ public class LocalNotificationTask extends AsyncTask<UserAlert, Void, Void> {
 
 
         UserAlert alert = params[0];
-        try {
+        if(alert!=null) {
+            try {
 
+                Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+                if (soundUri == null)
+                    soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                if (soundUri == null)
+                    soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
 
-            Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-            if (soundUri == null)
-                soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            if (soundUri == null)
-                soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext);
 
+                if (soundUri != null)
+                    mBuilder.setSound(soundUri);
 
-            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext);
-
-
-            if (soundUri != null)
-                mBuilder.setSound(soundUri);
-
-
-
-
-            if(alert.getAlertType()=="MED") {
-                mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(),R.drawable.ic_pill_2));
-                mBuilder.setSmallIcon(R.drawable.ic_pill_2);
-
-            }
-            else {
-                mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(),R.drawable.pdmanager));
+                mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.pdmanager));
                 mBuilder.setSmallIcon(R.drawable.pdmanagersmall);
-            }
 
-            mBuilder.setContentTitle(alert.getTitle());
-            mBuilder.setContentText(alert.getMessage());
+                mBuilder.setContentTitle(alert.getTitle());
+                mBuilder.setContentText(alert.getMessage());
+                mBuilder.setAutoCancel(true);
 
-            Intent intent = new Intent(mContext, MainActivity.class);
-            intent.putExtra(PDApplicationContext.INTENT_ALERT_TYPE, alert.getAlertType());
-            intent.putExtra(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
-            intent.setAction(Long.toString(System.currentTimeMillis()));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0,
-                    intent, PendingIntent.FLAG_CANCEL_CURRENT);
-            mBuilder.setContentIntent(pendingIntent);
+                Intent intent = new Intent(mContext, MainActivity.class);
+                intent.putExtra(PDApplicationContext.INTENT_ALERT_TYPE, alert.getAlertType());
+                intent.putExtra(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
+                intent.setAction(Long.toString(System.currentTimeMillis()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0,
+                        intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                mBuilder.setContentIntent(pendingIntent);
 
-            mBuilder.setAutoCancel(true);
-            NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+                mBuilder.setAutoCancel(true);
+                NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
 // notificationID allows you to update the notification later on.
-            mNotificationManager.notify(id, mBuilder.build());
-            //    SmsManager smsManager = SmsManager.getDefault();
+                mNotificationManager.notify(id, mBuilder.build());
+
+                //    SmsManager smsManager = SmsManager.getDefault();
 //            smsManager.sendTextMessage(mPhone, null, message, null, null);
 
-        } catch (Exception e) {
+            } catch (Exception e) {
 
-            e.printStackTrace();
+                e.printStackTrace();
 
+
+            }
 
         }
-
 
         return null;
     }

@@ -3,7 +3,7 @@ package com.symptomdetector.classifier; /**
  * Tis hand posture detector detects simple hand raises
  */
 import com.pdmanager.common.data.ISensorData;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
 import com.pdmanager.symptomdetector.tremor.HandPostureDetector;
 
@@ -85,7 +85,7 @@ public class HandPostureDetectorTest {
     }
 */
 
-    private class TestPDataHandler implements IDataHandler
+    private class TestPDataHandler implements ISensorDataHandler
     {
 
         private int numOfPostures=0;

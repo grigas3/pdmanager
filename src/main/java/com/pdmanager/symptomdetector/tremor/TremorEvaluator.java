@@ -10,12 +10,11 @@ import com.pdmanager.common.data.GyroData;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.TremorData;
 import com.pdmanager.common.data.UPDRS;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.common.interfaces.IDataProcessor;
 import com.pdmanager.posturedetector.Core.Signals.NamedSignalCollection;
 import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -37,7 +36,7 @@ public class TremorEvaluator implements IDataProcessor {
     private TremorGyroPreprocess gyropreprocessor;
     private NamedSignalCollection signalCollection;
 
-    private IDataHandler handler;
+    private ISensorDataHandler handler;
     private int accSampleCount = 0;
     private int gyroSampleCount = 0;
     private Object lock1 = new Object();
@@ -48,7 +47,7 @@ public class TremorEvaluator implements IDataProcessor {
      * @param pHander Data Handler (to pass the output of the classifier)
      * @param fs Sampling Frequency
      */
-    public TremorEvaluator(IDataHandler pHander, double fs) {
+    public TremorEvaluator(ISensorDataHandler pHander, double fs) {
 
         handler = pHander;
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.pdmanager.common.data.LocationData;
 import com.pdmanager.common.data.LocationReading;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 
 /**
  * Created by george on 27/11/2015.
@@ -14,10 +14,10 @@ import com.pdmanager.common.interfaces.IDataHandler;
 public class PDLocationListener implements LocationListener {
 
 
-    private IDataHandler mDataHandler;
+    private ISensorDataHandler mDataHandler;
 
 
-    public PDLocationListener(IDataHandler h) {
+    public PDLocationListener(ISensorDataHandler h) {
 
 
         mDataHandler = h;

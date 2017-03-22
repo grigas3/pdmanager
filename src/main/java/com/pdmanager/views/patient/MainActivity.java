@@ -74,6 +74,7 @@ import com.telerik.primitives.TipsPresenter;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Timer;
 
 //import com.pdmanager.services.RegistrationIntentService;
 
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     boolean mBound = false;
 
 
-    IAlertFragmentManager alertFragmentManager;
+    //IAlertFragmentManager alertFragmentManager;
     HashMap<String, Fragment> fragmentCache = new HashMap<String, Fragment>();
     private ColorDrawable currentBgColor;
     private android.support.v7.app.ActionBar actionBar;
@@ -165,7 +166,12 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     public void onBackPressed() {
 
 
-        super.onBackPressed();
+        if(patientHomeFragment!=null&&patientHomeFragment.isInLayout()) {
+
+           // return false;
+        }
+        else
+            super.onBackPressed();
     }
 
     @Override
@@ -218,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
 
 
-        try {
+    /*    try {
             this.setupAlertFragmentManager();
         }
         catch (Exception ex)
@@ -226,6 +232,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             Log.e("MAINACTIVITY","RES",ex.getCause());
 
         }
+        */
 
 
         if (savedInstanceState == null) {
@@ -273,12 +280,27 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     }
     private void setupAlertFragmentManager() {
 
-        this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
+      //  this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
 
     }
 
     @Override
     public void onDestroy() {
+
+
+        if (mBound) {
+
+            if(mService!=null)
+                mService.unregisterListener(patientHomeFragment);
+            unbindService(mConnection);
+            if (!mService.getSessionMustRun())
+                getApplicationContext().stopService(intent);
+
+
+            mBound = false;
+        }
+
+
 
         super.onDestroy();
     }
@@ -315,8 +337,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     protected void onResume() {
         super.onResume();
 
-        if (alertFragmentManager != null)
-            alertFragmentManager.startAutoUpdate();
+       // if (alertFragmentManager != null)
+         //   alertFragmentManager.startAutoUpdate();
     }
 
 
@@ -325,18 +347,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         super.onStop();
         // Unbind from the service
 
-        alertFragmentManager.stopAutoUpdate();
-        if (mBound) {
+      //  alertFragmentManager.stopAutoUpdate();
 
-            if(mService!=null)
-            mService.unregisterListener(patientHomeFragment);
-            unbindService(mConnection);
-            if (!mService.getSessionMustRun())
-                getApplicationContext().stopService(intent);
-
-
-            mBound = false;
-        }
 
     }
 
@@ -613,8 +625,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         return null;
     }
 
-    public static interface MenuList {
-        public void fill(View view, ContextMenu menu);
+    public interface MenuList {
+        void fill(View view, ContextMenu menu);
     }
 
 
@@ -663,6 +675,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             toastHandler.sendMessage(s);
             //Toast.makeText(getParent(),"Log clear cancelled", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
 }

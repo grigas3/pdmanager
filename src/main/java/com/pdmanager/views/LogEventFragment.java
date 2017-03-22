@@ -24,18 +24,14 @@ import com.pdmanager.logging.LogCursorAdapter;
 import com.pdmanager.logging.LogLoader;
 import com.pdmanager.logging.LogObserver;
 import com.pdmanager.persistence.DBHandler;
+import com.pdmanager.views.clinician.PDQ39Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A fragment representing a list of Items.
- * <p/>
- * Large screen devices (such as tablets) are supported by replacing the ListView
- * with a GridView.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
- * interface.
+ * A fragment for log events
+
  */
 public class LogEventFragment extends Fragment implements FragmentListener, LoaderManager.LoaderCallbacks<Cursor> {
 

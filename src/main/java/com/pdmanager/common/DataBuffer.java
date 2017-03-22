@@ -173,8 +173,7 @@ public abstract class DataBuffer<T> {
 
     public void addItem(T item) {
 
-        final ArrayList<T> tmpItems = new ArrayList<>();;
-
+        final ArrayList<T> tmpItems = new ArrayList<>();
 
         synchronized (lock1) {
 

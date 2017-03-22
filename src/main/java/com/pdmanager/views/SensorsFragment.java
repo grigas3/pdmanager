@@ -29,11 +29,11 @@ import com.pdmanager.common.DataTypes;
 import com.pdmanager.common.data.HRData;
 import com.pdmanager.common.data.HRReading;
 import com.pdmanager.common.data.ISensorData;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.R;
 
 
-public class SensorsFragment extends Fragment implements FragmentListener, IDataHandler {
+public class SensorsFragment extends Fragment implements FragmentListener, ISensorDataHandler {
 
     // HR sensor controls
     private TextView mTextHeartRate;

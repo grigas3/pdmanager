@@ -9,7 +9,7 @@ import com.pdmanager.common.data.AccReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.PedoData;
 import com.pdmanager.common.data.PostureData;
-import com.pdmanager.common.interfaces.IDataHandler;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.posturedetector.Core.PostureTypes;
 import com.pdmanager.posturedetector.Core.Signals.PostureEvaluation;
 import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
@@ -26,7 +26,7 @@ public class PostureDataProcessor extends BaseDataProcessor {
     private static final int MAXBUFFER = 90;
     private final PostureDetector evaluator = new PostureDetector(90, 30);
     private final SignalCollection signalData = new SignalCollection(3, 90);
-    private IDataHandler mHandler;
+    private ISensorDataHandler mHandler;
     private int bufferCount;
     private int lastPosture;
     private int bites = 0;
@@ -35,7 +35,7 @@ public class PostureDataProcessor extends BaseDataProcessor {
     private long distanceTraveled = -1;
     private long prevValue = 0;
 
-    public PostureDataProcessor(IDataHandler handler)
+    public PostureDataProcessor(ISensorDataHandler handler)
             throws Exception {
         bufferCount = 0;
         lastPosture = -1;
