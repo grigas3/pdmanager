@@ -1,5 +1,6 @@
 package com.pdmanager.views.common;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -8,12 +9,14 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -42,6 +45,34 @@ import java.util.List;
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static final int REQUEST_CONTACTS = 1;
+    private static final int REQUEST_RECORD = 1;
+    private static final int REQUEST_PHONE_STATE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+
+
+    };
+    private static String[] PERMISSIONS_CONTACTS = {
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.WRITE_CONTACTS,
+
+
+    };
+
+    private static String[] PERMISSIONS_RECORD = {
+            Manifest.permission.RECORD_AUDIO
+
+
+    };
+
+    private static String[] PERMISSIONS_PHONE = {
+            Manifest.permission.READ_PHONE_STATE
+
+
+    };
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -94,6 +125,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         mProgressView = findViewById(R.id.login_progress);
 
 
+        requirePermissions(this);
         redirectIfLogged();
 
        /* //added for firebase
@@ -340,6 +372,95 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         public String id;
         public String role;
     }
+
+
+    private boolean checkPermissions(Activity activity)
+    {
+
+        boolean requiresPermissions=false;
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+
+            requiresPermissions=true;
+
+        }
+
+        int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
+
+        if (permission2 != PackageManager.PERMISSION_GRANTED) {
+            requiresPermissions=true;
+        }
+
+        int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
+
+        if (permission3 != PackageManager.PERMISSION_GRANTED) {
+            requiresPermissions=true;
+        }
+
+        return requiresPermissions;
+    }
+
+
+
+
+    /**
+     * Checks if the app has permission to write to device storage
+     * <p>
+     * If the app does not has permission then the user will be prompted to grant permissions
+     *
+     * @param activity
+     */
+    public void requirePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+
+
+        int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
+
+        if (permission2 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_CONTACTS,
+                    REQUEST_CONTACTS
+            );
+        }
+
+
+        int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
+
+        if (permission3 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_PHONE,
+                    REQUEST_PHONE_STATE
+            );
+        }
+
+
+        int permission4 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO);
+
+        if (permission4 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_RECORD,
+                    REQUEST_RECORD
+            );
+        }
+    }
+
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
