@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true" />
     </RelativeLayout>
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/mainLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -134,72 +134,72 @@
 
         </LinearLayout>
 
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="#CDCDCD"
-        >
-
-        <View android:id="@+id/halfparent"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true"/>
-
-
-
-        <TextView
-            android:id="@+id/mood_act_choose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textStyle="bold|italic"
-            android:textColor="#555"
-            android:text="Choose"
-            android:textSize="18sp"
-            android:textAllCaps="true"/>
-
         <RelativeLayout
-            android:id="@+id/button_mood_next"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@id/halfparent"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/button_blue_corner_radius"
-            android:visibility="gone">
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:background="#CDCDCD"
+            >
+
+            <View android:id="@+id/halfparent"
+                  android:layout_width="0dp"
+                  android:layout_height="0dp"
+                  android:layout_centerHorizontal="true"/>
+
+
 
             <TextView
-                android:id="@+id/mood_act_done_txt"
+                android:id="@+id/mood_act_choose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Done"
-                android:textColor="#FFF"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 android:layout_centerInParent="true"
-                android:layout_marginLeft="-20dp"
-                android:layout_marginRight="10dp"/>
+                android:textStyle="bold|italic"
+                android:textColor="#555"
+                android:text="Choose"
+                android:textSize="18sp"
+                android:textAllCaps="true"/>
 
-            <ImageView
+            <RelativeLayout
+                android:id="@+id/button_mood_next"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_chevron_right"
+                android:layout_height="60dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/mood_act_done_txt"/>
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/halfparent"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_blue_corner_radius"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/mood_act_done_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Done"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/mood_act_done_txt"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
     </RelativeLayout>
+
+
 
 </RelativeLayout>

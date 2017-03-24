@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
@@ -33,7 +37,7 @@ import java.util.Locale;
 
 public class StopSignalTaskTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "LOGGER_TAG: SST test";
+    private final String LOGGER_TAG = "SST test";
 
     private String
             test = "StopSignalTask.csv",
@@ -644,10 +648,75 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
         resultInfo.append(minReactionTime + "\r\n");
 
         results.add(String.valueOf(resultInfo));
+        sendObservations(nDirectionErrorsGO, nDirectionErrorsNoGO, nTapErrorsGO, nTapErrorsNoGO, nTimeoutErrorsGO,
+                nTimeoutErrorsNoGO, nStimuliWithAudio, Double.parseDouble(meanReactionTimeGO), Double.parseDouble(maxReactionTimeGO),
+                Double.parseDouble(minReactionTimeGO), Double.parseDouble(meanReactionTimeNoGO), Double.parseDouble(maxReactionTimeNoGO),
+                Double.parseDouble(minReactionTimeNoGO));
+    }
+
+    public void sendObservations (int dirErrorsGO, int dirErrorsNoGO, int tapErrorsGO, int tapErrorsNoGO, int timeoutErrorsGO,
+                                  int timeoutErrorsNoGO, int nStimuli, double meanRTGO, double maxRTGO, double minRTGO,
+                                  double meanRTNoGO, double maxRTNoGO, double minRTNoGO) {
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsSSTDirGO = new Observation (dirErrorsGO, patientCode, "PDTSST_DIR_GO", time);
+            obsSSTDirGO.PatientId = patientCode;
+            Observation obsSSTDirNoGO = new Observation(dirErrorsNoGO, patientCode, "PDTSST_DIR_NOGO", time);
+            obsSSTDirNoGO.PatientId = patientCode;
+            Observation obsSSTTapGO = new Observation(tapErrorsGO, patientCode, "PDTSST_TAP_GO", time);
+            obsSSTTapGO.PatientId = patientCode;
+            Observation obsSSTTapNoGO = new Observation(tapErrorsNoGO, patientCode, "PDTSST_TAP_NOGO", time);
+            obsSSTTapNoGO.PatientId = patientCode;
+            Observation obsSSTTimeoutGO = new Observation (timeoutErrorsGO, patientCode, "PDTSST_TIMEOUT_GO", time);
+            obsSSTTimeoutGO.PatientId = patientCode;
+            Observation obsSSTTimeoutNoGO = new Observation (timeoutErrorsNoGO, patientCode, "PDTSST_TIMEOUT_NOGO", time);
+            obsSSTTimeoutNoGO.PatientId = patientCode;
+            Observation obsSSTStimuli = new Observation(nStimuli, patientCode, "PDTSST_STIMULI", time);
+            obsSSTStimuli.PatientId = patientCode;
+            Observation obsSSTMeanRTGO = new Observation(meanRTGO, patientCode, "PDTSST_MEAN_GO", time);
+            obsSSTMeanRTGO.PatientId = patientCode;
+            Observation obsSSTMaxRTGO = new Observation(maxRTGO, patientCode, "PDTSST_MAX_GO", time);
+            obsSSTMaxRTGO.PatientId = patientCode;
+            Observation obsSSTMinRTGO = new Observation(minRTGO, patientCode, "PDTSST_MIN_GO", time);
+            obsSSTMinRTGO.PatientId = patientCode;
+            Observation obsSSTMeanRTNoGO = new Observation(meanRTNoGO, patientCode, "PDTSST_MEAN_NOGO", time);
+            obsSSTMeanRTNoGO.PatientId = patientCode;
+            Observation obsSSTMaxRTNoGO = new Observation(maxRTNoGO, patientCode, "PDTSST_MAX_NOGO", time);
+            obsSSTMaxRTNoGO.PatientId = patientCode;
+            Observation obsSSTMinRTNoGO = new Observation(minRTNoGO, patientCode, "PDTSST_MIN_NOGO", time);
+            obsSSTMinRTNoGO.PatientId = patientCode;
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsSSTDirGO);
+            observations.add(obsSSTDirNoGO);
+            observations.add(obsSSTTapGO);
+            observations.add(obsSSTTapNoGO);
+            observations.add(obsSSTTimeoutGO);
+            observations.add(obsSSTTimeoutNoGO);
+            observations.add(obsSSTStimuli);
+            observations.add(obsSSTMeanRTGO);
+            observations.add(obsSSTMaxRTGO);
+            observations.add(obsSSTMinRTGO);
+            observations.add(obsSSTMeanRTNoGO);
+            observations.add(obsSSTMaxRTNoGO);
+            observations.add(obsSSTMinRTNoGO);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
     }
 
 
-    private void finishTest(){
+    @Override
+    protected void finishTest(){
 
         try {
             writeFile (test, header);
@@ -665,7 +734,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             tones.stopTone();
             handler.removeCallbacks(thread);
 
-            setContentView(R.layout.activity_end);
+         /*   setContentView(R.layout.activity_end);
 
             Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
             buttonRepeat.setOnClickListener(new View.OnClickListener() {
@@ -690,10 +759,12 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                     finish();
                 }
             });
+           */
 
         }catch (Exception e){
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
+        super.finishTest();
     }
 
     @Override

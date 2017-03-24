@@ -34,7 +34,7 @@ import java.util.Locale;
 
 public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "LOGGER_TAG: PAL test";
+    private final String LOGGER_TAG = "PAL test";
 
     private final int TIME_MILLISECONDS_SHOW_STIMULI = 2000;
     private final int TIME_MILLISECONDS_SHOW_STIMULI_TICK = 1000;
@@ -599,7 +599,8 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         results.add(String.valueOf(resultInfo));
     }
 
-    private void finishTest(){
+    @Override
+    protected void finishTest(){
 
         try {
 
@@ -617,7 +618,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
             tones.stopTone();
 
-            setContentView(R.layout.activity_end);
+           /* setContentView(R.layout.activity_end);
 
             Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
             buttonRepeat.setOnClickListener(new View.OnClickListener() {
@@ -643,6 +644,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
                 }
             });
+            */
 
         }catch (Exception e){
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
@@ -699,6 +701,6 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         }
 
     }
-}
+};
 
 

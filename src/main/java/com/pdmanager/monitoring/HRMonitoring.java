@@ -71,7 +71,7 @@ public class HRMonitoring implements IDataProcessor {
 
 
 
-                    Observation obs = new Observation(stMean / stCount, "ST", hrD.getTicks(), mpID);
+                    Observation obs = new Observation(stMean / stCount, "STST", hrD.getTicks(), mpID);
                     tmpObservations.add(obs);
                     stCount = 0;
                     stMean = 0;
@@ -93,7 +93,7 @@ public class HRMonitoring implements IDataProcessor {
 
 
                     if (p - lastPedo > 0) {
-                        Observation obs = new Observation(p - lastPedo, "PEDO", hrD.getTicks(), mpID);
+                        Observation obs = new Observation(p - lastPedo, "STPEDO", hrD.getTicks(), mpID);
                         tmpObservations.add(obs);
                     }
 
@@ -121,7 +121,7 @@ public class HRMonitoring implements IDataProcessor {
 
                     if (hrCount >= MAXHR) {
 
-                        Observation obs = new Observation(hrMean / hrCount, "HR", hrD.getTicks(), mpID);
+                        Observation obs = new Observation(hrMean / hrCount, "STHR", hrD.getTicks(), mpID);
                         tmpObservations.add(obs);
                         hrCount = 0;
                         hrMean = 0;

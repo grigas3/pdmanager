@@ -56,4 +56,5 @@ public class LoggingTestActivity extends Activity
         }
         catch (Exception e) { e.printStackTrace(); }
     }
+
 }

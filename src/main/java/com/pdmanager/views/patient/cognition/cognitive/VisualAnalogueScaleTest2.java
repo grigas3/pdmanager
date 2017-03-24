@@ -229,7 +229,8 @@ import java.util.Locale;
             results.add(String.valueOf(resultInfo));
         }
 
-        private void finishTest(){
+        @Override
+        protected void finishTest(){
 
             try {
                 writeFile (test, header);
@@ -238,7 +239,7 @@ import java.util.Locale;
 
                 //if (timerTask != null) { timerTask.cancel(); }
 
-                setContentView(R.layout.activity_end);
+             /*   setContentView(R.layout.activity_end);
 
                 Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
                 buttonRepeat.setOnClickListener(new View.OnClickListener() {
@@ -263,9 +264,11 @@ import java.util.Locale;
                     }
                 });
 
+                */
             }catch (Exception e){
                 Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
             }
+            super.finishTest();
         }
 
         @Override

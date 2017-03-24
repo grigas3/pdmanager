@@ -1,7 +1,6 @@
 package com.pdmanager.app;
 
 
-import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
@@ -11,9 +10,6 @@ import com.pdmanager.alerting.IUserAlertManager;
 import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.views.patient.AlertPDFragment;
-import com.pdmanager.views.patient.DiaryTrackingFragment;
-import com.pdmanager.views.patient.MedAlertFragment;
-import com.pdmanager.views.patient.MoodTrackingFragment;
 
 import java.util.HashMap;
 import java.util.Timer;
@@ -77,103 +73,13 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
     */
 
-    private AlertPDFragment getFragmentByAlert(UserAlert alert)
-    {
-        AlertPDFragment newFragment = null;
-
-        String section = alert.getAlertType();
-
-        if(section!=null&&section.toUpperCase()=="MED")
-        {
-
-            MedAlertFragment fragment= new MedAlertFragment();
-
-            Bundle bundle = new Bundle();
-            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
-            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
-            fragment.setArguments(bundle);
-            newFragment=fragment;
-        }
-        else if(section!=null&&section.toUpperCase()=="DIARY")
-        {
-
-            DiaryTrackingFragment fragment= new DiaryTrackingFragment();
-
-            Bundle bundle = new Bundle();
-            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
-            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
-            fragment.setArguments(bundle);
-            newFragment=fragment;
-        }
-
-        else if(section!=null&&section.toUpperCase()=="MOOD")
-        {
-
-            MoodTrackingFragment fragment= new MoodTrackingFragment();
-
-            Bundle bundle = new Bundle();
-            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
-            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
-            fragment.setArguments(bundle);
-            newFragment=fragment;
-        }
-        else if(section!=null&&section.toUpperCase()=="COGNITIVE")
-        {
-
-            MoodTrackingFragment fragment= new MoodTrackingFragment();
-
-            Bundle bundle = new Bundle();
-            bundle.putString(PDApplicationContext.INTENT_ALERT_ID, alert.getId());
-            bundle.putString(PDApplicationContext.INTENT_ALERT_SOURCE, alert.getSource());
-            fragment.setArguments(bundle);
-            newFragment=fragment;
-        }
-
-     /*   onDefaultFragment=true;
-
-        if (fragmentCache.containsKey(section)) {
-            Log.d(TAG, "Fragment from Cache");
-
-            newFragment = fragmentCache.get(section);
-
-
-            if(newFragment!=null) {
-                onDefaultFragment = false;
-                return newFragment;
-            }
-
-
-        }
-    */
-
-
-    return newFragment;
-    }
-
-
-    private AlertPDFragment getAlertFragment(String alertId) {
-
-        onDefaultFragment=true;
-        UserAlert alert = alertManager.getAlert(alertId);
-
-        if (alert != null) {
-
-
-            return getFragmentByAlert(alert);
-
-        } else
-            return null;
-    }
-
-
-
 
 
     private AlertPDFragment getNextFragment() {
         onDefaultFragment=true;
         UserAlert alert=alertManager.getFirstActive();
 
-        if (alert != null) {
+    /*    if (alert != null) {
 
             //Get Fragment based on alert
             AlertPDFragment fragment= getFragmentByAlert(alert);
@@ -187,6 +93,9 @@ public class AlertFragmentManager implements IAlertFragmentManager {
 
             return null;
         }
+        */
+
+        return null;
     }
 
 

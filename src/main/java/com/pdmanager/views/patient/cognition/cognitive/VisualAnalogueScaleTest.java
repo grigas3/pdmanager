@@ -12,6 +12,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
@@ -32,7 +36,7 @@ import java.util.Calendar;
         public static final String FLAG = "flag";
         private Boolean isJustOnOff = null;
         private TextView tvYes, tvNo;
-        private final String LOGGER_TAG = "LOGGER_TAG: VAS test";
+        private final String LOGGER_TAG = "VAS test";
         private String
             test = "VisualAnalogueScale.csv",
             header = "Timestamp, "
@@ -140,7 +144,9 @@ import java.util.Calendar;
             questionNumber++;
             if (questionNumber > QUESTIONS_NUMBER)
             {
+
                 results.add("\r\n");
+                sendObservations();
                 finishTest();
             }
             else { setQuestion(); }
@@ -199,7 +205,10 @@ import java.util.Calendar;
             else results.add(", "+answerValue);
         }
 
-        private void finishTest()
+
+
+        @Override
+        protected void finishTest()
         {
             String rtest = "";
             for (String i : results) rtest+=i;
@@ -207,13 +216,14 @@ import java.util.Calendar;
 
             try
             {
+
                 writeFile (test, header);
 
                 speak.silence();
 
                 //if (timerTask != null) { timerTask.cancel(); }
 
-                setContentView(R.layout.activity_end);
+             /*   setContentView(R.layout.activity_end);
 
                 Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
                 buttonRepeat.setOnClickListener(new View.OnClickListener() {
@@ -238,11 +248,60 @@ import java.util.Calendar;
                     }
                 });
                 buttonExit.setVisibility(View.GONE);
+                */
 
             }catch (Exception e){
                 Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
             }
+
+            super.finishTest();
         }
+
+        public void sendObservations () {
+        //Observations
+
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+
+            Observation obsVASQ1 = new Observation (Double.parseDouble(results.get(1).split(", ")[1]), patientCode, "PDTVAS_Q1", time);
+            obsVASQ1.PatientId = patientCode;
+            Observation obsVASQ2 = new Observation(Double.parseDouble(results.get(2).split(", ")[1]), patientCode, "PDTVAS_Q2", time);
+            obsVASQ2.PatientId = patientCode;
+            Observation obsVASQ3 = new Observation(Double.parseDouble(results.get(3).split(", ")[1]), patientCode, "PDTVAS_Q3", time);
+            obsVASQ3.PatientId = patientCode;
+            Observation obsVASQ4 = new Observation(Double.parseDouble(results.get(4).split(", ")[1]), patientCode, "PDTVAS_Q4", time);
+            obsVASQ4.PatientId = patientCode;
+            Observation obsVASQ5 = new Observation (Double.parseDouble(results.get(5).split(", ")[1]), patientCode, "PDTVAS_Q5", time);
+            obsVASQ5.PatientId = patientCode;
+            Observation obsVASQ6 = new Observation (Double.parseDouble(results.get(6).split(", ")[1]), patientCode, "PDTVAS_Q6", time);
+            obsVASQ6.PatientId = patientCode;
+            Observation obsVASQ7 = new Observation(Double.parseDouble(results.get(7).split(", ")[1]), patientCode, "PDTVAS_Q7", time);
+            obsVASQ7.PatientId = patientCode;
+            Observation obsVASQ8 = new Observation(Double.parseDouble(results.get(8).split(", ")[1]), patientCode, "PDTVAS_Q8", time);
+            obsVASQ8.PatientId = patientCode;
+
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsVASQ1);
+            observations.add(obsVASQ2);
+            observations.add(obsVASQ3);
+            observations.add(obsVASQ4);
+            observations.add(obsVASQ5);
+            observations.add(obsVASQ6);
+            observations.add(obsVASQ7);
+            observations.add(obsVASQ8);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+    }
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)

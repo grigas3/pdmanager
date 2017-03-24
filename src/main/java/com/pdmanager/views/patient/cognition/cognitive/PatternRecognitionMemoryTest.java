@@ -33,7 +33,7 @@ import java.util.Random;
  */
 
 public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
-    private String LOGGER_TAG = "LOGGER_TAG: PatternRecognitionMemoryTest";
+    private String LOGGER_TAG = "PRMemoryTest";
 
     private final int TIME_MILLISECONDS_SHOWING_STIMULI = 2000;
     private final int TIME_MILLISECONDS_TASK = 300000;
@@ -194,7 +194,11 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
         prmInfo.setVisibility(View.VISIBLE);
         prmInfo.setText(message);
 
-        isReverseOrder = levelTypes[level - 1] == 0;
+        if (levelTypes[level-1] == 0) {
+            isReverseOrder = true;
+        } else {
+            isReverseOrder = false;
+        }
 
         timer = new CountDownTimer(TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
             @Override
@@ -559,8 +563,8 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
         results.add(String.valueOf(resultInfo));
     }
-
-    private void finishTest(){
+    @Override
+    protected void finishTest(){
 
         try {
             writeFile(test, header);
@@ -577,7 +581,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
             speak.silence();
 
-            setContentView(R.layout.activity_end);
+          /*  setContentView(R.layout.activity_end);
 
             Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
             buttonRepeat.setOnClickListener(new View.OnClickListener() {
@@ -603,10 +607,14 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
                 }
             });
+            */
 
         }catch (Exception e){
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
+
+
+        super.finishTest();
     }
 
     @Override

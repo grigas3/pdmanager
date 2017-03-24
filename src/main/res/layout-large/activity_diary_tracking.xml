@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/busy_BusyIndicator"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saving..."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            />
+        <ProgressBar
+            android:layout_below="@+id/textSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container_diary_select"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:textSize="26sp"
+                android:textStyle="bold|italic"
+                android:text="Your main symptoms today?"
+                android:textColor="#000"
+                android:background="@drawable/mood_title_background"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <LinearLayout
+                    android:id="@+id/diary_off"
+                    android:tag="0"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_awfull"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="OFF"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/diary_on"
+                    android:tag="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_excellent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="ON"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/diary_on_dys"
+                    android:tag="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:background="@drawable/selected_rounded_background">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/mood_okay"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:text="ON with dyskinesia"/>
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:background="#CDCDCD"
+            >
+
+            <View android:id="@+id/halfparent"
+                  android:layout_width="0dp"
+                  android:layout_height="0dp"
+                  android:layout_centerHorizontal="true"/>
+
+
+
+            <TextView
+                android:id="@+id/mood_act_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textStyle="bold|italic"
+                android:textColor="#555"
+                android:text="Choose"
+                android:textSize="18sp"
+                android:textAllCaps="true"/>
+
+            <RelativeLayout
+                android:id="@+id/button_mood_next"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/halfparent"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_blue_corner_radius"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/mood_act_done_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Done"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/mood_act_done_txt"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

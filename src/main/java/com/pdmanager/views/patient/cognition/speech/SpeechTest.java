@@ -12,6 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
@@ -22,6 +26,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Locale;
 
 import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
@@ -63,6 +69,7 @@ public class SpeechTest extends SoundFeedbackActivity
     int suffixFileName = 1;
     final String typeFile = ".csv";
     final static String CSV_PATH = "/AudioProcessing";
+    private final String LOGGER_TAG = "LOGGER_TAG: Speech test";
 
     private AudioDispatcher dispatcher;
 
@@ -304,7 +311,10 @@ public class SpeechTest extends SoundFeedbackActivity
      */
     public boolean isDispatcherNull()
     {
-        return dispatcher == null;
+        if(dispatcher == null)
+            return true;
+        else
+            return false;
     }
 
     /**
@@ -360,6 +370,7 @@ public class SpeechTest extends SoundFeedbackActivity
                     audioFeatures2csv(getSTDMFCCS(),prefixStdFilename + filename);
                     audioFeatures2csv(getMaxMFCCS(),prefixMaxFilename + filename);
                     audioFeatures2csv(getMinMFCCS(),prefixMinFilename + filename);
+                    sendObservations(getMeanMFCCS());
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -455,4 +466,90 @@ public class SpeechTest extends SoundFeedbackActivity
         return minValue;
     }
 
+    public void sendObservations (ArrayList<float[]> meanMFCCsList) {
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+
+            for (float[] means : meanMFCCsList) {
+                Observation obsMeanMFCC1 = new Observation(means[0], patientCode, "PDTMFCC_MEAN1", time);
+                obsMeanMFCC1.PatientId = patientCode;
+                Observation obsMeanMFCC2 = new Observation(means[1], patientCode, "PDTMFCC_MEAN2", time);
+                obsMeanMFCC2.PatientId = patientCode;
+                Observation obsMeanMFCC3 = new Observation(means[2], patientCode, "PDTMFCC_MEAN3", time);
+                obsMeanMFCC3.PatientId = patientCode;
+                Observation obsMeanMFCC4 = new Observation(means[3], patientCode, "PDTMFCC_MEAN4", time);
+                obsMeanMFCC4.PatientId = patientCode;
+                Observation obsMeanMFCC5 = new Observation(means[4], patientCode, "PDTMFCC_MEAN5", time);
+                obsMeanMFCC5.PatientId = patientCode;
+                Observation obsMeanMFCC6 = new Observation(means[5], patientCode, "PDTMFCC_MEAN6", time);
+                obsMeanMFCC6.PatientId = patientCode;
+                Observation obsMeanMFCC7 = new Observation(means[6], patientCode, "PDTMFCC_MEAN7", time);
+                obsMeanMFCC7.PatientId = patientCode;
+                Observation obsMeanMFCC8 = new Observation(means[7], patientCode, "PDTMFCC_MEAN8", time);
+                obsMeanMFCC8.PatientId = patientCode;
+                Observation obsMeanMFCC9 = new Observation(means[8], patientCode, "PDTMFCC_MEAN9", time);
+                obsMeanMFCC9.PatientId = patientCode;
+                Observation obsMeanMFCC10 = new Observation(means[9], patientCode, "PDTMFCC_MEAN10", time);
+                obsMeanMFCC10.PatientId = patientCode;
+                Observation obsMeanMFCC11 = new Observation(means[10], patientCode, "PDTMFCC_MEAN11", time);
+                obsMeanMFCC11.PatientId = patientCode;
+                Observation obsMeanMFCC12 = new Observation(means[11], patientCode, "PDTMFCC_MEAN12", time);
+                obsMeanMFCC12.PatientId = patientCode;
+                Observation obsMeanMFCC13 = new Observation(means[12], patientCode, "PDTMFCC_MEAN13", time);
+                obsMeanMFCC13.PatientId = patientCode;
+                Observation obsMeanMFCC14 = new Observation(means[13], patientCode, "PDTMFCC_MEAN14", time);
+                obsMeanMFCC14.PatientId = patientCode;
+                Observation obsMeanMFCC15 = new Observation(means[14], patientCode, "PDTMFCC_MEAN15", time);
+                obsMeanMFCC15.PatientId = patientCode;
+                Observation obsMeanMFCC16 = new Observation(means[15], patientCode, "PDTMFCC_MEAN16", time);
+                obsMeanMFCC16.PatientId = patientCode;
+                Observation obsMeanMFCC17 = new Observation(means[16], patientCode, "PDTMFCC_MEAN17", time);
+                obsMeanMFCC17.PatientId = patientCode;
+                Observation obsMeanMFCC18 = new Observation(means[17], patientCode, "PDTMFCC_MEAN18", time);
+                obsMeanMFCC18.PatientId = patientCode;
+                Observation obsMeanMFCC19 = new Observation(means[18], patientCode, "PDTMFCC_MEAN19", time);
+                obsMeanMFCC19.PatientId = patientCode;
+                Observation obsMeanMFCC20 = new Observation(means[19], patientCode, "PDTMFCC_MEAN20", time);
+                obsMeanMFCC20.PatientId = patientCode;
+
+
+                ArrayList<Observation> observations = new ArrayList<>();
+                observations.add(obsMeanMFCC1);
+                observations.add(obsMeanMFCC2);
+                observations.add(obsMeanMFCC3);
+                observations.add(obsMeanMFCC4);
+                observations.add(obsMeanMFCC5);
+                observations.add(obsMeanMFCC6);
+                observations.add(obsMeanMFCC7);
+                observations.add(obsMeanMFCC8);
+                observations.add(obsMeanMFCC9);
+                observations.add(obsMeanMFCC10);
+                observations.add(obsMeanMFCC11);
+                observations.add(obsMeanMFCC12);
+                observations.add(obsMeanMFCC13);
+                observations.add(obsMeanMFCC14);
+                observations.add(obsMeanMFCC15);
+                observations.add(obsMeanMFCC16);
+                observations.add(obsMeanMFCC17);
+                observations.add(obsMeanMFCC18);
+                observations.add(obsMeanMFCC19);
+                observations.add(obsMeanMFCC20);
+                mCommManager.SendItems(observations, true);
+
+            }
+
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+    }
 }
+
+

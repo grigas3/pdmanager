@@ -796,20 +796,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 if (alertmanager.anyUnNotified()) {
 
                     UserAlert alert = alertmanager.getUnNotified();
+                    if(alert!=null) {
+                        alertmanager.setNotified(alert);
 
+                        //Send a vibration to Band if Band is connected
+                        if (mClient != null && mClient.isConnected()) {
+                            BandNotificationTask.newInstance(mClient).execute();
 
-
-
-                    alertmanager.setNotified(alert);
-
-                    //Send a vibration to Band if Band is connected
-                    if(mClient!=null&&mClient.isConnected())
-                    {
-                        BandNotificationTask.newInstance(mClient).execute();
-
+                        }
+                        // Send a local notifation
+                        new LocalNotificationTask(this).execute(alert);
                     }
-                    // Send a local notifation
-                    new LocalNotificationTask(this).execute(alert);
                 }
 
 
@@ -1373,7 +1370,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 // user has not consented, request it
                 // the calling class is both an Activity and implements
                 // HeartRateConsentListener
-
+                if(this.heartRateAccessProvider!=null)
                 this.heartRateAccessProvider.requestHeartRateConsent(sensorMgr);
 
             }

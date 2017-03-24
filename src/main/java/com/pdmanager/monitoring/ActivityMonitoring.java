@@ -74,7 +74,7 @@ public class ActivityMonitoring implements IDataProcessor {
 
 
                     ///Active observation
-                    Observation obs = new Observation(stMean / stCount, "ACT", hrD.getTicks(), patientIdentifier);
+                    Observation obs = new Observation(stMean / stCount, "ACTATYPE", hrD.getTicks(), patientIdentifier);
                     tmpObservations.add(obs);
                     stCount = 0;
                     stMean = 0;

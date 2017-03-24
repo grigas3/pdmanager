@@ -53,6 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:visibility="gone"
                     android:text="Welcome"
                     android:textAppearance="?android:attr/textAppearanceLarge"
 
@@ -85,8 +86,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -108,7 +110,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pain level"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -132,7 +134,7 @@
                                 android:gravity="bottom"
                                 android:text=""
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -149,8 +151,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -172,7 +175,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Finger Tapping"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -196,7 +199,7 @@
                                 android:gravity="bottom"
                                 android:text=""
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -213,8 +216,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -236,7 +240,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Voice Test A"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -260,7 +264,7 @@
                                 android:gravity="bottom"
                                 android:text=""
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -276,8 +280,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -299,7 +304,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Diary"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -323,7 +328,7 @@
                                 android:gravity="bottom"
                                 android:text="Clear"
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -339,8 +344,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -362,7 +368,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Game A"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -386,7 +392,7 @@
                                 android:gravity="bottom"
                                 android:text=""
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -402,8 +408,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -425,7 +432,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Game B"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -449,7 +456,7 @@
                                 android:gravity="bottom"
                                 android:text="Next in 6 hours"
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -465,7 +472,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:visibility="gone"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
@@ -488,7 +496,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mood tracking"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -512,7 +520,7 @@
                                 android:gravity="bottom"
                                 android:text=""
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -528,8 +536,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="10dp">
 
                     <ImageView
@@ -551,7 +560,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Medicine taking"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -575,7 +584,7 @@
                                 android:gravity="bottom"
                                 android:text=""
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -591,7 +600,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+                    android:visibility="gone"
+                    android:background="@drawable/button_patient_home_blue"
 
                     android:orientation="horizontal"
                     android:padding="10dp">
@@ -615,7 +625,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Speech analysis"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -639,7 +649,7 @@
                                 android:gravity="bottom"
                                 android:text="Next in 1 day"
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 
@@ -654,7 +664,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/button_patient_home_green"
+
+                    android:background="@drawable/button_patient_home_blue"
                     android:orientation="horizontal"
                     android:padding="10dp"
                     android:visibility="gone">
@@ -680,7 +691,7 @@
                             android:layout_height="wrap_content"
                             android:text="Passive sensors"
 
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"/>
 
@@ -704,7 +715,7 @@
                                 android:gravity="bottom"
                                 android:text="Working"
                                 android:textAllCaps="true"
-                                android:textColor="#555"
+                                android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold|italic"/>
 

@@ -29,9 +29,7 @@ import com.pdmanager.interfaces.IServiceStatusListener;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.services.RecordingService;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest;
-import com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest;
 import com.pdmanager.views.patient.cognition.cognitive.PALPRM;
 import com.pdmanager.views.patient.cognition.cognitive.PairedAssociatesLearningTest;
@@ -40,7 +38,6 @@ import com.pdmanager.views.patient.cognition.cognitive.SpatialSpanTest;
 import com.pdmanager.views.patient.cognition.cognitive.SpatialWorkingMemoryTest;
 import com.pdmanager.views.patient.cognition.cognitive.StopSignalTaskTest;
 import com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest;
-import com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest2;
 import com.pdmanager.views.patient.cognition.cognitive.WisconsinCardSorting;
 import com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne;
 import com.pdmanager.views.patient.cognition.speech.SpeechTest;
@@ -207,11 +204,12 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                 UserAlertManager manager=new UserAlertManager(context);
                 manager.updateAlerts("DIARY");
 
-                DiaryTrackingFragment moodTrackingFragment = new DiaryTrackingFragment();
-                FragmentTransaction fragmentTransaction =
-                        getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, moodTrackingFragment);
-                fragmentTransaction.commit();
+
+                Intent diaryTracking =
+                        new Intent(getActivity(), DiaryTrackingActivity.class);
+                startActivity(diaryTracking);
+
+
             }
         });
 
@@ -279,11 +277,16 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                 UserAlertManager manager=new UserAlertManager(context);
                 manager.updateAlerts("MOOD");
-                MoodTrackingFragment moodTrackingFragment = new MoodTrackingFragment();
+
+                Intent menuPALIntent =
+                        new Intent(getActivity(), MoodTrackingActivity.class);
+                startActivity(menuPALIntent);
+              /*  MoodTrackingActivity moodTrackingFragment = new MoodTrackingActivity();
                 FragmentTransaction fragmentTransaction =
                         getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.container, moodTrackingFragment);
                 fragmentTransaction.commit();
+                */
             }
         });
 
@@ -295,12 +298,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                 UserAlertManager manager=new UserAlertManager(context);
                 manager.updateAlerts("MED");
+                Intent menuPALIntent =
+                        new Intent(getActivity(), MedAlertActivity.class);
+                startActivity(menuPALIntent);
 
-                MedAlertFragment medAlertFragment = new MedAlertFragment();
-                FragmentTransaction fragmentTransaction =
-                        getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, medAlertFragment);
-                fragmentTransaction.commit();
             }
         });
 
@@ -569,7 +570,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                         if (l != null) {
 
-                            l.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+                           // l.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
 
                             l.setVisibility(View.GONE);
                           /*  l.setBackgroundDrawable(activity.getResources().getDrawable(R.drawable.button_patient_home_grey));
@@ -650,7 +651,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                 Calendar cal2 = Calendar.getInstance();
                                 cal2.setTime(date2);
                                 long d = (date1.getTime() - date2.getTime()) / 1000 / 60;
-                                if (d > 0) {
+                              /*  if (d > 0) {
 
                                     if (d > 24 * 60) {
 
@@ -662,7 +663,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                     }
 
 
-                                } else {
+                                }
+                                */
+
+                                if(d<0){
                                     codeLayoutMapping.get(a.getAlertType()).setVisibility(View.VISIBLE);
 
                                 }
@@ -695,7 +699,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                         LinearLayout layout = codeLayoutMapping.get(a.getAlertType());
                         if (layout != null) {
 
-                            layout.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+                           // layout.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
                             layout.setAlpha(1);
                             layout.setEnabled(true);
                         }

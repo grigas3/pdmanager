@@ -17,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.RNG;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
@@ -40,7 +44,7 @@ import java.util.Locale;
 
 public class PALPRM extends SoundFeedbackActivity
 {
-    private final String LOGGER_TAG = "LOGGER_TAG: PALPRM test";
+    private final String LOGGER_TAG = "PALPRM test";
     private RNG rng;
     private TextView tvTitle;
     private ViewGroup lPairs, lGame;
@@ -626,10 +630,62 @@ public class PALPRM extends SoundFeedbackActivity
         resultInfo.append(totalTime + "\r\n");
 
         results.add(String.valueOf(resultInfo));
+        sendObservations(nCorrectSemanticL1, nCorrectNonSemanticL1, nCorrectSemanticL2, nCorrectNonSemanticL2,
+                nCorrectSemanticL3, nCorrectNonSemanticL3, Double.parseDouble(timeLevel1), Double.parseDouble(timeLevel2), Double.parseDouble(timeLevel3));
     }
 
-    private void finishTest() {
+    public void sendObservations (int nCorrectSemanticL1, int nCorrectNonSemanticL1, int nCorrectSemanticL2, int nCorrectNonSemanticL2,
+                                  int nCorrectSemanticL3, int nCorrectNonSemanticL3, double timeLevel1, double timeLevel2, double timeLevel3) {
+        //Observations
         try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsVLCSL1 = new Observation (nCorrectSemanticL1, patientCode, "PDTVL_CS_L1", time);
+            obsVLCSL1.PatientId = patientCode;
+            Observation obsVLCNSL1 = new Observation(nCorrectNonSemanticL1, patientCode, "PDTVL_CNS_L1", time);
+            obsVLCNSL1.PatientId = patientCode;
+            Observation obsVLCSL2 = new Observation(nCorrectSemanticL2, patientCode, "PDTVL_CS_L2", time);
+            obsVLCSL2.PatientId = patientCode;
+            Observation obsVLCNSL2 = new Observation(nCorrectNonSemanticL2, patientCode, "PDTVL_CNS_L2", time);
+            obsVLCNSL2.PatientId = patientCode;
+            Observation obsVLCSL3 = new Observation (nCorrectSemanticL3, patientCode, "PDTVL_CS_L3", time);
+            obsVLCSL3.PatientId = patientCode;
+            Observation obsVLCNSL3 = new Observation (nCorrectNonSemanticL3, patientCode, "PDTVL_CNS_L3", time);
+            obsVLCNSL3.PatientId = patientCode;
+            Observation obsVLTimeL1 = new Observation(timeLevel1, patientCode, "PDTVL_TIME_L1", time);
+            obsVLTimeL1.PatientId = patientCode;
+            Observation obsVLTimeL2 = new Observation(timeLevel2, patientCode, "PDTVL_TIME_L2", time);
+            obsVLTimeL2.PatientId = patientCode;
+            Observation obsVLTimeL3 = new Observation(timeLevel3, patientCode, "PDTVL_TIME_L3", time);
+            obsVLTimeL3.PatientId = patientCode;
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsVLCSL1);
+            observations.add(obsVLCNSL1);
+            observations.add(obsVLCSL2);
+            observations.add(obsVLCNSL2);
+            observations.add(obsVLCSL3);
+            observations.add(obsVLCNSL3);
+            observations.add(obsVLTimeL1);
+            observations.add(obsVLTimeL2);
+            observations.add(obsVLTimeL3);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+    }
+
+    /*private void finishTest() {
+        try {
+
+            finish();
+
 
             setContentView(R.layout.activity_end);
 
@@ -658,10 +714,13 @@ public class PALPRM extends SoundFeedbackActivity
             });
             buttonExit.setVisibility(View.GONE);
 
+
         } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
+
     }
+    */
 
     protected void onCreate(Bundle savedInstanceState)
     {

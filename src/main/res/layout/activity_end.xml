@@ -31,6 +31,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:text="@string/fttEndButtonRepeat"
+        android:visibility="gone"
         android:textAllCaps="false"
         android:id="@+id/buttonFTTEndRepeat"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -45,6 +46,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:text="@string/fttEndButtonExit"
+        android:visibility="gone"
         android:textAllCaps="false"
         android:id="@+id/buttonFTTEndExit"
         android:layout_gravity="center_horizontal|center_vertical" />

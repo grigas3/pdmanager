@@ -91,7 +91,7 @@ public class VitalMonitoring implements IDataProcessor {
 
                 if (stCount >= MAXST) {
 
-                    Observation obs = new Observation(stMean / stCount, "ST", hrD.getTicks(), patientIdentifier);
+                    Observation obs = new Observation(stMean / stCount, "STST", hrD.getTicks(), patientIdentifier);
                     tmpObservations.add(obs);
                     stCount = 0;
                     stMean = 0;
@@ -146,7 +146,7 @@ public class VitalMonitoring implements IDataProcessor {
 
                     if (hrCount >= MAXHR) {
 
-                        Observation obs = new Observation(hrMean / hrCount, "HR", hrD.getTicks(), patientIdentifier);
+                        Observation obs = new Observation(hrMean / hrCount, "STHR", hrD.getTicks(), patientIdentifier);
                         tmpObservations.add(obs);
                         hrCount = 0;
                         hrMean = 0;

@@ -28,7 +28,7 @@ import java.util.Vector;
  */
 
 public class FingerTappingTestOne extends SoundFeedbackActivity {
-    private String LOGGER_TAG = "LOGGER_TAG FingerTappingTestOne:";
+    private String LOGGER_TAG = "FingerTappingTestOne";
 
     public static final String DECIMAL_FORMAT_TIME = "#,#00.0";
     public static final String INTENT_MEAN_ONE = "meanTimeOne";

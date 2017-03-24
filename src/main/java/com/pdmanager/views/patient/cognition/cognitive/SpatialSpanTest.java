@@ -10,6 +10,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
@@ -31,7 +35,7 @@ import java.util.Locale;
 
 public class SpatialSpanTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "LOGGER_TAG: SSP test";
+    private final String LOGGER_TAG = "SSP test";
 
         private String
         test = "SpatialSpan.csv",
@@ -520,10 +524,57 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         resultInfo.append(totalTime + "\r\n");
 
         results.add(String.valueOf(resultInfo));
+        sendObservations(level, Double.parseDouble(meanErrorsPerTrial), Double.parseDouble(maxErrorPerTrial),
+                Double.parseDouble(minErrorPerTrial), Double.parseDouble(totalErrors), Double.parseDouble(meanTimePerTrial),
+                Double.parseDouble(maxTimePerTrial), Double.parseDouble(minTimePerTrial));
     }
 
+    public void sendObservations (int maxLevel, double meanErrors, double maxErrors, double minErrors, double totalErrors,
+                                  double meanTime, double maxTime, double minTime) {
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
 
-    private void finishTest(){
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsSSPLevel = new Observation (maxLevel, patientCode, "PDTSSP_MAXLEVEL", time);
+            obsSSPLevel.PatientId = patientCode;
+            Observation obsSSPMeanErrors = new Observation(meanErrors, patientCode, "PDTSSP_MEAN_ERRORS", time);
+            obsSSPMeanErrors.PatientId = patientCode;
+            Observation obsSSPMaxErrors = new Observation(maxErrors, patientCode, "PDTSSP_MAX_ERRORS", time);
+            obsSSPMaxErrors.PatientId = patientCode;
+            Observation obsSSPMinErrors = new Observation(minErrors, patientCode, "PDTSSP_MIN_ERRORS", time);
+            obsSSPMinErrors.PatientId = patientCode;
+            Observation obsSSPTotalErrors = new Observation (totalErrors, patientCode, "PDTSSP_TOTAL_ERRORS", time);
+            obsSSPTotalErrors.PatientId = patientCode;
+            Observation obsSSPMeanTime = new Observation (meanTime, patientCode, "PDTSSP_MEAN_TIME", time);
+            obsSSPMeanTime.PatientId = patientCode;
+            Observation obsSSPMaxTime = new Observation(maxTime, patientCode, "PDTSSP_MAX_TIME", time);
+            obsSSPMaxTime.PatientId = patientCode;
+            Observation obsSSPMinTime = new Observation(minTime, patientCode, "PDTSSP_MIN_TIME", time);
+            obsSSPMinTime.PatientId = patientCode;
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsSSPLevel);
+            observations.add(obsSSPMeanErrors);
+            observations.add(obsSSPMaxErrors);
+            observations.add(obsSSPMinErrors);
+            observations.add(obsSSPTotalErrors);
+            observations.add(obsSSPMeanTime);
+            observations.add(obsSSPMaxTime);
+            observations.add(obsSSPMinTime);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+    }
+
+    @Override
+    protected void finishTest(){
 
         try {
 
@@ -538,7 +589,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             }
 
 
-            setContentView(R.layout.activity_end);
+           /* setContentView(R.layout.activity_end);
 
             Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
             buttonRepeat.setOnClickListener(new View.OnClickListener() {
@@ -562,10 +613,13 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                     finish();
                 }
             });
+            */
+
 
         }catch (Exception e){
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
+        super.finishTest();
     }
 
     @Override

@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
@@ -31,7 +35,7 @@ import java.util.Locale;
  */
 public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "LOGGER_TAG: AST test";
+    private final String LOGGER_TAG = "AST test";
 
     private final int TIME_MILLISECONDS_TASK = 240000;
     private final int TIME_MILLISECONDS_FEEDBACK = 1000;
@@ -519,9 +523,72 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
         resultInfo.append(minReactionTime + "\r\n");
 
         results.add(String.valueOf(resultInfo));
+        sendObservations(nErrorsDirectionCongruency, nErrorsDirectionIncongruency, nErrorsPositionCongruency,
+                nErrorsPositionIncongruency, nErrorsTimeoutCongruency, nErrorsTimeoutIncongruency,
+                Double.parseDouble(meanReactionTimeCongruency), Double.parseDouble(maxReactionTimeCongruency),
+                Double.parseDouble(minReactionTimeCongruency), Double.parseDouble(meanReactionTimeIncongruency),
+                Double.parseDouble(maxReactionTimeIncongruency), Double.parseDouble(minReactionTimeIncongruency));
     }
 
-    private void finishTest(){
+    public void sendObservations (int dirErrorsC, int dirErrorsI, int posErrorsC, int posErrorsI, int timeoutErrorsC,
+                                  int timeoutErrorsI, double meanTimeC, double maxTimeC, double minTimeC,
+                                  double meanTimeI, double maxTimeI, double minTimeI) {
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsASTDirC = new Observation (dirErrorsC, patientCode, "PDTAST_DIR_C", time);
+            obsASTDirC.PatientId = patientCode;
+            Observation obsASTDirI = new Observation(dirErrorsI, patientCode, "PDTAST_DIR_I", time);
+            obsASTDirI.PatientId = patientCode;
+            Observation obsASTPosC = new Observation(posErrorsC, patientCode, "PDTAST_POS_C", time);
+            obsASTPosC.PatientId = patientCode;
+            Observation obsASTPosI = new Observation(posErrorsI, patientCode, "PDTAST_POS_I", time);
+            obsASTPosI.PatientId = patientCode;
+            Observation obsASTTimeoutC = new Observation (timeoutErrorsC, patientCode, "PDTAST_TIMEOUT_C", time);
+            obsASTTimeoutC.PatientId = patientCode;
+            Observation obsASTTimeoutI = new Observation (timeoutErrorsI, patientCode, "PDTAST_TIMEOUT_I", time);
+            obsASTTimeoutI.PatientId = patientCode;
+            Observation obsASTMeanRTC = new Observation(meanTimeC, patientCode, "PDTAST_MEAN_C", time);
+            obsASTMeanRTC.PatientId = patientCode;
+            Observation obsASTMaxRTC = new Observation(maxTimeC, patientCode, "PDTAST_MAX_C", time);
+            obsASTMaxRTC.PatientId = patientCode;
+            Observation obsASTMinRTC = new Observation(minTimeC, patientCode, "PDTAST_MIN_C", time);
+            obsASTMinRTC.PatientId = patientCode;
+            Observation obsASTMeanRTI = new Observation(meanTimeI, patientCode, "PDTAST_MEAN_I", time);
+            obsASTMeanRTI.PatientId = patientCode;
+            Observation obsASTMaxRTI = new Observation(maxTimeI, patientCode, "PDTAST_MAX_I", time);
+            obsASTMaxRTI.PatientId = patientCode;
+            Observation obsASTMinRTI = new Observation(minTimeI, patientCode, "PDTAST_MIN_I", time);
+            obsASTMinRTI.PatientId = patientCode;
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsASTDirC);
+            observations.add(obsASTDirI);
+            observations.add(obsASTPosC);
+            observations.add(obsASTPosI);
+            observations.add(obsASTTimeoutC);
+            observations.add(obsASTTimeoutI);
+            observations.add(obsASTMeanRTC);
+            observations.add(obsASTMaxRTC);
+            observations.add(obsASTMinRTC);
+            observations.add(obsASTMeanRTI);
+            observations.add(obsASTMaxRTI);
+            observations.add(obsASTMinRTI);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+    }
+
+    @Override
+    public void finishTest(){
 
         try {
             writeFile(test, header);
@@ -538,6 +605,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
 
             tones.stopTone();
 
+            /*
             setContentView(R.layout.activity_end);
 
             Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
@@ -563,10 +631,12 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
                 }
             });
             buttonExit.setVisibility(View.GONE);
+            */
 
         }catch (Exception e){
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
+        super.finishTest();
     }
 
     @Override

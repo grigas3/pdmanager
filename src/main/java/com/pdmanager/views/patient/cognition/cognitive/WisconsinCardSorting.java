@@ -15,9 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.RNG;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
+import com.pdmanager.views.patient.cognition.tools.Statistics;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,7 +41,7 @@ import java.util.Locale;
 public class WisconsinCardSorting extends SoundFeedbackActivity
 {
 
-    private final String LOGGER_TAG = "LOGGER_TAG: Wisconsin Card Sorting test";
+    private final String LOGGER_TAG = "WC Sorting test";
 
     private String
         test = "WisconsinCardSortingTest.csv",
@@ -242,7 +247,6 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
     {
         setContentView(R.layout.wisconsin_cards);
         tvLevel = (TextView)findViewById(R.id.tvLevel);
-        tvLevel.setVisibility(View.VISIBLE);
         img0 = (ImageView)findViewById(R.id.imgStack0);
         img0.setOnClickListener(oclCard);
         img1 = (ImageView)findViewById(R.id.imgStack1);
@@ -276,12 +280,117 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
 
         if (level==maxLevel+1)
         {
+            getStatistics (results);
             writeFile(test, header);
             finishTest();
         }
         else if (level%10==1) switchSorting();
         else dealCard();
         enableButtons();
+    }
+
+    private void getStatistics (ArrayList<String> results) {
+        // get statistics
+        double[] times = new double[results.size()];
+        int correctColor = 0;
+        int correctShape = 0;
+        int correctNumber = 0;
+        int errorsColor = 0;
+        int errorsShape = 0;
+        int errorsNumber = 0;
+        int errorsColorShape = 0;
+        int errorsColorNumber = 0;
+        int errorsShapeNumber = 0;
+
+        for (int i=0; i<results.size(); i++) {
+            String[] lineSplit = results.get(i).split(", ");
+            String rule = lineSplit[1];
+            String chosen = lineSplit[2];
+            String answer = lineSplit[3];
+            times[i] = Double.parseDouble(lineSplit[4]);
+
+            if (answer == "Yes") {
+                if (rule == "Color") correctColor++;
+                if (rule == "Shape") correctShape++;
+                if (rule == "Number") correctNumber++;
+            } else {
+                if (chosen.startsWith("C") && chosen.endsWith("r")) errorsColor++;
+                if (chosen.startsWith("S") && chosen.endsWith("e")) errorsShape++;
+                if (chosen.length() == 6 && chosen.startsWith("N") && chosen.endsWith("r")) errorsNumber++;
+                if (chosen.startsWith("N") && chosen.endsWith("e")) errorsShapeNumber++;
+                if (chosen.length() == 15 && chosen.startsWith("N") && chosen.endsWith("r")) errorsColorNumber++;
+                if (chosen.startsWith("S") && chosen.endsWith("r")) errorsColorShape++;
+            }
+        }
+
+        Statistics stTimes = new Statistics(times);
+        String meanTime = String.format(Locale.ENGLISH, "%.2f", stTimes.getMean());
+        String maxTime = String.format(Locale.ENGLISH, "%.2f", stTimes.getMax());
+        String minTime = String.format(Locale.ENGLISH, "%.2f", stTimes.getMin());
+
+        //send observations
+        sendObservations(correctColor, correctShape, correctNumber, errorsColor, errorsShape, errorsNumber,
+                errorsColorShape, errorsColorNumber, errorsShapeNumber, Double.parseDouble(meanTime),
+                Double.parseDouble(maxTime), Double.parseDouble(minTime));
+
+    }
+
+    public void sendObservations (int correctColor, int correctShape, int correctNumber,
+                                  int errorsColor, int errorsShape, int errorsNumber,
+                                  int errorsColorShape, int errorsColorNumber, int errorsShapeNumber,
+                                  double meanTime, double maxTime, double minTime) {
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsWCSTCorrColor = new Observation (correctColor, patientCode, "PDTWCST_CORR_COLOR", time);
+            obsWCSTCorrColor.PatientId = patientCode;
+            Observation obsWCSTCorrShape = new Observation(correctShape, patientCode, "PDTWCST_CORR_SHAPE", time);
+            obsWCSTCorrShape.PatientId = patientCode;
+            Observation obsWCSTCorrNumber = new Observation(correctNumber, patientCode, "PDTWCST_CORR_NUMBER", time);
+            obsWCSTCorrNumber.PatientId = patientCode;
+            Observation obsWCSTErrorsColor = new Observation(errorsColor, patientCode, "PDTWCST_ERROR_COLOR", time);
+            obsWCSTErrorsColor.PatientId = patientCode;
+            Observation obsWCSTErrorsShape = new Observation (errorsShape, patientCode, "PDTWCST_ERROR_SHAPE", time);
+            obsWCSTErrorsShape.PatientId = patientCode;
+            Observation obsWCSTErrorsNumber = new Observation (errorsNumber, patientCode, "PDTWCST_ERROR_NUMBER", time);
+            obsWCSTErrorsNumber.PatientId = patientCode;
+            Observation obsWCSTErrorsColorShape = new Observation(errorsColorShape, patientCode, "PDTWCST_ERROR_COLORSHAPE", time);
+            obsWCSTErrorsColorShape.PatientId = patientCode;
+            Observation obsWCSTErrorsColorNumber = new Observation(errorsColorNumber, patientCode, "PDTWCST_ERROR_COLORNUMBER", time);
+            obsWCSTErrorsColorNumber.PatientId = patientCode;
+            Observation obsWCSTErrorsShapeNumber = new Observation(errorsShapeNumber, patientCode, "PDTWCST_ERROR_SHAPENUMBER", time);
+            obsWCSTErrorsShapeNumber.PatientId = patientCode;
+            Observation obsWCSTMean = new Observation(meanTime, patientCode, "PDTWCST_MEAN", time);
+            obsWCSTMean.PatientId = patientCode;
+            Observation obsWCSTMax = new Observation(maxTime, patientCode, "PDTWCST_MAX", time);
+            obsWCSTMax.PatientId = patientCode;
+            Observation obsWCSTMin = new Observation(minTime, patientCode, "PDTWCST_MIN", time);
+            obsWCSTMin.PatientId = patientCode;
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsWCSTCorrColor);
+            observations.add(obsWCSTCorrShape);
+            observations.add(obsWCSTCorrNumber);
+            observations.add(obsWCSTErrorsColor);
+            observations.add(obsWCSTErrorsShape);
+            observations.add(obsWCSTErrorsNumber);
+            observations.add(obsWCSTErrorsColorShape);
+            observations.add(obsWCSTErrorsColorNumber);
+            observations.add(obsWCSTErrorsShapeNumber);
+            observations.add(obsWCSTMean);
+            observations.add(obsWCSTMax);
+            observations.add(obsWCSTMin);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
     }
 
     private void disableButtons()
@@ -375,7 +484,9 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
 
     }
 
-    private void finishTest() {
+    /*
+    @Override
+    protected void finishTest() {
         try {
 
     setContentView(R.layout.activity_end);
@@ -389,6 +500,7 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
         finish();
     }
 });
+
 
 
             Button buttonExit = (Button) findViewById(R.id.buttonFTTEndExit);
@@ -409,6 +521,7 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
     }
+    */
 
     protected void onCreate(Bundle savedInstanceState)
     {

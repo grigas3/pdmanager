@@ -2,6 +2,7 @@ package com.pdmanager.views.patient.cognition.cognitive;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
@@ -14,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowers.LondonTowersGame;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowers.LondonTowersGraph;
@@ -37,12 +42,8 @@ import java.util.Locale;
 
 public class LondonTowersTest extends SoundFeedbackActivity
 {
-    private final String LOGGER_TAG = "LOGGER_TAG: London Towers test";
-    /*private String
-        test = "LondonTowers_Results.csv",
-        header = "Timestamp, " + "Minimum movements, " +
-            "Total movements " + "Total time (s)" +
-            "\r\n";*/
+    private final String LOGGER_TAG = "London Towers test";
+
     private String
         test = "TowersOfLondon.csv",
         header = "Timestamp, "
@@ -157,8 +158,6 @@ public class LondonTowersTest extends SoundFeedbackActivity
                 timePerTrial.add(totalTime);
                 String totalTimeLevel = String.format(Locale.ENGLISH, "%.2f", totalTime);
 
-                //String track = "" + date + ", " + london.minMoves + ", " + moves + ", " + totalTimeLevel + "\r\n";
-                //results.add(track);
                 tvMoves.setText(getString(R.string.movement) + ": " + moves + "/" + london.minMoves);
                 updateFeedback(true);
             }
@@ -400,9 +399,53 @@ public class LondonTowersTest extends SoundFeedbackActivity
         resultInfo.append(totalTime + "\r\n");
 
         results.add(String.valueOf(resultInfo));
+        sendObservations(nCorrect, nErrors, nRepetitions, level, Double.parseDouble(meanTimePerTrial),
+                Double.parseDouble(maxTimePerTrial), Double.parseDouble(minTimePerTrial));
     }
 
-    private void finishTest() {
+    public void sendObservations (int nCorrect, int nErrors, int nRepetitions, int maxLevelReached,
+                                  double meanTime, double maxTime, double minTime) {
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+
+            DirectSender sender = new DirectSender(token);
+            CommunicationManager mCommManager = new CommunicationManager(sender);
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsTOLCorr = new Observation (nCorrect, patientCode, "PDTTOL_CORR", time);
+            obsTOLCorr.PatientId = patientCode;
+            Observation obsTOLErrors = new Observation(nErrors, patientCode, "PDTTOL_ERRORS", time);
+            obsTOLErrors.PatientId = patientCode;
+            Observation obsTOLRep = new Observation(nRepetitions, patientCode, "PDTTOL_REP", time);
+            obsTOLRep.PatientId = patientCode;
+            Observation obsTOLMaxLevel = new Observation(maxLevelReached, patientCode, "PDTTOL_MAXLEVEL", time);
+            obsTOLMaxLevel.PatientId = patientCode;
+            Observation obsTOLMean = new Observation(meanTime, patientCode, "PDTTOL_MEAN", time);
+            obsTOLMean.PatientId = patientCode;
+            Observation obsTOLMax = new Observation(maxTime, patientCode, "PDTTOL_MAX", time);
+            obsTOLMax.PatientId = patientCode;
+            Observation obsTOLMin = new Observation(minTime, patientCode, "PDTTOL_MIN", time);
+            obsTOLMin.PatientId = patientCode;
+
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsTOLCorr);
+            observations.add(obsTOLErrors);
+            observations.add(obsTOLRep);
+            observations.add(obsTOLMaxLevel);
+            observations.add(obsTOLMean);
+            observations.add(obsTOLMax);
+            observations.add(obsTOLMin);
+            mCommManager.SendItems(observations, true);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+    }
+
+    /*private void finishTest() {
         try {
 
             setContentView(R.layout.activity_end);
@@ -434,7 +477,7 @@ public class LondonTowersTest extends SoundFeedbackActivity
 
         } catch (Exception e) {}
     }
-
+*/
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

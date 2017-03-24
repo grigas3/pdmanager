@@ -55,7 +55,7 @@ public class UserAlertManager implements IUserAlertManager {
 
         long unixTime = System.currentTimeMillis();
         long exunixTime = System.currentTimeMillis() + 60 * 60 * 1000L;
-        String whereClause = DBHandler.COLUMN_EXPIRATION + " > ? and " + DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTCREATED + " = ?  and " + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
+        String whereClause = DBHandler.COLUMN_EXPIRATION + " > ?  and " + DBHandler.COLUMN_ALERTCREATED + " = ?  and " + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
 
         String[] whereArgs = new String[]{
                 Long.toString(unixTime),

@@ -67,8 +67,8 @@ public class TremorAggregator extends BaseAggregator implements IDataProcessor {
                     }
 
 
-                    SendObservation(r, "TREMOR_A", d.getTicks());
-                    SendObservation(value, "TREMOR_C", d.getTicks());
+                    SendObservation(r, "STTRMA05", d.getTicks());
+                    SendObservation(value, "STTRMC05", d.getTicks());
 
                     esamples = 0;
                     tfound = 0;

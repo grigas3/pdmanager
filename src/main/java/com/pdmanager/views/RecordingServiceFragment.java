@@ -48,8 +48,8 @@ import com.pdmanager.models.PatientMedicationResult;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.sensor.IHeartRateAccessProvider;
 import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.MSSyncActivity;
 
 import java.util.Calendar;
@@ -97,7 +97,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     private Button mButtonRequireStorPermissions;
     private Button mbuttonGetMedications;
     private Button mButtonCreateTile;
-    
+
     private TextView mTextGetMedication;
     private TextView mTextGetDevice;
     private Button mbuttonMSHealthSync;
@@ -122,7 +122,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         public void onClick(View button) {
 
-
             refreshControls();
 
         }
@@ -131,26 +130,22 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         public void onClick(View button) {
 
-
             RecordingSettings settings = new RecordingSettings(getContext());
             //new MSSyncActivity.SyncHealthDataTask(settings.getPatientID(),settings.getToken()).execute(result);
             busyIndicator.setVisibility(View.VISIBLE);
             layout.setVisibility(View.INVISIBLE);
             new GetDeviceTask(settings.getPatientID(), settings.getToken()).execute();
 
-
             //new GetObservationsTask().execute(new ObservationParams("TEST01","001"));
 
             //new GetCodesTask().execute();
             //    new GetPatientsTask().execute();
-
 
         }
     };
     private View.OnClickListener mbuttonGetMedicationsListener = new View.OnClickListener() {
         @Override
         public void onClick(View button) {
-
 
             busyIndicator.setVisibility(View.VISIBLE);
             layout.setVisibility(View.INVISIBLE);
@@ -161,7 +156,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     private View.OnClickListener mbuttonMSHealthSyncListener = new View.OnClickListener() {
         @Override
         public void onClick(View button) {
-
 
             Intent mainIntent = new Intent(getActivity(), MSSyncActivity.class);
             getActivity().startActivity(mainIntent);
@@ -175,10 +169,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         public void onClick(View button) {
 
-
             if (tileManager != null)
                 tileManager.createTile();
-
 
 
         }
@@ -186,7 +178,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     private View.OnClickListener mButtonRequirePermissions = new View.OnClickListener() {
         @Override
         public void onClick(View button) {
-
 
             requirePermissions(getActivity());
 
@@ -232,28 +223,22 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         public void onClick(View button) {
 
-
             RecordingSettings settings = getSettings();
-
 
             if (getService().isSessionRunning()) {
 
-
                 //  RemoveReminders(settings);
-
 
                 LogHandler.getInstance().Log("Session Stopped by user");
                 mButtonConnect.setEnabled(false);
                 mButtonConnect.setBackgroundColor(Color.GRAY);
                 settings.setSessionRunning(false);
 
-
                 getService().StopRecording();
 
             } else
 
             {
-
 
                 if (!checkExternalMedia()) {
 
@@ -269,12 +254,10 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                 }
 
-
                 if (settings != null) {
                     Calendar c = Calendar.getInstance();
 
                     int hourOfDay = c.get(Calendar.HOUR_OF_DAY);
-
 
                     if (hourOfDay <= settings.getStartHour() || hourOfDay >= settings.getStopHour()) {
 
@@ -295,14 +278,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         mButtonConnect.setEnabled(false);
                         mButtonConnect.setBackgroundColor(Color.GRAY);
 
-
                         //     AddReminders(settings.getStartHour(),settings.getStopHour(),settings);
                         settings.setSessionRunning(true);
                         settings.setRecordingStart(System.currentTimeMillis());
 
 
                     } else {
-
 
                         ///IN ANDROID 23+ WE NEED TO ASK FOR EXTRA STORAGE PERMISSIONS
                         requirePermissions(getActivity());
@@ -314,15 +295,10 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         mButtonConnect.setEnabled(false);
                         mButtonConnect.setBackgroundColor(Color.GRAY);
 
-
-
                         initAlerts(settings);
                         getService().StartRecording();
 
-
-
                         {
-
 
                             //AddReminders(settings.getStartHour(),settings.getStopHour(),settings);
 
@@ -334,82 +310,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             }
 
-
             //    }
 
             //   refreshControls();
 
-
         }
     };
-
-
-    private long getTimeFromHour(long hour)
-    {
-        Date date1 = new java.util.Date();
-        Calendar cal1 = Calendar.getInstance();
-        cal1.setTime(date1);
-      //  cal1.set(cal1.get(Calendar.YEAR),cal1.get(Calendar.MONTH),cal1.get(Calendar.DAY_OF_MONTH),cal1.get(Calendar.HOUR_OF_DAY),0,0);
-
-        return cal1.getTimeInMillis()+30*60*1000;
-    }
-
-
-    private void initAlerts( RecordingSettings settings)
-    {
-
-        Date date1 = new java.util.Date();
-        //RecordingSettings settings = RecordingSettings.GetRecordingSettings(this.getContext());
-
-
-        long cognHour1=settings.getCognHour1();
-
-        long cognHour2=settings.getCognHour2();
-
-        long medHour1=settings.getMedHour1();
-        long medHour2=settings.getMedHour2();
-        long moodHour=settings.getMoodHour();
-        long diary=settings.getDiaryHour();
-
-
-
-
-
-
-
-        UserAlertManager manager=new UserAlertManager(this.getContext());
-        manager.clearAll();
-        String msg=this.getContext().getString(com.pdmanager.R.string.cognitiveAlertMsg);
-        manager.add(new UserAlert("PDManager",msg,"COGN1",date1.getTime(),getTimeFromHour(cognHour1),"SYSTEM"));
-
-
-        manager.add(new UserAlert("PDManager",msg,"COGN2",date1.getTime(),getTimeFromHour(cognHour2),"SYSTEM"));
-
-
-        manager.add(new UserAlert("PDManager",msg,"MED",date1.getTime(),getTimeFromHour(medHour1),"SYSTEM"));
-        manager.add(new UserAlert("PDManager",msg,"MED",date1.getTime(),getTimeFromHour(medHour2),"SYSTEM"));
-
-        manager.add(new UserAlert("PDManager",msg,"MOOD",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
-
-        //Test
-        //getTimeFromHour(diary)
-        manager.add(new UserAlert("PDManager",msg,"DIARY",date1.getTime(),getTimeFromHour(diary),"SYSTEM"));
-
-
-
-        manager.add(new UserAlert("PDManager",msg,"FT",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
-
-        manager.add(new UserAlert("PDManager",msg,"VT",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
-
-        manager.add(new UserAlert("PDManager",msg,"VA",date1.getTime(),getTimeFromHour(moodHour),"SYSTEM"));
-
-
-
-
-
-    }
-
-
     private CompoundButton.OnCheckedChangeListener mToggleSensorSection = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -419,7 +325,58 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         }
     };
+
+
     public RecordingServiceFragment() {
+
+    }
+
+    private long getTimeFromHour(int hour) {
+        Date date1 = new java.util.Date();
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(date1);
+        cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), hour, 0, 0);
+
+
+        return cal1.getTimeInMillis()+24*60*60*1000;
+    }
+
+    private void initAlerts(RecordingSettings settings) {
+
+        Date date1 = new java.util.Date();
+
+        int cognHour1 = settings.getCognHour1();
+
+        int cognHour2 = settings.getCognHour2();
+
+        int medHour1 = settings.getMedHour1();
+        int medHour2 = settings.getMedHour2();
+        int moodHour = settings.getMoodHour();
+        int diary = settings.getDiaryHour();
+
+        UserAlertManager manager = new UserAlertManager(this.getContext());
+        manager.clearAll();
+        String msg = this.getContext().getString(com.pdmanager.R.string.cognitiveAlertMsg);
+        manager.add(new UserAlert("PDManager", msg, "COGN1", date1.getTime(), getTimeFromHour(cognHour1), "SYSTEM"));
+
+        //Cogn2 test
+        manager.add(new UserAlert("PDManager", msg, "COGN2", date1.getTime(), getTimeFromHour(cognHour2), "SYSTEM"));
+        // Med Test 1
+        manager.add(new UserAlert("PDManager", msg, "MED", date1.getTime(), getTimeFromHour(medHour1), "SYSTEM"));
+        // Med Question 2
+        manager.add(new UserAlert("PDManager", msg, "MED", date1.getTime(), getTimeFromHour(medHour2), "SYSTEM"));
+        //
+        manager.add(new UserAlert("PDManager", msg, "MOOD", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
+
+        //Test
+        //getTimeFromHour(diary)
+        manager.add(new UserAlert("PDManager", msg, "DIARY", date1.getTime(), getTimeFromHour(diary), "SYSTEM"));
+
+        manager.add(new UserAlert("PDManager", msg, "FT", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
+
+        manager.add(new UserAlert("PDManager", msg, "VT", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
+
+        manager.add(new UserAlert("PDManager", msg, "VA", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
 
 
     }
@@ -430,37 +387,34 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     }
 
 
-    private boolean checkPermissions(Activity activity)
-    {
+    private boolean checkPermissions(Activity activity) {
 
-        boolean requiresPermissions=false;
+        boolean requiresPermissions = false;
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
 
-            requiresPermissions=true;
+            requiresPermissions = true;
 
         }
 
         int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
 
         if (permission2 != PackageManager.PERMISSION_GRANTED) {
-            requiresPermissions=true;
+            requiresPermissions = true;
         }
 
         int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
 
         if (permission3 != PackageManager.PERMISSION_GRANTED) {
-            requiresPermissions=true;
+            requiresPermissions = true;
         }
 
         return requiresPermissions;
     }
 
 
-
-
-   /**
+    /**
      * Checks if the app has permission to write to device storage
      * <p>
      * If the app does not has permission then the user will be prompted to grant permissions
@@ -480,7 +434,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             );
         }
 
-
         int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
 
         if (permission2 != PackageManager.PERMISSION_GRANTED) {
@@ -492,7 +445,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             );
         }
 
-
         int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
 
         if (permission3 != PackageManager.PERMISSION_GRANTED) {
@@ -503,7 +455,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                     REQUEST_PHONE_STATE
             );
         }
-
 
         int permission4 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO);
 
@@ -532,57 +483,47 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     private void RemoveReminders(RecordingSettings settings) {
 
-
         try {
             Uri reminderUri1 = Uri.parse(settings.getReminder1());
-
 
             getActivity().getApplicationContext().getContentResolver().delete(reminderUri1, null, null);
 
 
         } catch (Exception ex) {
-
 
         }
 
         try {
             Uri reminderUri2 = Uri.parse(settings.getReminder2());
 
-
             getActivity().getApplicationContext().getContentResolver().delete(reminderUri2, null, null);
 
 
         } catch (Exception ex) {
 
-
         }
         try {
             Uri reminderUri1 = Uri.parse(settings.getEvent1());
-
 
             getActivity().getApplicationContext().getContentResolver().delete(reminderUri1, null, null);
 
 
         } catch (Exception ex) {
-
 
         }
 
         try {
             Uri reminderUri1 = Uri.parse(settings.getEvent2());
 
-
             getActivity().getApplicationContext().getContentResolver().delete(reminderUri1, null, null);
 
 
         } catch (Exception ex) {
 
-
         }
     }
 
     private void SetReminder(int hour, String title, RecordingSettings settings, int t) {
-
 
         try {
             Calendar beginTime = Calendar.getInstance();
@@ -615,19 +556,16 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             //   eventValues.put("transparency", 0);
             eventValues.put(CalendarContract.Events.HAS_ALARM, 1);
 
-
             Uri eventUri = getActivity().getApplicationContext().getContentResolver().insert(Uri.parse(eventUriString), eventValues);
             long eventID = Long.parseLong(eventUri.getLastPathSegment());
 
             /***************** Event: Reminder(with alert) Adding reminder to event *******************/
-
 
             if (t == 0)
                 settings.setEvent1(eventUri.toString());
             else
                 settings.setEvent2(eventUri.toString());
             String reminderUriString = "content://com.android.calendar/reminders";
-
 
             ContentValues reminderValues = new ContentValues();
 
@@ -636,7 +574,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             reminderValues.put("method", 1);
 
             Uri reminderUri = getActivity().getApplicationContext().getContentResolver().insert(Uri.parse(reminderUriString), reminderValues);
-
 
             if (t == 0)
                 settings.setReminder1(reminderUri.toString());
@@ -654,9 +591,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     private void AddReminders(int startHour, int stopHour, RecordingSettings settings) {
 
-
         SetReminder(startHour, "Please wear the Bracelet", settings, 0);
-
 
         SetReminder(stopHour, "Remove the Bracelet and put it for charge", settings, 1);
 
@@ -674,7 +609,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         hrsb.append(String.format("%02d", today.month + 1));              // Month (0-11))
         hrsb.append("_");
         hrsb.append(today.format("%k:%M:%S"));      // Current time
-
 
         String newFileName = hrsb.toString();
         newFileName = newFileName.replaceAll(":", "_");
@@ -713,32 +647,25 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_band, container, false);
 
-
         mGetDevice = (Button) rootView.findViewById(R.id.buttonGetDevice);
         mDeviceId = (TextView) rootView.findViewById(R.id.textDeviceId);
         mGetDevice.setOnClickListener(mButtonDeviceClickListener);
 
-
         mButtonConnect = (Button) rootView.findViewById(R.id.buttonConnect);
         mButtonConnect.setOnClickListener(mButtonConnectClickListener);
-
 
         mButtonRequireStorPermissions = (Button) rootView.findViewById(R.id.buttonRequirePermissions);
         mButtonRequireStorPermissions.setOnClickListener(mButtonRequirePermissions);
 
-
-    //    mbuttonGetMedications = (Button) rootView.findViewById(R.id.buttonGetMedications);
-    //    mbuttonGetMedications.setOnClickListener(mbuttonGetMedicationsListener);
+        //    mbuttonGetMedications = (Button) rootView.findViewById(R.id.buttonGetMedications);
+        //    mbuttonGetMedications.setOnClickListener(mbuttonGetMedicationsListener);
 
         mbuttonMSHealthSync = (Button) rootView.findViewById(R.id.buttonGetMSHealth);
         mbuttonMSHealthSync.setOnClickListener(mbuttonMSHealthSyncListener);
 
+        //    mButtonCreateTile = (Button) rootView.findViewById(R.id.buttonCreateTile);
+        //    mButtonCreateTile.setOnClickListener(mbuttonCreateTileListener);
 
-    //    mButtonCreateTile = (Button) rootView.findViewById(R.id.buttonCreateTile);
-    //    mButtonCreateTile.setOnClickListener(mbuttonCreateTileListener);
-
-        
-        
         mMonitoringStatus = (TextView) rootView.findViewById(R.id.textConnectionStatus);
         mSensorStatus = (TextView) rootView.findViewById(R.id.textSensorStatus);
 
@@ -748,13 +675,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         mDeviceId.setText(RecordingSettings.newInstance(this.getContext()).getDeviceId());
 
+        //  this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
+        mTextLoggedIn = (TextView) rootView.findViewById(R.id.textLoggedIn);
+        mTextGetDevice = (TextView) rootView.findViewById(R.id.textGetDevice);
 
-      //  this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
-        mTextLoggedIn=(TextView) rootView.findViewById(R.id.textLoggedIn);
-        mTextGetDevice=(TextView) rootView.findViewById(R.id.textGetDevice);
-
-        if(checkPermissions(this.getActivity()))
-        {
+        if (checkPermissions(this.getActivity())) {
             ((TextView) rootView.findViewById(R.id.textFilePermission)).setTextColor(Color.GREEN);
         }
         /*
@@ -792,23 +717,19 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         MyTimerTask myTask = new MyTimerTask();
         myTimer.schedule(myTask, 1000, 5000);
 
-
         refreshControls();
     }
 
-    private void updateLoggedInInfo()
-    {
-        RecordingSettings settings =getSettings();
+    private void updateLoggedInInfo() {
+        RecordingSettings settings = getSettings();
         if (settings != null) {
 
             if (settings.getLoggedIn()) {
 
-                mTextLoggedIn.setText(" Logged in as "+settings.getUserName());
+                mTextLoggedIn.setText(" Logged in as " + settings.getUserName());
 
                 mTextLoggedIn.setTextColor(Color.GREEN);
-            }
-            else
-            {
+            } else {
                 mTextLoggedIn.setText("Not Logged In");
                 mTextLoggedIn.setTextColor(Color.YELLOW);
             }
@@ -817,13 +738,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     }
 
 
-
     private RecordingService getService() {
         return RecordingServiceHandler.getInstance().getService();
     }
 
     private void refreshControls() {
-
 
         Activity activity = getActivity();
         if (activity != null) {
@@ -837,10 +756,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         RecordingService service = getService();
                         if (service != null) {
 
-
                             if (mButtonConnect != null) {
                                 mButtonConnect.setEnabled(true);
-
 
                                 if (service.getSessionMustRun()) {
 
@@ -879,11 +796,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         }
 
                         updateLoggedInInfo();
-                    }
-                    catch (Exception ex)
-                    {
+                    } catch (Exception ex) {
 
-                        Log.e(("SERVICE FRAGMENT"),"Refresh Controls",ex.getCause());
+                        Log.e(("SERVICE FRAGMENT"), "Refresh Controls", ex.getCause());
 
                     }
                 }
@@ -894,14 +809,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     @Override
     public void notifyServiceStatusChanged() {
 
-
         refreshControls();
 
     }
 
     @Override
     public void requestHeartRateConsent(BandSensorManager sensorManager) {
-
 
         sensorManager.requestHeartRateConsent(getActivity(), this);
 
@@ -915,7 +828,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     @Override
     public void notifySensorStatusChanged(boolean status) {
-
 
     }
 
@@ -931,7 +843,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             String formatted = DateUtils.formatElapsedTime(differenceInSeconds);
             return formatted;
         } catch (Exception ex) {
-
 
         }
 
@@ -951,7 +862,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                     @Override
                     public void run() {
 
-
                         RecordingService service = RecordingServiceHandler.getInstance().getService();
                         if (service != null && service.isSessionRunning()) {
 
@@ -967,11 +877,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                                 {
 
-
                                     if (service.hasFatalError())
 
                                     {
-
 
                                         if (service.getFatalErrorCode() == 2) {
                                             mSensorStatus.setText("Band is not recording...please move phone close to your Band");
@@ -1006,7 +914,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                             mMonitoringStatus.setText("not monitoring");
                             mMonitoringStatus.setTextColor(Color.RED);
 
-
                             if (mSensorStatus != null)
                                 mSensorStatus.setVisibility(View.INVISIBLE);
                         }
@@ -1027,7 +934,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         public GetDeviceTask(String pcode, String a) {
 
-
             this.code = pcode;
             this.accessToken = a;
 
@@ -1047,7 +953,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                 if (devices.size() > 0) {
 
-
                     for (Device d : devices) {
 
                         if (d.PatientId.equals(code)) {
@@ -1056,7 +961,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         }
 
                     }
-
 
                     res.HasError = false;
 
@@ -1082,7 +986,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             }
 
 
-
         }
 
     }
@@ -1105,16 +1008,13 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             try {
                 DataReceiver receiver = new DataReceiver(accessToken);
 
-
                 res.orders = receiver.GetMedicationOrders(patientCode);
-
 
                 return res;
 
             } catch (Exception ex) {
 
-
-                Log.e("MEDS","Get Meds",ex.getCause());
+                Log.e("MEDS", "Get Meds", ex.getCause());
                 res.setError(true);
                 //Util.handleException("Getting data", ex);
 
@@ -1128,7 +1028,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             busyIndicator.setVisibility(View.INVISIBLE);
             layout.setVisibility(View.VISIBLE);
 
-            if(!result.hasError()) {
+            if (!result.hasError()) {
                 MedManager manager = new MedManager(getContext());
                 //Clear Medication Orders
                 manager.clearAll();
@@ -1137,17 +1037,13 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 mTextGetMedication.setTextColor(Color.GREEN);
 
 
-
-            }
-            else
-            {
+            } else {
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                 alert.setTitle("Error");
                 alert.setMessage("Could not get medications. Check your internet connection and that the medications are property defined.");
                 alert.setPositiveButton("OK", null);
                 alert.show();
-
 
 
             }

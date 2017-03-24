@@ -1,15 +1,9 @@
 package com.pdmanager.views.patient;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -20,7 +14,7 @@ import com.pdmanager.communication.DirectSenderTask;
 import com.pdmanager.communication.IDirectSendCallback;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.FragmentListener;
+import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,8 +23,8 @@ import java.util.Date;
 /**
  * Created by Marko Koren on 11.1.2017.
  */
-public class MoodTrackingFragment extends AlertPDFragment implements FragmentListener,IDirectSendCallback {
-    private static final String LOG_TAG = MoodTrackingFragment.class.getName();
+public class MoodTrackingActivity extends SoundFeedbackActivity implements IDirectSendCallback {
+    private static final String LOG_TAG = MoodTrackingActivity.class.getName();
 
     private View selectedMoodView;
     private ArrayList<View> selectedActivityViews;
@@ -54,52 +48,52 @@ public class MoodTrackingFragment extends AlertPDFragment implements FragmentLis
 //    private Button buttonBack;
     private RelativeLayout buttonNext;
     private RelativeLayout busyIndicator;
-    private LinearLayout layout;
+    private RelativeLayout layout;
 
-    @Nullable
+   
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_mood_tracking, container, false);
-
-        setUp(rootView);
-        return rootView;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mood_tracking);
+        setUp();
     }
 
+    public void setUp (  ) {
 
-    public void setUp (  View rootView ) {
+        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(),this);
 
-        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(getContext()).getToken(),this);
-
-        busyIndicator = (RelativeLayout) rootView.findViewById(R.id.busy_BusyIndicator);
+        busyIndicator = (RelativeLayout) this.findViewById(R.id.busy_BusyIndicator);
 
         busyIndicator.setVisibility(View.INVISIBLE);
-        layout=(LinearLayout)  rootView.findViewById(R.id.mainLayout);
+        layout=(RelativeLayout)  this.findViewById(R.id.mainLayout);
         selectedActivityViews = new ArrayList<>();
-        moodContainer = (LinearLayout) rootView.findViewById(R.id.container_mood_select);
-        actContainer = (LinearLayout) rootView.findViewById(R.id.container_act_select);
-        moodExcellent = (LinearLayout) rootView.findViewById(R.id.mood_excellent);
+        moodContainer = (LinearLayout) this.findViewById(R.id.container_mood_select);
+        actContainer = (LinearLayout) this.findViewById(R.id.container_act_select);
+        moodExcellent = (LinearLayout) this.findViewById(R.id.mood_excellent);
         moodExcellent.setOnClickListener(moodClickListener);
-        moodGood = (LinearLayout) rootView.findViewById(R.id.mood_good);
+        moodGood = (LinearLayout) this.findViewById(R.id.mood_good);
         moodGood.setOnClickListener(moodClickListener);
-        moodOkay = (LinearLayout) rootView.findViewById(R.id.mood_okay);
+        moodOkay = (LinearLayout) this.findViewById(R.id.mood_okay);
         moodOkay.setOnClickListener(moodClickListener);
-        moodBad = (LinearLayout) rootView.findViewById(R.id.mood_bad);
+        moodBad = (LinearLayout) this.findViewById(R.id.mood_bad);
         moodBad.setOnClickListener(moodClickListener);
-        moodAwfull = (LinearLayout) rootView.findViewById(R.id.mood_awfull);
+        moodAwfull = (LinearLayout) this.findViewById(R.id.mood_awfull);
         moodAwfull.setOnClickListener(moodClickListener);
-        actHome = (LinearLayout) rootView.findViewById(R.id.act_home);
+        actHome = (LinearLayout) this.findViewById(R.id.act_home);
         actHome.setOnClickListener(activityClickListener);
-        actWork = (LinearLayout) rootView.findViewById(R.id.act_work);
+        actWork = (LinearLayout) this.findViewById(R.id.act_work);
         actWork.setOnClickListener(activityClickListener);
-        actRelax = (LinearLayout) rootView.findViewById(R.id.act_relax);
+        actRelax = (LinearLayout) this.findViewById(R.id.act_relax);
         actRelax.setOnClickListener(activityClickListener);
-        actExercise = (LinearLayout) rootView.findViewById(R.id.act_exercise);
+        actExercise = (LinearLayout) this.findViewById(R.id.act_exercise);
         actExercise.setOnClickListener(activityClickListener);
-        actRest = (LinearLayout) rootView.findViewById(R.id.act_rest);
+        actRest = (LinearLayout) this.findViewById(R.id.act_rest);
         actRest.setOnClickListener(activityClickListener);
-        actSocial = (LinearLayout) rootView.findViewById(R.id.act_social);
+        actSocial = (LinearLayout) this.findViewById(R.id.act_social);
         actSocial.setOnClickListener(activityClickListener);
-        actOther = (EditText) rootView.findViewById(R.id.act_other);
+        actOther = (EditText) this.findViewById(R.id.act_other);
         actOther.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -123,8 +117,8 @@ public class MoodTrackingFragment extends AlertPDFragment implements FragmentLis
                 }
             }
         });
-        chooseText = (TextView) rootView.findViewById(R.id.mood_act_choose);
-        buttonNext = (RelativeLayout) rootView.findViewById(R.id.button_mood_next);
+        chooseText = (TextView) this.findViewById(R.id.mood_act_choose);
+        buttonNext = (RelativeLayout) this.findViewById(R.id.button_mood_next);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,11 +137,11 @@ public class MoodTrackingFragment extends AlertPDFragment implements FragmentLis
                     //Calendar cal2 = Calendar.getInstance();
                     cal1.setTime(date1);
 
-                    String patientCode= RecordingSettings.GetRecordingSettings(getContext()).getPatientID();
+                    String patientCode= RecordingSettings.GetRecordingSettings(getApplicationContext()).getPatientID();
 
                     ArrayList<Observation> observations=new ArrayList<Observation>();
                     selectedMood = selectedMoodView.getTag().toString();
-                    observations.add( new Observation(1, patientCode, "MOOD", cal1.getTimeInMillis()));
+                    observations.add( new Observation(1, patientCode, "PQMOOD", cal1.getTimeInMillis()));
 
 
                     selectedActivities = new ArrayList<String>();
@@ -170,7 +164,7 @@ public class MoodTrackingFragment extends AlertPDFragment implements FragmentLis
                 }
             }
         });
-//        buttonBack = (Button) rootView.findViewById(R.id.button_mood_back);
+//        buttonBack = (Button) this.findViewById(R.id.button_mood_back);
 //        buttonBack.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -236,22 +230,8 @@ public class MoodTrackingFragment extends AlertPDFragment implements FragmentLis
         busyIndicator.setVisibility(View.INVISIBLE);
         layout.setVisibility(View.VISIBLE);
 
-        long t=(System.currentTimeMillis());
-        PatientHomeFragment patientHomeFragment = new PatientHomeFragment();
-        FragmentTransaction fragmentTransaction =
-                getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, patientHomeFragment);
-        fragmentTransaction.commit();
+       finishTest();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-    }
+
 }

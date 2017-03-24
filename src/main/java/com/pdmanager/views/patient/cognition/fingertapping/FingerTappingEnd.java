@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.communication.DirectSenderTask;
+import com.pdmanager.communication.IDirectSendCallback;
 import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 
@@ -16,8 +20,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
+
+import com.pdmanager.settings.RecordingSettings;
+import com.pdmanager.models.Observation;
 
 
 /**
@@ -28,8 +37,8 @@ import java.util.Locale;
  * @copyright: LifeSTech
  * @license: GPL3
  */
-public class FingerTappingEnd extends Activity {
-    private String LOGGER_TAG = "LOGGER_TAG FingerTappingEnd:";
+public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
+    private String LOGGER_TAG = "FingerTappingEnd";
 
     private int tapsTestOne = 0;
     private Double meanTimeTestOne = new Double(0);
@@ -201,20 +210,83 @@ public class FingerTappingEnd extends Activity {
             }
         });
 
-        Button buttonExit=(Button) findViewById(R.id.buttonFTTEndExit);
+        String meanTimeTest1 = String.format(Locale.ENGLISH, "%.2f", meanTimeTestOne);
+        String maxTimeTest1 = String.format(Locale.ENGLISH, "%.2f", maxTimeTestOne);
+        String minTimeTest1 = String.format(Locale.ENGLISH, "%.2f", minTimeTestOne);
+        String meanTimeTest2 = String.format(Locale.ENGLISH, "%.2f", meanTimeTestTwo);
+        String maxTimeTest2 = String.format(Locale.ENGLISH, "%.2f", maxTimeTestTwo);
+        String minTimeTest2 = String.format(Locale.ENGLISH, "%.2f", minTimeTestTwo);
+
+        //Observations
+        try {
+            RecordingSettings settings = new RecordingSettings(getApplicationContext());
+            String patientCode = settings.getPatientID();
+            String token = settings.getToken();
+            final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(),this);
+
+            //CommunicationManager mCommManager = new CommunicationManager();
+            Long time = Calendar.getInstance().getTimeInMillis();
+            Observation obsFtsTaps = new Observation (tapsTestOne, patientCode, "PDTFTS_TAPS", time);
+            obsFtsTaps.PatientId = patientCode;
+            Observation obsFtsMean = new Observation(Double.parseDouble(meanTimeTest1), patientCode, "PDTFTS_MEAN", time);
+            obsFtsMean.PatientId = patientCode;
+
+            Observation obsFtsMax = new Observation(Double.parseDouble(maxTimeTest1), patientCode, "PDTFTS_MAX", time);
+            obsFtsMax.PatientId = patientCode;
+            Observation obsFtsMin = new Observation(Double.parseDouble(minTimeTest1), patientCode, "PDTFTS_MIN", time);
+            obsFtsMin.PatientId = patientCode;
+            Observation obsFtaTaps = new Observation (tapsTestTwo, patientCode, "PDTFTA_TAPS", time);
+            obsFtaTaps.PatientId = patientCode;
+            Observation obsFtaErrors = new Observation (errorTapsTestTwo, patientCode, "PDTFTA_ERRORS", time);
+            obsFtaErrors.PatientId = patientCode;
+            Observation obsFtaMean = new Observation(Double.parseDouble(meanTimeTest2), patientCode, "PDTFTA_MEAN", time);
+            obsFtaMean.PatientId = patientCode;
+            Observation obsFtaMax = new Observation(Double.parseDouble(maxTimeTest2), patientCode, "PDTFTA_MAX", time);
+            obsFtaMax.PatientId = patientCode;
+            Observation obsFtaMin = new Observation(Double.parseDouble(minTimeTest2), patientCode, "PDTFTA_MIN", time);
+            obsFtaMin.PatientId = patientCode;
+
+            ArrayList<Observation> observations = new ArrayList<>();
+            observations.add(obsFtsTaps);
+            observations.add(obsFtsMean);
+            observations.add(obsFtsMax);
+            observations.add(obsFtsMin);
+            observations.add(obsFtaTaps);
+            observations.add(obsFtaErrors);
+            observations.add(obsFtaMean);
+            observations.add(obsFtaMax);
+            observations.add(obsFtaMin);
+
+            sender.execute(observations);
+
+
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+
+            finish();
+        }
+        finally {
+
+        }
+
+    /*    Button buttonExit=(Button) findViewById(R.id.buttonFTTEndExit);
         buttonExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), MainMenu.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("EXIT", true);
-                startActivity(intent);
+
                 finish();
 
             }
         });
+        */
     }
 
 
+    @Override
+    public void onPostDirectSend(boolean result) {
+
+        finish();
+    }
 }

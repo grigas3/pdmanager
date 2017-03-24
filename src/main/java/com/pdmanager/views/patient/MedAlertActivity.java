@@ -1,165 +1,305 @@
 package com.pdmanager.views.patient;
 
-import android.annotation.SuppressLint;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+/**
+ * Created by George on 1/30/2016.
+ */
 
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.microsoft.band.BandPendingResult;
+import com.microsoft.band.ConnectionState;
 import com.pdmanager.R;
+import com.pdmanager.communication.CommunicationManager;
+import com.pdmanager.communication.DirectSender;
+import com.pdmanager.communication.DirectSenderTask;
+import com.pdmanager.communication.IDirectSendCallback;
+import com.pdmanager.controls.CircleButton;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
+import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
+ * A placeholder fragment containing a simple view.
  */
-public class MedAlertActivity extends AppCompatActivity {
+public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSendCallback {
     /**
-     * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
+     * The fragment argument representing the section number for this
+     * fragment.
      */
-    private static final boolean AUTO_HIDE = true;
+    private static final String ARG_SECTION_NUMBER = "section_number";
 
-    /**
-     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
-     * user interaction before hiding the system UI.
-     */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+    TextView description;
+    TextView title;
+    private CircleButton mButtonConfirm;
+    private CircleButton mButtonReject;
+    private ProgressBar busyIndicator;
+    private RelativeLayout layout;
+    private String medId;
 
-    /**
-     * Some older devices needs a small delay between UI widget updates
-     * and a change of the status and navigation bar.
-     */
-    private static final int UI_ANIMATION_DELAY = 300;
-    private final Handler mHideHandler = new Handler();
-    private View mContentView;
-    private final Runnable mHidePart2Runnable = new Runnable() {
-        @SuppressLint("InlinedApi")
-        @Override
-        public void run() {
-            // Delayed removal of status and navigation bar
 
-            // Note that some of these constants are new as of API 16 (Jelly Bean)
-            // and API 19 (KitKat). It is safe to use them, as they are inlined
-            // at compile-time and do nothing on earlier devices.
-            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        }
-    };
-    private View mControlsView;
-    private final Runnable mShowPart2Runnable = new Runnable() {
-        @Override
-        public void run() {
-            // Delayed display of UI elements
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.show();
-            }
-            mControlsView.setVisibility(View.VISIBLE);
-        }
-    };
-    private boolean mVisible;
-    private final Runnable mHideRunnable = new Runnable() {
-        @Override
-        public void run() {
-            hide();
-        }
-    };
-    /**
-     * Touch listener to use for in-layout UI controls to delay hiding the
-     * system UI. This is to prevent the jarring behavior of controls going away
-     * while interacting with activity UI.
-     */
-    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (AUTO_HIDE) {
-                delayedHide(AUTO_HIDE_DELAY_MILLIS);
-            }
-            return false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_med_alert);
-
-        mVisible = true;
-       // mControlsView = findViewById(R.id.fullscreen_content_controls);
-        //mContentView = findViewById(R.id.fullscreen_content);
+        setContentView(R.layout.fragment_alertmed);
+        setUp();
+        speekInfo();
+    }
 
 
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
+
+    private void setUp()
+    {
+
+        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(getApplicationContext()).getToken(),this);
+
+        title = (TextView) this.findViewById(R.id.alertText);
+        description = (TextView) this.findViewById(R.id.alertDescription);
+
+        mButtonConfirm = (CircleButton) this.findViewById(R.id.confirm);
+
+        mButtonConfirm.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-                toggle();
+            public void onClick(View v) {
+                speak.silence();
+                busyIndicator.setVisibility(View.VISIBLE);
+                layout.setVisibility(View.INVISIBLE);
+                //   mButtonPatients.setVisibility(View.INVISIBLE);
+                Date date1 = new java.util.Date();
+                date1.setHours(0);
+                date1.setMinutes(0);
+                //Date date2= new java.util.Date(t2);
+                Calendar cal1 = Calendar.getInstance();
+                //Calendar cal2 = Calendar.getInstance();
+                cal1.setTime(date1);
+                Observation obs = new Observation(1, getPatientCode(), "PQMEDADH", cal1.getTimeInMillis());
+
+
+                ArrayList<Observation> obsC = new ArrayList<>();
+                obsC.add((obs));
+                sender.execute(obsC);
+                //new ConfirmMedTask(getPatientCode(), getAccessToken()).execute();
             }
         });
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-      //  findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        mButtonReject = (CircleButton) this.findViewById(R.id.reject);
+
+        mButtonReject.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                speak.silence();
+                busyIndicator.setVisibility(View.VISIBLE);
+                layout.setVisibility(View.INVISIBLE);
+                //   mButtonPatients.setVisibility(View.INVISIBLE);
+                Date date1 = new Date();
+                date1.setHours(0);
+                date1.setMinutes(0);
+                //Date date2= new java.util.Date(t2);
+                Calendar cal1 = Calendar.getInstance();
+                //Calendar cal2 = Calendar.getInstance();
+                cal1.setTime(date1);
+                Observation obs = new Observation(0, getPatientCode(),"PQMEDADH", cal1.getTimeInMillis());
+
+
+                ArrayList<Observation> obsC = new ArrayList<>();
+                obsC.add((obs));
+                sender.execute(obsC);
+                //new ConfirmMedTask(getPat
+
+
+            }
+        });
+        busyIndicator = (ProgressBar) this.findViewById(R.id.busy_BusyIndicator);
+
+        busyIndicator.setVisibility(View.INVISIBLE);
+
+        layout = (RelativeLayout) this.findViewById(R.id.mainLayout);
+
+
+    }
+
+    private void speekInfo()
+    {
+
+        if(speak!=null)
+
+            speak.speakFlush(getApplicationContext().getString(R.string.patient_med_instructions));
+
+
+    }
+    protected void restoreVariables(Bundle savedInstanceState) {
+
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
-        delayedHide(100);
     }
 
-    private void toggle() {
-        if (mVisible) {
-            hide();
-        } else {
-            show();
+    /*  @Override
+      public void update(UserAlert alert ) {
+
+
+          this.currentAlertId = alert.getId();
+          this.medId=alert.getSource();
+
+
+      }
+      */
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+    }
+
+    /*
+    private class ConfirmMedTask extends AsyncTask<Void, Void, Boolean> {
+
+        private String accessToken;
+        private String patientCode;
+
+        public ConfirmMedTask(String code, String a) {
+
+            this.patientCode = code;
+            this.accessToken = a;
+        }
+
+
+        @Override
+        protected Boolean doInBackground(Void... clientParams) {
+
+            BandPendingResult<ConnectionState> pendingResult = null;
+            try {
+
+                DirectSender sender = new DirectSender(accessToken, getContext());
+                CommunicationManager mCommManager = new CommunicationManager(sender);
+
+                Date date1 = new java.util.Date();
+                date1.setHours(0);
+                date1.setMinutes(0);
+                //Date date2= new java.util.Date(t2);
+                Calendar cal1 = Calendar.getInstance();
+                //Calendar cal2 = Calendar.getInstance();
+                cal1.setTime(date1);
+                Observation obs = new Observation(1, patientCode, "MED_ADH", cal1.getTimeInMillis());
+                obs.PatientId = patientCode;
+
+                ArrayList<Observation> obsC = new ArrayList<>();
+                obsC.add((obs));
+                mCommManager.SendItems(obsC, true);
+
+                return true;
+
+            } catch (Exception ex) {
+
+                //Util.handleException("Getting data", ex);
+                return false;
+                // handle BandException
+            }
+        }
+
+
+        protected void onPostExecute(Boolean result) {
+
+            busyIndicator.setVisibility(View.INVISIBLE);
+            layout.setVisibility(View.VISIBLE);
+            //TODO PROPERLY CHECK CONNECTION
+
+
+
+            activateMainFragment();
+
         }
     }
+    */
 
-    private void hide() {
-        // Hide UI first
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
+    @Override
+    public void onPostDirectSend(boolean result) {
+        busyIndicator.setVisibility(View.INVISIBLE);
+        layout.setVisibility(View.VISIBLE);
+
+        finishTest();
+    }
+
+
+    /*
+
+    private class RejectMedTask extends AsyncTask<Void, Void, Boolean> {
+
+        private String accessToken;
+        private String patientCode;
+
+        public RejectMedTask(String code, String a) {
+
+            this.patientCode = code;
+            this.accessToken = a;
         }
-        mControlsView.setVisibility(View.GONE);
-        mVisible = false;
 
-        // Schedule a runnable to remove the status and navigation bar after a delay
-        mHideHandler.removeCallbacks(mShowPart2Runnable);
-        mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
+        @Override
+        protected Boolean doInBackground(Void... clientParams) {
+
+            BandPendingResult<ConnectionState> pendingResult = null;
+            try {
+
+                DirectSender sender = new DirectSender(accessToken, getContext());
+                CommunicationManager mCommManager = new CommunicationManager(sender);
+
+                Date date1 = new Date();
+                date1.setHours(0);
+                date1.setMinutes(0);
+                //Date date2= new java.util.Date(t2);
+                Calendar cal1 = Calendar.getInstance();
+                //Calendar cal2 = Calendar.getInstance();
+                cal1.setTime(date1);
+                Observation obs = new Observation(0, patientCode, "MED_ADH", cal1.getTimeInMillis());
+                obs.PatientId = patientCode;
+
+                ArrayList<Observation> obsC = new ArrayList<>();
+                obsC.add((obs));
+                mCommManager.SendItems(obsC);
+
+                return true;
+
+            } catch (Exception ex) {
+
+                //Util.handleException("Getting data", ex);
+                return false;
+                // handle BandException
+            }
+        }
+
+
+        protected void onPostExecute(Boolean result) {
+
+            busyIndicator.setVisibility(View.INVISIBLE);
+            layout.setVisibility(View.VISIBLE);
+            //TODO PROPERLY CHECK CONNECTION
+
+
+            activateMainFragment();
+
+            //    message.setVisibility(View.VISIBLE);
+            //  mButtonPatients.setVisibility(View.VISIBLE);
+
+        }
     }
+            */
 
-    @SuppressLint("InlinedApi")
-    private void show() {
-        // Show the system bar
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-        mVisible = true;
 
-        // Schedule a runnable to display UI elements after a delay
-        mHideHandler.removeCallbacks(mHidePart2Runnable);
-        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    /**
-     * Schedules a call to hide() in [delay] milliseconds, canceling any
-     * previously scheduled calls.
-     */
-    private void delayedHide(int delayMillis) {
-        mHideHandler.removeCallbacks(mHideRunnable);
-        mHideHandler.postDelayed(mHideRunnable, delayMillis);
-    }
 }

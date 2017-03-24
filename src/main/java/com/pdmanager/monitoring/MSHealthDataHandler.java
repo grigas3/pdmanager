@@ -149,34 +149,34 @@ public class MSHealthDataHandler {
 
             Date d=parseDate(s,"dayId");
             double totalRestfulSleepDuration=parseDuration(s,"totalRestfulSleepDuration");
-            tmpObservations.add(new Observation(totalRestfulSleepDuration, "TRESFULLSD",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(totalRestfulSleepDuration, "SLPTRESFULL",d.getTime(), patientIdentifier));
 
             double totalRestlesSleepDuration=parseDuration(s,"totalRestlessSleepDuration");
-            tmpObservations.add(new Observation(totalRestlesSleepDuration, "TRESLESSSD",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(totalRestlesSleepDuration, "SLPRESTLESS",d.getTime(), patientIdentifier));
 
 
 
             double sleepDuration=parseDuration(s,"sleepDuration");
-            tmpObservations.add(new Observation(sleepDuration, "SLEEPDUR",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(sleepDuration, "SLPDUR",d.getTime(), patientIdentifier));
 
 
 
             double awakeDuration=parseDuration(s,"awakeDuration");
-            tmpObservations.add(new Observation(awakeDuration, "AWAKEDUR",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(awakeDuration, "SLPAWAKE",d.getTime(), patientIdentifier));
 
 
             double fallAsleepDuration=parseDuration(s,"fallAsleepDuration");
-            tmpObservations.add(new Observation(fallAsleepDuration, "FASLEEPDUR",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(fallAsleepDuration, "SLPFASDUR",d.getTime(), patientIdentifier));
 
-            double totalsleepDuration=parseDuration(s,"duration");
-            tmpObservations.add(new Observation(totalsleepDuration, "TSLEEPDUR",d.getTime(), patientIdentifier));
+         //   double totalsleepDuration=parseDuration(s,"duration");
+          //  tmpObservations.add(new Observation(totalsleepDuration, "SLPNWUPS",d.getTime(), patientIdentifier));
 
             double numberOfWakeups=parseDouble(s,"numberOfWakeups");
-            tmpObservations.add(new Observation(numberOfWakeups, "NWAKEUPS",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(numberOfWakeups, "SLPNWUPS",d.getTime(), patientIdentifier));
 
 
             double restingHeartRate=parseDouble(s,"restingHeartRate");
-            tmpObservations.add(new Observation(restingHeartRate, "SRESTHR",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(restingHeartRate, "SLPRESTHR",d.getTime(), patientIdentifier));
 
 
 
@@ -196,12 +196,12 @@ public class MSHealthDataHandler {
                 ) {
             Date d=parseDate(s,"dayId");
             double totalDuration=parseDuration(s,"duration");
-            tmpObservations.add(new Observation(totalDuration, "RUNDUR",d.getTime(), patientIdentifier));
+            tmpObservations.add(new Observation(totalDuration, "ACTWDUR",d.getTime(), patientIdentifier));
             if(s.containsKey("distanceSummary"))
             {
                 Map s1=(Map)s.get("distanceSummary");
                 double totalDistance=parseDouble(s1,"totalDistance");
-                tmpObservations.add(new Observation(totalDistance, "RUNDIST",d.getTime(), patientIdentifier));
+                tmpObservations.add(new Observation(totalDistance, "ACTWDIST",d.getTime(), patientIdentifier));
 
             }
 

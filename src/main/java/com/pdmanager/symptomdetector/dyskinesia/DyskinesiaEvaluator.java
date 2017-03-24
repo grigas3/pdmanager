@@ -140,7 +140,7 @@ public class DyskinesiaEvaluator extends BaseAggregator implements IDataProcesso
                         handler.handleData(s);
 
 
-                    SendObservation(res, "LID", ((AccData) data).getTicks());
+                    SendObservation(res, "STDYS05", ((AccData) data).getTicks());
 
                     count1 = 0;
                     count = 0;
