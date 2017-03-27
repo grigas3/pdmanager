@@ -8,16 +8,16 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\item_logevent.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\reservation_text_editor.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\reservation_text_editor.xml"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list_view_reorder.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_list_view_reorder.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\default_tooltip_ohlc_content.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Chart-2015.3.1113-trial-release\\res\\layout\\default_tooltip_ohlc_content.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list_view_reorder.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_list_view_reorder.xml"
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\reservation_text_editor.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\reservation_text_editor.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
@@ -52,12 +52,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_switch_editor.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\med_group_item.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\med_group_item.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_radio_group_editor.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_radio_group_editor.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\med_group_item.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\med_group_item.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_tiles_footer.xml",
@@ -68,16 +68,20 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\waiting_fragment_layout.xml"
     },
     {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\activity_diary_tracking.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\activity_diary_tracking.xml"
+    },
+    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_date_editor.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_date_editor.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_logevent_grid.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_logevent_grid.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\data_form_integer_editor.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_integer_editor.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_logevent_grid.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_logevent_grid.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\calendar_main_spinner_item.xml",
@@ -88,12 +92,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\event_list_item.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\example_drawer_menu_list_item.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\example_drawer_menu_list_item.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\tips_presenter.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\tips_presenter.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\example_drawer_menu_list_item.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\example_drawer_menu_list_item.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\palprm.xml",
@@ -104,12 +108,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Input-2015.3.1113-trial-release\\res\\layout\\data_form_root_layout.xml"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\listview_slideitem_header.xml",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\listview_slideitem_header.xml"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\video_item.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\video_item.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\listview_slideitem_header.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\listview_slideitem_header.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\pedmed_list_item.xml",
@@ -118,6 +122,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_medication_order.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_medication_order.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\activity_mood_tracking.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\activity_mood_tracking.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_line_simple.xml",
@@ -738,6 +746,10 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_page_info.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_page_info.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_settings_scheduling.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout\\fragment_settings_scheduling.xml"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bar.xml",

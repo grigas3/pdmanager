@@ -58,20 +58,20 @@ public final class R {
 		public static final int adjust_height = 0x7f0e0050;
 		public static final int adjust_width = 0x7f0e0051;
 		public static final int auto = 0x7f0e0061;
-		public static final int button = 0x7f0e0223;
+		public static final int button = 0x7f0e0238;
 		public static final int center = 0x7f0e0028;
 		public static final int dark = 0x7f0e0062;
-		public static final int email = 0x7f0e00d0;
+		public static final int email = 0x7f0e00db;
 		public static final int icon_only = 0x7f0e005e;
 		public static final int light = 0x7f0e0063;
 		public static final int none = 0x7f0e0013;
 		public static final int normal = 0x7f0e000f;
-		public static final int progressBar = 0x7f0e00d6;
+		public static final int progressBar = 0x7f0e00f0;
 		public static final int radio = 0x7f0e0080;
 		public static final int standard = 0x7f0e005f;
-		public static final int text = 0x7f0e0332;
-		public static final int text1 = 0x7f0e0358;
-		public static final int text2 = 0x7f0e0330;
+		public static final int text = 0x7f0e034d;
+		public static final int text1 = 0x7f0e0373;
+		public static final int text2 = 0x7f0e034b;
 		public static final int toolbar = 0x7f0e00b1;
 		public static final int wide = 0x7f0e0060;
 		public static final int wrap_content = 0x7f0e001d;
@@ -102,7 +102,7 @@ public final class R {
 		public static final int common_open_on_phone = 0x7f070021;
 		public static final int common_signin_button_text = 0x7f070022;
 		public static final int common_signin_button_text_long = 0x7f070023;
-		public static final int decline = 0x7f07006d;
+		public static final int decline = 0x7f07006e;
 	}
 	public static final class style {
 	}

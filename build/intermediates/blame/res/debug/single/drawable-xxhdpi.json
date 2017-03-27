@@ -36,12 +36,12 @@
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xxhdpi\\line_7.png"
     },
     {
-        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\hmb.png",
-        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Primitives-2015.3.1113-trial-release\\res\\drawable-xxhdpi\\hmb.png"
-    },
-    {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\snow.png",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\drawable-xxhdpi\\snow.png"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\hmb.png",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\exploded-aar\\Primitives-2015.3.1113-trial-release\\res\\drawable-xxhdpi\\hmb.png"
     },
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_listview_selection_fav.png",

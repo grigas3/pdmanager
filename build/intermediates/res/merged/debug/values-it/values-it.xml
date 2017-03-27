@@ -97,6 +97,7 @@
     <string name="choose_hour1">Indicare quando l\'utente effettuerà i test (dopo le 12:00)</string>
     <string name="choose_username">Per favore inserisci il nome dell\'utente associato a questi test:</string>
     <string name="choose_vibration_pattern_label">Choose pattern</string>
+    <string name="cognitiveAlertMsg">Time for your test</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Attiva"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> non funzionerà se non attivi Google Play Services."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Attiva Google Play Services"</string>
@@ -221,6 +222,7 @@
     <string name="me">Me</string>
     <string name="medalertpart1">Πήρατε το χάπι σας </string>
     <string name="medalertpart2">στις</string>
+    <string name="medicationConfirm">Hai preso le tue ultime farmaci;</string>
     <string name="menuFirst">Finger Tapping Test</string>
     <string name="menuSecond">Cognitive Tests</string>
     <string name="menuThird">Prova vocale</string>
@@ -234,11 +236,15 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="next">Prossimo</string>
     <string name="next_config">Prossimo</string>
+    <string formatted="false" name="next_day">Next in   %1$d  day(s)</string>
+    <string formatted="false" name="next_hour">Next in   %1$d  hour(s)</string>
+    <string formatted="false" name="next_minute">Next in  %1$d  minute(s)</string>
     <string name="ngfmess1">Πατηστε το κουμπί όταν ΔΕΝ νοιώθετε καλά!</string>
     <string name="ngfmess2">Πατήσατε ήδη το κουμπί πριν λίγο!</string>
     <string name="no_internet">No Internet Connection. Please check your internet connection or try again later.</string>
     <string name="no_receivers">Please add a receiver!</string>
     <string name="no_token_to_unsubscribe">There is no token to unsubscribe</string>
+    <string formatted="false" name="now">Now</string>
     <string name="ok">Ok</string>
     <string name="ok_button_text">OK</string>
     <string name="paired_associates_learning">Paired Associates Learning</string>
@@ -254,6 +260,7 @@
     <string name="palprm_instruction">Ora vedrà una serie di coppie di immagini. Presti attenzione e cerchi di memorizzare le coppie, perché successivamente le sarà presentata solo un’immagine della coppia e lei dovrà ricordare l’immagine ad essa associata, scegliendo l’opzione corretta tra 4 possibili alternative. Ripeterà lo stesso esercizio pertre volte, con le stesse coppie di immagini, in modo che le risulteranno via via più familiari.</string>
     <string name="palprm_title0">Ricorda le seguenti coppie di icone</string>
     <string name="palprm_title1">Scegli l\'icona che corrisponde alla coppia precedentemente mostrata con l\'icona sinistra</string>
+    <string name="patient_med_instructions">Press yes if you have taken all your medication today up to now. If not please press not.</string>
     <string name="pattern_recognition_memory">Pattern Recognition Memory</string>
     <string name="perform_tests">Esegui test</string>
     <string name="pie_series_title">International sales by country, 2014</string>
@@ -326,6 +333,7 @@
     <string name="swm_results">Risultati di Spatial Working Memory:</string>
     <string name="target">Obiettivo:</string>
     <string name="taskFinished">Esercizio completato</string>
+    <string formatted="false" name="task_number">You have %1$d pending task(s)</string>
     <string name="theme_colors_label">Theme colors</string>
     <string name="tips_presenter_content">Telerik Examples highlights the controls included in Telerik UI for Android - Chart, Calendar, DataForm, ListView and SideDrawer.</string>
     <string name="tips_presenter_got_it_text">GOT IT!</string>

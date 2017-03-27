@@ -22,5 +22,9 @@
     {
         "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\medorder_list_item.xml",
         "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout-large\\medorder_list_item.xml"
+    },
+    {
+        "merged": "E:\\Rigas\\PDManager\\Android\\Patient\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\activity_diary_tracking.xml",
+        "source": "E:\\Rigas\\PDManager\\Android\\Patient\\src\\main\\res\\layout-large\\activity_diary_tracking.xml"
     }
 ]
