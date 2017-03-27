@@ -45,7 +45,7 @@ import static android.content.ContentValues.TAG;
  *
  * @authors Miguel Páramo (mparamo@lst.tfo.upm.es)
  * @copyright: LifeSTech
- * @license: GPL3
+ * @license: GPL3rfe
  */
 
 public class SpeechTest extends SoundFeedbackActivity

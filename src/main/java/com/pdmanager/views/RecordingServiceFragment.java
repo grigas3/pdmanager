@@ -335,10 +335,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         Date date1 = new java.util.Date();
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
-        cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), hour, 0, 0);
+      //  cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), hour, 0, 0);
 
 
-        return cal1.getTimeInMillis()+24*60*60*1000;
+        //return cal1.getTimeInMillis()+24*60*60*1000;
+
+        return cal1.getTimeInMillis();
     }
 
     private void initAlerts(RecordingSettings settings) {

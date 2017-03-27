@@ -125,7 +125,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     // The minimum time between updates in milliseconds
     private static final long MIN_UPDATE_TIME = 1000 * 5;
     //Try to reconnect at least after XX minutes
-    private static final long bandReconnectAttemptInterval = 0 * 60 * 1000;
+    private static final long bandReconnectAttemptInterval = 5 * 60 * 1000;
     private static boolean sessionRunning = false;
     private final IBinder mBinder = new LocalBinder();
     private final List<IDataProcessor> processors = new ArrayList<IDataProcessor>();
@@ -1143,7 +1143,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                             unRegisterBandSensors(mgr);
                         }
                         LogInfo("Disconnecting Band for reconnection");
-                        mClient.disconnect().await(10, TimeUnit.SECONDS);
+                        mClient.disconnect().await(15, TimeUnit.SECONDS);
 
                     }
                     disconnected = true;
@@ -1225,7 +1225,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                             if (mClient != null && mClient.isConnected()) {
 
                                 LogInfo("Disconnecting Band for reconnection");
-                                mClient.disconnect().await(10, TimeUnit.SECONDS);
+                                mClient.disconnect().await(15, TimeUnit.SECONDS);
 
                             }
                             disconnected = true;
@@ -1473,7 +1473,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                     unRegisterBandSensors(sensorMgr);
                 }
 
-                mClient.disconnect().await(10, TimeUnit.SECONDS);
+                mClient.disconnect().await(15, TimeUnit.SECONDS);
 
                 mbandConnected = false;
 
@@ -1548,11 +1548,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                     mClient = manager.create(this, mPairedBands[0]);
 
                 } else {
-
+                    LogFatal("Number of Band Sensors is 0", 1);
                     if (!mFatalError) {
                         mFatalError = true;
                         mFatalErrorCode = 1;
-                        LogFatal("Number of Band Sensors is 0", 1);
+
 
                     }
 
@@ -1756,11 +1756,14 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+
+
     /**
      * Check if bluetooth is enabled
      * @return
      */
     private boolean isBluetoothEnabled() {
+
 
         try {
             BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -2597,23 +2600,24 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             BandPendingResult<ConnectionState> pendingResult = null;
             try {
-                ConnectionState result =  clientParams[0].connect().await(10,TimeUnit.SECONDS);
+                ConnectionState result =  clientParams[0].connect().await(15,TimeUnit.SECONDS);
 
                 return new ConnectionResult(result);
 
 
             } catch (InterruptedException ex) {
-                Util.handleException("Connect to band", ex);
+                LogError("Connect to band", ex);
                 return new ConnectionResult(ex);
                 // handle InterruptedException
             } catch (BandException ex) {
 
-                Util.handleException("Connect to band", ex);
+                LogError("Connect to band", ex);
+
                 return new ConnectionResult(ex);
                 // handle BandException
             } catch (Exception ex) {
+                LogError("Connect to band", ex);
 
-                Util.handleException("Connect to band", ex);
                 return new ConnectionResult(ex);
                 // handle BandException
             }
@@ -2639,18 +2643,18 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
                     }
-                    if (mClient != null && result.getState() == ConnectionState.BOUND) {
+                    else if (mClient != null && result.getState() == ConnectionState.BOUND) {
 
                         LogInfo("Bound to Microsoft Band...needs res");
 
                     }
-                    if (mClient != null && result.getState() == ConnectionState.DISPOSED) {
+                    else   if (mClient != null && result.getState() == ConnectionState.DISPOSED) {
 
                         try {
-
-                            mClient.disconnect().await(10, TimeUnit.SECONDS);
-
                             LogInfo("Disconnecting to Microsoft Band");
+                            mClient.disconnect().await(15, TimeUnit.SECONDS);
+
+
                         } catch (Exception ex) {
                             LogError("Error disconnecting from Microsoft Band");
 
@@ -2658,7 +2662,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
                     }
+                    else
+                    {
+                        LogError("Connection state= "+ ConnectionState.DISPOSED+"  unhandled ");
+
+                    }
                 }
+            }
+            else {
+
+                LogError("Connection Result is null");
+
             }
 
             try {

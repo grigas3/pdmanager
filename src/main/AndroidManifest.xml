@@ -81,16 +81,17 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <activity
-            android:name="com.pdmanager.views.patient.MedAlertActivity"
-        android:launchMode="singleTask"
-        android:taskAffinity=""
-        android:excludeFromRecents="true">
-    </activity>
+
         <activity
             android:name="com.pdmanager.views.patient.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/BrandedActionBarTheme">
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.pdmanager.views.call.SplashActivity"
@@ -128,7 +129,7 @@
             android:windowSoftInputMode="adjustResize|stateVisible">
             <intent-filter>
 
-                <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -235,6 +236,38 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="userPortrait" >
         </activity>
+
+
+        <activity
+            android:name="com.pdmanager.views.patient.MedAlertActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:screenOrientation="userPortrait" >
+        </activity>
+
+
+        <activity
+            android:name="com.pdmanager.views.patient.DiaryTrackingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:screenOrientation="userPortrait" >
+        </activity>
+
+
+        <activity
+            android:name="com.pdmanager.views.patient.MoodTrackingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:screenOrientation="userPortrait" >
+        </activity>
+
+
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.speech.SpeechTest"

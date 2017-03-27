@@ -8,6 +8,7 @@ package com.pdmanager.test.alerting; /**
 import com.pdmanager.BuildConfig;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.models.Alert;
+import com.pdmanager.models.UserAlert;
 
 
 import org.junit.Test;
@@ -73,6 +74,53 @@ public class UserAlertManagerTest {
     }
 
 
+
+
+    @Test
+    public void test_hasUnNotifiedAlerts() {
+
+
+
+        UserAlertManager manager=new UserAlertManager(RuntimeEnvironment.application);
+
+        ///First clear all alerts
+        manager.clearAll();
+        ///Check for alert
+        boolean h1=manager.anyActive();
+
+        ///Assert false
+        assertTrue(!h1);
+
+
+        ///Add alertr
+        long exp= (System.currentTimeMillis())-1000;
+        manager.add("Test","TAKE YOUR MED","MED","12",exp);
+
+        h1=manager.anyUnNotified();
+
+
+        ///Assert true
+        assertTrue(h1);
+
+        ///Get alert
+        UserAlert alert=manager.getUnNotified();
+        //Assert correct title
+        assertEquals( alert.Source,"12");
+
+        manager.setNotified(alert);
+        ///Check for alert
+        h1=manager.anyUnNotified();
+
+        ///Assert false
+        assertTrue(!h1);
+        //Clear allerts age
+        manager.clearAll();
+
+
+
+        assert true;
+
+    }
 
 
     @Test

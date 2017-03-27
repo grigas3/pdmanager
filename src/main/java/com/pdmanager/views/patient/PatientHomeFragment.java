@@ -566,81 +566,82 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                 @Override
                 public void run() {
 
-                    for (LinearLayout l : codeLayoutMapping.values()) {
 
-                        if (l != null) {
+                    try {
 
-                           // l.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+                        for (LinearLayout l : codeLayoutMapping.values()) {
 
-                            l.setVisibility(View.GONE);
+                            if (l != null) {
+
+                                // l.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+
+                                l.setVisibility(View.GONE);
                           /*  l.setBackgroundDrawable(activity.getResources().getDrawable(R.drawable.button_patient_home_grey));
                            l.setAlpha(0.5F);
                             l.setEnabled(false);
                             */
 
-                        } else {
+                            } else {
 
-                            Log.w(TAG, "An error layout found when updating UI");
+                                Log.w(TAG, "An error layout found when updating UI");
+                            }
                         }
-                    }
-                    long mind=1000000000;
-                    String noTaskMessage="";
+                        long mind = 1000000000;
+                        String noTaskMessage = "";
 
-                    List<UserAlert> allAlerts = manager.getAlerts();
-                    for (UserAlert a : allAlerts) {
+                        List<UserAlert> allAlerts = manager.getAlerts();
+                        for (UserAlert a : allAlerts) {
 
-                        if (codeTextMapping.containsKey(a.getAlertType())) {
+                            if (codeTextMapping.containsKey(a.getAlertType())) {
 
-                            Date date1 = new java.util.Date(a.getExpiration());
-                            Calendar cal1 = Calendar.getInstance();
-                            cal1.setTime(date1);
-                            Date date2 = new java.util.Date();
-                            Calendar cal2 = Calendar.getInstance();
-                            cal2.setTime(date2);
-                            long d = (date1.getTime() - date2.getTime()) / 1000 / 60;
-                            if (d > 0) {
+                                Date date1 = new java.util.Date(a.getExpiration());
+                                Calendar cal1 = Calendar.getInstance();
+                                cal1.setTime(date1);
+                                Date date2 = new java.util.Date();
+                                Calendar cal2 = Calendar.getInstance();
+                                cal2.setTime(date2);
+                                long d = (date1.getTime() - date2.getTime()) / 1000 / 60;
+                                if (d > 0) {
 
-                                if (d > 24 * 60) {
+                                    if (d > 24 * 60) {
 
-                                    if(mind>d) {
-                                        mind = d;
-                                        noTaskMessage=String.format(context.getString(R.string.next_day), (int) (d / 60 / 24));
+                                        if (mind > d) {
+                                            mind = d;
+                                            noTaskMessage = String.format(context.getString(R.string.next_day), (int) (d / 60 / 24));
+
+                                        }
+                                        codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_day), (int) (d / 60 / 24)));
+                                    } else if (d > 60) {
+
+                                        if (mind > d) {
+                                            mind = d;
+                                            noTaskMessage = String.format(context.getString(R.string.next_hour), (int) (d / 60));
+
+                                        }
+                                        codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_hour), (int) (d / 60)));
+                                    } else {
+
+                                        if (mind > d) {
+                                            mind = d;
+                                            noTaskMessage = String.format(context.getString(R.string.next_minute), (int) (d));
+
+                                        }
+                                        codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_minute), (int) (d)));
 
                                     }
-                                    codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_day), (int) (d / 60 / 24)));
-                                } else if (d > 60) {
 
-                                    if(mind>d) {
-                                        mind = d;
-                                        noTaskMessage=String.format(context.getString(R.string.next_hour), (int) (d / 60));
 
-                                    }
-                                    codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_hour), (int) (d / 60)));
                                 } else {
-
-                                    if(mind>d) {
-                                        mind = d;
-                                        noTaskMessage=String.format(context.getString(R.string.next_minute), (int) (d));
-
-                                    }
-                                    codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_minute), (int) (d)));
+                                    codeTextMapping.get(a.getAlertType()).setText(context.getString(R.string.now));
 
                                 }
 
-
-                            } else {
-                                codeTextMapping.get(a.getAlertType()).setText(context.getString(R.string.now));
 
                             }
 
 
                         }
-
-
-                    }
-                    for (UserAlert a : allAlerts) {
-
-                        if (codeTextMapping.containsKey(a.getAlertType())) {
+                        for (UserAlert a : allAlerts) {
 
                             if (codeLayoutMapping.containsKey(a.getAlertType())) {
 
@@ -666,45 +667,50 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                 }
                                 */
 
-                                if(d<0){
+                                if (d < 0) {
                                     codeLayoutMapping.get(a.getAlertType()).setVisibility(View.VISIBLE);
 
                                 }
 
                             }
 
+
                         }
+                        List<UserAlert> alerts = manager.getActive();
+
+                        if (alerts.size() > 0) {
+
+                            mTaskTitle.setText(String.format(context.getString(R.string.task_number), (int) (alerts.size())));
+
+                            mTaskTitle.setVisibility(View.VISIBLE);
+                            mNoTaskTitle.setVisibility(View.GONE);
+
+
+                        } else {
+                            mNoTaskTitle.setText(noTaskMessage);
+                            mTaskTitle.setVisibility(View.INVISIBLE);
+                            mNoTaskTitle.setVisibility(View.VISIBLE);
+                        }
+
+                        for (UserAlert a : alerts) {
+                            if (codeLayoutMapping.containsKey(a.getAlertType())) {
+                                LinearLayout layout = codeLayoutMapping.get(a.getAlertType());
+                                if (layout != null) {
+
+                                    // layout.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+                                    layout.setAlpha(1);
+                                    layout.setEnabled(true);
+                                }
+
+
+                            }
+                        }
+
                     }
-                    List<UserAlert> alerts = manager.getActive();
-
-                    if(alerts.size()>0) {
-
-                        mTaskTitle.setText(String.format(context.getString(R.string.task_number), (int) ( alerts.size())));
-
-
-                        mTaskTitle.setVisibility(View.VISIBLE);
-                        mNoTaskTitle.setVisibility(View.GONE);
-
-
-                    }
-                    else
+                    catch (Exception e)
                     {
-                        mNoTaskTitle.setText(noTaskMessage);
-                        mTaskTitle.setVisibility(View.INVISIBLE);
-                        mNoTaskTitle.setVisibility(View.VISIBLE);
-                    }
 
-                    for (UserAlert a : alerts) {
-
-                        LinearLayout layout = codeLayoutMapping.get(a.getAlertType());
-                        if (layout != null) {
-
-                           // layout.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
-                            layout.setAlpha(1);
-                            layout.setEnabled(true);
-                        }
-
-
+                        Log.e(TAG,"Home Timer", e.getCause());
                     }
 
 

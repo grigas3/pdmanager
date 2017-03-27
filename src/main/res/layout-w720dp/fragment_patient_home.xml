@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="You have 4 pending tasks"
+                    android:text=""
 
                     android:textColor="@color/primary_title_background"/>
             </LinearLayout>

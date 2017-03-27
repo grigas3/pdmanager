@@ -54,12 +54,11 @@ public class UserAlertManager implements IUserAlertManager {
         boolean hasActiveAlert = false;
 
         long unixTime = System.currentTimeMillis();
-        long exunixTime = System.currentTimeMillis() + 60 * 60 * 1000L;
-        String whereClause = DBHandler.COLUMN_EXPIRATION + " > ?  and " + DBHandler.COLUMN_ALERTCREATED + " = ?  and " + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
+        //long exunixTime = System.currentTimeMillis() + 60 * 60 * 1000L;
+        String whereClause = DBHandler.COLUMN_EXPIRATION + " < ?  and " + DBHandler.COLUMN_ALERTCREATED + " = ?  and " + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
 
         String[] whereArgs = new String[]{
                 Long.toString(unixTime),
-                Long.toString(exunixTime),
                 "0",
                 "1"
 
@@ -541,7 +540,14 @@ public class UserAlertManager implements IUserAlertManager {
             db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + alert.getId(), null);
             ret = true;
 
-        } finally {
+        }
+        catch (Exception e)
+        {
+
+            Log.e(TAG,e.getMessage(),e.getCause());
+
+        }
+        finally {
 
             if (db != null)
                 db.close();
@@ -577,7 +583,14 @@ public class UserAlertManager implements IUserAlertManager {
             db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + alert.getId(), null);
             ret = true;
 
-        } finally {
+        }
+        catch(Exception e)
+        {
+
+            Log.e(TAG,e.getMessage(),e.getCause());
+
+        }
+        finally {
 
             if (db != null)
                 db.close();
@@ -761,8 +774,8 @@ public class UserAlertManager implements IUserAlertManager {
 
 
             }
-        } catch (Exception ex) {
-
+        } catch (Exception e) {
+            Log.e(TAG,e.getMessage(),e.getCause());
         } finally {
 
             if (cursor != null) {
@@ -803,7 +816,12 @@ public class UserAlertManager implements IUserAlertManager {
 
             ret = true;
 
-        } finally {
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG,e.getMessage(),e.getCause());
+        }
+        finally {
 
             if (db != null)
                 db.close();
@@ -835,7 +853,7 @@ public class UserAlertManager implements IUserAlertManager {
 
         } catch (Exception ex) {
 
-            Log.d("SQLCOMMQUEUE", ex.getMessage());
+            Log.e(TAG, ex.getMessage());
 
         } finally {
 
@@ -881,7 +899,7 @@ public class UserAlertManager implements IUserAlertManager {
 
 
         } catch (Exception ex) {
-            Log.d("Error", ex.getMessage());
+            Log.e("Error", ex.getMessage());
 
         } finally {
 
@@ -936,7 +954,7 @@ public class UserAlertManager implements IUserAlertManager {
 
 
         } catch (Exception ex) {
-            Log.d("Error", ex.getMessage());
+            Log.e("Error", ex.getMessage());
 
         } finally {
 
