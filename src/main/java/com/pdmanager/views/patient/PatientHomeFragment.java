@@ -569,9 +569,9 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                         if (l != null) {
 
-                            l.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
+//                            l.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
 
-                            l.setVisibility(View.GONE);
+//                            l.setVisibility(View.GONE);
                           /*  l.setBackgroundDrawable(activity.getResources().getDrawable(R.drawable.button_patient_home_grey));
                            l.setAlpha(0.5F);
                             l.setEnabled(false);

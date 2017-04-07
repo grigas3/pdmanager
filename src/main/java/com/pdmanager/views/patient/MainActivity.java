@@ -28,6 +28,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.Ringtone;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -174,6 +176,15 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             super.onBackPressed();
     }
 
+    public static void setOverflowButtonColor(final Toolbar toolbar, final int color) {
+        Drawable drawable = toolbar.getOverflowIcon();
+        if(drawable != null) {
+            drawable = DrawableCompat.wrap(drawable);
+            DrawableCompat.setTint(drawable.mutate(), color);
+            toolbar.setOverflowIcon(drawable);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -199,11 +210,14 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             Resources resources = getResources();
             ColorDrawable bgColorPrimary = new ColorDrawable(resources.getColor(R.color.primary_title_background));
             ColorDrawable bgColorSecondary = new ColorDrawable(resources.getColor(R.color.secondary_title_background));
-            currentBgColor = bgColorPrimary;
+            currentBgColor = bgColorSecondary;
             setContentView(R.layout.activity_main);
             Toolbar tb = (Toolbar) this.findViewById(R.id.toolbar);
             this.setSupportActionBar(tb);
-            tb.setTitleTextColor(Color.WHITE);
+            if( tb != null) {
+                tb.setTitleTextColor(Color.WHITE);
+                setOverflowButtonColor(tb,Color.WHITE);
+            }
             actionBar = getSupportActionBar();
 
             if (actionBar != null) {

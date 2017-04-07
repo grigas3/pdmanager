@@ -41,18 +41,18 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
     private ArrayList<View> selectedActivityViews;
 
     private ArrayList<String> selectedActivities;
-    private LinearLayout diaryContainer;
+//    private LinearLayout diaryContainer;
 
     private LinearLayout diaryOn;
     private LinearLayout diaryOnDys;
     private LinearLayout diaryOff;
-    private LinearLayout moodAwfull;
+//    private LinearLayout moodAwfull;
 
     private TextView chooseText;
 
     private RelativeLayout buttonNext;
     private RelativeLayout busyIndicator;
-    private LinearLayout layout;
+    private RelativeLayout layout;
 
     @Nullable
     @Override
@@ -71,9 +71,9 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
         busyIndicator = (RelativeLayout) rootView.findViewById(R.id.busy_BusyIndicator);
 
         busyIndicator.setVisibility(View.INVISIBLE);
-        layout=(LinearLayout)  rootView.findViewById(R.id.mainLayout);
+        layout=(RelativeLayout)  rootView.findViewById(R.id.mainLayout);
         selectedActivityViews = new ArrayList<>();
-        diaryContainer = (LinearLayout) rootView.findViewById(R.id.container_diary_select);
+//        diaryContainer = (LinearLayout) rootView.findViewById(R.id.container_diary_select);
 
 
         diaryOn = (LinearLayout) rootView.findViewById(R.id.diary_on);

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,10 +36,10 @@ public class MedAlertFragment extends AlertPDFragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    TextView description;
+//    TextView description;
     TextView title;
-    private CircleButton mButtonConfirm;
-    private CircleButton mButtonReject;
+    private LinearLayout mButtonConfirm;
+    private LinearLayout mButtonReject;
     private ProgressBar busyIndicator;
     private RelativeLayout layout;
     private String medId;
@@ -53,9 +54,9 @@ public class MedAlertFragment extends AlertPDFragment {
         View rootView = inflater.inflate(R.layout.fragment_alertmed, container, false);
 
         title = (TextView) rootView.findViewById(R.id.alertText);
-        description = (TextView) rootView.findViewById(R.id.alertDescription);
+//        description = (TextView) rootView.findViewById(R.id.alertDescription);
 
-        mButtonConfirm = (CircleButton) rootView.findViewById(R.id.confirm);
+        mButtonConfirm = (LinearLayout) rootView.findViewById(R.id.confirm);
 
         mButtonConfirm.setOnClickListener(new View.OnClickListener() {
 
@@ -70,7 +71,7 @@ public class MedAlertFragment extends AlertPDFragment {
             }
         });
 
-        mButtonReject = (CircleButton) rootView.findViewById(R.id.reject);
+        mButtonReject = (LinearLayout) rootView.findViewById(R.id.reject);
 
         mButtonReject.setOnClickListener(new View.OnClickListener() {
 

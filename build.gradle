@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.3.1'
         //this dependency for google Firebase service
         classpath 'com.google.gms:google-services:3.0.0'
     }
@@ -22,7 +22,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '24.0.1'
+    buildToolsVersion '25.0.0'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId 'com.pdmanager.home'
@@ -84,6 +84,7 @@ dependencies {
 
     // Optional -- Mockito framework
     compile 'com.github.simbiose:Encryption:2.0.0'
+    //noinspection GradleCompatible
     compile 'com.android.support:multidex:1.0.1'
     compile   'com.android.support:appcompat-v7:23.4.0'
     compile   'com.android.support:recyclerview-v7:23.4.0'

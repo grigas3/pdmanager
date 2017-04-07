@@ -34,29 +34,31 @@
         android:orientation="vertical"
         >
 
-        <LinearLayout
+        <!--<LinearLayout-->
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="horizontal">-->
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Welcome"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                <!--<TextView-->
+                    <!--android:id="@+id/textView4"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:text="Welcome"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
 
-                    android:textColor="@color/primary_title_background"/>
+                    <!--android:textColor="@color/primary_title_background"/>-->
 
                 <TextView
                     android:id="@+id/patient_home_tasks"
@@ -65,10 +67,11 @@
                     android:layout_gravity="center_vertical"
                     android:text="You have 4 pending tasks"
 
-                    android:textColor="@color/primary_title_background"/>
+                    android:textColor="@color/primary_title_background"
+                    android:visibility="gone" />
             </LinearLayout>
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <ScrollView
             android:layout_width="match_parent"
@@ -93,7 +96,7 @@
                         android:id="@+id/patient_home_visualanalogue_img"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_cog_g">
+                        android:src="@drawable/ic_pain_level_g">
 
                     </ImageView>
 
@@ -157,7 +160,7 @@
                         android:id="@+id/patient_home_fingertapping_img"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_cog_g">
+                        android:src="@drawable/ic_finger_tap_g">
 
                     </ImageView>
 
@@ -221,7 +224,7 @@
                         android:id="@+id/patient_home_voicetest_img"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_cog_g">
+                        android:src="@drawable/ic_voice_g">
 
                     </ImageView>
 
@@ -347,7 +350,7 @@
                         android:id="@+id/patient_home_cognition_img1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_cog_g">
+                        android:src="@drawable/ic_game_a_g">
 
                     </ImageView>
 
@@ -410,7 +413,7 @@
                         android:id="@+id/patient_home_cognition_img2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_cog_g">
+                        android:src="@drawable/ic_game_b_g">
 
                     </ImageView>
 
