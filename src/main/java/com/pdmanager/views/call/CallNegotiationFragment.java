@@ -314,6 +314,7 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
         }
 
         if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerAccept) {
+            callDialogBuilder.hide();
             app().join(app().getConferenceId(), true);
         } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerDecline) {
             count--;

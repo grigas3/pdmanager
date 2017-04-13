@@ -6,19 +6,19 @@
     android:padding="@dimen/grid_item_padding"
     android:orientation="vertical" >
 
-    <com.pdmanager.ui.VideoPanelRect
+    <com.pdmanager.views.call.VideoPanelRect
         android:id="@+id/video_panel_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible">
-    </com.pdmanager.ui.VideoPanelRect>
-    <com.pdmanager.ui.CustomVideoPanel
+    </com.pdmanager.views.call.VideoPanelRect>
+    <com.pdmanager.views.call.CustomVideoPanel
         android:id="@+id/custom_panel_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
         custom:isCircleShape="false">
-    </com.pdmanager.ui.CustomVideoPanel>
+    </com.pdmanager.views.call.CustomVideoPanel>
 
     <ImageView
         android:id="@+id/avatar_image_view"

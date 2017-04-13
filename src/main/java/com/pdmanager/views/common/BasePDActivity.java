@@ -36,6 +36,8 @@ import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.call.AVChatSessionFragment;
 import com.pdmanager.views.call.CallNegotiationFragment;
 import com.pdmanager.views.call.WaitingFragment;
+import com.pdmanager.views.clinician.ClinicianActivity;
+import com.pdmanager.views.patient.MainActivity;
 
 /**
  * Created by mprasinos on 30/3/2017.
@@ -104,7 +106,11 @@ public class BasePDActivity extends ActionBarActivity implements VideoApp.Operat
                     callDialog.hide();
                     currentRingtone.stop();
 
-//                    Intent intent = new Intent(application.getContext(), BasePDActivity.class);
+//                    Class activityClass = MainActivity.class;
+//                    if (VideoSettings.IsDoctor.equals("true")) {
+//                        activityClass = ClinicianActivity.class;
+//                    }
+//                    Intent intent = new Intent(application.getContext(), activityClass);
 //                    intent.setAction(Intent.ACTION_MAIN);
 //                    intent.addCategory(Intent.CATEGORY_LAUNCHER);
 //                    startActivity(intent);
