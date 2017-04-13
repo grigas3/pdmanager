@@ -26,7 +26,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId 'com.pdmanager.home'
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 23
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -81,7 +81,7 @@ dependencies {
     //add the dependency for google firebase messaging
    compile project(':oidclib')
     compile files('libs/oovoosdk.jar')
-
+    compile 'com.google.android.gms:play-services-gcm:10.0.0'
     // Optional -- Mockito framework
     compile 'com.github.simbiose:Encryption:2.0.0'
     //noinspection GradleCompatible

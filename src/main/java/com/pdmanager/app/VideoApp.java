@@ -2,7 +2,6 @@ package com.pdmanager.app;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -39,10 +38,10 @@ import com.oovoo.sdk.interfaces.VideoDevice;
 import com.oovoo.sdk.interfaces.VideoRender;
 import com.oovoo.sdk.interfaces.ooVooSdkResult;
 import com.oovoo.sdk.interfaces.ooVooSdkResultListener;
-import com.pdmanager.call.CNMessage;
 import com.pdmanager.R;
-import com.pdmanager.settings.VideoSettings;
+import com.pdmanager.call.CNMessage;
 import com.pdmanager.services.CustomTimer;
+import com.pdmanager.settings.VideoSettings;
 import com.pdmanager.views.call.CustomVideoPanel;
 import com.telerik.common.TrackedApplication;
 
@@ -111,7 +110,7 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
     @Override
     public void onCreate() {
         super.onCreate();
-       /* try {
+        try {
 
             Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
                 public void uncaughtException(Thread t, Throwable e) {
@@ -124,8 +123,7 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
                 return;
             }
 
-            settings = new VideoSettings(this);
-
+            this.settings = new VideoSettings(this);
             ooVooClient.setLogger(this, LoggerListener.LogLevel.fromString(getSettings().get(VideoSettings.LogLevelKey)));
             ooVooClient.setContext(this);
 
@@ -145,7 +143,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
             sdk = null;
         }
         operation_handler = new Handler();
-        */
     }
 
     public Context getContext() {
@@ -272,7 +269,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
     protected void onAuthorized(ooVooSdkResult autorize_result) {
         if (autorize_result.getResult() == sdk_error.OK) {
             fireApplicationStateEvent(Operation.Authorized);
-            login("alpha0", "Alpha", true);
             return;
         }
         fireApplicationStateEvent(Operation.Error, Operation.Authorized, autorize_result.getDescription());
@@ -1102,15 +1098,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
             // probably connectivity problem so we will return false
         }
         return false;
-    }
-
-
-    public int getDeviceDefaultOrientation() {
-        if (ooVooClient.isTablet()) {
-            return ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-        } else {
-            return ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-        }
     }
 
     public Point getDisplaySize() {

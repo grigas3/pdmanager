@@ -23,18 +23,15 @@ import com.oovoo.sdk.interfaces.VideoControllerListener.RemoteVideoState;
 import com.oovoo.sdk.interfaces.VideoDevice;
 import com.oovoo.sdk.interfaces.ooVooSdkResult;
 import com.oovoo.sdk.interfaces.ooVooSdkResultListener;
-
 import com.pdmanager.R;
 import com.pdmanager.app.VideoApp;
-import com.pdmanager.settings.VideoSettings;
-
 import com.pdmanager.app.VideoApp.CallControllerListener;
 import com.pdmanager.app.VideoApp.NetworkListener;
 import com.pdmanager.app.VideoApp.ParticipantsListener;
+import com.pdmanager.settings.VideoSettings;
 import com.pdmanager.views.BasePDFragment;
-import com.pdmanager.views.patient.MainActivity.MenuList;
-import com.pdmanager.views.SignalBar;
 import com.pdmanager.views.controllers.ConferenceViewController;
+import com.pdmanager.views.patient.MainActivity.MenuList;
 
 import java.util.ArrayList;
 
@@ -104,8 +101,7 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
 
         initControlBar(self);
 
-        if ( !Boolean.parseBoolean(videoSettings().get(VideoSettings.IsDoctor)))
-        {
+        if (!Boolean.parseBoolean(videoSettings().get(VideoSettings.IsDoctor))) {
             notes.setVisibility(View.GONE);
         }
 
@@ -285,7 +281,7 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
             }
         });
 
-        // app().selectCamera("FRONT");
+        app().selectCamera("FRONT");
         app().changeResolution(VideoController.ResolutionLevel.ResolutionLevelMed);
         app().openPreview();
 //        app().startTransmit();

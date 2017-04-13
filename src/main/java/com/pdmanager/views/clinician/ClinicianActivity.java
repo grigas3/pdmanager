@@ -10,9 +10,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
@@ -23,10 +23,12 @@ import android.widget.FrameLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.settings.RecordingSettings;
+import com.pdmanager.views.call.CallNegotiationFragment;
 import com.pdmanager.views.common.AboutFragment;
+import com.pdmanager.views.common.BasePDActivity;
 import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.drawers.ClinicianDrawerFragment;
 import com.telerik.common.TelerikActivityHelper;
@@ -39,7 +41,7 @@ import com.telerik.viewmodels.MenuAction;
 import java.util.HashMap;
 
 
-public class ClinicianActivity extends ActionBarActivity implements ClinicianDrawerFragment.NavigationDrawerCallbacks,
+public class ClinicianActivity extends BasePDActivity implements ClinicianDrawerFragment.NavigationDrawerCallbacks,
         ActionBar.OnNavigationListener, TransitionHandler, SpinnerAdapter, TrackedActivity, FragmentManager.OnBackStackChangedListener {
 
     private ColorDrawable currentBgColor;
@@ -63,6 +65,7 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         TelerikActivityHelper.updateActivityTaskDescription(this);
         Resources resources = getResources();
         ColorDrawable bgColorPrimary = new ColorDrawable(resources.getColor(R.color.primary_title_background));
@@ -196,10 +199,17 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
             settings.setLoggedIn(false);
             Intent mainIntent = new Intent(ClinicianActivity.this, LoginActivity.class);
             ClinicianActivity.this.startActivity(mainIntent);
-
             finish();
 
-
+        } else {
+            if (id == R.id.action_call) {
+                Fragment fragment = new CallNegotiationFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.container, fragment);
+                transaction.commit();
+                return true;
+            }
         }
         return false;
     }

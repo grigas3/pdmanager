@@ -16,6 +16,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -29,12 +30,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.app.VideoApp;
 import com.pdmanager.communication.RESTClient;
 import com.pdmanager.models.LoginModel;
 import com.pdmanager.models.LoginResult;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.MainActivity;
 import com.pdmanager.views.clinician.ClinicianActivity;
+import com.pdmanager.views.patient.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,9 +48,10 @@ import java.util.List;
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static final int REQUEST_CONTACTS = 1;
-    private static final int REQUEST_RECORD = 1;
-    private static final int REQUEST_PHONE_STATE = 1;
+    private static final int REQUEST_CONTACTS = 2;
+    private static final int REQUEST_RECORD = 3;
+    private static final int REQUEST_PHONE_STATE = 4;
+    private static final int REQUEST_VIDEO = 5;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -73,6 +76,13 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 
     };
+
+
+    private static String[] PERMISSIONS_VIDEO = {
+            Manifest.permission.CAMERA,
+            Manifest.permission.CAPTURE_SECURE_VIDEO_OUTPUT,
+            Manifest.permission.CAPTURE_VIDEO_OUTPUT
+    };
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -95,6 +105,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((VideoApp) getApplication()).reautorize();
         setContentView(R.layout.activity_login);
 
         // Set up the login form.
@@ -302,11 +313,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         RecordingSettings settings = getSettings();
         if (settings != null) {
-
             if (settings.getLoggedIn()) {
                 String role = settings.getRole();
                 long currentTime = Calendar.getInstance().getTimeInMillis();
-
 
                 if (currentTime > settings.getExpiration()) {
                     RESTClient client = new RESTClient();
@@ -317,10 +326,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     boolean loggedIn = lres.success;
 
                     if (loggedIn) {
-
                         settings.setToken(lres.access_token);
                         settings.setExpiration(Calendar.getInstance().getTimeInMillis() + lres.expires_in * 1000);
-
                     } else
                         return;
 
@@ -330,11 +337,13 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     if (role.toLowerCase().equals("patients")) {
                         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                         LoginActivity.this.startActivity(mainIntent);
+                        ((VideoApp) getApplication()).login(settings.getUserName(), settings.getUserName(), false);
 
 
                     } else {
                         Intent mainIntent = new Intent(LoginActivity.this, ClinicianActivity.class);
                         LoginActivity.this.startActivity(mainIntent);
+                        ((VideoApp) getApplication()).login(settings.getUserName(), settings.getUserName(), true);
 
 
                     }
@@ -374,34 +383,31 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     }
 
 
-    private boolean checkPermissions(Activity activity)
-    {
+    private boolean checkPermissions(Activity activity) {
 
-        boolean requiresPermissions=false;
+        boolean requiresPermissions = false;
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
 
-            requiresPermissions=true;
+            requiresPermissions = true;
 
         }
 
         int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
 
         if (permission2 != PackageManager.PERMISSION_GRANTED) {
-            requiresPermissions=true;
+            requiresPermissions = true;
         }
 
         int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
 
         if (permission3 != PackageManager.PERMISSION_GRANTED) {
-            requiresPermissions=true;
+            requiresPermissions = true;
         }
 
         return requiresPermissions;
     }
-
-
 
 
     /**
@@ -423,7 +429,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     REQUEST_EXTERNAL_STORAGE
             );
         }
-
 
         int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
 
@@ -458,6 +463,21 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     PERMISSIONS_RECORD,
                     REQUEST_RECORD
             );
+        }
+
+        int permission5 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
+        if (permission5 != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_VIDEO,
+                    REQUEST_VIDEO
+            );
+        }
+
+        if (!Settings.canDrawOverlays(this)) {
+            Intent permissionIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+            startActivity(permissionIntent);
         }
     }
 
@@ -499,10 +519,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 
                 ret.role = res.role;
-
-
+                ((VideoApp) getApplication()).login(mEmail, mEmail, ret.patient);
                 //client.GetUserRole("http://pdmanager.3dnetmedical.com/userusers?take=10&skip=0&filter={'name':'"+mEmail+"'}&sort=&sortdir=false&lastmodified=");
-
             }
 
 

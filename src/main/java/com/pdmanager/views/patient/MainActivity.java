@@ -39,36 +39,29 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pdmanager.call.CNMessage;
-import com.pdmanager.app.AlertFragmentManager;
+import com.pdmanager.R;
 import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.app.PDPilotAppContext;
-import com.pdmanager.R;
 import com.pdmanager.app.VideoApp;
-import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.NetworkStatus;
-import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.call.AVChatSessionFragment;
+import com.pdmanager.views.call.CallNegotiationFragment;
+import com.pdmanager.views.common.BasePDActivity;
 import com.telerik.common.TrackedApplication;
 import com.telerik.common.contracts.TrackedActivity;
 import com.telerik.common.contracts.TransitionHandler;
@@ -76,11 +69,10 @@ import com.telerik.primitives.TipsPresenter;
 
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Timer;
 
-//import com.pdmanager.services.RegistrationIntentService;
+//import com.pdmanager.gcm.RegistrationIntentService;
 
-public class MainActivity extends AppCompatActivity implements /*PatientDrawerFragment.NavigationDrawerCallbacks,*/
+public class MainActivity extends BasePDActivity implements /*PatientDrawerFragment.NavigationDrawerCallbacks,*/
         /*android.support.v7.app.ActionBar.OnNavigationListener, */TransitionHandler, TrackedActivity,
         /*FragmentManager.OnBackStackChangedListener,*/
         INetworkStatusHandler,
@@ -137,8 +129,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             //        Intent intent = new Intent(className, BandService.class);
 
 
-            if(patientHomeFragment!=null)
-            mService.registerListener(patientHomeFragment);
+            if (patientHomeFragment != null)
+                mService.registerListener(patientHomeFragment);
 
 
             RecordingServiceHandler.getInstance().setService(mService);
@@ -168,17 +160,16 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     public void onBackPressed() {
 
 
-        if(patientHomeFragment!=null&&patientHomeFragment.isInLayout()) {
+        if (patientHomeFragment != null && patientHomeFragment.isInLayout()) {
 
-           // return false;
-        }
-        else
+            // return false;
+        } else
             super.onBackPressed();
     }
 
     public static void setOverflowButtonColor(final Toolbar toolbar, final int color) {
         Drawable drawable = toolbar.getOverflowIcon();
-        if(drawable != null) {
+        if (drawable != null) {
             drawable = DrawableCompat.wrap(drawable);
             DrawableCompat.setTint(drawable.mutate(), color);
             toolbar.setOverflowIcon(drawable);
@@ -189,8 +180,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    //    application = (VideoApp) getApplication();
-      //  application.setContext(this);
+        //    application = (VideoApp) getApplication();
+        //  application.setContext(this);
 
 
         // application.addOperationChangeListener(this);
@@ -199,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         //  TelerikActivityHelper.updateActivityTaskDescription(this);
         try {
-            String languageToLoad  = RecordingSettings.newInstance(this.getApplicationContext()).getLang(); // your language
+            String languageToLoad = RecordingSettings.newInstance(this.getApplicationContext()).getLang(); // your language
             Locale locale = new Locale(languageToLoad);
             Locale.setDefault(locale);
             Configuration config = new Configuration();
@@ -214,9 +205,9 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             setContentView(R.layout.activity_main);
             Toolbar tb = (Toolbar) this.findViewById(R.id.toolbar);
             this.setSupportActionBar(tb);
-            if( tb != null) {
+            if (tb != null) {
                 tb.setTitleTextColor(Color.WHITE);
-                setOverflowButtonColor(tb,Color.WHITE);
+                setOverflowButtonColor(tb, Color.WHITE);
             }
             actionBar = getSupportActionBar();
 
@@ -224,10 +215,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
                 actionBar.setBackgroundDrawable(currentBgColor);
             }
             this.setupActionBar();
-        }
-        catch (Exception ex)
-        {
-            Log.e("MAINACTIVITY","RES",ex.getCause());
+        } catch (Exception ex) {
+            Log.e("MAINACTIVITY", "RES", ex.getCause());
 
         }
 
@@ -253,48 +242,41 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         }
         try {
-        Bundle extras=this.getIntent().getExtras();
+            Bundle extras = this.getIntent().getExtras();
 
-        if(extras!=null) {
+            if (extras != null) {
 
-            String alertType = extras.getString(PDApplicationContext.INTENT_ALERT_TYPE);
-            String alertId =extras.getString(PDApplicationContext.INTENT_ALERT_ID);
+                String alertType = extras.getString(PDApplicationContext.INTENT_ALERT_TYPE);
+                String alertId = extras.getString(PDApplicationContext.INTENT_ALERT_ID);
 
 
+                if (alertType != null && alertId != null) {
 
-            if (alertType != null && alertId != null) {
+                    Log.d("MAINACTIVITY", alertType);
 
-                Log.d("MAINACTIVITY",alertType);
-
+                } else {
+                    Log.d("MAINACTIVITY", "NULL Alert type");
+                }
             }
-            else
-            {
-                Log.d("MAINACTIVITY","NULL Alert type");
-            }
-        }
-        }
-        catch (Exception ex)
-        {
-            Log.e("MAINACTIVITY","INTENT",ex.getCause());
+        } catch (Exception ex) {
+            Log.e("MAINACTIVITY", "INTENT", ex.getCause());
 
         }
-
-
         initFragment();
     }
 
 
-    private void initFragment()
-    {
-        patientHomeFragment=new PatientHomeFragment();
+    private void initFragment() {
+        patientHomeFragment = new PatientHomeFragment();
         FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, patientHomeFragment);
         fragmentTransaction.commit();
     }
+
     private void setupAlertFragmentManager() {
 
-      //  this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
+        //  this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
 
     }
 
@@ -304,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         if (mBound) {
 
-            if(mService!=null)
+            if (mService != null)
                 mService.unregisterListener(patientHomeFragment);
             unbindService(mConnection);
             if (!mService.getSessionMustRun())
@@ -313,7 +295,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
             mBound = false;
         }
-
 
 
         super.onDestroy();
@@ -351,8 +332,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     protected void onResume() {
         super.onResume();
 
-       // if (alertFragmentManager != null)
-         //   alertFragmentManager.startAutoUpdate();
+        // if (alertFragmentManager != null)
+        //   alertFragmentManager.startAutoUpdate();
     }
 
 
@@ -361,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         super.onStop();
         // Unbind from the service
 
-      //  alertFragmentManager.stopAutoUpdate();
+        //  alertFragmentManager.stopAutoUpdate();
 
 
     }
@@ -442,6 +423,15 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
                     });
 
             alertDialog.show();
+        } else {
+            if (id == R.id.action_call) {
+                Fragment fragment = new CallNegotiationFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.container, fragment);
+                transaction.commit();
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -461,130 +451,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
     private void manageTipsPresenter(Fragment newFragment) {
 
-    }
-
-    @Override
-    public void onMessageReceived(final CNMessage cnMessage) {
-        if (application.getUniqueId().equals(cnMessage.getUniqueId())) {
-            return;
-        }
-
-        if (cnMessage.getMessageType() == CNMessage.CNMessageType.Calling) {
-
-            if (application.isInConference()) {
-                application.sendCNMessage(cnMessage.getFrom(), CNMessage.CNMessageType.Busy, null);
-                return;
-            }
-
-            callDialog = new AlertDialog.Builder(this).create();
-            LayoutInflater inflater = getLayoutInflater();
-            View incomingCallDialog = inflater.inflate(R.layout.incoming_call_dialog, null);
-            incomingCallDialog.setAlpha(0.5f);
-            callDialog.setView(incomingCallDialog);
-
-            TextView caller = (TextView) incomingCallDialog.findViewById(R.id.caller);
-            caller.setText(cnMessage.getDisplayName());
-
-            Button answerButton = (Button) incomingCallDialog.findViewById(R.id.answer_button);
-            answerButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    application.setConferenceId(cnMessage.getConferenceId());
-                    application.sendCNMessage(cnMessage.getFrom(), CNMessage.CNMessageType.AnswerAccept, null);
-                    callDialog.hide();
-                    currentRingtone.stop();
-
-                    Intent intent = new Intent(application.getContext(), MainActivity.class);
-                    intent.setAction(Intent.ACTION_MAIN);
-                    intent.addCategory(Intent.CATEGORY_LAUNCHER);
-                    startActivity(intent);
-
-                    application.join(application.getConferenceId(), true);
-                }
-            });
-
-            Button declineButton = (Button) incomingCallDialog.findViewById(R.id.decline_button);
-            declineButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    application.sendCNMessage(cnMessage.getFrom(), CNMessage.CNMessageType.AnswerDecline, null);
-                    currentRingtone.stop();
-                    callDialog.hide();
-                }
-            });
-
-            callDialog.setCancelable(false);
-            callDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-            //play current Ringtone
-            currentRingtone.play();
-            callDialog.show();
-        } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.Cancel) {
-            currentRingtone.stop();
-            callDialog.hide();
-        } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.EndCall) {
-            if (application.leave()) {
-                int count = getFragmentManager().getBackStackEntryCount();
-                String name = getFragmentManager().getBackStackEntryAt(count - 2).getName();
-                getFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            }
-        }
-    }
-
-
-    @Override
-    public void onOperationChange(VideoApp.Operation state) {
-        try {
-            switch (state) {
-                case Error: {
-                    switch (state.forOperation()) {
-                        case AVChatJoined:
-                            application.showErrorMessageBox(this, getString(R.string.join_session), state.getDescription());
-                            //current_fragment = CallNegotiationFragment.newInstance();
-                            break;
-                        default:
-                            return;
-                    }
-                }
-                break;
-                case Processing:
-                    //current_fragment = WaitingFragment.newInstance(state.getDescription());
-                    break;
-                case AVChatCall:
-                    //current_fragment = CallNegotiationFragment.newInstance();
-                    break;
-                case AVChatJoined:
-                    //current_fragment = AVChatSessionFragment.newInstance(mSignalStrengthMenuItem, mSecureNetworkMenuItem);
-                    break;
-                case Authorized:
-                    //current_fragment = CallNegotiationFragment.newInstance();
-                    break;
-                case LoggedIn:
-                    //if (checkPlayServices()) {
-                    //  // Start IntentService to register this application with GCM.
-                    //Intent intent = new Intent(this, RegistrationIntentService.class);
-                    //startService(intent);
-                    // }
-                    // current_fragment = CallNegotiationFragment.newInstance();
-                    break;
-                case AVChatDisconnected:
-                    if (application.isCallNegotiation()) {
-                        return;
-                    } else {
-                        //   current_fragment = CallNegotiationFragment.newInstance();
-                        break;
-                    }
-
-                default:
-                    return;
-            }
-
-            //showFragment(current_fragment);
-
-        } catch (Exception err) {
-            err.printStackTrace();
-        }
     }
 
     private void initFragments() {

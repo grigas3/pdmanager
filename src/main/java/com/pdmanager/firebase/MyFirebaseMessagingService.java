@@ -77,7 +77,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         PDManagerVideoApp application = (PDManagerVideoApp) getApplication();
 
-        Intent intent = new Intent(application.getContext(), CallActivity.class);
+        Intent intent = new Intent(application.getContext(), BasePDActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(application.getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder b = new NotificationCompat.Builder(application.getContext());

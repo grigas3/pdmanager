@@ -59,8 +59,6 @@ public class VideoSettings extends Hashtable<String, String> {
     public void load() {
         try {
 
-
-
             FileInputStream stream = appcontext.openFileInput("VideoSettings");
             JsonReader reader = new JsonReader(new BufferedReader(new InputStreamReader(stream)));
             // String val = reader.toString();

@@ -133,13 +133,13 @@ public abstract class BasePDFragment extends Fragment {
         void onExampleLoaded(View root);
     }
 
-    public void setKeepScreenOn(boolean state){
-        if(getView() != null)
+    public void setKeepScreenOn(boolean state) {
+        if (getView() != null)
             getView().setKeepScreenOn(state);
     }
 
-    protected PDApplicationContext app(){
-        return ((PDApplicationContext) getActivity().getApplication()) ;
+    protected PDApplicationContext app() {
+        return ((PDApplicationContext) getActivity().getApplication());
     }
 
     public VideoSettings videoSettings() {
@@ -153,6 +153,7 @@ public abstract class BasePDFragment extends Fragment {
     public void setBackFragment(BasePDFragment back_fragment) {
         this.back_fragment = back_fragment;
     }
-    private BasePDFragment back_fragment = null ;
+
+    private BasePDFragment back_fragment = null;
 
 }

@@ -1,4 +1,4 @@
-/*package com.pdmanager.services;
+package com.pdmanager.gcm;
 
 import android.content.Intent;
 
@@ -7,6 +7,9 @@ import com.oovoo.sdk.api.LogSdk;
 import com.pdmanager.app.VideoApp;
 import com.pdmanager.settings.VideoSettings;
 
+/**
+ * Created by oovoo on 9/8/15.
+ */
 public class MyInstanceIDListenerService extends InstanceIDListenerService {
 
     private static final String TAG = "MyInstanceIDListenerService";
@@ -21,11 +24,10 @@ public class MyInstanceIDListenerService extends InstanceIDListenerService {
             String username = settings.get(VideoSettings.Username);
             settings.remove(username);
 
-        Intent intent = new Intent(this, RegistrationIntentService.class);
-        startService(intent);
+            Intent intent = new Intent(this, RegistrationIntentService.class);
+            startService(intent);
         } catch (Exception e) {
             LogSdk.e(TAG, "onTokenRefresh - Failed to complete token refresh", e);
+        }
     }
 }
-}
-*/

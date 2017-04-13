@@ -1,4 +1,4 @@
-/*package com.pdmanager.services;
+package com.pdmanager.gcm;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,11 +10,13 @@ import android.support.v4.app.NotificationCompat;
 
 import com.google.android.gms.gcm.GcmListenerService;
 import com.oovoo.sdk.api.LogSdk;
-import com.oovoo.sdk.oovoosdksampleshow.R;
-import com.pdmanager.app.PDManagerVideoApp;
-import com.pdmanager.ui.CallActivity;
+import com.pdmanager.R;
+import com.pdmanager.app.VideoApp;
+import com.pdmanager.views.common.BasePDActivity;
 
-
+/**
+ * Created by oovoo on 9/8/15.
+ */
 public class MyGcmListenerService extends GcmListenerService {
 
     private static final String TAG = "MyGcmListenerService";
@@ -30,9 +32,9 @@ public class MyGcmListenerService extends GcmListenerService {
         LogSdk.d(TAG, "GcmListenerService :: property : " + property);
         LogSdk.d(TAG, "GcmListenerService :: body     : " + body);
 
-        PDManagerVideoApp application = (PDManagerVideoApp) getApplication();
+        VideoApp application = (VideoApp) getApplication();
 
-        Intent intent = new Intent(application.getContext(), CallActivity.class);
+        Intent intent = new Intent(application.getContext(), BasePDActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(application.getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder b = new NotificationCompat.Builder(application.getContext());
@@ -54,4 +56,3 @@ public class MyGcmListenerService extends GcmListenerService {
 
     }
 }
-*/

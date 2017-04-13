@@ -10,5 +10,10 @@
         android:orderInCategory="100"
         android:title="Technician"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_call"
+        android:orderInCategory="100"
+        android:title="Call"
+        app:showAsAction="never" />
 
 </menu>

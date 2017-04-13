@@ -6,8 +6,8 @@
     android:versionName="1.0">
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="22" />
+        android:minSdkVersion="19"
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -31,6 +31,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
@@ -69,7 +70,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="com.pdmanager.app.PDPilotAppContext"
+        android:name="com.pdmanager.app.PDApplicationContext"
         android:allowBackup="true"
         android:icon="@drawable/pdmanager_launcher"
         android:label="@string/app_name"
@@ -81,17 +82,24 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name="com.pdmanager.views.patient.MedAlertActivity"
-        android:launchMode="singleTask"
-        android:taskAffinity=""
-        android:excludeFromRecents="true">
-    </activity>
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="">
+        </activity>
+        <activity
+            android:name="com.pdmanager.views.call.CallActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
         <activity
             android:name="com.pdmanager.views.patient.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/BrandedActionBarTheme">
-        </activity>
+            android:theme="@style/BrandedActionBarTheme"></activity>
         <activity
             android:name="com.pdmanager.views.call.SplashActivity"
             android:label="@string/app_name" />
@@ -188,7 +196,6 @@
         <!-- [END oidc_activitie] -->
 
 
-
         <!-- [END firebase_iid_service] -->
 
         <service android:name="com.lnikkila.oidc.authenticator.AuthenticatorService">
@@ -206,49 +213,43 @@
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.MainMenu"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="@string/app_name"
-            android:screenOrientation="userPortrait">
-        </activity>
+            android:screenOrientation="userPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/app_name"
             android:screenOrientation="userPortrait"
-            android:label="@string/app_name" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="userPortrait" >
-        </activity>
+            android:screenOrientation="userPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestTwo"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="userPortrait" >
-        </activity>
+            android:screenOrientation="userPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingEnd"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="userPortrait" >
-        </activity>
+            android:screenOrientation="userPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.speech.SpeechTest"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/app_name"
             android:screenOrientation="userPortrait"
-            android:label="@string/app_name" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.PairedAssociatesLearningTest"
             android:label="@string/title_menu2"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -257,8 +258,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.PALPRM"
             android:label="@string/title_menu10"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -267,8 +268,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.PatternRecognitionMemoryTest"
             android:label="@string/title_menu3"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -277,9 +278,9 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.SpatialWorkingMemoryTest"
             android:label="@string/title_menu4"
+            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -288,9 +289,9 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.SpatialSpanTest"
             android:label="@string/title_menu5"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -299,9 +300,9 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.StopSignalTaskTest"
             android:label="@string/title_menu6"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -310,33 +311,31 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.WisconsinCardSorting"
             android:label="@string/title_menu9"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-                />
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
         </activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest"
             android:label="@string/title_menu9"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-                />
+                android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
         </activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest"
             android:label="@string/title_menu7"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -345,9 +344,9 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest"
             android:label="@string/title_menu8"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
@@ -356,18 +355,31 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest2"
             android:label="@string/title_menu8"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
-            android:screenOrientation="userLandscape">
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" />
         </activity>
 
-
-
-
-
+        <service
+            android:name="com.pdmanager.gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.pdmanager.gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.pdmanager.gcm.RegistrationIntentService"
+            android:exported="false"></service>
 
 
     </application>

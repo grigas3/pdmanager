@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import com.pdmanager.R;
 import com.pdmanager.app.VideoApp.CallNegotiationListener;
 import com.pdmanager.app.VideoApp.MessageCompletionHandler;
@@ -162,8 +161,8 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
         super.onDestroyView();
     }
 
-    private static class CallReceiverAdapter extends BaseAdapter {
-        private final List<CallReceiver> receivers = new ArrayList<CallReceiver>();
+    public static class CallReceiverAdapter extends BaseAdapter {
+        public final List<CallReceiver> receivers = new ArrayList<CallReceiver>();
 
 
         public static class CallReceiver implements Parcelable {
@@ -313,7 +312,7 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
         if (app().getUniqueId().equals(cnMessage.getUniqueId())) {
             return;
         }
-        
+
         if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerAccept) {
             app().join(app().getConferenceId(), true);
         } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerDecline) {

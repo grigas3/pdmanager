@@ -39,19 +39,13 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.google.gson.Gson;
 import com.microsoft.band.BandClient;
@@ -63,13 +57,12 @@ import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.microsoft.band.tiles.BandIcon;
 import com.microsoft.band.tiles.BandTile;
-import com.pdmanager.call.CNMessage;
-import com.pdmanager.common.ConnectionResult;
-import com.pdmanager.common.Util;
+import com.pdmanager.R;
 import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.app.PDPilotAppContext;
-import com.pdmanager.R;
 import com.pdmanager.app.VideoApp;
+import com.pdmanager.common.ConnectionResult;
+import com.pdmanager.common.Util;
 import com.pdmanager.communication.BatchCommSender;
 import com.pdmanager.communication.NetworkStatus;
 import com.pdmanager.communication.SQLCommunicationQueue;
@@ -77,12 +70,13 @@ import com.pdmanager.interfaces.IBandTileManager;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.LogEventFragment;
 import com.pdmanager.views.RecordingSchedulingFragment;
 import com.pdmanager.views.RecordingServiceFragment;
 import com.pdmanager.views.RecordingSettingsFragment;
+import com.pdmanager.views.common.BasePDActivity;
 import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.drawers.TechnicianDrawerFragment;
 import com.telerik.common.TrackedApplication;
@@ -95,12 +89,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-//import com.pdmanager.services.RegistrationIntentService;
+//import com.pdmanager.gcm.RegistrationIntentService;
 
-public class TechnicianActivity extends ActionBarActivity implements TechnicianDrawerFragment.NavigationDrawerCallbacks,IBandTileManager,
+public class TechnicianActivity extends BasePDActivity implements TechnicianDrawerFragment.NavigationDrawerCallbacks, IBandTileManager,
         android.support.v7.app.ActionBar.OnNavigationListener, TransitionHandler, TrackedActivity, FragmentManager.OnBackStackChangedListener, INetworkStatusHandler,
-        VideoApp.OperationChangeListener, VideoApp.CallNegotiationListener
-{
+        VideoApp.OperationChangeListener, VideoApp.CallNegotiationListener {
 
     RecordingService mService;
     boolean mBound = false;
@@ -148,6 +141,7 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
         }
 
     }
+
     private void enableBluetooth() {
         boolean bluetoothEnabled = isBluetoothEnabled();
 
@@ -159,11 +153,11 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
                 mAdapter.enable();
                 Thread.sleep(3000);
 
-              //  LogInfo("Bluetooth activated by service");
+                //  LogInfo("Bluetooth activated by service");
                 //LogInfo("Bluetooth activated by service");
             } catch (Exception ex) {
 
-             //   LogError("Cannot activate bluetooth Band Sensors");
+                //   LogError("Cannot activate bluetooth Band Sensors");
                 //LogInfoError("Cannot activate bluetooth Band Sensors");
 
 
@@ -176,16 +170,15 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
 
     }
 
-@Override
-public void createTile()
-    {
+    @Override
+    public void createTile() {
 
 
         enableBluetooth();
 //First Remove Tile
 
 
-        BandClient mClient=null;
+        BandClient mClient = null;
         BandClientManager manager = BandClientManager.getInstance();
         BandInfo[] mPairedBands = manager.getPairedBands();
 
@@ -198,13 +191,7 @@ public void createTile()
         }
 
 
-
-
-
     }
-
-
-
 
 
     private final Handler toastHandler = new Handler() {
@@ -289,26 +276,23 @@ public void createTile()
                 actionBar.setBackgroundDrawable(currentBgColor);
             }
             this.setupActionBar();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
 
         }
 
         //RecordingSettingsHandler.getInstance().Init(getApplicationContext());
 
 
-          app = (PDPilotAppContext) this.getApplicationContext();
+        app = (PDPilotAppContext) this.getApplicationContext();
 
 
-    //    this.tipsPresenter = com.telerik.android.common.Util.getLayoutPart(this, R.id.tipsPresenter, TipsPresenter.class);
+        //    this.tipsPresenter = com.telerik.android.common.Util.getLayoutPart(this, R.id.tipsPresenter, TipsPresenter.class);
 
 
         try {
             this.setupNavigationDrawer(savedInstanceState);
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
         try {
@@ -322,8 +306,7 @@ public void createTile()
             }
 
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
     }
@@ -439,22 +422,16 @@ public void createTile()
             new ClearLog().execute(adapter);
 
 
-
-
         }
         //noinspection SimplifiableIfStatement
-      else  if (id == R.id.action_syncms) {
+        else if (id == R.id.action_syncms) {
 
 
             Intent mainIntent = new Intent(TechnicianActivity.this, MSSyncActivity.class);
             TechnicianActivity.this.startActivity(mainIntent);
 
 
-
-
-        }
-
-       else if (id == R.id.action_sendqueue) {
+        } else if (id == R.id.action_sendqueue) {
 
 
             Gson gson = new Gson();
@@ -472,8 +449,7 @@ public void createTile()
 
             }
 
-        }
-       else if (id == R.id.action_logout) {
+        } else if (id == R.id.action_logout) {
 
             RecordingSettings settings = new RecordingSettings(this);
             settings.setLoggedIn(false);
@@ -498,9 +474,7 @@ public void createTile()
             finish();
 
 
-        }
-        else if (id == R.id.action_lock) {
-
+        } else if (id == R.id.action_lock) {
 
 
             Intent mainIntent = new Intent(TechnicianActivity.this, MainActivity.class);
@@ -562,141 +536,17 @@ public void createTile()
     private void manageTipsPresenter(Fragment newFragment) {
 
     }
+
     private AlertDialog callDialog = null;
     private Ringtone currentRingtone;
 
     private VideoApp application = null;
     private boolean mIsAlive = false;
     private BroadcastReceiver mRegistrationBroadcastReceiver = null;
-    @Override
-    public void onMessageReceived(final CNMessage cnMessage) {
-        if (application.getUniqueId().equals(cnMessage.getUniqueId())) {
-            return;
-        }
-
-        if (cnMessage.getMessageType() == CNMessage.CNMessageType.Calling) {
-
-            if (application.isInConference()) {
-                application.sendCNMessage(cnMessage.getFrom(), CNMessage.CNMessageType.Busy, null);
-                return;
-            }
-
-            callDialog = new AlertDialog.Builder(this).create();
-            LayoutInflater inflater = getLayoutInflater();
-            View incomingCallDialog = inflater.inflate(R.layout.incoming_call_dialog, null);
-            incomingCallDialog.setAlpha(0.5f);
-            callDialog.setView(incomingCallDialog);
-
-            TextView caller = (TextView) incomingCallDialog.findViewById(R.id.caller);
-            caller.setText(cnMessage.getDisplayName());
-
-            Button answerButton = (Button) incomingCallDialog.findViewById(R.id.answer_button);
-            answerButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    application.setConferenceId(cnMessage.getConferenceId());
-                    application.sendCNMessage(cnMessage.getFrom(), CNMessage.CNMessageType.AnswerAccept, null);
-                    callDialog.hide();
-                    currentRingtone.stop();
-
-                    Intent intent = new Intent(application.getContext(), TechnicianActivity.class);
-                    intent.setAction(Intent.ACTION_MAIN);
-                    intent.addCategory(Intent.CATEGORY_LAUNCHER);
-                    startActivity(intent);
-
-                    application.join(application.getConferenceId(), true);
-                }
-            });
-
-            Button declineButton = (Button) incomingCallDialog.findViewById(R.id.decline_button);
-            declineButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    application.sendCNMessage(cnMessage.getFrom(), CNMessage.CNMessageType.AnswerDecline, null);
-                    currentRingtone.stop();
-                    callDialog.hide();
-                }
-            });
-
-            callDialog.setCancelable(false);
-            callDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-            //play current Ringtone
-            currentRingtone.play();
-            callDialog.show();
-        } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.Cancel) {
-            currentRingtone.stop();
-            callDialog.hide();
-        } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.EndCall) {
-            if (application.leave()) {
-                int count = getFragmentManager().getBackStackEntryCount();
-                String name = getFragmentManager().getBackStackEntryAt(count - 2).getName();
-                getFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            }
-        }
-    }
-
-
-
-    @Override
-    public void onOperationChange(VideoApp.Operation state) {
-        try {
-            switch (state) {
-                case Error: {
-                    switch (state.forOperation()) {
-                        case AVChatJoined:
-                            application.showErrorMessageBox(this, getString(R.string.join_session), state.getDescription());
-                            //current_fragment = CallNegotiationFragment.newInstance();
-                            break;
-                        default:
-                            return;
-                    }
-                }
-                break;
-                case Processing:
-                    //current_fragment = WaitingFragment.newInstance(state.getDescription());
-                    break;
-                case AVChatCall:
-                    //current_fragment = CallNegotiationFragment.newInstance();
-                    break;
-                case AVChatJoined:
-                    //current_fragment = AVChatSessionFragment.newInstance(mSignalStrengthMenuItem, mSecureNetworkMenuItem);
-                    break;
-                case Authorized:
-                    //current_fragment = CallNegotiationFragment.newInstance();
-                    break;
-                case LoggedIn:
-                    //if (checkPlayServices()) {
-                      //  // Start IntentService to register this application with GCM.
-                        //Intent intent = new Intent(this, RegistrationIntentService.class);
-                        //startService(intent);
-                   // }
-                   // current_fragment = CallNegotiationFragment.newInstance();
-                    break;
-                case AVChatDisconnected:
-                    if (application.isCallNegotiation()) {
-                        return;
-                    } else {
-                     //   current_fragment = CallNegotiationFragment.newInstance();
-                        break;
-                    }
-
-                default:
-                    return;
-            }
-
-            //showFragment(current_fragment);
-
-        } catch (Exception err) {
-            err.printStackTrace();
-        }
-    }
 
     public interface MenuList {
         void fill(View view, ContextMenu menu);
     }
-
 
 
     private void initFragments() {
@@ -718,9 +568,8 @@ public void createTile()
             recordingSchedulingFragment = new RecordingSchedulingFragment();
             fragmentCache.put(TechnicianDrawerFragment.NAV_DRAWER_SECTION_SCHEDULING, recordingSchedulingFragment);
         }
-        if(filesFragment==null)
-        {
-            filesFragment=new FilesFragment();
+        if (filesFragment == null) {
+            filesFragment = new FilesFragment();
             fragmentCache.put(TechnicianDrawerFragment.NAV_DRAWER_SECTION_FILES, filesFragment);
         }
 
@@ -762,7 +611,7 @@ public void createTile()
 
                 newFragment = recordingSettingsFragment;
 
-            }  else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_LOGS)) {
+            } else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_LOGS)) {
                 newFragment = new LogEventFragment();
             } else if (section.equalsIgnoreCase(TechnicianDrawerFragment.NAV_DRAWER_SECTION_MEDS)) {
                 newFragment = new MedListFragment();
@@ -770,7 +619,6 @@ public void createTile()
                 if (bandFragment == null) {
                     bandFragment = new RecordingServiceFragment();
                     bandFragment.setTileManager(this);
-
 
 
                 }
@@ -938,13 +786,7 @@ public void createTile()
     }
 
 
-
-
-
-    private void createTile(BandClient mClient)
-    {
-
-
+    private void createTile(BandClient mClient) {
 
 
     }
@@ -956,11 +798,10 @@ public void createTile()
 
         private Activity mActivity;
 
-                public CreateTileTask(Activity pActivity)
-                {
-                    mActivity=pActivity;
+        public CreateTileTask(Activity pActivity) {
+            mActivity = pActivity;
 
-                }
+        }
 
         @Override
         protected ConnectionResult doInBackground(BandClient... clientParams) {
@@ -974,7 +815,7 @@ public void createTile()
 
 
                 ConnectionState res = pendingResult.await();
-                result=new ConnectionResult(res);
+                result = new ConnectionResult(res);
 
 
                 int tileCapacity = 0;
@@ -982,7 +823,7 @@ public void createTile()
 
 
 // determine the number of available tile slots on the Band
-                     tileCapacity =
+                    tileCapacity =
                             mClient.getTileManager().getRemainingTileCapacity().await();
 
 
@@ -990,10 +831,8 @@ public void createTile()
 // handle BandException
                 } catch (InterruptedException e) {
 // handle InterruptedException
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     Log.d("TECH_BANDTILE", e.getMessage());
-
 
 
 // handle InterruptedEx  Log.d("TECH_BANDTILE", e.getMessage());ception
@@ -1012,24 +851,24 @@ public void createTile()
                     BandIcon tileIcon = BandIcon.toBandIcon(tileIconBitmap);
 
                     try {
-                        UUID tileUUI=UUID.randomUUID();
+                        UUID tileUUI = UUID.randomUUID();
 
 
-                        String uuid=RecordingSettings.newInstance(getApplicationContext()).getTileUUID();
+                        String uuid = RecordingSettings.newInstance(getApplicationContext()).getTileUUID();
 
-                        if(uuid!=null) {
+                        if (uuid != null) {
                             tileUUI = UUID.fromString(uuid);
                         }
 
 // get the current set of tiles
                         List<BandTile> tiles =
                                 mClient.getTileManager().getTiles().await();
-                        for(BandTile t : tiles) {
+                        for (BandTile t : tiles) {
 
-                            if(t.getTileId()==tileUUI||t.getTileName()=="PD")
-                                if(mClient.getTileManager().removeTile(t).await()){
+                            if (t.getTileId() == tileUUI || t.getTileName() == "PD")
+                                if (mClient.getTileManager().removeTile(t).await()) {
 
-                                    Log.d("TECH_BANDTILE","PREVIOUS ONE REMOVED");
+                                    Log.d("TECH_BANDTILE", "PREVIOUS ONE REMOVED");
 // do work if the tile was successfully removed
                                 }
                         }
@@ -1039,10 +878,8 @@ public void createTile()
                     } catch (InterruptedException e) {
                         Log.d("TECH_BANDTILE", e.getMessage());
 // handle InterruptedException
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         Log.d("TECH_BANDTILE", e.getMessage());
-
 
 
 // handle InterruptedEx  Log.d("TECH_BANDTILE", e.getMessage());ception
@@ -1060,20 +897,18 @@ public void createTile()
                     // tile.IsBadingEnabled = true;
                     try {
 
-                      boolean ret=  mClient.getTileManager().addTile(mActivity,
+                        boolean ret = mClient.getTileManager().addTile(mActivity,
                                 tile).await();
                         if (ret) {
 
-                            Log.d("TECH_BANDTILE","Tile ok");
+                            Log.d("TECH_BANDTILE", "Tile ok");
 // do work if the tile was successfully created
-                        }
-                        else
-                        {
-                            Log.d("TECH_BANDTILE","Tile error");
+                        } else {
+                            Log.d("TECH_BANDTILE", "Tile error");
 
 
                         }
-                    }catch (BandIOException e) {
+                    } catch (BandIOException e) {
                         Log.d("TECH_BANDTILE", e.getMessage());
 // handle BandException
                     } catch (BandException e) {
@@ -1082,12 +917,10 @@ public void createTile()
                     } catch (InterruptedException e) {
                         Log.d("TECH_BANDTILE", e.getMessage());
 // handle InterruptedException
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         Log.d("TECH_BANDTILE", e.getMessage());
 // handle InterruptedException
-                    }
-                    finally {
+                    } finally {
                         if (mClient != null) {
 
                             mClient.disconnect();
@@ -1097,21 +930,21 @@ public void createTile()
 
                 }
 
-                }catch(InterruptedException ex){
-                    Util.handleException("Connect to band", ex);
-                    return new ConnectionResult(ex);
-                    // handle InterruptedException
-                }catch(BandException ex){
+            } catch (InterruptedException ex) {
+                Util.handleException("Connect to band", ex);
+                return new ConnectionResult(ex);
+                // handle InterruptedException
+            } catch (BandException ex) {
 
-                    Util.handleException("Connect to band", ex);
-                    return new ConnectionResult(ex);
-                    // handle BandException
-                }catch(Exception ex){
+                Util.handleException("Connect to band", ex);
+                return new ConnectionResult(ex);
+                // handle BandException
+            } catch (Exception ex) {
 
-                    Util.handleException("Connect to band", ex);
-                    return new ConnectionResult(ex);
-                    // handle BandException
-                }
+                Util.handleException("Connect to band", ex);
+                return new ConnectionResult(ex);
+                // handle BandException
+            }
 
             return result;
 
@@ -1121,9 +954,6 @@ public void createTile()
 
         }
     }
-
-
-
 
 
 }
