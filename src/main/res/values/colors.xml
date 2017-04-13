@@ -21,8 +21,8 @@
     <color name="panZoomHighColor">#A666CE</color>
     <color name="panZoomLowColor">#9DCC00</color>
     <color name="panZoomCloseColor">#F9BA1A</color>
-    <color name="primary_title_background">#bc0006</color>
-    <color name="secondary_title_background">#342db2</color>
+    <color name="primary_title_background">#bf1e2d</color>
+    <color name="secondary_title_background">#0e4fb3</color>
 
     <color name="calendar_range_price_color">#511749</color>
     <color name="calendar_event_text_color">#737373</color>

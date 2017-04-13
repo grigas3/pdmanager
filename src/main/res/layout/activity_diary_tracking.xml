@@ -31,13 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/container_diary_select"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +50,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_centerInParent="true">
                 <LinearLayout
                     android:id="@+id/diary_off"
                     android:tag="0"
@@ -68,16 +61,18 @@
                     android:background="@drawable/selected_rounded_background">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/mood_awfull"/>
+                        android:src="@drawable/ic_diary_off" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:textColor="#1D89E4"
-                        android:textSize="20sp"
+                        android:textSize="28sp"
                         android:gravity="center_vertical"
-                        android:text="OFF"/>
+                        android:text="Off"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -85,21 +80,25 @@
                     android:tag="1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="45dp"
                     android:padding="10dp"
                     android:clickable="true"
                     android:background="@drawable/selected_rounded_background">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/mood_excellent"/>
+                        android:src="@drawable/ic_diary_on"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:textColor="#1D89E4"
-                        android:textSize="20sp"
+                        android:textSize="28sp"
                         android:gravity="center_vertical"
-                        android:text="ON"/>
+                        android:text="On"/>
 
                 </LinearLayout>
 
@@ -107,99 +106,95 @@
                     android:id="@+id/diary_on_dys"
                     android:tag="2"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:clickable="true"
                     android:background="@drawable/selected_rounded_background">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/mood_okay"/>
+                        android:src="@drawable/ic_diary_on_dys" />
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:textColor="#1D89E4"
-                        android:textSize="20sp"
+                        android:textSize="28sp"
                         android:gravity="center_vertical"
-                        android:text="ON with dyskinesia"/>
+                        android:text="On with\ndyskinesia"/>
 
                 </LinearLayout>
 
-
-
-
-
-            </LinearLayout>
-
         </LinearLayout>
 
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#CDCDCD"
+        >
+
+        <View android:id="@+id/halfparent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"/>
+
+
+
+        <TextView
+            android:id="@+id/mood_act_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textStyle="bold|italic"
+            android:textColor="#555"
+            android:text="Choose"
+            android:textSize="18sp"
+            android:textAllCaps="true"/>
+
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            android:background="#CDCDCD"
-            >
-
-            <View android:id="@+id/halfparent"
-                  android:layout_width="0dp"
-                  android:layout_height="0dp"
-                  android:layout_centerHorizontal="true"/>
-
-
+            android:id="@+id/button_mood_next"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/halfparent"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/button_blue_corner_radius"
+            android:visibility="gone">
 
             <TextView
-                android:id="@+id/mood_act_choose"
+                android:id="@+id/mood_act_done_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Done"
+                android:textColor="#FFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 android:layout_centerInParent="true"
-                android:textStyle="bold|italic"
-                android:textColor="#555"
-                android:text="Choose"
-                android:textSize="18sp"
-                android:textAllCaps="true"/>
+                android:layout_marginLeft="-20dp"
+                android:layout_marginRight="10dp"/>
 
-            <RelativeLayout
-                android:id="@+id/button_mood_next"
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_chevron_right"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_toRightOf="@id/halfparent"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/button_blue_corner_radius"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/mood_act_done_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Done"
-                    android:textColor="#FFF"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="-20dp"
-                    android:layout_marginRight="10dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_chevron_right"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/mood_act_done_txt"/>
-
-            </RelativeLayout>
+                android:layout_toRightOf="@+id/mood_act_done_txt"/>
 
         </RelativeLayout>
 
     </RelativeLayout>
-
-
 
 </RelativeLayout>
