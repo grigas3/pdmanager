@@ -40,3 +40,6 @@ local.properties
 ehthumbs.db
 Thumbs.db
 libs/oidclib/oidclib.iml
+build_*.gradle
+projectFilesBackup/*
+gradle/wrapper/gradle-wrapper.properties
