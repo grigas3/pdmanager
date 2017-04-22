@@ -30,6 +30,7 @@ public class RecordingSettings {
     private long mlastNFG = 0;
     private String mtoken;
     private String mPatientID = "PAT01";
+    private String mUserID = "PAT01";
     private boolean mSessionRunning = false;
     private String mReminder1 = null;
     private String mReminder2 = null;
@@ -61,7 +62,9 @@ public class RecordingSettings {
     private int mMedHour2=22;
     private int mDiaryHour=21;
 
+    private boolean mMSSynced=false;
 
+    private boolean mEnableDiary=true;
 
 
     public RecordingSettings() {
@@ -88,6 +91,9 @@ public class RecordingSettings {
 
                 SharedPreferences pref = mContext.getSharedPreferences(PREFERENCES, 0);
                 mbandEnabled = pref.getBoolean("Band", mbandEnabled);
+
+                mEnableDiary = pref.getBoolean("EnableDiary", mEnableDiary);
+
                 mLoggedIn = pref.getBoolean("LoggedIn", mLoggedIn);
                 //    mheartRateEnabled = pref.getBoolean("HeartRate", mheartRateEnabled);
                 mLocationEnabled = pref.getBoolean("Location", mLocationEnabled);
@@ -100,6 +106,9 @@ public class RecordingSettings {
                 mRecordFiles = pref.getBoolean("RecordFiles", mRecordFiles);
                 mUseDetectors = pref.getBoolean("UseDetectors", mUseDetectors);
                 mDevTokenSended = pref.getBoolean("DevTokenSended", mDevTokenSended);
+
+                mMSSynced = pref.getBoolean("MSSynced", mMSSynced);
+
 
                 mLang = pref.getString("Lang", mLang);
 
@@ -118,6 +127,7 @@ public class RecordingSettings {
                 mRecordingStart = pref.getLong("RecordingStart", mRecordingStart);
                 mSessionFolder = pref.getString("SessionFolder", mSessionFolder);
                 mPatientID = pref.getString("PatientID", mPatientID);
+                mUserID = pref.getString("UserID", mUserID);
                 mReminder1 = pref.getString("Reminder1", mReminder1);
                 mReminder2 = pref.getString("Reminder2", mReminder2);
 
@@ -431,6 +441,18 @@ public class RecordingSettings {
         SetPref("PatientID", token);
     }
 
+    public String getUserID() {
+
+
+        return mUserID;
+    }
+
+    public void setUserID(String token) {
+        this.mUserID = token;
+        SetPref("UserID", token);
+    }
+
+
     public String getReminder1() {
 
 
@@ -480,6 +502,35 @@ public class RecordingSettings {
 
         return mLoggedIn;
     }
+
+    public boolean getEnableDiary() {
+
+
+        return mEnableDiary;
+    }
+
+
+    public void setEnableDiary(boolean enabled) {
+
+        this.mEnableDiary = enabled;
+        SetPref("EnableDiary", enabled);
+
+    }
+
+    public boolean getMSSynced() {
+
+
+        return mMSSynced;
+    }
+
+
+    public void setMSSynced(boolean enabled) {
+
+        this.mMSSynced = enabled;
+        SetPref("MSSynced", enabled);
+
+    }
+
 
     public void setLoggedIn(boolean token) {
         this.mLoggedIn = token;

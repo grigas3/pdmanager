@@ -39,6 +39,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     private HashSet<Switch> mSensorMap = new HashSet<Switch>();
     private boolean enableSpinnerListener = false;
     private Switch mSwitchRecordFile;
+    private Switch mSwitchUseDiary;
     private Switch mSwitchUseDetectors;
 
 
@@ -79,6 +80,10 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
 
                     settings.setDevEnabled(isChecked);
+
+                } else if (sw == mSwitchUseDiary) {
+
+                    settings.setEnableDiary(isChecked);
 
 
                 } else if (sw == mSwitchUseDetectors) {
@@ -132,7 +137,15 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
 
-         //Switch Setup
+
+        mSwitchRecordFile = (Switch) rootView.findViewById(R.id.switchRecordFile);
+        mSwitchRecordFile.setOnCheckedChangeListener(mToggleSensorSection);
+
+        mSwitchUseDiary = (Switch) rootView.findViewById(R.id.switchUseDiary);
+        mSwitchUseDiary.setOnCheckedChangeListener(mToggleSensorSection);
+
+
+        //Switch Setup
         mSwitchBandSensors = (Switch) rootView.findViewById(R.id.switchBandSensors);
         mSwitchBandSensors.setOnCheckedChangeListener(mToggleSensorSection);
 

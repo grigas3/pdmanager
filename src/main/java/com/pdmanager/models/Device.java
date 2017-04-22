@@ -54,6 +54,7 @@ public String Identifier;
         Identifier=id;
         Type=android;
         Model=deviceName;
+        Status="ACTIVE";
 
     }
 
@@ -79,4 +80,7 @@ public String Identifier;
     public String getPDType() {
         return "Device";
     }
+
+
+    public void setStatus(String s){ Status=s;}
 }

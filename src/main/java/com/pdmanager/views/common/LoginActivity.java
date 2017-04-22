@@ -16,8 +16,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +37,7 @@ import com.pdmanager.models.LoginResult;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.MainActivity;
 import com.pdmanager.views.clinician.ClinicianActivity;
+import com.pdmanager.views.patient.TechnicianActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,11 +47,13 @@ import java.util.List;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
-
+    private static final String TAG = "LOGIN";
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static final int REQUEST_CONTACTS = 1;
-    private static final int REQUEST_RECORD = 1;
-    private static final int REQUEST_PHONE_STATE = 1;
+    private static final int REQUEST_CONTACTS = 2;
+    private static final int REQUEST_RECORD = 3;
+    private static final int REQUEST_PHONE_STATE = 4;
+    private static final int REQUEST_VIDEO = 5;
+    private static final int REQUEST_LOCATION = 6;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -73,6 +78,18 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 
     };
+
+    private static String[] PERMISSIONS_LOCATION = {
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+
+
+    };
+    private static String[] PERMISSIONS_VIDEO = {
+            Manifest.permission.CAMERA,
+            Manifest.permission.CAPTURE_SECURE_VIDEO_OUTPUT,
+            Manifest.permission.CAPTURE_VIDEO_OUTPUT
+    };
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -95,38 +112,48 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
-        // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
+if(  requirePermissions(this))
+{
 
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
+    setContentView(R.layout.activity_permissions);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
+}
+else
+
+{
+
+    setContentView(R.layout.activity_login);
+
+    // Set up the login form.
+    mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+    populateAutoComplete();
+
+    mPasswordView = (EditText) findViewById(R.id.password);
+    mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+            if (id == R.id.login || id == EditorInfo.IME_NULL) {
                 attemptLogin();
+                return true;
             }
-        });
+            return false;
+        }
+    });
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+    Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+    mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            attemptLogin();
+        }
+    });
 
+    mLoginFormView = findViewById(R.id.login_form);
+    mProgressView = findViewById(R.id.login_progress);
 
-        requirePermissions(this);
-        redirectIfLogged();
+    redirectIfLogged();
+}
 
        /* //added for firebase
         Button logTokenButton = (Button) findViewById(R.id.logTokenButton);
@@ -328,7 +355,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
                 if (role != null) {
                     if (role.toLowerCase().equals("patients")) {
-                        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent mainIntent = new Intent(LoginActivity.this, TechnicianActivity.class);
                         LoginActivity.this.startActivity(mainIntent);
 
 
@@ -411,56 +438,100 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      *
      * @param activity
      */
-    public void requirePermissions(Activity activity) {
+    public boolean requirePermissions(Activity activity) {
         // Check if we have write permission
-        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
+        boolean reqPermissions=false;
+
+        try {
+            int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+
+                reqPermissions=true;
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        activity,
+                        PERMISSIONS_STORAGE,
+                        REQUEST_EXTERNAL_STORAGE
+                );
+            }
+
+            int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
+
+            if (permission2 != PackageManager.PERMISSION_GRANTED) {
+                reqPermissions=true;
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        activity,
+                        PERMISSIONS_CONTACTS,
+                        REQUEST_CONTACTS
+                );
+            }
+
+            int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
+
+            if (permission3 != PackageManager.PERMISSION_GRANTED) {
+                reqPermissions=true;
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        activity,
+                        PERMISSIONS_PHONE,
+                        REQUEST_PHONE_STATE
+                );
+            }
+
+            int permission4 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO);
+
+            if (permission4 != PackageManager.PERMISSION_GRANTED) {
+                reqPermissions=true;
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        activity,
+                        PERMISSIONS_RECORD,
+                        REQUEST_RECORD
+                );
+            }
+
+            int permission5 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
+            if (permission5 != PackageManager.PERMISSION_GRANTED) {
+                reqPermissions=true;
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        activity,
+                        PERMISSIONS_VIDEO,
+                        REQUEST_VIDEO
+                );
+            }
+
+            int permission6 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION);
+
+            if (permission6 != PackageManager.PERMISSION_GRANTED) {
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        activity,
+                        PERMISSIONS_LOCATION,
+                        REQUEST_LOCATION
+                );
+            }
+
+
+          /*  if (!reqPermissions&&Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&!Settings.canDrawOverlays(this)) {
+                reqPermissions=true;
+                Intent permissionIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                startActivity(permissionIntent);
+            }
+            */
+        }
+        catch(Exception e)
+        {
+
+            Log.e(TAG,e.getMessage());
+
         }
 
-
-        int permission2 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_CONTACTS);
-
-        if (permission2 != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_CONTACTS,
-                    REQUEST_CONTACTS
-            );
-        }
-
-
-        int permission3 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
-
-        if (permission3 != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_PHONE,
-                    REQUEST_PHONE_STATE
-            );
-        }
-
-
-        int permission4 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO);
-
-        if (permission4 != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_RECORD,
-                    REQUEST_RECORD
-            );
-        }
+        return reqPermissions;
     }
-
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
@@ -488,8 +559,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 
             if (res.success) {
-
-
                 ret.success = true;
                 if (res.role != null)
                     ret.patient = (res.role.toLowerCase().equals("patients"));
@@ -506,30 +575,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
 
 
-/*
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-
-                    if(pieces[1].equals(mPassword)){
-
-                        ret.success=true;
-
-                        if(pieces[2].equals("doctor"))
-                        ret.patient=false;
-                        else
-                            ret.patient=true;
-
-                        return ret;
-                    }
-                }
-
-
-            }\
-            */
-
 
             // TODO: register the new account here.
             return ret;
@@ -540,35 +585,36 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         protected void onPostExecute(final LoginSucces ret) {
             mAuthTask = null;
             showProgress(false);
+if(ret!=null) {
+    if (ret.success) {
+        RecordingSettings settings = getSettings();
 
-            if (ret.success) {
-                RecordingSettings settings = getSettings();
+        settings.setToken(ret.access_token);
 
-                settings.setToken(ret.access_token);
+        settings.setLoggedIn(true);
+        settings.setExpiration(Calendar.getInstance().getTimeInMillis() + ret.expires_in * 1000);
+        settings.setUserName(mEmail);
+        settings.setPassword(mPassword);
+        settings.setRole(ret.role);
+        settings.setUserID(ret.id);
+        if (ret.patient) {
 
+            settings.setPatientID(ret.id);
 
-                settings.setLoggedIn(true);
-                settings.setExpiration(Calendar.getInstance().getTimeInMillis() + ret.expires_in * 1000);
-                settings.setUserName(mEmail);
-                settings.setPassword(mPassword);
-                settings.setRole(ret.role);
-                if (ret.patient) {
+            Intent mainIntent = new Intent(LoginActivity.this, TechnicianActivity.class);
+            LoginActivity.this.startActivity(mainIntent);
+        } else {
+            Intent mainIntent = new Intent(LoginActivity.this, ClinicianActivity.class);
+            LoginActivity.this.startActivity(mainIntent);
 
-                    settings.setPatientID(ret.id);
+        }
 
-                    Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                    LoginActivity.this.startActivity(mainIntent);
-                } else {
-                    Intent mainIntent = new Intent(LoginActivity.this, ClinicianActivity.class);
-                    LoginActivity.this.startActivity(mainIntent);
-
-                }
-
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
+        finish();
+    } else {
+        mPasswordView.setError(getString(R.string.error_incorrect_password));
+        mPasswordView.requestFocus();
+    }
+}
         }
 
         @Override

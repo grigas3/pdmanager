@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -41,8 +42,8 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
 
     TextView description;
     TextView title;
-    private CircleButton mButtonConfirm;
-    private CircleButton mButtonReject;
+    private LinearLayout mButtonConfirm;
+    private LinearLayout mButtonReject;
     private ProgressBar busyIndicator;
     private RelativeLayout layout;
     private String medId;
@@ -67,7 +68,7 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
         title = (TextView) this.findViewById(R.id.alertText);
         description = (TextView) this.findViewById(R.id.alertDescription);
 
-        mButtonConfirm = (CircleButton) this.findViewById(R.id.confirm);
+        mButtonConfirm = (LinearLayout) this.findViewById(R.id.confirm);
 
         mButtonConfirm.setOnClickListener(new View.OnClickListener() {
 
@@ -94,7 +95,7 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
             }
         });
 
-        mButtonReject = (CircleButton) this.findViewById(R.id.reject);
+        mButtonReject = (LinearLayout) this.findViewById(R.id.reject);
 
         mButtonReject.setOnClickListener(new View.OnClickListener() {
 

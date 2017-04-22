@@ -403,7 +403,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
         } catch (Exception ex) {
-            LogError("Process Log", ex.getCause());
+
+            Log.e(TAG,ex.getMessage(),ex.getCause());
+            //LogError("Process Log", ex.getCause());
 
         } finally {
 
@@ -748,9 +750,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         long unixTime = System.currentTimeMillis();
 
         ///if (unixTime - lastUsageTimestamp > 30* 1000) {
+        //Every Half any hour
         if (unixTime - lastUsageTimestamp > 60 * 30 * 1000) {
 
             try {
+
+                if(devsamples==0)
+                {
+
+                    LogFatal("Device not acquiring",4);
+
+                }
 
                 String patient = getPatient();
 
@@ -1456,7 +1466,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 LogError("Cannot Remove GPS Listener");
             } catch (Exception ex) {
 
-                LogError("Cannot Remove GPS Listener");
+                LogError("Cannot Remove GPS Listener",ex);
             }
 
         }
@@ -1633,7 +1643,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (SecurityException ex) {
 
-                LogError("Cannot Register GPS listener");
+                LogError("Cannot Register GPS listener for Security reasons");
             } catch (Exception ex) {
 
                 LogError("Cannot Register GPS listener");
@@ -1936,7 +1946,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             LogInfo("Device Gravity registered");
 
             senSensorManager.registerListener(this, senlinAccelerometer, SensorManager.SENSOR_DELAY_GAME);
-
             // senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_GAME);
             senSensorManager.registerListener(this, senMagnetic, SensorManager.SENSOR_DELAY_GAME);
             senSensorManager.registerListener(this, senGravity, SensorManager.SENSOR_DELAY_GAME);
@@ -2142,6 +2151,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             handleData(accData);
 
+            //Accelerometer is disabled when all sensors available
+            //Therefore we added also in linear accelerometer
             devsamples++;
 
 
@@ -2157,6 +2168,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 linearAccelerationTime = sensorEvent.timestamp;
                 linearAccelerationTime2 = System.currentTimeMillis();
                 linearAccelerationAcquired = true;
+               // devsamples++;
 
             }
             if (sensorEvent.sensor.getType() == Sensor.TYPE_GRAVITY) {
@@ -2289,7 +2301,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
-        //LogInfo(1,"Accuracy Changed  to"+i);
+        //LogDebug("Accuracy Changed  to"+i);
 
     }
 

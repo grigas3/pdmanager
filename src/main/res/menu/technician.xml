@@ -8,27 +8,27 @@
         android:orderInCategory="100"
         android:title="Clear Log"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_syncms"
-        android:orderInCategory="100"
-        android:title="Sync Health"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_lock"
-        android:orderInCategory="100"
-        android:title="Lock"
-        app:showAsAction="never" />
+    <!--   <item
+          android:id="@+id/action_syncms"
+          android:orderInCategory="100"
+          android:title="Sync Health"
+          app:showAsAction="never" />-->
+      <item
+          android:id="@+id/action_lock"
+          android:orderInCategory="100"
+          android:title="Lock"
+          app:showAsAction="never" />
 
 
-    <item
-        android:id="@+id/action_sendqueue"
-        android:orderInCategory="100"
-        android:title="Send Queue"
-        app:showAsAction="never" />
+      <!--<item
+          android:id="@+id/action_sendqueue"
+          android:orderInCategory="100"
+          android:title="Send Queue"
+          app:showAsAction="never" />-->
     <item
         android:id="@+id/action_logout"
         android:orderInCategory="100"
-        android:title="Logout"
+        android:title="Login"
         app:showAsAction="never" />
 
 

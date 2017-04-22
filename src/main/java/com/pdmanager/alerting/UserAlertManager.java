@@ -538,6 +538,8 @@ public class UserAlertManager implements IUserAlertManager {
 
 
             db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + alert.getId(), null);
+
+            mContext.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
             ret = true;
 
         }
@@ -581,6 +583,8 @@ public class UserAlertManager implements IUserAlertManager {
 
 
             db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + alert.getId(), null);
+
+            mContext.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
             ret = true;
 
         }
@@ -687,8 +691,8 @@ public class UserAlertManager implements IUserAlertManager {
                 expDate = 1000 * 24 * 60 * 60 * 7 - 1000 * 12 * 60 * 60;
             } else if (currentType.toLowerCase().startsWith("diary")) {
 
-                ///Every 3 days
-                expDate = 1000 * 24 * 60 * 60 * 3;
+                ///Every day (increment by one hour)
+                expDate = 1000 * 24 * 60 * 60 * 1+1000 * 1 * 60 * 60;
 
             }
 
@@ -813,6 +817,8 @@ public class UserAlertManager implements IUserAlertManager {
             data.put(DBHandler.COLUMN_ALERTACTIVE, 0);
 
             db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + id, null);
+
+            mContext.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
 
             ret = true;
 
@@ -953,6 +959,9 @@ public class UserAlertManager implements IUserAlertManager {
             sqlDB.insert(DBHandler.TABLE_ALERTS, null, values);
 
 
+            mContext.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
+
+
         } catch (Exception ex) {
             Log.e("Error", ex.getMessage());
 
@@ -989,6 +998,30 @@ public class UserAlertManager implements IUserAlertManager {
 
         try {
             doSetNotified(alert);
+
+
+        } catch (Exception ex) {
+
+            Log.d("Alert Manager", ex.getMessage());
+
+        }
+
+    }
+
+
+
+
+
+    @Override
+    public void setNotified(String id) {
+
+        try {
+
+            UserAlert alert=getAlert(id);
+            if(alert!=null) {
+                doSetNotified(alert);
+
+            }
 
 
         } catch (Exception ex) {

@@ -37,9 +37,11 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String TABLE_LOGS = "logs";
     public static final String TABLE_JREQUESTS = "jrequests";
     public static final String TABLE_ALERTS = "alerts";
+    public static final String TABLE_SYNC = "synctables";
     public static final String TABLE_MEDICATIONS = "meds";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_SETTING = "setting";
+    public static final String COLUMN_TABLE = "synctable";
     public static final String COLUMN_URI = "uri";
     public static final String COLUMN_JSON = "json";
     public static final String COLUMN_VALUE = "value";
@@ -59,6 +61,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_ALERTTYPE = "type";
     public static final String COLUMN_ALERTMESSAGE = "message";
     public static final Uri URI_TABLE_USERS = Uri.parse("sqlite://com.medlab.pdmanager/table/" + TABLE_LOGS);
+    public static final Uri URI_TABLE_ALERTS = Uri.parse("sqlite://com.medlab.pdmanager/table/" + TABLE_ALERTS);
+    public static final Uri URI_TABLE_MEDS = Uri.parse("sqlite://com.medlab.pdmanager/table/" + TABLE_MEDICATIONS);
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "pdManagerDB.db";
 
@@ -74,6 +78,7 @@ public class DBHandler extends SQLiteOpenHelper {
         InitCommunicatonTable(sqLiteDatabase);
         InitAlertTable(sqLiteDatabase);
         InitMedicationTimeTable(sqLiteDatabase);
+        InitSyncTable(sqLiteDatabase);
     }
 
     private void InitLogTable(SQLiteDatabase db) {
@@ -100,7 +105,18 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    private void InitSyncTable(SQLiteDatabase db) {
 
+
+        String CREATE_TABLE = "CREATE TABLE " +
+                TABLE_SYNC + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY," + COLUMN_TIMESTAMP
+                + " INTEGER,"+ COLUMN_TABLE
+                + " TEXT)";
+        db.execSQL(CREATE_TABLE);
+
+
+    }
 
     private void InitAlertTable(SQLiteDatabase db) {
 

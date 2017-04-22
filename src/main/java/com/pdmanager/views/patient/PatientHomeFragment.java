@@ -542,9 +542,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
 
             mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_grey));
+            mSensors.setVisibility(View.VISIBLE);
             //mSensorsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
             mSensorsTitle.setTextColor(Color.WHITE);
-            mSensorsAct.setVisibility(View.INVISIBLE);
+            mSensorsAct.setVisibility(View.VISIBLE);
             mSensorsText.setTextColor(Color.WHITE);
             //mSensorsText.setTextColor(Color.parseColor("#e2e2e2"));
             mSensorsText.setText("Not Monitoring");
@@ -587,7 +588,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                             }
                         }
                         long mind = 1000000000;
-                        String noTaskMessage = "";
+                        String noTaskMessage = context.getString(R.string.noTestForNow);
 
                         List<UserAlert> allAlerts = manager.getAlerts();
                         for (UserAlert a : allAlerts) {
@@ -601,24 +602,29 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                 Calendar cal2 = Calendar.getInstance();
                                 cal2.setTime(date2);
                                 long d = (date1.getTime() - date2.getTime()) / 1000 / 60;
-                                if (d > 0) {
 
-                                    if (d > 24 * 60) {
+                                codeTextMapping.get(a.getAlertType()).setText(context.getString(R.string.presstpstart));
+
+                               /* if (d > 0) {
+
+
+
+                                   if (d > 24 * 60) {
 
                                         if (mind > d) {
                                             mind = d;
                                             noTaskMessage = String.format(context.getString(R.string.next_day), (int) (d / 60 / 24));
 
                                         }
-                                        codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_day), (int) (d / 60 / 24)));
+                                       // codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_day), (int) (d / 60 / 24)));
                                     } else if (d > 60) {
 
                                         if (mind > d) {
                                             mind = d;
-                                            noTaskMessage = String.format(context.getString(R.string.next_hour), (int) (d / 60));
+                                            noTaskMessage = String.format(context.getString(R.string.next_hour), Math.round(d / 60));
 
                                         }
-                                        codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_hour), (int) (d / 60)));
+                                     //   codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_hour), (int) (d / 60)));
                                     } else {
 
                                         if (mind > d) {
@@ -626,15 +632,16 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                             noTaskMessage = String.format(context.getString(R.string.next_minute), (int) (d));
 
                                         }
-                                        codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_minute), (int) (d)));
+                                      //  codeTextMapping.get(a.getAlertType()).setText(String.format(context.getString(R.string.next_minute), (int) (d)));
 
                                     }
 
 
                                 } else {
-                                    codeTextMapping.get(a.getAlertType()).setText(context.getString(R.string.now));
+                                 //   codeTextMapping.get(a.getAlertType()).setText(context.getString(R.string.now));
 
                                 }
+                                */
 
 
                             }
@@ -667,7 +674,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                 }
                                 */
 
-                                if (d < 0) {
+                                if (d <=0) {
                                     codeLayoutMapping.get(a.getAlertType()).setVisibility(View.VISIBLE);
 
                                 }
@@ -732,7 +739,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         public void run() {
 
 //First Update UI Alerts
-            updateUIAlerts();
+
             if (handler != null) {
                 // ERROR
                 // hTextView.setText("Impossible");
@@ -745,6 +752,8 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                         RecordingService service = RecordingServiceHandler.getInstance().getService();
                         if (service != null && service.isSessionRunning()) {
+
+                            updateUIAlerts();
 
                         //   mMonitoringStatus.setTextColor(Color.GREEN);
                       //     mMonitoringStatus.setText("monitoring");
@@ -801,6 +810,9 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                         } else {
 
                         showNotMonitoring();
+
+                            mTaskTitle.setVisibility(View.INVISIBLE);
+                            mNoTaskTitle.setVisibility(View.INVISIBLE);
 
                            // if (mSensorStatus != null)
                              //   mSensorStatus.setVisibility(View.INVISIBLE);

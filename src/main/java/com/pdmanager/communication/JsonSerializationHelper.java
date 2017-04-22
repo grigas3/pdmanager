@@ -80,7 +80,7 @@ public class JsonSerializationHelper {
 
         long unixTime = System.currentTimeMillis() / 1000L;
 
-        File appDirectory = new File(pathToExternalStorage.getAbsolutePath() + "/PDManager/");
+        File appDirectory = new File(pathToExternalStorage.getAbsolutePath() + "/PD_Manager/");
         // have the object build the directory structure, if needed.
         appDirectory.mkdirs();
 

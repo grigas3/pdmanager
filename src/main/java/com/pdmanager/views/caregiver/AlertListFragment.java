@@ -1,21 +1,17 @@
-package com.pdmanager.views.patient;
+package com.pdmanager.views.caregiver;
 
 /**
  * Created by George on 1/30/2016.
  */
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -24,64 +20,44 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.microsoft.band.BandPendingResult;
-import com.microsoft.band.ConnectionState;
 import com.pdmanager.R;
-import com.pdmanager.adapters.PendingMedOrderAdapter;
-import com.pdmanager.communication.CommunicationManager;
-import com.pdmanager.communication.DataReceiver;
-import com.pdmanager.communication.DirectSender;
-import com.pdmanager.logging.LogAdapter;
-import com.pdmanager.logging.LogCursorAdapter;
-import com.pdmanager.logging.LogLoader;
-import com.pdmanager.logging.LogObserver;
-import com.pdmanager.medication.MedAdapter;
-import com.pdmanager.medication.MedCursorAdapter;
-import com.pdmanager.medication.MedLoader;
-import com.pdmanager.medication.MedObserver;
-import com.pdmanager.models.MedTiming;
-import com.pdmanager.models.MedicationIntake;
-import com.pdmanager.models.MedicationOrder;
-import com.pdmanager.models.Observation;
-import com.pdmanager.models.PatientMedicationResult;
-import com.pdmanager.models.PendingMedication;
+import com.pdmanager.alerting.AlertAdapter;
+import com.pdmanager.alerting.AlertCursorAdapter;
+import com.pdmanager.alerting.AlertLoader;
+
+import com.pdmanager.alerting.AlertObserver;
 import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.FragmentListener;
-import com.telerik.widget.list.ListViewAdapter;
-import com.telerik.widget.list.RadListView;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MedListFragment extends BasePDFragment implements FragmentListener,LoaderManager.LoaderCallbacks<Cursor> {
+public class AlertListFragment extends BasePDFragment implements FragmentListener,LoaderManager.LoaderCallbacks<Cursor> {
     /**
      * The fragment argument representing the section number for this
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private static final String TAG = "MedListFragment";
+    private static final String TAG = "AlertListFragment";
     AbsListView listView;
-    MedCursorAdapter mAdapter;
+    AlertCursorAdapter mAdapter;
+    private AlertAdapter dbQ;
+    private int LOADER_ID = 2;
     private Button mButtonPatients;
     private TextView emptyList;
     private ProgressBar busyIndicator;
-    private MedAdapter dbQ;
-    private int LOADER_ID = 2;
-    public MedListFragment() {
+
+
+    public AlertListFragment() {
     }
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static MedListFragment newInstance(int sectionNumber) {
-        MedListFragment fragment = new MedListFragment();
+    public static AlertListFragment newInstance(int sectionNumber) {
+        AlertListFragment fragment = new AlertListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
@@ -98,7 +74,7 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_medlist, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_alert_list, container, false);
 
 
         try {
@@ -137,12 +113,11 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
 
 
         try {
-            dbQ = new MedAdapter(context);
+            dbQ = new AlertAdapter(context);
 
-            //   dbQ.open();
             // create the adapter using the cursor pointing to the desired data
             //as well as the layout information
-            mAdapter = new MedCursorAdapter(context, null, false);
+            mAdapter = new AlertCursorAdapter(context, null, false);
 
 
         } catch (Exception ex) {
@@ -150,12 +125,6 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
             Log.d(TAG, ex.getMessage());
 
         }
-
-        //  ListView listView = (ListView) view.findViewById(android.R.id.list);
-        // Assign adapter to ListView
-        //listView.setAdapter(dataAdapter);
-
-
     }
 
     @Override
@@ -167,7 +136,7 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         //  Log.e(TAG, ":::: onCreateLoader");
 
-        MedLoader demoLoader = new MedLoader(this.getActivity(), dbQ);
+        AlertLoader demoLoader = new AlertLoader(this.getActivity(), dbQ);
         return demoLoader;
     }
 
@@ -180,9 +149,9 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
         /**
          * Registering content observer for this cursor, When this cursor Value will be change
          * This will setNotified our loader to reload its data*/
-        MedObserver cursorObserver = new MedObserver(new Handler(), loader);
+        AlertObserver cursorObserver = new AlertObserver(new Handler(), loader);
         c.registerContentObserver(cursorObserver);
-        c.setNotificationUri(getActivity().getContentResolver(), DBHandler.URI_TABLE_USERS);
+        c.setNotificationUri(getActivity().getContentResolver(), DBHandler.URI_TABLE_ALERTS);
     }
 
     @Override

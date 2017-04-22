@@ -13,13 +13,18 @@
         android:visibility="invisible"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
+<ScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_height="match_parent">
@@ -31,6 +36,48 @@
             android:paddingRight="@dimen/setting_horizontal_margin"
             android:paddingTop="@dimen/setting_vertical_margin"
             android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/buttonRequirePermissions"
+
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:text="PERMISSIONS"
+                />
+            <TextView
+                android:id="@+id/textFilePermission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/buttonRequirePermissions"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:text="Device Permissions"
+                android:textColor="@color/red_dark_color"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/setting_vertical_margin"
+            android:paddingLeft="@dimen/setting_horizontal_margin"
+            android:paddingRight="@dimen/setting_horizontal_margin"
+            android:paddingTop="@dimen/setting_vertical_margin"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:checked="true"
+                android:enabled="true"
+                android:text="LOGIN"
+                />
 
             <TextView
                 android:id="@+id/textLoggedIn"
@@ -41,78 +88,16 @@
                 android:layout_marginLeft="10dp"
                 android:text="Patient is not logged in "
                 android:textColor="@color/red_dark_color"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textStyle="bold" />
 
 
 
         </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/setting_vertical_margin"
-        android:paddingLeft="@dimen/setting_horizontal_margin"
-        android:paddingRight="@dimen/setting_horizontal_margin"
-        android:paddingTop="@dimen/setting_vertical_margin"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/buttonRequirePermissions"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-
-
-            android:text="PERMISSIONS"
-            />
-        <TextView
-            android:id="@+id/textFilePermission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/buttonRequirePermissions"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="10dp"
-            android:text="Device Permissions"
-            android:textColor="@color/red_dark_color"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textStyle="bold" />
 
 
 
-    </RelativeLayout>
-
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/setting_vertical_margin"
-        android:paddingLeft="@dimen/setting_horizontal_margin"
-        android:paddingRight="@dimen/setting_horizontal_margin"
-        android:paddingTop="@dimen/setting_vertical_margin">
-        <Button
-            android:id="@+id/buttonGetMedications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-
-            android:text="SYNC"
-            />
-
-        <TextView
-            android:id="@+id/textMedication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/buttonGetMedications"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="10dp"
-            android:text="Sync Patient Medications"
-            android:textColor="@color/red_dark_color"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
-            -->
 
 
         <RelativeLayout
@@ -131,20 +116,26 @@
                 android:layout_marginTop="2dp">
                 <Button
                     android:id="@+id/buttonGetDevice"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:checked="true"
                     android:enabled="true"
                     android:text="Register"
                     />
-
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginTop="2dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Register Patient Device"
                     android:id="@+id/textGetDevice"
                     android:textColor="@color/red_dark_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold" />
 
@@ -157,6 +148,7 @@
                     android:text="No device"
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold" />
+                </LinearLayout>
 
 
 
@@ -169,7 +161,7 @@
             android:id="@+id/sepMedications"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/buttonGetDevice"
+
             android:layout_marginBottom="8dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
@@ -183,7 +175,7 @@
         android:paddingTop="@dimen/setting_vertical_margin">
         <Button
             android:id="@+id/buttonConnect"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"
             android:layout_marginBottom="8dip"
@@ -195,17 +187,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_toRightOf="@+id/buttonConnect"
-            >
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/buttonConnect">
 
 
             <TextView
                 android:id="@+id/textConnectionStatus"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:gravity="center"
+                android:layout_marginLeft="10dp"
                 android:text="@string/monitoringstatus_label"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -213,31 +203,19 @@
                 android:id="@+id/textSensorStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
                 android:text=""
                 android:textAppearance="?android:attr/textAppearanceSmall" />
+
         </LinearLayout>
 
 
-
-
-
-
     </RelativeLayout>
-
-
-
-
-
-
-
 
         <View
             android:id="@+id/sepManagement"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/buttonConnect"
+
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp"
             android:background="@android:color/darker_gray" />
@@ -254,10 +232,9 @@
        >
         <Button
             android:id="@+id/buttonGetMSHealth"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-
             android:enabled="false"
             android:text="SYNC"
             />
@@ -276,6 +253,9 @@
 
 
 
+
+
+    </RelativeLayout>
         <View
             android:id="@+id/sepMSHealth"
             android:layout_width="fill_parent"
@@ -284,8 +264,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
-
-    </RelativeLayout>
     </LinearLayout>
 </ScrollView>
+    </LinearLayout>
     </RelativeLayout>

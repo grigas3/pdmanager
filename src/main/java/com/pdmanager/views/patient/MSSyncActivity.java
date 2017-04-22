@@ -30,6 +30,7 @@ import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.pdmanager.R;
 import com.pdmanager.common.exceptions.TokenDecryptionException;
+import com.pdmanager.helpers.ISO8601DateFormat;
 import com.pdmanager.logging.ILogHandler;
 import com.pdmanager.monitoring.MSHealthDataHandler;
 import com.pdmanager.persistence.DBHandler;
@@ -39,6 +40,7 @@ import com.pdmanager.views.APIUtility;
 import com.pdmanager.views.HomeActivity;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 
 
@@ -182,7 +184,7 @@ public class MSSyncActivity extends Activity implements ILogHandler {
     }
 
     public void doRequest(View view) {
-        new ProtectedResTask().execute(availableAccounts[selectedAccountIndex]);
+        new ProtectedResTask(new Date(RecordingSettings.GetRecordingSettings(this).getRecordingStart())).execute(availableAccounts[selectedAccountIndex]);
     }
 
     public void doLogout(View view) {
@@ -320,7 +322,7 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
                 new LogoutTask(false).execute(availableAccounts[selectedAccountIndex]);
             } else {
-                new ProtectedResTask().execute(availableAccounts[selectedAccountIndex]);
+                new ProtectedResTask(new Date(RecordingSettings.GetRecordingSettings(getApplicationContext()).getRecordingStart())).execute(availableAccounts[selectedAccountIndex]);
 
             }
 
@@ -365,6 +367,14 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
     private class ProtectedResTask extends AsyncTask<Account, Void, Map> {
 
+        Date startDate;
+        public ProtectedResTask(Date pstartDate)
+        {
+            this.startDate=pstartDate;
+
+
+        }
+
         @Override
         protected void onPreExecute() {
 
@@ -381,8 +391,10 @@ public class MSSyncActivity extends Activity implements ILogHandler {
 
             try {
 
+                ISO8601DateFormat df = new ISO8601DateFormat();
+
                 Log.v("test", APIUtility.getJson(accountManager, protectedResUrl, account, null).toString());
-                return APIUtility.getJson(accountManager, protectedResUrl, account, null);
+                return APIUtility.getJson(accountManager, protectedResUrl+"?startTime="+df.format(startDate), account, null);
             } catch (AuthenticatorException | OperationCanceledException | TokenDecryptionException | IOException e) {
                 e.printStackTrace();
             } catch (UserNotAuthenticatedWrapperException e) {
@@ -467,6 +479,8 @@ public class MSSyncActivity extends Activity implements ILogHandler {
             Toast.makeText(getActivity(),
                     "Syncing succeeded",
                     Toast.LENGTH_SHORT).show();
+            RecordingSettings.GetRecordingSettings(getActivity()).setMSSynced(true);
+            finish();
 
 
         }

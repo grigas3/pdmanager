@@ -26,6 +26,7 @@ import com.pdmanager.models.MedicationOrder;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.FragmentListener;
+import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,8 +35,8 @@ import java.util.Date;
 /**
  * Created by Marko Koren on 11.1.2017.
  */
-public class DiaryTrackingFragment extends AlertPDFragment implements FragmentListener,IDirectSendCallback {
-    private static final String LOG_TAG = DiaryTrackingFragment.class.getName();
+public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDirectSendCallback {
+    private static final String LOG_TAG = DiaryTrackingActivity.class.getName();
 
     private View selectedMoodView;
     private ArrayList<View> selectedActivityViews;
@@ -45,6 +46,7 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
 
     private LinearLayout diaryOn;
     private LinearLayout diaryOnDys;
+    private LinearLayout diaryOnSevDys;
     private LinearLayout diaryOff;
 //    private LinearLayout moodAwfull;
 
@@ -54,19 +56,19 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
     private RelativeLayout busyIndicator;
     private RelativeLayout layout;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_diary_tracking, container, false);
 
-        setUp(rootView);
-        return rootView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_diary_tracking);
+        setUp();
     }
 
 
-    public void setUp (  View rootView ) {
 
-        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(getContext()).getToken(),this);
+    public void setUp (   ) {
+        final SoundFeedbackActivity rootView=this;
+        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(),this);
 
         busyIndicator = (RelativeLayout) rootView.findViewById(R.id.busy_BusyIndicator);
 
@@ -83,6 +85,9 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
         diaryOff = (LinearLayout) rootView.findViewById(R.id.diary_off);
         diaryOff.setOnClickListener(moodClickListener);
 
+        diaryOnSevDys = (LinearLayout) rootView.findViewById(R.id.diary_on_severedys);
+        diaryOnSevDys.setOnClickListener(moodClickListener);
+
         chooseText = (TextView) rootView.findViewById(R.id.mood_act_choose);
         buttonNext = (RelativeLayout) rootView.findViewById(R.id.button_mood_next);
         buttonNext.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +102,7 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
                     //Calendar cal2 = Calendar.getInstance();
                     cal1.setTime(date1);
 
-                    String patientCode= RecordingSettings.GetRecordingSettings(getContext()).getPatientID();
+                    String patientCode= RecordingSettings.GetRecordingSettings(rootView).getPatientID();
 
                     ArrayList<Observation> observations=new ArrayList<Observation>();
                     int pv=Integer.parseInt( selectedMoodView.getTag().toString());
@@ -153,24 +158,9 @@ public class DiaryTrackingFragment extends AlertPDFragment implements FragmentLi
         busyIndicator.setVisibility(View.INVISIBLE);
         layout.setVisibility(View.VISIBLE);
 
-        long t=(System.currentTimeMillis());
-        PatientHomeFragment patientHomeFragment = new PatientHomeFragment();
-        FragmentTransaction fragmentTransaction =
-                getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, patientHomeFragment);
-        fragmentTransaction.commit();
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-    }
 
+        finishTest();
+    }
 
 }

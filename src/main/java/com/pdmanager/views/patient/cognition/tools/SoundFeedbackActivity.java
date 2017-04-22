@@ -1,7 +1,10 @@
 package com.pdmanager.views.patient.cognition.tools;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.WindowManager;
 
+import com.pdmanager.R;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 
@@ -26,6 +29,11 @@ public class SoundFeedbackActivity extends LoggingTestActivity
         speak = Speak.getInstance(getApplicationContext());
         tones = Tones.getInstance();
         prefs = new Preferences(getApplicationContext());
+
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
     }
 
     /**
@@ -34,9 +42,17 @@ public class SoundFeedbackActivity extends LoggingTestActivity
     protected void finishTest(){
 
         //TODO: Add Usage Statistics?
-
+        setContentView(R.layout.fragment_thanks);
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Do something after 100ms
+                finish();
+            }
+        }, 5000);
         //Finish Test mainly finish the activity
-        finish();
+
 
 
     }
@@ -66,6 +82,10 @@ public class SoundFeedbackActivity extends LoggingTestActivity
         }
 
         return null;
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 

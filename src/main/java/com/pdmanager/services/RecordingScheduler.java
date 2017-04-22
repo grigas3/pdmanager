@@ -163,8 +163,6 @@ public class RecordingScheduler implements IDataProcessor {
     public long shouldPause()
     {
 
-
-
         if(intervalsToAcquire<=0)
         {
             return plannedStop;

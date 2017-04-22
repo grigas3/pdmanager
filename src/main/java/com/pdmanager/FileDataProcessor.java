@@ -41,7 +41,7 @@ public class FileDataProcessor extends BaseDataProcessor {
     private String CreateFolder(Time today) {
 
         StringBuilder hrsb = new StringBuilder();
-
+        hrsb.append("PDManager/");
         hrsb.append(String.format("%04d", today.year));                // Year)
         hrsb.append("_");
         hrsb.append(String.format("%02d", today.monthDay));          // Day of the month (1-31)
@@ -118,10 +118,10 @@ public class FileDataProcessor extends BaseDataProcessor {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
 
-        //String recfolder = CreateFolder(today);
+       // String recfolder = CreateFolder(today);
 
 
-        String recfolder = "PDManager";
+        String recfolder = "PD_Manager";
 
         String accNewFileName = "sensor_acc";
         String gyroNewFileName = "sensor_gyro";

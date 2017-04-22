@@ -37,6 +37,8 @@ public interface IUserAlertManager {
      */
     void add(UserAlert alert);
 
+    void setNotified(String id);
+
     void setNotified(UserAlert alert);
     //boolean setNotified(String id);
    // boolean setNotActive(String id);

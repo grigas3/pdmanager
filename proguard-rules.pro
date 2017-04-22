@@ -12,15 +12,12 @@
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
--dontwarn okio.**
--dontwarn okhttp3.**
--dontwarn com.google.appengine.**
--dontwarn javax.servlet.**
-
-# Support classes for compatibility with older API versions
-
--dontwarn android.support.**
--dontnote android.support.**
+-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+   public *;
+}
+-keep class com.dropbox.** {*;}
+-keep class com.google.common.** {*;}
+-keep class com.square.picasso.** {*;}
 # Needed to keep generic types and @Key annotations accessed via reflection
 -keepattributes Signature,RuntimeVisibleAnnotations,AnnotationDefault
 -keepclassmembers class * {
@@ -35,7 +32,7 @@
 
 # Needed by google-play-services when linking against an older platform version
 -dontwarn com.google.android.gms.**
--dontnote com.google.android.gms.**
+
 
 # com.google.client.util.IOUtils references java.nio.file.Files when on Java 7+
 -dontnote java.nio.file.Files, java.nio.file.Path
@@ -46,3 +43,6 @@
 # Suppress warnings on sun.misc.Unsafe
 -dontnote sun.misc.Unsafe
 -dontwarn sun.misc.Unsafe
+
+
+-dontwarn **

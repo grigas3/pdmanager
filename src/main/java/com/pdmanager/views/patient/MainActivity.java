@@ -55,20 +55,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pdmanager.call.CNMessage;
-import com.pdmanager.app.AlertFragmentManager;
 import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.app.PDPilotAppContext;
 import com.pdmanager.R;
 import com.pdmanager.app.VideoApp;
-import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.NetworkStatus;
-import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.call.AVChatSessionFragment;
+import com.pdmanager.views.caregiver.MedListFragment;
 import com.telerik.common.TrackedApplication;
 import com.telerik.common.contracts.TrackedActivity;
 import com.telerik.common.contracts.TransitionHandler;
@@ -76,7 +74,6 @@ import com.telerik.primitives.TipsPresenter;
 
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Timer;
 
 //import com.pdmanager.services.RegistrationIntentService;
 
@@ -224,6 +221,18 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
                 actionBar.setBackgroundDrawable(currentBgColor);
             }
             this.setupActionBar();
+
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
+            ///Set Brightness
+            float SysBackLightValue = 255f;
+
+
+          //  android.provider.Settings.System.putInt(BatteryBoosterActivity.this.getContentResolver(),   android.provider.Settings.System.SCREEN_BRIGHTNESS,(int) SysBackLightValue);
+          //  Window myWindow =BatteryBoosterActivity.this. getWindow();
+          //  WindowManager.LayoutParams winParams = myWindow.getAttributes();                                    winParams.screenBrightness = 255f;
+          //  myWindow.setAttributes(winParams);
         }
         catch (Exception ex)
         {

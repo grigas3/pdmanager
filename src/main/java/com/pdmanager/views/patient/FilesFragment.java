@@ -93,7 +93,7 @@ public class FilesFragment extends BasePDFragment implements FragmentListener {
         try {
 
             items.clear();
-            String recfolder = "PDManager";
+            String recfolder = "PD_Manager";
             File pathToExternalStorage = Environment.getExternalStorageDirectory();
             File appDirectory = new File(pathToExternalStorage.getAbsolutePath() + "/" + recfolder + "/");
             File[] dirFiles = appDirectory.listFiles();
@@ -123,7 +123,7 @@ public class FilesFragment extends BasePDFragment implements FragmentListener {
 
 
         try {
-            String recfolder = "PDManager";
+            String recfolder = "PD_Manager";
 
             File pathToExternalStorage = Environment.getExternalStorageDirectory();
             //to this path add a new directory path and create new App dir (InstroList) in /documents Dir
@@ -152,7 +152,7 @@ public class FilesFragment extends BasePDFragment implements FragmentListener {
 
 
         try {
-            String recfolder = "PDManager";
+            String recfolder = "PD_Manager";
 
             File pathToExternalStorage = Environment.getExternalStorageDirectory();
             //to this path add a new directory path and create new App dir (InstroList) in /documents Dir

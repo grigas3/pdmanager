@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
@@ -66,6 +67,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
@@ -83,12 +85,27 @@
         </receiver>
 
         <activity
+            android:name="com.pdmanager.views.caregiver.CaregiverActivity"
+            android:label="@string/title_activity_caregiver"
+            android:theme="@style/BrandedActionBarTheme">
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".views.SearchPatientActivity" />
+            <intent-filter>
+
+
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name="com.pdmanager.views.patient.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/BrandedActionBarTheme">
             <intent-filter>
 
-                <action android:name="android.intent.action.MAIN" />
+-                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -222,18 +239,24 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:screenOrientation="userPortrait" >
         </activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestTwo"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:screenOrientation="userPortrait" >
         </activity>
 
         <activity
             android:name="com.pdmanager.views.patient.cognition.fingertapping.FingerTappingEnd"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:screenOrientation="userPortrait" >
         </activity>
 
@@ -241,6 +264,7 @@
         <activity
             android:name="com.pdmanager.views.patient.MedAlertActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:noHistory="true"
             android:launchMode="singleTask"
             android:taskAffinity=""
             android:excludeFromRecents="true"
@@ -254,6 +278,7 @@
             android:launchMode="singleTask"
             android:taskAffinity=""
             android:excludeFromRecents="true"
+            android:noHistory="true"
             android:screenOrientation="userPortrait" >
         </activity>
 
@@ -264,6 +289,8 @@
             android:launchMode="singleTask"
             android:taskAffinity=""
             android:excludeFromRecents="true"
+            android:noHistory="true"
+
             android:screenOrientation="userPortrait" >
         </activity>
 
@@ -272,6 +299,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.speech.SpeechTest"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:screenOrientation="userPortrait"
             android:label="@string/app_name" >
         </activity>
@@ -279,6 +308,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.PairedAssociatesLearningTest"
             android:label="@string/title_menu2"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -290,6 +321,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.PALPRM"
             android:label="@string/title_menu10"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="userLandscape">
             <meta-data
@@ -300,6 +333,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.PatternRecognitionMemoryTest"
             android:label="@string/title_menu3"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="userLandscape">
             <meta-data
@@ -310,6 +345,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.SpatialWorkingMemoryTest"
             android:label="@string/title_menu4"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:screenOrientation="userLandscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu" >
@@ -321,6 +358,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.SpatialSpanTest"
             android:label="@string/title_menu5"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -332,6 +371,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.StopSignalTaskTest"
             android:label="@string/title_menu6"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -343,6 +384,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.WisconsinCardSorting"
             android:label="@string/title_menu9"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -355,6 +398,9 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest"
             android:label="@string/title_menu9"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -367,6 +413,9 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest"
             android:label="@string/title_menu7"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -378,6 +427,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest"
             android:label="@string/title_menu8"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
@@ -389,6 +440,8 @@
         <activity
             android:name="com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest2"
             android:label="@string/title_menu8"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName="com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu"
             android:screenOrientation="userLandscape">
