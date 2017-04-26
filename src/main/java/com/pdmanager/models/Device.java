@@ -3,20 +3,30 @@ package com.pdmanager.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by george on 28/12/2016.
  */
 
 public class Device extends PDEntity implements Parcelable {
 
-public String Identifier;
 
+        @SerializedName("Identifier")
+        public String Identifier;
+    @SerializedName("OrganizationId")
     public String OrganizationId;
+    @SerializedName("Type")
     public String Type;
+    @SerializedName("Note")
     public String Note;
+    @SerializedName("Status")
     public String Status;
+    @SerializedName("Manufacturer")
     public String Manufacturer;
+    @SerializedName("Model")
     public String Model;
+    @SerializedName("Version")
     public String Version;
 
 

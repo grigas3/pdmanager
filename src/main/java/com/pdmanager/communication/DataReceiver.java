@@ -12,6 +12,7 @@ import com.pdmanager.models.ObservationCode;
 import com.pdmanager.models.Patient;
 import com.pdmanager.models.PatientListResult;
 
+import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by george on 25/1/2016.
  */
 public class DataReceiver {
-
+    private static final String TAG = "DataReceiver";
     private final Gson gson;
     private final String accessToken;
 
@@ -163,12 +164,18 @@ public class DataReceiver {
         try {
 
 
+
             String jsonResponse = manager.Get("Device", param);
-            List<Device> devices = gson.fromJson(jsonResponse, new TypeToken<List<Device>>() {
-            }.getType());
+
+            Log.d(TAG,jsonResponse);
+            Type t=new TypeToken<List<Device>>() {
+            }.getType();
+            List<Device> devices = gson.fromJson(jsonResponse,t);
 
             return devices;
         } catch (Exception e) {
+
+            Log.e(TAG,e.getMessage(),e.getCause());
 
         }
 

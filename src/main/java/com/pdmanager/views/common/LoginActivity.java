@@ -393,7 +393,7 @@ else
         public boolean success;
         public boolean patient;
 
-
+        public String error;
         public String access_token;
         public int expires_in;
         public String id;
@@ -558,10 +558,28 @@ else
             LoginResult res = client.Login(model);
 
 
+            ret.error="";
+
             if (res.success) {
                 ret.success = true;
-                if (res.role != null)
+                if (res.role != null) {
                     ret.patient = (res.role.toLowerCase().equals("patients"));
+
+
+                    if(!ret.patient) {
+                        //ONLY FOR PILOT
+                        ret.success = false;
+                        ret.error = "User is not patient";
+                    }
+
+                }
+                else
+                {
+                    ret.success=false;
+                    ret.error="User has not a patient role";
+
+
+                }
                 ret.access_token = res.access_token;
                 ret.expires_in = res.expires_in;
                 ret.id = res.rolemapid;
@@ -570,8 +588,14 @@ else
                 ret.role = res.role;
 
 
+                Log.d(TAG,"Logged in as "+res.role );
                 //client.GetUserRole("http://pdmanager.3dnetmedical.com/userusers?take=10&skip=0&filter={'name':'"+mEmail+"'}&sort=&sortdir=false&lastmodified=");
 
+            }
+            else
+            {
+
+                ret.error="Password incorrect or no internet connection";
             }
 
 
@@ -600,7 +624,6 @@ if(ret!=null) {
         if (ret.patient) {
 
             settings.setPatientID(ret.id);
-
             Intent mainIntent = new Intent(LoginActivity.this, TechnicianActivity.class);
             LoginActivity.this.startActivity(mainIntent);
         } else {
@@ -611,7 +634,7 @@ if(ret!=null) {
 
         finish();
     } else {
-        mPasswordView.setError(getString(R.string.error_incorrect_password));
+        mPasswordView.setError(ret.error);
         mPasswordView.requestFocus();
     }
 }

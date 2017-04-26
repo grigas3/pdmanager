@@ -4,17 +4,23 @@ package com.pdmanager.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by george on 6/1/2016.
  */
 public class UsageStatistic extends PDEntity implements Parcelable {
 
-
+    @SerializedName("Timestamp")
     private long Timestamp;
+    @SerializedName("Value")
     private double Value;
+    @SerializedName("CodeId")
     private String CodeId;
-
+    @SerializedName("PatientIdentifier")
     private String PatientIdentifier = "PAT01";
+
+    @SerializedName("DeviceId")
     private String DeviceId = "DEV01";
 
     public UsageStatistic(double value, String code, long t, String patient,String deviceId) {

@@ -4,18 +4,28 @@ package com.pdmanager.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by george on 30/11/2015.
  */
 public class Alert extends PDEntity implements Parcelable {
 
-
+    @SerializedName("Title")
     public String Title;
+    @SerializedName("Message")
     public String Message;
+    @SerializedName("Type")
     public String Type;
+    @SerializedName("Expiration")
     public long Expiration;
+    @SerializedName("Timestamp")
     public long Timestamp;
+
+    @SerializedName("Source")
     public String Source = "PAT01";
+
+    @SerializedName("UserNotified")
     public boolean UserNotified;
 
     /**

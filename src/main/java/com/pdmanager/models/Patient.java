@@ -27,6 +27,7 @@ public class Patient extends PDEntity implements Parcelable {
     };
     /// PD Manager Identifier
     /// </summary>
+
     public String Code;
     /// <summary>
     /// Given Name

@@ -1,5 +1,6 @@
 package com.pdmanager.models;
 
+import com.google.gson.annotations.SerializedName;
 import com.pdmanager.common.interfaces.IPDEntity;
 
 /**
@@ -7,8 +8,11 @@ import com.pdmanager.common.interfaces.IPDEntity;
  */
 public abstract class PDEntity implements IPDEntity {
 
+    @SerializedName("Id")
     public String Id;
+    @SerializedName("PatientId")
     public String PatientId;
+    @SerializedName("Organization")
     public String Organization;
 
     @Override

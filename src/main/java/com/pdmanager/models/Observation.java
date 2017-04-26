@@ -1,6 +1,8 @@
 package com.pdmanager.models;
 
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,10 +11,13 @@ import java.util.Date;
  */
 public class Observation extends PDEntity {
 
-
+    @SerializedName("Timestamp")
     private long Timestamp;
+    @SerializedName("Value")
     private double Value;
+    @SerializedName("CodeId")
     private String CodeId;
+    @SerializedName("Date")
     private Calendar Date;
 
     public Observation() {

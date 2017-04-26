@@ -489,7 +489,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
              return false;
         }
-        try {
+    /*    try {
             BandClientManager manager = BandClientManager.getInstance();
             BandInfo[] mPairedBands = manager.getPairedBands();
 
@@ -509,6 +509,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             Log.d(TAG,e.getMessage());
         }
+        */
 
 
         return true;
@@ -593,7 +594,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             );
         }
 
-        try {
+     /*   try {
             BandClientManager manager = BandClientManager.getInstance();
             BandInfo[] mPairedBands = manager.getPairedBands();
 
@@ -612,8 +613,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         {
 
 
-            Log.d(TAG,e.getMessage());
+            Log.e(TAG,e.getMessage());
         }
+        */
 
 
     }
@@ -996,7 +998,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         catch (Exception ex)
         {
 
-            Log.e("EE",ex.getMessage());
+            Log.e(TAG,ex.getMessage());
         }
 
     }
@@ -1227,11 +1229,30 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             busyIndicator.setVisibility(View.INVISIBLE);
             layout.setVisibility(View.VISIBLE);
 
-            Intent mainIntent = new Intent(getActivity(), MainActivity.class);
-            getActivity().startActivity(mainIntent);
+            //Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+            //getActivity().startActivity(mainIntent);
+
+            updateHeartRatePermissions();
 
             //refreshControls();
         }
+    }
+
+    private void updateHeartRatePermissions()
+    {
+
+
+        try {
+            getService().requireHeartRatePermissions();
+
+        }
+        catch (Exception ex)
+        {
+
+            Log.e(TAG,ex.getMessage(),ex.getCause());
+        }
+        //requirePermissions(this.getActivity());
+
     }
 
     private class UpdateDeviceStatusTask extends AsyncTask<Void, Void, DeviceResult> {
@@ -1327,24 +1348,36 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                 List<Device> devices = receiver.GetDevices(code);
 
+                boolean deviceFound=false;
                 if (devices.size() > 0) {
 
                     for (Device d : devices) {
 
-                        if (d.PatientId.equals(code)) {
+
+                        Log.d(TAG,"Device Id" +d.Id);
+                        Log.d(TAG,"Device PatientId" +d.PatientId);
+                        Log.d(TAG,"Device Model" +d.Model);
+                        if (d.PatientId!=null&&d.PatientId.equals(code)) {
                             res.DeviceId = d.Id;
-
-
-
+                            deviceFound=true;
                         }
 
                     }
+                    if(!deviceFound)
+                    {
 
+                        res.Error="No Device Found For Patient "+code;
+                        res.HasError=true;
+
+                    }
+                    else
                     res.HasError = false;
 
 
                 }
             } catch (Exception e) {
+
+                Log.e(TAG,e.getMessage(),e.getCause());
                 res.HasError = true;
             }
 
@@ -1363,6 +1396,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
                 mTextGetDevice.setTextColor(Color.GREEN);
+            }
+            else
+            {
+                mTextGetDevice.setText(result.Error);
+                mTextGetDevice.setTextColor(Color.RED);
+
             }
 
 

@@ -20,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 
 /**
  * Created by george on 9/12/2015.
@@ -29,6 +30,7 @@ import java.io.InputStreamReader;
 public class RESTClient {
 
 
+    private static final String TAG = "RestClient";
     private String accessToken;
 
     public RESTClient() {
@@ -47,7 +49,6 @@ public class RESTClient {
         String result = "";
         while ((line = bufferedReader.readLine()) != null)
             result += line;
-
         inputStream.close();
         return result;
 
@@ -78,17 +79,27 @@ public class RESTClient {
             // Execute HTTP Post Request
             HttpResponse response = httpclient.execute(httppost);
             int code = response.getStatusLine().getStatusCode();
+
+
             if (code == HttpStatus.SC_OK) {
                 Gson gson = new Gson();
 
+                String resMessage=convertInputStreamToString(response.getEntity().getContent());
 
-                LoginResult obj = gson.fromJson(convertInputStreamToString(response.getEntity().getContent()), new TypeToken<LoginResult>() {
-                }.getType());
+                Log.d(TAG,resMessage);
+                Type type = new TypeToken<LoginResult>(){}.getType();
+                LoginResult obj = gson.fromJson(resMessage, type);
+
+                Log.d(TAG,"Role "+obj.role);
+                Log.d(TAG,"TOKEN "+obj.access_token);
+
                 obj.success = true;
                 return obj;
             } else
 
             {
+
+                Log.e(TAG,response.toString());
                 LoginResult res = new LoginResult();
                 res.success = false;
                 return res;
@@ -97,7 +108,7 @@ public class RESTClient {
 
 
         } catch (Exception e) {
-            Log.d("ERROR", e.toString());
+            Log.e(TAG, e.getMessage(),e.getCause());
             LoginResult res = new LoginResult();
             res.success = false;
             return res;

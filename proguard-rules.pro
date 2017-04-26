@@ -45,4 +45,16 @@
 -dontwarn sun.misc.Unsafe
 
 
+
+-keep class * implements android.os.Parcelable {
+   public static final android.os.Parcelable$Creator *;
+ }
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+
+# Application classes that will be serialized/deserialized over Gson
+-keep class pdmanager.models.** { *; }
+
+-keepattributes *Annotation*
 -dontwarn **

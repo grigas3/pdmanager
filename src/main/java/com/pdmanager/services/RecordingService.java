@@ -1371,7 +1371,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     /**
      * Require permissions for accessing Heart Rate Sensor
      */
-    private void requireHeartRatePermissions() {
+    public void requireHeartRatePermissions() {
 
         if (mClient != null) {
             BandSensorManager sensorMgr = mClient.getSensorManager();
@@ -1661,7 +1661,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (Exception ex) {
 
-                Util.handleException("Register Device Sensors", ex);
+
+                Log.e(TAG,ex.getMessage(),ex.getCause());
+                //Util.handleException("Register Device Sensors", ex);
 
             }
 
