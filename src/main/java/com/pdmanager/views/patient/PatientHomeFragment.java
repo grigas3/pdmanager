@@ -29,6 +29,7 @@ import com.pdmanager.interfaces.IServiceStatusListener;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest;
 import com.pdmanager.views.patient.cognition.cognitive.PALPRM;
@@ -749,9 +750,9 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                     @Override
                     public void run() {
 
-
+                        RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
                         RecordingService service = RecordingServiceHandler.getInstance().getService();
-                        if (service != null && service.isSessionRunning()) {
+                        if (service != null && settings.getSessionRunning()) {
 
                             updateUIAlerts();
 

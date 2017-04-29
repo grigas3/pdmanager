@@ -8,11 +8,14 @@ import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.interfaces.IDataProcessor;
 import com.pdmanager.BuildConfig;
 import com.pdmanager.services.RecordingScheduler;
+import com.pdmanager.services.RecordingService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -23,7 +26,30 @@ import static org.junit.Assert.assertTrue;
 public class RecordingSchedulerTest {
 
 
+    @Test
+    public void testScheduledRun() {
 
+
+
+        assertFalse(RecordingService.testSheduledRun(7,8,20));
+
+
+        assertFalse(RecordingService.testSheduledRun(7,8,20));
+
+
+
+        assertTrue(RecordingService.testSheduledRun(8,8,20));
+
+        assertTrue(RecordingService.testSheduledRun(16,8,20));
+
+
+        assertFalse(RecordingService.testSheduledRun(23,8,20));
+
+
+        assertFalse(RecordingService.testSheduledRun(0,8,20));
+
+
+    }
 
     @Test
     public void testPlannedStop() {

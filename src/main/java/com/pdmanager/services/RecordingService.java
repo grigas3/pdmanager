@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.os.PowerManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -118,7 +119,17 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class RecordingService extends Service implements ISensorDataHandler, SensorEventListener, IPDToastWriter, ILogHandler, IJsonRequestHandler, INetworkStatusHandler, ITokenUpdater {
 
+
+    private static final int FATAL_GPS_SECURITY=0;
+    private static final int FATAL_GPS_EXCEPTION =1;
+    private static final int FATAL_BAND_SENSNUMBER=3;
+    private static final int FATAL_BAND_CONNECTION=4;
+    private static final int FATAL_DEVICE_SENSORS=5;
+    private static final int FATAL_START_QUEUE=6;
+    private static final int FATAL_START_TIMER=7;
+
     private static final String TAG = "RECORDING";
+    private static final String WL_TAG = "RECORDING_WAKE";
     // The minimum distance to change Updates in meters
     private static final long MIN_UPDATE_DISTANCE = 10;
 
@@ -384,7 +395,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     @Override
     public void ProcessLog(String logType, String message) {
 
-        DBHandler handler = null;
+
+        //REMOVED FOR PILOT
+       DBHandler handler = null;
         SQLiteDatabase sqlDB = null;
         try {
 
@@ -513,7 +526,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (Exception ex) {
 
-                LogError("Timer", ex);
+                LogFatal("Timer",ex,FATAL_START_TIMER);
+
             }
         }
 
@@ -541,6 +555,21 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+
+    public static boolean testSheduledRun(int hourOfDay,int startHour, int endHour) {
+
+
+        return conditionScheduledRun(hourOfDay,startHour,endHour);
+
+
+    }
+
+    private static boolean conditionScheduledRun(int hourOfDay,int startHour, int stopHour) {
+
+     return   !(hourOfDay < startHour || hourOfDay >=stopHour);
+
+    }
+
     private boolean scheduledRun() {
 
         // if(schedulerPause)
@@ -553,7 +582,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             int hourOfDay = c.get(Calendar.HOUR_OF_DAY);
 
-            return !(hourOfDay < settings.getStartHour() || hourOfDay >= settings.getStopHour());
+            return conditionScheduledRun(hourOfDay,settings.getStartHour() ,settings.getStopHour());
 
         } else
             return false;
@@ -599,7 +628,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (Exception ex) {
 
-                LogError("Cannot Create Queue: " + ex.getMessage());
+                LogFatal("QUEUE",ex,FATAL_START_QUEUE);
+                //LogError("Cannot Create Queue: " + ex.getMessage());
             }
 
         }
@@ -755,12 +785,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             try {
 
-                if(devsamples==0)
-                {
 
-                    LogFatal("Device not acquiring",4);
-
-                }
 
                 String patient = getPatient();
 
@@ -861,12 +886,38 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         if (sessionRunning) {
             long unixTime = System.currentTimeMillis();
 
+
+
+            if(mAccDeviceEnabled)
+            {
+
+
+                /// IF no data acquired for 30 seconds
+                if(devsamples==0)
+                {
+
+
+                    LogError("Dev samples are zero");
+                    unRegisterDeviceSensors();
+
+                    //Ok give it soome time
+                    Thread.sleep(500);
+                    registerDeviceSensors();
+
+
+
+                }
+
+
+            }
+
+
             if (mBandEnabled) {
 
                 if ((unixTime - lastBandAcquisition) / 1000 > 60) {
 
                     if (mBandAcquiring) {
-                        LogFatal("Band has at least 60 seconds to acquire", 2);
+                        LogWarn("Band has at least 60 seconds to acquire", 2);
                         //LogWarn("Band has at least 30 seconds to acquire");
 
                     }
@@ -958,7 +1009,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                     if (mFatalError) {
 
-                        SendAlert("INFO", "Band Acquiring data", "INFOCODE002");
+                     //   SendAlert("INFO", "Band Acquiring data", "INFOCODE002");
 
                     }
 
@@ -1432,7 +1483,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         StopReader();
         stopTimer();
         stopCommQueue();
-
         closeBluetooth();
 
     }
@@ -1444,7 +1494,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
      */
     private boolean StopReader() {
 
+
+
         /// UnRegister Receiver
+
+
 
         if (receiverRegistered) {
 
@@ -1490,25 +1544,15 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             } catch (Exception ex) {
                 // Util.showExceptionAlert(getActivity(), "Disconnect", ex);
                 LogError("Disconnect error");
-                Util.handleException("Disconnect", ex);
 
-                return false;
+
+
             }
 
         }
 
         if (mAccDeviceEnabled) {
-            try {
-
-                LogInfo("Unregister device sensors");
-                senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-                senSensorManager.unregisterListener(this);
-            } catch (Exception ex) {
-
-                LogError("Unregister device sensors error");
-                //  Util.handleException("Unregister device sensors",ex);
-            }
-
+            unRegisterDeviceSensors();
         }
 
         ///Mark that session is not running
@@ -1517,7 +1561,12 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         if (fileProcessor != null)
             fileProcessor.finalize();
 
+        //Release Lock
+        releaseLock();
+
         notifyListeners();
+
+
 
         LogWarn("Service stopped", 1);
 
@@ -1558,7 +1607,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                     mClient = manager.create(this, mPairedBands[0]);
 
                 } else {
-                    LogFatal("Number of Band Sensors is 0", 1);
+                    LogFatal("Number of Band Sensors is 0", FATAL_BAND_SENSNUMBER);
                     if (!mFatalError) {
                         mFatalError = true;
                         mFatalErrorCode = 1;
@@ -1573,7 +1622,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (Exception ex) {
 
-                LogFatal("Exception while connecting to band", 3);
+                LogFatal("Exception while connecting to band", FATAL_BAND_CONNECTION);
             }
 
 
@@ -1604,10 +1653,49 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    public static PowerManager.WakeLock WAKELOCK = null;
+
+    /**
+     *
+     */
+    private void wakeLock()
+    {
+
+        try {
+            if (WAKELOCK == null) {
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                WAKELOCK = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, WL_TAG);
+                WAKELOCK.acquire();
+                //startService(new Intent(getApplicationContext(), SerialPortService.class));
+            }
+        }
+        catch (Exception ex)
+        {
+            LogError(TAG,(ex));
+        }
+
+
+    }
+
+
+    private void releaseLock()
+    {
+        try {
+        if(WAKELOCK!=null)
+        WAKELOCK.release();
+        WAKELOCK = null;
+        }
+        catch (Exception ex)
+        {
+            LogError(TAG,(ex));
+        }
+
+    }
     private boolean StartReader() {
 
         if (fileProcessor != null)
             fileProcessor.initialize();
+
         String pid = getPatient();
 
         if (vitalMonitoring != null)
@@ -1643,10 +1731,10 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (SecurityException ex) {
 
-                LogError("Cannot Register GPS listener for Security reasons");
+                LogFatal("Cannot Register GPS listener for Security reasons",FATAL_GPS_SECURITY);
             } catch (Exception ex) {
 
-                LogError("Cannot Register GPS listener");
+                LogFatal("Cannot Register GPS listener",FATAL_GPS_EXCEPTION);
             }
 
         }
@@ -1656,35 +1744,21 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         if (mAccDeviceEnabled) {
             try {
 
-                RegisterDeviceSensors();
+                registerDeviceSensors();
 
 
             } catch (Exception ex) {
 
-
-                Log.e(TAG,ex.getMessage(),ex.getCause());
-                //Util.handleException("Register Device Sensors", ex);
+                LogFatal("SENSORS",ex,FATAL_DEVICE_SENSORS);
 
             }
 
         }
-      /*  else
 
-        {
+        //Acquire wake Lock
+        wakeLock();
 
-            try {
 
-                LogInfo("Device sensors unregistered");
-
-                senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-                senSensorManager.unregisterListener(this);
-            } catch (Exception ex) {
-
-                Util.handleException("Unregister Device Sensors",ex);
-            }
-
-        }
-        */
         LogWarn("RECORDING RESUMED", 43);
 
         if (mBandEnabled) {
@@ -1744,6 +1818,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         startTimer();
         startCommQueue();
 
+
         if (scheduledRun()) {
             ///First enable bluetooth
             enableBluetooth();
@@ -1763,6 +1838,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         stopTimer();
         StopReader();
         stopCommQueue();
+
 
         super.onDestroy();
 
@@ -1893,10 +1969,28 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         bandSensorsRegistered = true;
     }
 
+
+    /**
+     * Unregister Device Sensors
+     */
+    private void unRegisterDeviceSensors()
+    {
+        try {
+
+            LogInfo("Unregister device sensors");
+            senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+            senSensorManager.unregisterListener(this);
+        } catch (Exception ex) {
+
+            LogError("Unregister device sensors error");
+            //  Util.handleException("Unregister device sensors",ex);
+        }
+
+    }
     /**
      * Register Device Sensors
      */
-    private void RegisterDeviceSensors() {
+    private void registerDeviceSensors() {
 
         ///Get Device Sensors
         senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -2236,8 +2330,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     }
 
     private void LogFatal(String e, int code) {
-
-        LogError(e);
+        Log.e(TAG,e);
+       // LogError(e);
         mFatalError = true;
         mFatalErrorCode = code;
         ProcessLog("FATAL", e);
@@ -2246,7 +2340,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
     }
+    private void LogFatal(String mess,Exception ex, int code) {
 
+        Log.e(TAG,mess, ex.getCause());
+        mFatalError = true;
+        mFatalErrorCode = code;
+        ProcessLog("FATAL", mess);
+        notifyListeners();
+        SendAlert(mess, String.format("ERROR%03d", code));
+
+
+    }
     private void LogError(String source) {
 
         Log.e(TAG,source);
@@ -2437,16 +2541,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                     if (!scheduledRun()) {
 
+
                         if (sessionRunning) {
-
-                            ///Notify user using toast messagfe
-                          /*  if (toastHandler != null) {
-                                Message s = new Message();
-                                s.obj = "Service stopped for today";
-                                toastHandler.sendMessage(s);
-                            }
-                            */
-
+                            /// IF SESSION RUNNING STOP SESSION
                             ///Notify Server
                             LogInfo("Service stopped for today");
                             SendAlert("INFO", "Service stopped for today", "INFO0002");
@@ -2474,26 +2571,34 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
                             }
+                            else
+                            {
+
+                                //Session Running
+                                // Check For Errors
+                                if (!bandActionTaken) {
+
+                                    try {
+
+                                        checkForAlerts();
+
+                                    } catch (InterruptedException ex) {
+
+                                        LogError("EX ON SCHEDULING", ex.getCause());
+                                    } catch (Exception ex) {
+
+                                        LogError("EX ON SCHEDULING", ex.getCause());
+                                    }
+
+                                }
+
+                            }
 
 
                         }
 
                     }
-                    if (!bandActionTaken) {
 
-                        try {
-
-                            checkForAlerts();
-
-                        } catch (InterruptedException ex) {
-
-                            LogError("EX ON SCHEDULING", ex.getCause());
-                        } catch (Exception ex) {
-
-                            LogError("EX ON SCHEDULING", ex.getCause());
-                        }
-
-                    }
 
                     ///Check For Alert only if
 
@@ -2517,9 +2622,14 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 //Check for Medication User Alert
                 //checkForMedAlerts();
                 //Check For Alerts
+                if (scheduledRun()) {
 
-                //Update Usage Statistics
-                updateUsageStatistics();
+                    if (sessionRunning) {
+                        //Update Usage Statistics
+                        updateUsageStatistics();
+
+                    }
+                }
 
                 //Check For User Notifications
                 checkForUserNotifications();
