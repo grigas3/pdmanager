@@ -60,7 +60,7 @@ public class RecordingSettings {
     private int mMoodHour=19;
     private int mMedHour1=12;
     private int mMedHour2=22;
-    private int mDiaryHour=21;
+    private int mDiaryHour=8;
 
     private boolean mMSSynced=false;
 
