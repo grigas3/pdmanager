@@ -431,6 +431,20 @@
     <string name="next_day" formatted="false">Επόμενο σε  %1$d  μερα(ες)</string>
     <string name="now" formatted="false">Τώρα</string>
     <string name="next_minute" formatted="false">Επόμενο σε  %1$d  λεπτό(ά)</string>
-    <string name="patient_med_instructions" >Πατήστε ναι αν έχετε πάρει τα φάρμακα σας αλλιώς πατήστε όχι.</string>
     <string name="task_number" formatted="false">Καλωσήρθατε!!! Έχετε %1$d δοκιμασίες να κάνετε!!</string>
+
+
+    <string name="patient_home_notask" formatted="false">Δεν έχετε κάποια δοκιμασία προς το παρών</string>
+
+
+
+
+    <string name="diaryMsg">Παρακάλω επιλέξτε πως αισθάνεσται αυτήν την στιγμή</string>
+    <string name="offMsg">Αργός</string>
+    <string name="onMsg">Μπορώ να κινηθω σχετικά γρηγορότερα</string>
+    <string name="onDysMsg">Μπορώ να κινηθω καλά αλλά έχω και κάποιες ακούσιες κινήσεις</string>
+    <string name="onSevereDysMsg">Μπορώ να κινηθω καλά αλλά έχω και κάποιες ΕΠΙΠΟΝΕΣ ακούσιες κινήσεις</string>
+
+    <string name="thanksMsg">Ευχαριστούμε που πραγματοποιήσατε την δοκιμασία σας!</string>
+
 </resources>

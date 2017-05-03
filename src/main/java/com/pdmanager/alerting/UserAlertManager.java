@@ -10,10 +10,14 @@ import com.pdmanager.communication.JsonStorage;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.notification.LocalNotificationTask;
 import com.pdmanager.persistence.DBHandler;
+import com.pdmanager.settings.RecordingSettings;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * Created by george on 30/11/2015.
@@ -639,7 +643,7 @@ public class UserAlertManager implements IUserAlertManager {
                     ContentValues data = new ContentValues();
                     int id = cursor.getInt(0);
                     long exp=cursor.getLong(5);
-                    data.put(DBHandler.COLUMN_EXPIRATION, exp + getNewExpirationDate(code));
+                    data.put(DBHandler.COLUMN_EXPIRATION,getNewExpirationDate(exp,code));
                     data.put(DBHandler.COLUMN_ALERTCREATED, 0);
                     db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + " = " + id, null);
 
@@ -675,7 +679,7 @@ public class UserAlertManager implements IUserAlertManager {
 
     }
 
-    private long getNewExpirationDate(String currentType) {
+    public long getNewExpirationDate(long oldExpDate,String currentType) {
 
         long expDate= 1000 * 24 * 60 * 60;
 
@@ -692,7 +696,21 @@ public class UserAlertManager implements IUserAlertManager {
             } else if (currentType.toLowerCase().startsWith("diary")) {
 
                 ///Every day (increment by one hour)
-                expDate = 1000 * 24 * 60 * 60 * 1+1000 * 1 * 60 * 60;
+                expDate = 1000 * 24 * 60 * 60 * 1;
+
+                Calendar cal1 = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+
+                Date date = new Date(oldExpDate);
+                cal1.setTime(date);
+                int hour=cal1.get(Calendar.HOUR_OF_DAY)+1;
+                int startHour=RecordingSettings.GetRecordingSettings(mContext).getStartHour();
+                int stopHour=RecordingSettings.GetRecordingSettings(mContext).getStopHour();
+                if(hour>stopHour)
+                    expDate+=(startHour-hour+1)*1000 *  60 * 60;
+                else
+                    expDate+=1000 *  60 * 60;
+
+
 
             }
 
@@ -700,7 +718,7 @@ public class UserAlertManager implements IUserAlertManager {
         }
 
 
-        return expDate;
+        return expDate+oldExpDate;
 
 
     }
@@ -730,63 +748,6 @@ public class UserAlertManager implements IUserAlertManager {
 
                 }
 
-
-        return expDate;
-
-
-    }
-
-
-    private long getNewExpirationDate(SQLiteDatabase db, String id) {
-        String whereClause = DBHandler.COLUMN_ID + " = ? ";
-
-        String[] whereArgs = new String[]{
-                id
-
-        };
-        long expDate = 0;
-        Cursor cursor = null;
-        try {
-
-            cursor = db.query(DBHandler.TABLE_ALERTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_ALERT, DBHandler.COLUMN_ALERTMESSAGE, DBHandler.COLUMN_ALERTTYPE, DBHandler.COLUMN_TIMESTAMP, DBHandler.COLUMN_EXPIRATION}, whereClause, whereArgs, null, null, DBHandler.COLUMN_EXPIRATION + " asc", "1");
-            cursor.moveToFirst();
-            if (cursor.getCount() == 0) {
-
-            } else {
-
-                String currentType = cursor.getString(3);
-                long currentExpDate = cursor.getLong(5);
-
-                if (currentType != null) {
-                    if (currentType.toLowerCase() == "med" || currentType.toLowerCase() == "mood") {
-
-                        //Add a day
-                        expDate = currentExpDate + 1000 * 24 * 60 * 60;
-                    } else if (currentType.toLowerCase().startsWith("cogn")) {
-
-                        //Add 7 days and substract 12 hours
-                        expDate = currentExpDate + 1000 * 24 * 60 * 60 * 7 - 1000 * 12 * 60 * 60;
-                    } else if (currentType.toLowerCase().startsWith("diary")) {
-
-                        ///Every 3 days
-                        expDate = currentExpDate + 1000 * 24 * 60 * 60 * 3;
-
-                    }
-
-
-                }
-
-
-            }
-        } catch (Exception e) {
-            Log.e(TAG,e.getMessage(),e.getCause());
-        } finally {
-
-            if (cursor != null) {
-                cursor.close();
-            }
-
-        }
 
         return expDate;
 

@@ -879,7 +879,37 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
 
+    private void checkForDevice()  throws InterruptedException {
 
+        if(mAccDeviceEnabled)
+        {
+
+
+            /// IF no data acquired for 30 seconds
+            if(devsamples==0)
+            {
+
+
+                LogError("Dev samples are zero");
+                unRegisterDeviceSensors();
+
+                wakeLock();
+                //Ok give it soome time
+                Thread.sleep(500);
+
+
+                registerDeviceSensors();
+                releaseLock();
+
+
+
+            }
+
+
+        }
+
+
+    }
 
     private void checkForAlerts() throws InterruptedException {
 
@@ -887,29 +917,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             long unixTime = System.currentTimeMillis();
 
 
-
-            if(mAccDeviceEnabled)
-            {
-
-
-                /// IF no data acquired for 30 seconds
-                if(devsamples==0)
-                {
-
-
-                    LogError("Dev samples are zero");
-                    unRegisterDeviceSensors();
-
-                    //Ok give it soome time
-                    Thread.sleep(500);
-                    registerDeviceSensors();
-
-
-
-                }
-
-
-            }
 
 
             if (mBandEnabled) {
@@ -1744,7 +1751,14 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         if (mAccDeviceEnabled) {
             try {
 
+
+                wakeLock();
+                Thread.sleep(500);
+
+                ///Wait a little bit
                 registerDeviceSensors();
+
+                releaseLock();
 
 
             } catch (Exception ex) {
@@ -1756,7 +1770,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
 
         //Acquire wake Lock
-        wakeLock();
+        // wakeLock();
 
 
         LogWarn("RECORDING RESUMED", 43);
@@ -2615,6 +2629,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                     } catch (Exception ex) {
 
                         LogError("EX ON SCHEDULING", ex.getCause());
+                    }
+
+                }
+
+
+                ///Check For Device Sensors
+                if (scheduledRun()) {
+
+                    if (sessionRunning) {
+
+                        checkForDevice();
                     }
 
                 }

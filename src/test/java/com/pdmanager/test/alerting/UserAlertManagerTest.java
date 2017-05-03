@@ -9,6 +9,8 @@ import com.pdmanager.BuildConfig;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.models.Alert;
 import com.pdmanager.models.UserAlert;
+import com.pdmanager.persistence.DBHandler;
+import com.pdmanager.settings.RecordingSettings;
 
 
 import org.junit.Test;
@@ -16,6 +18,10 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -25,6 +31,39 @@ import static org.junit.Assert.assertTrue;
 public class UserAlertManagerTest {
 
 
+
+
+    private int getHour(long l)
+    {
+
+        Calendar cal1= Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        Date date = new Date(l);
+        cal1.setTime(date);
+        int hour=cal1.get(Calendar.HOUR_OF_DAY);
+
+        return hour;
+
+    }
+
+    @Test
+    public void test_getNewExpirationDate() {
+        UserAlertManager manager = new UserAlertManager(RuntimeEnvironment.application);
+
+        RecordingSettings.GetRecordingSettings(RuntimeEnvironment.application).setStartHour(8);
+        RecordingSettings.GetRecordingSettings(RuntimeEnvironment.application).setStopHour(20);
+        int hour = 8;
+        long h = manager.getNewExpirationDate(1000 * hour * 60*60, "diary");
+        assertEquals(getHour(h), 9);
+
+        hour = 16;
+        h = manager.getNewExpirationDate(1000 * hour * 60*60, "diary");
+        assertEquals(getHour(h), 17);
+
+        hour = 20;
+        h = manager.getNewExpirationDate(1000 * hour * 60*60, "diary");
+        assertEquals(getHour(h), 8);
+
+    }
 
 
     @Test
