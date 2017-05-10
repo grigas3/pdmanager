@@ -357,9 +357,9 @@
     <string name="vas_question4">Do you feel motivated in doing your tests today?</string>
     <string name="vas_minValue_Q4">No</string>
     <string name="vas_maxValue_Q4">Yes</string>
-    <string name="vas_question5">Are you in ON/OFF state, in this moment?</string>
-    <string name="vas_minValue_Q5">No</string>
-    <string name="vas_maxValue_Q5">Yes</string>
+    <string name="vas_question5">Are you in ON state, in this moment?</string>
+    <string name="vas_minValue_Q5">OFF</string>
+    <string name="vas_maxValue_Q5">ON</string>
     <string name="vas_question6">Do you feel any pain or cramps?</string>
     <string name="vas_minValue_Q6">No</string>
     <string name="vas_maxValue_Q6">Yes</string>
@@ -378,8 +378,8 @@
 	<string name="vas2_question1">Do you feel happy today?</string>
 
     <string name="palprm_instruction">Now you will see a series of coupled pictures. Please, try to remember the couples because, then, you will be presented only with one picture of the couple and you will have to choose the other one, picking the right one among 4 options. You will repeat the same exercise three time, with the same couples, so you will get more familiar with them.</string>
-    <string name="london_towers_instruction">In this test you will have 3 sticks and 3 marbles of different colors. You will have to arrange this marbles according to the disposition displayed in the figure on the left side of the screen.</string>
-    <string name="wisconsin_instruction">In this test, you can view 4 cards, I would like that you put each card that will be displayed under one of the guide card where you think it’s more appropriate to. Please consider that you can match the cards according to shape, color or number criteria. I will tell you if you are doing right with a green tick or if you’re doing wrong displaying a red cross. You will have a feedback after each move.</string>
+    <string name="london_towers_instruction">Here you have 3 gray boxes and different colored 3 coins. You will have to arrange these coins according to the disposition displayed in the figure on the left side of the screen. Tap the coin to select it and then tap the destination box. Please try to make less moves as possible.</string>
+    <string name="wisconsin_instruction">Here you are 4 cards, that are different for 3 criteria: color, shape and number. Each time you have to match the cards for one of these criteria. If it is correct, you will see a green tick and you have to continue to follow the same criteria. If it is not correct, you will see a red cross and you have to change the criteria.</string>
 
     <string name="fttoneTvInstructions">Tap on the green area as fast as you can during 10 seconds. You can start when you wish.</string>
     <string name="fttoneTvTap">Tap Here!</string>

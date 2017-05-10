@@ -254,8 +254,7 @@
     <string name="attention_switching_task">Attention Switching Task</string>
     <string name="visual_analogue_scale">Visual Analogue Scale</string>
     <string name="wisconsin_card_sorting_test">Wisconsin Card Sorting</string>
-    <string name="london_towers_test">London Towers</string>
-    <string name="target">Obiettivo:</string>
+    <string name="london_towers_testObiettivo:Obiettivo:</string>
     <string name="movement">Movimento</string>
     <string name="level">Livello</string>
     <string name="title_menu10">Visual Learning</string>
@@ -287,7 +286,7 @@
 
     <string name="ic_launcher">ic_launcher</string>
 
-    <string name="pal_instruction">In questo test vedrai 6 scatole bianche aprirsi in ordine casuale. All\'interno delle scatole vedrai comparire delle figure. Il tuo compito è ricordare in quale scatola si trova la figura presentata al centro dello schermo.</string>
+    <string name="pal_instruction">In questo test vedrai 6 scatole bianche aprirsi in ordine casuale. All\'interno delle scatole vedrai comparire delle figure. Il tuo compito e ricordare in quale scatola si trova la figura presentata al centro dello schermo.</string>
     <string name="pal_instructions_choose">Tocca la scatola in cui hai visto comparire la figura.</string>
     <string name="pal_feedback">Corretto!</string>
     <string name="pal_patterns">figure</string>
@@ -305,20 +304,20 @@
     <string name="prm_levels">Livello</string>
     <string name="prm_patterns">figure</string>
 
-    <string name="swm_instruction">Ora vedrai alcune scatole colorate sullo schermo. Una di queste scatole contiene un gettone blu. Tocca le scatole per cercare il gettone blu. Devi raccogliere abbastanza gettoni per riempire tutte le scatole nere a lato dello schermo. Per raccogliere il gettone, tocca la scatola nera a lato dopo averlo trovato. Il gettone si troverà sempre in una scatola diversa.</string>
+    <string name="swm_instruction">Ora vedrai alcune scatole colorate sullo schermo. Una di queste scatole contiene un gettone blu. Tocca le scatole per cercare il gettone blu. Devi raccogliere abbastanza gettoni per riempire tutte le scatole nere a lato dello schermo. Per raccogliere il gettone, tocca la scatola nera a lato dopo averlo trovato. Il gettone si trovera sempre in una scatola diversa.</string>
     <string name="swm_results">Risultati di Spatial Working Memory:</string>
     <string name="swm_levels">Livello</string>
     <string name="instruction_start_swm">Vedrai diverse scatole alcune contenenti un quadrato blu e altre no. Trova il quadrato blu e inseriscilo nella colonna a sinistra.</string>
 
-    <string name="ssp_instruction">In questo esercizio vedrai sullo schermo alcuni quadrati illuminarsi. Ricorda l\'ordine in cui i quadrati si sono illuminati. Sentirai un suono che ti dirà quando la sequenza è terminata. A quel punto tocca i quadrati nello stesso ordine in cui li hai visti illuminarsi.</string>
+    <string name="ssp_instruction">In questo esercizio vedrai sullo schermo alcuni quadrati illuminarsi. Ricorda l\'ordine in cui i quadrati si sono illuminati. Sentirai un suono che ti dira quando la sequenza e terminata. A quel punto tocca i quadrati nello stesso ordine in cui li hai visti illuminarsi.</string>
     <string name="ssp_results">Risultati di Spatial Span</string>
     <string name="spatialSpan_instruction">Vedrai una sequenza di quadrati viola apparire, tocca le scatole nello stesso ordine.</string>
     <string name="ssp_levels">Livello</string>
     <string name="ssp_trial">Prova</string>
     <string name="ssp_patterns">figure</string>
 
-    <string name="sst_instruction_first">Prima parte: una freccia comparirà dentro un cerchio indicando destra o sinistra. Quando vedrai la freccia puntare a sinistra premi il pulsante a sinistra. Quando vedrai la freccia puntare a destra premi il pulsante a destra. Premi i pulsanti il più velocemente possibile cercando però di non commettere errori.</string>
-    <string name="sst_instruction_second">Seconda parte: una freccia comparirà dentro un cerchio indicando destra o sinistra. Quando vedrai la freccia puntare a sinistra premi il pulsante a sinistra. Quando vedrai la freccia puntare a destra premi il pulsante a destra. Ma nel caso tu senta un SUONO dopo che la freccia è apparsa, NON PREMERE nessun pulsante. Premi i pulsanti il più velocemente possibile cercando però di non commettere errori.</string>
+    <string name="sst_instruction_first">Prima parte: una freccia comparira dentro un cerchio indicando destra o sinistra. Quando vedrai la freccia puntare a sinistra premi il pulsante a sinistra. Quando vedrai la freccia puntare a destra premi il pulsante a destra. Premi i pulsanti il piu velocemente possibile cercando pero di non commettere errori.</string>
+    <string name="sst_instruction_second">Seconda parte: una freccia comparira dentro un cerchio indicando destra o sinistra. Quando vedrai la freccia puntare a sinistra premi il pulsante a sinistra. Quando vedrai la freccia puntare a destra premi il pulsante a destra. Ma nel caso tu senta un SUONO dopo che la freccia e apparsa, NON PREMERE nessun pulsante. Premi i pulsanti il piu velocemente possibile cercando pero di non commettere errori.</string>
     <string name="sst_results">Risultati di Stop Signal Task</string>
     <string name="sst_left">SINISTRA</string>
     <string name="sst_right">DESTRA</string>
@@ -326,14 +325,14 @@
     <string name="sst_too_late">Troppo tardi</string>
     <string name="sst_wrong">Sbagliato</string>
 
-    <string name="ast_instruction">Una freccia apparirà sullo schermo, usa i pulsanti in basso per rispondere alle domande. Ti verrà chiesto di indicare la posizione in cui si trova la freccia o la direzione che inidica la freccia.</string>
+    <string name="ast_instruction">Una freccia apparira sullo schermo, usa i pulsanti in basso per rispondere alle domande. Ti verra chiesto di indicare la posizione in cui si trova la freccia o la direzione che inidica la freccia.</string>
     <string name="ast_cue_arrowDirection">Quale DIREZIONE?</string>
     <string name="ast_cue_arrowPosition">Quale POSIZIONE?</string>
     <string name="ast_results">Risultati di Attention Switching Task:</string>
     <string name="ast_left">SINISTRA</string>
     <string name="ast_right">DESTRA</string>
 
-    <string name="vas_instruction">Adesso rispondi a 8 domande che appariranno sullo schermo toccando la barra e spostandola sulla posizione che ritieni più opportuna.</string>
+    <string name="vas_instruction">Adesso rispondi a 8 domande che appariranno sullo schermo toccando la barra e spostandola sulla posizione che ritieni piu opportuna.</string>
     <string name="vas_results">Risultati di Visual Analogue Scale:</string>
     <string name="vas_question_minValue">0</string>
     <string name="vas_question_maxValue">100</string>
@@ -342,19 +341,19 @@
     <string name="vas_maxValue_Q1">Felice</string>
     <string name="vas_question2">Ti senti rilassato?</string>
     <string name="vas_minValue_Q2">No</string>
-    <string name="vas_maxValue_Q2">Sì</string>
+    <string name="vas_maxValue_Q2">Si</string>
     <string name="vas_question3">Ti senti concentrato oggi?</string>
     <string name="vas_minValue_Q3">No</string>
-    <string name="vas_maxValue_Q3">Sì</string>
-    <string name="vas_question4">Ti senti motivato a svolgere le tue attività?</string>
+    <string name="vas_maxValue_Q3">Si</string>
+    <string name="vas_question4">Ti senti motivato a svolgere le tue attivita?</string>
     <string name="vas_minValue_Q4">No</string>
-    <string name="vas_maxValue_Q4">Sì</string>
-    <string name="vas_question5">Sei in OFF o in ON in questo momento</string>
+    <string name="vas_maxValue_Q4">Si</string>
+    <string name="vas_question5">Sei in ON in questo momento</string>
     <string name="vas_minValue_Q5">OFF</string>
     <string name="vas_maxValue_Q5">ON</string>
     <string name="vas_question6">Hai crampi o dolore di qualche tipo?</string>
     <string name="vas_minValue_Q6">No</string>
-    <string name="vas_maxValue_Q6">Sì</string>
+    <string name="vas_maxValue_Q6">Si</string>
     <string name="vas_question7">Come hai dormito la scorsa notte?</string>
     <string name="vas_minValue_Q7">Male</string>
     <string name="vas_maxValue_Q7">Bene</string>
@@ -369,23 +368,23 @@
     <string name="vas2_s4">Completamente d\'accordo</string>
     <string name="vas2_question1">Ti senti felice oggi?</string>
 
-    <string name="palprm_instruction">Ora vedrà una serie di coppie di immagini. Presti attenzione e cerchi di memorizzare le coppie, perché successivamente le sarà presentata solo un’immagine della coppia e lei dovrà ricordare l’immagine ad essa associata, scegliendo l’opzione corretta tra 4 possibili alternative. Ripeterà lo stesso esercizio pertre volte, con le stesse coppie di immagini, in modo che le risulteranno via via più familiari.</string>
-    <string name="london_towers_instruction">Qui ci sono tre bastoncini di diversa lunghezza e tre palline di colore diverso. Lei dovrà mettere le palline secondo le disposizioni che le mostrerò.</string>
-    <string name="wisconsin_instruction">Queste che ha davanti sono quattro carte guida; vorrei che lei mettesse ciascuna di queste carte che le ho dato in mano sotto una delle carte guida dove lei pensa che sia opportuno metterle.  Tenga conto che è possibile accoppiare le carte secondo i criteri di numero, forma e colore.Le dirò io se è giusto mostrando una spunta verde o sbagliato con una croce rossa, le sarà data una risposta dopo ogni mossa.</string>
+    <string name="palprm_instruction">Ora vedra una serie di coppie di immagini. Presti attenzione e cerchi di memorizzare le coppie, perche successivamente le sara presentata solo un�immagine della coppia e lei dovra ricordare l�immagine ad essa associata, scegliendo l�opzione corretta tra 4 possibili alternative. Ripetera lo stesso esercizio pertre volte, con le stesse coppie di immagini, in modo che le risulteranno via via piu familiari.</string>
+    <string name="london_towers_instruction">Qui ci sono tre contenitori grigi e tre dischetti colorati. Il suo obiettivo e quello di riprodurre lo schema indicato a sinistra dello schermo. Selezioni con un tocco il dischetto e con un altro tocco indichi il contenitore di destinazione. Cerchi di utilizzare meno mosse possibili.</string>
+    <string name="wisconsin_instruction">Queste sono 4 carte guida che differiscono tra loro per 3 criterii: colore, forma e numero. Di volta in volta lei dovra abbinare le carte per uno di questi criteri che scegliera. Se e corretto vedra una spunta verde e dovra continuare ad abbinare le carte per lo stesso criterio. Se e sbagliato vedra una croce rossa e dovra cambiare criterio.</string>
 
-    <string name="fttoneTvInstructions">Premi ripetutamente con un dito sull\'area verde il più velocemente possibile entro i prossimi 10 secondi. Comincia quando vuoi.</string>
+    <string name="fttoneTvInstructions">Premi ripetutamente con un dito sull\'area verde il piu velocemente possibile entro i prossimi 10 secondi. Comincia quando vuoi.</string>
     <string name="fttoneTvTap">Premi qui!</string>
     <string name="fttoneTvTimeNumberOfTaps">colpi</string>
     <string name="fttoneTvTime">Tempo</string>
     <string name="fttoneTvSeconds">secondi</string>
 
-    <string name="fttTwoTvInstructions">Usa due dita per premere alternativamente sui pulsanti destro e sinistro il più velocemente possibile durante i prossimi 10 secondi. Comincia quando vuoi.</string>
+    <string name="fttTwoTvInstructions">Usa due dita per premere alternativamente sui pulsanti destro e sinistro il piu velocemente possibile durante i prossimi 10 secondi. Comincia quando vuoi.</string>
     <string name="fttTwoTvTap">Premi qui!</string>
     <string name="fttTwoTvTimeNumberOfTaps">colpi</string>
     <string name="fttTwoTvTime">Tempo</string>
     <string name="fttTwoTvSeconds">secondi</string>
 
-    <string name="fttEndMessage">Molto bene! L\'esercizio è terminato.</string>
+    <string name="fttEndMessage">Molto bene! L\'esercizio e terminato.</string>
     <string name="fttEndButtonRepeat">Esegui un altro test</string>
     <string name="fttEndButtonExit">Esci</string>
 
@@ -403,11 +402,11 @@
     <string name="next_config">Prossimo</string>
     <string name="end_config">Configurazione finale</string>
     <string name="ok">Ok</string>
-    <string name="choose_hour0">Indicare quando l\'utente effettuerà i test (prima delle 12:00)</string>
-    <string name="choose_hour1">Indicare quando l\'utente effettuerà i test (dopo le 12:00)</string>
-    <string name="choose_dow">Scegliere i giorni della settimana in cui l\'utente effettuerà i test.</string>
-    <string name="config_ok">La configurazione è stata completata con successo.</string>
-    <string name="smonday">Lu</string>
+    <string name="choose_hour0">Indicare quando l\'utente effettuera i test (prima delle 12:00)</string>
+    <string name="choose_hour1">Indicare quando l\'utente effettuera i test (dopo le 12:00)</string>
+    <string name="choose_dow">Scegliere i giorni della settimana in cui l\'utente effettuera i test.</string>
+    <string name="config_ok">La configurazione e stata completata con successo.</string>
+     <string name="smonday">Lu</string>
     <string name="stuesday">Ma</string>
     <string name="swednesday">Me</string>
     <string name="sthursday">Gi</string>
