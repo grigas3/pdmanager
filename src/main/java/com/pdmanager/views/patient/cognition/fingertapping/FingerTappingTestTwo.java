@@ -27,10 +27,7 @@ import java.util.Vector;
  */
 public class FingerTappingTestTwo extends SoundFeedbackActivity {
 
-    private String LOGGER_TAG = "LOGGER_TAG FingerTappingTestTwo:";
-
     public static final String DECIMAL_FORMAT_TIME = "#,#00.0";
-
     public static final String INTENT_MEAN_TWO = "meanTimeTwo";
     public static final String INTENT_STD_TWO = "stdTimeTwo";
     public static final String INTENT_MEDIAN_TWO = "medianTimeTwo";
@@ -39,10 +36,9 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
     public static final String INTENT_TEST_TIME_TWO = "testTimeTwo";
     public static final String INTENT_TAPS_NUMBER_TWO = "tapsNumberTwo";
     public static final String INTENT_TAPS_ERROR_TWO = "tapsErrorTwo";
-
     public final int DURATION_TEST_MILLISECONDS= 10000;
     public final int REFRESH_PERIOD_MILLISECONDS= 100;
-
+    private String LOGGER_TAG = "LOGGER_TAG_FTTWO";
     private int durationTestOne = 0;
     private int tapsTestOne = 0;
     private int condition=0;
@@ -67,44 +63,6 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
     private boolean test=true;
 
     private CountDownTimer sdTimer;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-
-        speak.speakFlush(getResources().getString(R.string.fttTwoTvInstructions));
-
-        setContentView(R.layout.finger_tapping_test_two);
-
-        Button click1 = (Button)findViewById(R.id.click1);
-        Button click2 = (Button)findViewById(R.id.click2);
-
-        mProgress = (ProgressBar) findViewById(R.id.progressBar1);
-        mProgress.setMax(DURATION_TEST_MILLISECONDS);
-        mProgress.setProgress(DURATION_TEST_MILLISECONDS);
-
-        tvNumberTaps = (TextView)findViewById(R.id.fttTwoTvNumberOfTaps);
-        tvTime =(TextView)findViewById(R.id.fttTwoTvTime);
-
-        click1.setOnClickListener(clickButton1);
-        click2.setOnClickListener(clickButton2);
-
-        try {
-
-            tapsTestOne = getIntent().getIntExtra(FingerTappingTestOne.INTENT_TAPS_NUMBER_ONE, 0);
-            meanTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MEAN_ONE, 0);
-            stdTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_STD_ONE, 0);
-            medianTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MEDIAN_ONE, 0);
-            maxTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MAX_ONE, 0);
-            minTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MIN_ONE, 0);
-
-        }catch (Exception e){
-            Log.v(LOGGER_TAG, e.toString());
-        }
-
-    }
-
     private View.OnClickListener clickButton1=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -193,7 +151,6 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
         }
         }
     };
-
     private View.OnClickListener clickButton2=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -206,6 +163,43 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
         }
         }
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        speakFlush(getResources().getString(R.string.fttTwoTvInstructions));
+
+        setContentView(R.layout.finger_tapping_test_two);
+
+        Button click1 = (Button) findViewById(R.id.click1);
+        Button click2 = (Button) findViewById(R.id.click2);
+
+        mProgress = (ProgressBar) findViewById(R.id.progressBar1);
+        mProgress.setMax(DURATION_TEST_MILLISECONDS);
+        mProgress.setProgress(DURATION_TEST_MILLISECONDS);
+
+        tvNumberTaps = (TextView) findViewById(R.id.fttTwoTvNumberOfTaps);
+        tvTime = (TextView) findViewById(R.id.fttTwoTvTime);
+
+        click1.setOnClickListener(clickButton1);
+        click2.setOnClickListener(clickButton2);
+
+        try {
+
+            tapsTestOne = getIntent().getIntExtra(FingerTappingTestOne.INTENT_TAPS_NUMBER_ONE, 0);
+            meanTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MEAN_ONE, 0);
+            stdTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_STD_ONE, 0);
+            medianTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MEDIAN_ONE, 0);
+            maxTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MAX_ONE, 0);
+            minTimeTestOne = getIntent().getDoubleExtra(FingerTappingTestOne.INTENT_MIN_ONE, 0);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, e.toString());
+        }
+
+    }
 
     private void update(){
 
@@ -240,7 +234,7 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
     }
 
     public void onPause(){
-        super.onResume();
+        super.onPause();
 
         speak.silence();
 

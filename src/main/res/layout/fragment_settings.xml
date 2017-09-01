@@ -10,11 +10,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -25,74 +26,30 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="Language"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <Spinner
                         android:id="@+id/langSpin"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
+
+                        android:layout_alignParentRight="true"
+
                         android:layout_marginRight="10dp"
                         android:background="@android:color/holo_blue_light"
                         android:enabled="true"
                         android:popupBackground="@android:color/holo_green_dark"
                         android:spinnerMode="dialog"
-                        android:textAlignment="textEnd" />
+                        android:textAlignment="textEnd"/>
 
 
-                </LinearLayout>
-
-            </RelativeLayout>
-
-
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Use Diary"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
-
-
-                    <Switch
-                        android:id="@+id/switchUseDiary"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:checked="true"
-                        android:enabled="true"
-                        android:textOff="OFF"
-                        android:textOn="ON" />
-
-
-                </LinearLayout>
 
             </RelativeLayout>
 
@@ -103,7 +60,64 @@
                 android:layout_below="@+id/buttonConnect"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"/>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+
+                <TextView
+                    android:id="@+id/diarytitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fadingEdge="horizontal"
+                    android:text="Use Diary"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/diarytitle"
+                    android:layout_below="@id/diarytitle"
+                    android:maxLines="2"
+                    android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"
+                    />
+
+
+                <Switch
+                    android:id="@+id/switchUseDiary"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="OFF"
+                    android:textOn="ON"/>
+
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/sepManagement1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/buttonConnect"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"/>
 
 
             <RelativeLayout
@@ -115,31 +129,36 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-                <LinearLayout
+
+                <TextView
+                    android:id="@+id/bandSensorTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Band Sensors"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+                <Switch
+                    android:id="@+id/switchBandSensors"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="OFF"
+                    android:textOn="ON"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        android:text="Band Sensors"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/bandSensorTitle"
+                    android:layout_below="@id/bandSensorTitle"
+                    android:maxLines="2"
+                    android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"
+                    />
 
-                    <Switch
-                        android:id="@+id/switchBandSensors"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:checked="true"
-                        android:enabled="true"
-                        android:textOff="OFF"
-                        android:textOn="ON" />
 
-                </LinearLayout>
             </RelativeLayout>
 
             <View
@@ -149,7 +168,7 @@
                 android:layout_below="@+id/buttonConnect"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"/>
 
 
             <RelativeLayout
@@ -161,30 +180,37 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-                <LinearLayout
+
+                <TextView
+                    android:id="@+id/devSensorTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Device Sensors"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/devSensorTitle"
+                    android:layout_below="@id/devSensorTitle"
+                    android:maxLines="2"
+                    android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"
+                    />
+
+                <Switch
+                    android:id="@+id/switchDeviceSensors"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginRight="10dp"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Device Sensors"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
 
-                    <Switch
-                        android:id="@+id/switchDeviceSensors"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:checked="true"
-                        android:enabled="true"
-                        android:textOff="OFF"
-                        android:textOn="ON" />
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="OFF"
+                    android:textOn="ON"/>
 
-                </LinearLayout>
             </RelativeLayout>
 
 
@@ -195,7 +221,7 @@
                 android:layout_below="@+id/buttonConnect"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"/>
 
 
             <RelativeLayout
@@ -207,40 +233,51 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
+
+                <TextView
+                    android:id="@+id/delayTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
+                    android:text="Sensor Delay"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sensor Delay"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/delayTitle"
+                    android:layout_below="@id/delayTitle"
+                    android:maxLines="2"
+                    android:text="Set Sensor delay"
+                    />
 
-                    <Spinner
-                        android:id="@+id/sensorDelaySpinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@android:color/holo_blue_light"
-                        android:enabled="true"
-                        android:popupBackground="@android:color/holo_green_dark"
-                        android:spinnerMode="dialog"
-                        android:textAlignment="textEnd" />
+                <Spinner
+                    android:id="@+id/sensorDelaySpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="30dp"
 
 
-                </LinearLayout>
+                    android:layout_marginRight="10dp"
+
+                    android:background="@android:color/holo_blue_light"
+                    android:enabled="true"
+                    android:popupBackground="@android:color/holo_green_dark"
+                    android:spinnerMode="dialog"
+                    android:textAlignment="textEnd"/>
+
 
             </RelativeLayout>
 
-
-
-
-
+            <View
+                android:id="@+id/sepManagement1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/buttonConnect"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -251,34 +288,45 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-                <LinearLayout
+
+                <TextView
+                    android:id="@+id/detectorsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Symptom Evaluation"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/detectorsTitle"
+                    android:layout_below="@id/detectorsTitle"
+                    android:maxLines="2"
+                    android:text="Check to perform symptom evaluation. DO NOT CHECK FOR PILOTS."
+                    />
+
+                <Switch
+                    android:id="@+id/switchUseDetectors"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="NO"
+                    android:textOn="YES"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Symptom Evaluation"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
-
-
-                    <Switch
-                        android:id="@+id/switchUseDetectors"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:checked="true"
-                        android:enabled="true"
-                        android:textOff="NO"
-                        android:textOn="YES" />
-
-
-                </LinearLayout>
 
             </RelativeLayout>
+
+            <View
+                android:id="@+id/sepManagement1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/buttonConnect"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -289,35 +337,86 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
-                <LinearLayout
+
+                <TextView
+                    android:id="@+id/recordFileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Record File"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/recordFileTitle"
+                    android:layout_below="@id/recordFileTitle"
+                    android:maxLines="2"
+                    android:text="Check to record data files"
+                    />
+
+                <Switch
+                    android:id="@+id/switchRecordFile"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="NO"
+                    android:textOn="YES"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Record File"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold" />
-
-
-                    <Switch
-                        android:id="@+id/switchRecordFile"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:checked="true"
-                        android:enabled="true"
-                        android:textOff="NO"
-                        android:textOn="YES" />
-
-
-                </LinearLayout>
 
             </RelativeLayout>
 
+            <View
+                android:id="@+id/sepManagement1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/buttonConnect"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+
+                <TextView
+                    android:id="@+id/deviceLockTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Device Wake Lock"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/deviceLockTitle"
+                    android:layout_below="@id/deviceLockTitle"
+                    android:maxLines="2"
+                    android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"
+                    />
+
+
+                <Switch
+                    android:id="@+id/swithUseDeviceLock"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="NO"
+                    android:textOn="YES"/>
+
+
+            </RelativeLayout>
 
             <View
                 android:id="@+id/sepManagement3"
@@ -326,9 +425,57 @@
                 android:layout_below="@+id/buttonConnect"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
 
 
+                <TextView
+                    android:id="@+id/useSpeechTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Use Speech Dictation"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/useSpeechTitle"
+                    android:layout_below="@id/useSpeechTitle"
+                    android:maxLines="2"
+                    android:text="Use speech to dictate tests and tasks for the patient."
+                    />
+
+
+                <Switch
+                    android:id="@+id/switchUseSpeech"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:enabled="true"
+                    android:textOff="NO"
+                    android:textOn="YES"/>
+
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/sepManagement6"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/buttonConnect"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"/>
         </LinearLayout>
 
     </ScrollView>

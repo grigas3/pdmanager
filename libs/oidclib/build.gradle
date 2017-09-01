@@ -24,6 +24,7 @@ android {
     lintOptions{
         disable 'MissingTranslation'
     }
+
 }
 
 repositories {

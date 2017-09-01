@@ -30,9 +30,7 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.microsoft.band.BandClient;
-import com.microsoft.band.BandClientManager;
-import com.microsoft.band.BandInfo;
+import com.bugfender.sdk.Bugfender;
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.BandSensorManager;
@@ -53,12 +51,11 @@ import com.pdmanager.models.PatientMedicationResult;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.sensor.IHeartRateAccessProvider;
 import com.pdmanager.sensor.RecordingServiceHandler;
+import com.pdmanager.services.MSHealthServiceManager;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.patient.MSSyncActivity;
-import com.pdmanager.views.patient.MainActivity;
-import com.pdmanager.views.patient.TechnicianActivity;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -216,6 +213,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         public void onClick(View button) {
 
+            MSHealthServiceManager manager = new MSHealthServiceManager();
+            manager.isServiceInstalled(getContext());
             requirePermissions(getActivity());
 
         }
@@ -322,6 +321,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         //   mButtonConnect.setEnabled(true);
 //                                    mButtonConnect.setColor(Color.GREEN);
                         LogHandler.getInstance().Log("Session started by user");
+
+                        Bugfender.sendIssue("RECORDING", "New Recording by User");
+
                         mButtonConnect.setEnabled(false);
                         mButtonConnect.setBackgroundColor(Color.GRAY);
 
@@ -1032,6 +1034,19 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     }
 
+    private void updateHeartRatePermissions() {
+
+        try {
+            getService().requireHeartRatePermissions();
+
+        } catch (Exception ex) {
+
+            Log.e(TAG, ex.getMessage(), ex.getCause());
+        }
+        //requirePermissions(this.getActivity());
+
+    }
+
     class MyTimerTask extends TimerTask {
         public void run() {
 
@@ -1108,7 +1123,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         }
     }
 
-
     private class StopServiceTask extends AsyncTask<Void, Void, Void> {
         private String code;
         private String accessToken;
@@ -1164,12 +1178,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             refreshControls();
         }
     }
-
-
-
-
-
-
 
     private class StartServiceTask extends AsyncTask<Void, Void, Void> {
         private String code;
@@ -1236,23 +1244,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             //refreshControls();
         }
-    }
-
-    private void updateHeartRatePermissions()
-    {
-
-
-        try {
-            getService().requireHeartRatePermissions();
-
-        }
-        catch (Exception ex)
-        {
-
-            Log.e(TAG,ex.getMessage(),ex.getCause());
-        }
-        //requirePermissions(this.getActivity());
-
     }
 
     private class UpdateDeviceStatusTask extends AsyncTask<Void, Void, DeviceResult> {

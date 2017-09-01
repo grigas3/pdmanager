@@ -1,5 +1,6 @@
 package com.pdmanager.notification;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -10,8 +11,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.views.patient.MainActivity;
 
@@ -66,7 +67,7 @@ public class LocalNotificationTask extends AsyncTask<UserAlert, Void, Void> {
 
                 mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.pdmanager));
                 mBuilder.setSmallIcon(R.drawable.pdmanagersmall);
-
+                mBuilder.setPriority(Notification.PRIORITY_MAX);
                 mBuilder.setContentTitle(alert.getTitle());
                 mBuilder.setContentText(alert.getMessage());
                 mBuilder.setAutoCancel(true);

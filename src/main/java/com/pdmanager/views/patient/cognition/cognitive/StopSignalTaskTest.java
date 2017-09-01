@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -16,7 +15,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -37,8 +35,14 @@ import java.util.Locale;
 
 public class StopSignalTaskTest extends SoundFeedbackActivity {
 
+    private static final long THREE_SECONDS = 3000L;
     private final String LOGGER_TAG = "SST test";
-
+    private final int TIME_MILLISECONDS_LEVEL_TASK = 240000;
+    private final int TIME_MILLISECONDS_TRANSITIONS = 250;
+    private final int NUMBER_OF_LEVELS = 2;
+    private final int NUMBER_OF_TRIALS = 15;
+    private final int NUMBER_OF_TYPES_FIRST_PART = 2;
+    private final int NUMBER_OF_TYPES_SECOND_PART = 4;
     private String
             test = "StopSignalTask.csv",
             header = "Timestamp, " +
@@ -65,15 +69,6 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                     "max. reaction time (ms), " +
                     "min. reaction time (ms)" +
                     "\r\n";
-
-    private static final long THREE_SECONDS = 3000L;
-    private final int TIME_MILLISECONDS_LEVEL_TASK = 240000;
-    private final int TIME_MILLISECONDS_TRANSITIONS = 250;
-    private final int NUMBER_OF_LEVELS = 2;
-    private final int NUMBER_OF_TRIALS = 15;
-    private final int NUMBER_OF_TYPES_FIRST_PART = 2;
-    private final int NUMBER_OF_TYPES_SECOND_PART = 4;
-
     private int level = 0;
     private int nTrial;
 
@@ -119,14 +114,14 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 setContentView(R.layout.activity_start);
                 TextView textViewToChange = (TextView) findViewById(R.id.level);
                 textViewToChange.setText(getResources().getString(R.string.sst_instruction_first));
-                speak.speakFlush(getResources().getString(R.string.sst_instruction_first));
+                speakFlush(getResources().getString(R.string.sst_instruction_first));
 
                 Button buttonStart = (Button) findViewById(R.id.play);
                 buttonStart.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
-                        speak.silence();
+                        speakerSilence();
 
                         timerTask = new CountDownTimer(TIME_MILLISECONDS_LEVEL_TASK, TIME_MILLISECONDS_LEVEL_TASK) {
 
@@ -179,7 +174,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             level++;
 
             if (level > NUMBER_OF_LEVELS){
-                speak.silence();
+                speakerSilence();
                 if (timer != null) {
                     timer.cancel();
                 }
@@ -216,14 +211,14 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             setContentView(R.layout.activity_start);
             TextView textViewToChange = (TextView) findViewById(R.id.level);
             textViewToChange.setText(getResources().getString(R.string.sst_instruction_second));
-            speak.speakFlush(getResources().getString(R.string.sst_instruction_second));
+            speakFlush(getResources().getString(R.string.sst_instruction_second));
 
             Button buttonStart = (Button) findViewById(R.id.play);
             buttonStart.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    speak.silence();
+                    speakerSilence();
 
                     timerTask = new CountDownTimer(TIME_MILLISECONDS_LEVEL_TASK, TIME_MILLISECONDS_LEVEL_TASK) {
 
@@ -721,7 +716,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
         try {
             writeFile (test, header);
 
-            speak.silence();
+            speakerSilence();
 
             if (timerTask != null) {
                 timerTask.cancel();
@@ -773,7 +768,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
         if (isPaused) {
 
-            speak.silence();
+            speakerSilence();
 
             if (timerTask != null) {
                 timerTask.cancel();
@@ -785,7 +780,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
             handler.removeCallbacks(thread);
 
-            speak.silence();
+            speakerSilence();
 
             timerTask = new CountDownTimer(TIME_MILLISECONDS_LEVEL_TASK, TIME_MILLISECONDS_LEVEL_TASK) {
 
@@ -812,7 +807,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
     public void onPause() {
         super.onPause();  // Always call the superclass method first
 
-        speak.silence();
+        speakerSilence();
 
         if (timerTask != null) {
             timerTask.cancel();

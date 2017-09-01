@@ -5,14 +5,16 @@
 
 package com.pdmanager.services;
 
+import android.app.ActivityManager;
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.sqlite.SQLiteDatabase;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -26,9 +28,12 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
+import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.bugfender.sdk.Bugfender;
 import com.google.gson.Gson;
 import com.microsoft.band.BandClient;
 import com.microsoft.band.BandClientManager;
@@ -49,8 +54,10 @@ import com.microsoft.band.sensors.BandSensorManager;
 import com.microsoft.band.sensors.BandSkinTemperatureEvent;
 import com.microsoft.band.sensors.BandSkinTemperatureEventListener;
 import com.microsoft.band.sensors.SampleRate;
+import com.pdmanager.FileDataProcessor;
+import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.app.PostureDataProcessor;
 import com.pdmanager.common.ConnectionResult;
-import com.pdmanager.common.Util;
 import com.pdmanager.common.data.AccData;
 import com.pdmanager.common.data.AccMCData;
 import com.pdmanager.common.data.AccMData;
@@ -65,12 +72,9 @@ import com.pdmanager.common.data.OrientReading;
 import com.pdmanager.common.data.PedoData;
 import com.pdmanager.common.data.STData;
 import com.pdmanager.common.data.STReading;
-import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.common.interfaces.IDataProcessor;
 import com.pdmanager.common.interfaces.IPDToastWriter;
-import com.pdmanager.FileDataProcessor;
-import com.pdmanager.app.PostureDataProcessor;
-import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.CommunicationRunner;
 import com.pdmanager.communication.ICommunicationQueue;
@@ -96,7 +100,6 @@ import com.pdmanager.notification.BandMessageQueue;
 import com.pdmanager.notification.BandMessageTask;
 import com.pdmanager.notification.BandNotificationTask;
 import com.pdmanager.notification.LocalNotificationTask;
-import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.sensor.IHeartRateAccessProvider;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.symptomdetector.aggregators.TremorAggregator;
@@ -114,35 +117,65 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
+//import com.pdmanager.logging.Log4jConfigure;
+//import org.apache.logging.log4j.Level;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+
+
 /**
  * Created by George on 5/21/2015.
  */
 public class RecordingService extends Service implements ISensorDataHandler, SensorEventListener, IPDToastWriter, ILogHandler, IJsonRequestHandler, INetworkStatusHandler, ITokenUpdater {
 
 
-    private static final int FATAL_GPS_SECURITY=0;
-    private static final int FATAL_GPS_EXCEPTION =1;
-    private static final int FATAL_BAND_SENSNUMBER=3;
-    private static final int FATAL_BAND_CONNECTION=4;
-    private static final int FATAL_DEVICE_SENSORS=5;
-    private static final int FATAL_START_QUEUE=6;
-    private static final int FATAL_START_TIMER=7;
+    //region private fields
+    private static final int FATAL_GPS_SECURITY = 0;
+    private static final int FATAL_GPS_EXCEPTION = 1;
+    private static final int FATAL_BAND_SENSNUMBER = 3;
+
+
+    ///Since most timing is performed in second accuracy
+    /// Add a margin of seconds to perform operations (60+5)
+    private static final long mainTimerInterval = 65 * 1000;
+    private static final long minMainTimerInterval = 20 * 1000;
+
+//endregion
+
+    //    final static Logger logger = LogManager.getLogger("RecordingService");
+    private static final int FATAL_BAND_CONNECTION = 4;
+    private static final int FATAL_DEVICE_SENSORS = 5;
+    private static final int FATAL_START_QUEUE = 6;
+    private static final int FATAL_START_TIMER = 7;
+    private static final int FATAL_SERVICE_STOPPED_BY_ANDROID = 8;
 
     private static final String TAG = "RECORDING";
     private static final String WL_TAG = "RECORDING_WAKE";
     // The minimum distance to change Updates in meters
     private static final long MIN_UPDATE_DISTANCE = 10;
-
     // The minimum time between updates in milliseconds
     private static final long MIN_UPDATE_TIME = 1000 * 5;
-    //Try to reconnect at least after XX minutes
-    private static final long bandReconnectAttemptInterval = 5 * 60 * 1000;
+    //Try to reconnect at least after 10 minutes
+    private static final long bandReconnectAttemptInterval = 10 * 60 * 1000;
+    //Update Usage StatisticsInterval
+    private static final long updateUsageStatisticsInterval = 60 * 30 * 1000;
+
+    //Minimum interval regarding Band Data Acquisitions
+    private static final long minimumNoBandDataInterval = 60 * 2 * 1000;
+
+    //Wait interval in seconds used for connecting/disconnecting from Band
+    private static final long bandClientWaitIntervalInSeconds = 5;
+
+
+    public static PowerManager.WakeLock WAKELOCK = null;
     private static boolean sessionRunning = false;
     private final IBinder mBinder = new LocalBinder();
     private final List<IDataProcessor> processors = new ArrayList<IDataProcessor>();
     private final SampleRate bandRate = SampleRate.MS16;
     private final float gforce = 9.806F;
     private final BandMessageQueue bandMessageQueue = new BandMessageQueue();
+    private final Semaphore available = new Semaphore(1, true);
+    //region Handler and receivers
     private final Handler toastHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -158,7 +191,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             }
         }
     };
-    private final Semaphore available = new Semaphore(1, true);
+    private final int NOTIFICATION_ID = 1233;
     float[] trueAcceleration = new float[4];
     float[] R = new float[16];
     float[] RINV = new float[16];
@@ -166,7 +199,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     float[] orientVals = new float[3];
     VitalMonitoring vitalMonitoring;
     ActivityMonitoring activityMonitoring;
-    private int connectedStateFound = 0;
+    long totalRAMMemoryUsed = 0;
+    int numberOfRamMemoryChecks = 0;
     private SensorManager senSensorManager;
     private boolean hasAllDeviceSensors = false;
     private BandClient mClient;
@@ -229,9 +263,10 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     private Thread queueThread = null;
     private long lastUsageTimestamp = 0;
     private boolean bandSensorsRegistered = false;
-
-
-    /////RECOVER POLICIES
+    private boolean useRestartBluetoothAdaptorPolicy = true;
+    private int devsamples = 0;
+    private int bandsamples = 0;
+    private int hrsamples = 0;
     private boolean bluetoothEnabled = false;
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -264,10 +299,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
 
     };
-    private boolean restartBluetoothAdaptor = true;
-    private int devsamples = 0;
-    private int bandsamples = 0;
-    private int hrsamples = 0;
+    private String deviceId;
+    private boolean schedulerPause = false;
+    private RecordingScheduler scheduler;
+    //endregion
+    //region event listeners
     private BandSkinTemperatureEventListener mSTEventListener = new BandSkinTemperatureEventListener() {
         @Override
         public void onBandSkinTemperatureChanged(BandSkinTemperatureEvent event) {
@@ -282,6 +318,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             scheduleSensorHandler();
         }
     };
+    //endregion
     private BandPedometerEventListener mPedometerEventListener = new BandPedometerEventListener() {
         @Override
         public void onBandPedometerChanged(final BandPedometerEvent event) {
@@ -297,6 +334,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             scheduleSensorHandler();
         }
     };
+//endregion
+
+    //region registers
     private BandAccelerometerEventListener mAccelerometerEventListener = new BandAccelerometerEventListener() {
         @Override
         public void onBandAccelerometerChanged(final BandAccelerometerEvent event) {
@@ -305,14 +345,49 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             scheduleSensorHandler();
         }
     };
-    private String deviceId;
-    private boolean schedulerPause = false;
-    private RecordingScheduler scheduler;
+    private boolean handlerInitialized = false;
+    //region Tasks
+    private Handler mainTaskHandler = new Handler();
+    private final Runnable mainTaskrunnable = new Runnable() {
+        @Override
+        public void run() {
+                         /* do what you need to do */
+            serviceCheck();
+      /* and here comes the "trick" */
+            mainTaskHandler.postDelayed(this, mainTimerInterval);
+        }
 
-    public boolean isSessionRunning() {
+    };
+    //
+    private long lastTimerCheck = 0;
 
-        return sessionRunning;
+    public static boolean testSheduledRun(int hourOfDay, int startHour, int endHour) {
+
+        return conditionScheduledRun(hourOfDay, startHour, endHour);
+
+
     }
+
+    private static boolean conditionScheduledRun(int hourOfDay, int startHour, int stopHour) {
+
+        return !(hourOfDay < startHour || hourOfDay >= stopHour);
+
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        //Toast.makeText(this, "calling bind for service", Toast.LENGTH_SHORT).show();
+        notifyListeners();
+        return mBinder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+
+        return super.onUnbind(intent);
+        //  return mBinder;
+    }
+    //endregion
 
     public void registerHRAccessProvider(IHeartRateAccessProvider handler) {
 
@@ -346,15 +421,16 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     public void unregisterSensorListener(ISensorStatusListener handler) {
 
         sensorListeners.remove(handler);
-
-
     }
 
+    /*
+    Register Service Status Listener
+    Those listeners are notified for the the status of the recording service
+     */
     public void registerListener(IServiceStatusListener handler) {
 
         if (handler != null) {
             listeners.add(handler);
-
             handler.notifyServiceStatusChanged();
 
         }
@@ -367,8 +443,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
     }
-
-
 
     private void notifyListeners() {
 
@@ -397,7 +471,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
         //REMOVED FOR PILOT
-       DBHandler handler = null;
+        /*
+
+        DBHandler handler = null;
         SQLiteDatabase sqlDB = null;
         try {
 
@@ -417,7 +493,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         } catch (Exception ex) {
 
-            Log.e(TAG,ex.getMessage(),ex.getCause());
+            Log.e(TAG, ex.getMessage(), ex.getCause());
             //LogError("Process Log", ex.getCause());
 
         } finally {
@@ -430,21 +506,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
         }
+        */
 
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        //Toast.makeText(this, "calling bind for service", Toast.LENGTH_SHORT).show();
-        notifyListeners();
-        return mBinder;
-    }
-
-    @Override
-    public boolean onUnbind(Intent intent) {
-
-        return super.onUnbind(intent);
-        //  return mBinder;
     }
 
     @Override
@@ -453,6 +516,28 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         manager = new CommunicationManager(this);
         InitProcessors();
+
+        //  Log4jConfigure.configureRollingFile();//configureFromXmlString
+
+        LogDebug("Services OnCreate");
+
+        if (!sessionRunning) {
+
+            if (getSessionMustRun()) {
+
+                StartRecording();
+            }
+
+
+        } else {
+
+            startTimer();
+            startCommQueue();
+
+        }
+        InitBluetoothListener();
+        foreground();
+
 
         // alertManager = new AlertManager(getApplicationContext());
     }
@@ -467,6 +552,20 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         return settings.getUseDetectors();
     }
 
+    /***
+     * Get the Use Device Wake Lock setting
+     * Depending on that when session is running the CPU is Wake LOCKED
+     * @return
+     */
+    ///
+    private boolean useDeviceLock() {
+        RecordingSettings settings = RecordingSettings.GetRecordingSettings(this);
+        return settings.getUseDeviceLock();
+    }
+
+    /*
+    Init Processors
+     */
     private void InitProcessors() {
 
         if (recordFiles()) {
@@ -517,31 +616,195 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
-    private void startTimer() {
+    private synchronized void serviceCheck() {
 
-        if (timer == null) {
-            try {
-                timer = new Timer();
-                timer.scheduleAtFixedRate(new mainTask(this), 30000, 60000);
+        try {
 
-            } catch (Exception ex) {
+            boolean bandActionTaken = false;
 
-                LogFatal("Timer",ex,FATAL_START_TIMER);
+            Log.d(TAG, "Timer check");
+
+            if (isServiceRunningInForeground(this.getApplicationContext(), RecordingService.class))
+                Log.v(TAG, "Service in foreground");
+            else
+                Log.v(TAG, "Service in background");
+
+            if (isServiceRunning("com.microsoft.band.service.BandService"))
+                Log.v(TAG, "Band Service is running");
+            else
+                LogWarn("Band service is not running");
+
+            //checkServicesRunning();
+
+            //If sessions is not pased
+            //region Block for not paused
+            if (!schedulerPause) {
+
+                if (!scheduledRun()) {
+
+                    ///IF SESSION SHOULD STOP DUE TO START AND END DATE
+                    ///IS SCHEDULING SETTINGS
+                    if (sessionRunning) {
+                        /// IF SESSION RUNNING STOP SESSION
+                        ///Notify Server
+                        LogInfo("Service stopped for today");
+                        SendAlert("INFO", "Service stopped for today", "INFO0002");
+                        bandActionTaken = true;
+                        //Stop Reader
+                        StopReader();
+                    }
+
+
+                } else {
+
+                    ///IF SESSION SHOULD RUN
+                    boolean sessionMustRun = getSessionMustRun();
+
+                    if (sessionMustRun) {
+
+                        //IF BLUETOOTH IS DISABLED THEN ENABLE BLUETOOTH
+                        enableBluetooth();
+
+                        //IF Session is Not Running then start it again
+                        if (!sessionRunning) {
+
+                            bandActionTaken = true;
+                            //Start Reader
+                            StartReader();
+
+
+                        } else {
+
+                            //Session Running
+                            // Check For Errors
+                            if (!bandActionTaken) {
+
+                                try {
+
+                                    bandActionTaken = bandActionTaken || checkBandConnectionStatus();
+
+                                } catch (InterruptedException ex) {
+
+                                    LogError("EX ON SCHEDULING", ex.getCause());
+                                } catch (Exception ex) {
+
+                                    LogError("EX ON SCHEDULING", ex.getCause());
+                                }
+
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+                ///Check For Alert only if
 
             }
+            //endregion
+
+            /// If no band action taken perform scheduling
+            /// Scheduling will check if the recording should stop or resume
+            if (!bandActionTaken) {
+
+                try {
+                    scheduling();
+
+                } catch (InterruptedException ex) {
+
+                    LogError("EX ON SCHEDULING", ex.getCause());
+                } catch (Exception ex) {
+
+                    LogError("EX ON SCHEDULING", ex.getCause());
+                }
+
+            }
+
+            ///Check If Mobile Device Sensors have acquired data the last minute
+            ///If no data acquired unregister and register sensors listeners
+            if (scheduledRun()) {
+
+                if (sessionRunning) {
+                    checkMobileDeviceDataAcquired();
+                }
+            }
+
+            //Check for Medication User Alert
+            //checkForMedAlerts();
+            //Check For Alerts
+            if (scheduledRun()) {
+
+                if (sessionRunning) {
+                    //Update Usage Statistics
+                    updateUsageStatistics();
+
+                }
+            }
+
+            //Check For User Notifications
+            checkForUserNotifications();
+
+
+        } catch (Exception ex) {
+
+            Log.e(TAG, ex.getMessage());
         }
 
     }
 
-    private void stopTimer() {
-        if (timer != null) {
+    private synchronized void startTimer() {
 
-            Log.d(TAG,"stop timer");
+      /*  if (timer == null) {
+            try {
+
+
+                timer = new Timer();
+                timer.scheduleAtFixedRate(new mainTask(this), mainTimerInterval, mainTimerInterval);
+
+
+
+
+
+            } catch (Exception ex) {
+
+                LogFatal("Timer", ex, FATAL_START_TIMER);
+
+            }
+        }
+*/
+
+        /***
+         * USING MAIN TASK HANDLER
+         */
+        if (!handlerInitialized) {
+            handlerInitialized = true;
+            mainTaskHandler.postDelayed(mainTaskrunnable, mainTimerInterval);
+        }
+
+
+    }
+
+    private void stopTimer() {
+
+        //If using timer
+
+        /*if (timer != null) {
+
+            Log.d(TAG, "stop timer");
 
             timer.cancel();
             timer.purge();
             timer = null;
         }
+        */
+
+        /*******
+         * USING MAIN TASK HANDLER AND RUNNABLE
+         */
+        mainTaskHandler.removeCallbacks(mainTaskrunnable);
+        handlerInitialized = false;
 
 
     }
@@ -555,25 +818,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
-
-    public static boolean testSheduledRun(int hourOfDay,int startHour, int endHour) {
-
-
-        return conditionScheduledRun(hourOfDay,startHour,endHour);
-
-
-    }
-
-    private static boolean conditionScheduledRun(int hourOfDay,int startHour, int stopHour) {
-
-     return   !(hourOfDay < startHour || hourOfDay >=stopHour);
-
-    }
-
     private boolean scheduledRun() {
 
-        // if(schedulerPause)
-        //  return false;
+        ///JUST FOR DEBUGGING
+        ///return true;
+
 
         RecordingSettings settings = RecordingSettings.GetRecordingSettings(this);
 
@@ -582,13 +831,14 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             int hourOfDay = c.get(Calendar.HOUR_OF_DAY);
 
-            return conditionScheduledRun(hourOfDay,settings.getStartHour() ,settings.getStopHour());
+            return conditionScheduledRun(hourOfDay, settings.getStartHour(), settings.getStopHour());
 
         } else
             return false;
 
-
     }
+
+    //region Memory Usage
 
     public boolean getSessionMustRun() {
 
@@ -600,6 +850,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         return false;
     }
+    //endregion
 
     @Override
     public void AddRequest(JsonStorage jsonRequest) {
@@ -609,14 +860,15 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
-    private void startCommQueue() {
+    /**
+     * Start Communication Queue
+     */
+    private synchronized void startCommQueue() {
 
         if (queue == null) {
 
             try {
                 Gson gson = new Gson();
-
-                // queue = new CommunicationQueue(CommunicationQueue.CreateQueueFile(), new JsonConverter<JsonStorage>(gson, JsonStorage.class));
 
                 queue = new SQLCommunicationList(this);
                 queueRunner = new CommunicationRunner(queue, this, getPatient(), this);
@@ -628,7 +880,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } catch (Exception ex) {
 
-                LogFatal("QUEUE",ex,FATAL_START_QUEUE);
+                LogFatal("QUEUE", ex, FATAL_START_QUEUE);
                 //LogError("Cannot Create Queue: " + ex.getMessage());
             }
 
@@ -637,6 +889,32 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    /**
+     * This is probably called be Android
+     * When task removed we ask for alarm to restart our service
+     *
+     * @param rootIntent
+     */
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        // TODO Auto-generated method stub
+        Intent restartService = new Intent(getApplicationContext(),
+                this.getClass());
+        restartService.setPackage(getPackageName());
+        PendingIntent restartServicePI = PendingIntent.getService(
+                getApplicationContext(), 1, restartService,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        LogFatal("KILLED BY ANDROID", FATAL_SERVICE_STOPPED_BY_ANDROID);
+        //Restart the service once it has been killed android
+        AlarmManager alarmService = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        alarmService.set(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + 2 * 60 * 1000, restartServicePI);
+
+    }
+
+    /**
+     * Stop Communication Queue
+     */
     private void stopCommQueue() {
 
         if (queueRunner != null)
@@ -662,6 +940,28 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    private long getUsedMemorySize() {
+
+        long freeSize = 0L;
+        long totalSize = 0L;
+        long usedSize = -1L;
+        try {
+            Runtime info = Runtime.getRuntime();
+            freeSize = info.freeMemory();
+            totalSize = info.totalMemory();
+            usedSize = totalSize - freeSize;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return usedSize;
+
+    }
+
+    /**
+     * Check if network is connected
+     *
+     * @return True of false
+     */
     @Override
     public boolean IsNetworkConnected() {
 
@@ -683,6 +983,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    /***
+     * Is Bluetooth enabled
+     */
     private void enableBluetooth() {
         bluetoothEnabled = isBluetoothEnabled();
 
@@ -762,6 +1065,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    ///TODO: ....DO IT ALL ASYNC!!!!!
+    //TODO: Add band messages and notifications in a queue and execute them from here.
+    //TODO:this will neglect the probability of  duplicate Band Clients
+
+    @Override
+    public void onLowMemory() {
+        LogWarn("Low memory");
+
+
+    }
+
     private String getPatient() {
 
         RecordingSettings settings = RecordingSettings.GetRecordingSettings(this);
@@ -775,29 +1089,48 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         return "TEST_PAT";
     }
 
+    /*
+            Update Usage Statistics evety UpdateUsageStatisticsInterval (default 30 min)
+     */
     private void updateUsageStatistics() {
 
         long unixTime = System.currentTimeMillis();
 
+        long memory = getUsedMemorySize();
+        long memoryInKb = (memory / 1024L);
+
+        totalRAMMemoryUsed += memoryInKb;
+        numberOfRamMemoryChecks++;
+        LogDebug("Memory Used " + Long.toString(memoryInKb));
         ///if (unixTime - lastUsageTimestamp > 30* 1000) {
         //Every Half any hour
-        if (unixTime - lastUsageTimestamp > 60 * 30 * 1000) {
+        if (unixTime - lastUsageTimestamp > updateUsageStatisticsInterval) {
 
             try {
-
-
 
                 String patient = getPatient();
 
                 UsageStatistic obs1 = new UsageStatistic(bandsamples, "001", unixTime, patient, deviceId);
                 UsageStatistic obs2 = new UsageStatistic(devsamples, "002", unixTime, patient, deviceId);
                 UsageStatistic obs3 = new UsageStatistic(hrsamples, "003", unixTime, patient, deviceId);
-
                 ArrayList<UsageStatistic> obsArray = new ArrayList<>();
 
                 obsArray.add(obs1);
                 obsArray.add(obs2);
                 obsArray.add(obs3);
+                try {
+
+                    UsageStatistic obs4 = new UsageStatistic(totalRAMMemoryUsed / numberOfRamMemoryChecks, "004", unixTime, patient, deviceId);
+                    obsArray.add(obs4);
+                    totalRAMMemoryUsed = 0;
+                    numberOfRamMemoryChecks = 0;
+
+
+                } catch (Exception ex) {
+                    LogError("Error getting memory", ex.getCause());
+                }
+
+
                 manager.SendItems(obsArray);
 
                 bandsamples = 0;
@@ -809,14 +1142,13 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                 LogError(ex.getMessage(), ex.getCause());
             }
+
+
+
         }
 
 
     }
-
-    ///TODO: ....DO IT ALL ASYNC!!!!!
-    //TODO: Add band messages and notifications in a queue and execute them from here.
-    //TODO:this will neglect the probability of  duplicate Band Clients
 
     private void checkForUserNotifications() {
 
@@ -831,7 +1163,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 if (alertmanager.anyUnNotified()) {
 
                     UserAlert alert = alertmanager.getUnNotified();
-                    if(alert!=null) {
+                    if (alert != null) {
                         alertmanager.setNotified(alert);
 
                         //Send a vibration to Band if Band is connected
@@ -844,6 +1176,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                     }
                 }
 
+                alertmanager.updateExpired();
 
             } catch (Exception ex) {
 
@@ -877,31 +1210,31 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    /**
+     * Check if Band is connected
+     *
+     * @throws InterruptedException
+     */
+    private void checkMobileDeviceDataAcquired() throws InterruptedException {
 
-
-    private void checkForDevice()  throws InterruptedException {
-
-        if(mAccDeviceEnabled)
-        {
-
+        if (mAccDeviceEnabled) {
 
             /// IF no data acquired for 30 seconds
-            if(devsamples==0)
-            {
-
+            if (devsamples == 0) {
 
                 LogError("Dev samples are zero");
                 unRegisterDeviceSensors();
 
-                wakeLock();
-                //Ok give it soome time
-                Thread.sleep(500);
+                ///wakeLock();
+                //Ok give it some time
+                // Initial 500 now give 1000 ms
+                // Thread.sleep(1000);
 
-
+                //Register Device Sensors
                 registerDeviceSensors();
-                releaseLock();
 
-
+                //Release Lock
+                /// releaseLock();
 
             }
 
@@ -911,31 +1244,35 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
-    private void checkForAlerts() throws InterruptedException {
+    /***
+     * Check Band Connection status
+     * and more specifically if data are received the last minute
+     * @throws InterruptedException
+     */
+    private boolean checkBandConnectionStatus() throws InterruptedException {
+
+        boolean actionTaken=false;
 
         if (sessionRunning) {
             long unixTime = System.currentTimeMillis();
 
-
-
-
             if (mBandEnabled) {
 
-                if ((unixTime - lastBandAcquisition) / 1000 > 60) {
+                if ((unixTime - lastBandAcquisition) > minimumNoBandDataInterval) {
+
+                    Log.v(TAG, "Band not receiving data");
 
                     if (mBandAcquiring) {
-                        LogWarn("Band has at least 60 seconds to acquire", 2);
+                        LogWarn("Band seems not to receive data", 2);
                         //LogWarn("Band has at least 30 seconds to acquire");
 
                     }
 
-                    boolean shoudTryReconnect = true;
+
+
                     if (mClient != null) {
                         if (mClient.getConnectionState() == ConnectionState.DISPOSED) {
-
                             LogInfo("Connection Disposed");
-
-
                         }
 
                         if (mClient.getConnectionState() == ConnectionState.CONNECTED) {
@@ -944,13 +1281,9 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                                 try {
 
-                                    if(!lockBandClient())
-                                    {
-
-                                        return;
+                                    if (!lockBandClient()) {
+                                        return false;
                                     }
-
-
                                     initSensorListeners();
 
                                 } catch (Exception ex) {
@@ -958,13 +1291,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                                     LogError("ALERT REGISTER LISTENERS", ex.getCause());
                                 } finally {
 
-
                                     try {
                                         unlockBandClient();
-                                    }catch(InterruptedException ex)
-                                    {
+                                    } catch (InterruptedException ex) {
 
-                                        Log.d(TAG,"Unlock Band client",ex.getCause());
+                                        Log.d(TAG, "Unlock Band client", ex.getCause());
 
                                     }
 
@@ -974,34 +1305,21 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                             }
                             LogInfo("Connection CONNECTED");
 
-                            shoudTryReconnect = connectedStateFound > 10;
-
-                            connectedStateFound++;
-
                         }
 
                         if (mClient.getConnectionState() == ConnectionState.BOUND) {
-
                             LogDebug("Connection BOUND");
-
-
                         }
 
                         if (mClient.getConnectionState() == ConnectionState.UNBOUND) {
-
                             LogDebug("Connection UNBOUND");
-
-
                         }
                     }
 
                     ///TRY TO RECONNECT IF NOT CONNECTED EVERY 1 MIN
-                    if (shoudTryReconnect && (unixTime - lastBandConnectionTry) > bandReconnectAttemptInterval) {
-
-                        connectedStateFound = 0;
-                        ReconnectBand(restartBluetoothAdaptor);
-
-
+                    if ((unixTime - lastBandConnectionTry) > bandReconnectAttemptInterval) {
+                        actionTaken = true;
+                        ReconnectBand(useRestartBluetoothAdaptorPolicy);
                     }
 
                     // lastBandAcquisition=unixTime;
@@ -1009,6 +1327,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                 } else {
 
+                    ///Previous Band Acquiring state was false (also initial state is false)
                     if (!mBandAcquiring) {
                         LogWarn("Band receiving data...");
 
@@ -1016,11 +1335,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                     if (mFatalError) {
 
-                     //   SendAlert("INFO", "Band Acquiring data", "INFOCODE002");
+                        //   SendAlert("INFO", "Band Acquiring data", "INFOCODE002");
 
                     }
 
-                 //   forwardBandMessages();
+                    //   forwardBandMessages();
 
                     LogDebug("Service Running  and receiving data...");
                     mFatalError = false;
@@ -1032,6 +1351,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         }
 
+        return actionTaken;
 
     }
 
@@ -1081,28 +1401,35 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    /**
+     * Scheduling of Recording Service
+     * Scheduling occur if no Band action is performed
+     *
+     * @throws InterruptedException
+     */
     private void scheduling() throws InterruptedException {
 
         if (scheduler != null) {
 
             if (!schedulerPause) {
 
-                if (scheduler.shouldPause() > 0) {
+                int pauseReason = scheduler.shouldPause();
+                if (pauseReason > 0) {
 
+                    LogDebug("RECORDING PAUSES REASON=" + pauseReason);
                     ///DISCONNECT IF NEEDED
                     if (mClient != null) {
 
-
-
-
-
-                            schedulerPause = true;
+                        //NOT WEARING OR SCHEDULED PAUSE .....THEN DISCONNECT BAND
                         try {
 
-
-
-                            disconnectBand();
-                            mClient = null;
+                            if (disconnectBand()) {
+                                mClient = null;
+                                //Un register Mobile Phone Device Sensors
+                                //TODO: Check if this is required...maybe continue collecting device data
+                                unRegisterDeviceSensors();
+                                schedulerPause = true;
+                            }
 
 
                         } catch (Exception ex) {
@@ -1111,6 +1438,12 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                         }
 
+                        //If MS Band is on rest
+                        //We also put at rest the CPU of the device
+                        // In order to save battery also for smart phone
+                        if (schedulerPause && useDeviceLock())
+                            releaseLock();
+
 
                     }
 
@@ -1118,92 +1451,93 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             } else {
 
-                if (scheduler.isResumed()) {
-
-                    schedulerPause = false;
-
-                }
+                // Should Resume is called only if previously paused
+                // Pauses occur fot two reasons
+                // 1) Scheduled Pause for optimizing MS Band to hold the entire scheduled session
+                // 2) Patient is not wearing band
 
                 if (scheduler.shouldResume()) {
 
+                    LogDebug("RESUMING");
                     schedulerPause = false;
                     scheduler.increaseInterval();
+
                     ///DISCONNECT IF NEEDED
+                    //Before Any reconnection or reseting device
+                    //We wake lock
+                    if (useDeviceLock())
+                        wakeLock();
 
                     ReconnectBand(false);
-                   /* if (mClient != null) {
 
+                    registerDeviceSensors();
 
-                        disconnectBand();
-
-                        mClient = null;
-
-                    }
-
-                    ConnectToBand();
-                    */
-
+                } else {
+                    LogDebug("RECORDING PAUSED....NOT RESUMING YET");
                 }
+
             }
         }
 
 
     }
 
-
     /**
      * Lock Band Client
+     *
      * @throws InterruptedException
      */
     private boolean lockBandClient() throws InterruptedException {
 
-        return available.tryAcquire(3,TimeUnit.SECONDS);
+        boolean ret = available.tryAcquire(3, TimeUnit.SECONDS);
+
+        if (ret)
+            LogWarn("Band Client lock acquired");
+
+        return ret;
 
     }
 
-
     /**
      * Unlock Band Client
+     *
      * @throws InterruptedException
      */
     private void unlockBandClient() throws InterruptedException {
 
-        available.release();
+        if (available != null) {
+            available.release();
+            LogWarn("Band Client lock released");
+        }
 
     }
 
-
     /**
      * Disconnect Band
+     *
      * @throws InterruptedException
      */
-    private synchronized void disconnectBand() throws Exception {
-
+    private synchronized boolean disconnectBand() throws Exception {
+        boolean disconnected = false;
         int tries = 0;
-        if (mClient!=null&&mClient.isConnected()) {
+        if (mClient != null && mClient.isConnected()) {
 
-            boolean disconnected = false;
             do {
 
+                //Lock Band Client
+                try {
 
+                    if (!lockBandClient())
+                        throw new InterruptedException();
+                } catch (InterruptedException ex) {
 
+                    LogError("LOCK Band Client", ex);
 
+                    throw ex;
 
-                    //Lock Band Client
-                    try {
+                }
 
-
-                      if(!lockBandClient())
-                          throw new InterruptedException();
-                    }catch(InterruptedException ex)
-                    {
-
-                        Log.d(TAG,"Lock Band client",ex.getCause());
-                        throw ex;
-
-                    }
-
-                    try{
+                try {
                     if (mClient != null && mClient.isConnected()) {
 
                         if (bandSensorsRegistered) {
@@ -1211,32 +1545,26 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                             unRegisterBandSensors(mgr);
                         }
                         LogInfo("Disconnecting Band for reconnection");
-                        mClient.disconnect().await(15, TimeUnit.SECONDS);
+                        mClient.disconnect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
 
                     }
                     disconnected = true;
+                    LogInfo("Successfully Disconnected from BAND");
 
                 } catch (Exception ex) {
 
-
-
                     LogError("Error while disconnecting: " + ex.getMessage());
-                    throw ex;
-                    //MINOR Exception
+
                 }
 
                 try {
                     unlockBandClient();
-                }catch(InterruptedException ex)
-                {
+                } catch (InterruptedException ex) {
 
-
-                    Log.d(TAG,"Lock Band client",ex.getCause());
+                    Log.d(TAG, "Lock Band client", ex.getCause());
 
 
                 }
-
-
 
                 if (!disconnected)
                     Thread.sleep(1000);
@@ -1246,9 +1574,10 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         }
 
+        return disconnected;
+
 
     }
-
 
     /**
      * TODO: MERGE WITH CHECK FOR ALERT
@@ -1264,14 +1593,11 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 ///DISCONNECT IF NEEDED
                 if (mClient != null) {
 
-
                     try {
-                       if(!lockBandClient())
-                           return;
+                        if (!lockBandClient())
+                            return;
 
-                    }
-                    catch(InterruptedException ex)
-                    {
+                    } catch (InterruptedException ex) {
 
                         return;
 
@@ -1291,10 +1617,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                             //Lock Band Client
 
                             if (mClient != null && mClient.isConnected()) {
-
                                 LogInfo("Disconnecting Band for reconnection");
-                                mClient.disconnect().await(15, TimeUnit.SECONDS);
-
+                                mClient.disconnect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
                             }
                             disconnected = true;
 
@@ -1305,25 +1629,20 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                         }
 
                         if (!disconnected)
-
                             Thread.sleep(1000);
+
                         tries++;
                     } while (!disconnected && tries < 3);
-
-
 
                     try {
                         unlockBandClient();
 
 
-                    }
-                    catch(InterruptedException ex)
-                    {
+                    } catch (InterruptedException ex) {
 
-                        Log.d(TAG,"Unlock Band client",ex.getCause());
+                        Log.d(TAG, "Unlock Band client", ex.getCause());
 
                     }
-
 
 
                 }
@@ -1393,7 +1712,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 }
 
                 if (reconnect) {
-                    LogInfo(" Reconnecting from scratch");
+                    LogInfo("Reconnecting from scratch");
                     ///RECONNECT FROM SCRATCH
                     mClient = null;
                     lastBandConnectionTry = System.currentTimeMillis();
@@ -1426,6 +1745,8 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    //region WAKE LOCK
+
     /**
      * Require permissions for accessing Heart Rate Sensor
      */
@@ -1438,48 +1759,12 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 // user has not consented, request it
                 // the calling class is both an Activity and implements
                 // HeartRateConsentListener
-                if(this.heartRateAccessProvider!=null)
-                this.heartRateAccessProvider.requestHeartRateConsent(sensorMgr);
+                if (this.heartRateAccessProvider != null)
+                    this.heartRateAccessProvider.requestHeartRateConsent(sensorMgr);
 
             }
 
         }
-
-    }
-
-    private void unRegisterBandSensors(BandSensorManager sensorMgr) throws Exception {
-
-        if (mAccBandEnabled) {
-
-            LogInfo("UnRegister Band Accelerometer");
-            sensorMgr.unregisterAccelerometerEventListener(mAccelerometerEventListener);
-        }
-
-        if (mPedoEnabled) {
-            //
-            LogInfo("UnRegister Band Pedo");
-            sensorMgr.unregisterPedometerEventListener(mPedometerEventListener);
-        }
-
-        if (mSTEnabled) {
-
-            LogInfo("UnRegister Band Skin Temperature");
-            sensorMgr.unregisterSkinTemperatureEventListener(mSTEventListener);
-        }
-
-        if (mGyroBandEnabled) {
-            LogInfo("UnRegister Gyro Accelerometer");
-            sensorMgr.unregisterGyroscopeEventListener(mGyroEventListener);
-
-        }
-
-        if (mHeartRateEnabled) {
-            LogInfo("UnRegister Heart Rate Accelerometer");
-            sensorMgr.unregisterHeartRateEventListener(mHeartRateEventListener);
-
-        }
-
-        bandSensorsRegistered = false;
 
     }
 
@@ -1494,94 +1779,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
-    /**
-     * Stop Reader for Recording
-     *
-     * @return
-     */
-    private boolean StopReader() {
-
-
-
-        /// UnRegister Receiver
-
-
-
-        if (receiverRegistered) {
-
-            unregisterReceiver(mReceiver);
-            receiverRegistered = false;
-        }
-
-        if (locListener != null) {
-
-            try {
-                LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-                locationManager.removeUpdates(locListener);
-
-                locListener = null;
-
-            } catch (SecurityException ex) {
-
-                LogError("Cannot Remove GPS Listener");
-            } catch (Exception ex) {
-
-                LogError("Cannot Remove GPS Listener",ex);
-            }
-
-        }
-
-        if (mClient != null && mClient.isConnected()) {
-
-            try {
-
-                BandSensorManager sensorMgr = mClient.getSensorManager();
-
-                //LogInfo("Cannot activate bluetooth Band Sensors");
-                LogInfo("Unregister Band Sensors");
-                if (bandSensorsRegistered) {
-                    unRegisterBandSensors(sensorMgr);
-                }
-
-                mClient.disconnect().await(15, TimeUnit.SECONDS);
-
-                mbandConnected = false;
-
-            } catch (Exception ex) {
-                // Util.showExceptionAlert(getActivity(), "Disconnect", ex);
-                LogError("Disconnect error");
-
-
-
-            }
-
-        }
-
-        if (mAccDeviceEnabled) {
-            unRegisterDeviceSensors();
-        }
-
-        ///Mark that session is not running
-        sessionRunning = false;
-
-        if (fileProcessor != null)
-            fileProcessor.finalize();
-
-        //Release Lock
-        releaseLock();
-
-        notifyListeners();
-
-
-
-        LogWarn("Service stopped", 1);
-
-        return true;
-
-
-    }
-
     private void InitBluetoothListener() {
 
         if (!receiverRegistered) {
@@ -1590,114 +1787,47 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
     }
 
-    private synchronized void ConnectToBand() throws InterruptedException {
-
-
-        try {
-           if(!lockBandClient())
-               return;
-
-        }
-        catch (Exception ex)
-        {
-
-            Log.d(TAG,"Lock Band Client (ConnectToBand)",ex.getCause());
-        }
-        if (mClient == null) {
-
-            try {
-                BandClientManager manager = BandClientManager.getInstance();
-                BandInfo[] mPairedBands = manager.getPairedBands();
-
-                if (mPairedBands.length > 0) {
-
-                    mClient = manager.create(this, mPairedBands[0]);
-
-                } else {
-                    LogFatal("Number of Band Sensors is 0", FATAL_BAND_SENSNUMBER);
-                    if (!mFatalError) {
-                        mFatalError = true;
-                        mFatalErrorCode = 1;
-
-
-                    }
-
-                    return;
-
-
-                }
-
-            } catch (Exception ex) {
-
-                LogFatal("Exception while connecting to band", FATAL_BAND_CONNECTION);
-            }
-
-
-        }
-
-        ///IF Mclient is connected then some leak has occured
-
-        if (!mClient.isConnected()) {
-
-            new ConnectTask().execute(mClient);
-        } else {
-
-
-
-            try {
-                unlockBandClient();
-            }catch(InterruptedException ex)
-            {
-
-                Log.d(TAG,"Unlock Band client",ex.getCause());
-
-            }
-
-
-
-        }
-
-
-    }
-
-    public static PowerManager.WakeLock WAKELOCK = null;
+    //endregion
 
     /**
      *
      */
-    private void wakeLock()
-    {
+    private void wakeLock() {
 
         try {
             if (WAKELOCK == null) {
+
+                LogWarn("WAKE LOCK DEVICE");
                 PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
                 WAKELOCK = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, WL_TAG);
                 WAKELOCK.acquire();
                 //startService(new Intent(getApplicationContext(), SerialPortService.class));
             }
-        }
-        catch (Exception ex)
-        {
-            LogError(TAG,(ex));
+        } catch (Exception ex) {
+            LogError(TAG, (ex));
         }
 
 
     }
 
-
-    private void releaseLock()
-    {
+    private void releaseLock() {
         try {
-        if(WAKELOCK!=null)
-        WAKELOCK.release();
-        WAKELOCK = null;
-        }
-        catch (Exception ex)
-        {
-            LogError(TAG,(ex));
+            if (WAKELOCK != null)
+                WAKELOCK.release();
+            WAKELOCK = null;
+            LogWarn("Release LOCK");
+
+        } catch (Exception ex) {
+            LogError(TAG, (ex));
         }
 
     }
+
+    /**
+     * Start Main Data Reader
+     *
+     * @return
+     */
     private boolean StartReader() {
 
         if (fileProcessor != null)
@@ -1725,53 +1855,37 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         mLocationEnabled = settings.isLocationEnabled();
         deviceId = settings.getDeviceId();
 
-        if (mLocationEnabled) {
-
-            if (locListener == null)
-                locListener = new PDLocationListener(this);
-
-            try {
-                LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_UPDATE_TIME, MIN_UPDATE_DISTANCE, locListener);
-                LogInfo("GPS listener enabled");
-
-            } catch (SecurityException ex) {
-
-                LogFatal("Cannot Register GPS listener for Security reasons",FATAL_GPS_SECURITY);
-            } catch (Exception ex) {
-
-                LogFatal("Cannot Register GPS listener",FATAL_GPS_EXCEPTION);
+        try {
+            //Start Reader Wake Lock
+            if (useDeviceLock()) {
+                wakeLock();
+                Thread.sleep(1000);
             }
 
+        } catch (Exception ex) {
+            LogInfo("LOCK EXCEPTION");
         }
 
+        registerLocationListener();
         sessionRunning = true;
 
         if (mAccDeviceEnabled) {
             try {
-
-
-                wakeLock();
-                Thread.sleep(500);
+                //  wakeLock();
+                //  Thread.sleep(1000);
 
                 ///Wait a little bit
                 registerDeviceSensors();
 
-                releaseLock();
-
+                //releaseLock();
 
             } catch (Exception ex) {
 
-                LogFatal("SENSORS",ex,FATAL_DEVICE_SENSORS);
+                LogFatal("SENSORS", ex, FATAL_DEVICE_SENSORS);
 
             }
 
         }
-
-        //Acquire wake Lock
-        // wakeLock();
-
 
         LogWarn("RECORDING RESUMED", 43);
 
@@ -1792,9 +1906,78 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         return true;
     }
 
+    /**
+     * Stop Reader for Recording
+     *
+     * @return
+     */
+    private boolean StopReader() {
+
+        /// UnRegister Receiver
+        if (receiverRegistered) {
+
+            unregisterReceiver(mReceiver);
+            receiverRegistered = false;
+        }
+
+        //Unregister Location Listener
+        unRegisterLocationListener();
+
+        //Disconnect Band
+        if (mClient != null && mClient.isConnected()) {
+
+            try {
+
+                BandSensorManager sensorMgr = mClient.getSensorManager();
+
+                //LogInfo("Cannot activate bluetooth Band Sensors");
+                LogInfo("Unregister Band Sensors");
+                if (bandSensorsRegistered) {
+                    unRegisterBandSensors(sensorMgr);
+                }
+
+                mClient.disconnect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
+
+                mbandConnected = false;
+
+            } catch (Exception ex) {
+                // Util.showExceptionAlert(getActivity(), "Disconnect", ex);
+                LogError("Disconnect error");
+
+
+            }
+
+        }
+
+        //Unregister Device Sensors
+        if (mAccDeviceEnabled) {
+            unRegisterDeviceSensors();
+        }
+
+        ///Mark that session is not running
+        sessionRunning = false;
+
+        //CLose File processors
+        if (fileProcessor != null)
+            fileProcessor.finalize();
+
+        //Stop Reader Release Lock
+        if (useDeviceLock())
+            releaseLock();
+
+        notifyListeners();
+
+        LogWarn("Service stopped", 1);
+
+        return true;
+
+
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+//        Log4jConfigure.configureRollingFile();//configureFromXmlString
 
         LogDebug("Services start command");
 
@@ -1813,25 +1996,27 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         }
         InitBluetoothListener();
+        foreground();
 
         // If we get killed, after returning from here, restart
         return START_STICKY;
     }
 
-
-
+    //region Bluetooth
 
     /**
      * Start Recording
      */
     public void StartRecording() {
 
-       // WriteToastMessage("pdmanager starting");
+        // WriteToastMessage("pdmanager starting");
         LogDebug("PDManager starting");
+
+        //Set Foreground
+
 
         startTimer();
         startCommQueue();
-
 
         if (scheduledRun()) {
             ///First enable bluetooth
@@ -1853,19 +2038,19 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         StopReader();
         stopCommQueue();
 
-
         super.onDestroy();
 
     }
+    //endregion
 
-
+    //region Register Sensor Listeners
 
     /**
      * Check if bluetooth is enabled
+     *
      * @return
      */
     private boolean isBluetoothEnabled() {
-
 
         try {
             BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -1915,7 +2100,34 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
     }
 
     /**
+     * Register Location Listener
+     */
+    private void registerLocationListener() {
+        if (mLocationEnabled) {
+
+            if (locListener == null)
+                locListener = new PDLocationListener(this);
+
+            try {
+                LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_UPDATE_TIME, MIN_UPDATE_DISTANCE, locListener);
+                LogInfo("GPS listener enabled");
+
+            } catch (SecurityException ex) {
+
+                LogFatal("Cannot Register GPS listener for Security reasons", FATAL_GPS_SECURITY);
+            } catch (Exception ex) {
+
+                LogFatal("Cannot Register GPS listener", FATAL_GPS_EXCEPTION);
+            }
+
+        }
+    }
+
+    /**
      * Register Band Sensors
+     *
      * @param sensorMgr Band Sensor Manager
      * @throws BandException A band exception
      */
@@ -1982,27 +2194,12 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
         bandSensorsRegistered = true;
     }
+    //endregion
 
+    //region Unregister listeners
 
     /**
-     * Unregister Device Sensors
-     */
-    private void unRegisterDeviceSensors()
-    {
-        try {
-
-            LogInfo("Unregister device sensors");
-            senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-            senSensorManager.unregisterListener(this);
-        } catch (Exception ex) {
-
-            LogError("Unregister device sensors error");
-            //  Util.handleException("Unregister device sensors",ex);
-        }
-
-    }
-    /**
-     * Register Device Sensors
+     * Register Device Motion Sensors
      */
     private void registerDeviceSensors() {
 
@@ -2042,11 +2239,25 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             }
 
             if (deviceSensors.get(i).getType() == Sensor.TYPE_ACCELEROMETER) {
+
                 hasAccelerationSensor = true;
 
             }
 
+
         }
+
+        if (!hasMagneticSensor)
+            LogWarn("NO TYPE_MAGNETIC_FIELD");
+        if (!hasGravitySensor)
+            LogWarn("NO TYPE_GRAVITY");
+
+        if (!hasLinearAccelerationSensor)
+            LogWarn("NO TYPE_LINEAR_ACCELERATION");
+        if (!hasGyroscopeSensor)
+            LogWarn("NO TYPE_GYROSCOPE");
+        if (!hasAccelerationSensor)
+            LogWarn("NO TYPE_ACCELEROMETER");
 
         if (hasLinearAccelerationSensor && hasGravitySensor && hasMagneticSensor) {
 
@@ -2106,6 +2317,94 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             }
         }
 
+
+    }
+
+    /**
+     * Un Register location Listener
+     */
+    private void unRegisterLocationListener() {
+        if (locListener != null) {
+
+            try {
+                LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+                locationManager.removeUpdates(locListener);
+
+                locListener = null;
+
+            } catch (SecurityException ex) {
+
+                LogError("Cannot Remove GPS Listener");
+            } catch (Exception ex) {
+
+                LogError("Cannot Remove GPS Listener", ex);
+            }
+
+        }
+
+    }
+
+    //endregion
+
+    //region Data Handlers
+
+    /**
+     * Unregister Band Sensors
+     *
+     * @param sensorMgr
+     * @throws Exception
+     */
+    private void unRegisterBandSensors(BandSensorManager sensorMgr) throws Exception {
+
+        if (mAccBandEnabled) {
+
+            LogInfo("UnRegister Band Accelerometer");
+            sensorMgr.unregisterAccelerometerEventListener(mAccelerometerEventListener);
+        }
+
+        if (mPedoEnabled) {
+            //
+            LogInfo("UnRegister Band Pedo");
+            sensorMgr.unregisterPedometerEventListener(mPedometerEventListener);
+        }
+
+        if (mSTEnabled) {
+
+            LogInfo("UnRegister Band Skin Temperature");
+            sensorMgr.unregisterSkinTemperatureEventListener(mSTEventListener);
+        }
+
+        if (mGyroBandEnabled) {
+            LogInfo("UnRegister Gyro Accelerometer");
+            sensorMgr.unregisterGyroscopeEventListener(mGyroEventListener);
+
+        }
+
+        if (mHeartRateEnabled) {
+            LogInfo("UnRegister Heart Rate Accelerometer");
+            sensorMgr.unregisterHeartRateEventListener(mHeartRateEventListener);
+
+        }
+
+        bandSensorsRegistered = false;
+
+    }
+
+    /**
+     * Unregister Device Sensors
+     */
+    private void unRegisterDeviceSensors() {
+        try {
+
+            LogInfo("Unregister device sensors");
+            senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+            senSensorManager.unregisterListener(this);
+        } catch (Exception ex) {
+
+            LogError("Unregister device sensors error");
+            //  Util.handleException("Unregister device sensors",ex);
+        }
 
     }
 
@@ -2194,6 +2493,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     /**
      * Handle Data
+     *
      * @param data Data to Handle
      */
     public void handleData(ISensorData data) {
@@ -2209,6 +2509,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     /**
      * Add Data to processors
+     *
      * @param data Data to add
      */
     private void addDataToProcessors(ISensorData data) {
@@ -2228,7 +2529,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
         handlePendingSensorReports();
     }
-
 
     /***
      * On Sensor Changed Method
@@ -2250,6 +2550,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             accData.setTicks(sensorEvent.timestamp);
 
             handleData(accData);
+            devsamples++;
 
         }
         if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
@@ -2278,7 +2579,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 linearAccelerationTime = sensorEvent.timestamp;
                 linearAccelerationTime2 = System.currentTimeMillis();
                 linearAccelerationAcquired = true;
-               // devsamples++;
+                // devsamples++;
 
             }
             if (sensorEvent.sensor.getType() == Sensor.TYPE_GRAVITY) {
@@ -2343,20 +2644,33 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+        //LogDebug("Accuracy Changed  to"+i);
+
+    }
+
+    //region Logs
     private void LogFatal(String e, int code) {
-        Log.e(TAG,e);
-       // LogError(e);
+        Log.e(TAG, e);
+
+        // LogError(e);
         mFatalError = true;
         mFatalErrorCode = code;
         ProcessLog("FATAL", e);
         notifyListeners();
         SendAlert(e, String.format("ERROR%03d", code));
+        Bugfender.f(TAG, String.format("ERROR%03d", code));
 
 
     }
-    private void LogFatal(String mess,Exception ex, int code) {
 
-        Log.e(TAG,mess, ex.getCause());
+    private void LogFatal(String mess, Exception ex, int code) {
+
+        Log.e(TAG, mess, ex.getCause());
+
+        // logger.log(Level.FATAL,String.format("ERROR%03d", code));
         mFatalError = true;
         mFatalErrorCode = code;
         ProcessLog("FATAL", mess);
@@ -2365,41 +2679,52 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
     }
-    private void LogError(String source) {
 
-        Log.e(TAG,source);
+    private void LogError(String source) {
+        // logger.log(Level.ERROR,source);
+
+        Bugfender.e(TAG, source);
+        Log.e(TAG, source);
         ProcessLog(TAG, source);
 
     }
 
     private void LogError(String source, Throwable cause) {
 
-        Log.e(TAG,source, cause);
+        //logger.log(Level.ERROR,source,cause);
+        Bugfender.e(TAG, source);
+        Log.e(TAG, source, cause);
         ProcessLog(TAG, source);
 
     }
 
     private void LogError(String e, Exception ex) {
-
-        Log.e(TAG,e, ex.getCause());
+        //logger.log(Level.ERROR,e,ex.getCause());
+        Bugfender.e(TAG, e);
+        Log.e(TAG, e, ex.getCause());
         ProcessLog(TAG, e);
 
     }
 
     private void LogInfo(String e) {
-
+        //logger.log(Level.INFO,e);
         Log.i(TAG, e);
 
     }
 
     private void LogDebug(String e) {
-        Log.d(TAG,e);
+
+        //logger.log(Level.DEBUG,e);
+        Log.d(TAG, e);
 
 
     }
+    //endregion
 
     private void LogWarn(String e) {
+        //logger.log(Level.WARN,e);
         Log.w(TAG, e);
+        Bugfender.w(TAG,e);
         ProcessLog("WARNING", e);
 
     }
@@ -2412,19 +2737,15 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
      * @param code
      */
     private void LogWarn(String e, int code) {
+        //logger.log(Level.WARN,e);
         Log.w("WARNING", e);
         ProcessLog("WARNING", e);
         SendAlert(e, String.format("WARN%03d", code));
 
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
-        //LogDebug("Accuracy Changed  to"+i);
-
-    }
-
+    //endregion
+    //region Send Alert
     private void SendAlert(String message, String code) {
 
         try {
@@ -2442,6 +2763,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    //endregion
 
     /**
      * Send Alert to PD Cloud
@@ -2467,6 +2789,30 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
+    //region Checks
+
+    private synchronized void AddBandMessage(String title, String message, long expiration, boolean isMessage) {
+
+        try {
+            bandMessageQueue.add(new BandMessage(title, message, expiration, isMessage));
+
+        } catch (Exception ex) {
+
+            LogError("Add Band MEssage", ex.getCause());
+        }
+
+    }
+
+    /**
+     * Check if session is running
+     *
+     * @return
+     */
+
+    public boolean isSessionRunning() {
+
+        return sessionRunning;
+    }
 
     /**
      * Check if all sensors are recording
@@ -2501,12 +2847,17 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
 
     }
+    //endregion
+
+    //region Main Task
 
     public int getFatalErrorCode() {
 
         return mFatalErrorCode;
 
     }
+
+    //endregion
 
     public boolean hasFatalError() {
 
@@ -2515,16 +2866,172 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
     }
 
-    private synchronized void AddBandMessage(String title, String message, long expiration, boolean isMessage) {
+    private synchronized void ConnectToBand() throws InterruptedException {
 
         try {
-            bandMessageQueue.add(new BandMessage(title, message, expiration, isMessage));
+            if (!lockBandClient()) {
+                LogWarn("Band Client locked");
+                return;
+            }
+
 
         } catch (Exception ex) {
 
-            LogError("Add Band MEssage", ex.getCause());
+            Log.d(TAG, "Lock Band Client (ConnectToBand)", ex.getCause());
+        }
+        if (mClient == null) {
+
+            try {
+                BandClientManager manager = BandClientManager.getInstance();
+                BandInfo[] mPairedBands = manager.getPairedBands();
+
+                if (mPairedBands.length > 0) {
+
+                    mClient = manager.create(this, mPairedBands[0]);
+
+                } else {
+                    LogFatal("Number of Band Sensors is 0", FATAL_BAND_SENSNUMBER);
+                    if (!mFatalError) {
+                        mFatalError = true;
+                        mFatalErrorCode = 1;
+
+
+                    }
+                    //Don't forget to unlock band client
+                    try {
+
+                        unlockBandClient();
+
+                    } catch (InterruptedException ex) {
+
+                        Log.d(TAG, "Unlock Band client", ex.getCause());
+
+                    }
+
+                    return;
+
+
+                }
+
+            } catch (Exception ex) {
+
+                LogFatal("Exception while connecting to band", FATAL_BAND_CONNECTION);
+            }
+
+
         }
 
+        ///IF Mclient is connected then some leak has occured
+
+        if (!mClient.isConnected()) {
+
+            new ConnectTask().execute(mClient);
+        } else {
+
+            try {
+                unlockBandClient();
+            } catch (InterruptedException ex) {
+
+                Log.d(TAG, "Unlock Band client", ex.getCause());
+
+            }
+
+
+        }
+
+
+    }
+
+    //endregion
+    private boolean isServiceRunning(String serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void checkServicesRunning() {
+
+        Log.v(TAG, "List of running services");
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            Log.v(TAG, service.service.getClassName());
+        }
+
+    }
+
+    private boolean isServiceRunningInForeground(Context context, Class<?> serviceClass) {
+
+        try {
+            ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+                if (serviceClass.getName().equals(service.service.getClassName())) {
+                    if (service.foreground) {
+                        return true;
+                    }
+
+                }
+            }
+        } catch (Exception ex) {
+
+        }
+
+        return false;
+    }
+
+    /**
+     * Place the service into the foreground
+     */
+    public void foreground() {
+
+        if (!isServiceRunningInForeground(this.getApplicationContext(), RecordingService.class)) {
+            LogWarn("Setting service foreground");
+            startForeground(NOTIFICATION_ID, createNotification());
+        }
+    }
+
+    /**
+     * Return the service to the background
+     */
+    public void background() {
+
+        if (isServiceRunningInForeground(this.getApplicationContext(), RecordingService.class)) {
+            LogWarn("Setting Service in Background");
+            stopForeground(true);
+        }
+    }
+
+    /**
+     * Creates a notification for placing the service into the foreground
+     *
+     * @return a notification for interacting with the service when in the foreground
+     */
+    private Notification createNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setContentTitle("PD Manager Service Active")
+                .setContentText("Thanks for participating to our study.");
+        //  .setSmallIcon(com.pdmanager.R.drawable.pdmanagersmall);
+
+        Intent resultIntent = new Intent(this, RecordingService.class);
+        PendingIntent resultPendingIntent =
+                PendingIntent.getActivity(this, 0, resultIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(resultPendingIntent);
+
+        return builder.build();
+    }
+
+    //region foreground and background service
+
+    //region Local Binder
+    public class LocalBinder extends Binder {
+        public RecordingService getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return RecordingService.this;
+        }
     }
 
     /**
@@ -2542,138 +3049,155 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
 
 
-
         public void run() {
-            //  toastHandler.sendEmptyMessage(0);
 
-            try {
+            /****
+             * Check that the last execution time was at least  minMainTimerInterval before
+             * We may observe a behavior where timer is postoponned for a timer of period
+             */
+            long unixTime = System.currentTimeMillis();
 
-                boolean bandActionTaken = false;
+            if (unixTime - lastTimerCheck > minMainTimerInterval) {
 
-                Log.d(TAG,"Timer check");
-                if (!schedulerPause) {
+                //  toastHandler.sendEmptyMessage(0);
+                mainTaskHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                         /* do what you need to do */
+                        serviceCheck();
+      /* and here comes the "trick" */
 
-                    if (!scheduledRun()) {
+                    }
+                });
+
+            } else {
+
+                LogDebug("Timer sooner than expected");
+            }
+
+            // serviceCheck();
+            //Commented previous implementation
+            /*
+                    try {
+
+                        boolean bandActionTaken = false;
+
+                        Log.d(TAG, "Timer check");
+
+                        //region Block for not paused
+                        if (!schedulerPause) {
+
+                            if (!scheduledRun()) {
+
+                                if (sessionRunning) {
+                                    /// IF SESSION RUNNING STOP SESSION
+                                    ///Notify Server
+                                    LogInfo("Service stopped for today");
+                                    SendAlert("INFO", "Service stopped for today", "INFO0002");
+
+                                    bandActionTaken = true;
+                                    //Stop Reader
+                                    StopReader();
+                                }
 
 
-                        if (sessionRunning) {
-                            /// IF SESSION RUNNING STOP SESSION
-                            ///Notify Server
-                            LogInfo("Service stopped for today");
-                            SendAlert("INFO", "Service stopped for today", "INFO0002");
+                            } else {
 
-                            bandActionTaken = true;
-                            //Stop Reader
-                            StopReader();
-                        }
+                                boolean sessionMustRun = getSessionMustRun();
 
+                                if (sessionMustRun) {
 
-                    } else {
+                                    enableBluetooth();
 
-                        boolean sessionMustRun = getSessionMustRun();
+                                    //IF Session Not Running
+                                    if (!sessionRunning) {
 
-                        if (sessionMustRun) {
-
-                            enableBluetooth();
-
-                            //IF Session Not Running
-                            if (!sessionRunning) {
-
-                                bandActionTaken = true;
-                                //Start Reader
-                                StartReader();
+                                        bandActionTaken = true;
+                                        //Start Reader
+                                        StartReader();
 
 
-                            }
-                            else
-                            {
+                                    } else {
 
-                                //Session Running
-                                // Check For Errors
-                                if (!bandActionTaken) {
+                                        //Session Running
+                                        // Check For Errors
+                                        if (!bandActionTaken) {
 
-                                    try {
+                                            try {
 
-                                        checkForAlerts();
+                                                checkBandConnectionStatus();
 
-                                    } catch (InterruptedException ex) {
+                                            } catch (InterruptedException ex) {
 
-                                        LogError("EX ON SCHEDULING", ex.getCause());
-                                    } catch (Exception ex) {
+                                                LogError("EX ON SCHEDULING", ex.getCause());
+                                            } catch (Exception ex) {
 
-                                        LogError("EX ON SCHEDULING", ex.getCause());
+                                                LogError("EX ON SCHEDULING", ex.getCause());
+                                            }
+
+                                        }
+
                                     }
+
 
                                 }
 
                             }
 
+                            ///Check For Alert only if
+
+                        }
+                        //endregion
+
+                        if (!bandActionTaken) {
+
+                            try {
+                                scheduling();
+
+                            } catch (InterruptedException ex) {
+
+                                LogError("EX ON SCHEDULING", ex.getCause());
+                            } catch (Exception ex) {
+
+                                LogError("EX ON SCHEDULING", ex.getCause());
+                            }
 
                         }
 
-                    }
+                        ///Check For Device Sensors
+                        if (scheduledRun()) {
+
+                            if (sessionRunning) {
+
+                                checkMobileDeviceDataAcquired();
+                            }
+
+                        }
+
+                        //Check for Medication User Alert
+                        //checkForMedAlerts();
+                        //Check For Alerts
+                        if (scheduledRun()) {
+
+                            if (sessionRunning) {
+                                //Update Usage Statistics
+                                updateUsageStatistics();
+
+                            }
+                        }
+
+                        //Check For User Notifications
+                        checkForUserNotifications();
 
 
-                    ///Check For Alert only if
-
-                }
-
-                if (!bandActionTaken) {
-
-                    try {
-                        scheduling();
-
-                    } catch (InterruptedException ex) {
-
-                        LogError("EX ON SCHEDULING", ex.getCause());
                     } catch (Exception ex) {
 
-                        LogError("EX ON SCHEDULING", ex.getCause());
-                    }
-
-                }
-
-
-                ///Check For Device Sensors
-                if (scheduledRun()) {
-
-                    if (sessionRunning) {
-
-                        checkForDevice();
-                    }
-
-                }
-
-                //Check for Medication User Alert
-                //checkForMedAlerts();
-                //Check For Alerts
-                if (scheduledRun()) {
-
-                    if (sessionRunning) {
-                        //Update Usage Statistics
-                        updateUsageStatistics();
-
-                    }
-                }
-
-                //Check For User Notifications
-                checkForUserNotifications();
-
-
-            } catch (Exception ex) {
-
-
-                Log.e(TAG,ex.getMessage());
-            }
+                        Log.e(TAG, ex.getMessage());
+                    }  */
+            //endregion
         }
 
-    }
 
-    public class LocalBinder extends Binder {
-        public RecordingService getService() {
-            // Return this instance of LocalService so clients can call public methods
-            return RecordingService.this;
-        }
     }
 
     ////Connect Task
@@ -2698,8 +3222,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
             try {
                 MedManager manager = new MedManager(mContext);
                 UserAlertManager alertmanager = new UserAlertManager(mContext);
-
-
 
                 ///Check for alert
                 int ret = manager.pendingMedication();
@@ -2740,7 +3262,6 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
         }
     }
 
-
     ////Connect Task
     /// The connect task asynchronously tries to connect to Microsoft Band
     private class ConnectTask extends AsyncTask<BandClient, Void, ConnectionResult> {
@@ -2749,7 +3270,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
             BandPendingResult<ConnectionState> pendingResult = null;
             try {
-                ConnectionState result =  clientParams[0].connect().await(15,TimeUnit.SECONDS);
+                ConnectionState result = clientParams[0].connect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
 
                 return new ConnectionResult(result);
 
@@ -2760,12 +3281,36 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
                 // handle InterruptedException
             } catch (BandException ex) {
 
-                LogError("Connect to band", ex);
+                String exceptionMessage = "Connect to band";
+                switch (ex.getErrorType()) {
+                    case TOO_MANY_CONCURRENT_COMMANDS_ERROR:
+                        exceptionMessage = "Microsoft Band TOO_MANY_CONCURRENT_COMMANDS_ERROR";
+                    case BAND_FULL_ERROR:
+                        exceptionMessage = "Microsoft Band Full Error";
+                        break;
+                    case SERVICE_ERROR:
+
+                        exceptionMessage = "Microsoft Band SERVICE_ERROR";
+                        break;
+                    case DEVICE_ERROR:
+                        exceptionMessage = "Microsoft Band DEVICE_ERROR";
+                        break;
+                    case TIMEOUT_ERROR:
+                        exceptionMessage = "Microsoft Band SERVICE_ERROR";
+                        break;
+
+                    case UNKNOWN_ERROR:
+                        exceptionMessage = "Microsoft Band UNKNOWN_ERROR";
+                    default:
+                        //   exceptionMessage = "Unknown error occurred: " + e.getMessage();
+                        break;
+                }
+                LogError("Connect to band..." + exceptionMessage, ex);
 
                 return new ConnectionResult(ex);
                 // handle BandException
             } catch (Exception ex) {
-                LogError("Connect to band", ex);
+                LogError("Connect to band...", ex);
 
                 return new ConnectionResult(ex);
                 // handle BandException
@@ -2774,8 +3319,7 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         protected void onPostExecute(ConnectionResult result) {
 
-
-            if(result!=null) {
+            if (result != null) {
                 if (result.hasException()) {
                     LogError("Error disconnecting from Microsoft Band " + result.getException().getMessage());
 
@@ -2785,42 +3329,37 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
                         mbandConnected = true;
 
-                        LogInfo("Connected to Microsoft Band");
+                        LogWarn("Connected to Microsoft Band");
 
                         requireHeartRatePermissions();
                         initSensorListeners();
 
 
-                    }
-                    else if (mClient != null && result.getState() == ConnectionState.BOUND) {
+                    } else if (mClient != null && result.getState() == ConnectionState.BOUND) {
 
-                        LogInfo("Bound to Microsoft Band...needs res");
+                        LogWarn("Bound to Microsoft Band...needs res");
 
-                    }
-                    else   if (mClient != null && result.getState() == ConnectionState.DISPOSED) {
+                    } else if (mClient != null && result.getState() == ConnectionState.DISPOSED) {
 
                         try {
-                            LogInfo("Disconnecting to Microsoft Band");
-                            mClient.disconnect().await(15, TimeUnit.SECONDS);
+                            LogWarn("Disconnecting to Microsoft Band");
+                            mClient.disconnect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
 
 
                         } catch (Exception ex) {
-                            LogError("Error disconnecting from Microsoft Band");
+                            LogWarn("Error disconnecting from Microsoft Band");
 
                         }
 
 
-                    }
-                    else
-                    {
-                        LogError("Connection state= "+ ConnectionState.DISPOSED+"  unhandled ");
+                    } else {
+                        LogWarn("Connection state= " + ConnectionState.DISPOSED + "  unhandled ");
 
                     }
                 }
-            }
-            else {
+            } else {
 
-                LogError("Connection Result is null");
+                LogWarn("Connection Result is null");
 
             }
 
@@ -2835,6 +3374,5 @@ public class RecordingService extends Service implements ISensorDataHandler, Sen
 
         }
     }
-
-
 }
+

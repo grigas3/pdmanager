@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Release config - only log errors -->
+
+<Configuration>
+    <Appenders>
+
+        <RollingFile
+            name="RollingFile"
+            fileName="PD_Manager/app.log"
+            filePattern="app-%i.log.gz">
+            <ThresholdFilter
+                level="INFO"
+                onMatch="ACCEPT"
+                onMismatch="DENY"/>
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="WARN">
+
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

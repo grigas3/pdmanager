@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +18,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowers.LondonTowersGame;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowers.LondonTowersGraph;
 import com.pdmanager.views.patient.cognition.tools.RNG;
@@ -85,30 +83,6 @@ public class LondonTowersTest extends SoundFeedbackActivity
     private int nRepetitions;
     private int maxLevelReached = 0;
     private ArrayList<Double> timePerTrial;
-
-    private void infoTest()
-    {
-        if (level == 0)
-        {
-            setContentView(R.layout.activity_start);
-            TextView textViewToChange = (TextView) findViewById(R.id.level);
-            textViewToChange.setText(getResources().getString(R.string.london_towers_instruction));
-            speak.speakFlush(getResources().getString(R.string.london_towers_instruction));
-            Button buttonStart = (Button) findViewById(R.id.play);
-            buttonStart.setOnClickListener(new OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    speak.silence();
-                    start();
-                }
-            });
-
-        }
-        else start();
-    }
-
     private OnClickListener oclStack = new OnClickListener()
     {
         @Override
@@ -164,6 +138,24 @@ public class LondonTowersTest extends SoundFeedbackActivity
             else updateMoves();
         }
     };
+
+    private void infoTest() {
+        if (level == 0) {
+            setContentView(R.layout.activity_start);
+            TextView textViewToChange = (TextView) findViewById(R.id.level);
+            textViewToChange.setText(getResources().getString(R.string.london_towers_instruction));
+            speakFlush(getResources().getString(R.string.london_towers_instruction));
+            Button buttonStart = (Button) findViewById(R.id.play);
+            buttonStart.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    speakerSilence();
+                    start();
+                }
+            });
+
+        } else start();
+    }
 
     private void updateMoves()
     {

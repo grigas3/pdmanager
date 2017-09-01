@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -32,6 +30,13 @@ import java.util.Locale;
 public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
 
     private final String LOGGER_TAG = "SWM test";
+    private final int TIME_MILLISECONDS_TRANSITIONS = 700;
+    private final int TIME_MILLISECONDS_TICK = 350;
+    private final int TIME_MILLISECONDS_TASK = 480000;
+    private final int NUMBER_OF_LEVELS = 4;
+    private final int NUMBER_OF_BOXES = 8;
+    private final int START_NUMBER_OF_TOKENS = 3;
+    private final int maxErrors = 3;
     private String
         test = "SWM_Results.csv",
         header = "Timestamp, " +
@@ -46,14 +51,6 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
                 "Time between blue token STD (s), " +
                 "Total time (s) " +
                 "\r\n";
-
-    private final int TIME_MILLISECONDS_TRANSITIONS = 700;
-    private final int TIME_MILLISECONDS_TICK = 350;
-    private final int TIME_MILLISECONDS_TASK = 480000;
-    private final int NUMBER_OF_LEVELS = 4;
-    private final int NUMBER_OF_BOXES = 8;
-    private final int START_NUMBER_OF_TOKENS = 3;
-    private final int maxErrors = 3;
     private int totalErrorCount = 0;
 
     private int level;
@@ -96,13 +93,13 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
             setContentView(R.layout.activity_start);
             TextView textViewToChange = (TextView) findViewById(R.id.level);
             textViewToChange.setText(getResources().getString(R.string.swm_instruction));
-            speak.speakFlush(getResources().getString(R.string.swm_instruction));
+            speakFlush(getResources().getString(R.string.swm_instruction));
             Button buttonStart = (Button) findViewById(R.id.play);
 
             buttonStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    speak.silence();
+                    speakerSilence();
                     timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
                         @Override
@@ -411,7 +408,7 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
 
             writeFile (test, header);
 
-            speak.silence();
+            speakerSilence();
 
             if (timerTask != null) {
                 timerTask.cancel();
@@ -459,14 +456,14 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
         super.onResume();
 
         if (isPaused) {
-            speak.silence();
+            speakerSilence();
             if (timerTask != null) {
                 timerTask.cancel();
             }
             if (timer != null) {
                 timer.cancel();
             }
-            speak.silence();
+            speakerSilence();
 
             timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
@@ -495,7 +492,7 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
     public void onPause() {
         super.onPause();
 
-        speak.silence();
+        speakerSilence();
 
         if (timerTask != null) {
             timerTask.cancel();

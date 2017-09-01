@@ -11,8 +11,10 @@ package com.pdmanager.views.patient.cognition;
  * @copyright: LifeSTech
  * @license: GPL3
  */
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,17 +22,16 @@ import com.pdmanager.R;
 import com.pdmanager.views.patient.cognition.cognitive.CognitiveMenu;
 import com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne;
 import com.pdmanager.views.patient.cognition.speech.SpeechTest;
-import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
-public class MainMenu extends SoundFeedbackActivity implements View.OnClickListener {
+public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonCognitive, buttonFTT, buttonVoice;
+    Button buttonCognitive, buttonFTT, buttonVoice, buttonBack;
 
     @Override
     protected  void onDestroy()
     {
         super.onDestroy();
-        speak.shutdown();
+        //speak.shutdown();
     }
 
     @Override
@@ -45,10 +46,12 @@ public class MainMenu extends SoundFeedbackActivity implements View.OnClickListe
         buttonCognitive= (Button) findViewById(R.id.buttonMenuCognitive);
         buttonFTT = (Button) findViewById(R.id.buttonMenuFTT);
         buttonVoice = (Button) findViewById(R.id.buttonMenuVoice);
+        buttonBack = (Button) findViewById(R.id.buttonBack);
 
         buttonCognitive.setOnClickListener(this);
         buttonFTT.setOnClickListener(this);
         buttonVoice.setOnClickListener(this);
+        buttonBack.setOnClickListener(this);
 
     }
 
@@ -69,6 +72,10 @@ public class MainMenu extends SoundFeedbackActivity implements View.OnClickListe
             case R.id.buttonMenuVoice:
                 Intent menuVoice = new Intent(MainMenu.this, SpeechTest.class);
                 startActivity(menuVoice);
+                break;
+
+            case R.id.buttonBack:
+                finish();
                 break;
         }
     }

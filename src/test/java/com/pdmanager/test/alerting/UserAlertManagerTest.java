@@ -4,14 +4,11 @@ package com.pdmanager.test.alerting; /**
  */
 
 
-
 import com.pdmanager.BuildConfig;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.models.Alert;
 import com.pdmanager.models.UserAlert;
-import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.settings.RecordingSettings;
-
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,11 +51,9 @@ public class UserAlertManagerTest {
         int hour = 8;
         long h = manager.getNewExpirationDate(1000 * hour * 60*60, "diary");
         assertEquals(getHour(h), 9);
-
         hour = 16;
         h = manager.getNewExpirationDate(1000 * hour * 60*60, "diary");
         assertEquals(getHour(h), 17);
-
         hour = 20;
         h = manager.getNewExpirationDate(1000 * hour * 60*60, "diary");
         assertEquals(getHour(h), 8);
@@ -185,6 +180,34 @@ public class UserAlertManagerTest {
 
         assertTrue(h1);
         manager.updateAlerts("MED");
+        boolean h2 = manager.anyActive();
+
+        assertTrue(!h2);
+
+        assert true;
+
+    }
+
+
+    //Test Update Expired alerts
+    @Test
+    public void test_updateExpired() {
+
+        UserAlertManager manager = new UserAlertManager(RuntimeEnvironment.application);
+
+        ///First clear all alerts
+        manager.clearAll();
+
+        ///Add alertr
+        long exp1 = (System.currentTimeMillis()) - 16 * 60 * 60 * 1000;
+        long exp2 = (System.currentTimeMillis()) - 16 * 60 * 60 * 1000;
+        manager.add("Test", "TAKE YOUR MED", "MED", "12", exp1);
+        manager.add("Test", "TAKE YOUR MED", "MED", "12", exp2);
+
+        boolean h1 = manager.anyActive();
+
+        assertTrue(h1);
+        manager.updateExpired();
         boolean h2=manager.anyActive();
 
         assertTrue(!h2);

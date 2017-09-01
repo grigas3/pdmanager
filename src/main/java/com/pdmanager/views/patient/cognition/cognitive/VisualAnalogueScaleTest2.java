@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +11,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.pdmanager.R;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.CustomSeekBar;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
@@ -32,9 +30,11 @@ import java.util.Locale;
 
     public class VisualAnalogueScaleTest2 extends SoundFeedbackActivity implements SeekBar.OnSeekBarChangeListener {
 
+    private final String LOGGER_TAG = "LOGGER_TAG: VAS test";
+    private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
+    private final int QUESTIONS_NUMBER = 8;
         private TextView tv0, tv1, tv2, tv3, tv4;
         private CustomSeekBar seekbarAnswer;
-        private final String LOGGER_TAG = "LOGGER_TAG: VAS test";
         private String
                 test = "VAS_Results.csv",
                 header = "Timestamp, " +
@@ -43,10 +43,6 @@ import java.util.Locale;
                         "Answer (%) " +
                         "Time (s), " +
                         "\r\n";
-
-        private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
-        private final int QUESTIONS_NUMBER = 8;
-
         private int questionNumber = 0;
 
         private boolean isStarted = false;
@@ -70,14 +66,14 @@ import java.util.Locale;
 
                 TextView textViewToChange = (TextView) findViewById(R.id.level);
                 textViewToChange.setText(getResources().getString(R.string.vas_instruction));
-                speak.speakFlush(getResources().getString(R.string.vas_instruction));
+                speakFlush(getResources().getString(R.string.vas_instruction));
 
                 Button buttonStart = (Button) findViewById(R.id.play);
                 buttonStart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        speak.silence();
+                        speakerSilence();
                         /*
                         timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK)
                         {
@@ -235,7 +231,7 @@ import java.util.Locale;
             try {
                 writeFile (test, header);
 
-                speak.silence();
+                speakerSilence();
 
                 //if (timerTask != null) { timerTask.cancel(); }
 
@@ -294,13 +290,13 @@ import java.util.Locale;
 
             if (isPaused) {
 
-                speak.silence();
+                speakerSilence();
 
                 //if (timerTask != null) { timerTask.cancel(); }
 
                 isStarted = false;
                 isPaused = true;
-                speak.silence();
+                speakerSilence();
 
                 /*
                         timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK)
@@ -326,7 +322,7 @@ import java.util.Locale;
         public void onPause() {
             super.onPause();
 
-            speak.silence();
+            speakerSilence();
             isPaused = true;
             //if (timerTask != null) { timerTask.cancel(); }
         }

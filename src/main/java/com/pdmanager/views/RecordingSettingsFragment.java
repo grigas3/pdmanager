@@ -41,6 +41,8 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     private Switch mSwitchRecordFile;
     private Switch mSwitchUseDiary;
     private Switch mSwitchUseDetectors;
+    private Switch mSwitchUseDeviceLock;
+    private Switch mSwitchUseSpeech;
 
 
 
@@ -93,6 +95,16 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
                 } else if (sw == mSwitchRecordFile) {
 
                     settings.setRecordFiles(isChecked);
+
+
+                } else if (sw == mSwitchUseDeviceLock) {
+
+                    settings.setUseDeviceLock(isChecked);
+
+
+                } else if (sw == mSwitchUseSpeech) {
+
+                    settings.setUseSpeech(isChecked);
 
 
                 }
@@ -165,6 +177,14 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         mSwitchUseDetectors = (Switch) rootView.findViewById(R.id.switchUseDetectors);
         mSwitchUseDetectors.setOnCheckedChangeListener(mToggleSensorSection);
+
+        mSwitchUseDeviceLock = (Switch) rootView.findViewById(R.id.swithUseDeviceLock);
+        mSwitchUseDeviceLock.setOnCheckedChangeListener(mToggleSensorSection);
+
+        mSwitchUseSpeech = (Switch) rootView.findViewById(R.id.switchUseSpeech);
+        mSwitchUseSpeech.setOnCheckedChangeListener(mToggleSensorSection);
+
+
         mSensorMap.add(mSwitchDevAcc);
         mSensorMap.add(mSwitchBandSensors);
 
@@ -221,10 +241,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
             mSwitchDevAcc.setChecked(settings.isDevEnabled());
             mSwitchRecordFile.setChecked(settings.getRecordFiles());
             mSwitchUseDetectors.setChecked(settings.getUseDetectors());
-
-
-
-
+            mSwitchUseDeviceLock.setChecked(settings.getUseDeviceLock());
             mLangSpin.setSelection(getLangSelection(settings.getLang()));
 
 

@@ -1,9 +1,7 @@
 package com.pdmanager.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Application;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -15,19 +13,18 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
-import com.google.android.gms.tagmanager.ContainerHolder;
-import com.pdmanager.views.clinician.ClinicianActivity;
-import com.pdmanager.views.patient.MainActivity;
-import com.telerik.common.google.ContainerHolderSingleton;
-import com.telerik.viewmodels.MenuAction;
+import com.bugfender.sdk.Bugfender;
+import com.pdmanager.BuildConfig;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+//import com.pdmanager.logging.AndroidLog4jHelper;
+//import com.pdmanager.logging.Log4jConfigure;
 
 /**
  * Created by George on 1/30/2016.
@@ -68,7 +65,15 @@ public class PDPilotAppContext extends Application implements Application.Activi
 
         PACKAGE_NAME = getApplicationContext().getPackageName();
         defaultUEHandler = Thread.getDefaultUncaughtExceptionHandler();
-
+        initBugfender();
+        // Log4jConfigure.configureRollingFile();
+        /*
+        if (BuildConfig.DEBUG) {
+            AndroidLog4jHelper.initialise(this.getApplicationContext(), R.raw.log4j_debug);
+        } else {
+            AndroidLog4jHelper.initialise(this.getApplicationContext(), R.raw.log4j_release);
+        }
+        */
 
         // check for a more appropriate place to call parse
         this.parseActions();
@@ -89,6 +94,11 @@ public class PDPilotAppContext extends Application implements Application.Activi
     }
 
 
+    private void initBugfender() {
+        Bugfender.init(this, "awOajBW2R4nKPi4iUQcDxKjSZ6wZcXrc", BuildConfig.DEBUG);
+        Bugfender.enableLogcatLogging();
+        Bugfender.enableUIEventLogging(this);
+    }
 
     public void addOnFavouritesChangedListener(FavouritesChangedListener listener) {
         if (this.favouritesChangedListeners.contains(listener)) {

@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +18,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.RNG;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
@@ -42,7 +40,10 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
 {
 
     private final String LOGGER_TAG = "WC Sorting test";
-
+    private final int
+            kShape = 0,
+            kNum = 1,
+            kColor = 2;
     private String
         test = "WisconsinCardSortingTest.csv",
         header = "Timestamp, "
@@ -50,7 +51,6 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
                 + "card choosen, "
                 + "correct answer, "
                 + "time to answer (s)" +"\r\n";
-
     private int forcedErrors, totalErrors, good;
     private boolean forced;
     private RNG rng;
@@ -58,24 +58,14 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
     private ImageView
         feedback, f0, f1, f2, f3,
         imgCard, img0, img1, img2, img3;
-
     private Animation fadeIn, fadeOut;
     private AnimationSet anim;
-
     private double lastTime;
-
     private String isCorrectAnswer;
     private String rule;
     private String cardChoosen;
-
     private double timeToAnswer;
-
     private int iShape, iColor, iNumber, currentSorting;
-    private final int
-        kShape = 0,
-        kNum = 1,
-        kColor = 2;
-
     private int[]
         cr = { R.drawable.cr1, R.drawable.cr2, R.drawable.cr3, R.drawable.cr4 },
         cg = { R.drawable.cg1, R.drawable.cg2, R.drawable.cg3, R.drawable.cg4 },
@@ -108,29 +98,6 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
     private int
         level = 0,
         maxLevel = 60;
-
-    private void infoTest()
-    {
-        if (level == 0)
-        {
-            setContentView(R.layout.activity_start);
-            TextView textViewToChange = (TextView) findViewById(R.id.level);
-            textViewToChange.setText(getResources().getString(R.string.wisconsin_instruction));
-            speak.speakFlush(getResources().getString(R.string.wisconsin_instruction));
-            Button buttonStart = (Button) findViewById(R.id.play);
-            buttonStart.setOnClickListener(new OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    speak.silence();
-                    start();
-                }
-            });
-        }
-        else start();
-    }
-
     private OnClickListener oclCard = new OnClickListener()
     {
         @Override
@@ -214,6 +181,23 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
             updateFeedback(success);
         }
     };
+
+    private void infoTest() {
+        if (level == 0) {
+            setContentView(R.layout.activity_start);
+            TextView textViewToChange = (TextView) findViewById(R.id.level);
+            textViewToChange.setText(getResources().getString(R.string.wisconsin_instruction));
+            speakFlush(getResources().getString(R.string.wisconsin_instruction));
+            Button buttonStart = (Button) findViewById(R.id.play);
+            buttonStart.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    speakerSilence();
+                    start();
+                }
+            });
+        } else start();
+    }
 
     private void updateFeedback(boolean success)
     {

@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
-import com.pdmanager.services.RecordingService;
 import com.pdmanager.interfaces.IServiceStatusListener;
+import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.common.LoginActivity;
 
 
@@ -37,6 +37,9 @@ public class HomeActivity extends ActionBarActivity implements IServiceStatusLis
             // We've bound to LocalService, cast the IBinder and get LocalService instance
             RecordingService.LocalBinder binder = (RecordingService.LocalBinder) service;
             mService = binder.getService();
+
+            // Ensure the service is not in the foreground when bound
+            mService.background();
             //        Intent intent = new Intent(className, BandService.class);
 
 
@@ -90,6 +93,29 @@ public class HomeActivity extends ActionBarActivity implements IServiceStatusLis
 
 
     }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mBound) {
+
+            // If a timer is active, foreground the service, otherwise kill the service
+            /*
+            }
+            else {
+                stopService(new Intent(this, RecordingService.class));
+            }
+            */
+            // Unbind the service
+            unbindService(mConnection);
+            if (mService.isSessionRunning())
+                mService.foreground();
+
+            mBound = false;
+        }
+    }
+
 
 
     @Override

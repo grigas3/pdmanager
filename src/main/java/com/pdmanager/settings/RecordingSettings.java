@@ -15,14 +15,15 @@ public class RecordingSettings {
 
 
     public static final String PREFERENCES = "PDManagerHomePreferences";
-
-
+    String mTileUUID;
     private Context mContext;
     private boolean mST = true;
     private boolean mbandEnabled = true;
     private boolean mdevEnabled = true;
     private boolean mLocationEnabled = true;
     private boolean mLoggedIn = false;
+    private boolean mUseDeviceLock = true;
+    private boolean mUseSpeech = true;
     private int mSensorDelay = SensorManager.SENSOR_DELAY_NORMAL;
     private int mStartHour = 8;
     private int mStopHour = 20;
@@ -41,14 +42,12 @@ public class RecordingSettings {
     private String mPassword;
     private String mDeviceId;
     private long mExpirationTick;
-
     private boolean mDevTokenSended = false;
     private boolean mRecordFiles = true;
-    private boolean mUseDetectors = false;
     //   private boolean mbandaccEnabled=true;
     //  private boolean mbandgyroEnabled=true;
     //  private boolean mheartRateEnabled=true;
-
+    private boolean mUseDetectors = false;
     //
     //  private boolean mBandDistanceEnabled=true;
     private String mSessionFolder = "";
@@ -61,23 +60,12 @@ public class RecordingSettings {
     private int mMedHour1=12;
     private int mMedHour2=22;
     private int mDiaryHour=8;
-
     private boolean mMSSynced=false;
-
     private boolean mEnableDiary=true;
-
+    private String mLang = "en";
 
     public RecordingSettings() {
 
-
-    }
-
-
-
-    public static RecordingSettings newInstance(Context context)
-    {
-
-        return new RecordingSettings(context);
 
     }
 
@@ -124,6 +112,12 @@ public class RecordingSettings {
 
                 mSensorDelay = pref.getInt("SensorDelay", mSensorDelay);
                 mSessionRunning = pref.getBoolean("SessionRunning", mSessionRunning);
+
+                mUseDeviceLock = pref.getBoolean("UseDeviceLock", mUseDeviceLock);
+                mUseSpeech = pref.getBoolean("UseSpeech", mUseSpeech);
+
+
+
                 mRecordingStart = pref.getLong("RecordingStart", mRecordingStart);
                 mSessionFolder = pref.getString("SessionFolder", mSessionFolder);
                 mPatientID = pref.getString("PatientID", mPatientID);
@@ -153,6 +147,12 @@ public class RecordingSettings {
             }
         }
 
+
+    }
+
+    public static RecordingSettings newInstance(Context context) {
+
+        return new RecordingSettings(context);
 
     }
 
@@ -370,8 +370,6 @@ public class RecordingSettings {
         SetPref("Password", h);
     }
 
-
-    private String mLang="en";
     public String getLang() {
         return mLang;
 
@@ -382,23 +380,14 @@ public class RecordingSettings {
         SetPref("Lang", h);
     }
 
-
-
-
     public long getExpiration() {
         return mExpirationTick;
 
     }
 
-
-    public long getLastNFG() {
-        return mlastNFG;
-
-    }
-
-    public void setLastNFG(long nfg) {
-         mlastNFG=nfg;
-        SetPref("LastNFG", nfg);
+    public void setExpiration(long h) {
+        mExpirationTick = h;
+        SetPref("Expiration", h);
     }
 
    /* public String getOrganization() {
@@ -414,9 +403,14 @@ public class RecordingSettings {
     }
     */
 
-    public void setExpiration(long h) {
-        mExpirationTick = h;
-        SetPref("Expiration", h);
+    public long getLastNFG() {
+        return mlastNFG;
+
+    }
+
+    public void setLastNFG(long nfg) {
+        mlastNFG = nfg;
+        SetPref("LastNFG", nfg);
     }
 
     public String getSessionFolder() {
@@ -451,7 +445,6 @@ public class RecordingSettings {
         this.mUserID = token;
         SetPref("UserID", token);
     }
-
 
     public String getReminder1() {
 
@@ -503,12 +496,16 @@ public class RecordingSettings {
         return mLoggedIn;
     }
 
+    public void setLoggedIn(boolean token) {
+        this.mLoggedIn = token;
+        SetPref("LoggedIn", token);
+    }
+
     public boolean getEnableDiary() {
 
 
         return mEnableDiary;
     }
-
 
     public void setEnableDiary(boolean enabled) {
 
@@ -523,18 +520,11 @@ public class RecordingSettings {
         return mMSSynced;
     }
 
-
     public void setMSSynced(boolean enabled) {
 
         this.mMSSynced = enabled;
         SetPref("MSSynced", enabled);
 
-    }
-
-
-    public void setLoggedIn(boolean token) {
-        this.mLoggedIn = token;
-        SetPref("LoggedIn", token);
     }
 
     public String getRole() {
@@ -548,7 +538,6 @@ public class RecordingSettings {
         SetPref("Role", token);
     }
 
-
     public boolean getRecordFiles() {
 
 
@@ -560,10 +549,7 @@ public class RecordingSettings {
         SetPref("RecordFiles", token);
     }
 
-
     public boolean getUseDetectors() {
-
-
         return mUseDetectors;
     }
 
@@ -572,6 +558,23 @@ public class RecordingSettings {
         SetPref("UseDetectors", token);
     }
 
+    public boolean getUseDeviceLock() {
+        return mUseDeviceLock;
+    }
+
+    public void setUseDeviceLock(boolean token) {
+        this.mUseDeviceLock = token;
+        SetPref("UseDeviceLock", token);
+    }
+
+    public boolean getUseSpeech() {
+        return mUseSpeech;
+    }
+
+    public void setUseSpeech(boolean token) {
+        this.mUseSpeech = token;
+        SetPref("UseSpeech", token);
+    }
 
     public boolean getDevTokenSended() {
 
@@ -595,7 +598,6 @@ public class RecordingSettings {
         SetPref("DeviceId", deviceId);
     }
 
-    String mTileUUID;
     public String getTileUUID() {
 
 

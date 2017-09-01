@@ -18,8 +18,25 @@ public class SoundFeedbackActivity extends LoggingTestActivity
     protected  void onPause()
     {
         super.onPause();
-        speak.silence();
-        tones.shutdown();
+        if (getSettings().getUseSpeech()) {
+
+            speak.silence();
+            tones.shutdown();
+        }
+    }
+
+    protected void speakerSilence() {
+
+        if (getSettings().getUseSpeech()) {
+            speak.silence();
+        }
+
+    }
+
+    protected void speakFlush(String message) {
+        if (getSettings().getUseSpeech()) {
+            speak.speakFlush(message);
+        }
     }
 
     @Override

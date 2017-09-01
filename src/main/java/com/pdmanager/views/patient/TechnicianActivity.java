@@ -52,8 +52,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.google.gson.Gson;
 import com.microsoft.band.BandClient;
 import com.microsoft.band.BandClientManager;
 import com.microsoft.band.BandException;
@@ -63,22 +61,20 @@ import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.microsoft.band.tiles.BandIcon;
 import com.microsoft.band.tiles.BandTile;
+import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
+import com.pdmanager.app.PDPilotAppContext;
+import com.pdmanager.app.VideoApp;
 import com.pdmanager.call.CNMessage;
 import com.pdmanager.common.ConnectionResult;
 import com.pdmanager.common.Util;
-import com.pdmanager.app.PDApplicationContext;
-import com.pdmanager.app.PDPilotAppContext;
-import com.pdmanager.R;
-import com.pdmanager.app.VideoApp;
-import com.pdmanager.communication.BatchCommSender;
 import com.pdmanager.communication.NetworkStatus;
-import com.pdmanager.communication.SQLCommunicationQueue;
 import com.pdmanager.interfaces.IBandTileManager;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.LogEventFragment;
 import com.pdmanager.views.RecordingSchedulingFragment;
 import com.pdmanager.views.RecordingServiceFragment;
@@ -103,6 +99,21 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
         VideoApp.OperationChangeListener, VideoApp.CallNegotiationListener
 {
 
+    private final Handler toastHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+            try {
+                String message = (String) msg.obj;
+
+                //   LogInfo(message);
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+
+            } catch (Exception ex) {
+
+            }
+        }
+    };
     RecordingService mService;
     boolean mBound = false;
     FilesFragment filesFragment;
@@ -119,14 +130,48 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
     private RecordingSettingsFragment recordingSettingsFragment;
     private RecordingSchedulingFragment recordingSchedulingFragment;
 
-    private MedListFragment medAdminFragment;
-
 
 
     /*
 
      */
+    private MedListFragment medAdminFragment;
+    /**
+     * Defines callbacks for service binding, passed to bindService()
+     */
+    private ServiceConnection mConnection = new ServiceConnection() {
 
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            RecordingService.LocalBinder binder = (RecordingService.LocalBinder) service;
+            mService = binder.getService();
+            //        Intent intent = new Intent(className, BandService.class);
+
+            mService.background();
+            RecordingServiceHandler.getInstance().setService(mService);
+
+            initFragments();
+
+            mService.registerHRAccessProvider(bandFragment);
+            mService.registerListener(bandFragment);
+            mService.registerSensorListener(bandFragment);
+            mService.registerListener(recordingSettingsFragment);
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+    private Intent intent;
+    private AlertDialog callDialog = null;
+    private Ringtone currentRingtone;
+    private VideoApp application = null;
+    private boolean mIsAlive = false;
+    private BroadcastReceiver mRegistrationBroadcastReceiver = null;
 
     private boolean isBluetoothEnabled() {
 
@@ -149,6 +194,7 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
         }
 
     }
+
     private void enableBluetooth() {
         boolean bluetoothEnabled = isBluetoothEnabled();
 
@@ -203,59 +249,6 @@ public void createTile()
 
 
     }
-
-
-
-
-
-    private final Handler toastHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-
-
-            try {
-                String message = (String) msg.obj;
-
-                //   LogInfo(message);
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-
-            } catch (Exception ex) {
-
-            }
-        }
-    };
-
-    /**
-     * Defines callbacks for service binding, passed to bindService()
-     */
-    private ServiceConnection mConnection = new ServiceConnection() {
-
-        @Override
-        public void onServiceConnected(ComponentName className,
-                                       IBinder service) {
-            // We've bound to LocalService, cast the IBinder and get LocalService instance
-            RecordingService.LocalBinder binder = (RecordingService.LocalBinder) service;
-            mService = binder.getService();
-            //        Intent intent = new Intent(className, BandService.class);
-
-
-            RecordingServiceHandler.getInstance().setService(mService);
-
-            initFragments();
-
-            mService.registerHRAccessProvider(bandFragment);
-            mService.registerListener(bandFragment);
-            mService.registerSensorListener(bandFragment);
-            mService.registerListener(recordingSettingsFragment);
-            mBound = true;
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName arg0) {
-            mBound = false;
-        }
-    };
-    private Intent intent;
 
     @Override
     public void onBackPressed() {
@@ -381,8 +374,10 @@ public void createTile()
             unbindService(mConnection);
             if (!mService.getSessionMustRun())
                 getApplicationContext().stopService(intent);
-
-
+            else {
+                if (mService.isSessionRunning())
+                    mService.foreground();
+            }
             mBound = false;
         }
     }
@@ -564,12 +559,7 @@ public void createTile()
     private void manageTipsPresenter(Fragment newFragment) {
 
     }
-    private AlertDialog callDialog = null;
-    private Ringtone currentRingtone;
 
-    private VideoApp application = null;
-    private boolean mIsAlive = false;
-    private BroadcastReceiver mRegistrationBroadcastReceiver = null;
     @Override
     public void onMessageReceived(final CNMessage cnMessage) {
         if (application.getUniqueId().equals(cnMessage.getUniqueId())) {
@@ -694,12 +684,6 @@ public void createTile()
             err.printStackTrace();
         }
     }
-
-    public interface MenuList {
-        void fill(View view, ContextMenu menu);
-    }
-
-
 
     private void initFragments() {
 
@@ -891,6 +875,14 @@ public void createTile()
         invalidateActionbar();
     }
 
+    private void createTile(BandClient mClient) {
+
+    }
+
+    public interface MenuList {
+        void fill(View view, ContextMenu menu);
+    }
+
     public class ClearLog extends AsyncTask<LogAdapter, Void, Boolean> {
 
 
@@ -937,18 +929,6 @@ public void createTile()
             toastHandler.sendMessage(s);
             //Toast.makeText(getParent(),"Log clear cancelled", Toast.LENGTH_SHORT).show();
         }
-    }
-
-
-
-
-
-    private void createTile(BandClient mClient)
-    {
-
-
-
-
     }
 
     ////Connect Task

@@ -52,5 +52,11 @@ public interface IUserAlertManager {
     boolean updateAlert(UserAlert alert);
     boolean updateAlerts(String code);
 
+    /**
+     * Update all expired alerts
+     *
+     * @return
+     */
+    boolean updateExpired();
 
 }

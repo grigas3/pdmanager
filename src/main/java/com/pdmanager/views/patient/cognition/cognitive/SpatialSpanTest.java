@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -14,7 +13,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -36,7 +34,13 @@ import java.util.Locale;
 public class SpatialSpanTest extends SoundFeedbackActivity {
 
     private final String LOGGER_TAG = "SSP test";
-
+    private final int TIME_MILLISECONDS_TRANSITIONS = 1000;
+    private final int TIME_MILLISECONDS_TICK = 600;
+    private final int TIME_MILLISECONDS_TASK = 480000;
+    private final int NUMBER_OF_BOXES = 8;
+    private final int NUMBER_OF_TRIALS = 3;
+    private final int MIN_NUMBER_OF_TOKENS = 2;
+    private final int NUMBER_OF_LEVELS = 7;
         private String
         test = "SpatialSpan.csv",
         header = "Timestamp, " +
@@ -51,15 +55,6 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                 "min time trial (s), " +
                 "Total time (s)" +
                 "\r\n";
-
-    private final int TIME_MILLISECONDS_TRANSITIONS = 1000;
-    private final int TIME_MILLISECONDS_TICK = 600;
-    private final int TIME_MILLISECONDS_TASK = 480000;
-    private final int NUMBER_OF_BOXES = 8;
-    private final int NUMBER_OF_TRIALS = 3;
-    private final int MIN_NUMBER_OF_TOKENS = 2;
-    private final int NUMBER_OF_LEVELS = 7;
-
     private int[] boxesID ={R.id.imageButton1,R.id.imageButton2,R.id.imageButton3,R.id.imageButton4,R.id.imageButton5,
             R.id.imageButton6,R.id.imageButton7,R.id.imageButton8,R.id.imageButton9,R.id.imageButton10,
             R.id.imageButton11,R.id.imageButton12,R.id.imageButton13,R.id.imageButton14,R.id.imageButton15,
@@ -101,13 +96,13 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             setContentView(R.layout.activity_start);
             TextView textViewToChange = (TextView) findViewById(R.id.level);
             textViewToChange.setText(getResources().getString(R.string.ssp_instruction));
-            speak.speakFlush(getResources().getString(R.string.ssp_instruction));
+            speakFlush(getResources().getString(R.string.ssp_instruction));
 
             Button buttonStart = (Button) findViewById(R.id.play);
             buttonStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    speak.silence();
+                    speakerSilence();
                     timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
                         @Override
@@ -580,7 +575,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
             writeFile(test, header);
 
-            speak.silence();
+            speakerSilence();
             if (timerTask != null) {
                 timerTask.cancel();
             }
@@ -627,7 +622,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         super.onResume();
 
         if (isPaused) {
-            speak.silence();
+            speakerSilence();
             if (timerTask != null) {
                 timerTask.cancel();
             }
@@ -635,7 +630,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                 timer.cancel();
             }
 
-            speak.silence();
+            speakerSilence();
             timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
                 @Override
@@ -662,7 +657,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
     public void onPause() {
         super.onPause();
 
-        speak.silence();
+        speakerSilence();
         isPaused = true;
         if (timerTask != null) {
             timerTask.cancel();

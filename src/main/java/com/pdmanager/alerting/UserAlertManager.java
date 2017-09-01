@@ -8,11 +8,9 @@ import android.util.Log;
 
 import com.pdmanager.communication.JsonStorage;
 import com.pdmanager.models.UserAlert;
-import com.pdmanager.notification.LocalNotificationTask;
 import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.settings.RecordingSettings;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -116,11 +114,11 @@ public class UserAlertManager implements IUserAlertManager {
 
         long unixTime = System.currentTimeMillis();
         long exunixTime = System.currentTimeMillis() + 60 * 60 * 1000L;
-        String whereClause = DBHandler.COLUMN_EXPIRATION + " > ? and " + DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
+        String whereClause = DBHandler.COLUMN_EXPIRATION + " < ? and " /*+ DBHandler.COLUMN_EXPIRATION + " <  ? and "*/ + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
 
         String[] whereArgs = new String[]{
                 Long.toString(unixTime),
-                Long.toString(exunixTime),
+                // Long.toString(exunixTime),
                 "1"
 
         };
@@ -614,6 +612,74 @@ public class UserAlertManager implements IUserAlertManager {
     }
 
     @Override
+    public boolean updateExpired() {
+
+        Cursor cursor = null;
+        SQLiteDatabase db = null;
+        JsonStorage result = null;
+        DBHandler helper = null;
+        boolean ret = false;
+        long unixTime = System.currentTimeMillis();
+        String whereClause = DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTACTIVE + " = ? ";
+
+        String[] whereArgs = new String[]{
+                Long.toString(unixTime),
+                "1"
+        };
+        try {
+            helper = DBHandler.getInstance(mContext);
+
+            db = helper.getWritableDatabase();
+            cursor = db.query(DBHandler.TABLE_ALERTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_ALERT, DBHandler.COLUMN_ALERTMESSAGE, DBHandler.COLUMN_ALERTTYPE, DBHandler.COLUMN_TIMESTAMP, DBHandler.COLUMN_EXPIRATION}, whereClause, whereArgs, null, null, DBHandler.COLUMN_EXPIRATION + " asc", "50");
+            cursor.moveToFirst();
+            if (cursor.getCount() == 0) {
+
+            } else {
+
+                do {
+
+                    ContentValues data = new ContentValues();
+                    int id = cursor.getInt(0);
+                    long exp = cursor.getLong(5);
+                    String code = cursor.getString(3);
+
+                    long expDate = getMaxActiveTimeDate(exp, code);
+                    if (unixTime > expDate) {
+                        data.put(DBHandler.COLUMN_EXPIRATION, getNewExpirationDate(exp, code));
+                        data.put(DBHandler.COLUMN_ALERTCREATED, 0);
+                        db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + " = " + id, null);
+                    }
+
+                } while (cursor.moveToNext());
+
+
+            }
+
+
+        } catch (Exception ex) {
+
+            Log.e(TAG, ex.getMessage());
+            throw ex;
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            if (db != null)
+                db.close();
+
+            if (helper != null)
+                helper.close();
+
+            ret = false;
+        }
+        return ret;
+
+
+    }
+
+
+    @Override
     public boolean updateAlerts(String code) {
 
         Cursor cursor = null;
@@ -679,6 +745,12 @@ public class UserAlertManager implements IUserAlertManager {
 
     }
 
+    /***
+     * Get new expiration date based on old expiration date and alert type
+     * @param oldExpDate Old expiration date
+     * @param currentType Alert type
+     * @return
+     */
     public long getNewExpirationDate(long oldExpDate,String currentType) {
 
         long expDate= 1000 * 24 * 60 * 60;
@@ -723,6 +795,47 @@ public class UserAlertManager implements IUserAlertManager {
 
     }
 
+
+    /***
+     * Get max active time per alert type
+     * Alerts regarding medications,
+     * @param oldExpDate Old expiration date
+     * @param currentType Alert type
+     * @return
+     */
+    public long getMaxActiveTimeDate(long oldExpDate, String currentType) {
+
+        long defaultActiveTime = 1000 * 12 * 60 * 60;
+
+
+        /*
+        if (currentType != null) {
+            if (currentType.toLowerCase().equals("med") || currentType.toLowerCase().equals( "mood")) {
+
+                //Add a day
+                defaultActiveTime =  1000 * 24 * 60 * 60;
+            } else if (currentType.toLowerCase().startsWith("diary")) {
+
+                ///Every day (increment by one hour)
+                defaultActiveTime = 1000 * 6 * 60 * 60 * 1;
+
+            }
+
+
+        }
+        */
+
+        return defaultActiveTime + oldExpDate;
+
+
+    }
+
+
+    /***
+     * Get New expiration date
+     * @param alert Alert
+     * @return
+     */
     private long getNewExpirationDate(UserAlert alert) {
 
                 long expDate=0;

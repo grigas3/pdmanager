@@ -30,6 +30,7 @@ import com.pdmanager.models.UserAlert;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.settings.RecordingSettings;
+import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest;
 import com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest;
 import com.pdmanager.views.patient.cognition.cognitive.PALPRM;
@@ -79,7 +80,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     private ImageView mSensorsImage;
     private TextView mSensorsTitle;
     private TextView mTaskTitle;
-    private TextView mNoTaskTitle;
+    private LinearLayout mNoTaskLayout;
     private ImageView mSensorsAct;
     private TextView mSensorsText;
     private Map<String,LinearLayout> codeLayoutMapping;
@@ -92,11 +93,14 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     private LinearLayout mFingerTapping;
     private LinearLayout mVoiceTest;
     private LinearLayout mVisualAnalogue;
+    private LinearLayout mTestMenu;
 
 
     private LinearLayout mSpeech;
     private boolean debugToggle = false;
     private RelativeLayout layout;
+    private Timer myTimer;
+
     public PatientHomeFragment() {
     }
 
@@ -121,12 +125,13 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
         final Context context=this.getContext();
 
-        mNoTaskTitle = (TextView) rootView.findViewById(R.id.patient_home_notasks);
+        mNoTaskLayout = (LinearLayout) rootView.findViewById(R.id.patient_home_notasks);
+
         mTaskTitle = (TextView) rootView.findViewById(R.id.patient_home_tasks);
         mVisualAnalogue = (LinearLayout) rootView.findViewById(R.id.patient_home_visualanalogue);
         mFingerTapping = (LinearLayout) rootView.findViewById(R.id.patient_home_fingertapping);
         mVoiceTest = (LinearLayout) rootView.findViewById(R.id.patient_home_voicetest);
-
+        mTestMenu = (LinearLayout) rootView.findViewById(R.id.patient_home_test_menu);
         mDiary = (LinearLayout) rootView.findViewById(R.id.patient_home_notifications);
         mDiaryImage = (ImageView) rootView.findViewById(R.id.patient_home_notifications_img);
         mDiaryTitle = (TextView) rootView.findViewById(R.id.patient_home_notifications_title);
@@ -175,9 +180,21 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         codeLayoutMapping.put("mood",mMood);
         codeLayoutMapping.put("diary",mDiary);
 
+        //MainMenu
+
+        mTestMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Log.d(TAG, "Main menu test");
+
+                Intent menuPALIntent =
+                        new Intent(getActivity(), MainMenu.class);
+                startActivity(menuPALIntent);
 
 
-
+            }
+        });
 
         mVisualAnalogue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -326,9 +343,6 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         return rootView;
     }
 
-
-
-
     private void startCongnitiveTest()
     {
         Random rn = new Random();
@@ -416,10 +430,6 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
     }
 
-
-
-
-
     @Override
     public void notifyServiceStatusChanged() {
         refreshControls();
@@ -428,13 +438,12 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     private RecordingService getService() {
         return RecordingServiceHandler.getInstance().getService();
     }
+
     private void refreshControls() {
 
 
 
     }
-
-    private Timer myTimer;
 
     @Override
     public void onPause() {
@@ -691,13 +700,14 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                             mTaskTitle.setText(String.format(context.getString(R.string.task_number), (int) (alerts.size())));
 
                             mTaskTitle.setVisibility(View.VISIBLE);
-                            mNoTaskTitle.setVisibility(View.GONE);
-
+                            mNoTaskLayout.setVisibility(View.GONE);
+                            //mTestMenu.setVisibility(View.INVISIBLE);
 
                         } else {
-                            mNoTaskTitle.setText(noTaskMessage);
-                            mTaskTitle.setVisibility(View.INVISIBLE);
-                            mNoTaskTitle.setVisibility(View.VISIBLE);
+                            // mNoTaskLayout.setText(noTaskMessage);
+                            mTaskTitle.setVisibility(View.GONE);
+                            mNoTaskLayout.setVisibility(View.VISIBLE);
+                            //mTestMenu.setVisibility(View.VISIBLE);
                         }
 
                         for (UserAlert a : alerts) {
@@ -755,7 +765,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                         if (service != null && settings.getSessionRunning()) {
 
                             updateUIAlerts();
-
+                            //   mTestMenu.setVisibility(View.VISIBLE);
                         //   mMonitoringStatus.setTextColor(Color.GREEN);
                       //     mMonitoringStatus.setText("monitoring");
 
@@ -813,8 +823,8 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                         showNotMonitoring();
 
                             mTaskTitle.setVisibility(View.INVISIBLE);
-                            mNoTaskTitle.setVisibility(View.INVISIBLE);
-
+                            mNoTaskLayout.setVisibility(View.INVISIBLE);
+                            //mTestMenu.setVisibility(View.INVISIBLE);
                            // if (mSensorStatus != null)
                              //   mSensorStatus.setVisibility(View.INVISIBLE);
                         }

@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -21,7 +20,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.RNG;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
@@ -101,25 +99,11 @@ public class PALPRM extends SoundFeedbackActivity
 
     private int[][] cats = { cat0, cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9 };
     private ArrayList<Integer> freeIcons;
-
-    private class IconPair
-    {
-        public int card0Cat, card0Icon, card1Cat, card1Icon;
-        public IconPair(int c0c, int c0i, int c1c, int c1i)
-        {
-            card0Cat = c0c;
-            card0Icon = c0i;
-            card1Cat = c1c;
-            card1Icon = c1i;
-        }
-    }
-
     private int
             testPhase = 1,
             maxPhase = 3,
             level = 0,
             maxLevel = 10;
-
     private int
             nCorrectSemanticL1,
             nCorrectNonSemanticL1,
@@ -130,32 +114,8 @@ public class PALPRM extends SoundFeedbackActivity
             nSemanticPairsL1,
             nSemanticPairsL2,
             nSemanticPairsL3;
-
     private ArrayList<Double> times;
     private ArrayList<Integer> indexSemantic;
-
-    private void infoTest()
-    {
-        if (level == 0)
-        {
-            setContentView(R.layout.activity_start);
-            TextView textViewToChange = (TextView) findViewById(R.id.level);
-            textViewToChange.setText(getResources().getString(R.string.palprm_instruction));
-            speak.speakFlush(getResources().getString(R.string.palprm_instruction));
-            Button buttonStart = (Button) findViewById(R.id.play);
-            buttonStart.setOnClickListener(new OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    speak.silence();
-                    start();
-                }
-            });
-        }
-        else start();
-    }
-
     private OnClickListener oclCardOk = new OnClickListener()
     {
         @Override
@@ -166,7 +126,6 @@ public class PALPRM extends SoundFeedbackActivity
             updateFeedback(true);
         }
     };
-
     private OnClickListener oclCardFail = new OnClickListener()
     {
         @Override
@@ -177,6 +136,23 @@ public class PALPRM extends SoundFeedbackActivity
             updateFeedback(false);
         }
     };
+
+    private void infoTest() {
+        if (level == 0) {
+            setContentView(R.layout.activity_start);
+            TextView textViewToChange = (TextView) findViewById(R.id.level);
+            textViewToChange.setText(getResources().getString(R.string.palprm_instruction));
+            speakFlush(getResources().getString(R.string.palprm_instruction));
+            Button buttonStart = (Button) findViewById(R.id.play);
+            buttonStart.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    speakerSilence();
+                    start();
+                }
+            });
+        } else start();
+    }
 
     private void updateFeedback(boolean success)
     {
@@ -681,6 +657,45 @@ public class PALPRM extends SoundFeedbackActivity
         }
     }
 
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        rng = new RNG();
+
+        final int
+                durationFadeIn = 1000,
+                gap = 2000,
+                durationFadeOut = 500;
+        fadeIn = new AlphaAnimation(0, 1);
+        fadeIn.setDuration(durationFadeIn);
+        fadeIn.setInterpolator(new AccelerateInterpolator());
+        fadeOut = new AlphaAnimation(1, 0);
+        fadeOut.setStartOffset(gap);
+        fadeOut.setDuration(durationFadeOut);
+        fadeOut.setInterpolator(new DecelerateInterpolator());
+
+        timesToAnswer = new ArrayList<Double>();
+
+        anim = new AnimationSet(false);
+        anim.addAnimation(fadeIn);
+        anim.addAnimation(fadeOut);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                nextTest();
+            }
+        });
+        infoTest();
+    }
+
     /*private void finishTest() {
         try {
 
@@ -722,45 +737,16 @@ public class PALPRM extends SoundFeedbackActivity
     }
     */
 
-    protected void onCreate(Bundle savedInstanceState)
+    private class IconPair
     {
-        super.onCreate(savedInstanceState);
+        public int card0Cat, card0Icon, card1Cat, card1Icon;
 
-        rng = new RNG();
-
-        final int
-                durationFadeIn = 1000,
-                gap = 2000,
-                durationFadeOut = 500;
-        fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setDuration(durationFadeIn);
-        fadeIn.setInterpolator(new AccelerateInterpolator());
-        fadeOut = new AlphaAnimation(1, 0);
-        fadeOut.setStartOffset(gap);
-        fadeOut.setDuration(durationFadeOut);
-        fadeOut.setInterpolator(new DecelerateInterpolator());
-
-        timesToAnswer = new ArrayList<Double>();
-
-
-        anim = new AnimationSet(false);
-        anim.addAnimation(fadeIn);
-        anim.addAnimation(fadeOut);
-        anim.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                nextTest();
-            }
-        });
-        infoTest();
+        public IconPair(int c0c, int c0i, int c1c, int c1i) {
+            card0Cat = c0c;
+            card0Icon = c0i;
+            card1Cat = c1c;
+            card1Icon = c1i;
+        }
     }
 
 

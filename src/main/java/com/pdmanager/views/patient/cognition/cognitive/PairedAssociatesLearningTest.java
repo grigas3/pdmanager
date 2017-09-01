@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -13,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -141,7 +139,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
             setContentView(R.layout.activity_start);
             TextView textViewToChange = (TextView) findViewById(R.id.level);
             textViewToChange.setText(getResources().getString(R.string.pal_instruction));
-            speak.speakFlush(getResources().getString(R.string.pal_instruction));
+            speakFlush(getResources().getString(R.string.pal_instruction));
             results = new ArrayList<>();
             timeBetweenTaps = new ArrayList<>();
             Button buttonStart = (Button) findViewById(R.id.play);
@@ -149,7 +147,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
                 @Override
                 public void onClick(View v) {
 
-                speak.silence();
+                    speakerSilence();
 
                 timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
@@ -606,7 +604,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
             writeFile(test, header);
 
-            speak.silence();
+            speakerSilence();
 
             if (timerTask != null) {
                 timerTask.cancel();
@@ -657,7 +655,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         super.onResume();
 
         if (isPaused) {
-            speak.silence();
+            speakerSilence();
             if (timerTask != null) {
                 timerTask.cancel();
             }
@@ -689,7 +687,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
     public void onPause() {
         super.onPause();
 
-        speak.silence();
+        speakerSilence();
         isPaused = true;
 
         if (timerTask != null) {
@@ -701,6 +699,6 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         }
 
     }
-};
+}
 
 

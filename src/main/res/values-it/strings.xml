@@ -254,7 +254,7 @@
     <string name="attention_switching_task">Attention Switching Task</string>
     <string name="visual_analogue_scale">Visual Analogue Scale</string>
     <string name="wisconsin_card_sorting_test">Wisconsin Card Sorting</string>
-    <string name="london_towers_testObiettivo:Obiettivo:</string>
+    <string name="london_towers_test">Obiettivo</string>
     <string name="movement">Movimento</string>
     <string name="level">Livello</string>
     <string name="title_menu10">Visual Learning</string>
@@ -368,7 +368,7 @@
     <string name="vas2_s4">Completamente d\'accordo</string>
     <string name="vas2_question1">Ti senti felice oggi?</string>
 
-    <string name="palprm_instruction">Ora vedra una serie di coppie di immagini. Presti attenzione e cerchi di memorizzare le coppie, perche successivamente le sara presentata solo un’immagine della coppia e lei dovra ricordare l’immagine ad essa associata, scegliendo l’opzione corretta tra 4 possibili alternative. Ripetera lo stesso esercizio pertre volte, con le stesse coppie di immagini, in modo che le risulteranno via via piu familiari.</string>
+    <string name="palprm_instruction">Ora vedra una serie di coppie di immagini. Presti attenzione e cerchi di memorizzare le coppie, perche successivamente le sara presentata solo unï¿½immagine della coppia e lei dovra ricordare lï¿½immagine ad essa associata, scegliendo lï¿½opzione corretta tra 4 possibili alternative. Ripetera lo stesso esercizio pertre volte, con le stesse coppie di immagini, in modo che le risulteranno via via piu familiari.</string>
     <string name="london_towers_instruction">Qui ci sono tre contenitori grigi e tre dischetti colorati. Il suo obiettivo e quello di riprodurre lo schema indicato a sinistra dello schermo. Selezioni con un tocco il dischetto e con un altro tocco indichi il contenitore di destinazione. Cerchi di utilizzare meno mosse possibili.</string>
     <string name="wisconsin_instruction">Queste sono 4 carte guida che differiscono tra loro per 3 criterii: colore, forma e numero. Di volta in volta lei dovra abbinare le carte per uno di questi criteri che scegliera. Se e corretto vedra una spunta verde e dovra continuare ad abbinare le carte per lo stesso criterio. Se e sbagliato vedra una croce rossa e dovra cambiare criterio.</string>
 
@@ -416,9 +416,9 @@
 
     <string name="medicationConfirm">Hai preso le tue ultime farmaci;</string>
     <string name="menuThird">Prova vocale</string>
-    <string name="speech_instruction">In questo test, devi pronunciare ad alta voce il fonema \"AAAAH\" per cinque secondi quando indicato.</string>
+    <string name="speech_instruction">In questo test, devi pronunciare ad alta voce il fonema \'AAAAH\' per cinque secondi quando indicato.</string>
     <string name="speech_wait">Attendi che termini il conto alla rovescia prima di incominciare</string>
-    <string name="speech_start">Pronuncia ad alta voce \"AAAAH\" fino alla fine del conto alla rovescia!</string>
+    <string name="speech_start">Pronuncia ad alta voce \'AAAAH\' fino alla fine del conto alla rovescia!</string>
     <string name="start_speech">Inizia!</string>
 
 
@@ -446,4 +446,6 @@
 <string name="onDysMsg">Posso muovermi facilmente ma ho dei movimenti involontari.</string>
 <string name="onSevereDysMsg">Posso muovermi facilmente ma ho dei movimenti involontari fastidiosi.</string>
 
+    <string name="test_home_title">Esegui un test</string>
+    <string name="test_home_description">Premere qui se vuoi eseguire un test!</string>
     </resources>

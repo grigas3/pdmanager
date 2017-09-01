@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +15,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
 import java.text.SimpleDateFormat;
@@ -34,9 +32,11 @@ import java.util.Calendar;
     public class VisualAnalogueScaleTest extends SoundFeedbackActivity implements SeekBar.OnSeekBarChangeListener {
 
         public static final String FLAG = "flag";
+    private final String LOGGER_TAG = "VAS test";
+    private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
+    private final int QUESTIONS_NUMBER = 8;
         private Boolean isJustOnOff = null;
         private TextView tvYes, tvNo;
-        private final String LOGGER_TAG = "VAS test";
         private String
             test = "VisualAnalogueScale.csv",
             header = "Timestamp, "
@@ -49,10 +49,6 @@ import java.util.Calendar;
                     + "Question 7 (%), "
                     + "Question 8 (%), "
                     + "\r\n";
-
-        private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
-        private final int QUESTIONS_NUMBER = 8;
-
         private int questionNumber = 0;
 
         private float minSize, midSize;
@@ -79,14 +75,14 @@ import java.util.Calendar;
 
                 TextView textViewToChange = (TextView) findViewById(R.id.level);
                 textViewToChange.setText(getResources().getString(R.string.vas_instruction));
-                speak.speakFlush(getResources().getString(R.string.vas_instruction));
+                speakFlush(getResources().getString(R.string.vas_instruction));
 
                 Button buttonStart = (Button) findViewById(R.id.play);
                 buttonStart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        speak.silence();
+                        speakerSilence();
 
                         isStarted = true;
                         setContentView(R.layout.cognitive_vas_test);
@@ -219,7 +215,7 @@ import java.util.Calendar;
 
                 writeFile (test, header);
 
-                speak.silence();
+                speakerSilence();
 
                 //if (timerTask != null) { timerTask.cancel(); }
 
@@ -339,13 +335,13 @@ import java.util.Calendar;
 
             if (isPaused) {
 
-                speak.silence();
+                speakerSilence();
 
                 //if (timerTask != null) { timerTask.cancel(); }
 
                 isStarted = false;
                 isPaused = true;
-                speak.silence();
+                speakerSilence();
 
                 isStarted = true;
                 setContentView(R.layout.cognitive_vas_test);
@@ -364,7 +360,7 @@ import java.util.Calendar;
         public void onPause() {
             super.onPause();
 
-            speak.silence();
+            speakerSilence();
             isPaused = true;
             //if (timerTask != null) { timerTask.cancel(); }
         }

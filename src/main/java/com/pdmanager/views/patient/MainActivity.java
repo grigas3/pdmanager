@@ -54,17 +54,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pdmanager.call.CNMessage;
+import com.pdmanager.R;
 import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.app.PDPilotAppContext;
-import com.pdmanager.R;
 import com.pdmanager.app.VideoApp;
+import com.pdmanager.call.CNMessage;
 import com.pdmanager.communication.NetworkStatus;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.call.AVChatSessionFragment;
 import com.pdmanager.views.caregiver.MedListFragment;
 import com.telerik.common.TrackedApplication;
@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             mService = binder.getService();
             //        Intent intent = new Intent(className, BandService.class);
 
+            mService.background();
 
             if(patientHomeFragment!=null)
             mService.registerListener(patientHomeFragment);
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             RecordingServiceHandler.getInstance().setService(mService);
 
             initFragments();
+
             mBound = true;
         }
 
@@ -155,6 +157,15 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     private VideoApp application = null;
     private boolean mIsAlive = false;
     private BroadcastReceiver mRegistrationBroadcastReceiver = null;
+
+    public static void setOverflowButtonColor(final Toolbar toolbar, final int color) {
+        Drawable drawable = toolbar.getOverflowIcon();
+        if (drawable != null) {
+            drawable = DrawableCompat.wrap(drawable);
+            DrawableCompat.setTint(drawable.mutate(), color);
+            toolbar.setOverflowIcon(drawable);
+        }
+    }
 
     /**
      * Defines callbacks for service binding, passed to bindService()
@@ -171,15 +182,6 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         }
         else
             super.onBackPressed();
-    }
-
-    public static void setOverflowButtonColor(final Toolbar toolbar, final int color) {
-        Drawable drawable = toolbar.getOverflowIcon();
-        if(drawable != null) {
-            drawable = DrawableCompat.wrap(drawable);
-            DrawableCompat.setTint(drawable.mutate(), color);
-            toolbar.setOverflowIcon(drawable);
-        }
     }
 
     @Override
@@ -310,22 +312,18 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     @Override
     public void onDestroy() {
 
-
+        super.onDestroy();
         if (mBound) {
 
             if(mService!=null)
                 mService.unregisterListener(patientHomeFragment);
+
             unbindService(mConnection);
-            if (!mService.getSessionMustRun())
-                getApplicationContext().stopService(intent);
-
-
             mBound = false;
+
         }
 
 
-
-        super.onDestroy();
     }
 
 
@@ -367,12 +365,36 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
     @Override
     protected void onStop() {
-        super.onStop();
+
         // Unbind from the service
 
       //  alertFragmentManager.stopAutoUpdate();
+        if (mBound) {
+
+            if (mService != null)
+                mService.unregisterListener(patientHomeFragment);
+            unbindService(mConnection);
+
+            if (mService.isSessionRunning())
+                mService.foreground();
+
+           /* if (!mService.getSessionMustRun())
+                getApplicationContext().stopService(intent);
+            else
+            {
+                if (mService.isSessionRunning())
+                    mService.foreground();
 
 
+
+
+
+            }
+
+            */
+            mBound = false;
+        }
+        super.onStop();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.pdmanager.views.patient.cognition.cognitive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -16,7 +15,6 @@ import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.patient.cognition.MainMenu;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -104,14 +102,14 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             setContentView(R.layout.activity_start);
             TextView textViewToChange = (TextView) findViewById(R.id.level);
             textViewToChange.setText(getResources().getString(R.string.ast_instruction));
-            speak.speakFlush(getResources().getString(R.string.ast_instruction));
+            speakFlush(getResources().getString(R.string.ast_instruction));
 
             Button buttonStart = (Button) findViewById(R.id.play);
             buttonStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    speak.silence();
+                    speakerSilence();
                     timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
                         @Override
@@ -154,14 +152,14 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             setContentView(R.layout.activity_start);
             TextView textViewToChange = (TextView) findViewById(R.id.level);
             textViewToChange.setText(getResources().getString(R.string.ast_instruction));
-            speak.speakFlush(getResources().getString(R.string.ast_instruction));
+            speakFlush(getResources().getString(R.string.ast_instruction));
 
             Button buttonStart = (Button) findViewById(R.id.play);
             buttonStart.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    speak.silence();
+                    speakerSilence();
 
                     timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
@@ -199,7 +197,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
 
         if (level > NUMBER_OF_LEVELS) {
 
-            speak.silence();
+            speakerSilence();
             if (timer != null) {
                 timer.cancel();
             }
@@ -593,7 +591,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
         try {
             writeFile(test, header);
 
-            speak.silence();
+            speakerSilence();
 
             if (timerTask != null) {
                 timerTask.cancel();
@@ -645,7 +643,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
 
         if (isPaused) {
 
-            speak.silence();
+            speakerSilence();
             if (timerTask != null) {
                 timerTask.cancel();
             }
@@ -654,7 +652,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
                 timer.cancel();
             }
 
-            speak.silence();
+            speakerSilence();
             timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
                 @Override
@@ -682,7 +680,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
     public void onPause() {
         super.onPause();
 
-        speak.silence();
+        speakerSilence();
         isPaused = true;
 
         if (timerTask != null) {

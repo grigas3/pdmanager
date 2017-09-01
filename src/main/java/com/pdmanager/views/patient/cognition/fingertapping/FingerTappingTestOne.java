@@ -28,8 +28,6 @@ import java.util.Vector;
  */
 
 public class FingerTappingTestOne extends SoundFeedbackActivity {
-    private String LOGGER_TAG = "FingerTappingTestOne";
-
     public static final String DECIMAL_FORMAT_TIME = "#,#00.0";
     public static final String INTENT_MEAN_ONE = "meanTimeOne";
     public static final String INTENT_STD_ONE = "stdTimeOne";
@@ -37,11 +35,10 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
     public static final String INTENT_MAX_ONE = "maxTimeOne";
     public static final String INTENT_MIN_ONE = "minTimeOne";
     public static final String INTENT_TAPS_NUMBER_ONE = "tapsNumberOne";
-
     public final int DURATION_TEST_MILLISECONDS= 10000;
     public final int REFRESH_PERIOD_MILLISECONDS= 100;
     public final int TIME_MILLISECONDS_SLEEP = 1000;
-
+    private String LOGGER_TAG = "FingerTappingTestOne";
     private TextView tvNumberTaps = null;
     private TextView tvTime = null;
 
@@ -56,55 +53,6 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
     private Vector vect = new Vector();
 
     private CountDownTimer sdTimer = null;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        try {
-            speak.speakFlush(getResources().getString(R.string.fttoneTvInstructions));
-
-            setContentView(R.layout.finger_tapping_test_one);
-
-            mProgress = (ProgressBar) findViewById(R.id.progressBar1);
-            mProgress.setMax(DURATION_TEST_MILLISECONDS);
-            mProgress.setProgress(DURATION_TEST_MILLISECONDS);
-
-            Button buttonTap = (Button) findViewById(R.id.buttonFTTOneTap);
-
-            tvNumberTaps = (TextView) findViewById(R.id.fttoneNumberOfTaps);
-            tvTime = (TextView) findViewById(R.id.fttoneTvTime);
-
-            buttonTap.setOnClickListener(clickButton);
-
-        }catch (Exception e){
-            Log.v(LOGGER_TAG, "Exception: " + e.toString());
-        }
-
-    }
-
-    private void restart() {
-
-        try {
-
-            numberOfTaps=0;
-            vect.removeAllElements();
-            timeInMilli = Double.valueOf(0);
-            mProgress.setProgress(DURATION_TEST_MILLISECONDS);
-
-            tvNumberTaps.setText(String.valueOf(0) + " " + getResources().getString(R.string.fttoneTvTimeNumberOfTaps) );
-            tvTime.setText(getResources().getString(R.string.fttoneTvTime) + " : " + new DecimalFormat(DECIMAL_FORMAT_TIME).format(DURATION_TEST_MILLISECONDS / 1000) + " " + getResources().getString(R.string.fttoneTvSeconds));
-
-            if (sdTimer != null)
-                sdTimer.cancel();
-
-            test=true;
-
-        }catch (Exception e){
-            Log.v(LOGGER_TAG, "Exception restarting: " + e.toString());
-        }
-    }
-
     private View.OnClickListener clickButton=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -185,6 +133,54 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
         vect.addElement(timeInMilli);
         }
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        try {
+            speakFlush(getResources().getString(R.string.fttoneTvInstructions));
+
+            setContentView(R.layout.finger_tapping_test_one);
+
+            mProgress = (ProgressBar) findViewById(R.id.progressBar1);
+            mProgress.setMax(DURATION_TEST_MILLISECONDS);
+            mProgress.setProgress(DURATION_TEST_MILLISECONDS);
+
+            Button buttonTap = (Button) findViewById(R.id.buttonFTTOneTap);
+
+            tvNumberTaps = (TextView) findViewById(R.id.fttoneNumberOfTaps);
+            tvTime = (TextView) findViewById(R.id.fttoneTvTime);
+
+            buttonTap.setOnClickListener(clickButton);
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception: " + e.toString());
+        }
+
+    }
+
+    private void restart() {
+
+        try {
+
+            numberOfTaps = 0;
+            vect.removeAllElements();
+            timeInMilli = Double.valueOf(0);
+            mProgress.setProgress(DURATION_TEST_MILLISECONDS);
+
+            tvNumberTaps.setText(String.valueOf(0) + " " + getResources().getString(R.string.fttoneTvTimeNumberOfTaps));
+            tvTime.setText(getResources().getString(R.string.fttoneTvTime) + " : " + new DecimalFormat(DECIMAL_FORMAT_TIME).format(DURATION_TEST_MILLISECONDS / 1000) + " " + getResources().getString(R.string.fttoneTvSeconds));
+
+            if (sdTimer != null)
+                sdTimer.cancel();
+
+            test = true;
+
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception restarting: " + e.toString());
+        }
+    }
 
     public void onResume(){
         super.onResume();
