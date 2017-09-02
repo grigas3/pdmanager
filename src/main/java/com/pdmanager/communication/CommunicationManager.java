@@ -119,7 +119,7 @@ public class CommunicationManager {
             String json = JsonSerializationHelper.toJson(item);
             if (mHandler != null) {
 
-                mHandler.AddRequest(new JsonStorage(json, uri, "PUT"));
+                mHandler.addRequest(new JsonStorage(json, uri, "PUT"));
 
             }
 
@@ -141,7 +141,7 @@ public class CommunicationManager {
             String json = JsonSerializationHelper.toJson(item);
             if (mHandler != null) {
 
-                mHandler.AddRequest(new JsonStorage(json, uri));
+                mHandler.addRequest(new JsonStorage(json, uri));
 
             }
 
@@ -186,6 +186,44 @@ public class CommunicationManager {
 
 
     }
+
+    public void Get(String itemCode, String params, IReceiveCallback callback) {
+
+        RESTClient client = new RESTClient(accessToken);
+
+
+        String uri = codemap.get(itemCode);
+        if (params != null)
+            uri = uri + params;//"UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
+
+
+        String response = client.Get(uri);
+
+
+        if (callback != null)
+            callback.OnReceive(response);
+
+
+    }
+
+    public String Get(String itemCode, String params) {
+
+        RESTClient client = new RESTClient(accessToken);
+
+
+        String uri = codemap.get(itemCode);
+        if (params != null)
+            uri = uri + params;//"UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
+
+
+        String response = client.Get(uri);
+
+
+        return response;
+
+
+    }
+
     ////Connect Task
     /// The connect task asynchronously tries to connect to Microsoft Band
     private class SendItemsTask<T extends PDEntity> extends AsyncTask<ArrayList<T>, Void, Boolean> {
@@ -214,7 +252,7 @@ public class CommunicationManager {
                     String json = JsonSerializationHelper.toJson(items);
                     if (tHandler != null) {
 
-                        tHandler.AddRequest(new JsonStorage(json, uri));
+                        tHandler.addRequest(new JsonStorage(json, uri));
 
                     }
 
@@ -240,8 +278,6 @@ public class CommunicationManager {
             //TODO: Probably do something
         }
     }
-
-
 
     ////Connect Task
     /// The connect task asynchronously tries to connect to Microsoft Band
@@ -287,44 +323,6 @@ public class CommunicationManager {
 
             //TODO: Probably do something
         }
-    }
-
-
-    public void Get(String itemCode, String params, IReceiveCallback callback) {
-
-        RESTClient client = new RESTClient(accessToken);
-
-
-        String uri = codemap.get(itemCode);
-        if (params != null)
-            uri = uri + params;//"UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
-
-
-        String response = client.Get(uri);
-
-
-        if (callback != null)
-            callback.OnReceive(response);
-
-
-    }
-
-    public String Get(String itemCode, String params) {
-
-        RESTClient client = new RESTClient(accessToken);
-
-
-        String uri = codemap.get(itemCode);
-        if (params != null)
-            uri = uri + params;//"UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
-
-
-        String response = client.Get(uri);
-
-
-        return response;
-
-
     }
 
 

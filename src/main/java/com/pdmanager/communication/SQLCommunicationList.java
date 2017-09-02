@@ -175,7 +175,7 @@ public class SQLCommunicationList implements  ICommunicationQueue, IJsonRequestH
     }
 
     @Override
-    public  void AddRequest(JsonStorage jsonRequest) {
+    public void addRequest(JsonStorage jsonRequest) {
 
         add(jsonRequest);
 

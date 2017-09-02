@@ -18,6 +18,7 @@
 package com.pdmanager.views.patient;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
@@ -131,10 +132,9 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
     private RecordingSchedulingFragment recordingSchedulingFragment;
 
 
-
     /*
 
-     */
+    */
     private MedListFragment medAdminFragment;
     /**
      * Defines callbacks for service binding, passed to bindService()
@@ -148,13 +148,12 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
             RecordingService.LocalBinder binder = (RecordingService.LocalBinder) service;
             mService = binder.getService();
             //        Intent intent = new Intent(className, BandService.class);
-
             mService.background();
             RecordingServiceHandler.getInstance().setService(mService);
 
             initFragments();
 
-            mService.registerHRAccessProvider(bandFragment);
+
             mService.registerListener(bandFragment);
             mService.registerSensorListener(bandFragment);
             mService.registerListener(recordingSettingsFragment);
@@ -339,20 +338,36 @@ public void createTile()
     protected void onStart() {
         super.onStart();
 
-        try {
-            intent = new Intent(this, RecordingService.class);
-            getApplicationContext().startService(intent);
-            // Bind to LocalService
-
-            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+        startService();
 
 
-        } catch (Exception ex) {
-            //  Util.handleException("Start Service", ex);
+    }
 
+    private boolean isServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
         }
+        return false;
+    }
 
+    private void startService() {
 
+        intent = new Intent(this, RecordingService.class);
+
+        if (!isServiceRunning(RecordingService.class)) {
+            try {
+
+                getApplicationContext().startService(intent);
+
+            } catch (Exception ex) {
+                //  Util.handleException("Start Service", ex);
+
+            }
+        } else
+            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
 
     @Override

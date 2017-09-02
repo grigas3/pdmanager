@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 
 import com.bugfender.sdk.Bugfender;
 import com.pdmanager.BuildConfig;
+import com.pdmanager.settings.RecordingSettings;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -95,9 +96,13 @@ public class PDPilotAppContext extends Application implements Application.Activi
 
 
     private void initBugfender() {
-        Bugfender.init(this, "awOajBW2R4nKPi4iUQcDxKjSZ6wZcXrc", BuildConfig.DEBUG);
-        Bugfender.enableLogcatLogging();
-        Bugfender.enableUIEventLogging(this);
+
+        if (RecordingSettings.GetRecordingSettings(this).getRemoteLogging()) {
+
+            Bugfender.init(this, "awOajBW2R4nKPi4iUQcDxKjSZ6wZcXrc", BuildConfig.DEBUG);
+            Bugfender.enableLogcatLogging();
+            Bugfender.enableUIEventLogging(this);
+        }
     }
 
     public void addOnFavouritesChangedListener(FavouritesChangedListener listener) {

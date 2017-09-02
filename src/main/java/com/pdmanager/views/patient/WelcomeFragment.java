@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pdmanager.R;
-import com.pdmanager.alerting.IAlertDisplay;
 import com.pdmanager.interfaces.ISensorStatusListener;
 import com.pdmanager.interfaces.IServiceStatusListener;
 import com.pdmanager.sensor.RecordingServiceHandler;
@@ -167,12 +166,7 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
 
                             if (mSensorStatus != null) {
                                 mSensorStatus.setVisibility(View.VISIBLE);
-                                if (service.isAllRecording()) {
-                                    mSensorStatus.setText("ALL OK");
-                                    mSensorStatus.setTextColor(Color.GREEN);
-                                } else
 
-                                {
 
 
                                     if (service.hasFatalError())
@@ -197,14 +191,15 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
                                          //   mSensorStatus.setText("Exception while connecting to Band");
 
                                         }
-
+                                        mSensorStatus.setTextColor(Color.RED);
                                     } else {
 
-                                   //     mSensorStatus.setText("Something is wrong...restart the application");
+                                        mSensorStatus.setText("ALL OK");
+                                        mSensorStatus.setTextColor(Color.GREEN);
 
                                     }
-                                    mSensorStatus.setTextColor(Color.RED);
-                                }
+
+
                             }
 
 

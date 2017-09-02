@@ -773,13 +773,13 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
 
                             //    mSensorStatus.setVisibility(View.VISIBLE);
-                                if (service.isAllRecording()) {
+                               /* if (service.isAllRecording()) {
 
                                     showMonitoringOK();
                                     //showMonitoringError("Something is wrong");
 
                                 } else
-
+*/
                                 {
 
                                     showMonitoringOK();

@@ -39,6 +39,8 @@ public class RecordingScheduler implements IDataProcessor {
     private long lastStop = 0;
     private long plannedStop = 0;
 
+    private boolean isPaused = false;
+
 
     public RecordingScheduler(int startHour,int endHour)
     {
@@ -81,103 +83,110 @@ public class RecordingScheduler implements IDataProcessor {
     public void addData(ISensorData data) {
 
 
+        if (!isPaused) {
+            lastAcquisition = System.currentTimeMillis();
+
+            int dataType = data.getDataType();
+            if (dataType == DataTypes.ACCELEROMETER && intervalsToAcquire > 0) {
 
 
+                AccData accd = (AccData) data;
+                long t = accd.getTicks();
 
-        lastAcquisition = System.currentTimeMillis();
-
-        int dataType = data.getDataType();
-        if(dataType==DataTypes.ACCELEROMETER&&intervalsToAcquire>0) {
-
-
-            AccData accd = (AccData) data;
-            long t = accd.getTicks();
-
-            //IF there is a period when band is not receiving (band away from the phone
-            //Then zero the total number of samples acquired in order to collect at least
-            //5-mins of consequtive data
-            if(t-lastAcquisition>60*1000)
-            {
-                samplesAcquired=0;
-            }
-            lastAcquisition=t;
+                //IF there is a period when band is not receiving (band away from the phone
+                //Then zero the total number of samples acquired in order to collect at least
+                //5-mins of consequtive data
+                if (t - lastAcquisition > 60 * 1000) {
+                    samplesAcquired = 0;
+                }
+                lastAcquisition = t;
 
 
-            samplesAcquired++;
+                samplesAcquired++;
 
-        }
-
-        if(samplesAcquired>samplesPerInterval)
-        {
-
-            samplesAcquired=0;
-            intervalsToAcquire--;
-
-        }
-
-        //if Finally use gyroscope for wearing uncomment
-
-        if (dataType == DataTypes.GYRO) {
-
-            GyroData gData = (GyroData) data;
-            double e = Math.sqrt((gData.getValue().getX() * gData.getValue().getX()) + (gData.getValue().getY() * gData.getValue().getY()) + (gData.getValue().getZ() * gData.getValue().getZ()));
-
-            if (e > 50) {
-                // Log.v(TAG,Double.toString(e));
-                nonWearing = 0;
-                nonWearingPostPone = false;
             }
 
+            if (samplesAcquired > samplesPerInterval) {
 
-        }
+                samplesAcquired = 0;
+                intervalsToAcquire--;
 
+            }
 
+            //if Finally use gyroscope for wearing uncomment
 
-        if(dataType==DataTypes.HR) {
-            HRData hrD = (HRData) data;
-            if (hrD != null) {
-                HRReading hr = hrD.getValue();
+            if (dataType == DataTypes.GYRO) {
 
-                if (hr.getQuality() == 0) {
+                GyroData gData = (GyroData) data;
+                double e = Math.sqrt((gData.getValue().getX() * gData.getValue().getX()) + (gData.getValue().getY() * gData.getValue().getY()) + (gData.getValue().getZ() * gData.getValue().getZ()));
 
-                    //  Log.v(TAG,"LOW HR QUALITY SAMPLE");
-                    //Not Wearing
-                    //Maybe check also accelerometer?
-                    nonWearing++;
-
-                } else {
-                    //  Log.v(TAG,"HIGH HR QUALITY SAMPLE");
+                if (e > 50) {
+                    // Log.v(TAG,Double.toString(e));
                     nonWearing = 0;
-                    nonWearingPostPone=false;
+                    nonWearingPostPone = false;
+                }
+
+
+            }
+
+
+            if (dataType == DataTypes.HR) {
+                HRData hrD = (HRData) data;
+                if (hrD != null) {
+                    HRReading hr = hrD.getValue();
+
+                    if (hr.getQuality() == 0) {
+
+                        //  Log.v(TAG,"LOW HR QUALITY SAMPLE");
+                        //Not Wearing
+                        //Maybe check also accelerometer?
+                        nonWearing++;
+
+                    } else {
+                        //  Log.v(TAG,"HIGH HR QUALITY SAMPLE");
+                        nonWearing = 0;
+                        nonWearingPostPone = false;
+
+                    }
+                }
+            }
+
+            //Not Wearing band for ~55-60 seconds
+            //Not exactly 60 in order to occur in first timer
+            if (nonWearing > 55) {
+                Log.d(TAG, "SET NON WEARING");
+                nonWearing = 0;
+                nonWearingPostPone = true;
+                notWearingIntervalsFound++;
+                if (notWearingIntervalsFound >= intervalToNoWearingRation) {
+                    notWearingIntervalsFound = 0;
+                    intervalsToAcquire++;
 
                 }
             }
+
         }
-
-        //Not Wearing band for ~55-60 seconds
-        //Not exactly 60 in order to occur in first timer
-        if (nonWearing > 55)
-        {
-            Log.d(TAG, "SET NON WEARING");
-            nonWearing=0;
-            nonWearingPostPone=true;
-            notWearingIntervalsFound++;
-            if(notWearingIntervalsFound>=intervalToNoWearingRation) {
-                notWearingIntervalsFound=0;
-                intervalsToAcquire++;
-
-            }
-        }
-
 
     }
 
-    /* public boolean isResumed() {
+    public void resume() {
+        isPaused = false;
+        nonWearing = 0;
+        nonWearingPostPone = false;
+        intervalsToAcquire++;
 
-         long t = System.currentTimeMillis();
-         return (t - lastAcquisition) <1000;
+    }
+
+    public void pause() {
+        isPaused = true;
+
+    }
+
+    public boolean isPaused() {
+
+        return isPaused;
      }
-     */
+
     public boolean shouldResume() {
 
         long t = System.currentTimeMillis();

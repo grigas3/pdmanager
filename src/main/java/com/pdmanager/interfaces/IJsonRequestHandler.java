@@ -8,6 +8,6 @@ import com.pdmanager.communication.JsonStorage;
 public interface IJsonRequestHandler {
 
 
-    void AddRequest(JsonStorage jsonRequest);
+    void addRequest(JsonStorage jsonRequest);
 
 }

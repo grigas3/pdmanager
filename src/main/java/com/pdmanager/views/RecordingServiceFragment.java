@@ -53,6 +53,7 @@ import com.pdmanager.sensor.IHeartRateAccessProvider;
 import com.pdmanager.sensor.RecordingServiceHandler;
 import com.pdmanager.services.MSHealthServiceManager;
 import com.pdmanager.services.RecordingService;
+import com.pdmanager.services.WatchdogAlarmReceiver;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.patient.MSSyncActivity;
@@ -110,6 +111,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             Manifest.permission.CAPTURE_VIDEO_OUTPUT
     };
     final Handler handler = new Handler();
+
+    WatchdogAlarmReceiver alarm = new WatchdogAlarmReceiver();
+
+
+
     private Button mButtonConnect;
     private Button mButtonChooseBand;
     private Button mButtonSetLimits;
@@ -1067,12 +1073,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                             if (mSensorStatus != null) {
                                 mSensorStatus.setVisibility(View.VISIBLE);
-                                if (service.isAllRecording()) {
-                                    mSensorStatus.setText("ALL OK");
-                                    mSensorStatus.setTextColor(Color.GREEN);
-                                } else
-
-                                {
 
                                     if (service.hasFatalError())
 
@@ -1095,14 +1095,15 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                                             mSensorStatus.setText("Exception while connecting to Band");
 
                                         }
+                                        mSensorStatus.setTextColor(Color.RED);
 
                                     } else {
 
-                                        mSensorStatus.setText("Something is wrong...restart the application");
+                                        mSensorStatus.setText("ALL OK");
+                                        mSensorStatus.setTextColor(Color.GREEN);
 
                                     }
-                                    mSensorStatus.setTextColor(Color.RED);
-                                }
+
                             }
 
 
@@ -1140,6 +1141,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
             settings.setSessionRunning(false);
             getService().StopRecording();
+
+            alarm.cancelAlarm(getActivity());
+
             DataReceiver receiver = new DataReceiver(accessToken);
 
             UserAlertManager manager=new UserAlertManager(getActivity());
@@ -1221,7 +1225,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 }
             }
 
-            getService().StartRecording();
+
+            alarm.setAlarm(getActivity());
+            //getService().StartRecording();
 
 
             settings.setSessionRunning(true);

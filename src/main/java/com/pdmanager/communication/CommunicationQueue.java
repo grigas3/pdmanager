@@ -67,7 +67,7 @@ public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements 
     }
 
     @Override
-    public void AddRequest(JsonStorage jsonRequest) {
+    public void addRequest(JsonStorage jsonRequest) {
 
 
         super.add(jsonRequest);

@@ -7,7 +7,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -77,6 +77,20 @@
         android:label="@string/app_name"
         android:theme="@style/ApplicationTheme">
         <service android:name="com.pdmanager.services.RecordingService" />
+
+
+        <receiver android:name=".services.WatchdogAlarmReceiver"></receiver>
+
+        <receiver
+            android:name=".services.WatchdogBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".services.WatchdogService" />
+
 
         <receiver android:name="com.pdmanager.app.PDBootReceiver">
             <intent-filter>

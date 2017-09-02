@@ -62,6 +62,10 @@ public class RecordingSettings {
     private int mDiaryHour=8;
     private boolean mMSSynced=false;
     private boolean mEnableDiary=true;
+
+    private boolean mForegroundService = true;
+    private boolean mRemoteLogging = true;
+
     private String mLang = "en";
 
     public RecordingSettings() {
@@ -116,7 +120,9 @@ public class RecordingSettings {
                 mUseDeviceLock = pref.getBoolean("UseDeviceLock", mUseDeviceLock);
                 mUseSpeech = pref.getBoolean("UseSpeech", mUseSpeech);
 
+                mRemoteLogging = pref.getBoolean("RemoteLogging", mRemoteLogging);
 
+                mForegroundService = pref.getBoolean("ForegroundService", mForegroundService);
 
                 mRecordingStart = pref.getLong("RecordingStart", mRecordingStart);
                 mSessionFolder = pref.getString("SessionFolder", mSessionFolder);
@@ -660,4 +666,23 @@ public class RecordingSettings {
     public void setDiaryHour(int diaryHour) {
         this.mDiaryHour = diaryHour;
     }
+
+
+    public boolean getForegroundService() {
+        return this.mForegroundService;
+    }
+
+    public void setForegroundService(boolean forService) {
+        this.mForegroundService = forService;
+    }
+
+
+    public boolean getRemoteLogging() {
+        return this.mRemoteLogging;
+    }
+
+    public void setRemoteLogging(boolean forService) {
+        this.mRemoteLogging = forService;
+    }
+
 }

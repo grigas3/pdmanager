@@ -288,7 +288,7 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  void AddRequest(JsonStorage jsonRequest) {
+    public void addRequest(JsonStorage jsonRequest) {
 
         add(jsonRequest);
 

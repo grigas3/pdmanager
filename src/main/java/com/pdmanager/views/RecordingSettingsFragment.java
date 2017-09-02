@@ -43,6 +43,8 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     private Switch mSwitchUseDetectors;
     private Switch mSwitchUseDeviceLock;
     private Switch mSwitchUseSpeech;
+    private Switch mSwitchRemoteLogging;
+    private Switch mSwitchForegroundService;
 
 
 
@@ -105,6 +107,16 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
                 } else if (sw == mSwitchUseSpeech) {
 
                     settings.setUseSpeech(isChecked);
+
+
+                } else if (sw == mSwitchRemoteLogging) {
+
+                    settings.setRemoteLogging(isChecked);
+
+
+                } else if (sw == mSwitchForegroundService) {
+
+                    settings.setForegroundService(isChecked);
 
 
                 }
@@ -183,7 +195,11 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
         mSwitchUseSpeech = (Switch) rootView.findViewById(R.id.switchUseSpeech);
         mSwitchUseSpeech.setOnCheckedChangeListener(mToggleSensorSection);
+        mSwitchForegroundService = (Switch) rootView.findViewById(R.id.switchForegroundService);
+        mSwitchForegroundService.setOnCheckedChangeListener(mToggleSensorSection);
 
+        mSwitchRemoteLogging = (Switch) rootView.findViewById(R.id.switchRemoteLogging);
+        mSwitchRemoteLogging.setOnCheckedChangeListener(mToggleSensorSection);
 
         mSensorMap.add(mSwitchDevAcc);
         mSensorMap.add(mSwitchBandSensors);

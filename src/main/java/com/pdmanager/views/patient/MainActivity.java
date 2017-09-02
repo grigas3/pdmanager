@@ -17,6 +17,7 @@
 //IN THE SOFTWARE.
 package com.pdmanager.views.patient;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -337,23 +338,31 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     @Override
     protected void onStart() {
         super.onStart();
-
-        try {
-            intent = new Intent(this, RecordingService.class);
-            getApplicationContext().startService(intent);
-            // Bind to LocalService
-
-            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-
-
-        } catch (Exception ex) {
-            //  Util.handleException("Start Service", ex);
-
-        }
-
-
+        startService();
     }
 
+    private boolean isServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void startService() {
+        intent = new Intent(this, RecordingService.class);
+        if (!isServiceRunning(RecordingService.class)) {
+            try {
+
+                getApplicationContext().startService(intent);
+            } catch (Exception ex) {
+                //  Util.handleException("Start Service", ex);
+            }
+        } else
+            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+    }
     @Override
     protected void onResume() {
         super.onResume();

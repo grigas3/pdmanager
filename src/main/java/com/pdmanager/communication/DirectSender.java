@@ -25,7 +25,7 @@ public class DirectSender implements IJsonRequestHandler {
         this.mContext=context;
     }
     @Override
-    public void AddRequest(JsonStorage request) {
+    public void addRequest(JsonStorage request) {
 
 
         if(mContext!=null)
