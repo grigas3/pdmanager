@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -42,7 +43,7 @@ import java.util.Locale;
 
 public class PALPRM extends SoundFeedbackActivity
 {
-    private final String LOGGER_TAG = "PALPRM test";
+    private final String LOGGER_TAG = "PALPRM_test";
     private RNG rng;
     private TextView tvTitle;
     private ViewGroup lPairs, lGame;
@@ -736,6 +737,11 @@ public class PALPRM extends SoundFeedbackActivity
 
     }
     */
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
+    }
 
     private class IconPair
     {

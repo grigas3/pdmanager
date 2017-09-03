@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -40,7 +41,7 @@ import java.util.Locale;
 
 public class LondonTowersTest extends SoundFeedbackActivity
 {
-    private final String LOGGER_TAG = "London Towers test";
+    private final String LOGGER_TAG = "London_Towers_test";
 
     private String
         test = "TowersOfLondon.csv",
@@ -512,6 +513,11 @@ public class LondonTowersTest extends SoundFeedbackActivity
                 else retryLevel();
             }
         });
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 
 }

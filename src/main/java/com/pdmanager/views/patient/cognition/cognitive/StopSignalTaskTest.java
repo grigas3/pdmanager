@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -36,7 +37,7 @@ import java.util.Locale;
 public class StopSignalTaskTest extends SoundFeedbackActivity {
 
     private static final long THREE_SECONDS = 3000L;
-    private final String LOGGER_TAG = "SST test";
+    private final String LOGGER_TAG = "SST_test";
     private final int TIME_MILLISECONDS_LEVEL_TASK = 240000;
     private final int TIME_MILLISECONDS_TRANSITIONS = 250;
     private final int NUMBER_OF_LEVELS = 2;
@@ -819,5 +820,10 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
         if (handler!=null) handler.removeCallbacks(thread);
         isPaused = true;
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 }

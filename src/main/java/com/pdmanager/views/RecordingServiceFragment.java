@@ -110,6 +110,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             Manifest.permission.CAPTURE_SECURE_VIDEO_OUTPUT,
             Manifest.permission.CAPTURE_VIDEO_OUTPUT
     };
+
+
     final Handler handler = new Handler();
 
     WatchdogAlarmReceiver alarm = new WatchdogAlarmReceiver();

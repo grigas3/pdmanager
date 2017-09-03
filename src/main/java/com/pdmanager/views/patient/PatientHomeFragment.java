@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.pdmanager.R;
 import com.pdmanager.alerting.IAlertDisplay;
 import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.interfaces.ISensorStatusListener;
 import com.pdmanager.interfaces.IServiceStatusListener;
 import com.pdmanager.models.UserAlert;
@@ -220,7 +221,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                 Log.d("LOG", "test");
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("DIARY");
+                manager.updateAlerts(UserTaskCodes.DIARY);
 
 
                 Intent diaryTracking =
@@ -239,7 +240,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View view) {
                 Log.d("LOG", "test");
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("FT");
+                manager.updateAlerts(UserTaskCodes.FT);
                 Intent menuPALIntent =
                         new Intent(getActivity(), FingerTappingTestOne.class);
                 startActivity(menuPALIntent);
@@ -254,7 +255,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View view) {
                 Log.d("LOG", "test");
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("VT");
+                manager.updateAlerts(UserTaskCodes.VT);
                 Intent menuPALIntent =
                         new Intent(getActivity(), SpeechTest.class);
                 startActivity(menuPALIntent);
@@ -270,10 +271,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View view) {
                 Log.d("LOG", "test");
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("COGN1");
+                manager.updateAlerts(UserTaskCodes.COGN1);
 
 
-                startCongnitiveTest();
+                startCognitiveTest();
             }
         });
 
@@ -283,8 +284,8 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View view) {
                 Log.d("LOG", "test");
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("COGN2");
-                startCongnitiveTest();
+                manager.updateAlerts(UserTaskCodes.COGN2);
+                startCognitiveTest();
             }
         });
 
@@ -294,7 +295,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View v) {
 
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("MOOD");
+                manager.updateAlerts(UserTaskCodes.MOOD);
 
                 Intent menuPALIntent =
                         new Intent(getActivity(), MoodTrackingActivity.class);
@@ -315,7 +316,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View v) {
 
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("MED");
+                manager.updateAlerts(UserTaskCodes.MED);
                 Intent menuPALIntent =
                         new Intent(getActivity(), MedAlertActivity.class);
                 startActivity(menuPALIntent);
@@ -329,7 +330,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             @Override
             public void onClick(View v) {
                 UserAlertManager manager=new UserAlertManager(context);
-                manager.updateAlerts("SPEECH");
+                manager.updateAlerts(UserTaskCodes.SPEECH);
                 SpeechAnalysisFragment speechAnalysisFragment = new SpeechAnalysisFragment();
                 FragmentTransaction fragmentTransaction =
                         getFragmentManager().beginTransaction();
@@ -343,8 +344,14 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         return rootView;
     }
 
-    private void startCongnitiveTest()
+
+    /**
+     * Start a random cognitive test
+     */
+    private void startCognitiveTest()
     {
+
+
         Random rn = new Random();
         int n = 8 + 1;
         int i = rn.nextInt() % n;

@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -191,5 +192,10 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
         super.onPause();
 
         restart();
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.FT + "_" + LOGGER_TAG;
     }
 }

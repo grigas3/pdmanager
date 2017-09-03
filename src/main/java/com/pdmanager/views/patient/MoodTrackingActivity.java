@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.DirectSenderTask;
 import com.pdmanager.communication.IDirectSendCallback;
 import com.pdmanager.models.Observation;
@@ -47,11 +48,20 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
     private TextView chooseText;
 //    private Button buttonBack;
     private RelativeLayout buttonNext;
+    View.OnClickListener moodClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            changeMood(v);
+        }
+    };
+    View.OnClickListener activityClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            activityClicked(v);
+        }
+    };
     private RelativeLayout busyIndicator;
     private RelativeLayout layout;
-
-   
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,20 +217,6 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
 
     }
 
-    View.OnClickListener moodClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            changeMood(v);
-        }
-    };
-
-    View.OnClickListener activityClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            activityClicked(v);
-        }
-    };
-
     public void onFragmentSelected() {
     }
 
@@ -233,5 +229,9 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
        finishTest();
     }
 
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.MOOD;
+    }
 
 }

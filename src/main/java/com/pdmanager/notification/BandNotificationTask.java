@@ -3,11 +3,7 @@ package com.pdmanager.notification;
 import android.os.AsyncTask;
 
 import com.microsoft.band.BandClient;
-import com.microsoft.band.notifications.MessageFlags;
 import com.microsoft.band.notifications.VibrationType;
-import com.pdmanager.models.UserAlert;
-
-import java.util.UUID;
 
 /**
  * Notification through Microsoft Band
@@ -44,8 +40,10 @@ public class BandNotificationTask extends AsyncTask<Void, Void, Void> {
         try {
 
 
-            if(mClient!=null)
+            if (mClient != null) {
+
                 mClient.getNotificationManager().vibrate(VibrationType.NOTIFICATION_ALARM);
+            }
 
 
         } catch (Exception e) {

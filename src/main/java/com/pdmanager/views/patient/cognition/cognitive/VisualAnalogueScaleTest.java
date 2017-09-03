@@ -11,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -32,7 +33,7 @@ import java.util.Calendar;
     public class VisualAnalogueScaleTest extends SoundFeedbackActivity implements SeekBar.OnSeekBarChangeListener {
 
         public static final String FLAG = "flag";
-    private final String LOGGER_TAG = "VAS test";
+    private final String LOGGER_TAG = "VAS_test";
     private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
     private final int QUESTIONS_NUMBER = 8;
         private Boolean isJustOnOff = null;
@@ -364,4 +365,9 @@ import java.util.Calendar;
             isPaused = true;
             //if (timerTask != null) { timerTask.cancel(); }
         }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
+    }
 }

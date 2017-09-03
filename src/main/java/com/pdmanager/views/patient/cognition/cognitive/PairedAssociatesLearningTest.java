@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -32,7 +33,7 @@ import java.util.Locale;
 
 public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "PAL test";
+    private final String LOGGER_TAG = "PAL_test";
 
     private final int TIME_MILLISECONDS_SHOW_STIMULI = 2000;
     private final int TIME_MILLISECONDS_SHOW_STIMULI_TICK = 1000;
@@ -698,6 +699,11 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
             timer.cancel();
         }
 
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 }
 

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -39,7 +40,7 @@ import java.util.Locale;
 public class WisconsinCardSorting extends SoundFeedbackActivity
 {
 
-    private final String LOGGER_TAG = "WC Sorting test";
+    private final String LOGGER_TAG = "WC_Sorting_test";
     private final int
             kShape = 0,
             kNum = 1,
@@ -545,6 +546,11 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
                 nextCard();
             }
         });
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 
 }

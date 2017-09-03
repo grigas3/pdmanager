@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -33,7 +34,7 @@ import java.util.Locale;
 
 public class SpatialSpanTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "SSP test";
+    private final String LOGGER_TAG = "SSP_test";
     private final int TIME_MILLISECONDS_TRANSITIONS = 1000;
     private final int TIME_MILLISECONDS_TICK = 600;
     private final int TIME_MILLISECONDS_TASK = 480000;
@@ -666,5 +667,10 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             timer.cancel();
         }
 
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 }

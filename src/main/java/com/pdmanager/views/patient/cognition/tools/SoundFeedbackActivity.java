@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
+import com.bugfender.sdk.Bugfender;
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskTrackingCodes;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 
-public class SoundFeedbackActivity extends LoggingTestActivity
+public abstract class SoundFeedbackActivity extends LoggingTestActivity
 {
     protected Speak speak;
     protected Tones tones;
@@ -33,6 +35,9 @@ public class SoundFeedbackActivity extends LoggingTestActivity
 
     }
 
+    protected abstract String getTestCode();
+
+
     protected void speakFlush(String message) {
         if (getSettings().getUseSpeech()) {
             speak.speakFlush(message);
@@ -53,6 +58,13 @@ public class SoundFeedbackActivity extends LoggingTestActivity
 
     }
 
+    private void updateTaskIssue(String code) {
+        if (getSettings().getRemoteLogging()) {
+
+            Bugfender.sendIssue(code, UserTaskTrackingCodes.PERFORMED);
+
+        }
+    }
     /**
      * Use this method to finish your test
      */
@@ -64,6 +76,8 @@ public class SoundFeedbackActivity extends LoggingTestActivity
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                updateTaskIssue(getTestCode());
                 //Do something after 100ms
                 finish();
             }

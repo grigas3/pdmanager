@@ -49,7 +49,8 @@ public interface IUserAlertManager {
     UserAlert getUnNotified();
 
     UserAlert getAlert(String alertId);
-    boolean updateAlert(UserAlert alert);
+
+    //  boolean updateAlert(UserAlert alert);
     boolean updateAlerts(String code);
 
     /**

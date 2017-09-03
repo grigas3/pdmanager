@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -27,7 +28,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Locale;
 
 import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
@@ -50,29 +50,37 @@ import static android.content.ContentValues.TAG;
 
 public class SpeechTest extends SoundFeedbackActivity
 {
-    private Preferences prefs;
-    private AudioRecorder ar;
-    private Typeface digital7;
-    private TextView tvCountdown, tvTitle;
-    private int
-        secsPerMs = 1000,
-        coundownStart = 5,
-        countdownRecording = 6;
-
-    private String audioFilePath;
-
     final static String prefixDataFileName = "MFCC_COEFF_";
     final static String prefixMeanFilename = "MFCC_MEAN_";
     final static String prefixStdFilename = "MFCC_STD_";
     final static String prefixMinFilename = "MFCC_MIN_";
     final static String prefixMaxFilename = "MFCC_MAX_";
-    int suffixFileName = 1;
-    final String typeFile = ".csv";
     final static String CSV_PATH = "/AudioProcessing";
+    final String typeFile = ".csv";
+    //MFCC attributes Comprobar con Matlab
+    //final int samplesPerFrame = 512; // Original Value
+    //final int sampleRate = 16000; // Original Value
+    final int samplesPerFrame = 40;
+    final int sampleRate = 8000;
+    final int amountOfCepstrumCoef = 21; //actually 20 but energy column would be discarded
     private final String LOGGER_TAG = "LOGGER_TAG: Speech test";
-
+    int suffixFileName = 1;
+    //int amountOfMelFilters = 30; // Original Value
+    int amountOfMelFilters = 20;
+    //float lowerFilterFreq = 133.3334f; // Original Value
+    //float upperFilterFreq = ((float)sampleRate)/2f; // Original Value
+    float lowerFilterFreq = 300; // Original Value: 133.3334f
+    float upperFilterFreq = 3700;
+    private Preferences prefs;
+    private AudioRecorder ar;
+    private Typeface digital7;
+    private TextView tvCountdown, tvTitle;
+    private int
+            secsPerMs = 1000,
+            coundownStart = 5,
+            countdownRecording = 6;
+    private String audioFilePath;
     private AudioDispatcher dispatcher;
-
     // Coefficients values and their statistical analysis.
     private ArrayList<float[]> mfccList;
     private ArrayList<float[]> mean_mfccs;
@@ -80,18 +88,26 @@ public class SpeechTest extends SoundFeedbackActivity
     private ArrayList<float[]> min_mfccs;
     private ArrayList<float[]> max_mfccs;
 
-    //MFCC attributes Comprobar con Matlab
-    //final int samplesPerFrame = 512; // Original Value
-    //final int sampleRate = 16000; // Original Value
-    final int samplesPerFrame = 40;
-    final int sampleRate = 8000;
-    final int amountOfCepstrumCoef = 21; //actually 20 but energy column would be discarded
-    //int amountOfMelFilters = 30; // Original Value
-    int amountOfMelFilters = 20;
-    //float lowerFilterFreq = 133.3334f; // Original Value
-    //float upperFilterFreq = ((float)sampleRate)/2f; // Original Value
-    float lowerFilterFreq = 300; // Original Value: 133.3334f
-    float upperFilterFreq = 3700;
+    public static double getMaxValue(double[] array) {
+        double maxValue = -1000;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maxValue) {
+                maxValue = array[i];
+            }
+        }
+        return maxValue;
+    }
+
+    // getting the miniumum value
+    public static double getMinValue(double[] array) {
+        double minValue = 1000;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
+            }
+        }
+        return minValue;
+    }
 
     private void infoTest()
     {
@@ -311,10 +327,7 @@ public class SpeechTest extends SoundFeedbackActivity
      */
     public boolean isDispatcherNull()
     {
-        if(dispatcher == null)
-            return true;
-        else
-            return false;
+        return dispatcher == null;
     }
 
     /**
@@ -410,7 +423,6 @@ public class SpeechTest extends SoundFeedbackActivity
         return max_mfccs;
     }
 
-
     /**
      * Calculates the statistical values of an ArrayList of float[].
      * @param mfccs  is the arrayList where the statitical values want to be obtained.
@@ -443,27 +455,6 @@ public class SpeechTest extends SoundFeedbackActivity
         min_mfccs.add(min);
         std_mfccs.add(std);
         max_mfccs.add(max);
-    }
-
-    public static double getMaxValue(double[] array) {
-        double maxValue = -1000;
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] > maxValue) {
-                maxValue = array[i];
-            }
-        }
-        return maxValue;
-    }
-
-    // getting the miniumum value
-    public static double getMinValue(double[] array) {
-        double minValue = 1000;
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < minValue) {
-                minValue = array[i];
-            }
-        }
-        return minValue;
     }
 
     public void sendObservations (ArrayList<float[]> meanMFCCsList) {
@@ -549,6 +540,11 @@ public class SpeechTest extends SoundFeedbackActivity
         } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception: " + e.toString());
         }
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.SPEECH + "_" + LOGGER_TAG;
     }
 }
 

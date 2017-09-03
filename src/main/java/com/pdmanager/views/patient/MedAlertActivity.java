@@ -4,24 +4,17 @@ package com.pdmanager.views.patient;
  * Created by George on 1/30/2016.
  */
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.microsoft.band.BandPendingResult;
-import com.microsoft.band.ConnectionState;
 import com.pdmanager.R;
-import com.pdmanager.communication.CommunicationManager;
-import com.pdmanager.communication.DirectSender;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.DirectSenderTask;
 import com.pdmanager.communication.IDirectSendCallback;
-import com.pdmanager.controls.CircleButton;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
@@ -239,68 +232,10 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
     }
 
 
-    /*
-
-    private class RejectMedTask extends AsyncTask<Void, Void, Boolean> {
-
-        private String accessToken;
-        private String patientCode;
-
-        public RejectMedTask(String code, String a) {
-
-            this.patientCode = code;
-            this.accessToken = a;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... clientParams) {
-
-            BandPendingResult<ConnectionState> pendingResult = null;
-            try {
-
-                DirectSender sender = new DirectSender(accessToken, getContext());
-                CommunicationManager mCommManager = new CommunicationManager(sender);
-
-                Date date1 = new Date();
-                date1.setHours(0);
-                date1.setMinutes(0);
-                //Date date2= new java.util.Date(t2);
-                Calendar cal1 = Calendar.getInstance();
-                //Calendar cal2 = Calendar.getInstance();
-                cal1.setTime(date1);
-                Observation obs = new Observation(0, patientCode, "MED_ADH", cal1.getTimeInMillis());
-                obs.PatientId = patientCode;
-
-                ArrayList<Observation> obsC = new ArrayList<>();
-                obsC.add((obs));
-                mCommManager.SendItems(obsC);
-
-                return true;
-
-            } catch (Exception ex) {
-
-                //Util.handleException("Getting data", ex);
-                return false;
-                // handle BandException
-            }
-        }
-
-
-        protected void onPostExecute(Boolean result) {
-
-            busyIndicator.setVisibility(View.INVISIBLE);
-            layout.setVisibility(View.VISIBLE);
-            //TODO PROPERLY CHECK CONNECTION
-
-
-            activateMainFragment();
-
-            //    message.setVisibility(View.VISIBLE);
-            //  mButtonPatients.setVisibility(View.VISIBLE);
-
-        }
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.MED;
     }
-            */
 
 
 }

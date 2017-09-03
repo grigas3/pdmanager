@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
 
 import com.microsoft.band.BandClient;
@@ -52,7 +53,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.pdmanager.logging.LogCodes.FATAL_BAND_CONNECTION;
-import static com.pdmanager.logging.LogCodes.FATAL_START_TIMER;
 
 /**
  * Created by pdneuro-dev01 on 9/2/2017.
@@ -76,7 +76,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
     private final SampleRate bandRate = SampleRate.MS16;
     //Available band client
     private final Semaphore available = new Semaphore(1, true);
-    private Handler mainTaskHandler = new Handler();
     private long lastTimerCheck = 0;
     private boolean mBandAcquiring = false;
     private long lastBandAcquisition = 0;
@@ -102,12 +101,31 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
     private long bandsamples = 0;
 
     private volatile boolean mIsHandlerScheduled;
+    //region Band Events Declarations
     private AtomicReference<BandHeartRateEvent> mPendingHeartRateEvent = new AtomicReference<BandHeartRateEvent>();
     private AtomicReference<BandPedometerEvent> mPendingPedometerEvent = new AtomicReference<BandPedometerEvent>();
     private AtomicReference<BandSkinTemperatureEvent> mPendingSTEvent = new AtomicReference<BandSkinTemperatureEvent>();
     private AtomicReference<BandGyroscopeEvent> mPendingGyroEvent = new AtomicReference<BandGyroscopeEvent>();
     private AtomicReference<BandAccelerometerEvent> mPendingAccelerometerEvent = new AtomicReference<BandAccelerometerEvent>();
-    //region Event Listeners
+    //endregion
+
+    //region Task Variables
+    private Handler mainTaskHandler = null;
+    private final Runnable mainTaskrunnable = new Runnable() {
+        @Override
+        public void run() {
+
+
+            //Start Logging Check
+            loggingCheck();
+      /* and here comes the "trick" */
+            mainTaskHandler.postDelayed(this, mainTimerInterval);
+        }
+
+    };
+    private HandlerThread mainHandlerThread = null;
+    //endregion
+    private boolean handlerInitialized = false;
     //region event listeners
     private BandSkinTemperatureEventListener mSTEventListener = new BandSkinTemperatureEventListener() {
         @Override
@@ -250,6 +268,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
         statArray.add(obs2);
         return statArray;
     }
+//endregion
 
     @Override
     public void resetStats() {
@@ -257,7 +276,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
         bandsamples = 0;
         hrsamples = 0;
     }
-//endregion
 
     public boolean isConnection() {
 
@@ -382,6 +400,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
 
                 if (mClient != null) {
+
                     if (mClient.getConnectionState() == ConnectionState.DISPOSED) {
                         LogInfo("Connection Disposed");
                     }
@@ -426,6 +445,9 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
                     if (mClient.getConnectionState() == ConnectionState.UNBOUND) {
                         LogDebug("Connection UNBOUND");
                     }
+                } else {
+                    LogWarn("Band client is NULL");
+
                 }
 
                 ///TRY TO RECONNECT IF NOT CONNECTED EVERY 1 MIN
@@ -446,7 +468,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
 
     }
-
 
     private void stopTimer() {
 
@@ -470,18 +491,28 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
     }
 
-    private void loggingCheck() {
+    private synchronized void loggingCheck() {
 
-        try {
+        long unixTime = System.currentTimeMillis();
 
-            checkBandConnectionStatus();
-        } catch (Exception e) {
+        if (unixTime - lastTimerCheck > minMainTimerInterval) {
 
-            LogError("MS Logging Check", e);
+            try {
+
+                checkBandConnectionStatus();
+
+            } catch (Exception e) {
+
+                LogError("MS Logging Check", e);
+
+            }
 
         }
 
     }
+
+
+    //region WAKE LOCK
 
     /**
      * TODO: MERGE WITH CHECK FOR ALERT
@@ -583,20 +614,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
     }
 
     /**
-     * IsConnected Method
-     *
-     * @return If the Band sensor is connected
-     */
-    public boolean IsConnected() {
-
-        return mClient != null && mClient.isConnected();
-
-
-    }
-
-    //region WAKE LOCK
-
-    /**
      * Require permissions for accessing Heart Rate Sensor
      */
     public void requireHeartRatePermissions() {
@@ -617,10 +634,48 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
     }
 
+    /**
+     * Init Process handler
+     * Initialization only when handlers are null
+     */
+    private void initProcessHandler() {
+        if (mainHandlerThread == null) {
+            mainHandlerThread = new HandlerThread("MSBandDataLogger");
+            mainHandlerThread.start();
+        }
+        if (mainTaskHandler == null)
+            mainTaskHandler = new Handler(mainHandlerThread.getLooper());
+
+        mainTaskHandler.postDelayed(mainTaskrunnable, mainTimerInterval);
+    }
+
+    /**
+     * Dispose Process Handler
+     */
+    private void disposeProcessHandler() {
+        if (mainHandlerThread != null) {
+            mainHandlerThread.quitSafely();
+            try {
+                mainHandlerThread.join(5000);
+                mainHandlerThread = null;
+            } catch (InterruptedException e) {
+
+                LogError("Dispose Process Handler", e.getCause());
+            }
+
+        }
+        if (mainTaskHandler != null) {
+            mainTaskHandler.removeCallbacks(mainTaskrunnable);
+            mainTaskHandler = null;
+
+        }
+        handlerInitialized = false;
+
+    }
 
     private synchronized void startTimer() {
 
-        if (timer == null) {
+    /*    if (timer == null) {
             try {
 
 
@@ -633,16 +688,19 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
             }
         }
+        */
 
 
         /***
          * USING MAIN TASK HANDLER
          */
-     /*   if (!handlerInitialized) {
+        if (!handlerInitialized) {
+
+            initProcessHandler();
             handlerInitialized = true;
-            mainTaskHandler.postDelayed(mainTaskrunnable, mainTimerInterval);
+
         }
-*/
+
 
     }
 
@@ -907,7 +965,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
         }
 
         ///IF Mclient is connected then some leak has occured
-
         if (!mClient.isConnected()) {
 
             new connectTask().execute(mClient);
@@ -1156,9 +1213,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
              * Check that the last execution time was at least  minMainTimerInterval before
              * We may observe a behavior where timer is postoponned for a timer of period
              */
-            long unixTime = System.currentTimeMillis();
 
-            if (unixTime - lastTimerCheck > minMainTimerInterval) {
 
                 //  toastHandler.sendEmptyMessage(0);
                 mainTaskHandler.post(new Runnable() {
@@ -1171,10 +1226,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
                     }
                 });
 
-            } else {
-
-                LogDebug("Timer sooner than expected");
-            }
 
 
         }

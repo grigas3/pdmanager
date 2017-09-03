@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.bugfender.sdk.Bugfender;
 import com.pdmanager.communication.JsonStorage;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.persistence.DBHandler;
@@ -516,6 +517,15 @@ public class UserAlertManager implements IUserAlertManager {
     }
 
 
+    private void doSetNotifiedIssue(String code) {
+        if (RecordingSettings.GetRecordingSettings(mContext).getRemoteLogging()) {
+
+            Bugfender.sendIssue(code, UserTaskTrackingCodes.NOTIFICATION);
+
+        }
+
+    }
+
     /**
      * Set Notified
      *
@@ -567,50 +577,13 @@ public class UserAlertManager implements IUserAlertManager {
     }
 
 
-    public boolean updateAlert(UserAlert alert) {
-
-        SQLiteDatabase db = null;
-        JsonStorage result = null;
-        DBHandler helper = null;
-        boolean ret = false;
-
-        try {
-            helper = DBHandler.getInstance(mContext);
-
-            db = helper.getWritableDatabase();
-
-            ContentValues data = new ContentValues();
-            data.put(DBHandler.COLUMN_ALERTCREATED, 0);
-
-
-
-            db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + "=" + alert.getId(), null);
-
-            mContext.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
-            ret = true;
-
-        }
-        catch(Exception e)
-        {
-
-            Log.e(TAG,e.getMessage(),e.getCause());
-
-        }
-        finally {
-
-            if (db != null)
-                db.close();
-
-            if (helper != null)
-                helper.close();
-
-            ret = false;
-        }
-        return ret;
-
-
-    }
-
+    /**
+     * Users may see their mobile phone after a significant period of time (or days for the specific type of users)
+     * Therefore some alerts may be obsolete and should be discarded
+     * This is accomplished by the updateExpired method.
+     *
+     * @return
+     */
     @Override
     public boolean updateExpired() {
 
@@ -679,9 +652,16 @@ public class UserAlertManager implements IUserAlertManager {
     }
 
 
-    @Override
-    public boolean updateAlerts(String code) {
+    private void updateAlertIssue(String code) {
+        if (RecordingSettings.GetRecordingSettings(mContext).getRemoteLogging()) {
 
+            Bugfender.sendIssue(code, UserTaskTrackingCodes.START);
+
+        }
+    }
+
+    private boolean updateAlertInDB(String code)
+    {
         Cursor cursor = null;
         SQLiteDatabase db = null;
         JsonStorage result = null;
@@ -742,6 +722,17 @@ public class UserAlertManager implements IUserAlertManager {
         }
         return ret;
 
+
+    }
+
+    @Override
+    public boolean updateAlerts(String code) {
+
+
+        //Create an Issue in BugFender
+        updateAlertIssue(code);
+        //Update Database
+        return updateAlertInDB(code);
 
     }
 
@@ -1063,7 +1054,8 @@ public class UserAlertManager implements IUserAlertManager {
 
 
     /**
-     * User alert
+     * When a notification has been created for a notification then set this notification as notified
+     * Otherwise multiple alerts for the same task could be created
      *
      * @param alert
      */
@@ -1071,6 +1063,9 @@ public class UserAlertManager implements IUserAlertManager {
     public void setNotified(UserAlert alert) {
 
         try {
+
+            doSetNotifiedIssue(alert.getAlertType());
+
             doSetNotified(alert);
 
 

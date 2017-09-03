@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -29,7 +30,7 @@ import java.util.Locale;
 
 public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "SWM test";
+    private final String LOGGER_TAG = "SWM_test";
     private final int TIME_MILLISECONDS_TRANSITIONS = 700;
     private final int TIME_MILLISECONDS_TICK = 350;
     private final int TIME_MILLISECONDS_TASK = 480000;
@@ -501,5 +502,10 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
             timer.cancel();
         }
         isPaused = true;
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 }

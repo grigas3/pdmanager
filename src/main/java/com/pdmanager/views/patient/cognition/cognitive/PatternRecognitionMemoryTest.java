@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 import com.pdmanager.views.patient.cognition.tools.Statistics;
 
@@ -106,58 +107,6 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
     private CountDownTimer timerTask;
     private CountDownTimer timer;
-    private View.OnClickListener clickRightImage = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            try {
-
-                if (!isAnswered) {
-                    final ImageView imgCentral = (ImageView) findViewById(R.id.imageViewCentral);
-
-                    boolean isError = false;
-                    if (isReverseOrder) isError = (typeOfStimuli.get(counter) == 0);
-                    else isError = (typeOfStimuli.get(randomOrder.get(counter)) == 0);
-                    if (isError) {
-                        nErrors++;
-                        imgCentral.setImageResource(R.drawable.red_cross);
-                        tones.nackBeep();
-                    } else {
-                        imgCentral.setImageResource(R.drawable.green_tick);
-                        tones.ackBeep();
-                    }
-
-                    imgCentral.setVisibility(View.VISIBLE);
-                    isAnswered = true;
-                    double currentTime = System.currentTimeMillis();
-                    timeBetweenTaps.add((currentTime - timeLastTap) / 1000D);
-                    timeLastTap = currentTime;
-
-                    timer = new CountDownTimer(TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
-
-                        @Override
-                        public void onTick(long millisUntilFinished) {
-                        }
-
-                        @Override
-                        public void onFinish() {
-                            if (isReverseOrder) {
-                                counter--;
-                                reverseOrder();
-                            } else {
-                                counter++;
-                                randomOrder();
-                            }
-                        }
-                    }.start();
-                }
-
-            } catch (Exception e) {
-
-                Log.v(LOGGER_TAG, "Exception e: " + e.toString());
-            }
-        }
-    };
     private View.OnClickListener clickLeftImage = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -206,6 +155,58 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
                 }
 
             } catch (Exception e) {
+                Log.v(LOGGER_TAG, "Exception e: " + e.toString());
+            }
+        }
+    };
+    private View.OnClickListener clickRightImage = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            try {
+
+                if (!isAnswered) {
+                    final ImageView imgCentral = (ImageView) findViewById(R.id.imageViewCentral);
+
+                    boolean isError = false;
+                    if (isReverseOrder) isError = (typeOfStimuli.get(counter) == 0);
+                    else isError = (typeOfStimuli.get(randomOrder.get(counter)) == 0);
+                    if (isError) {
+                        nErrors++;
+                        imgCentral.setImageResource(R.drawable.red_cross);
+                        tones.nackBeep();
+                    } else {
+                        imgCentral.setImageResource(R.drawable.green_tick);
+                        tones.ackBeep();
+                    }
+
+                    imgCentral.setVisibility(View.VISIBLE);
+                    isAnswered = true;
+                    double currentTime = System.currentTimeMillis();
+                    timeBetweenTaps.add((currentTime - timeLastTap) / 1000D);
+                    timeLastTap = currentTime;
+
+                    timer = new CountDownTimer(TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            if (isReverseOrder) {
+                                counter--;
+                                reverseOrder();
+                            } else {
+                                counter++;
+                                randomOrder();
+                            }
+                        }
+                    }.start();
+                }
+
+            } catch (Exception e) {
+
                 Log.v(LOGGER_TAG, "Exception e: " + e.toString());
             }
         }
@@ -648,6 +649,11 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
         speakerSilence();
         isPaused = true;
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 
 }

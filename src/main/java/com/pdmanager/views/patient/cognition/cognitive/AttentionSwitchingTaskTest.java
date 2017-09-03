@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
@@ -33,7 +34,7 @@ import java.util.Locale;
  */
 public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
 
-    private final String LOGGER_TAG = "AST test";
+    private final String LOGGER_TAG = "AST_test";
 
     private final int TIME_MILLISECONDS_TASK = 240000;
     private final int TIME_MILLISECONDS_FEEDBACK = 1000;
@@ -691,5 +692,10 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             timer.cancel();
         }
 
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 }

@@ -1321,7 +1321,11 @@ public class RecordingServiceAllInOne extends Service implements ISensorDataHand
                         if (mClient.getConnectionState() == ConnectionState.UNBOUND) {
                             LogDebug("Connection UNBOUND");
                         }
+                    } else {
+                        LogWarn("Band CLIENT IS NULL");
+
                     }
+
 
                     ///TRY TO RECONNECT IF NOT CONNECTED EVERY 1 MIN
                     if ((unixTime - lastBandConnectionTry) > bandReconnectAttemptInterval) {

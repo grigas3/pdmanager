@@ -11,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.views.patient.cognition.tools.CustomSeekBar;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
@@ -30,7 +31,7 @@ import java.util.Locale;
 
     public class VisualAnalogueScaleTest2 extends SoundFeedbackActivity implements SeekBar.OnSeekBarChangeListener {
 
-    private final String LOGGER_TAG = "LOGGER_TAG: VAS test";
+    private final String LOGGER_TAG = "VAS_test";
     private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
     private final int QUESTIONS_NUMBER = 8;
         private TextView tv0, tv1, tv2, tv3, tv4;
@@ -326,4 +327,9 @@ import java.util.Locale;
             isPaused = true;
             //if (timerTask != null) { timerTask.cancel(); }
         }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.COGN + "_" + LOGGER_TAG;
+    }
 }

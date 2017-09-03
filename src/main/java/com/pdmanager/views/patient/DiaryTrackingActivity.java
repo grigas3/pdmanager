@@ -1,31 +1,17 @@
 package com.pdmanager.views.patient;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.microsoft.band.BandPendingResult;
-import com.microsoft.band.ConnectionState;
 import com.pdmanager.R;
-import com.pdmanager.alerting.UserAlertManager;
-import com.pdmanager.communication.CommunicationManager;
-import com.pdmanager.communication.DirectSender;
+import com.pdmanager.alerting.UserTaskCodes;
 import com.pdmanager.communication.DirectSenderTask;
 import com.pdmanager.communication.IDirectSendCallback;
-import com.pdmanager.medication.MedManager;
-import com.pdmanager.models.MedTiming;
-import com.pdmanager.models.MedicationOrder;
 import com.pdmanager.models.Observation;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.FragmentListener;
 import com.pdmanager.views.patient.cognition.tools.SoundFeedbackActivity;
 
 import java.util.ArrayList;
@@ -53,9 +39,14 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
     private TextView chooseText;
 
     private RelativeLayout buttonNext;
+    View.OnClickListener moodClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            changeMood(v);
+        }
+    };
     private RelativeLayout busyIndicator;
     private RelativeLayout layout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +54,6 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
         setContentView(R.layout.activity_diary_tracking);
         setUp();
     }
-
-
 
     public void setUp (   ) {
         final SoundFeedbackActivity rootView=this;
@@ -139,16 +128,6 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
         buttonNext.setVisibility(View.VISIBLE);
     }
 
-
-
-    View.OnClickListener moodClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            changeMood(v);
-        }
-    };
-
-
     public void onFragmentSelected() {
     }
 
@@ -161,6 +140,11 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
 
 
         finishTest();
+    }
+
+    @Override
+    protected String getTestCode() {
+        return UserTaskCodes.DIET;
     }
 
 }

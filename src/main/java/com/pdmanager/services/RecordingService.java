@@ -18,6 +18,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.PowerManager;
@@ -74,11 +75,9 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import static com.pdmanager.logging.LogCodes.FATAL_SERVICE_STOPPED_BY_ANDROID;
 import static com.pdmanager.logging.LogCodes.FATAL_START_QUEUE;
-import static com.pdmanager.logging.LogCodes.FATAL_START_TIMER;
 
 //import com.pdmanager.logging.Log4jConfigure;
 //import org.apache.logging.log4j.Level;
@@ -163,9 +162,21 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
 
 
     //region Tasks
-    private Handler mainTaskHandler = new Handler();
+    private Handler mainTaskHandler = null;
+    private HandlerThread mainHandlerThread = null;
+    private boolean handlerInitialized = false;
 
     private long lastTimerCheck = 0;
+    private final Runnable mainTaskrunnable = new Runnable() {
+        @Override
+        public void run() {
+                         /* do what you need to do */
+            serviceCheck();
+      /* and here comes the "trick" */
+            mainTaskHandler.postDelayed(this, mainTimerInterval);
+        }
+
+    };
 
     public static boolean testSheduledRun(int hourOfDay, int startHour, int endHour) {
 
@@ -186,6 +197,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         notifyListeners();
         return mBinder;
     }
+    //endregion
 
     @Override
     public boolean onUnbind(Intent intent) {
@@ -193,7 +205,6 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         return super.onUnbind(intent);
         //  return mBinder;
     }
-    //endregion
 
     public void registerHandler(ISensorDataHandler handler) {
 
@@ -316,7 +327,8 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         // The service is being created
 
         manager = new CommunicationManager(this);
-        InitProcessors();
+
+        initProcessing();
 
     }
 
@@ -346,13 +358,53 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         return settings.getForegroundService();
     }
 
+    /**
+     * Init Process handler
+     * Initialization only when handlers are null
+     */
+    private void initProcessHandler() {
+        if (mainHandlerThread == null) {
+            mainHandlerThread = new HandlerThread("RecordingServiceHandlerThread");
+            mainHandlerThread.start();
+        }
+        if (mainTaskHandler == null)
+            mainTaskHandler = new Handler(mainHandlerThread.getLooper());
+        mainTaskHandler.postDelayed(mainTaskrunnable, mainTimerInterval);
+    }
+
+    /**
+     * Dispose Process Handler
+     */
+    private void disposeProcessHandler() {
+        if (mainHandlerThread != null) {
+            mainHandlerThread.quitSafely();
+            try {
+                mainHandlerThread.join(1000);
+                mainHandlerThread = null;
+            } catch (InterruptedException e) {
+
+                LogError("Dispose Process Handler", e.getCause());
+            }
+
+        }
+        if (mainTaskHandler != null) {
+            mainTaskHandler.removeCallbacks(mainTaskrunnable);
+            mainTaskHandler = null;
+
+        }
+        handlerInitialized = false;
+
+    }
+
+    //region Service Check
+
     /***
      ********************
      Init Data Processors
      Data Processors are workers that are receiving any data captured by the recording service
      *****************************
      */
-    private void InitProcessors() {
+    private void initProcessing() {
 
         //Get Settings
         RecordingSettings settings = RecordingSettings.newInstance(this);
@@ -431,137 +483,141 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
 
     }
 
-    //region Service Check
-
     /**
      * Main Service Check
      */
     private synchronized void serviceCheck() {
+        long unixTime = System.currentTimeMillis();
 
-        try {
+        if (unixTime - lastTimerCheck > minMainTimerInterval) {
+            try {
 
-            StringBuilder str = new StringBuilder();
-            str.append("TIMER CHECK");
-            Log.d(TAG, "Timer check");
+                StringBuilder str = new StringBuilder();
+                str.append("TIMER CHECK");
+                Log.d(TAG, "Timer check");
 
-            if (isServiceRunningInForeground(this.getApplicationContext(), RecordingService.class))
-                Log.v(TAG, "Service in foreground");
-            else
-                Log.v(TAG, "Service in background");
+                if (isServiceRunningInForeground(this.getApplicationContext(), RecordingService.class))
+                    Log.v(TAG, "Service in foreground");
+                else
+                    Log.v(TAG, "Service in background");
 
-            if (isServiceRunning("com.microsoft.band.service.BandService"))
-                Log.v(TAG, "Band Service is running");
-            else
-                LogWarn("Band service is not running");
+                if (isServiceRunning("com.microsoft.band.service.BandService"))
+                    Log.v(TAG, "Band Service is running");
+                else
+                    LogWarn("Band service is not running");
 
-            if (isPowerSaveMode()) {
-                Bugfender.d(TAG, "Power save");
-                str.append("/POWER ON");
+                if (isPowerSaveMode()) {
+                    Bugfender.d(TAG, "Power save");
+                    str.append("/POWER ON");
 
-            } else {
+                } else {
 
-                Log.v(TAG, "Power on");
-                str.append("/POWER ON");
+                    Log.v(TAG, "Power on");
+                    str.append("/POWER ON");
 
-            }
-
-            if (isScreenOn()) {
-                Log.v(TAG, "Screen on");
-                str.append("/SCREEN ON");
-
-            } else {
-
-                Log.v(TAG, "Screen off");
-                str.append("/Screen off");
-
-            }
-
-            if (!scheduledRun()) {
-
-                ///IF SESSION SHOULD STOP DUE TO START AND END DATE
-                ///IS SCHEDULING SETTINGS
-                if (sessionRunning) {
-                    /// IF SESSION RUNNING STOP SESSION
-                    ///Notify Server
-                    LogWarn("Service stopped for today", 2);
-                    //SendAlert("INFO", "Service stopped for today", "INFO0002");
-                    str.append("/ STOPING SERVICDE");
-
-                    //Stop Reader
-                    StopReader();
                 }
 
+                if (isScreenOn()) {
+                    Log.v(TAG, "Screen on");
+                    str.append("/SCREEN ON");
 
-            } else {
+                } else {
 
-                ///IF SESSION SHOULD RUN
-                boolean sessionMustRun = getSessionMustRun();
+                    Log.v(TAG, "Screen off");
+                    str.append("/Screen off");
 
-                if (sessionMustRun) {
+                }
 
+                if (!scheduledRun()) {
 
-                    //IF BLUETOOTH IS DISABLED THEN ENABLE BLUETOOTH
-                    BluetoothHelper.enableBluetooth();
+                    ///IF SESSION SHOULD STOP DUE TO START AND END DATE
+                    ///IS SCHEDULING SETTINGS
+                    if (sessionRunning) {
+                        /// IF SESSION RUNNING STOP SESSION
+                        ///Notify Server
+                        LogWarn("Service stopped for today", 2);
+                        //SendAlert("INFO", "Service stopped for today", "INFO0002");
+                        str.append("/ STOPING SERVICDE");
 
-                    //IF Session is Not Running then start it again
-                    if (!sessionRunning) {
-
-                        str.append("/ START READER ");
-
-                        //Start Reader
-                        StartReader();
-
-
+                        //Stop Reader
+                        StopReader();
                     }
 
+
+                } else {
+
+                    ///IF SESSION SHOULD RUN
+                    boolean sessionMustRun = getSessionMustRun();
+
+                    if (sessionMustRun) {
+
+
+                        //IF BLUETOOTH IS DISABLED THEN ENABLE BLUETOOTH
+                        BluetoothHelper.enableBluetooth();
+
+                        //IF Session is Not Running then start it again
+                        if (!sessionRunning) {
+
+                            str.append("/ START READER ");
+
+                            //Start Reader
+                            StartReader();
+
+
+                        }
+
+                    }
                 }
-            }
 
-            ///Check For Alert only if
+                ///Check For Alert only if
 
 
-            //endregion
+                //endregion
 
-            /// If no band action taken perform scheduling
-            /// Scheduling will check if the recording should stop or resume
+                /// If no band action taken perform scheduling
+                /// Scheduling will check if the recording should stop or resume
 
-            str.append("/ SCHEDULING ");
-            try {
-                scheduling();
+                str.append("/ SCHEDULING ");
+                try {
+                    scheduling();
 
-            } catch (InterruptedException ex) {
+                } catch (InterruptedException ex) {
 
-                LogError("EX ON SCHEDULING", ex.getCause());
+                    LogError("EX ON SCHEDULING", ex.getCause());
+                } catch (Exception ex) {
+
+                    LogError("EX ON SCHEDULING", ex.getCause());
+                }
+
+                Log.v(TAG, str.toString());
+                ProcessLog("INFO", str.toString());
+
+
+                //Check for Medication User Alert
+                //checkForMedAlerts();
+                //Check For Alerts
+                if (scheduledRun()) {
+
+                    if (sessionRunning) {
+                        //Update Usage Statistics
+                        updateUsageStatistics();
+
+                    }
+                }
+
+                //Check For User Notifications
+                checkForUserNotifications();
+
+
             } catch (Exception ex) {
 
-                LogError("EX ON SCHEDULING", ex.getCause());
+                Log.e(TAG, ex.getMessage());
             }
 
-            Log.v(TAG, str.toString());
-            ProcessLog("INFO", str.toString());
+        } else {
 
-
-            //Check for Medication User Alert
-            //checkForMedAlerts();
-            //Check For Alerts
-            if (scheduledRun()) {
-
-                if (sessionRunning) {
-                    //Update Usage Statistics
-                    updateUsageStatistics();
-
-                }
-            }
-
-            //Check For User Notifications
-            checkForUserNotifications();
-
-
-        } catch (Exception ex) {
-
-            Log.e(TAG, ex.getMessage());
+            LogDebug("Timer sooner than expected");
         }
-
     }
 
     /**
@@ -569,7 +625,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
      */
     private void startTimer() {
 
-        if (timer == null) {
+      /*  if (timer == null) {
             try {
 
 
@@ -584,15 +640,18 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
             }
         }
 
-
+*/
         /***
          * USING MAIN TASK HANDLER
          */
-     /*   if (!handlerInitialized) {
+
+
+        if (!handlerInitialized) {
+
+            initProcessHandler();
             handlerInitialized = true;
-            mainTaskHandler.postDelayed(mainTaskrunnable, mainTimerInterval);
         }
-*/
+
 
     }
 
@@ -602,7 +661,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
     private void stopTimer() {
 
         //If using timer
-
+        /*
         if (timer != null) {
 
             Log.d(TAG, "stop timer");
@@ -612,12 +671,13 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
             timer = null;
         }
 
+        */
 
         /*******
          * USING MAIN TASK HANDLER AND RUNNABLE
          */
-        //  mainTaskHandler.removeCallbacks(mainTaskrunnable);
-        //    handlerInitialized = false;
+
+        disposeProcessHandler();
 
 
     }
@@ -1205,8 +1265,9 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
     private boolean StopReader() {
 
 
+        //Stop Loggers
         for (IDataLogger logger : dataLoggers) {
-            logger.start();
+            logger.stop();
         }
         ///Mark that session is not running
         sessionRunning = false;
@@ -1674,51 +1735,53 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
     }
     //endregion
 
+
     /**
      * Main Task
      */
-    private class mainTask extends TimerTask {
-
-        private final IPDToastWriter writer;
-
-        public mainTask(IPDToastWriter pwriter) {
-
-            writer = pwriter;
-
-
-        }
-
-
-        public void run() {
-
-            /****
-             * Check that the last execution time was at least  minMainTimerInterval before
-             * We may observe a behavior where timer is postoponned for a timer of period
-             */
-            long unixTime = System.currentTimeMillis();
-
-            if (unixTime - lastTimerCheck > minMainTimerInterval) {
-
-                //  toastHandler.sendEmptyMessage(0);
-                mainTaskHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                         /* do what you need to do */
-                        serviceCheck();
-      /* and here comes the "trick" */
-
-                    }
-                });
-
-            } else {
-
-                LogDebug("Timer sooner than expected");
-            }
-
-        }
-
-
-    }
+//    private class mainTask extends TimerTask {
+//
+//        private final IPDToastWriter writer;
+//
+//        public mainTask(IPDToastWriter pwriter) {
+//
+//            writer = pwriter;
+//
+//
+//        }
+//
+//
+//        public void run() {
+//
+//            /****
+//             * Check that the last execution time was at least  minMainTimerInterval before
+//             * We may observe a behavior where timer is postoponned for a timer of period
+//             */
+//            long unixTime = System.currentTimeMillis();
+//
+//            if (unixTime - lastTimerCheck > minMainTimerInterval) {
+//
+//                //  toastHandler.sendEmptyMessage(0);
+//                mainTaskHandler.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                         /* do what you need to do */
+//                        serviceCheck();
+//      /* and here comes the "trick" */
+//
+//                    }
+//                });
+//
+//            } else {
+//
+//                LogDebug("Timer sooner than expected");
+//            }
+//
+//        }
+//
+//
+//    }
+//
 
 
     //region Hear Rate Permissions
