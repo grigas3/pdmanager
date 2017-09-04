@@ -54,7 +54,7 @@
             </RelativeLayout>
 
             <View
-                android:id="@+id/sepManagement1"
+                android:id="@+id/sepManagement21"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/buttonConnect"
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/diarytitle"
                     android:layout_below="@id/diarytitle"
-                    android:maxLines="2"
+                    android:maxLines="5"
                     android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"
                     />
 
@@ -154,7 +154,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/bandSensorTitle"
                     android:layout_below="@id/bandSensorTitle"
-                    android:maxLines="2"
+                    android:maxLines="3"
+                    android:minLines="3"
                     android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"
                     />
 
@@ -195,7 +196,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/devSensorTitle"
                     android:layout_below="@id/devSensorTitle"
-                    android:maxLines="2"
+                    android:maxLines="3"
+                    android:minLines="3"
                     android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"
                     />
 
@@ -271,7 +273,7 @@
             </RelativeLayout>
 
             <View
-                android:id="@+id/sepManagement1"
+                android:id="@+id/sepManagement23"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/buttonConnect"
@@ -320,7 +322,7 @@
             </RelativeLayout>
 
             <View
-                android:id="@+id/sepManagement1"
+                android:id="@+id/sepManagement19"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/buttonConnect"
@@ -369,7 +371,7 @@
             </RelativeLayout>
 
             <View
-                android:id="@+id/sepManagement1"
+                android:id="@+id/sepManagement18"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/buttonConnect"
@@ -400,7 +402,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/deviceLockTitle"
                     android:layout_below="@id/deviceLockTitle"
-                    android:maxLines="2"
+                    android:maxLines="3"
+                    android:minLines="3"
                     android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"
                     />
 
@@ -450,7 +453,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/useSpeechTitle"
                     android:layout_below="@id/useSpeechTitle"
-                    android:maxLines="2"
+                    android:maxLines="3"
+                    android:minLines="3"
                     android:text="Use speech to dictate tests and tasks for the patient."
                     />
 
@@ -501,7 +505,7 @@
                     android:layout_alignLeft="@id/useRemoteLogging"
                     android:layout_below="@id/useRemoteLogging"
                     android:maxLines="2"
-                    android:text="Use speech to dictate tests and tasks for the patient." />
+                    android:text="Remote logging to bugfender for logs and issues"/>
 
 
                 <Switch
@@ -541,7 +545,7 @@
                     android:id="@+id/useForegroundService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Use Remote Logging"
+                    android:text="Run in foreground"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textStyle="bold" />
 
@@ -551,7 +555,7 @@
                     android:layout_alignLeft="@id/useForegroundService"
                     android:layout_below="@id/useForegroundService"
                     android:maxLines="2"
-                    android:text="Use speech to dictate tests and tasks for the patient." />
+                    android:text="Running in foreground enables that OS does not kill service and"/>
 
 
                 <Switch

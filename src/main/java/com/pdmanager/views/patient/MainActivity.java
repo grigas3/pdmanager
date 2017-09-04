@@ -60,7 +60,7 @@ import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.app.PDPilotAppContext;
 import com.pdmanager.app.VideoApp;
 import com.pdmanager.call.CNMessage;
-import com.pdmanager.communication.NetworkStatus;
+import com.pdmanager.helpers.NetworkHelper;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.sensor.RecordingServiceHandler;
@@ -68,6 +68,7 @@ import com.pdmanager.services.RecordingService;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.call.AVChatSessionFragment;
 import com.pdmanager.views.caregiver.MedListFragment;
+import com.pdmanager.views.common.TermsAndConds;
 import com.telerik.common.TrackedApplication;
 import com.telerik.common.contracts.TrackedActivity;
 import com.telerik.common.contracts.TransitionHandler;
@@ -408,23 +409,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
     @Override
     public boolean IsNetworkConnected() {
-        boolean ret = false;
-
-        try {
-
-
-            ret = NetworkStatus.IsNetworkConnected(this);
-
-
-        } catch (Exception ex) {
-
-
-            Log.d("Error", "Error while checking for network connection");
-
-        }
-
-        return ret;
-
+        return NetworkHelper.IsNetworkConnected(this);
     }
 
     @Override
@@ -482,7 +467,14 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
                     });
 
             alertDialog.show();
+        } else if (id == R.id.action_termsandconditions) {
+
+            Intent mainIntent = new Intent(MainActivity.this, TermsAndConds.class);
+            MainActivity.this.startActivity(mainIntent);
+            //  finish();
+
         }
+
 
         return super.onOptionsItemSelected(item);
     }

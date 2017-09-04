@@ -6,67 +6,67 @@
     <RelativeLayout
         android:id="@+id/busy_BusyIndicator"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_height="match_parent">
+        android:orientation="vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge">
         <TextView
             android:id="@+id/textSending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Saving..."
+            android:layout_centerInParent="true"
+            android:text="@string/savingString"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"
-            android:layout_centerInParent="true"
             />
         <ProgressBar
-            android:layout_below="@+id/textSending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textSending"
             android:layout_centerInParent="true" />
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/mainLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/container_mood_select"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:textSize="26sp"
-                android:textStyle="bold|italic"
-                android:text="How are you today?"
-                android:textColor="#000"
                 android:background="@drawable/mood_title_background"
+                android:gravity="center"
+                android:paddingBottom="8dp"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp"/>
+                android:text="@string/md_how_are_you_today"
+                android:textColor="#000"
+                android:textSize="26sp"
+                android:textStyle="bold|italic"/>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/mood_excellent"
-                    android:tag="excellent"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:padding="10dp"
+                    android:background="@drawable/selected_rounded_background"
                     android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:padding="10dp"
+                    android:tag="excellent">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -75,21 +75,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="20sp"
                         android:gravity="center_vertical"
-                        android:text="Excellent"/>
+                        android:text="@string/md_excellent"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/mood_good"
-                    android:tag="good"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:padding="10dp"
+                    android:background="@drawable/selected_rounded_background"
                     android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:padding="10dp"
+                    android:tag="good">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -98,21 +98,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="20sp"
                         android:gravity="center_vertical"
-                        android:text="Good"/>
+                        android:text="@string/md_good"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/mood_okay"
-                    android:tag="okay"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:padding="10dp"
+                    android:background="@drawable/selected_rounded_background"
                     android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:padding="10dp"
+                    android:tag="okay">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -121,21 +121,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="20sp"
                         android:gravity="center_vertical"
-                        android:text="Okay"/>
+                        android:text="@string/md_okay"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/mood_bad"
-                    android:tag="bad"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:padding="10dp"
+                    android:background="@drawable/selected_rounded_background"
                     android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:padding="10dp"
+                    android:tag="bad">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -144,21 +144,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="20sp"
                         android:gravity="center_vertical"
-                        android:text="Bad"/>
+                        android:text="@string/md_bad"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/mood_awfull"
-                    android:tag="awfull"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:padding="10dp"
+                    android:background="@drawable/selected_rounded_background"
                     android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:padding="10dp"
+                    android:tag="awfull">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -167,10 +167,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="20sp"
                         android:gravity="center_vertical"
-                        android:text="Awfull"/>
+                        android:text="@string/md_awfull"
+                        android:textColor="#1D89E4"
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 
@@ -180,9 +180,9 @@
 
         <LinearLayout
             android:id="@+id/container_act_select"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:visibility="gone">
@@ -190,269 +190,269 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/mood_title_background"
-                android:paddingTop="8dp"
+                android:orientation="vertical"
                 android:paddingBottom="8dp"
-                android:layout_marginBottom="10dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:text="@string/md_what_did_you_do_today"
+                    android:textColor="#000"
                     android:textSize="22sp"
-                    android:textStyle="bold|italic"
-                    android:text="What did you do today?"
-                    android:textColor="#000"/>
+                    android:textStyle="bold|italic"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="15sp"
-                    android:textStyle="bold|italic"
-                    android:text="(Multiple answers possible)"
+                    android:text="@string/md_multiple_answers_possible"
                     android:textAllCaps="true"
-                    android:textColor="#555"/>
+                    android:textColor="#555"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/act_home"
-                    android:tag="home"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/selected_rounded_background"
+                    android:clickable="true"
+                    android:orientation="vertical"
                     android:paddingTop="10dp"
-                    android:layout_marginRight="5dp">
+                    android:tag="home">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:maxWidth="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/act_home"
                         android:layout_marginBottom="6dp"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:src="@drawable/act_home"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:text="@string/md_at_home"
                         android:textColor="#1D89E4"
                         android:textSize="20sp"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:text="At home"/>
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/act_work"
-                    android:tag="work"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="true"
+                    android:layout_weight="1"
                     android:background="@drawable/selected_rounded_background"
-                    android:paddingTop="10dp">
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:tag="work">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:maxWidth="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/act_work"
                         android:layout_marginBottom="6dp"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:src="@drawable/act_work"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:text="@string/md_at_work"
                         android:textColor="#1D89E4"
                         android:textSize="20sp"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:text="At work"/>
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/act_relax"
-                    android:tag="relax"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/selected_rounded_background"
+                    android:clickable="true"
+                    android:orientation="vertical"
                     android:paddingTop="10dp"
-                    android:layout_marginRight="5dp">
+                    android:tag="relax">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:maxWidth="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/act_relax"
                         android:layout_marginBottom="6dp"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:src="@drawable/act_relax"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:text="@string/md_relaxing"
                         android:textColor="#1D89E4"
                         android:textSize="20sp"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:text="Relaxing"/>
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/act_exercise"
-                    android:tag="exercise"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="true"
+                    android:layout_weight="1"
                     android:background="@drawable/selected_rounded_background"
-                    android:paddingTop="10dp">
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:tag="exercise">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:maxWidth="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/act_exercise"
                         android:layout_marginBottom="6dp"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:src="@drawable/act_exercise"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:text="@string/md_exercising"
                         android:textColor="#1D89E4"
                         android:textSize="20sp"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:text="Exercising"/>
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/act_rest"
-                    android:tag="rest"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/selected_rounded_background"
+                    android:clickable="true"
+                    android:orientation="vertical"
                     android:paddingTop="10dp"
-                    android:layout_marginRight="5dp">
+                    android:tag="rest">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:maxWidth="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/act_rest"
                         android:layout_marginBottom="6dp"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:src="@drawable/act_rest"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:text="@string/md_laying"
                         android:textColor="#1D89E4"
                         android:textSize="20sp"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:text="Laying"/>
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/act_social"
-                    android:tag="socialize"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="true"
+                    android:layout_weight="1"
                     android:background="@drawable/selected_rounded_background"
-                    android:paddingTop="10dp">
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:tag="socialize">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:maxWidth="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/act_social"
                         android:layout_marginBottom="6dp"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:src="@drawable/act_social"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:text="@string/md_socializing"
                         android:textColor="#1D89E4"
                         android:textSize="20sp"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:text="Socializing"/>
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Other: "
+                    android:layout_gravity="right|center_vertical"
+                    android:labelFor="@+id/exercise_other_mood"
+                    android:text="@string/md_other"
                     android:textColor="#1D89E4"
                     android:textSize="20sp"
-                    android:layout_gravity="right|center_vertical"
-                    android:labelFor="@+id/exercise_other_mood" />
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/act_other"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1D89E4"
-                    android:textColor="#1D89E4"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+                    android:textColor="#1D89E4"/>
 
             </LinearLayout>
 
@@ -463,8 +463,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
             android:background="#CDCDCD"
+            android:orientation="horizontal"
             >
 
             <View android:id="@+id/halfparent"
@@ -493,45 +493,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textStyle="bold|italic"
+                android:text="@string/md_choose"
+                android:textAllCaps="true"
                 android:textColor="#555"
-                android:text="Choose"
                 android:textSize="18sp"
-                android:textAllCaps="true"/>
+                android:textStyle="bold|italic"/>
 
             <RelativeLayout
                 android:id="@+id/button_mood_next"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@id/halfparent"
+                android:background="@drawable/button_blue_corner_radius"
+                android:paddingBottom="8dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_toRightOf="@id/halfparent"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/button_blue_corner_radius"
                 android:visibility="gone">
 
                 <TextView
                     android:id="@+id/mood_act_done_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Done"
-                    android:textColor="#FFF"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="-20dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:text="@string/md_done"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_chevron_right"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/mood_act_done_txt"/>
+                    android:layout_toRightOf="@+id/mood_act_done_txt"
+                    android:src="@drawable/ic_chevron_right"/>
 
             </RelativeLayout>
 

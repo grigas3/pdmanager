@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -31,7 +30,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
     private Spinner mStartHourSpin;
 
     private Spinner mEndHourSpin;
-    private Spinner mDiaryHour;
+    // private Spinner mDiaryHour;
     private Spinner mMedAlertHour2;
     private Spinner mMedAlertHour1;
 
@@ -81,7 +80,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
 
         mMedAlertHour1 = (Spinner) rootView.findViewById(R.id.medSetHour1);
         mMedAlertHour2 = (Spinner) rootView.findViewById(R.id.medSetHour2);
-        mDiaryHour = (Spinner) rootView.findViewById(R.id.diaryHour);
+        //    mDiaryHour = (Spinner) rootView.findViewById(R.id.diaryHour);
 
 
         enableSpinnerListener = false;
@@ -145,9 +144,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
             mMedAlertHour1.setSelection(settings.getMedHour1() - 6);
             mMedAlertHour2.setSelection(settings.getMedHour2() - 6);
 
-
-
-            mDiaryHour.setSelection(settings.getDiaryHour() - 6);
+            //   mDiaryHour.setSelection(settings.getDiaryHour() - 6);
             mMoodHour.setSelection(settings.getMoodHour() - 6);
 
 
@@ -284,7 +281,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
         mMoodHour.setAdapter(dataAdapter);
         mMedAlertHour1.setAdapter(dataAdapter);
         mMedAlertHour2.setAdapter(dataAdapter);
-        mDiaryHour.setAdapter(dataAdapter);
+        //  mDiaryHour.setAdapter(dataAdapter);
 
         ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, list1);
@@ -343,7 +340,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
 
         mMedAlertHour1.setOnItemSelectedListener(new MedAlert1SelectedListener());
         mMedAlertHour2.setOnItemSelectedListener(new MedAlert2SelectedListener());
-        mDiaryHour.setOnItemSelectedListener(new DiarySelectedListener());
+        //   mDiaryHour.setOnItemSelectedListener(new DiarySelectedListener());
 
     }
 

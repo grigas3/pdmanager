@@ -151,6 +151,11 @@
         <activity
             android:name="com.pdmanager.views.clinician.BS11Activity"
             android:label="PDManager" />
+
+        <activity
+            android:name="com.pdmanager.views.common.TermsAndConds"
+            android:label="PDManager"/>
+
         <activity
             android:name="com.pdmanager.views.clinician.NMSSActivity"
             android:label="PDManager" />

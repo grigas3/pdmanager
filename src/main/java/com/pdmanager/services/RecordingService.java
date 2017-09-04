@@ -64,6 +64,7 @@ import com.pdmanager.notification.BandMessage;
 import com.pdmanager.notification.BandMessageQueue;
 import com.pdmanager.notification.LocalNotificationTask;
 import com.pdmanager.persistence.DBHandler;
+import com.pdmanager.sensor.IHeartRateAccessProvider;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.symptomdetector.aggregators.TremorAggregator;
 import com.pdmanager.symptomdetector.dyskinesia.DyskinesiaEvaluator;
@@ -1707,7 +1708,21 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         return builder.build();
     }
 
+    public void registerHRAccessProvider(IHeartRateAccessProvider handler) {
 
+        if (msBandDataLogger != null) {
+            msBandDataLogger.registerHRAccessProvider(handler);
+
+        }
+    }
+
+    public void unregisterHRAccessProvider() {
+        if (msBandDataLogger != null) {
+            msBandDataLogger.unregisterHRAccessProvider();
+
+        }
+
+    }
     //endregion
 
     /**

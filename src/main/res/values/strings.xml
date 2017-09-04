@@ -455,5 +455,27 @@
 
     <string name="test_home_title">Perform a test</string>
     <string name="test_home_description">Press here if you would like to perform a test!!</string>
-    <string name="back">Back</string>
+
+    <string name="savingString">Saving...</string>
+    <string name="back">Return to main menu</string>
+    <string name="md_how_are_you_today">How are you today?</string>
+    <string name="md_excellent">Excellent</string>
+    <string name="md_good">Good</string>
+    <string name="md_okay">Okay</string>
+    <string name="md_bad">Bad</string>
+    <string name="md_awfull">Awfull</string>
+    <string name="md_what_did_you_do_today">What did you do today?</string>
+    <string name="md_multiple_answers_possible">(Multiple answers possible)</string>
+    <string name="md_at_home">At home</string>
+    <string name="md_at_work">At work</string>
+    <string name="md_relaxing">Relaxing</string>
+    <string name="md_exercising">Exercising</string>
+    <string name="md_laying">Laying</string>
+    <string name="md_socializing">Socializing</string>
+    <string name="md_other">Other:</string>
+    <string name="md_choose">Choose</string>
+    <string name="md_done">Done</string>
+    <string name="termsandconditions">Terms And Conditions</string>
+    <string name="technician">Technician</string>
+    <string name="termsandconditionstext"><div>Aasd ssd <span>asdasd</span> sdf</div></string>
 </resources>

@@ -112,6 +112,13 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     };
 
 
+    private static String[] PERMISSION_RECEIVE = {
+
+            Manifest.permission.RECEIVE_BOOT_COMPLETED
+
+
+    };
+
     final Handler handler = new Handler();
 
     WatchdogAlarmReceiver alarm = new WatchdogAlarmReceiver();
@@ -416,7 +423,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         int medHour1 = settings.getMedHour1();
         int medHour2 = settings.getMedHour2();
         int moodHour = settings.getMoodHour();
-        int diary = settings.getDiaryHour();
+        int diary = settings.getStartHour();
 
         UserAlertManager manager = new UserAlertManager(this.getContext());
         manager.clearAll();
@@ -444,7 +451,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         }
         manager.add(new UserAlert("PD_Manager", msg, "FT", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
 
-      //  manager.add(new UserAlert("PD_Manager", msg, "VT", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
+        //  manager.add(new UserAlert("PD_Manager", msg, "VT", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
 
         manager.add(new UserAlert("PD_Manager", msg, "VA", date1.getTime(), getTimeFromHour(moodHour), "SYSTEM"));
 

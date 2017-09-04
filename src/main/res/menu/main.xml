@@ -8,7 +8,14 @@
     <item
         android:id="@+id/action_technician"
         android:orderInCategory="100"
-        android:title="Technician"
+        android:title="@string/technician"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_termsandconditions"
+        android:orderInCategory="100"
+        android:title="@string/termsandconditions"
+        app:showAsAction="never"/>
+
 
 </menu>

@@ -153,7 +153,7 @@ public class TechnicianActivity extends ActionBarActivity implements TechnicianD
 
             initFragments();
 
-
+            mService.registerHRAccessProvider(bandFragment);
             mService.registerListener(bandFragment);
             mService.registerSensorListener(bandFragment);
             mService.registerListener(recordingSettingsFragment);
@@ -382,6 +382,7 @@ public void createTile()
         // Unbind from the service
         if (mBound) {
 
+            mService.unregisterHRAccessProvider();
             mService.unregisterListener(bandFragment);
             mService.unregisterSensorListener(bandFragment);
             mService.unregisterListener(recordingSettingsFragment);
@@ -494,7 +495,7 @@ public void createTile()
             Intent mainIntent = new Intent(TechnicianActivity.this, LoginActivity.class);
             TechnicianActivity.this.startActivity(mainIntent);
             if (mBound) {
-
+                mService.unregisterHRAccessProvider();
                 mService.unregisterListener(bandFragment);
                 mService.unregisterSensorListener(bandFragment);
                 mService.unregisterListener(recordingSettingsFragment);
@@ -518,7 +519,7 @@ public void createTile()
             Intent mainIntent = new Intent(TechnicianActivity.this, MainActivity.class);
             TechnicianActivity.this.startActivity(mainIntent);
             if (mBound) {
-
+                mService.unregisterHRAccessProvider();
                 mService.unregisterListener(bandFragment);
                 mService.unregisterSensorListener(bandFragment);
                 mService.unregisterListener(recordingSettingsFragment);

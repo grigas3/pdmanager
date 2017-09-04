@@ -293,6 +293,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
         handlePendingSensorReports();
     }
 
+
     /**
      * This method is scheduled to run on the UI thread after a sensor event has been received.
      * We clear our "is scheduled" flag and then update the UI controls for any new sensor
@@ -632,6 +633,17 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
         }
 
+    }
+
+    public void unregisterHRAccessProvider() {
+        heartRateAccessProvider = null;
+
+
+    }
+
+    public void registerHRAccessProvider(IHeartRateAccessProvider handler) {
+
+        heartRateAccessProvider = handler;
     }
 
     /**
