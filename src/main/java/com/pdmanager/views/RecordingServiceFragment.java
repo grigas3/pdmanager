@@ -149,6 +149,8 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     private boolean bandRequired = true;
     private Timer myTimer;
     private TextView mSensorStatus;
+    private TextView mTextPermissions;
+
     //
     // Handle connect/disconnect requests.
     //
@@ -533,7 +535,13 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     }
 
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
 
+        //Ok check for next permissions
+        // requirePermissions(this.getActivity());
+    }
 
     /**
      * Checks if the app has permission to write to device storage
@@ -609,6 +617,12 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                     PERMISSIONS_VIDEO,
                     REQUEST_VIDEO
             );
+        }
+
+        if (hasPermissions(this.getActivity())) {
+
+            if (mTextPermissions != null)
+                mTextPermissions.setTextColor(Color.GREEN);
         }
 
      /*   try {
@@ -850,9 +864,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         //  this.mTextGetMedication=(TextView) rootView.findViewById(R.id.textMedication);
         mTextLoggedIn = (TextView) rootView.findViewById(R.id.textLoggedIn);
         mTextGetDevice = (TextView) rootView.findViewById(R.id.textGetDevice);
-
+        mTextPermissions = ((TextView) rootView.findViewById(R.id.textFilePermission));
         if (hasPermissions(this.getActivity())) {
-            ((TextView) rootView.findViewById(R.id.textFilePermission)).setTextColor(Color.GREEN);
+            mTextPermissions.setTextColor(Color.GREEN);
         }
 
         if(getSettings().getMSSynced())
@@ -898,6 +912,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         MyTimerTask myTask = new MyTimerTask();
         myTimer.schedule(myTask, 1000, 5000);
 
+        requirePermissions(this.getActivity());
         refreshControls();
     }
 

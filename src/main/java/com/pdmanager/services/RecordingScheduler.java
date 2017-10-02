@@ -204,8 +204,7 @@ public class RecordingScheduler implements IDataProcessor {
         {
             currentStopReason = STOPREASON_SCHEDULEDPAUSE;
             return STOPREASON_SCHEDULEDPAUSE;
-        }
-        if (nonWearingPostPone) {
+        } else if (nonWearingPostPone) {
 
             currentStopReason = STOPREASON_NOWEARINGPAUSE;
             return STOPREASON_NOWEARINGPAUSE;

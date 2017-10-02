@@ -47,7 +47,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -651,6 +650,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
      * Initialization only when handlers are null
      */
     private void initProcessHandler() {
+
         if (mainHandlerThread == null) {
             mainHandlerThread = new HandlerThread("MSBandDataLogger");
             mainHandlerThread.start();
@@ -687,20 +687,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
     private synchronized void startTimer() {
 
-    /*    if (timer == null) {
-            try {
 
-
-                timer = new Timer();
-                timer.scheduleAtFixedRate(new mainTask(), mainTimerInterval, mainTimerInterval);
-
-            } catch (Exception ex) {
-
-                LogFatal("Timer", ex, FATAL_START_TIMER);
-
-            }
-        }
-        */
 
 
         /***
@@ -918,8 +905,8 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
                 unRegisterBandSensors(mgr);
             }
 
-
-            new disconnectTask().execute(mClient);
+            AsyncTask disconnectTask = new disconnectTask().execute(mClient);
+            disconnectTask.wait();
 
 
         }
@@ -938,7 +925,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
 
                 try {
                     if (!lockBandClient()) {
-                        LogWarn("Band Client NOT locked");
+                        LogWarn("ConnectToBand. Band Client NOT locked");
                         return;
                     }
 
@@ -979,7 +966,8 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
         ///IF Mclient is connected then some leak has occured
         if (!mClient.isConnected()) {
 
-            new connectTask().execute(mClient);
+            AsyncTask connectTask = new connectTask().execute(mClient);
+            connectTask.wait();
         }
 
 
@@ -1010,8 +998,6 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
                 }
                 BandClient mClient = clientParams[0];
                 mClient.disconnect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
-
-
                 return new ConnectionResult(ConnectionState.DISPOSED);
 
 
@@ -1095,8 +1081,9 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
             try {
 
                 //Lock Band Client
-                if (!lockBandClient())
-                    LogDebug("Band Client NOT LOCKED");
+                if (!lockBandClient()) {
+                    LogDebug("ConnectTask. Band Client NOT LOCKED");
+                }
 
 
                 ConnectionState result = clientParams[0].connect().await(bandClientWaitIntervalInSeconds, TimeUnit.SECONDS);
@@ -1207,43 +1194,7 @@ public class MSBandDataLogger extends BaseDataLogger implements IDataLogger {
         }
     }
 
-    /**
-     * Main Task
-     */
-    private class mainTask extends TimerTask {
 
-
-        public mainTask() {
-
-
-        }
-
-
-        public void run() {
-
-            /****
-             * Check that the last execution time was at least  minMainTimerInterval before
-             * We may observe a behavior where timer is postoponned for a timer of period
-             */
-
-
-                //  toastHandler.sendEmptyMessage(0);
-                mainTaskHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                         /* do what you need to do */
-                        loggingCheck();
-      /* and here comes the "trick" */
-
-                    }
-                });
-
-
-
-        }
-
-
-    }
 
 
 }
