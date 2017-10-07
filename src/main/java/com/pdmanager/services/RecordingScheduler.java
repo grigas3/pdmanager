@@ -34,7 +34,7 @@ public class RecordingScheduler implements IDataProcessor {
     private int intervalToNoWearingRation=5;
     private int currentStopReason = STOPREASON_SCHEDULEDPAUSE;
     private  int notWearingIntervalsFound=0;
-    private int notWearingPauseInterval = 2 * 60 * 1000;
+    private int notWearingPauseInterval = 5 * 60 * 1000;
     private long lastAcquisition=0;
     private long lastStop = 0;
     private long plannedStop = 0;

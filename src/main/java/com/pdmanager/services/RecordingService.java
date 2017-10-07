@@ -1404,8 +1404,9 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
 
     //region Logs
     private void LogFatal(String e, int code) {
-        Log.e(TAG, e);
+        // Log.e(TAG, e);
 
+        //Bugfender.f(TAG,mess);
         // LogError(e);
         mFatalError = true;
         mFatalErrorCode = code;
@@ -1419,8 +1420,8 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
 
     private void LogFatal(String mess, Exception ex, int code) {
 
-        Log.e(TAG, mess, ex.getCause());
-
+        //Log.e(TAG, mess, ex.getCause());
+        Bugfender.f(TAG, mess);
         // logger.log(Level.FATAL,String.format("ERROR%03d", code));
         mFatalError = true;
         mFatalErrorCode = code;
@@ -1435,7 +1436,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         // logger.log(Level.ERROR,source);
 
         Bugfender.e(TAG, source);
-        Log.e(TAG, source);
+        //Log.e(TAG, source);
         // ProcessLog(TAG, source);
 
     }
@@ -1444,7 +1445,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
 
         //logger.log(Level.ERROR,source,cause);
         Bugfender.e(TAG, source);
-        Log.e(TAG, source, cause);
+        // Log.e(TAG, source, cause);
         // ProcessLog(TAG, source);
 
     }
@@ -1453,7 +1454,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
         //logger.log(Level.ERROR,e,ex.getCause());
 
         Bugfender.e(TAG, e);
-        Log.e(TAG, e, ex.getCause());
+        // Log.e(TAG, e, ex.getCause());
         // ProcessLog(TAG, e);
 
     }
@@ -1475,7 +1476,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
     private void LogWarn(String e) {
         //logger.log(Level.WARN,e);
         Log.w(TAG, e);
-        Bugfender.w(TAG, e);
+        //Bugfender.w(TAG, e);
         // ProcessLog("WARNING", e);
 
     }
@@ -1489,7 +1490,8 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
      */
     private void LogWarn(String e, int code) {
         //logger.log(Level.WARN,e);
-        Log.w(TAG, e);
+        //Log.w(TAG, e);
+        Bugfender.w(TAG, e);
         //  ProcessLog("WARNING", e);
 
         SendAlert(e, String.format("WARN%03d", code));
