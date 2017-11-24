@@ -41,6 +41,7 @@ public class PatientChartDrawerFragment extends Fragment {
     public static final String NAV_DRAWER_SECTION_ASS = "com.pdmanager.views.clinician.AssessmentFragment";
     public static final String NAV_DRAWER_SECTION_LIST = "com.pdmanager.views.clinician.ClinicianActivity";
     public static final String NAV_DRAWER_SECTION_FAVORITES = "Favorites";
+    public static final String NAV_DRAWER_SECTION_DSS = "com.pdmanager.views.clinician.DssFragment";
     /**
      * Remember the position of the selected item.
      */

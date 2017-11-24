@@ -27,12 +27,14 @@ import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
 import com.telerik.android.common.Function;
+import com.telerik.widget.list.RadListView;
 
 /**
  * Created by George on 6/5/2016.
  */
 public class MedicationOrderFragment extends BasePDFragment implements PatientChartFragment.OnDestinationSelectedListener, IBasePatientChartFragment {
-    AbsListView listView;
+    //AbsListView listView;
+    RadListView listView;
     ImageView image;
     //    PatientChartFragment.Destination destination;
     TextView titleView;
@@ -62,7 +64,8 @@ public class MedicationOrderFragment extends BasePDFragment implements PatientCh
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_patient_medicationorder, container, false);
 
-        listView = (AbsListView) rootView.findViewById(R.id.listView);
+        //listView = (AbsListView) rootView.findViewById(R.id.listView);
+        listView = (RadListView) rootView.findViewById(R.id.listView);
         if (savedInstanceState != null) {
 
             patient = savedInstanceState.getParcelable("Patient");
@@ -272,7 +275,7 @@ public class MedicationOrderFragment extends BasePDFragment implements PatientCh
                 };
 
 
-                adapter.addGroupDescriptor(groupDescriptor);
+//                adapter.addGroupDescriptor(groupDescriptor); // to be added again if group description
 //                listView.setAdapter(adapter);
 
 

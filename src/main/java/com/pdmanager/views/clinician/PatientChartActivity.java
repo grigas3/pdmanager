@@ -277,6 +277,10 @@ public class PatientChartActivity extends ActionBarActivity implements PatientCh
             DistributionChartFragment f = new DistributionChartFragment();
             f.setPatient(patient);
             newFragment = f;
+        } else if (section.equalsIgnoreCase(PatientChartDrawerFragment.NAV_DRAWER_SECTION_DSS)) {
+            DssFragment f = new DssFragment();
+            f.setPatient(patient);
+            newFragment = f;
         } else
 
         {
@@ -360,6 +364,9 @@ public class PatientChartActivity extends ActionBarActivity implements PatientCh
         } else if (currentFragment instanceof PatientTestFragment) {
             this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             this.actionBar.setTitle("Tests");
+        } else if (currentFragment instanceof DssFragment) {
+            this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+            this.actionBar.setTitle("DSS");
         } else {
             this.actionBar.setTitle("Chart");
             this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);

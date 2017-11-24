@@ -561,7 +561,7 @@ else
             ret.error="";
 
             if (res.success) {
-                ret.success = true;
+                ret.success = true;/*
                 if (res.role != null) {
                     ret.patient = (res.role.toLowerCase().equals("patients"));
 
@@ -579,7 +579,7 @@ else
                     ret.error="User has not a patient role";
 
 
-                }
+                }*/
                 ret.access_token = res.access_token;
                 ret.expires_in = res.expires_in;
                 ret.id = res.rolemapid;
