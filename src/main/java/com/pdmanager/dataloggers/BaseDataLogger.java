@@ -23,13 +23,7 @@ public abstract class BaseDataLogger {
 
     protected abstract String getTag();
 
-    //region Logs
-    protected void LogFatal(String e, int code) {
-        Log.e(getTag(), e);
-        Bugfender.f(getTag(), String.format("ERROR%03d", code));
 
-
-    }
 
     protected ISensorDataHandler getSensorHandler() {
 
@@ -48,10 +42,19 @@ public abstract class BaseDataLogger {
 
     }
 
+    //region Logs
+    protected void LogFatal(String e, int code) {
+
+        Bugfender.f(getTag(), String.format("ERROR%03d", code));
+
+
+    }
 
     protected void LogFatal(String mess, Exception ex, int code) {
 
-        Log.e(getTag(), mess, ex.getCause());
+        //Log.e(getTag(), mess, ex.getCause());
+        Bugfender.f(getTag(), mess);
+
 
     }
 
@@ -59,8 +62,8 @@ public abstract class BaseDataLogger {
         // logger.log(Level.ERROR,source);
 
         Bugfender.e(getTag(), source);
-        Log.e(getTag(), source);
-        // ProcessLog(TAG, source);
+        //Log.e(getTag(), source);
+        // ProcessLog(getTag(), source);
 
     }
 
@@ -68,8 +71,8 @@ public abstract class BaseDataLogger {
 
         //logger.log(Level.ERROR,source,cause);
         Bugfender.e(getTag(), source);
-        Log.e(getTag(), source, cause);
-        // ProcessLog(TAG, source);
+        // Log.e(getTag(), source, cause);
+        // ProcessLog(getTag(), source);
 
     }
 
@@ -77,8 +80,8 @@ public abstract class BaseDataLogger {
         //logger.log(Level.ERROR,e,ex.getCause());
 
         Bugfender.e(getTag(), e);
-        Log.e(getTag(), e, ex.getCause());
-        // ProcessLog(TAG, e);
+        // Log.e(getTag(), e, ex.getCause());
+        // ProcessLog(getTag(), e);
 
     }
 
@@ -99,7 +102,7 @@ public abstract class BaseDataLogger {
     protected void LogWarn(String e) {
         //logger.log(Level.WARN,e);
         Log.w(getTag(), e);
-        Bugfender.w(getTag(), e);
+        //Bugfender.w(getTag(), e);
         // ProcessLog("WARNING", e);
 
     }
@@ -113,10 +116,12 @@ public abstract class BaseDataLogger {
      */
     protected void LogWarn(String e, int code) {
         //logger.log(Level.WARN,e);
-        Log.w(getTag(), e);
+        //Log.w(getTag(), e);
+        Bugfender.w(getTag(), e);
         //  ProcessLog("WARNING", e);
 
     }
+
     //endregion
 
 }

@@ -30,7 +30,6 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.bugfender.sdk.Bugfender;
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.BandSensorManager;
@@ -278,7 +277,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             RecordingSettings settings = getSettings();
 
-            if (getService().isSessionRunning()) {
+            if (getService().getSessionMustRun()) {
 
                 //  RemoveReminders(settings);
 
@@ -286,18 +285,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 busyIndicator.setVisibility(View.VISIBLE);
                 layout.setVisibility(View.INVISIBLE);
                 new StopServiceTask(settings.getPatientID(), settings.getToken()).execute();
-                /*
-                mButtonConnect.setEnabled(false);
-                mButtonConnect.setBackgroundColor(Color.GRAY);
-                settings.setSessionRunning(false);
 
-
-
-                getService().StopRecording();
-
-
-                new UpdateDeviceStatusTask(settings.getPatientID(), settings.getToken()).execute();
-                */
 
             } else
 
@@ -321,7 +309,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                     Calendar c = Calendar.getInstance();
 
                     int hourOfDay = c.get(Calendar.HOUR_OF_DAY);
-
                     if (hourOfDay <= settings.getStartHour() || hourOfDay >= settings.getStopHour()) {
 
                         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
@@ -330,52 +317,33 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                         alert.setPositiveButton("OK", null);
                         alert.show();
 
-                        Time today = new Time(Time.getCurrentTimezone());
+                       /* Time today = new Time(Time.getCurrentTimezone());
                         today.setToNow();
                         settings.setSessionFolder(CreateFolder(today));
-
-                        // LogHandler.getInstance().LogWarn("Could not Start session due to scheduled start and end");
-                        //   mButtonConnect.setEnabled(true);
-//                                    mButtonConnect.setColor(Color.GREEN);
                         LogHandler.getInstance().Log("Session started by user");
 
                         Bugfender.sendIssue("RECORDING", "New Recording by User");
 
                         mButtonConnect.setEnabled(false);
                         mButtonConnect.setBackgroundColor(Color.GRAY);
+                        */
 
                         //     AddReminders(settings.getStartHour(),settings.getStopHour(),settings);
-                        settings.setSessionRunning(true);
-                        settings.setRecordingStart(System.currentTimeMillis());
+                        //    settings.setSessionRunning(true);
+                        //  settings.setRecordingStart(System.currentTimeMillis());
 
 
-                    } else {
-
+                    }
+                    //       else {
+//
                         ///IN ANDROID 23+ WE NEED TO ASK FOR EXTRA STORAGE PERMISSIONS
                         requirePermissions(getActivity());
                         busyIndicator.setVisibility(View.VISIBLE);
                         layout.setVisibility(View.INVISIBLE);
                         new StartServiceTask(settings.getPatientID(), settings.getToken()).execute();
-                       /*
-
-                        Time today = new Time(Time.getCurrentTimezone());
-                        today.setToNow();
-                        settings.setSessionFolder(CreateFolder(today));
-                        LogHandler.getInstance().Log("Session started by user");
-                        mButtonConnect.setEnabled(false);
-                        mButtonConnect.setBackgroundColor(Color.GRAY);
-
-                        initAlerts(settings);
-                        getService().StartRecording();
-
-                        //AddReminders(settings.getStartHour(),settings.getStopHour(),settings);
-
-                        settings.setSessionRunning(true);
-                        settings.setRecordingStart(System.currentTimeMillis());
-                        */
 
 
-                    }
+//                    }
                 }
 
             }
@@ -1251,9 +1219,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
             alarm.setAlarm(getActivity());
-            //getService().StartRecording();
-
-
+            getService().StartRecording();
             settings.setSessionRunning(true);
             settings.setRecordingStart(System.currentTimeMillis());
 
