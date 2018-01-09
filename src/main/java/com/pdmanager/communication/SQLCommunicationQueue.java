@@ -36,7 +36,7 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
         DBHandler helper=null;
         try {
 
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getReadableDatabase();
             cursor = db.rawQuery("select count(*) from " + DBHandler.TABLE_JREQUESTS, null);
             cursor.moveToFirst();
@@ -79,7 +79,7 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
         DBHandler helper=null;
         SQLiteDatabase db = null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getWritableDatabase();
 
             ContentValues values = new ContentValues();
@@ -115,7 +115,7 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
         SQLiteDatabase db = null;
         DBHandler helper=null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getWritableDatabase();
             db.execSQL("delete from " + DBHandler.TABLE_JREQUESTS);
         } catch (Exception ex) {
@@ -186,13 +186,13 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  JsonStorage poll() {
+    public JsonStorage poll() {
         SQLiteDatabase db = null;
         JsonStorage result = null;
         DBHandler helper=null;
         Cursor cursor=null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
 
             db = helper.getWritableDatabase();
             db.beginTransaction();
@@ -235,18 +235,18 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  JsonStorage element() {
+    public JsonStorage element() {
         return null;
     }
 
     @Override
-    public  JsonStorage peek() {
+    public JsonStorage peek() {
         SQLiteDatabase db = null;
         JsonStorage result = null;
         DBHandler helper=null;
         Cursor cursor=null;
         try {
-             helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getReadableDatabase();
             db.beginTransaction();
              cursor = db.query(false, DBHandler.TABLE_JREQUESTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_URI, DBHandler.COLUMN_JSON}, null, null, null, null, DBHandler.COLUMN_ID, "1");

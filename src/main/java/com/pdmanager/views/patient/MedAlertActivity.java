@@ -71,7 +71,7 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
                 busyIndicator.setVisibility(View.VISIBLE);
                 layout.setVisibility(View.INVISIBLE);
                 //   mButtonPatients.setVisibility(View.INVISIBLE);
-                Date date1 = new java.util.Date();
+                Date date1 = new Date();
                 date1.setHours(0);
                 date1.setMinutes(0);
                 //Date date2= new java.util.Date(t2);

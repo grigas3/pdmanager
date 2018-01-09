@@ -355,7 +355,7 @@ public class UserAlertManager implements IUserAlertManager {
 
         long unixTime = System.currentTimeMillis();
         long exunixTime = System.currentTimeMillis() ;
-        String whereClause =DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTCREATED + " = ? ";
+        String whereClause = DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTCREATED + " = ? ";
 
         String[] whereArgs = new String[]{
                 Long.toString(exunixTime),
@@ -766,8 +766,8 @@ public class UserAlertManager implements IUserAlertManager {
                 Date date = new Date(oldExpDate);
                 cal1.setTime(date);
                 int hour=cal1.get(Calendar.HOUR_OF_DAY)+1;
-                int startHour=RecordingSettings.GetRecordingSettings(mContext).getStartHour();
-                int stopHour=RecordingSettings.GetRecordingSettings(mContext).getStopHour();
+                int startHour = RecordingSettings.GetRecordingSettings(mContext).getStartHour();
+                int stopHour = RecordingSettings.GetRecordingSettings(mContext).getStopHour();
                 if(hour>stopHour)
                     expDate+=(startHour-hour+1)*1000 *  60 * 60;
                 else

@@ -176,7 +176,8 @@ public class CommunicationManager {
 
 
     }
-    public <T extends PDEntity> void SendItems(ArrayList<T> items,boolean writeFile) {
+
+    public <T extends PDEntity> void SendItems(ArrayList<T> items, boolean writeFile) {
 
         if (writeFile) {
 

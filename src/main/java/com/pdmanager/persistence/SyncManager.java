@@ -11,16 +11,11 @@ import com.google.gson.reflect.TypeToken;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.JsonStorage;
-import com.pdmanager.interfaces.IJsonRequestHandler;
 import com.pdmanager.models.Alert;
-import com.pdmanager.models.MedicationIntake;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.settings.RecordingSettings;
 
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -103,7 +98,7 @@ public class SyncManager  {
 
         long ret=-1;
         long timestamp=getLastSyncTimestamp(table);
-        RecordingSettings settings=RecordingSettings.GetRecordingSettings(mContext);
+        RecordingSettings settings = RecordingSettings.GetRecordingSettings(mContext);
 
         if(timestamp<=0)
         {

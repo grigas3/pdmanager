@@ -10,8 +10,8 @@ import com.pdmanager.common.data.GyroData;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.TremorData;
 import com.pdmanager.common.data.UPDRS;
-import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.common.interfaces.IDataProcessor;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.posturedetector.Core.Signals.NamedSignalCollection;
 import com.pdmanager.posturedetector.Core.Signals.SignalCollection;
 

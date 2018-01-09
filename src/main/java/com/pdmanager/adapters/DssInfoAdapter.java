@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pdmanager.R;
-import com.pdmanager.models.ClinicalInfo;
 import com.pdmanager.models.DssInfo;
 import com.telerik.widget.list.ListViewDataSourceAdapter;
 import com.telerik.widget.list.ListViewHolder;

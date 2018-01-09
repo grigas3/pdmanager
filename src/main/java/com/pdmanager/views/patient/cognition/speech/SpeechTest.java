@@ -202,7 +202,7 @@ public class SpeechTest extends SoundFeedbackActivity
     Button b = (Button) findViewById(R.id.buttonFTTEndExit);
     b.setVisibility(View.INVISIBLE);
     Button buttonRepeat = (Button) findViewById(R.id.buttonFTTEndRepeat);
-    buttonRepeat.setOnClickListener(new View.OnClickListener()
+    buttonRepeat.setOnClickListener(new OnClickListener()
     {
         @Override
         public void onClick(View v) { finish(); }

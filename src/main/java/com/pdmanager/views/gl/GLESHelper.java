@@ -23,7 +23,7 @@ public class GLESHelper {
 
     private VideoAnimationListener mAnimationListener = null;
 
-    private VideoFrame          mVideoFrame;
+    private VideoFrame mVideoFrame;
 
     private int                 mProgramHandle;
 

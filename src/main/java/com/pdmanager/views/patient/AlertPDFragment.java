@@ -5,7 +5,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.pdmanager.R;
-import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.settings.RecordingSettings;

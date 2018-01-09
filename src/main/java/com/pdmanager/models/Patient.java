@@ -44,7 +44,7 @@ public class Patient extends PDEntity implements Parcelable {
     /// <summary>
     /// Phone
     /// </summary>
-    public List<Telecom> Telecom;
+    public List<com.pdmanager.models.Telecom> Telecom;
     /// <summary>
     /// Phone
     /// </summary>
@@ -150,7 +150,7 @@ public class Patient extends PDEntity implements Parcelable {
         return new ArrayList<String>();
     }
 
-    public List<ClinicalInfo> getClinicalInfo() {
+    public List<com.pdmanager.models.ClinicalInfo> getClinicalInfo() {
 
         try {
 
@@ -159,7 +159,7 @@ public class Patient extends PDEntity implements Parcelable {
 
 
                 Gson gson = new Gson();
-                List<ClinicalInfo> observations = gson.fromJson(ClinicalInfo, new TypeToken<List<ClinicalInfo>>() {
+                List<com.pdmanager.models.ClinicalInfo> observations = gson.fromJson(ClinicalInfo, new TypeToken<List<com.pdmanager.models.ClinicalInfo>>() {
                 }.getType());
 
                 return observations;
@@ -170,11 +170,11 @@ public class Patient extends PDEntity implements Parcelable {
             Log.d("ERROR", "Converting Clinical info");
         }
 
-        return new ArrayList<ClinicalInfo>();
+        return new ArrayList<com.pdmanager.models.ClinicalInfo>();
 
     }
 
-    public List<DssInfo> getDssInfo() {
+    public List<com.pdmanager.models.DssInfo> getDssInfo() {
 
         try {
 
@@ -184,7 +184,7 @@ public class Patient extends PDEntity implements Parcelable {
 
 
                 Gson gson = new Gson();
-                List<DssInfo> dssInformation = gson.fromJson(DssInfo, new TypeToken<List<DssInfo>>() {
+                List<com.pdmanager.models.DssInfo> dssInformation = gson.fromJson(DssInfo, new TypeToken<List<com.pdmanager.models.DssInfo>>() {
                 }.getType());
 
                 return dssInformation;
@@ -195,7 +195,7 @@ public class Patient extends PDEntity implements Parcelable {
             Log.d("ERROR", "Converting Clinical info");
         }
 
-        return new ArrayList<DssInfo>();
+        return new ArrayList<com.pdmanager.models.DssInfo>();
 
     }
 

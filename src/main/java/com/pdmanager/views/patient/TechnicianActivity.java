@@ -1013,7 +1013,7 @@ public void createTile()
                         UUID tileUUI=UUID.randomUUID();
 
 
-                        String uuid=RecordingSettings.newInstance(getApplicationContext()).getTileUUID();
+                        String uuid = RecordingSettings.newInstance(getApplicationContext()).getTileUUID();
 
                         if(uuid!=null) {
                             tileUUI = UUID.fromString(uuid);

@@ -56,10 +56,10 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                 "min time trial (s), " +
                 "Total time (s)" +
                 "\r\n";
-    private int[] boxesID ={R.id.imageButton1,R.id.imageButton2,R.id.imageButton3,R.id.imageButton4,R.id.imageButton5,
-            R.id.imageButton6,R.id.imageButton7,R.id.imageButton8,R.id.imageButton9,R.id.imageButton10,
-            R.id.imageButton11,R.id.imageButton12,R.id.imageButton13,R.id.imageButton14,R.id.imageButton15,
-            R.id.imageButton16,R.id.imageButton17,R.id.imageButton19,R.id.imageButton21,R.id.imageButton23};
+    private int[] boxesID = {R.id.imageButton1, R.id.imageButton2, R.id.imageButton3, R.id.imageButton4, R.id.imageButton5,
+            R.id.imageButton6, R.id.imageButton7, R.id.imageButton8, R.id.imageButton9, R.id.imageButton10,
+            R.id.imageButton11, R.id.imageButton12, R.id.imageButton13, R.id.imageButton14, R.id.imageButton15,
+            R.id.imageButton16, R.id.imageButton17, R.id.imageButton19, R.id.imageButton21, R.id.imageButton23};
 
     private int[] levelShowedBoxesID =new int[NUMBER_OF_BOXES];
     private int[] trialShowedTokensID;
@@ -536,7 +536,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsSSPLevel = new Observation (maxLevel, patientCode, "PDTSSP_MAXLEVEL", time);
+            Observation obsSSPLevel = new Observation(maxLevel, patientCode, "PDTSSP_MAXLEVEL", time);
             obsSSPLevel.PatientId = patientCode;
             Observation obsSSPMeanErrors = new Observation(meanErrors, patientCode, "PDTSSP_MEAN_ERRORS", time);
             obsSSPMeanErrors.PatientId = patientCode;
@@ -544,9 +544,9 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             obsSSPMaxErrors.PatientId = patientCode;
             Observation obsSSPMinErrors = new Observation(minErrors, patientCode, "PDTSSP_MIN_ERRORS", time);
             obsSSPMinErrors.PatientId = patientCode;
-            Observation obsSSPTotalErrors = new Observation (totalErrors, patientCode, "PDTSSP_TOTAL_ERRORS", time);
+            Observation obsSSPTotalErrors = new Observation(totalErrors, patientCode, "PDTSSP_TOTAL_ERRORS", time);
             obsSSPTotalErrors.PatientId = patientCode;
-            Observation obsSSPMeanTime = new Observation (meanTime, patientCode, "PDTSSP_MEAN_TIME", time);
+            Observation obsSSPMeanTime = new Observation(meanTime, patientCode, "PDTSSP_MEAN_TIME", time);
             obsSSPMeanTime.PatientId = patientCode;
             Observation obsSSPMaxTime = new Observation(maxTime, patientCode, "PDTSSP_MAX_TIME", time);
             obsSSPMaxTime.PatientId = patientCode;

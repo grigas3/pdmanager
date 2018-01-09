@@ -662,7 +662,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsSSTDirGO = new Observation (dirErrorsGO, patientCode, "PDTSST_DIR_GO", time);
+            Observation obsSSTDirGO = new Observation(dirErrorsGO, patientCode, "PDTSST_DIR_GO", time);
             obsSSTDirGO.PatientId = patientCode;
             Observation obsSSTDirNoGO = new Observation(dirErrorsNoGO, patientCode, "PDTSST_DIR_NOGO", time);
             obsSSTDirNoGO.PatientId = patientCode;
@@ -670,9 +670,9 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             obsSSTTapGO.PatientId = patientCode;
             Observation obsSSTTapNoGO = new Observation(tapErrorsNoGO, patientCode, "PDTSST_TAP_NOGO", time);
             obsSSTTapNoGO.PatientId = patientCode;
-            Observation obsSSTTimeoutGO = new Observation (timeoutErrorsGO, patientCode, "PDTSST_TIMEOUT_GO", time);
+            Observation obsSSTTimeoutGO = new Observation(timeoutErrorsGO, patientCode, "PDTSST_TIMEOUT_GO", time);
             obsSSTTimeoutGO.PatientId = patientCode;
-            Observation obsSSTTimeoutNoGO = new Observation (timeoutErrorsNoGO, patientCode, "PDTSST_TIMEOUT_NOGO", time);
+            Observation obsSSTTimeoutNoGO = new Observation(timeoutErrorsNoGO, patientCode, "PDTSST_TIMEOUT_NOGO", time);
             obsSSTTimeoutNoGO.PatientId = patientCode;
             Observation obsSSTStimuli = new Observation(nStimuli, patientCode, "PDTSST_STIMULI", time);
             obsSSTStimuli.PatientId = patientCode;

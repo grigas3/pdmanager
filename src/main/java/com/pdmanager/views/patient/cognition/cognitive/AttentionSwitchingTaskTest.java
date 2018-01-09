@@ -541,7 +541,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsASTDirC = new Observation (dirErrorsC, patientCode, "PDTAST_DIR_C", time);
+            Observation obsASTDirC = new Observation(dirErrorsC, patientCode, "PDTAST_DIR_C", time);
             obsASTDirC.PatientId = patientCode;
             Observation obsASTDirI = new Observation(dirErrorsI, patientCode, "PDTAST_DIR_I", time);
             obsASTDirI.PatientId = patientCode;
@@ -549,9 +549,9 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             obsASTPosC.PatientId = patientCode;
             Observation obsASTPosI = new Observation(posErrorsI, patientCode, "PDTAST_POS_I", time);
             obsASTPosI.PatientId = patientCode;
-            Observation obsASTTimeoutC = new Observation (timeoutErrorsC, patientCode, "PDTAST_TIMEOUT_C", time);
+            Observation obsASTTimeoutC = new Observation(timeoutErrorsC, patientCode, "PDTAST_TIMEOUT_C", time);
             obsASTTimeoutC.PatientId = patientCode;
-            Observation obsASTTimeoutI = new Observation (timeoutErrorsI, patientCode, "PDTAST_TIMEOUT_I", time);
+            Observation obsASTTimeoutI = new Observation(timeoutErrorsI, patientCode, "PDTAST_TIMEOUT_I", time);
             obsASTTimeoutI.PatientId = patientCode;
             Observation obsASTMeanRTC = new Observation(meanTimeC, patientCode, "PDTAST_MEAN_C", time);
             obsASTMeanRTC.PatientId = patientCode;

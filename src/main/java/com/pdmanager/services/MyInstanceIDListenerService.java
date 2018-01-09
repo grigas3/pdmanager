@@ -1,4 +1,4 @@
-/*package com.pdmanager.services;
+package com.pdmanager.services;/*package com.pdmanager.services;
 
 import android.content.Intent;
 

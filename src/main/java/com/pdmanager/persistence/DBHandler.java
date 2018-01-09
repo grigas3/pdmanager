@@ -12,8 +12,7 @@ import android.util.Log;
 public class DBHandler extends SQLiteOpenHelper {
 
 
-
-    public static    DBHandler getInstance(Context context) {
+    public static DBHandler getInstance(Context context) {
 
 
         return new DBHandler(context.getApplicationContext());

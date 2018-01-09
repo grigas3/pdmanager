@@ -84,7 +84,7 @@ public class ConferenceView extends FrameLayout {
     public void layoutView(View v, int x, int y, int width, int height) {
         LayoutParams p = (LayoutParams) v.getLayoutParams();
         if( p == null ) {
-            p = new FrameLayout.LayoutParams( width - x, height - y );
+            p = new LayoutParams(width - x, height - y);
         }
 
         p.leftMargin = x;
@@ -96,18 +96,18 @@ public class ConferenceView extends FrameLayout {
         View videoRender = (View) v.getTag();
         videoRender.setTag(new Point(p.width, p.height));
 
-        FrameLayout.LayoutParams rp = (FrameLayout.LayoutParams) videoRender.getLayoutParams();
+        LayoutParams rp = (LayoutParams) videoRender.getLayoutParams();
         rp.width = p.width;
         rp.height = p.height;
         videoRender.setLayoutParams( rp );
 
         TextView displayNameTextView = (TextView) v.findViewById( R.id.display_name_text_view );
-        FrameLayout.LayoutParams dp = (FrameLayout.LayoutParams) displayNameTextView.getLayoutParams();
+        LayoutParams dp = (LayoutParams) displayNameTextView.getLayoutParams();
         dp.width = rp.width;
         displayNameTextView.setLayoutParams( dp );
 
         ImageView avatarImageView = (ImageView) v.findViewById( R.id.avatar_image_view );
-        FrameLayout.LayoutParams p1 = (FrameLayout.LayoutParams) avatarImageView.getLayoutParams();
+        LayoutParams p1 = (LayoutParams) avatarImageView.getLayoutParams();
         p1.width = rp.width;
         p1.height = rp.height;
         avatarImageView.setLayoutParams( p1 );

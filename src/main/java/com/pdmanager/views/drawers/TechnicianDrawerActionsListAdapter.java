@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.pdmanager.app.PDPilotAppContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDPilotAppContext;
 import com.telerik.viewmodels.MenuAction;
 
 import java.util.ArrayList;

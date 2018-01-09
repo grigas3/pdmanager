@@ -138,7 +138,7 @@ public class MSHealthDataHandler {
 
     }
 
-    private void handleSleep(    ArrayList<Observation> tmpObservations, ArrayList<Map> sleepData)
+    private void handleSleep(ArrayList<Observation> tmpObservations, ArrayList<Map> sleepData)
     {
 
 
@@ -189,7 +189,7 @@ public class MSHealthDataHandler {
 
     }
 
-    private void handleActivity( ArrayList<Observation> tmpObservations, ArrayList<Map> activityData) {
+    private void handleActivity(ArrayList<Observation> tmpObservations, ArrayList<Map> activityData) {
 
 
         for (Map s : activityData

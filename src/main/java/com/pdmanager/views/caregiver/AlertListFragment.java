@@ -24,7 +24,6 @@ import com.pdmanager.R;
 import com.pdmanager.alerting.AlertAdapter;
 import com.pdmanager.alerting.AlertCursorAdapter;
 import com.pdmanager.alerting.AlertLoader;
-
 import com.pdmanager.alerting.AlertObserver;
 import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.views.BasePDFragment;

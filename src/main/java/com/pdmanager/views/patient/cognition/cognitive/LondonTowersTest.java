@@ -167,9 +167,9 @@ public class LondonTowersTest extends SoundFeedbackActivity
     private void updateHand()
     {
         if (handPeg==null) ivHand.setImageResource(R.drawable.handempty);
-        else if (handPeg==LondonTowersGraph.R) ivHand.setImageResource(R.drawable.handred);
+        else if (handPeg == LondonTowersGraph.R) ivHand.setImageResource(R.drawable.handred);
         else if (handPeg== LondonTowersGraph.G) ivHand.setImageResource(R.drawable.handyellow);
-        else if (handPeg==LondonTowersGraph.B) ivHand.setImageResource(R.drawable.handblue);
+        else if (handPeg == LondonTowersGraph.B) ivHand.setImageResource(R.drawable.handblue);
     }
 
     private void updateFeedback(boolean s)
@@ -287,9 +287,9 @@ public class LondonTowersTest extends SoundFeedbackActivity
     private void updatePeg(ImageView iv, Integer n)
     {
         if (n==null) iv.setImageResource(R.drawable.pegvoid);
-        else if (n==LondonTowersGame.R) iv.setImageResource(R.drawable.pegred);
-        else if (n==LondonTowersGame.G) iv.setImageResource(R.drawable.pegyellow);
-        else if (n==LondonTowersGame.B) iv.setImageResource(R.drawable.pegblue);
+        else if (n == LondonTowersGame.R) iv.setImageResource(R.drawable.pegred);
+        else if (n == LondonTowersGame.G) iv.setImageResource(R.drawable.pegyellow);
+        else if (n == LondonTowersGame.B) iv.setImageResource(R.drawable.pegblue);
     }
 
     private void updateGUITowers()
@@ -407,7 +407,7 @@ public class LondonTowersTest extends SoundFeedbackActivity
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsTOLCorr = new Observation (nCorrect, patientCode, "PDTTOL_CORR", time);
+            Observation obsTOLCorr = new Observation(nCorrect, patientCode, "PDTTOL_CORR", time);
             obsTOLCorr.PatientId = patientCode;
             Observation obsTOLErrors = new Observation(nErrors, patientCode, "PDTTOL_ERRORS", time);
             obsTOLErrors.PatientId = patientCode;

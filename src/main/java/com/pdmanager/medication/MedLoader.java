@@ -5,8 +5,6 @@ import android.database.Cursor;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 
-import com.pdmanager.alerting.AlertAdapter;
-
 /**
  * Created by george on 24/11/2015.
  */

@@ -1,24 +1,18 @@
 package com.pdmanager.views.clinician;
 
 import android.os.Bundle;
-import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pdmanager.R;
-import com.pdmanager.adapters.ClinicalInfoAdapter;
 import com.pdmanager.adapters.DssInfoAdapter;
-import com.pdmanager.models.ClinicalInfo;
 import com.pdmanager.models.DssInfo;
 import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.pdmanager.views.drawers.IBasePatientChartFragment;
-import com.telerik.android.common.Function;
-import com.telerik.widget.list.ListViewDataSourceAdapter;
 import com.telerik.widget.list.RadListView;
 
 import java.util.List;

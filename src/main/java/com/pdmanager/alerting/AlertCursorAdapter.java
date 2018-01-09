@@ -13,9 +13,6 @@ import android.widget.TextView;
 
 import com.pdmanager.R;
 import com.pdmanager.persistence.DBHandler;
-import com.pdmanager.views.patient.DiaryTrackingActivity;
-
-import java.util.Date;
 
 /**
  * Created by george on 20/11/2015.

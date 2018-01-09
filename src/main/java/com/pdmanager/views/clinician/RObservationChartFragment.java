@@ -148,7 +148,7 @@ public class RObservationChartFragment extends AreaFragment implements IBasePati
         cartesianChart.setVerticalAxis(vAxis);
         cartesianChart.setHorizontalAxis(hAxis);
         cartesianChart.getSeries().add(series);
-        cartesianChart.getSeries().add(bollingerBands);
+        // cartesianChart.getSeries().add(bollingerBands);
         cartesianChart.getSeries().add(movingAverage);
 
         ChartPanAndZoomBehavior panZoom = new ChartPanAndZoomBehavior();

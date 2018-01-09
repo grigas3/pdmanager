@@ -622,7 +622,7 @@ public class PALPRM extends SoundFeedbackActivity
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsVLCSL1 = new Observation (nCorrectSemanticL1, patientCode, "PDTVL_CS_L1", time);
+            Observation obsVLCSL1 = new Observation(nCorrectSemanticL1, patientCode, "PDTVL_CS_L1", time);
             obsVLCSL1.PatientId = patientCode;
             Observation obsVLCNSL1 = new Observation(nCorrectNonSemanticL1, patientCode, "PDTVL_CNS_L1", time);
             obsVLCNSL1.PatientId = patientCode;
@@ -630,9 +630,9 @@ public class PALPRM extends SoundFeedbackActivity
             obsVLCSL2.PatientId = patientCode;
             Observation obsVLCNSL2 = new Observation(nCorrectNonSemanticL2, patientCode, "PDTVL_CNS_L2", time);
             obsVLCNSL2.PatientId = patientCode;
-            Observation obsVLCSL3 = new Observation (nCorrectSemanticL3, patientCode, "PDTVL_CS_L3", time);
+            Observation obsVLCSL3 = new Observation(nCorrectSemanticL3, patientCode, "PDTVL_CS_L3", time);
             obsVLCSL3.PatientId = patientCode;
-            Observation obsVLCNSL3 = new Observation (nCorrectNonSemanticL3, patientCode, "PDTVL_CNS_L3", time);
+            Observation obsVLCNSL3 = new Observation(nCorrectNonSemanticL3, patientCode, "PDTVL_CNS_L3", time);
             obsVLCNSL3.PatientId = patientCode;
             Observation obsVLTimeL1 = new Observation(timeLevel1, patientCode, "PDTVL_TIME_L1", time);
             obsVLTimeL1.PatientId = patientCode;

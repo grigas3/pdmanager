@@ -1,10 +1,5 @@
 package com.pdmanager.interfaces;
 
-import android.app.Fragment;
-
-import com.pdmanager.views.BasePDFragment;
-import com.pdmanager.views.patient.AlertPDFragment;
-
 /**
  * Alert Fragment Manager Interface
  * The alert fragment manager is used by the patient activity

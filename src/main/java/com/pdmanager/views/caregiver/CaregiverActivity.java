@@ -17,24 +17,16 @@
 //IN THE SOFTWARE.
 package com.pdmanager.views.caregiver;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.Ringtone;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -52,40 +44,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.google.gson.Gson;
-import com.microsoft.band.BandClient;
-import com.microsoft.band.BandClientManager;
-import com.microsoft.band.BandException;
-import com.microsoft.band.BandIOException;
-import com.microsoft.band.BandInfo;
-import com.microsoft.band.BandPendingResult;
-import com.microsoft.band.ConnectionState;
-import com.microsoft.band.tiles.BandIcon;
-import com.microsoft.band.tiles.BandTile;
-import com.pdmanager.alerting.UserAlertManager;
-import com.pdmanager.call.CNMessage;
-import com.pdmanager.common.ConnectionResult;
-import com.pdmanager.common.Util;
-import com.pdmanager.app.PDApplicationContext;
-import com.pdmanager.app.PDPilotAppContext;
 import com.pdmanager.R;
+import com.pdmanager.alerting.UserAlertManager;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.app.VideoApp;
-import com.pdmanager.communication.BatchCommSender;
+import com.pdmanager.call.CNMessage;
 import com.pdmanager.communication.NetworkStatus;
-import com.pdmanager.communication.SQLCommunicationQueue;
-import com.pdmanager.interfaces.IBandTileManager;
 import com.pdmanager.interfaces.INetworkStatusHandler;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.models.UserAlert;
-import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.LogEventFragment;
 import com.pdmanager.views.RecordingSchedulingFragment;
 import com.pdmanager.views.RecordingServiceFragment;
 import com.pdmanager.views.RecordingSettingsFragment;
-import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.drawers.CaregiverDrawerFragment;
 import com.telerik.common.TrackedApplication;
 import com.telerik.common.contracts.TrackedActivity;
@@ -96,8 +68,6 @@ import com.telerik.viewmodels.MenuAction;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
 
 //import com.pdmanager.services.RegistrationIntentService;
 
@@ -713,7 +683,7 @@ public class CaregiverActivity extends ActionBarActivity implements CaregiverDra
     }
 
     private long getTimeFromHour() {
-        Date date1 = new java.util.Date();
+        Date date1 = new Date();
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
 
@@ -724,7 +694,7 @@ public class CaregiverActivity extends ActionBarActivity implements CaregiverDra
 
     private void initAlerts() {
 
-        Date date1 = new java.util.Date();
+        Date date1 = new Date();
 
 
 

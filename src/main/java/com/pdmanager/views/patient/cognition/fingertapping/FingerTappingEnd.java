@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.pdmanager.R;
-import com.pdmanager.communication.CommunicationManager;
-import com.pdmanager.communication.DirectSender;
 import com.pdmanager.communication.DirectSenderTask;
 import com.pdmanager.communication.IDirectSendCallback;
-import com.pdmanager.views.patient.cognition.MainMenu;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 
 import java.io.File;
@@ -22,11 +21,7 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
-
-import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.models.Observation;
 
 
 /**
@@ -226,7 +221,7 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
 
             //CommunicationManager mCommManager = new CommunicationManager();
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsFtsTaps = new Observation (tapsTestOne, patientCode, "PDTFTS_TAPS", time);
+            Observation obsFtsTaps = new Observation(tapsTestOne, patientCode, "PDTFTS_TAPS", time);
             obsFtsTaps.PatientId = patientCode;
             Observation obsFtsMean = new Observation(Double.parseDouble(meanTimeTest1), patientCode, "PDTFTS_MEAN", time);
             obsFtsMean.PatientId = patientCode;
@@ -235,9 +230,9 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             obsFtsMax.PatientId = patientCode;
             Observation obsFtsMin = new Observation(Double.parseDouble(minTimeTest1), patientCode, "PDTFTS_MIN", time);
             obsFtsMin.PatientId = patientCode;
-            Observation obsFtaTaps = new Observation (tapsTestTwo, patientCode, "PDTFTA_TAPS", time);
+            Observation obsFtaTaps = new Observation(tapsTestTwo, patientCode, "PDTFTA_TAPS", time);
             obsFtaTaps.PatientId = patientCode;
-            Observation obsFtaErrors = new Observation (errorTapsTestTwo, patientCode, "PDTFTA_ERRORS", time);
+            Observation obsFtaErrors = new Observation(errorTapsTestTwo, patientCode, "PDTFTA_ERRORS", time);
             obsFtaErrors.PatientId = patientCode;
             Observation obsFtaMean = new Observation(Double.parseDouble(meanTimeTest2), patientCode, "PDTFTA_MEAN", time);
             obsFtaMean.PatientId = patientCode;

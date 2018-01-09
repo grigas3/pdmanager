@@ -2,8 +2,6 @@ package com.pdmanager.common;
 
 import android.os.Environment;
 
-import com.pdmanager.common.data.BaseSensorData;
-import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.math.DoubleMath;
 
 import java.io.BufferedOutputStream;

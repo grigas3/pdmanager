@@ -1,28 +1,21 @@
 package com.pdmanager.views.common;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
 import com.pdmanager.models.Observation;
-import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.viewmodels.PDTestResult;
 import com.pdmanager.views.BaseTestPagerAdapter;
 import com.wizard.model.AbstractWizardModel;
@@ -112,6 +105,17 @@ public abstract class BaseTestActivity extends FragmentActivity implements
         });
 
         mNextButton = (Button) findViewById(R.id.next_button);
+
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+
+                //TODO: GET selected data
+                updateBottomBar();
+            }
+        });
+
         mPrevButton = (Button) findViewById(R.id.prev_button);
 
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -300,7 +304,7 @@ public abstract class BaseTestActivity extends FragmentActivity implements
                 DirectSender sender = new DirectSender(accessToken);
                 CommunicationManager mCommManager = new CommunicationManager(sender);
 
-                Date date1 = new java.util.Date();
+                Date date1 = new Date();
                 Calendar cal1 = Calendar.getInstance();
                 cal1.setTime(date1);
                 ArrayList<Observation> obsC = new ArrayList<>();

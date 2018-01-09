@@ -17,11 +17,11 @@ import android.widget.TextView;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.controls.CircleButton;
 import com.pdmanager.R;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
+import com.pdmanager.controls.CircleButton;
 import com.pdmanager.medication.MedManager;
 import com.pdmanager.models.MedTiming;
 import com.pdmanager.models.MedicationOrder;

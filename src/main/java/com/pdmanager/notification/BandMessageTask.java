@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import com.microsoft.band.BandClient;
 import com.microsoft.band.notifications.MessageFlags;
 import com.microsoft.band.notifications.VibrationType;
-import com.pdmanager.models.UserAlert;
 
 import java.util.UUID;
 

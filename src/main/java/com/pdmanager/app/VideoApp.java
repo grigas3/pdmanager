@@ -39,10 +39,10 @@ import com.oovoo.sdk.interfaces.VideoDevice;
 import com.oovoo.sdk.interfaces.VideoRender;
 import com.oovoo.sdk.interfaces.ooVooSdkResult;
 import com.oovoo.sdk.interfaces.ooVooSdkResultListener;
-import com.pdmanager.call.CNMessage;
 import com.pdmanager.R;
-import com.pdmanager.settings.VideoSettings;
+import com.pdmanager.call.CNMessage;
 import com.pdmanager.services.CustomTimer;
+import com.pdmanager.settings.VideoSettings;
 import com.pdmanager.views.call.CustomVideoPanel;
 import com.telerik.common.TrackedApplication;
 
@@ -1163,7 +1163,7 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
                         LogSdk.d(TAG, "sendAcknowledgement sent delivered acknowledgement");
                         sdk.getMessaging().sendAcknowledgement(Messaging.MessageAcknowledgeState.Read, message, new ooVooSdkResultListener() {
                             @Override
-                            public void onResult(ooVooSdkResult ooVooSdkResult) {
+                            public void onResult(com.oovoo.sdk.interfaces.ooVooSdkResult ooVooSdkResult) {
                                 if (ooVooSdkResult.getResult() != sdk_error.OK) {
                                     LogSdk.e(TAG, "Error on sending read acknowledgement: " + ooVooSdkResult.getDescription());
                                 } else {

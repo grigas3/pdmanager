@@ -333,7 +333,7 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsWCSTCorrColor = new Observation (correctColor, patientCode, "PDTWCST_CORR_COLOR", time);
+            Observation obsWCSTCorrColor = new Observation(correctColor, patientCode, "PDTWCST_CORR_COLOR", time);
             obsWCSTCorrColor.PatientId = patientCode;
             Observation obsWCSTCorrShape = new Observation(correctShape, patientCode, "PDTWCST_CORR_SHAPE", time);
             obsWCSTCorrShape.PatientId = patientCode;
@@ -341,9 +341,9 @@ public class WisconsinCardSorting extends SoundFeedbackActivity
             obsWCSTCorrNumber.PatientId = patientCode;
             Observation obsWCSTErrorsColor = new Observation(errorsColor, patientCode, "PDTWCST_ERROR_COLOR", time);
             obsWCSTErrorsColor.PatientId = patientCode;
-            Observation obsWCSTErrorsShape = new Observation (errorsShape, patientCode, "PDTWCST_ERROR_SHAPE", time);
+            Observation obsWCSTErrorsShape = new Observation(errorsShape, patientCode, "PDTWCST_ERROR_SHAPE", time);
             obsWCSTErrorsShape.PatientId = patientCode;
-            Observation obsWCSTErrorsNumber = new Observation (errorsNumber, patientCode, "PDTWCST_ERROR_NUMBER", time);
+            Observation obsWCSTErrorsNumber = new Observation(errorsNumber, patientCode, "PDTWCST_ERROR_NUMBER", time);
             obsWCSTErrorsNumber.PatientId = patientCode;
             Observation obsWCSTErrorsColorShape = new Observation(errorsColorShape, patientCode, "PDTWCST_ERROR_COLORSHAPE", time);
             obsWCSTErrorsColorShape.PatientId = patientCode;

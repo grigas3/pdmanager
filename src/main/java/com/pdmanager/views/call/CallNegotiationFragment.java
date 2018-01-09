@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import com.pdmanager.R;
 import com.pdmanager.app.VideoApp.CallNegotiationListener;
 import com.pdmanager.app.VideoApp.MessageCompletionHandler;
@@ -25,7 +24,7 @@ import com.pdmanager.views.BasePDFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CallNegotiationFragment extends BasePDFragment implements View.OnClickListener, CallNegotiationListener {
+public class CallNegotiationFragment extends BasePDFragment implements OnClickListener, CallNegotiationListener {
 
     private static final String KEY_ADAPTER_STATE = "com.oovoo.sdk.fragmentstate.KEY_ADAPTER_STATE";
     private static final int MAX_CALL_RECEIVERS = 4;
@@ -203,7 +202,7 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
             }
 
             @SuppressWarnings("unused")
-            public static final Parcelable.Creator<CallReceiver> CREATOR = new Parcelable.Creator<CallReceiver>() {
+            public static final Creator<CallReceiver> CREATOR = new Creator<CallReceiver>() {
                 @Override
                 public CallReceiver createFromParcel(Parcel in) {
                     return new CallReceiver(in);
@@ -313,7 +312,7 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
         if (app().getUniqueId().equals(cnMessage.getUniqueId())) {
             return;
         }
-        
+
         if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerAccept) {
             app().join(app().getConferenceId(), true);
         } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerDecline) {

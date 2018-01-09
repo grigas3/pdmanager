@@ -17,7 +17,7 @@ import se.simbio.encryption.Encryption;
  * Created by george on 5/1/2017.
  */
 
-public class SQLCommunicationList implements  ICommunicationQueue, IJsonRequestHandler {
+public class SQLCommunicationList implements ICommunicationQueue, IJsonRequestHandler {
 
         private Context ctx;
     public SQLCommunicationList(Context context) {
@@ -56,7 +56,7 @@ public class SQLCommunicationList implements  ICommunicationQueue, IJsonRequestH
         ArrayList<JsonStorage> jsonsRet=new ArrayList<JsonStorage>();
         Cursor cursor=null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
 
             db = helper.getReadableDatabase();
            // db.beginTransaction();
@@ -119,7 +119,7 @@ public class SQLCommunicationList implements  ICommunicationQueue, IJsonRequestH
         DBHandler helper=null;
         SQLiteDatabase db = null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getWritableDatabase();
 
             ContentValues values = new ContentValues();
@@ -150,7 +150,7 @@ public class SQLCommunicationList implements  ICommunicationQueue, IJsonRequestH
 
         boolean ret=false;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
 
             db = helper.getWritableDatabase();
         db.delete(DBHandler.TABLE_JREQUESTS, DBHandler.COLUMN_ID+" = ?", new String[]{String.valueOf(id)});

@@ -370,7 +370,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     }
 
     private long getTimeFromHour(int hour) {
-        Date date1 = new java.util.Date();
+        Date date1 = new Date();
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
 
@@ -384,7 +384,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     private void initAlerts(RecordingSettings settings) {
 
-        Date date1 = new java.util.Date();
+        Date date1 = new Date();
 
         int cognHour1 = settings.getCognHour1();
 
@@ -1130,7 +1130,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         protected Void doInBackground(Void... clientParams) {
 
-            RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
+            RecordingSettings settings = RecordingSettings.GetRecordingSettings(getActivity());
             settings.setSessionRunning(false);
             getService().StopRecording();
 
@@ -1188,7 +1188,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         protected Void doInBackground(Void... clientParams) {
 
-            RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
+            RecordingSettings settings = RecordingSettings.GetRecordingSettings(getActivity());
 
 
             Time today = new Time(Time.getCurrentTimezone());

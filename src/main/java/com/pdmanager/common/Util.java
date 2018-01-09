@@ -21,8 +21,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.util.Log;
 
-import com.pdmanager.logging.LogHandler;
-
 public class Util {
 
     private Util() {

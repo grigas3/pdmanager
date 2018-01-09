@@ -47,7 +47,7 @@ public abstract class SensorData<T> extends BaseSensorData implements ISensorDat
     }
 
     public void setTimestampFromLong(long timestamp) {
-        this.mTimestamp = new java.util.Date(timestamp);
+        this.mTimestamp = new Date(timestamp);
     }
 
 

@@ -21,8 +21,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.pdmanager.viewmodels.BS11WizardModel;
-import com.pdmanager.views.common.BaseTestActivity;
 import com.pdmanager.views.BaseTestPagerAdapter;
+import com.pdmanager.views.common.BaseTestActivity;
 import com.wizard.model.AbstractWizardModel;
 import com.wizard.model.Page;
 import com.wizard.ui.BS11ReviewFragment;

@@ -62,9 +62,9 @@ public class SpatialWorkingMemoryTest extends SoundFeedbackActivity {
     private int nEmptyBoxesReOpened;
     private int nTokenBoxesReOpened;
 
-    private int[] boxArray={R.id.imageButton1,R.id.imageButton2,R.id.imageButton3,R.id.imageButton4,R.id.imageButton5,R.id.imageButton6,R.id.imageButton7,R.id.imageButton8,R.id.imageButton9,R.id.imageButton10,R.id.imageButton11,R.id.imageButton12,R.id.imageButton13,R.id.imageButton14,R.id.imageButton15,R.id.imageButton16};
-    private int[] boxBisArray={R.id.imageButton1bis,R.id.imageButton2bis,R.id.imageButton3bis,R.id.imageButton4bis,R.id.imageButton5bis,R.id.imageButton6bis,R.id.imageButton7bis,R.id.imageButton8bis,R.id.imageButton9bis,R.id.imageButton10bis,R.id.imageButton11bis,R.id.imageButton12bis,R.id.imageButton13bis,R.id.imageButton14bis,R.id.imageButton15bis,R.id.imageButton16bis};
-    private int[] scoreBoxArray={R.id.box1,R.id.box2,R.id.box3,R.id.box4,R.id.box5,R.id.box6,R.id.box7,R.id.box8,R.id.box0};
+    private int[] boxArray = {R.id.imageButton1, R.id.imageButton2, R.id.imageButton3, R.id.imageButton4, R.id.imageButton5, R.id.imageButton6, R.id.imageButton7, R.id.imageButton8, R.id.imageButton9, R.id.imageButton10, R.id.imageButton11, R.id.imageButton12, R.id.imageButton13, R.id.imageButton14, R.id.imageButton15, R.id.imageButton16};
+    private int[] boxBisArray = {R.id.imageButton1bis, R.id.imageButton2bis, R.id.imageButton3bis, R.id.imageButton4bis, R.id.imageButton5bis, R.id.imageButton6bis, R.id.imageButton7bis, R.id.imageButton8bis, R.id.imageButton9bis, R.id.imageButton10bis, R.id.imageButton11bis, R.id.imageButton12bis, R.id.imageButton13bis, R.id.imageButton14bis, R.id.imageButton15bis, R.id.imageButton16bis};
+    private int[] scoreBoxArray = {R.id.box1, R.id.box2, R.id.box3, R.id.box4, R.id.box5, R.id.box6, R.id.box7, R.id.box8, R.id.box0};
 
     private int[] boxes = new int[NUMBER_OF_BOXES];
     private int[] bisBoxes = new int[NUMBER_OF_BOXES];

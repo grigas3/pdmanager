@@ -5,7 +5,6 @@ package com.pdmanager.test.alerting; /**
 
 
 import com.pdmanager.BuildConfig;
-import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.models.Alert;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.settings.RecordingSettings;

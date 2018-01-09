@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.models.Patient;
 import com.pdmanager.views.BasePDFragment;
 import com.telerik.widget.list.ListViewAdapter;

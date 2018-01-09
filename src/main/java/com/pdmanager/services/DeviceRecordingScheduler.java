@@ -1,10 +1,7 @@
 package com.pdmanager.services;
 
 import com.pdmanager.common.DataTypes;
-import com.pdmanager.common.data.AccData;
 import com.pdmanager.common.data.GyroMData;
-import com.pdmanager.common.data.HRData;
-import com.pdmanager.common.data.HRReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.interfaces.IDataProcessor;
 
@@ -60,7 +57,7 @@ public class DeviceRecordingScheduler implements IDataProcessor {
         lastAcquisition = System.currentTimeMillis();
 
         int dataType = data.getDataType();
-        if(dataType==DataTypes.GYRO_DEVICE&&intervalsToAcquire>0) {
+        if (dataType == DataTypes.GYRO_DEVICE && intervalsToAcquire > 0) {
 
 
             GyroMData gyro = (GyroMData) data;

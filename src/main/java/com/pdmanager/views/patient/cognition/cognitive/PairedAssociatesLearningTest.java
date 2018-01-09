@@ -46,40 +46,40 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
     // These are the 6 Image Views. TODO this can be optimized in the future
     private int[] imgArray = {R.id.case1, R.id.case2, R.id.case3, R.id.case4, R.id.case5, R.id.case6};
-    private int[] imgBisArray = {R.id.case1bis, R.id.case2bis, R.id.case3bis, R.id.case4bis,R.id.case5bis, R.id.case6bis};
+    private int[] imgBisArray = {R.id.case1bis, R.id.case2bis, R.id.case3bis, R.id.case4bis, R.id.case5bis, R.id.case6bis};
 
     // These are the 8 Image Views (for levels 7 and 8)
     private int[] imgArrayLastLevels = {R.id.box1, R.id.box2, R.id.box3, R.id.box4, R.id.box5, R.id.box6, R.id.box7, R.id.box8};
-    private int[] imgBisArrayLastLevels = {R.id.box1bis, R.id.box2bis, R.id.box3bis, R.id.box4bis, R.id.box5bis, R.id.box6bis,R.id.box7bis, R.id.box8bis};
+    private int[] imgBisArrayLastLevels = {R.id.box1bis, R.id.box2bis, R.id.box3bis, R.id.box4bis, R.id.box5bis, R.id.box6bis, R.id.box7bis, R.id.box8bis};
 
     // These are the different stimuli to show
-    private int[] imgResArray = {R.drawable.pal1,R.drawable.pal2,R.drawable.pal3,R.drawable.pal4,R.drawable.pal5,
-            R.drawable.pal6,R.drawable.pal7,R.drawable.pal8,R.drawable.pal9,R.drawable.pal10,
-            R.drawable.pal11,R.drawable.pal12,R.drawable.pal13,R.drawable.pal14,R.drawable.pal15,
-            R.drawable.pal16,R.drawable.pal17,R.drawable.pal18,R.drawable.pal19,R.drawable.pal20,
-            R.drawable.pal21,R.drawable.pal22,R.drawable.pal23,R.drawable.pal24,R.drawable.pal25,
-            R.drawable.pal26,R.drawable.pal27,R.drawable.pal28,R.drawable.pal29,R.drawable.pal30,
-            R.drawable.pal31,R.drawable.pal32,R.drawable.pal33,R.drawable.pal34,R.drawable.pal35,
-            R.drawable.pal36,R.drawable.pal37,R.drawable.pal38,R.drawable.pal39,R.drawable.pal40,
-            R.drawable.pal41,R.drawable.pal42,R.drawable.pal43,R.drawable.pal44,R.drawable.pal45,
-            R.drawable.pal46,R.drawable.pal47,R.drawable.pal48,R.drawable.pal49,R.drawable.pal50,
-            R.drawable.pal51,R.drawable.pal52,R.drawable.pal53,R.drawable.pal54,R.drawable.pal55,
-            R.drawable.pal56,R.drawable.pal57,R.drawable.pal58,R.drawable.pal59,R.drawable.pal60,
-            R.drawable.pal61,R.drawable.pal62,R.drawable.pal63,R.drawable.pal64,R.drawable.pal65,
-            R.drawable.pal66,R.drawable.pal67,R.drawable.pal68,R.drawable.pal69,R.drawable.pal70,
-            R.drawable.pal71,R.drawable.pal72,R.drawable.pal73,R.drawable.pal74,R.drawable.pal75,
-            R.drawable.pal76,R.drawable.pal77,R.drawable.pal78,R.drawable.pal79,R.drawable.pal80,
-            R.drawable.pal81,R.drawable.pal82,R.drawable.pal83,R.drawable.pal84,R.drawable.pal85,
-            R.drawable.pal86,R.drawable.pal87,R.drawable.pal88,R.drawable.pal89,R.drawable.pal90,
-            R.drawable.pal91,R.drawable.pal92,R.drawable.pal93,R.drawable.pal94,R.drawable.pal95,
-            R.drawable.pal96,R.drawable.pal97,R.drawable.pal98,R.drawable.pal99,R.drawable.pal100,
-            R.drawable.pal101,R.drawable.pal102,R.drawable.pal103,R.drawable.pal104,R.drawable.pal105,
-            R.drawable.pal106,R.drawable.pal107,R.drawable.pal108,R.drawable.pal109,R.drawable.pal110,
-            R.drawable.pal111,R.drawable.pal112,R.drawable.pal113,R.drawable.pal114,R.drawable.pal115,
-            R.drawable.pal116,R.drawable.pal117,R.drawable.pal118,R.drawable.pal119,R.drawable.pal120,
-            R.drawable.pal121,R.drawable.pal122,R.drawable.pal123,R.drawable.pal124,R.drawable.pal125,
-            R.drawable.pal126,R.drawable.pal127,R.drawable.pal128,R.drawable.pal129,R.drawable.pal130,
-            R.drawable.pal131,R.drawable.pal132,R.drawable.pal133,R.drawable.pal134,R.drawable.pal135};
+    private int[] imgResArray = {R.drawable.pal1, R.drawable.pal2, R.drawable.pal3, R.drawable.pal4, R.drawable.pal5,
+            R.drawable.pal6, R.drawable.pal7, R.drawable.pal8, R.drawable.pal9, R.drawable.pal10,
+            R.drawable.pal11, R.drawable.pal12, R.drawable.pal13, R.drawable.pal14, R.drawable.pal15,
+            R.drawable.pal16, R.drawable.pal17, R.drawable.pal18, R.drawable.pal19, R.drawable.pal20,
+            R.drawable.pal21, R.drawable.pal22, R.drawable.pal23, R.drawable.pal24, R.drawable.pal25,
+            R.drawable.pal26, R.drawable.pal27, R.drawable.pal28, R.drawable.pal29, R.drawable.pal30,
+            R.drawable.pal31, R.drawable.pal32, R.drawable.pal33, R.drawable.pal34, R.drawable.pal35,
+            R.drawable.pal36, R.drawable.pal37, R.drawable.pal38, R.drawable.pal39, R.drawable.pal40,
+            R.drawable.pal41, R.drawable.pal42, R.drawable.pal43, R.drawable.pal44, R.drawable.pal45,
+            R.drawable.pal46, R.drawable.pal47, R.drawable.pal48, R.drawable.pal49, R.drawable.pal50,
+            R.drawable.pal51, R.drawable.pal52, R.drawable.pal53, R.drawable.pal54, R.drawable.pal55,
+            R.drawable.pal56, R.drawable.pal57, R.drawable.pal58, R.drawable.pal59, R.drawable.pal60,
+            R.drawable.pal61, R.drawable.pal62, R.drawable.pal63, R.drawable.pal64, R.drawable.pal65,
+            R.drawable.pal66, R.drawable.pal67, R.drawable.pal68, R.drawable.pal69, R.drawable.pal70,
+            R.drawable.pal71, R.drawable.pal72, R.drawable.pal73, R.drawable.pal74, R.drawable.pal75,
+            R.drawable.pal76, R.drawable.pal77, R.drawable.pal78, R.drawable.pal79, R.drawable.pal80,
+            R.drawable.pal81, R.drawable.pal82, R.drawable.pal83, R.drawable.pal84, R.drawable.pal85,
+            R.drawable.pal86, R.drawable.pal87, R.drawable.pal88, R.drawable.pal89, R.drawable.pal90,
+            R.drawable.pal91, R.drawable.pal92, R.drawable.pal93, R.drawable.pal94, R.drawable.pal95,
+            R.drawable.pal96, R.drawable.pal97, R.drawable.pal98, R.drawable.pal99, R.drawable.pal100,
+            R.drawable.pal101, R.drawable.pal102, R.drawable.pal103, R.drawable.pal104, R.drawable.pal105,
+            R.drawable.pal106, R.drawable.pal107, R.drawable.pal108, R.drawable.pal109, R.drawable.pal110,
+            R.drawable.pal111, R.drawable.pal112, R.drawable.pal113, R.drawable.pal114, R.drawable.pal115,
+            R.drawable.pal116, R.drawable.pal117, R.drawable.pal118, R.drawable.pal119, R.drawable.pal120,
+            R.drawable.pal121, R.drawable.pal122, R.drawable.pal123, R.drawable.pal124, R.drawable.pal125,
+            R.drawable.pal126, R.drawable.pal127, R.drawable.pal128, R.drawable.pal129, R.drawable.pal130,
+            R.drawable.pal131, R.drawable.pal132, R.drawable.pal133, R.drawable.pal134, R.drawable.pal135};
 
     // Array with the order pattern of buttons
     private int[] imgPlaceArray = new int[N_LEVELS-2];

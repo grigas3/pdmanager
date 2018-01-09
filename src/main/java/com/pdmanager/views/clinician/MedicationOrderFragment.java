@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -264,7 +263,7 @@ public class MedicationOrderFragment extends BasePDFragment implements PatientCh
                     if (emptyList != null)
                         emptyList.setVisibility(View.INVISIBLE);
                 }
-               // adapter = new MedCursorAdapter(result.Data);
+                adapter = new MedOrderAdapter(result.Data);
 
 
                 Function<Object, Object> groupDescriptor = new Function<Object, Object>() {
@@ -275,8 +274,8 @@ public class MedicationOrderFragment extends BasePDFragment implements PatientCh
                 };
 
 
-//                adapter.addGroupDescriptor(groupDescriptor); // to be added again if group description
-//                listView.setAdapter(adapter);
+                adapter.addGroupDescriptor(groupDescriptor); // to be added again if group description
+                listView.setAdapter(adapter);
 
 
             }

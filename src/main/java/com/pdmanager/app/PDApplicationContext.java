@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -66,6 +67,7 @@ public class PDApplicationContext extends VideoApp implements Thread.UncaughtExc
     @Override
     public void onCreate() {
         super.onCreate();
+        MultiDex.install(this);
 
         PACKAGE_NAME = getApplicationContext().getPackageName();
         defaultUEHandler = Thread.getDefaultUncaughtExceptionHandler();

@@ -25,12 +25,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.pdmanager.R;
 import com.pdmanager.common.DataTypes;
 import com.pdmanager.common.data.HRData;
 import com.pdmanager.common.data.HRReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.interfaces.ISensorDataHandler;
-import com.pdmanager.R;
 
 
 public class SensorsFragment extends Fragment implements FragmentListener, ISensorDataHandler {

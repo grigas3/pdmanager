@@ -101,7 +101,7 @@ public class DirectSender implements IJsonRequestHandler {
         DBHandler helper=null;
         SQLiteDatabase db = null;
         try {
-            helper=DBHandler.getInstance(mContext);
+            helper = DBHandler.getInstance(mContext);
             db = helper.getWritableDatabase();
 
             ContentValues values = new ContentValues();

@@ -1,10 +1,8 @@
 package com.pdmanager.medication;
 
-import com.pdmanager.models.Alert;
 import com.pdmanager.models.MedicationOrder;
 import com.pdmanager.models.UserAlert;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

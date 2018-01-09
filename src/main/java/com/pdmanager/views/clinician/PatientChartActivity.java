@@ -22,12 +22,12 @@ import android.widget.FrameLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.models.Patient;
 import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.TestAssessmentFragment;
+import com.pdmanager.views.common.LoginActivity;
 import com.pdmanager.views.drawers.PatientChartDrawerFragment;
 import com.telerik.common.TelerikActivityHelper;
 import com.telerik.common.TrackedApplication;

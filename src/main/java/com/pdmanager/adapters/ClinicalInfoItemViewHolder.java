@@ -1,6 +1,7 @@
 package com.pdmanager.adapters;
 
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.pdmanager.R;
@@ -20,6 +21,7 @@ class ClinicalInfoItemViewHolder extends ListViewHolder {
     public TextView itemSubscriber;
     // public TextView itemPriority;
     public TextView itemDate;
+    public FrameLayout wrapperFrameLayout;
 
 
     public ClinicalInfoItemViewHolder(View itemView) {
@@ -30,6 +32,7 @@ class ClinicalInfoItemViewHolder extends ListViewHolder {
         this.itemCode = (TextView) itemView.findViewById(R.id.codeView);
         this.itemDate = (TextView) itemView.findViewById(R.id.prescrDateView);
         this.itemSubscriber = (TextView) itemView.findViewById(R.id.prescriberView);
+        this.wrapperFrameLayout = (FrameLayout) itemView.findViewById(R.id.wrapperFramelayout);
         //   this.itemPriority = (TextView) itemView.findViewById(R.id.statusView);
 
 
