@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import com.pdmanager.R;
 import com.pdmanager.app.VideoApp.CallNegotiationListener;
 import com.pdmanager.app.VideoApp.MessageCompletionHandler;
@@ -36,13 +35,13 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
     private int count = 0;
     private int enabledReceivesCount = 0;
 
+    public CallNegotiationFragment() {
+    }
+
     public static final CallNegotiationFragment newInstance() {
         CallNegotiationFragment fragment = new CallNegotiationFragment();
 
         return fragment;
-    }
-
-    public CallNegotiationFragment() {
     }
 
     @Override
@@ -162,59 +161,73 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
         super.onDestroyView();
     }
 
+    @Override
+    public void onClick(View v) {
+
+        callDialogBuilder.hide();
+
+        switch (v.getId()) {
+            case R.id.cancel_button: {
+                sendCNMessage(CNMessageType.Cancel, null);
+            }
+            break;
+
+            default:
+                break;
+        }
+    }
+
+    private boolean sendCNMessage(CNMessageType type, long timeout, MessageCompletionHandler completionHandler) {
+        ArrayList<String> toList = new ArrayList<String>();
+        for (int i = 0; i < callReceiverAdapter.getCount(); i++) {
+            CallReceiverAdapter.CallReceiver receiver = callReceiverAdapter.getItem(i);
+
+            if (receiver.isCallEnabled() && toList.size() < MAX_CALL_RECEIVERS) {
+                toList.add(receiver.getReceiverId());
+            }
+        }
+
+        if (toList.isEmpty()) {
+            return false;
+        }
+
+        app().sendCNMessage(toList, type, timeout, completionHandler);
+
+        return true;
+    }
+
+    private boolean sendCNMessage(CNMessageType type, MessageCompletionHandler completionHandler) {
+        return sendCNMessage(type, 0, completionHandler);
+    }
+
+    @Override
+    public void onMessageReceived(CNMessage cnMessage) {
+        if (app().getUniqueId().equals(cnMessage.getUniqueId())) {
+            return;
+        }
+
+        if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerAccept) {
+            app().join(app().getConferenceId(), true);
+        } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerDecline) {
+            count--;
+            if (count <= 0) {
+                callDialogBuilder.hide();
+            }
+        } else if (cnMessage.getMessageType() == CNMessageType.Busy) {
+            count--;
+            if (count <= 0) {
+                Toast.makeText(getActivity(), R.string.call_busy, Toast.LENGTH_SHORT).show();
+                callDialogBuilder.hide();
+            }
+        }
+    }
+
+    public BasePDFragment getBackFragment() {
+        return CallNegotiationFragment.newInstance();
+    }
+
     private static class CallReceiverAdapter extends BaseAdapter {
         private final List<CallReceiver> receivers = new ArrayList<CallReceiver>();
-
-
-        public static class CallReceiver implements Parcelable {
-            private String receiverId = null;
-            private Boolean isCallEnabled = true;
-
-            public CallReceiver(String receiverId) {
-                this.receiverId = receiverId;
-            }
-
-            public String getReceiverId() {
-                return receiverId;
-            }
-
-            public void setCallEnabled(boolean isCallEnabled) {
-                this.isCallEnabled = isCallEnabled;
-            }
-
-            public boolean isCallEnabled() {
-                return this.isCallEnabled;
-            }
-
-            protected CallReceiver(Parcel in) {
-                receiverId = in.readString();
-                isCallEnabled = in.readByte() != 0;
-            }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel dest, int flags) {
-                dest.writeString(receiverId);
-                dest.writeByte((byte) (isCallEnabled ? 1 : 0));
-            }
-
-            @SuppressWarnings("unused")
-            public static final Parcelable.Creator<CallReceiver> CREATOR = new Parcelable.Creator<CallReceiver>() {
-                @Override
-                public CallReceiver createFromParcel(Parcel in) {
-                    return new CallReceiver(in);
-                }
-
-                @Override
-                public CallReceiver[] newArray(int size) {
-                    return new CallReceiver[size];
-                }
-            };
-        }
 
         ArrayList<CallReceiver> onSaveInstanceState() {
             int size = getCount();
@@ -267,70 +280,54 @@ public class CallNegotiationFragment extends BasePDFragment implements View.OnCl
 
             receivers.add(new CallReceiver(receiverId));
         }
-    }
 
-    @Override
-    public void onClick(View v) {
+        public static class CallReceiver implements Parcelable {
+            @SuppressWarnings("unused")
+            public static final Parcelable.Creator<CallReceiver> CREATOR = new Parcelable.Creator<CallReceiver>() {
+                @Override
+                public CallReceiver createFromParcel(Parcel in) {
+                    return new CallReceiver(in);
+                }
 
-        callDialogBuilder.hide();
+                @Override
+                public CallReceiver[] newArray(int size) {
+                    return new CallReceiver[size];
+                }
+            };
+            private String receiverId = null;
+            private Boolean isCallEnabled = true;
 
-        switch (v.getId()) {
-            case R.id.cancel_button: {
-                sendCNMessage(CNMessageType.Cancel, null);
+            public CallReceiver(String receiverId) {
+                this.receiverId = receiverId;
             }
-            break;
 
-            default:
-                break;
-        }
-    }
-
-    private boolean sendCNMessage(CNMessageType type, long timeout, MessageCompletionHandler completionHandler) {
-        ArrayList<String> toList = new ArrayList<String>();
-        for (int i = 0; i < callReceiverAdapter.getCount(); i++) {
-            CallReceiverAdapter.CallReceiver receiver = callReceiverAdapter.getItem(i);
-
-            if (receiver.isCallEnabled() && toList.size() < MAX_CALL_RECEIVERS) {
-                toList.add(receiver.getReceiverId());
+            protected CallReceiver(Parcel in) {
+                receiverId = in.readString();
+                isCallEnabled = in.readByte() != 0;
             }
-        }
 
-        if (toList.isEmpty()) {
-            return false;
-        }
-
-        app().sendCNMessage(toList, type, timeout, completionHandler);
-
-        return true;
-    }
-
-    private boolean sendCNMessage(CNMessageType type, MessageCompletionHandler completionHandler) {
-        return sendCNMessage(type, 0, completionHandler);
-    }
-
-    @Override
-    public void onMessageReceived(CNMessage cnMessage) {
-        if (app().getUniqueId().equals(cnMessage.getUniqueId())) {
-            return;
-        }
-        
-        if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerAccept) {
-            app().join(app().getConferenceId(), true);
-        } else if (cnMessage.getMessageType() == CNMessage.CNMessageType.AnswerDecline) {
-            count--;
-            if (count <= 0) {
-                callDialogBuilder.hide();
+            public String getReceiverId() {
+                return receiverId;
             }
-        } else if (cnMessage.getMessageType() == CNMessageType.Busy) {
-            count--;
-            if (count <= 0) {
-                Toast.makeText(getActivity(), R.string.call_busy, Toast.LENGTH_SHORT).show();
-                callDialogBuilder.hide();
+
+            public boolean isCallEnabled() {
+                return this.isCallEnabled;
+            }
+
+            public void setCallEnabled(boolean isCallEnabled) {
+                this.isCallEnabled = isCallEnabled;
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(receiverId);
+                dest.writeByte((byte) (isCallEnabled ? 1 : 0));
             }
         }
-    }
-
-    public BasePDFragment getBackFragment() {
-        return CallNegotiationFragment.newInstance();
     }
 }

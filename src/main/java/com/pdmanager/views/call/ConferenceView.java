@@ -83,15 +83,15 @@ public class ConferenceView extends FrameLayout {
 
     public void layoutView(View v, int x, int y, int width, int height) {
         LayoutParams p = (LayoutParams) v.getLayoutParams();
-        if( p == null ) {
-            p = new FrameLayout.LayoutParams( width - x, height - y );
+        if (p == null) {
+            p = new FrameLayout.LayoutParams(width - x, height - y);
         }
 
         p.leftMargin = x;
         p.topMargin = y;
         p.width = width - x;
         p.height = height - y;
-        v.setLayoutParams( p );
+        v.setLayoutParams(p);
 
         View videoRender = (View) v.getTag();
         videoRender.setTag(new Point(p.width, p.height));
@@ -99,18 +99,18 @@ public class ConferenceView extends FrameLayout {
         FrameLayout.LayoutParams rp = (FrameLayout.LayoutParams) videoRender.getLayoutParams();
         rp.width = p.width;
         rp.height = p.height;
-        videoRender.setLayoutParams( rp );
+        videoRender.setLayoutParams(rp);
 
-        TextView displayNameTextView = (TextView) v.findViewById( R.id.display_name_text_view );
+        TextView displayNameTextView = (TextView) v.findViewById(R.id.display_name_text_view);
         FrameLayout.LayoutParams dp = (FrameLayout.LayoutParams) displayNameTextView.getLayoutParams();
         dp.width = rp.width;
-        displayNameTextView.setLayoutParams( dp );
+        displayNameTextView.setLayoutParams(dp);
 
-        ImageView avatarImageView = (ImageView) v.findViewById( R.id.avatar_image_view );
+        ImageView avatarImageView = (ImageView) v.findViewById(R.id.avatar_image_view);
         FrameLayout.LayoutParams p1 = (FrameLayout.LayoutParams) avatarImageView.getLayoutParams();
         p1.width = rp.width;
         p1.height = rp.height;
-        avatarImageView.setLayoutParams( p1 );
+        avatarImageView.setLayoutParams(p1);
     }
 
     public void onConfigurationChanged(int w, int h) {

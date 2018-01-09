@@ -10,15 +10,13 @@ import com.pdmanager.alerting.UserTaskTrackingCodes;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 
-public abstract class SoundFeedbackActivity extends LoggingTestActivity
-{
+public abstract class SoundFeedbackActivity extends LoggingTestActivity {
     protected Speak speak;
     protected Tones tones;
     protected Preferences prefs;
 
     @Override
-    protected  void onPause()
-    {
+    protected void onPause() {
         super.onPause();
         if (getSettings().getUseSpeech()) {
 
@@ -45,8 +43,7 @@ public abstract class SoundFeedbackActivity extends LoggingTestActivity
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         speak = Speak.getInstance(getApplicationContext());
         tones = Tones.getInstance();
@@ -65,10 +62,11 @@ public abstract class SoundFeedbackActivity extends LoggingTestActivity
 
         }
     }
+
     /**
      * Use this method to finish your test
      */
-    protected void finishTest(){
+    protected void finishTest() {
 
         //TODO: Add Usage Statistics?
         setContentView(R.layout.fragment_thanks);
@@ -85,8 +83,8 @@ public abstract class SoundFeedbackActivity extends LoggingTestActivity
         //Finish Test mainly finish the activity
 
 
-
     }
+
     ///Private method for get settings
     protected RecordingSettings getSettings() {
 
@@ -104,7 +102,7 @@ public abstract class SoundFeedbackActivity extends LoggingTestActivity
 
     protected String getAccessToken() {
 
-        RecordingSettings settings =  getSettings();
+        RecordingSettings settings = getSettings();
 
         if (settings != null) {
             return settings.getToken();

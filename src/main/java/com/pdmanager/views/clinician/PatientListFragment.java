@@ -17,9 +17,9 @@ import android.widget.TextView;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
 import com.pdmanager.adapters.PatientAdapter;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.communication.DataReceiver;
 import com.pdmanager.models.Patient;
 import com.pdmanager.models.PatientListResult;

@@ -11,35 +11,32 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class LoggingTestActivity extends Activity
-{
+public class LoggingTestActivity extends Activity {
     protected ArrayList<String> results;
     private String username;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Preferences prefs = new Preferences(getApplicationContext());
         username = prefs.getUsername();
-        if (username==null) username = "";
+        if (username == null) username = "";
         results = new ArrayList<String>();
     }
 
-    protected void writeFile(String test, String header)
-    {
-        try
-        {
-            File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/"+username);
-            if (!folder.exists())
-            {
-                try  { folder.mkdir(); }
-                catch (Exception e) { e.printStackTrace(); }
+    protected void writeFile(String test, String header) {
+        try {
+            File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/" + username);
+            if (!folder.exists()) {
+                try {
+                    folder.mkdir();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/"+username+"/"+test);
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/" + username + "/" + test);
 
-            if (!file.exists())
-            {
+            if (!file.exists()) {
                 file.createNewFile();
 
                 FileOutputStream fOut = new FileOutputStream(file, true);
@@ -51,10 +48,13 @@ public class LoggingTestActivity extends Activity
 
             FileOutputStream fOut = new FileOutputStream(file, true);
             OutputStreamWriter outputStream = new OutputStreamWriter(fOut);
-            for (String i : results) { outputStream.append(String.valueOf(i)); }
+            for (String i : results) {
+                outputStream.append(String.valueOf(i));
+            }
             outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception e) { e.printStackTrace(); }
     }
 
 }

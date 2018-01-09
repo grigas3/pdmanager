@@ -11,22 +11,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeviceResult implements Parcelable {
 
+    public static final Creator<DeviceResult> CREATOR = new Creator<DeviceResult>() {
+        @Override
+        public DeviceResult createFromParcel(Parcel in) {
+            return new DeviceResult(in);
+        }
+
+        @Override
+        public DeviceResult[] newArray(int size) {
+            return new DeviceResult[size];
+        }
+    };
     @SerializedName("HasError")
 
     public boolean HasError;
-
     @SerializedName("DeviceId")
     public String DeviceId;
-
-
     @SerializedName("Error")
     public String Error;
 
-
-    public DeviceResult()
-    {
+    public DeviceResult() {
 
     }
+
     protected DeviceResult(Parcel in) {
         HasError = in.readByte() != 0;
         DeviceId = in.readString();
@@ -44,16 +51,4 @@ public class DeviceResult implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<DeviceResult> CREATOR = new Creator<DeviceResult>() {
-        @Override
-        public DeviceResult createFromParcel(Parcel in) {
-            return new DeviceResult(in);
-        }
-
-        @Override
-        public DeviceResult[] newArray(int size) {
-            return new DeviceResult[size];
-        }
-    };
 }

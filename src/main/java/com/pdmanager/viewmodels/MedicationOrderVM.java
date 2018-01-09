@@ -39,7 +39,7 @@ public class MedicationOrderVM extends NotifyPropertyChangedBase {
     private long reservationTime4 = Calendar.getInstance().getTimeInMillis();
     private long reservationTime5 = Calendar.getInstance().getTimeInMillis();
     private String dose6 = "50mg";
-    private String dose7= "50mg";
+    private String dose7 = "50mg";
     private String dose8 = "50mg";
     private String dose9 = "50mg";
     private String dose10 = "50mg";
@@ -55,7 +55,6 @@ public class MedicationOrderVM extends NotifyPropertyChangedBase {
     private long reservationTime10 = Calendar.getInstance().getTimeInMillis();
 
 
-
     public MedicationOrderVM() {
 
     }
@@ -64,15 +63,13 @@ public class MedicationOrderVM extends NotifyPropertyChangedBase {
 
         MedicationOrderVM vm = new MedicationOrderVM();
         vm.MedicationName = order.MedicationId;
-        vm.Instructions=order.Instructions;
-
-
+        vm.Instructions = order.Instructions;
 
 
         List<MedTiming> timing = new ArrayList<>();
-    int count=1;
-        for (MedTiming time:order.getTimings()
-             ) {
+        int count = 1;
+        for (MedTiming time : order.getTimings()
+                ) {
 
 
             switch (count) {

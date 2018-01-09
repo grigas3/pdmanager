@@ -23,44 +23,44 @@ public class GLESHelper {
 
     private VideoAnimationListener mAnimationListener = null;
 
-    private VideoFrame          mVideoFrame;
+    private VideoFrame mVideoFrame;
 
-    private int                 mProgramHandle;
+    private int mProgramHandle;
 
-    private int				    mTextureY;
-    private int				    mTextureU;
-    private int				    mTextureV;
+    private int mTextureY;
+    private int mTextureU;
+    private int mTextureV;
 
-    private FloatBuffer         mVertexPositions		= null;
-    private FloatBuffer		    mTexturePositions		= null;
-    private int				    mWidth					= 0;
-    private int				    mHeight					= 0;
-    private boolean             isFrameChanged          = false;
-    private boolean             isSizeChanged           = false;
-    private int				    isCircleShape           = 1;
+    private FloatBuffer mVertexPositions = null;
+    private FloatBuffer mTexturePositions = null;
+    private int mWidth = 0;
+    private int mHeight = 0;
+    private boolean isFrameChanged = false;
+    private boolean isSizeChanged = false;
+    private int isCircleShape = 1;
 
-    private float			    mVertexCoordinates[]	= new float[8];
-    private float			    mTextureCoordinates[]	= new float[8];
-    private float[]			    mTransformMatrix		= new float[16];
-    private int				    mAttPos;														// vertex
-    private int				    mAttTexcoord;
-    private int				    mUniTexY;														// texture Y
-    private int				    mUniTexU;														// texture U
-    private int				    mUniTexV;														// texture V
-    private int				    mUniTransform;													// transform
-    private int				    mUniCircleShape;
-    private int				    mPrevRotation			= -1;
-    private boolean			    mPrevMirror				= false;
-    private boolean			    mFitVideo				= true;
-    private float			    mOwnerAspect			= 1;
-    private float			    mPrevOwnerAspect		= 1;
-    private int				    mPrevDeviceRotation		= -1;
-    private byte[]              mBufY                   = null;
-    private byte[]              mBufU                   = null;
-    private byte[]              mBufV                   = null;
-    private AnimatedRotation	mAnimation              = null;
-    private boolean             isMirrorView            = true;
-    private ReentrantLock       mFrameLock              = new ReentrantLock();
+    private float mVertexCoordinates[] = new float[8];
+    private float mTextureCoordinates[] = new float[8];
+    private float[] mTransformMatrix = new float[16];
+    private int mAttPos;                                                        // vertex
+    private int mAttTexcoord;
+    private int mUniTexY;                                                        // texture Y
+    private int mUniTexU;                                                        // texture U
+    private int mUniTexV;                                                        // texture V
+    private int mUniTransform;                                                    // transform
+    private int mUniCircleShape;
+    private int mPrevRotation = -1;
+    private boolean mPrevMirror = false;
+    private boolean mFitVideo = true;
+    private float mOwnerAspect = 1;
+    private float mPrevOwnerAspect = 1;
+    private int mPrevDeviceRotation = -1;
+    private byte[] mBufY = null;
+    private byte[] mBufU = null;
+    private byte[] mBufV = null;
+    private AnimatedRotation mAnimation = null;
+    private boolean isMirrorView = true;
+    private ReentrantLock mFrameLock = new ReentrantLock();
 
     public GLESHelper(boolean isCircleShape) {
         this.isCircleShape = isCircleShape ? 1 : 0;
@@ -69,12 +69,44 @@ public class GLESHelper {
         mAnimation.setAnimateRotation(true);
     }
 
+    public static Scale fitRect(int angle, float videoAspect, float backAspect, boolean fitFrame) {
+        angle = (360 + angle) % 360;
+
+        Scale scale = new Scale();
+        boolean swapWxH = false;
+        if (angle == 90 || angle == 270) {
+            videoAspect = 1.0f / videoAspect;
+            swapWxH = !swapWxH;
+        }
+        if (videoAspect <= 1.0f && backAspect <= 1.0f) {
+            videoAspect = 1.0f / videoAspect;
+            backAspect = 1.0f / backAspect;
+            swapWxH = !swapWxH;
+        }
+        boolean fitByHeigth = (backAspect > videoAspect);
+        if (fitFrame) {
+            fitByHeigth = !fitByHeigth;
+        }
+
+        if (fitByHeigth) {
+            scale.wScale = videoAspect / backAspect;
+        } else {
+            scale.hScale = backAspect / videoAspect;
+        }
+        if (swapWxH) {
+            float tmp = scale.wScale;
+            scale.wScale = scale.hScale;
+            scale.hScale = tmp;
+        }
+
+        return scale;
+    }
+
     public void setMirrorView(boolean mirror) {
         isMirrorView = mirror;
     }
 
-    public void setVideoFrame(VideoFrame videoFrame)
-    {
+    public void setVideoFrame(VideoFrame videoFrame) {
         mFrameLock.lock();
 
         mVideoFrame = videoFrame;
@@ -97,8 +129,7 @@ public class GLESHelper {
         mFrameLock.unlock();
     }
 
-    private boolean createProgram()
-    {
+    private boolean createProgram() {
         GLESUtils.cleanGlError();
 
         String vertShaderTxt = "attribute vec4 position;\n" + "attribute vec4 texcoord;\n"
@@ -131,8 +162,7 @@ public class GLESHelper {
 
         mProgramHandle = GLESUtils.createProgram(vertShaderTxt, fragShaderTxt);
 
-        if (mProgramHandle == 0)
-        {
+        if (mProgramHandle == 0) {
             GLESUtils.checkGlError("createProgram");
             return false;
         }
@@ -155,16 +185,14 @@ public class GLESHelper {
         return true;
     }
 
-    public void deleteProgram()
-    {
+    public void deleteProgram() {
         if (mProgramHandle != 0) {
             GLES20.glDeleteProgram(mProgramHandle);
             mProgramHandle = 0;
         }
     }
 
-    public void onSurfaceChanged(int w, int h)
-    {
+    public void onSurfaceChanged(int w, int h) {
         GLES20.glViewport(0, 0, w, h);
 
         mPrevDeviceRotation = -1;
@@ -172,8 +200,7 @@ public class GLESHelper {
         mPrevOwnerAspect = -1;
     }
 
-    public void render(int rotation)
-    {
+    public void render(int rotation) {
         mFrameLock.lock();
 
         GLES20.glClearColor(0f, 0f, 0f, 0f);
@@ -190,8 +217,7 @@ public class GLESHelper {
         mFrameLock.unlock();
     }
 
-    protected boolean createTextures()
-    {
+    protected boolean createTextures() {
         GLESUtils.cleanGlError();
         // Y
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
@@ -225,8 +251,7 @@ public class GLESHelper {
         return true;
     }
 
-    protected boolean updateTextures()
-    {
+    protected boolean updateTextures() {
         if (!isFrameChanged)
             return true;
 
@@ -238,12 +263,10 @@ public class GLESHelper {
         mWidth = w;
         mHeight = h;
 
-        if (isSizeChanged)
-        {
+        if (isSizeChanged) {
             destroyTextures();
 
-            if (!createTextures())
-            {
+            if (!createTextures()) {
                 return false;
             }
         }
@@ -281,8 +304,7 @@ public class GLESHelper {
      *
      * @return the named texture
      */
-    public int generateAndBindTexture()
-    {
+    public int generateAndBindTexture() {
         int[] texture = new int[1];
         GLES20.glGenTextures(1, texture, 0);
         GLESUtils.checkGlError("FBO::glGenTextures");
@@ -302,11 +324,9 @@ public class GLESHelper {
         return texture[0];
     }
 
-    protected void destroyTextures()
-    {
+    protected void destroyTextures() {
 
-        if (mTextureY != 0)
-        {
+        if (mTextureY != 0) {
             int[] texture = new int[3];
 
             GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
@@ -327,16 +347,14 @@ public class GLESHelper {
         }
     }
 
-    protected void setVertexCoordinates(float x, float y, float u, float v, int vertex)
-    {
+    protected void setVertexCoordinates(float x, float y, float u, float v, int vertex) {
         mVertexCoordinates[vertex * 2 + 0] = x;
         mVertexCoordinates[vertex * 2 + 1] = y;
         mTextureCoordinates[vertex * 2 + 0] = u;
         mTextureCoordinates[vertex * 2 + 1] = v;
     }
 
-    private boolean updateParameters(int rotation)
-    {
+    private boolean updateParameters(int rotation) {
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureY);
         GLESUtils.checkGlError("FBO:bind Y texture");
@@ -349,28 +367,21 @@ public class GLESHelper {
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureV);
         GLESUtils.checkGlError("FBO:bind V texture");
 
-        if (mVideoFrame != null)
-        {
+        if (mVideoFrame != null) {
             int frameRotation = mVideoFrame.getRotationAngle();
 
             int angle = (360 - (rotation + frameRotation)) % 360;
 
-            if (mAnimation._lastDevAngle < 0)
-            {
+            if (mAnimation._lastDevAngle < 0) {
                 mAnimation._lastDevAngle = rotation;
-            }
-            else if (mAnimation._lastDevAngle != rotation)
-            {
+            } else if (mAnimation._lastDevAngle != rotation) {
                 mAnimation.startDeviceRotationAnimation(rotation);
                 mAnimation._lastDevAngle = rotation;
             }
 
-            if (mAnimation._lastVideoAngle < 0)
-            {
+            if (mAnimation._lastVideoAngle < 0) {
                 mAnimation._lastVideoAngle = frameRotation;
-            }
-            else if (mAnimation._lastVideoAngle != frameRotation)
-            {
+            } else if (mAnimation._lastVideoAngle != frameRotation) {
                 mAnimation.startVideoRotationAnimation(frameRotation);
                 mAnimation._lastVideoAngle = frameRotation;
             }
@@ -381,8 +392,7 @@ public class GLESHelper {
         return false;
     }
 
-    private boolean setProgramParams(int angle)
-    {
+    private boolean setProgramParams(int angle) {
         if (mWidth == 0 || mHeight == 0) {
             return false;
         }
@@ -483,8 +493,7 @@ public class GLESHelper {
         return true;
     }
 
-    float[] multiply(float[] a, float[] b)
-    {
+    float[] multiply(float[] a, float[] b) {
         float[] m = new float[16];
 
         m[0] = a[0] * b[0] + a[1] * b[4] + a[2] * b[8] + a[3] * b[12];
@@ -507,55 +516,32 @@ public class GLESHelper {
         return m;
     }
 
-    private boolean isOrientationChanged(int devRotation, boolean isMirror, int deviceRotation)
-    {
-        return ( (mPrevRotation != devRotation) || (mPrevDeviceRotation != deviceRotation) || (mPrevMirror != isMirror) ||
+    private boolean isOrientationChanged(int devRotation, boolean isMirror, int deviceRotation) {
+        return ((mPrevRotation != devRotation) || (mPrevDeviceRotation != deviceRotation) || (mPrevMirror != isMirror) ||
                 (mPrevOwnerAspect != mOwnerAspect));
     }
 
-    public static Scale fitRect(int angle, float videoAspect, float backAspect, boolean fitFrame) {
-        angle = (360 + angle) % 360;
-
-        Scale scale = new Scale();
-        boolean swapWxH = false;
-        if (angle == 90 || angle == 270) {
-            videoAspect = 1.0f / videoAspect;
-            swapWxH = !swapWxH;
-        }
-        if (videoAspect <= 1.0f && backAspect <= 1.0f) {
-            videoAspect = 1.0f / videoAspect;
-            backAspect = 1.0f / backAspect;
-            swapWxH = !swapWxH;
-        }
-        boolean fitByHeigth = (backAspect > videoAspect);
-        if (fitFrame) {
-            fitByHeigth = !fitByHeigth;
-        }
-
-        if (fitByHeigth) {
-            scale.wScale = videoAspect / backAspect;
-        } else {
-            scale.hScale = backAspect / videoAspect;
-        }
-        if (swapWxH) {
-            float tmp = scale.wScale;
-            scale.wScale = scale.hScale;
-            scale.hScale = tmp;
-        }
-
-        return scale;
+    public void setVideoAnimationListener(VideoAnimationListener animationListener) {
+        mAnimationListener = animationListener;
     }
 
-    public static class Scale
-    {
-        public float	hScale	= 1.0f;
-        public float	wScale	= 1.0f;
+    public interface VideoAnimationListener {
+        void onVideoRotationAnimation();
     }
 
-    private class ParamAnimation
-    {
-        public ParamAnimation(int start, int end)
-        {
+    public static class Scale {
+        public float hScale = 1.0f;
+        public float wScale = 1.0f;
+    }
+
+    private class ParamAnimation {
+        protected int _start;
+        protected int _end;
+        protected int _duration;
+        protected Boolean _animate;
+        protected long _startTime;
+
+        public ParamAnimation(int start, int end) {
             _start = start;
             _end = end;
             _duration = 300;
@@ -563,19 +549,14 @@ public class GLESHelper {
             _animate = true;
         }
 
-        public int getCurValue()
-        {
+        public int getCurValue() {
             int res = _end;
-            if (_animate)
-            {
+            if (_animate) {
                 float t = (float) (Calendar.getInstance().getTimeInMillis() - _startTime) / _duration;
-                if (t >= 1.0)
-                {
+                if (t >= 1.0) {
                     _animate = false;
                     res = _end;
-                }
-                else
-                {
+                } else {
                     int delta = _end - _start;
                     res = (int) (_start + delta * Math.sin(1.57 * t));
                 }
@@ -584,49 +565,36 @@ public class GLESHelper {
             return res;
         }
 
-        public int getEndValue()
-        {
+        public int getEndValue() {
             return _end;
         }
 
-        public Boolean completed()
-        {
+        public Boolean completed() {
             return !_animate;
         }
-
-        protected int		_start;
-        protected int		_end;
-        protected int		_duration;
-        protected Boolean	_animate;
-        protected long		_startTime;
     }
 
-    private class AnimatedRotation
-    {
-        public int		_lastDevAngle	= -1;
-        public int		_lastVideoAngle	= -1;
-        private Boolean	_animateRotation;
-        ParamAnimation	_deviceRotationAnimation;
-        ParamAnimation	_videoRotationAnimation;
+    private class AnimatedRotation {
+        public int _lastDevAngle = -1;
+        public int _lastVideoAngle = -1;
+        ParamAnimation _deviceRotationAnimation;
+        ParamAnimation _videoRotationAnimation;
+        private Boolean _animateRotation;
 
-        public void setAnimateRotation(Boolean animate)
-        {
+        public void setAnimateRotation(Boolean animate) {
             _animateRotation = animate;
-            if (!_animateRotation)
-            {
+            if (!_animateRotation) {
                 stopDeviceRotationAnimation();
                 stopVideoRotationAnimation();
             }
         }
 
-        public boolean isCompleted()
-        {
+        public boolean isCompleted() {
             return (_deviceRotationAnimation == null || _deviceRotationAnimation.completed())
                     && (_videoRotationAnimation == null || _videoRotationAnimation.completed());
         }
 
-        public int[] getBestRotationAngles(int startangle, int endangle)
-        {
+        public int[] getBestRotationAngles(int startangle, int endangle) {
             int[] arr = new int[2];
             int a1 = startangle;
             int a2 = endangle;
@@ -636,28 +604,23 @@ public class GLESHelper {
             int d3 = Math.abs(a2 - (360 + a1)) % 360;
 
             int a11, a22;
-            if (d2 < d1)
-            {
+            if (d2 < d1) {
                 if (d3 < d2) // d3
                 {
                     a11 = 360 + a1;
                     a22 = a2;
-                }
-                else
+                } else
                 // d2
                 {
                     a11 = a1;
                     a22 = 360 + a2;
                 }
-            }
-            else
-            {
+            } else {
                 if (d3 < d1) // d3
                 {
                     a11 = 360 + a1;
                     a22 = a2;
-                }
-                else
+                } else
                 // d1
                 {
                     a11 = a1;
@@ -670,8 +633,7 @@ public class GLESHelper {
             return arr;
         }
 
-        public void startDeviceRotationAnimation(int newRotation)
-        {
+        public void startDeviceRotationAnimation(int newRotation) {
             if (!_animateRotation)
                 return;
 
@@ -681,10 +643,8 @@ public class GLESHelper {
             _deviceRotationAnimation = new ParamAnimation(arr[0], arr[1]);
         }
 
-        public int getCurDeviceRotation()
-        {
-            if (_deviceRotationAnimation != null)
-            {
+        public int getCurDeviceRotation() {
+            if (_deviceRotationAnimation != null) {
                 if (!_deviceRotationAnimation.completed())
                     return _deviceRotationAnimation.getCurValue();
                 else
@@ -694,17 +654,14 @@ public class GLESHelper {
             return _lastDevAngle;
         }
 
-        public void stopDeviceRotationAnimation()
-        {
-            if (_deviceRotationAnimation != null)
-            {
+        public void stopDeviceRotationAnimation() {
+            if (_deviceRotationAnimation != null) {
                 _lastDevAngle = (_deviceRotationAnimation.getEndValue() % 360);
                 _deviceRotationAnimation = null;
             }
         }
 
-        public void startVideoRotationAnimation(int newRotation)
-        {
+        public void startVideoRotationAnimation(int newRotation) {
             if (!_animateRotation)
                 return;
 
@@ -714,10 +671,8 @@ public class GLESHelper {
             _videoRotationAnimation = new ParamAnimation(arr[0], arr[1]);
         }
 
-        public int getCurVideoRotation()
-        {
-            if (_videoRotationAnimation != null)
-            {
+        public int getCurVideoRotation() {
+            if (_videoRotationAnimation != null) {
                 if (!_videoRotationAnimation.completed())
                     return _videoRotationAnimation.getCurValue();
                 else
@@ -727,21 +682,11 @@ public class GLESHelper {
             return _lastVideoAngle;
         }
 
-        public void stopVideoRotationAnimation()
-        {
-            if (_videoRotationAnimation != null)
-            {
+        public void stopVideoRotationAnimation() {
+            if (_videoRotationAnimation != null) {
                 _lastVideoAngle = _videoRotationAnimation.getEndValue();
                 _videoRotationAnimation = null;
             }
         }
-    }
-
-    public interface VideoAnimationListener {
-        void onVideoRotationAnimation();
-    }
-
-    public void setVideoAnimationListener(VideoAnimationListener animationListener) {
-        mAnimationListener = animationListener;
     }
 }

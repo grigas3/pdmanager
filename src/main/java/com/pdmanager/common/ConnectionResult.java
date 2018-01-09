@@ -29,11 +29,13 @@ public class ConnectionResult {
         this.ex = ex;
 
     }
+
     public BandClient getClient() {
         return mClient;
     }
+
     public void setClient(BandClient client) {
-         mClient=client;
+        mClient = client;
     }
 
     public ConnectionState getState() {

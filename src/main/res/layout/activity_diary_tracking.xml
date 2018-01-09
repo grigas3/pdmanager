@@ -3,158 +3,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <RelativeLayout
         android:id="@+id/busy_BusyIndicator"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_height="match_parent">
+        android:orientation="vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge">
+
         <TextView
             android:id="@+id/textSending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Saving..."
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            />
+            android:textStyle="bold"/>
+
         <ProgressBar
-            android:layout_below="@+id/textSending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textSending"
             android:layout_centerInParent="true" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/mainLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:textSize="26sp"
-                android:textStyle="bold|italic"
-                android:text="@string/diaryMsg"
-                android:textColor="#000"
-                android:background="@drawable/mood_title_background"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/mood_title_background"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:text="@string/diaryMsg"
+            android:textColor="#000"
+            android:textSize="26sp"
+            android:textStyle="bold|italic"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:id="@+id/diary_off"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/selected_rounded_background"
+                android:clickable="true"
+                android:padding="10dp"
+                android:tag="0">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_diary_off"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/offMsg"
+                    android:textColor="#1D89E4"
+                    android:textSize="28sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/diary_on"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/selected_rounded_background"
+                android:clickable="true"
+                android:padding="10dp"
+                android:tag="1">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_diary_on"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/onMsg"
+                    android:textColor="#1D89E4"
+                    android:textSize="28sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/diary_on_dys"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-                <LinearLayout
-                    android:id="@+id/diary_off"
-                    android:tag="0"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                android:background="@drawable/selected_rounded_background"
+                android:clickable="true"
+                android:padding="10dp"
+                android:tag="2">
 
-                    <ImageView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_diary_off" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="28sp"
-                        android:gravity="center_vertical"
-                        android:text="@string/offMsg"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_diary_on_dys"/>
 
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/diary_on"
-                    android:tag="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
-
-                    <ImageView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_diary_on"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="28sp"
-                        android:gravity="center_vertical"
-                        android:text="@string/onMsg"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/diary_on_dys"
-                    android:tag="2"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:gravity="center_vertical"
+                    android:text="@string/onDysMsg"
+                    android:textColor="#1D89E4"
+                    android:textSize="28sp"/>
 
-                    <ImageView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_diary_on_dys" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#1D89E4"
-                        android:textSize="28sp"
-                        android:gravity="center_vertical"
-                        android:text="@string/onDysMsg"/>
-
-                </LinearLayout>
+            </LinearLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/diary_on_severedys"
-                    android:tag="3"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/diary_on_severedys"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selected_rounded_background"
+                android:clickable="true"
+                android:padding="10dp"
+                android:tag="3">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_diary_on_dys"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                    android:gravity="center_vertical"
+                    android:text="@string/onSevereDysMsg"
+                    android:textColor="#1D89E4"
+                    android:textSize="28sp"/>
 
-                    <ImageView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_diary_on_dys" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#1D89E4"
-                        android:textSize="28sp"
-                        android:gravity="center_vertical"
-                        android:text="@string/onSevereDysMsg"/>
-
-                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
-
 
 
     </RelativeLayout>
@@ -163,15 +171,14 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:background="#CDCDCD"
-        >
+        android:orientation="horizontal">
 
-        <View android:id="@+id/halfparent"
+        <View
+            android:id="@+id/halfparent"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_centerHorizontal="true"/>
-
 
 
         <TextView
@@ -179,45 +186,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textStyle="bold|italic"
-            android:textColor="#555"
             android:text="Choose"
+            android:textAllCaps="true"
+            android:textColor="#555"
             android:textSize="18sp"
-            android:textAllCaps="true"/>
+            android:textStyle="bold|italic"/>
 
         <RelativeLayout
             android:id="@+id/button_mood_next"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/halfparent"
+            android:background="@drawable/button_blue_corner_radius"
+            android:paddingBottom="4dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@id/halfparent"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/button_blue_corner_radius"
             android:visibility="gone">
 
             <TextView
                 android:id="@+id/mood_act_done_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginRight="10dp"
                 android:text="Done"
                 android:textColor="#FFF"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="-20dp"
-                android:layout_marginRight="10dp"/>
+                android:textStyle="bold"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_chevron_right"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/mood_act_done_txt"/>
+                android:layout_toRightOf="@+id/mood_act_done_txt"
+                android:src="@drawable/ic_chevron_right"/>
 
         </RelativeLayout>
 

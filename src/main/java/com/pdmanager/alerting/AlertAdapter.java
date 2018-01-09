@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.dropbox.core.DbxWebAuth;
 import com.pdmanager.persistence.DBHandler;
 
 /**
@@ -46,39 +45,37 @@ public class AlertAdapter {
 
     public void clearAlert() {
 
-        mDbHelper =  DBHandler.getInstance(mCtx);
+        mDbHelper = DBHandler.getInstance(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         mDb.delete(DBHandler.TABLE_ALERTS, null, null);
         mDbHelper.close();
         mCtx.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
 
     }
+
     public Cursor fetchActiveAlerts() {
-        Cursor mCursor=null;
+        Cursor mCursor = null;
         try {
 
             if (!dbOpen)
                 open();
 
             long unixTime = System.currentTimeMillis();
-            String whereClause =DBHandler.COLUMN_ALERTCREATED + " = ? ";
+            String whereClause = DBHandler.COLUMN_ALERTCREATED + " = ? ";
 
             String[] whereArgs = new String[]{
                     "0"};
 
-             mCursor = mDb.query(DBHandler.TABLE_ALERTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_TIMESTAMP,
+            mCursor = mDb.query(DBHandler.TABLE_ALERTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_TIMESTAMP,
                             DBHandler.COLUMN_ALERT},
-                     whereClause, whereArgs, null, null, null);
+                    whereClause, whereArgs, null, null, null);
 
             if (mCursor != null) {
                 mCursor.moveToFirst();
             }
-        }
-        catch(Exception ex) {
+        } catch (Exception ex) {
 
-        }
-        finally
-        {
+        } finally {
             close();
 
         }
@@ -94,7 +91,7 @@ public class AlertAdapter {
             open();
 
         Cursor mCursor = mDb.query(DBHandler.TABLE_ALERTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_TIMESTAMP,
-                        DBHandler.COLUMN_ALERT, DBHandler.COLUMN_ALERTMESSAGE,DBHandler.COLUMN_ALERTTYPE},
+                        DBHandler.COLUMN_ALERT, DBHandler.COLUMN_ALERTMESSAGE, DBHandler.COLUMN_ALERTTYPE},
                 null, null, null, null, null);
 
         if (mCursor != null) {

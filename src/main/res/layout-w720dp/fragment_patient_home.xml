@@ -14,13 +14,12 @@
     <!-- Login progress -->
 
 
-
     <TextView
         android:id="@+id/patient_home_notasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical"
         android:text="You have no pending tasks"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/primary_title_background"/>
@@ -32,34 +31,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/welcomeicon" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="Welcome"
-                    android:visibility="gone"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/primary_title_background"
 
-                    android:textColor="@color/primary_title_background"/>
+                    android:visibility="gone"/>
+
                 <TextView
                     android:id="@+id/patient_home_tasks"
                     android:layout_width="wrap_content"
@@ -71,24 +74,25 @@
             </LinearLayout>
 
         </LinearLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/patient_home_visualanalogue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_visualanalogue_img"
@@ -149,10 +153,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_fingertapping_img"
@@ -208,16 +212,15 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:id="@+id/patient_home_voicetest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_voicetest_img"
@@ -277,10 +280,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_notifications_img"
@@ -340,10 +343,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_cognition_img1"
@@ -403,10 +406,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_cognition_img2"
@@ -466,10 +469,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_mood_img"
@@ -529,10 +532,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_meds_img"
@@ -592,11 +595,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
-                    android:orientation="horizontal"
 
-                    android:padding="10dp"
-                    android:layout_weight="1">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/patient_home_speech_img"
@@ -655,11 +658,11 @@
                     android:id="@+id/patient_home_sensors"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@drawable/button_patient_home_green"
                     android:orientation="horizontal"
-                    android:visibility="gone"
                     android:padding="10dp"
-                    android:layout_weight="1">
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/patient_home_sensors_img"

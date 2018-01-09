@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -39,9 +40,9 @@ public class PDApplicationContext extends VideoApp implements Thread.UncaughtExc
     public static final String INTENT_PATIENT_CODE = "PATIENT_CODE";
     public static final String INTENT_ACCESS_TOKEN = "ACCESS_TOKEN";
     public static final String INTENT_ALERT_ID = "ALERT_ID";
-    public static final String INTENT_ALERT_TYPE= "ALERT_TYPE";
-    public static final String INTENT_ALERT_SOURCE= "ALERTSOURCE_ID";
-    public static final String INTENT_ALERT= "ALERT";
+    public static final String INTENT_ALERT_TYPE = "ALERT_TYPE";
+    public static final String INTENT_ALERT_SOURCE = "ALERTSOURCE_ID";
+    public static final String INTENT_ALERT = "ALERT";
 
     public static final String INTENT_SELECTED_DAY = "DAY";
     public static final String INTENT_PATIENT_NAME = "PATIENT_NAME";
@@ -66,6 +67,7 @@ public class PDApplicationContext extends VideoApp implements Thread.UncaughtExc
     @Override
     public void onCreate() {
         super.onCreate();
+        MultiDex.install(this);
 
         PACKAGE_NAME = getApplicationContext().getPackageName();
         defaultUEHandler = Thread.getDefaultUncaughtExceptionHandler();
@@ -282,8 +284,7 @@ public class PDApplicationContext extends VideoApp implements Thread.UncaughtExc
     @Override
     public void uncaughtException(Thread thread, Throwable throwable) {
 
-
-       // trackException(throwable);
+        // trackException(throwable);
 
         defaultUEHandler.uncaughtException(thread, throwable);
     }

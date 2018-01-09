@@ -38,9 +38,6 @@ public class CaregiverDrawerActionsListAdapter extends ArrayAdapter<MenuAction> 
         this.controls = new ArrayList<MenuAction>();
 
 
-
-
-
         MenuAction alerts = new MenuAction();
         alerts.setActionInfo("Alerts");
         alerts.setHeaderText("Alerts");
@@ -68,12 +65,10 @@ public class CaregiverDrawerActionsListAdapter extends ArrayAdapter<MenuAction> 
         fileList.setFragmentName("ChatFragment");
 
 
-
         this.controls.add(meds);
         this.controls.add(alerts);
         this.controls.add(diary);
         this.controls.add(fileList);
-
 
 
     }

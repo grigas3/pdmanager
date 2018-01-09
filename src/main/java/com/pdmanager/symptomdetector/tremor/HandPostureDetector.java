@@ -7,8 +7,8 @@ import com.pdmanager.common.data.AccData;
 import com.pdmanager.common.data.AccReading;
 import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.common.data.PostureData;
-import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.common.interfaces.IDataProcessor;
+import com.pdmanager.common.interfaces.ISensorDataHandler;
 import com.pdmanager.posturedetector.Core.PostureTypes;
 import com.pdmanager.posturedetector.SignalProcessing.Filters.FIRD;
 

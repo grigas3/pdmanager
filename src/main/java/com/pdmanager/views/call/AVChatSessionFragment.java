@@ -23,39 +23,22 @@ import com.oovoo.sdk.interfaces.VideoControllerListener.RemoteVideoState;
 import com.oovoo.sdk.interfaces.VideoDevice;
 import com.oovoo.sdk.interfaces.ooVooSdkResult;
 import com.oovoo.sdk.interfaces.ooVooSdkResultListener;
-
 import com.pdmanager.R;
 import com.pdmanager.app.VideoApp;
-import com.pdmanager.settings.VideoSettings;
-
 import com.pdmanager.app.VideoApp.CallControllerListener;
 import com.pdmanager.app.VideoApp.NetworkListener;
 import com.pdmanager.app.VideoApp.ParticipantsListener;
+import com.pdmanager.settings.VideoSettings;
 import com.pdmanager.views.BasePDFragment;
-import com.pdmanager.views.patient.MainActivity.MenuList;
 import com.pdmanager.views.SignalBar;
 import com.pdmanager.views.controllers.ConferenceViewController;
+import com.pdmanager.views.patient.MainActivity.MenuList;
 
 import java.util.ArrayList;
 
 public class AVChatSessionFragment extends BasePDFragment implements ParticipantsListener, CallControllerListener, View.OnClickListener, NetworkListener {
 
-    public enum CameraState {
-        BACK_CAMERA(0), FRONT_CAMERA(1), MUTE_CAMERA(2);
-
-        private final int value;
-
-        CameraState(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
-    }
-
     protected static final String TAG = AVChatSessionFragment.class.getSimpleName();
-
     private View self = null;
     private Button microphoneBttn = null;
     private Button speakerBttn = null;
@@ -70,8 +53,6 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
     private ConferenceViewController conferenceViewController = null;
     private boolean isLayoutFinished = false;
     private ArrayList<Effect> videoFilters = null;
-
-
     public AVChatSessionFragment() {
     }
 
@@ -104,8 +85,7 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
 
         initControlBar(self);
 
-        if ( !Boolean.parseBoolean(videoSettings().get(VideoSettings.IsDoctor)))
-        {
+        if (!Boolean.parseBoolean(videoSettings().get(VideoSettings.IsDoctor))) {
             notes.setVisibility(View.GONE);
         }
 
@@ -571,6 +551,52 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
         }
     }
 
+    public boolean onBackPressed() {
+        app().endCall();
+        app().sendEndCall("");
+
+        int count = getFragmentManager().getBackStackEntryCount();
+        String name = getFragmentManager().getBackStackEntryAt(count - 2).getName();
+        getFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        return false;
+    }
+
+    @Override
+    public void onNetworkSignalStrength(int level) {
+        SignalBar signalBar = (SignalBar) signalStrengthMenuItem.getActionView();
+        signalBar.setLevel(level);
+    }
+
+    @Override
+    public void onNetworkSecurityState(boolean isSecure) {
+        if (isSecure) {
+            secureNetworkMenuItem.setIcon(getResources().getDrawable(R.drawable.menu_ic_lock));
+        } else {
+            secureNetworkMenuItem.setIcon(getResources().getDrawable(R.drawable.menu_ic_lock_unlock));
+        }
+    }
+
+    public void muteVideo(String userId) {
+    }
+
+    public void unmuteVideo(String userId) {
+    }
+
+    public enum CameraState {
+        BACK_CAMERA(0), FRONT_CAMERA(1), MUTE_CAMERA(2);
+
+        private final int value;
+
+        CameraState(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
     abstract class DeviceMenuClickListener implements MenuItem.OnMenuItemClickListener {
         private Device device = null;
 
@@ -644,37 +670,5 @@ public class AVChatSessionFragment extends BasePDFragment implements Participant
         }
 
         public abstract boolean onMenuItemClick(boolean state, MenuItem item);
-    }
-
-    public boolean onBackPressed() {
-        app().endCall();
-        app().sendEndCall("");
-
-        int count = getFragmentManager().getBackStackEntryCount();
-        String name = getFragmentManager().getBackStackEntryAt(count - 2).getName();
-        getFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        return false;
-    }
-
-    @Override
-    public void onNetworkSignalStrength(int level) {
-        SignalBar signalBar = (SignalBar) signalStrengthMenuItem.getActionView();
-        signalBar.setLevel(level);
-    }
-
-    @Override
-    public void onNetworkSecurityState(boolean isSecure) {
-        if (isSecure) {
-            secureNetworkMenuItem.setIcon(getResources().getDrawable(R.drawable.menu_ic_lock));
-        } else {
-            secureNetworkMenuItem.setIcon(getResources().getDrawable(R.drawable.menu_ic_lock_unlock));
-        }
-    }
-
-    public void muteVideo(String userId) {
-    }
-
-    public void unmuteVideo(String userId) {
     }
 }

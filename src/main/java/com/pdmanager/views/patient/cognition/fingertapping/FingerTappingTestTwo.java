@@ -19,7 +19,6 @@ import java.text.DecimalFormat;
 import java.util.Vector;
 
 /**
- *
  * Alternate Finger Tapping Test Activity
  *
  * @authors Quentin DELEPIERRE, Jorge CANCELA (jcancela@lst.tfo.upm.es)
@@ -37,12 +36,12 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
     public static final String INTENT_TEST_TIME_TWO = "testTimeTwo";
     public static final String INTENT_TAPS_NUMBER_TWO = "tapsNumberTwo";
     public static final String INTENT_TAPS_ERROR_TWO = "tapsErrorTwo";
-    public final int DURATION_TEST_MILLISECONDS= 10000;
-    public final int REFRESH_PERIOD_MILLISECONDS= 100;
+    public final int DURATION_TEST_MILLISECONDS = 10000;
+    public final int REFRESH_PERIOD_MILLISECONDS = 100;
     private String LOGGER_TAG = "LOGGER_TAG_FTTWO";
     private int durationTestOne = 0;
     private int tapsTestOne = 0;
-    private int condition=0;
+    private int condition = 0;
     private int numberOfTaps = 0;
     private int tapErrors = 0;
 
@@ -61,107 +60,107 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
 
     private Vector vect = new Vector();
 
-    private boolean test=true;
+    private boolean test = true;
 
     private CountDownTimer sdTimer;
-    private View.OnClickListener clickButton1=new View.OnClickListener() {
+    private View.OnClickListener clickButton1 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
-        speak.silence();
+            speak.silence();
 
-        if (condition==1){
-            tapErrors++;
-        }
-        if (condition==0) {
-            if (test) {
-
-                startTime = Double.longBitsToDouble(SystemClock.uptimeMillis());
-                restart();
-                test= false;
-
-                sdTimer = new CountDownTimer(DURATION_TEST_MILLISECONDS, REFRESH_PERIOD_MILLISECONDS) {
-
-                    public void onTick(long millisUntilFinished) {
-                        mProgress.setProgress((int) millisUntilFinished);
-
-                        tvTime.setText(getResources().getString(R.string.fttTwoTvTime) + " : "
-                                + new DecimalFormat(DECIMAL_FORMAT_TIME).format(Double.valueOf(millisUntilFinished / Double.valueOf(1000)))
-                                + " "
-                                + getResources().getString(R.string.fttoneTvSeconds));
-                    }
-
-                    public void onFinish() {
-
-                        setContentView(R.layout.splash);
-                        Thread welcomeThread = new Thread() {
-
-                            @Override
-                            public void run() {
-                            try {
-                                super.run();
-                                sleep(1000) ; //Delay of 3 seconds
-                            } catch (Exception e) {
-
-                            } finally {
-
-                                Intent intent = new Intent(FingerTappingTestTwo.this, FingerTappingEnd.class);
-                                double[] myData = new double[vect.size()];
-
-                                for (int i = 0; i < vect.size() - 1; i++) {
-                                    Double o = (Double) vect.elementAt(i);
-                                    Double p = (Double) vect.elementAt(i + 1);
-                                    myData[i] = (p - o);
-                                }
-
-                                Statistics myStats = new Statistics(myData);
-
-                                Double meanTime = myStats.getMean();
-                                Double stdTime = myStats.getStdDev();
-                                Double medianTime = myStats.median();
-                                Double maxTime = myStats.getMax();
-                                Double minTime = myStats.getMin();
-
-                                intent.putExtra(INTENT_TAPS_NUMBER_TWO, numberOfTaps);
-                                intent.putExtra(INTENT_TAPS_ERROR_TWO, tapErrors);
-                                intent.putExtra(INTENT_MEAN_TWO, meanTime);
-                                intent.putExtra(INTENT_STD_TWO, stdTime);
-                                intent.putExtra(INTENT_MEDIAN_TWO, medianTime);
-                                intent.putExtra(INTENT_MAX_TWO, maxTime);
-                                intent.putExtra(INTENT_MIN_TWO, minTime);
-
-                                intent.putExtra(FingerTappingTestOne.INTENT_TAPS_NUMBER_ONE, tapsTestOne);
-                                intent.putExtra(FingerTappingTestOne.INTENT_MEAN_ONE, meanTimeTestOne);
-                                intent.putExtra(FingerTappingTestOne.INTENT_STD_ONE, stdTimeTestOne);
-                                intent.putExtra(FingerTappingTestOne.INTENT_MEDIAN_ONE, medianTimeTestOne);
-                                intent.putExtra(FingerTappingTestOne.INTENT_MAX_ONE, maxTimeTestOne);
-                                intent.putExtra(FingerTappingTestOne.INTENT_MIN_ONE, minTimeTestOne);
-
-                                startActivity(intent);
-                                finish();
-                            }
-                            }
-                        };
-                        welcomeThread.start();
-                    }
-                }.start();
+            if (condition == 1) {
+                tapErrors++;
             }
+            if (condition == 0) {
+                if (test) {
 
-            condition=1;
-            update();
-        }
+                    startTime = Double.longBitsToDouble(SystemClock.uptimeMillis());
+                    restart();
+                    test = false;
+
+                    sdTimer = new CountDownTimer(DURATION_TEST_MILLISECONDS, REFRESH_PERIOD_MILLISECONDS) {
+
+                        public void onTick(long millisUntilFinished) {
+                            mProgress.setProgress((int) millisUntilFinished);
+
+                            tvTime.setText(getResources().getString(R.string.fttTwoTvTime) + " : "
+                                    + new DecimalFormat(DECIMAL_FORMAT_TIME).format(Double.valueOf(millisUntilFinished / Double.valueOf(1000)))
+                                    + " "
+                                    + getResources().getString(R.string.fttoneTvSeconds));
+                        }
+
+                        public void onFinish() {
+
+                            setContentView(R.layout.splash);
+                            Thread welcomeThread = new Thread() {
+
+                                @Override
+                                public void run() {
+                                    try {
+                                        super.run();
+                                        sleep(1000); //Delay of 3 seconds
+                                    } catch (Exception e) {
+
+                                    } finally {
+
+                                        Intent intent = new Intent(FingerTappingTestTwo.this, FingerTappingEnd.class);
+                                        double[] myData = new double[vect.size()];
+
+                                        for (int i = 0; i < vect.size() - 1; i++) {
+                                            Double o = (Double) vect.elementAt(i);
+                                            Double p = (Double) vect.elementAt(i + 1);
+                                            myData[i] = (p - o);
+                                        }
+
+                                        Statistics myStats = new Statistics(myData);
+
+                                        Double meanTime = myStats.getMean();
+                                        Double stdTime = myStats.getStdDev();
+                                        Double medianTime = myStats.median();
+                                        Double maxTime = myStats.getMax();
+                                        Double minTime = myStats.getMin();
+
+                                        intent.putExtra(INTENT_TAPS_NUMBER_TWO, numberOfTaps);
+                                        intent.putExtra(INTENT_TAPS_ERROR_TWO, tapErrors);
+                                        intent.putExtra(INTENT_MEAN_TWO, meanTime);
+                                        intent.putExtra(INTENT_STD_TWO, stdTime);
+                                        intent.putExtra(INTENT_MEDIAN_TWO, medianTime);
+                                        intent.putExtra(INTENT_MAX_TWO, maxTime);
+                                        intent.putExtra(INTENT_MIN_TWO, minTime);
+
+                                        intent.putExtra(FingerTappingTestOne.INTENT_TAPS_NUMBER_ONE, tapsTestOne);
+                                        intent.putExtra(FingerTappingTestOne.INTENT_MEAN_ONE, meanTimeTestOne);
+                                        intent.putExtra(FingerTappingTestOne.INTENT_STD_ONE, stdTimeTestOne);
+                                        intent.putExtra(FingerTappingTestOne.INTENT_MEDIAN_ONE, medianTimeTestOne);
+                                        intent.putExtra(FingerTappingTestOne.INTENT_MAX_ONE, maxTimeTestOne);
+                                        intent.putExtra(FingerTappingTestOne.INTENT_MIN_ONE, minTimeTestOne);
+
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+                            };
+                            welcomeThread.start();
+                        }
+                    }.start();
+                }
+
+                condition = 1;
+                update();
+            }
         }
     };
-    private View.OnClickListener clickButton2=new View.OnClickListener() {
+    private View.OnClickListener clickButton2 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        if (condition==0){
-            tapErrors++;
-        }
-        if (condition == 1) {
-            condition=0;
-            update();
-        }
+            if (condition == 0) {
+                tapErrors++;
+            }
+            if (condition == 1) {
+                condition = 0;
+                update();
+            }
         }
     };
 
@@ -202,16 +201,16 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
 
     }
 
-    private void update(){
+    private void update() {
 
         numberOfTaps++;
         tvNumberTaps.setText(String.valueOf(numberOfTaps) + " " + getResources().getString(R.string.fttTwoTvTimeNumberOfTaps));
-        timeInMilli=SystemClock.uptimeMillis() - startTime;
+        timeInMilli = SystemClock.uptimeMillis() - startTime;
         vect.addElement(timeInMilli);
     }
 
     private void restart() {
-        numberOfTaps=0;
+        numberOfTaps = 0;
         tapErrors = 0;
 
         vect.removeAllElements();
@@ -226,15 +225,15 @@ public class FingerTappingTestTwo extends SoundFeedbackActivity {
         if (sdTimer != null)
             sdTimer.cancel();
 
-        test=true;
+        test = true;
     }
 
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         restart();
     }
 
-    public void onPause(){
+    public void onPause() {
         super.onPause();
 
         speak.silence();

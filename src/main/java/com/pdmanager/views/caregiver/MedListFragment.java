@@ -32,7 +32,7 @@ import com.pdmanager.views.FragmentListener;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MedListFragment extends BasePDFragment implements FragmentListener,LoaderManager.LoaderCallbacks<Cursor> {
+public class MedListFragment extends BasePDFragment implements FragmentListener, LoaderManager.LoaderCallbacks<Cursor> {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -46,6 +46,7 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
     private ProgressBar busyIndicator;
     private MedAdapter dbQ;
     private int LOADER_ID = 2;
+
     public MedListFragment() {
     }
 
@@ -60,14 +61,15 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initAdapter(getActivity());
 
 
-
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,8 +85,6 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
                 getLoaderManager().initLoader(LOADER_ID, null, this).forceLoad();
             }
         } catch (Exception ex) {
-
-
 
 
         }
@@ -106,6 +106,7 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
             }
         }
     }
+
     private void initAdapter(Context context) {
 
 
@@ -164,8 +165,6 @@ public class MedListFragment extends BasePDFragment implements FragmentListener,
 
         mAdapter.swapCursor(null);
     }
-
-
 
 
 }

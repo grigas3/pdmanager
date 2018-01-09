@@ -47,7 +47,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     private Switch mSwitchForegroundService;
 
 
-
     private CompoundButton.OnCheckedChangeListener mToggleSensorSection = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -74,7 +73,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
 
                         mSendorDelaySpin.setEnabled(false);
-
 
 
                     }
@@ -128,7 +126,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
             }
 
 
-
         }
     };
 
@@ -161,7 +158,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
 
-
         mSwitchRecordFile = (Switch) rootView.findViewById(R.id.switchRecordFile);
         mSwitchRecordFile.setOnCheckedChangeListener(mToggleSensorSection);
 
@@ -174,12 +170,10 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         mSwitchBandSensors.setOnCheckedChangeListener(mToggleSensorSection);
 
 
-
-
         mSwitchDevAcc = (Switch) rootView.findViewById(R.id.switchDeviceSensors);
         mSendorDelaySpin = (Spinner) rootView.findViewById(R.id.sensorDelaySpinner);
 
-        mLangSpin=(Spinner) rootView.findViewById(R.id.langSpin);
+        mLangSpin = (Spinner) rootView.findViewById(R.id.langSpin);
         //  mSwitchST.setOnCheckedChangeListener(mToggleSensorSection);
         mSwitchDevAcc.setOnCheckedChangeListener(mToggleSensorSection);
 
@@ -208,7 +202,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         addItemsOnSpinners();
         addListenerOnSpinnerItemSelection();
         //   mButtonPatients=(Button) rootView.findViewById(R.id.button);
-
 
 
         initSettings();
@@ -292,33 +285,27 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         Activity activity = getActivity();
         if (activity != null) {
 
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
 
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
+                        for (Switch sw : mSensorMap) {
 
-                            for (Switch sw : mSensorMap) {
-
-
-                                sw.setSelected(true);
-                                sw.setEnabled(!running);
-                                sw.setClickable(!running);
-                            }
-
-                        }
-                        catch (Exception ex)
-                        {
-
-                            Log.e("Settings Fragment","Refresh Controls",ex.getCause());
+                            sw.setSelected(true);
+                            sw.setEnabled(!running);
+                            sw.setClickable(!running);
                         }
 
+                    } catch (Exception ex) {
 
+                        Log.e("Settings Fragment", "Refresh Controls", ex.getCause());
                     }
-                });
 
 
+                }
+            });
 
 
         }
@@ -351,6 +338,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
 
     }
+
     private int getLangSelection(String p) {
 
 
@@ -369,6 +357,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
 
 
     }
+
     // add items into spinner dynamically
     public void addItemsOnSpinners() {
 
@@ -624,8 +613,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     }
 
 
-
-
     private class MedAlert1SelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -700,8 +687,6 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
     }
 
 
-
-
     private class EndHourSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -755,12 +740,12 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         }
 
     }
+
     private class LangSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
-
-            String lang ="en";
+            String lang = "en";
             if (pos == 1)
                 lang = "el";
             if (pos == 2)
@@ -784,6 +769,7 @@ public class RecordingSettingsFragment extends BasePDFragment implements Fragmen
         }
 
     }
+
     private class PatientSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {

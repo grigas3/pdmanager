@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public abstract class BasePDFragment extends Fragment {
 
     private ExampleLoadedListener listener;
+    private BasePDFragment back_fragment = null;
 
     public BasePDFragment() {
         // Required empty public constructor
@@ -75,7 +76,6 @@ public abstract class BasePDFragment extends Fragment {
         return null;
     }
 
-
     protected void makeToast(String text) {
 
         Toast.makeText(getContext(),
@@ -92,7 +92,6 @@ public abstract class BasePDFragment extends Fragment {
 
 
     }
-
 
     public String getEQATECCategory() {
         return "";
@@ -113,7 +112,6 @@ public abstract class BasePDFragment extends Fragment {
         this.listener = listener;
     }
 
-
     private ArrayList<String> getClassHierarchyNames() {
         ArrayList<String> classes = new ArrayList<String>();
 
@@ -128,18 +126,13 @@ public abstract class BasePDFragment extends Fragment {
         return classes;
     }
 
-
-    public interface ExampleLoadedListener {
-        void onExampleLoaded(View root);
-    }
-
-    public void setKeepScreenOn(boolean state){
-        if(getView() != null)
+    public void setKeepScreenOn(boolean state) {
+        if (getView() != null)
             getView().setKeepScreenOn(state);
     }
 
-    protected PDApplicationContext app(){
-        return ((PDApplicationContext) getActivity().getApplication()) ;
+    protected PDApplicationContext app() {
+        return ((PDApplicationContext) getActivity().getApplication());
     }
 
     public VideoSettings videoSettings() {
@@ -153,6 +146,9 @@ public abstract class BasePDFragment extends Fragment {
     public void setBackFragment(BasePDFragment back_fragment) {
         this.back_fragment = back_fragment;
     }
-    private BasePDFragment back_fragment = null ;
+
+    public interface ExampleLoadedListener {
+        void onExampleLoaded(View root);
+    }
 
 }

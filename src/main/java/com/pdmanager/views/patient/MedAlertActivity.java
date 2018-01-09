@@ -42,7 +42,6 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
     private String medId;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +51,9 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
     }
 
 
+    private void setUp() {
 
-    private void setUp()
-    {
-
-        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(getApplicationContext()).getToken(),this);
+        final DirectSenderTask sender = new DirectSenderTask(RecordingSettings.GetRecordingSettings(getApplicationContext()).getToken(), this);
 
         title = (TextView) this.findViewById(R.id.alertText);
         description = (TextView) this.findViewById(R.id.alertDescription);
@@ -106,7 +103,7 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
                 Calendar cal1 = Calendar.getInstance();
                 //Calendar cal2 = Calendar.getInstance();
                 cal1.setTime(date1);
-                Observation obs = new Observation(0, getPatientCode(),"PQMEDADH", cal1.getTimeInMillis());
+                Observation obs = new Observation(0, getPatientCode(), "PQMEDADH", cal1.getTimeInMillis());
 
 
                 ArrayList<Observation> obsC = new ArrayList<>();
@@ -126,15 +123,15 @@ public class MedAlertActivity extends SoundFeedbackActivity implements IDirectSe
 
     }
 
-    private void speekInfo()
-    {
+    private void speekInfo() {
 
-        if(speak!=null)
+        if (speak != null)
 
             speak.speakFlush(getApplicationContext().getString(R.string.patient_med_instructions));
 
 
     }
+
     protected void restoreVariables(Bundle savedInstanceState) {
 
     }

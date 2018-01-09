@@ -54,14 +54,14 @@ public class RecordingSettings {
     private String mEvent1;
     private String mEvent2;
     private String mRole;
-    private int mCognHour1=10;
-    private int mCognHour2=20;
-    private int mMoodHour=19;
-    private int mMedHour1=12;
-    private int mMedHour2=22;
-    private int mDiaryHour=8;
-    private boolean mMSSynced=false;
-    private boolean mEnableDiary=true;
+    private int mCognHour1 = 10;
+    private int mCognHour2 = 20;
+    private int mMoodHour = 19;
+    private int mMedHour1 = 12;
+    private int mMedHour2 = 22;
+    private int mDiaryHour = 8;
+    private boolean mMSSynced = false;
+    private boolean mEnableDiary = true;
 
     private boolean mForegroundService = true;
     private boolean mRemoteLogging = true;
@@ -607,7 +607,6 @@ public class RecordingSettings {
     public String getTileUUID() {
 
 
-
         return mTileUUID;
     }
 
@@ -616,9 +615,11 @@ public class RecordingSettings {
 
         SetPref("TileUUID", deviceId.toString());
     }
+
     public int getCognHour1() {
         return this.mCognHour1;
     }
+
     public void setCognHour1(int cognHour1) {
         this.mCognHour1 = cognHour1;
     }
@@ -626,21 +627,16 @@ public class RecordingSettings {
     public int getCognHour2() {
         return this.mCognHour2;
     }
+
     public void setCognHour2(int cognHour2) {
         this.mCognHour2 = cognHour2;
     }
 
 
-
-
-
-
-
-
-
     public int getMedHour1() {
         return this.mMedHour1;
     }
+
     public void setMedHour1(int cognHour1) {
         this.mMedHour1 = cognHour1;
     }
@@ -648,6 +644,7 @@ public class RecordingSettings {
     public int getMedHour2() {
         return this.mMedHour2;
     }
+
     public void setMedHour2(int cognHour2) {
         this.mMedHour2 = cognHour2;
     }
@@ -655,6 +652,7 @@ public class RecordingSettings {
     public int getMoodHour() {
         return this.mMoodHour;
     }
+
     public void setMoodHour(int moodHour) {
         this.mMoodHour = moodHour;
     }
@@ -663,6 +661,7 @@ public class RecordingSettings {
     public int getDiaryHour() {
         return this.mDiaryHour;
     }
+
     public void setDiaryHour(int diaryHour) {
         this.mDiaryHour = diaryHour;
     }

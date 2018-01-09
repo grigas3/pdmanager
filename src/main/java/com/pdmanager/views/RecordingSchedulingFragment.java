@@ -39,8 +39,6 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
     private boolean enableSpinnerListener = false;
 
 
-
-
     public RecordingSchedulingFragment() {
         // Required empty public constructor
     }
@@ -73,7 +71,6 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
         mEndHourSpin = (Spinner) rootView.findViewById(R.id.stopHourSpinner);
 
 
-
         mCognitiveTestHour1 = (Spinner) rootView.findViewById(R.id.cognHourSpinner1);
         mCognitiveTestHour2 = (Spinner) rootView.findViewById(R.id.cognHourSpinner2);
         mMoodHour = (Spinner) rootView.findViewById(R.id.moodSetHour);
@@ -87,7 +84,6 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
         addItemsOnSpinners();
         addListenerOnSpinnerItemSelection();
         //   mButtonPatients=(Button) rootView.findViewById(R.id.button);
-
 
 
         initSettings();
@@ -131,14 +127,12 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
 
             enableSpinnerListener = false;
             RecordingSettings settings = getSettings();
-              mStartHourSpin.setSelection(settings.getStartHour() - 6);
+            mStartHourSpin.setSelection(settings.getStartHour() - 6);
             mEndHourSpin.setSelection(settings.getStopHour() - 6);
-
 
 
             mCognitiveTestHour1.setSelection(settings.getCognHour1() - 6);
             mCognitiveTestHour2.setSelection(settings.getCognHour2() - 6);
-
 
 
             mMedAlertHour1.setSelection(settings.getMedHour1() - 6);
@@ -146,8 +140,6 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
 
             //   mDiaryHour.setSelection(settings.getDiaryHour() - 6);
             mMoodHour.setSelection(settings.getMoodHour() - 6);
-
-
 
 
             enableSpinnerListener = true;
@@ -178,33 +170,27 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
         Activity activity = getActivity();
         if (activity != null) {
 
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
 
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            final boolean running = RecordingServiceHandler.getInstance().getService().isSessionRunning();
+                        for (Switch sw : mSensorMap) {
 
-                            for (Switch sw : mSensorMap) {
-
-
-                                sw.setSelected(true);
-                                sw.setEnabled(!running);
-                                sw.setClickable(!running);
-                            }
-
-                        }
-                        catch (Exception ex)
-                        {
-
-                            Log.e("Settings Fragment","Refresh Controls",ex.getCause());
+                            sw.setSelected(true);
+                            sw.setEnabled(!running);
+                            sw.setClickable(!running);
                         }
 
+                    } catch (Exception ex) {
 
+                        Log.e("Settings Fragment", "Refresh Controls", ex.getCause());
                     }
-                });
 
 
+                }
+            });
 
 
         }
@@ -237,6 +223,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
 
 
     }
+
     private int getLangSelection(String p) {
 
 
@@ -255,6 +242,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
 
 
     }
+
     // add items into spinner dynamically
     public void addItemsOnSpinners() {
 
@@ -484,8 +472,6 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
     }
 
 
-
-
     private class MedAlert1SelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -560,8 +546,6 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
     }
 
 
-
-
     private class EndHourSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -615,12 +599,12 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
         }
 
     }
+
     private class LangSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
-
-            String lang ="en";
+            String lang = "en";
             if (pos == 1)
                 lang = "el";
             if (pos == 2)
@@ -644,6 +628,7 @@ public class RecordingSchedulingFragment extends BasePDFragment implements Fragm
         }
 
     }
+
     private class PatientSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {

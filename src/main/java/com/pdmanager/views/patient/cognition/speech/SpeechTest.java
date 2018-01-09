@@ -40,7 +40,6 @@ import static android.content.ContentValues.TAG;
 
 
 /**
- *
  * Speech Sorting Test
  *
  * @authors Miguel Páramo (mparamo@lst.tfo.upm.es)
@@ -48,8 +47,7 @@ import static android.content.ContentValues.TAG;
  * @license: GPL3rfe
  */
 
-public class SpeechTest extends SoundFeedbackActivity
-{
+public class SpeechTest extends SoundFeedbackActivity {
     final static String prefixDataFileName = "MFCC_COEFF_";
     final static String prefixMeanFilename = "MFCC_MEAN_";
     final static String prefixStdFilename = "MFCC_STD_";
@@ -109,8 +107,7 @@ public class SpeechTest extends SoundFeedbackActivity
         return minValue;
     }
 
-    private void infoTest()
-    {
+    private void infoTest() {
         setContentView(R.layout.activity_start);
         TextView textViewToChange = (TextView) findViewById(R.id.level);
         String str = getResources().getString(R.string.speech_instruction);
@@ -130,58 +127,50 @@ public class SpeechTest extends SoundFeedbackActivity
         });
     }
 
-    private void startRecCountdown()
-    {
-        CountDownTimer timerTask = new CountDownTimer(coundownStart*secsPerMs, secsPerMs)
-        {
-            @Override public void onTick(final long ms)
-            {
-                runOnUiThread(new Runnable()
-                {
+    private void startRecCountdown() {
+        CountDownTimer timerTask = new CountDownTimer(coundownStart * secsPerMs, secsPerMs) {
+            @Override
+            public void onTick(final long ms) {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
-                        int c = (int)(ms/secsPerMs)-1;
-                        if (c!=0)
-                        {
+                    public void run() {
+                        int c = (int) (ms / secsPerMs) - 1;
+                        if (c != 0) {
                             tvCountdown.setText("" + c);
                             tones.makeTone(ToneGenerator.TONE_DTMF_1, 100);
-                        }
-                        else
-                        {
+                        } else {
                             tvCountdown.setText(R.string.start_speech);
                             tones.makeTone(ToneGenerator.TONE_DTMF_6, 500);
                         }
                     }
                 });
             }
-            @Override public void onFinish() { startRecording(); }
+
+            @Override
+            public void onFinish() {
+                startRecording();
+            }
         };
         timerTask.start();
     }
 
-    private void startRecording()
-    {
+    private void startRecording() {
         tvTitle.setText(R.string.speech_start);
         ar.startRecording();
-        CountDownTimer timerTask = new CountDownTimer(countdownRecording*secsPerMs, secsPerMs)
-        {
-            @Override public void onTick(final long ms)
-            {
-                runOnUiThread(new Runnable()
-                {
+        CountDownTimer timerTask = new CountDownTimer(countdownRecording * secsPerMs, secsPerMs) {
+            @Override
+            public void onTick(final long ms) {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
-                        int c = (int)(ms/secsPerMs)-1;
+                    public void run() {
+                        int c = (int) (ms / secsPerMs) - 1;
                         tvCountdown.setText("" + c);
                     }
                 });
             }
 
             @Override
-            public void onFinish()
-            {
+            public void onFinish() {
 
                 //String audioFilePath = ar.stopRecording();
                 audioFilePath = ar.stopRecording();
@@ -195,27 +184,26 @@ public class SpeechTest extends SoundFeedbackActivity
         timerTask.start();
     }
 
-    private void endTest()
-{
+    private void endTest() {
 
-    setContentView(R.layout.activity_end);
-    Button b = (Button) findViewById(R.id.buttonFTTEndExit);
-    b.setVisibility(View.INVISIBLE);
-    Button buttonRepeat = (Button) findViewById(R.id.buttonFTTEndRepeat);
-    buttonRepeat.setOnClickListener(new View.OnClickListener()
-    {
-        @Override
-        public void onClick(View v) { finish(); }
-    });
-}
+        setContentView(R.layout.activity_end);
+        Button b = (Button) findViewById(R.id.buttonFTTEndExit);
+        b.setVisibility(View.INVISIBLE);
+        Button buttonRepeat = (Button) findViewById(R.id.buttonFTTEndRepeat);
+        buttonRepeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         prefs = new Preferences(getApplicationContext());
         digital7 = Typeface.createFromAsset(getAssets(), "digital7.ttf");
         String username = prefs.getUsername();
-        if (username==null) username = "";
+        if (username == null) username = "";
         ar = AudioRecorder.getInstance(username);
         infoTest();
     }
@@ -223,53 +211,52 @@ public class SpeechTest extends SoundFeedbackActivity
     /**
      * Writes the values of the ArrayList into a CSV file. It creates a new CSV file if there is
      * another with the same name by adding one.
-     * @param csvInput ArrayList<Float[]> that will be written in the CSV file.
+     *
+     * @param csvInput       ArrayList<Float[]> that will be written in the CSV file.
      * @param prefixFileName prefix name of the CSV file.
      */
     private void audioFeatures2csv(ArrayList<float[]> csvInput, String prefixFileName) throws IOException {
 
         Preferences prefs = new Preferences(getApplicationContext());
         String username = prefs.getUsername();
-        if (username==null) username = "";
+        if (username == null) username = "";
 
-        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/"+username);
-        if (!folder.exists())
-        {
-            try  { folder.mkdir(); }
-            catch (Exception e) { e.printStackTrace(); }
+        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/" + username);
+        if (!folder.exists()) {
+            try {
+                folder.mkdir();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/"+username;
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/" + username;
 
         //get audioFilePath to external storage (SD card)
         String csvfileStoragePath = path + File.separator + CSV_PATH;
         File sdCsvStorageDir = new File(csvfileStoragePath);
 
         //create storage directories, if they don't exist
-        if(!sdCsvStorageDir.exists())
+        if (!sdCsvStorageDir.exists())
             sdCsvStorageDir.mkdirs();
 
-        if(sdCsvStorageDir.exists())
-        {
+        if (sdCsvStorageDir.exists()) {
 
             PrintWriter csvWriter;
-            try
-            {
+            try {
                 String filePath = sdCsvStorageDir.toString() + File.separator + prefixFileName + typeFile;
 
                 File file = new File(filePath);
 
-               while(file.exists()){
+                while (file.exists()) {
                     suffixFileName++;
-                    filePath = sdCsvStorageDir.toString() + File.separator + prefixFileName+typeFile;
+                    filePath = sdCsvStorageDir.toString() + File.separator + prefixFileName + typeFile;
                     file = new File(filePath);
                 }
 
-                csvWriter = new  PrintWriter(new FileWriter(filePath,false));
+                csvWriter = new PrintWriter(new FileWriter(filePath, false));
 
-                for(float[] oneline: csvInput)
-                {
-                    for(float d : oneline)
-                    {
+                for (float[] oneline : csvInput) {
+                    for (float d : oneline) {
                         csvWriter.print(d + ",");
                     }
                     csvWriter.print("\r\n");
@@ -278,9 +265,7 @@ public class SpeechTest extends SoundFeedbackActivity
 
                 Log.d("CSV Writer", "CSV Data Written !!");
                 csvWriter.close();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -288,10 +273,10 @@ public class SpeechTest extends SoundFeedbackActivity
 
     /**
      * Initiantes the dispatcher needed for audioprocessing.
+     *
      * @param pathAudioFile the path of the audio file (.3gp).
      */
-    public void initDispatcher(String pathAudioFile)
-    {
+    public void initDispatcher(String pathAudioFile) {
         Log.d(TAG, "initDispatcher done");
         mfccList = new ArrayList<float[]>();
         mean_mfccs = new ArrayList<float[]>();
@@ -305,36 +290,35 @@ public class SpeechTest extends SoundFeedbackActivity
         //Florian suggested to use 16kHz as sample rate
 
         new AndroidFFMPEGLocator(getApplicationContext());
-        File wavFile = new File (pathAudioFile);
+        File wavFile = new File(pathAudioFile);
 
-        if(wavFile.exists()){
-            Log.d(TAG,"Wav File exists");
-        }else{
-            Log.d(TAG,"Wav File does not exist");
+        if (wavFile.exists()) {
+            Log.d(TAG, "Wav File exists");
+        } else {
+            Log.d(TAG, "Wav File does not exist");
         }
-        dispatcher = AudioDispatcherFactory.fromPipe(wavFile.getAbsolutePath(),sampleRate,bufferSize,0);
+        dispatcher = AudioDispatcherFactory.fromPipe(wavFile.getAbsolutePath(), sampleRate, bufferSize, 0);
 
-        if(dispatcher==null){
-            Log.d(TAG,"Dispatcher is null");
-        }else{
-            Log.d(TAG,"Dispatcher is not null");
+        if (dispatcher == null) {
+            Log.d(TAG, "Dispatcher is null");
+        } else {
+            Log.d(TAG, "Dispatcher is not null");
         }
     }
 
     /**
      * Checks if the dispatcher is null
+     *
      * @return true if the dispatcher is not null. False otherwise.
      */
-    public boolean isDispatcherNull()
-    {
+    public boolean isDispatcherNull() {
         return dispatcher == null;
     }
 
     /**
      * Stops the dispatcher
      */
-    public void stopDispatcher()
-    {
+    public void stopDispatcher() {
         dispatcher.stop();
         dispatcher = null;
 
@@ -344,22 +328,21 @@ public class SpeechTest extends SoundFeedbackActivity
      * Extracts the coefficients from dispatcher previously initiated. Coefficients values are
      * defined in the class.
      */
-    public void startMfccExtraction()
-    {
+    public void startMfccExtraction() {
 
 
         //MFCC( samplesPerFrame, sampleRate ) //typical samplesperframe are power of 2 & Samples per frame = (sample rate)/FPS
         //Florian suggested to use 16kHz as sample rate and 512 for frame size
-        final MFCC mfccObj = new MFCC(samplesPerFrame, sampleRate, amountOfCepstrumCoef, amountOfMelFilters, lowerFilterFreq, upperFilterFreq ); //(1024,22050);
+        final MFCC mfccObj = new MFCC(samplesPerFrame, sampleRate, amountOfCepstrumCoef, amountOfMelFilters, lowerFilterFreq, upperFilterFreq); //(1024,22050);
 
-        if(mfccObj == null) {
-            Log.d(TAG,"MFCC object is null");
-        }else{
-            Log.d(TAG,"MFCC object is not null");
+        if (mfccObj == null) {
+            Log.d(TAG, "MFCC object is null");
+        } else {
+            Log.d(TAG, "MFCC object is not null");
         }
 
   		/*AudioProcessors are responsible for actual digital signal processing. AudioProcessors are meant to be chained
-  		e.g. execute an effect and then play the sound.
+          e.g. execute an effect and then play the sound.
   		The chain of audio processor can be interrupted by returning false in the process methods.
   		*/
         dispatcher.addAudioProcessor(mfccObj);
@@ -370,19 +353,19 @@ public class SpeechTest extends SoundFeedbackActivity
             public void processingFinished() {
                 // TODO Auto-generated method stub
                 //Notify the AudioProcessor that no more data is available and processing has finished
-                Log.d("TEST","PROCESSING FINISHED");
+                Log.d("TEST", "PROCESSING FINISHED");
 
                 String[] splitFilename = audioFilePath.split("/");
-                String filename = splitFilename[splitFilename.length-1];
-                filename = filename.substring(0, filename.length()-4);
+                String filename = splitFilename[splitFilename.length - 1];
+                filename = filename.substring(0, filename.length() - 4);
                 String f = prefixDataFileName + filename;
                 calculateStatistics(mfccList);
                 try {
-                    audioFeatures2csv(getMfccList(),prefixDataFileName + filename);
-                    audioFeatures2csv(getMeanMFCCS(),prefixMeanFilename + filename);
-                    audioFeatures2csv(getSTDMFCCS(),prefixStdFilename + filename);
-                    audioFeatures2csv(getMaxMFCCS(),prefixMaxFilename + filename);
-                    audioFeatures2csv(getMinMFCCS(),prefixMinFilename + filename);
+                    audioFeatures2csv(getMfccList(), prefixDataFileName + filename);
+                    audioFeatures2csv(getMeanMFCCS(), prefixMeanFilename + filename);
+                    audioFeatures2csv(getSTDMFCCS(), prefixStdFilename + filename);
+                    audioFeatures2csv(getMaxMFCCS(), prefixMaxFilename + filename);
+                    audioFeatures2csv(getMinMFCCS(), prefixMinFilename + filename);
                     sendObservations(getMeanMFCCS());
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
@@ -407,38 +390,43 @@ public class SpeechTest extends SoundFeedbackActivity
         new Thread(dispatcher, "Audio Dispatcher").start();
     }
 
-    public ArrayList<float[]> getMfccList(){return mfccList;}
+    public ArrayList<float[]> getMfccList() {
+        return mfccList;
+    }
 
-    public ArrayList<float[]> getMeanMFCCS () {return mean_mfccs;}
+    public ArrayList<float[]> getMeanMFCCS() {
+        return mean_mfccs;
+    }
 
-    public ArrayList<float[]> getSTDMFCCS () {
+    public ArrayList<float[]> getSTDMFCCS() {
         return std_mfccs;
     }
 
-    public ArrayList<float[]> getMinMFCCS () {
+    public ArrayList<float[]> getMinMFCCS() {
         return min_mfccs;
     }
 
-    public ArrayList<float[]> getMaxMFCCS () {
+    public ArrayList<float[]> getMaxMFCCS() {
         return max_mfccs;
     }
 
     /**
      * Calculates the statistical values of an ArrayList of float[].
-     * @param mfccs  is the arrayList where the statitical values want to be obtained.
+     *
+     * @param mfccs is the arrayList where the statitical values want to be obtained.
      */
     public void calculateStatistics(ArrayList<float[]> mfccs) {
-        float[] mean = new float[amountOfCepstrumCoef-1],
-                std = new float[amountOfCepstrumCoef-1],
-                min = new float[amountOfCepstrumCoef-1],
-                max = new float[amountOfCepstrumCoef-1],
-                frame = new float[amountOfCepstrumCoef-1];
+        float[] mean = new float[amountOfCepstrumCoef - 1],
+                std = new float[amountOfCepstrumCoef - 1],
+                min = new float[amountOfCepstrumCoef - 1],
+                max = new float[amountOfCepstrumCoef - 1],
+                frame = new float[amountOfCepstrumCoef - 1];
         double[] coeff = new double[mfccs.size()];
         Statistics st;
-        for(int j=0;j<amountOfCepstrumCoef-1;j++){
-            for(int i=0; i<mfccs.size();i++){
-                frame=mfccs.get(i);
-                coeff[i]=frame[j];
+        for (int j = 0; j < amountOfCepstrumCoef - 1; j++) {
+            for (int i = 0; i < mfccs.size(); i++) {
+                frame = mfccs.get(i);
+                coeff[i] = frame[j];
             }
             st = new Statistics(coeff);
 
@@ -446,7 +434,7 @@ public class SpeechTest extends SoundFeedbackActivity
             double stdValue = st.getStdDev();
             double minValue = getMinValue(coeff);
             double maxValue = getMaxValue(coeff);
-            mean[j]=(float)meanValue;
+            mean[j] = (float) meanValue;
             std[j] = (float) stdValue;
             min[j] = (float) minValue;
             max[j] = (float) maxValue;
@@ -457,7 +445,7 @@ public class SpeechTest extends SoundFeedbackActivity
         max_mfccs.add(max);
     }
 
-    public void sendObservations (ArrayList<float[]> meanMFCCsList) {
+    public void sendObservations(ArrayList<float[]> meanMFCCsList) {
         //Observations
         try {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());

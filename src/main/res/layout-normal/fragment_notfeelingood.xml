@@ -9,25 +9,27 @@
     <RelativeLayout
         android:id="@+id/busy_BusyIndicator"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textSending"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saving..."
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-      />
-    <ProgressBar
-        android:layout_below="@+id/textSending"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge">
+
+        <TextView
+            android:id="@+id/textSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Saving..."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"/>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textSending"
+            android:layout_centerInParent="true"/>
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
@@ -44,36 +46,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textManagement"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="false"
             android:layout_marginBottom="8dip"
+            android:layout_marginTop="@dimen/nfg_button_topmargin"
             android:enabled="false"
             android:src="@drawable/ic_action_nfg"
             android:text="@string/connect_label"
-            app:cb_color="#ff0000"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/nfg_button_topmargin" />
+            app:cb_color="#ff0000"/>
 
         <TextView
             android:id="@+id/textNotEnabled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_below="@+id/buttonNotFeelingGood"
+            android:layout_marginTop="20dp"
             android:text="@string/ngfmess2"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:visibility="invisible"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/textManagement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:text="@string/ngfmess1"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/cancel_btn"
@@ -81,12 +83,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textNotEnabled"
 
+            android:layout_centerHorizontal="true"
+
             android:layout_marginBottom="8dip"
 
-            android:text="Cancel"
-
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/nfg_button_topmargin" />
+            android:layout_marginTop="@dimen/nfg_button_topmargin"
+            android:text="Cancel"/>
 
 
     </RelativeLayout>

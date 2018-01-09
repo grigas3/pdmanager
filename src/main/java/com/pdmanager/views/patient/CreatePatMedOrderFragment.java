@@ -157,10 +157,9 @@ public class CreatePatMedOrderFragment extends BasePDFragment implements View.On
         dataForm.setCommitMode(CommitMode.MANUAL);
 
 
-
         rootView.findViewById(R.id.data_form_done_button).setOnClickListener(this);
         rootView.findViewById(R.id.data_form_cancel_button).setOnClickListener(this);
-      
+
         return rootView;
     }
 
@@ -304,7 +303,7 @@ public class CreatePatMedOrderFragment extends BasePDFragment implements View.On
             try {
 
                 MedicationOrder params = clientParams[0];
-                DirectSender sender = new DirectSender(getAccessToken(),getContext());
+                DirectSender sender = new DirectSender(getAccessToken(), getContext());
                 CommunicationManager mCommManager = new CommunicationManager(sender);
 
                 mCommManager.SendItem(params);

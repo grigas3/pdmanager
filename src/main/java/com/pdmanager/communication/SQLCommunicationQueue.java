@@ -21,22 +21,23 @@ import java.util.Queue;
 
 public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunicationQueue, IJsonRequestHandler {
 
-        private Context ctx;
+    private Context ctx;
+
     public SQLCommunicationQueue(Context context) {
 
-        ctx=context.getApplicationContext();
+        ctx = context.getApplicationContext();
         //helper = DBHandler.getInstance(context);
     }
 
     @Override
-    public  int size() {
+    public int size() {
         int size = 0;
         SQLiteDatabase db = null;
-        Cursor cursor=null;
-        DBHandler helper=null;
+        Cursor cursor = null;
+        DBHandler helper = null;
         try {
 
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getReadableDatabase();
             cursor = db.rawQuery("select count(*) from " + DBHandler.TABLE_JREQUESTS, null);
             cursor.moveToFirst();
@@ -46,9 +47,9 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
 
         } finally {
 
-        if(cursor!=null)
-            cursor.close();
-           if (db != null)
+            if (cursor != null)
+                cursor.close();
+            if (db != null)
                 db.close();
 
 
@@ -71,15 +72,15 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  boolean add(JsonStorage s) {
+    public boolean add(JsonStorage s) {
 
 
         boolean ret = false;
 
-        DBHandler helper=null;
+        DBHandler helper = null;
         SQLiteDatabase db = null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getWritableDatabase();
 
             ContentValues values = new ContentValues();
@@ -90,13 +91,12 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
             db.insert(DBHandler.TABLE_JREQUESTS, null, values);
 
 
-
             ret = true;
         } catch (Exception e) {
             ret = false;
         } finally {
             if (db != null)
-              db.close();
+                db.close();
 
             if (helper != null)
                 helper.close();
@@ -105,25 +105,25 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  boolean addAll(Collection<? extends JsonStorage> collection) {
+    public boolean addAll(Collection<? extends JsonStorage> collection) {
         return false;
     }
 
     @Override
-    public  void clear() {
+    public void clear() {
 
         SQLiteDatabase db = null;
-        DBHandler helper=null;
+        DBHandler helper = null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getWritableDatabase();
             db.execSQL("delete from " + DBHandler.TABLE_JREQUESTS);
         } catch (Exception ex) {
-            Log.d("SQLCOMMQUEUE",ex.getMessage());
+            Log.d("SQLCOMMQUEUE", ex.getMessage());
 
         } finally {
             if (db != null)
-              db.close();
+                db.close();
             if (helper != null)
                 helper.close();
         }
@@ -140,7 +140,7 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  boolean isEmpty() {
+    public boolean isEmpty() {
         return this.size() == 0;
     }
 
@@ -186,13 +186,13 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  JsonStorage poll() {
+    public JsonStorage poll() {
         SQLiteDatabase db = null;
         JsonStorage result = null;
-        DBHandler helper=null;
-        Cursor cursor=null;
+        DBHandler helper = null;
+        Cursor cursor = null;
         try {
-            helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
 
             db = helper.getWritableDatabase();
             db.beginTransaction();
@@ -202,14 +202,12 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
             cursor.moveToFirst();
             if (cursor.getCount() == 0) {
 
-            }
-            else {
+            } else {
                 int id = cursor.getInt(0);
                 result = new JsonStorage(cursor.getString(2), cursor.getString(1));
 
-                db.delete(DBHandler.TABLE_JREQUESTS, DBHandler.COLUMN_ID+"=?", new String[]{String.valueOf(id)});
+                db.delete(DBHandler.TABLE_JREQUESTS, DBHandler.COLUMN_ID + "=?", new String[]{String.valueOf(id)});
             }
-
 
 
             db.setTransactionSuccessful();
@@ -217,12 +215,11 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
 
         } catch (Exception ex) {
 
-            Log.d("SQLCOMMQUEUE",ex.getMessage());
+            Log.d("SQLCOMMQUEUE", ex.getMessage());
 
         } finally {
 
-            if(cursor!=null)
-            {
+            if (cursor != null) {
                 cursor.close();
             }
             if (db != null)
@@ -235,21 +232,21 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
     }
 
     @Override
-    public  JsonStorage element() {
+    public JsonStorage element() {
         return null;
     }
 
     @Override
-    public  JsonStorage peek() {
+    public JsonStorage peek() {
         SQLiteDatabase db = null;
         JsonStorage result = null;
-        DBHandler helper=null;
-        Cursor cursor=null;
+        DBHandler helper = null;
+        Cursor cursor = null;
         try {
-             helper=DBHandler.getInstance(ctx);
+            helper = DBHandler.getInstance(ctx);
             db = helper.getReadableDatabase();
             db.beginTransaction();
-             cursor = db.query(false, DBHandler.TABLE_JREQUESTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_URI, DBHandler.COLUMN_JSON}, null, null, null, null, DBHandler.COLUMN_ID, "1");
+            cursor = db.query(false, DBHandler.TABLE_JREQUESTS, new String[]{DBHandler.COLUMN_ID, DBHandler.COLUMN_URI, DBHandler.COLUMN_JSON}, null, null, null, null, DBHandler.COLUMN_ID, "1");
             cursor.moveToFirst();
 
             result = new JsonStorage(cursor.getString(1), cursor.getString(2));
@@ -259,15 +256,14 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
 
 
         } catch (Exception ex) {
-            Log.d("SQLCOMMQUEUE",ex.getMessage());
+            Log.d("SQLCOMMQUEUE", ex.getMessage());
         } finally {
 
-            if(cursor!=null)
-            {
+            if (cursor != null) {
                 cursor.close();
             }
             if (db != null)
-               db.close();
+                db.close();
 
             if (helper != null)
                 helper.close();
@@ -277,7 +273,7 @@ public class SQLCommunicationQueue implements Queue<JsonStorage>, ICommunication
 
 
     @Override
-    public  boolean push(JsonStorage s) {
+    public boolean push(JsonStorage s) {
         return add(s);
 
     }

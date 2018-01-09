@@ -55,8 +55,6 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
     };
 
 
-
-
     public WelcomeFragment() {
 
 
@@ -71,9 +69,9 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
         mMonitoringStatus = (TextView) rootView.findViewById(R.id.textConnectionStatus);
         mSensorStatus = (TextView) rootView.findViewById(R.id.textSensorStatus);
 
-        busyIndicator=(ProgressBar)  rootView.findViewById(R.id.sync_progress);
+        busyIndicator = (ProgressBar) rootView.findViewById(R.id.sync_progress);
 
-        layout=(LinearLayout)  rootView.findViewById(R.id.mainLayout);
+        layout = (LinearLayout) rootView.findViewById(R.id.mainLayout);
 
 
         /*
@@ -122,7 +120,6 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
     private void refreshControls() {
 
 
-
     }
 
     @Override
@@ -167,37 +164,33 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
                             if (mSensorStatus != null) {
                                 mSensorStatus.setVisibility(View.VISIBLE);
 
+                                if (service.hasFatalError())
+
+                                {
+
+                                    if (service.getFatalErrorCode() == 2) {
+                                        //    mSensorStatus.setText("Band is not recording...please move phone close to your Band");
+
+                                    }
+
+                                    if (service.getFatalErrorCode() == 1) {
+                                        mSensorStatus.setText("Band is not paired...please re-pair your Band from the band device or conntact technician");
 
 
-                                    if (service.hasFatalError())
+                                    } else
 
                                     {
 
-
-                                        if (service.getFatalErrorCode() == 2) {
-                                        //    mSensorStatus.setText("Band is not recording...please move phone close to your Band");
-
-
-                                        }
-
-                                        if (service.getFatalErrorCode() == 1) {
-                                            mSensorStatus.setText("Band is not paired...please re-pair your Band from the band device or conntact technician");
-
-
-                                        } else
-
-                                        {
-
-                                         //   mSensorStatus.setText("Exception while connecting to Band");
-
-                                        }
-                                        mSensorStatus.setTextColor(Color.RED);
-                                    } else {
-
-                                        mSensorStatus.setText("ALL OK");
-                                        mSensorStatus.setTextColor(Color.GREEN);
+                                        //   mSensorStatus.setText("Exception while connecting to Band");
 
                                     }
+                                    mSensorStatus.setTextColor(Color.RED);
+                                } else {
+
+                                    mSensorStatus.setText("ALL OK");
+                                    mSensorStatus.setTextColor(Color.GREEN);
+
+                                }
 
 
                             }
@@ -220,8 +213,6 @@ public class WelcomeFragment extends BasePDFragment implements FragmentListener,
             }
         }
     }
-
-
 
 
 }

@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.pdmanager.R;
-import com.pdmanager.communication.CommunicationManager;
-import com.pdmanager.communication.DirectSender;
 import com.pdmanager.communication.DirectSenderTask;
 import com.pdmanager.communication.IDirectSendCallback;
-import com.pdmanager.views.patient.cognition.MainMenu;
+import com.pdmanager.models.Observation;
+import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.patient.cognition.persistance.Preferences;
 
 import java.io.File;
@@ -22,22 +21,17 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
-
-import com.pdmanager.settings.RecordingSettings;
-import com.pdmanager.models.Observation;
 
 
 /**
- *
  * Finger Tapping Test last screen
  *
  * @authors Quentin DELEPIERRE, Jorge CANCELA (jcancela@lst.tfo.upm.es)
  * @copyright: LifeSTech
  * @license: GPL3
  */
-public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
+public class FingerTappingEnd extends Activity implements IDirectSendCallback {
     private String LOGGER_TAG = "FingerTappingEnd";
 
     private int tapsTestOne = 0;
@@ -82,19 +76,19 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             maxTimeTestTwo = intent.getDoubleExtra(FingerTappingTestTwo.INTENT_MAX_TWO, 0);
             minTimeTestTwo = intent.getDoubleExtra(FingerTappingTestTwo.INTENT_MIN_TWO, 0);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, e.toString());
         }
 
         Preferences prefs = new Preferences(getApplicationContext());
         username = prefs.getUsername();
-        if (username==null) username = "";
+        if (username == null) username = "";
 
-        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/"+username);
+        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/PD_manager/" + username);
 
         if (!folder.exists()) {
 
-            try{
+            try {
                 folder.mkdir();
 
             } catch (Exception e) {
@@ -183,7 +177,6 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             String minTimeAlternateTest = String.format(Locale.ENGLISH, "%.2f", minTimeTestTwo);
 
 
-
             file.append(timeStamp + ", "
                     + String.valueOf(tapsTestTwo) + ", "
                     + String.valueOf(errorTapsTestTwo) + ", "
@@ -200,7 +193,7 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             Log.v(LOGGER_TAG, "Exception: on: " + fileFTTAlternate + " " + e.toString());
         }
 
-        Button buttonRepeat=(Button) findViewById(R.id.buttonFTTEndRepeat);
+        Button buttonRepeat = (Button) findViewById(R.id.buttonFTTEndRepeat);
         buttonRepeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,11 +215,11 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());
             String patientCode = settings.getPatientID();
             String token = settings.getToken();
-            final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(),this);
+            final DirectSenderTask sender = new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(), this);
 
             //CommunicationManager mCommManager = new CommunicationManager();
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsFtsTaps = new Observation (tapsTestOne, patientCode, "PDTFTS_TAPS", time);
+            Observation obsFtsTaps = new Observation(tapsTestOne, patientCode, "PDTFTS_TAPS", time);
             obsFtsTaps.PatientId = patientCode;
             Observation obsFtsMean = new Observation(Double.parseDouble(meanTimeTest1), patientCode, "PDTFTS_MEAN", time);
             obsFtsMean.PatientId = patientCode;
@@ -235,9 +228,9 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             obsFtsMax.PatientId = patientCode;
             Observation obsFtsMin = new Observation(Double.parseDouble(minTimeTest1), patientCode, "PDTFTS_MIN", time);
             obsFtsMin.PatientId = patientCode;
-            Observation obsFtaTaps = new Observation (tapsTestTwo, patientCode, "PDTFTA_TAPS", time);
+            Observation obsFtaTaps = new Observation(tapsTestTwo, patientCode, "PDTFTA_TAPS", time);
             obsFtaTaps.PatientId = patientCode;
-            Observation obsFtaErrors = new Observation (errorTapsTestTwo, patientCode, "PDTFTA_ERRORS", time);
+            Observation obsFtaErrors = new Observation(errorTapsTestTwo, patientCode, "PDTFTA_ERRORS", time);
             obsFtaErrors.PatientId = patientCode;
             Observation obsFtaMean = new Observation(Double.parseDouble(meanTimeTest2), patientCode, "PDTFTA_MEAN", time);
             obsFtaMean.PatientId = patientCode;
@@ -260,13 +253,11 @@ public class FingerTappingEnd extends Activity  implements IDirectSendCallback {
             sender.execute(observations);
 
 
-
         } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception: " + e.toString());
 
             finish();
-        }
-        finally {
+        } finally {
 
         }
 

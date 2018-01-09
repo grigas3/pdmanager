@@ -17,21 +17,19 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pdmanager.common.data.LogEvent;
 import com.pdmanager.R;
+import com.pdmanager.common.data.LogEvent;
 import com.pdmanager.logging.LogAdapter;
 import com.pdmanager.logging.LogCursorAdapter;
 import com.pdmanager.logging.LogLoader;
 import com.pdmanager.logging.LogObserver;
 import com.pdmanager.persistence.DBHandler;
-import com.pdmanager.views.clinician.PDQ39Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A fragment for log events
-
  */
 public class LogEventFragment extends Fragment implements FragmentListener, LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -65,7 +63,6 @@ public class LogEventFragment extends Fragment implements FragmentListener, Load
         initAdapter(getActivity());
 
 
-
     }
 
     @Override
@@ -86,8 +83,6 @@ public class LogEventFragment extends Fragment implements FragmentListener, Load
                 getLoaderManager().initLoader(LOADER_ID, null, this).forceLoad();
             }
         } catch (Exception ex) {
-
-
 
 
         }

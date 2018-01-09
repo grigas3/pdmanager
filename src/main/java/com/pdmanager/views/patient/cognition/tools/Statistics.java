@@ -5,64 +5,55 @@ import java.util.Arrays;
 /**
  * Created by jcancela on 13/7/15.
  */
-public class Statistics
-{
+public class Statistics {
     double[] data;
     int size;
 
-    public Statistics(double[] data)
-    {
+    public Statistics(double[] data) {
         this.data = data;
         size = data.length;
 
     }
 
-    public void setSize(int mySize){
+    public void setSize(int mySize) {
         this.size = mySize;
     }
 
-    public double getMean()
-    {
+    public double getMean() {
         double sum = 0.0;
-        for(double a : data)
+        for (double a : data)
             sum += a;
         if (size == 0) {
             return 0;
         } else {
-            return sum/size;
+            return sum / size;
         }
 
     }
 
-    public double getVariance()
-    {
+    public double getVariance() {
         double mean = getMean();
         double temp = 0;
-        for(double a :data)
-            temp += (mean-a)*(mean-a);
+        for (double a : data)
+            temp += (mean - a) * (mean - a);
         if (size == 0) {
             return 0;
         } else {
-            return temp/size;
+            return temp / size;
         }
 
     }
 
-    public double getStdDev()
-    {
+    public double getStdDev() {
         return Math.sqrt(getVariance());
     }
 
-    public double median()
-    {
+    public double median() {
         Arrays.sort(data);
 
-        if (data.length % 2 == 0)
-        {
+        if (data.length % 2 == 0) {
             return (data[(data.length / 2) - 1] + data[data.length / 2]) / 2.0;
-        }
-        else
-        {
+        } else {
             return data[data.length / 2];
         }
     }

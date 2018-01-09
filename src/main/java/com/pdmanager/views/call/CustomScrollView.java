@@ -13,14 +13,6 @@ public class CustomScrollView extends ScrollView {
 
     private boolean enableScrolling = true;
 
-    public boolean isEnableScrolling() {
-        return enableScrolling;
-    }
-
-    public void setEnableScrolling(boolean enableScrolling) {
-        this.enableScrolling = enableScrolling;
-    }
-
     public CustomScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -33,6 +25,14 @@ public class CustomScrollView extends ScrollView {
         super(context);
     }
 
+    public boolean isEnableScrolling() {
+        return enableScrolling;
+    }
+
+    public void setEnableScrolling(boolean enableScrolling) {
+        this.enableScrolling = enableScrolling;
+    }
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
@@ -42,6 +42,7 @@ public class CustomScrollView extends ScrollView {
             return false;
         }
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if (isEnableScrolling()) {

@@ -75,8 +75,7 @@ public class DataReceiver {
             return meds;
         } catch (Exception e) {
 
-
-            Log.e("DATARECEIVER","Get Medication Orders",e.getCause());
+            Log.e("DATARECEIVER", "Get Medication Orders", e.getCause());
             throw e;
         }
 
@@ -142,7 +141,6 @@ public class DataReceiver {
     }
 
 
-
     public List<Device> GetDevices(String patientId) {
 
 
@@ -164,18 +162,17 @@ public class DataReceiver {
         try {
 
 
-
             String jsonResponse = manager.Get("Device", param);
 
-            Log.d(TAG,jsonResponse);
-            Type t=new TypeToken<List<Device>>() {
+            Log.d(TAG, jsonResponse);
+            Type t = new TypeToken<List<Device>>() {
             }.getType();
-            List<Device> devices = gson.fromJson(jsonResponse,t);
+            List<Device> devices = gson.fromJson(jsonResponse, t);
 
             return devices;
         } catch (Exception e) {
 
-            Log.e(TAG,e.getMessage(),e.getCause());
+            Log.e(TAG, e.getMessage(), e.getCause());
 
         }
 

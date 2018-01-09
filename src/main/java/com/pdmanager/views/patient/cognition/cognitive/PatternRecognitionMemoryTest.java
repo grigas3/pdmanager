@@ -23,7 +23,6 @@ import java.util.Locale;
 import java.util.Random;
 
 /**
- *
  * Cognitive Test Pattern Recognition Memory
  *
  * @authors Thibaud Pacquetet, Samanta Villanueva (svillanueva@lst.tfo.upm.es ), Jorge Cancela (jcancela@lst.tfo.upm.es)
@@ -42,15 +41,15 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
     private final ArrayList<Integer> randomOrder = new ArrayList<>();
     private String LOGGER_TAG = "PRMemoryTest";
     private String
-        test = "PRM_Results.csv",
-        header = "Timestamp, " +
-                "Type of task, " +
-                "Number of stimuli, " +
-                "Number of errors, " +
-                "Mean time between taps (s), " +
-                "Time between taps STD (s), " +
-                "Total time (s) " +
-                "\r\n";
+            test = "PRM_Results.csv",
+            header = "Timestamp, " +
+                    "Type of task, " +
+                    "Number of stimuli, " +
+                    "Number of errors, " +
+                    "Mean time between taps (s), " +
+                    "Time between taps STD (s), " +
+                    "Total time (s) " +
+                    "\r\n";
     private int level;
     private int nLevelStimuli;
     private int counter = 0;
@@ -107,58 +106,6 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
     private CountDownTimer timerTask;
     private CountDownTimer timer;
-    private View.OnClickListener clickLeftImage = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            try {
-
-                if (!isAnswered) {
-
-                    final ImageView imgCentral = (ImageView) findViewById(R.id.imageViewCentral);
-
-                    boolean isError = false;
-                    if (isReverseOrder) isError = (typeOfStimuli.get(counter) == 1);
-                    else isError = (typeOfStimuli.get(randomOrder.get(counter)) == 1);
-                    if (isError) {
-                        nErrors++;
-                        imgCentral.setImageResource(R.drawable.red_cross);
-                        tones.nackBeep();
-                    } else {
-                        imgCentral.setImageResource(R.drawable.green_tick);
-                        tones.ackBeep();
-                    }
-                    imgCentral.setVisibility(View.VISIBLE);
-                    isAnswered = true;
-
-                    double currentTime = System.currentTimeMillis();
-                    timeBetweenTaps.add((currentTime - timeLastTap) / 1000D);
-                    timeLastTap = currentTime;
-
-                    timer = new CountDownTimer(TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
-
-                        @Override
-                        public void onTick(long millisUntilFinished) {
-                        }
-
-                        @Override
-                        public void onFinish() {
-                            if (isReverseOrder) {
-                                counter--;
-                                reverseOrder();
-                            } else {
-                                counter++;
-                                randomOrder();
-                            }
-                        }
-                    }.start();
-                }
-
-            } catch (Exception e) {
-                Log.v(LOGGER_TAG, "Exception e: " + e.toString());
-            }
-        }
-    };
     private View.OnClickListener clickRightImage = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -207,6 +154,58 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
             } catch (Exception e) {
 
+                Log.v(LOGGER_TAG, "Exception e: " + e.toString());
+            }
+        }
+    };
+    private View.OnClickListener clickLeftImage = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            try {
+
+                if (!isAnswered) {
+
+                    final ImageView imgCentral = (ImageView) findViewById(R.id.imageViewCentral);
+
+                    boolean isError = false;
+                    if (isReverseOrder) isError = (typeOfStimuli.get(counter) == 1);
+                    else isError = (typeOfStimuli.get(randomOrder.get(counter)) == 1);
+                    if (isError) {
+                        nErrors++;
+                        imgCentral.setImageResource(R.drawable.red_cross);
+                        tones.nackBeep();
+                    } else {
+                        imgCentral.setImageResource(R.drawable.green_tick);
+                        tones.ackBeep();
+                    }
+                    imgCentral.setVisibility(View.VISIBLE);
+                    isAnswered = true;
+
+                    double currentTime = System.currentTimeMillis();
+                    timeBetweenTaps.add((currentTime - timeLastTap) / 1000D);
+                    timeLastTap = currentTime;
+
+                    timer = new CountDownTimer(TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            if (isReverseOrder) {
+                                counter--;
+                                reverseOrder();
+                            } else {
+                                counter++;
+                                randomOrder();
+                            }
+                        }
+                    }.start();
+                }
+
+            } catch (Exception e) {
                 Log.v(LOGGER_TAG, "Exception e: " + e.toString());
             }
         }
@@ -305,17 +304,17 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
     }
 
-    private void setOrderOfLevels () {
+    private void setOrderOfLevels() {
 
         int nLevels = NUMBER_OF_LEVELS;
 
         if (!((NUMBER_OF_LEVELS % 2) == 0)) {
-            nLevels ++;
+            nLevels++;
         }
 
         ArrayList<Integer> orderLevels = new ArrayList<>();
-        for (int i=0; i<nLevels; i++) {
-            if (i<(nLevels/2)) {
+        for (int i = 0; i < nLevels; i++) {
+            if (i < (nLevels / 2)) {
                 orderLevels.add(0);
             } else {
                 orderLevels.add(1);
@@ -323,7 +322,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
         }
 
         Collections.shuffle(orderLevels);
-        for (int i= 0; i<NUMBER_OF_LEVELS; i++) {
+        for (int i = 0; i < NUMBER_OF_LEVELS; i++) {
             levelTypes[i] = orderLevels.get(i);
         }
 
@@ -358,7 +357,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
         final ImageView imgCentral = (ImageView) findViewById(R.id.imageViewCentral);
 
         // Init a counter to show the visual stimuli
-        timer = new CountDownTimer((nLevelStimuli+1) * TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
+        timer = new CountDownTimer((nLevelStimuli + 1) * TIME_MILLISECONDS_SHOWING_STIMULI, TIME_MILLISECONDS_SHOWING_STIMULI) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -389,7 +388,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
                 timeLastTap = startTime;
 
                 if (isReverseOrder) {
-                    counter = nLevelStimuli-1;
+                    counter = nLevelStimuli - 1;
                     reverseOrder();
                 } else {
                     counter = 0;
@@ -413,10 +412,10 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
         if (counter < 0) {
 
-            double timeLevel = (System.currentTimeMillis() - startTime)/1000D;
+            double timeLevel = (System.currentTimeMillis() - startTime) / 1000D;
             double[] timeTaps = new double[timeBetweenTaps.size()];
 
-            for (int i = 0; i<timeBetweenTaps.size(); i++) {
+            for (int i = 0; i < timeBetweenTaps.size(); i++) {
                 timeTaps[i] = timeBetweenTaps.get(i);
             }
 
@@ -437,7 +436,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
                     level++;
                     nLevelStimuli++;
 
-                    if (level>NUMBER_OF_LEVELS) {
+                    if (level > NUMBER_OF_LEVELS) {
                         finishTest();
                     } else {
                         setNewLevel();
@@ -474,10 +473,10 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
             imgLeft.setVisibility(View.INVISIBLE);
             imgRight.setVisibility(View.INVISIBLE);
 
-            double timeLevel = (System.currentTimeMillis() - startTime)/1000D;
+            double timeLevel = (System.currentTimeMillis() - startTime) / 1000D;
             double[] timeTaps = new double[timeBetweenTaps.size()];
 
-            for (int i = 0; i<timeBetweenTaps.size(); i++) {
+            for (int i = 0; i < timeBetweenTaps.size(); i++) {
                 timeTaps[i] = timeBetweenTaps.get(i);
             }
 
@@ -494,7 +493,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
                 public void onFinish() {
                     level++;
                     nLevelStimuli++;
-                    if (level>NUMBER_OF_LEVELS) {
+                    if (level > NUMBER_OF_LEVELS) {
                         finishTest();
                     } else {
                         setNewLevel();
@@ -515,12 +514,12 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
         }
     }
 
-    private void addNewResult (double phaseTs, double meanTimeAnswers, double stdTimeAnswers) {
+    private void addNewResult(double phaseTs, double meanTimeAnswers, double stdTimeAnswers) {
 
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         Resources res = getResources();
         String meanTime = String.format(Locale.ENGLISH, "%.2f", meanTimeAnswers);
@@ -544,8 +543,9 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
 
         results.add(String.valueOf(resultInfo));
     }
+
     @Override
-    protected void finishTest(){
+    protected void finishTest() {
 
         try {
             writeFile(test, header);
@@ -590,7 +590,7 @@ public class PatternRecognitionMemoryTest extends SoundFeedbackActivity {
             });
             */
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
 

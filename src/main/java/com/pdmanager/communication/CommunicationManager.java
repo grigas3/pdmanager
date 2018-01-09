@@ -159,12 +159,10 @@ public class CommunicationManager {
         try {
 
 
-
             if (items.size() > 0) {
 
 
                 new SendItemsTask<T>(mHandler).execute(items);
-
 
 
             }
@@ -176,7 +174,8 @@ public class CommunicationManager {
 
 
     }
-    public <T extends PDEntity> void SendItems(ArrayList<T> items,boolean writeFile) {
+
+    public <T extends PDEntity> void SendItems(ArrayList<T> items, boolean writeFile) {
 
         if (writeFile) {
 
@@ -231,10 +230,9 @@ public class CommunicationManager {
 
         private IJsonRequestHandler tHandler;
 
-        SendItemsTask(IJsonRequestHandler phandler)
-        {
+        SendItemsTask(IJsonRequestHandler phandler) {
 
-            this.tHandler=phandler;
+            this.tHandler = phandler;
         }
 
 
@@ -244,21 +242,16 @@ public class CommunicationManager {
             ArrayList<T> items = null;
             try {
                 items = clientParams[0];
-               // if (items.size() > 0) {
+                // if (items.size() > 0) {
 
+                T item = items.get(0);
+                String uri = getUri("POST", item.getPDType());
+                String json = JsonSerializationHelper.toJson(items);
+                if (tHandler != null) {
 
-                    T item = items.get(0);
-                    String uri = getUri("POST", item.getPDType());
-                    String json = JsonSerializationHelper.toJson(items);
-                    if (tHandler != null) {
+                    tHandler.addRequest(new JsonStorage(json, uri));
 
-                        tHandler.addRequest(new JsonStorage(json, uri));
-
-                    }
-
-
-
-
+                }
 
 
             } catch (Exception ex) {
@@ -286,10 +279,9 @@ public class CommunicationManager {
 
         private IJsonRequestHandler tHandler;
 
-        WriteItemsTask(IJsonRequestHandler phandler)
-        {
+        WriteItemsTask(IJsonRequestHandler phandler) {
 
-            this.tHandler=phandler;
+            this.tHandler = phandler;
         }
 
 
@@ -304,7 +296,7 @@ public class CommunicationManager {
 
                 T item = items.get(0);
 
-                JsonSerializationHelper.toJsonFile(items,item.getPDType());
+                JsonSerializationHelper.toJsonFile(items, item.getPDType());
 
 
             } catch (Exception ex) {

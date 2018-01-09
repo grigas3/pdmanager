@@ -10,48 +10,45 @@ import android.media.MediaRecorder;
  * <uses-permission android:name="android.permission.RECORD_AUDIO"/>
  * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
  */
-public class AudioRecorder
-{
+public class AudioRecorder {
 
-	private MediaRecorder mr;
-	private String
-		storageDir = null,
-		path = null;
-	private boolean isRecording = false;
-	private static AudioRecorder instance = null;
-	
-	/**
-	 * Instances the AudioRecorder singleton.
-	 * @param dirName Directory name to store the file, recommended the name of the app.
-	 * The recordings will be stored under a directory referenced by the directory name.
-	 */
-	public static AudioRecorder getInstance(String dirName)
-	{
-		if (instance==null) instance = new AudioRecorder(dirName);
-		return instance;
-	}
+    private static AudioRecorder instance = null;
+    private MediaRecorder mr;
+    private String
+            storageDir = null,
+            path = null;
+    private boolean isRecording = false;
 
-    private AudioRecorder(String dirName)
-    {
+    private AudioRecorder(String dirName) {
         mr = new MediaRecorder();
         storageDir = dirName;
     }
-    
-	/**
-	 * Instances the AudioRecorder singleton.
-	 * @param ctx The context of the app.
-	 * The recordings will be stored under a directory referenced by the app name.
-	 */
-	public static AudioRecorder getInstance(Context ctx)
-	{
-		if (instance==null) instance = new AudioRecorder(ctx);
-		return instance;
-	}
-	
-    private AudioRecorder(Context ctx)
-    {
+
+    private AudioRecorder(Context ctx) {
         mr = new MediaRecorder();
         storageDir = ctx.getPackageName();
+    }
+
+    /**
+     * Instances the AudioRecorder singleton.
+     *
+     * @param dirName Directory name to store the file, recommended the name of the app.
+     *                The recordings will be stored under a directory referenced by the directory name.
+     */
+    public static AudioRecorder getInstance(String dirName) {
+        if (instance == null) instance = new AudioRecorder(dirName);
+        return instance;
+    }
+
+    /**
+     * Instances the AudioRecorder singleton.
+     *
+     * @param ctx The context of the app.
+     *            The recordings will be stored under a directory referenced by the app name.
+     */
+    public static AudioRecorder getInstance(Context ctx) {
+        if (instance == null) instance = new AudioRecorder(ctx);
+        return instance;
     }
 
     /**
@@ -63,62 +60,64 @@ public class AudioRecorder
      * If this call exists with error, it is probably due to not having mounted an SD card or
      * because the AudioRecorder is already recording and for a second record a call to
      * stopRecording has to be made.
-     * @return The absolute path of the file being recorded or to be recorded 
+     *
+     * @return The absolute path of the file being recorded or to be recorded
      * or <code>null</code> in case of error.
      */
-    public String startRecording()
-    {
-    	if (isRecording) return path;
-    	else
-    	{
-    		// Configure the recorder. Don't put these lines on the class constructor.
-    		// These settings must be set before EACH recording.
-    		mr.setAudioSource(MediaRecorder.AudioSource.MIC);
-    		mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-    		mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-            
+    public String startRecording() {
+        if (isRecording) return path;
+        else {
+            // Configure the recorder. Don't put these lines on the class constructor.
+            // These settings must be set before EACH recording.
+            mr.setAudioSource(MediaRecorder.AudioSource.MIC);
+            mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
             path = MediaFiles.createNewAudioFile(storageDir);
-            if (path!=null)
-            {
-                try
-                {
-                	mr.setOutputFile(path);
-                	mr.prepare();
+            if (path != null) {
+                try {
+                    mr.setOutputFile(path);
+                    mr.prepare();
+                } catch (Exception e) {
+                    return null;
                 }
-                catch (Exception e) { return null; }
                 mr.start();
                 isRecording = true;
             }
             return path;
-    	}
+        }
     }
 
     /**
      * Stops the current recording. After that, another audio record can be performed.
-     * @return The absolute path of the file being recorded or to be recorded 
+     *
+     * @return The absolute path of the file being recorded or to be recorded
      * or <code>null</code> in case of error.
      */
-    public String stopRecording()
-    {
-    	isRecording = false;
-    	try
-    	{
+    public String stopRecording() {
+        isRecording = false;
+        try {
             mr.stop();
             mr.reset();
-    	}
-    	catch (Exception e) { e.printStackTrace(); }
-    	return path;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return path;
     }
-    
+
     /**
      * Frees the Audio recorder resources.
      */
-    public void release() { mr.release(); }
-    
+    public void release() {
+        mr.release();
+    }
+
     /**
      * Tells if the AudioRecorder engine is currently recording.
      */
-    public boolean isRecording() { return isRecording; }
+    public boolean isRecording() {
+        return isRecording;
+    }
 
 
 } // AudioRecorder

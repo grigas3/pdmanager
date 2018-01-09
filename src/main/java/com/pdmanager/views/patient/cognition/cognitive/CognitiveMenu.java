@@ -9,7 +9,6 @@ import android.widget.Button;
 import com.pdmanager.R;
 
 /**
- *
  * Main menu to launch the different cognitive tests
  *
  * @authors Quentin DELEPIERRE, Thibaud PACQUETET, Jorge CANCELA (jcancela@lst.tfo.upm.es)

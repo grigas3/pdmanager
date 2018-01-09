@@ -39,10 +39,10 @@ import com.oovoo.sdk.interfaces.VideoDevice;
 import com.oovoo.sdk.interfaces.VideoRender;
 import com.oovoo.sdk.interfaces.ooVooSdkResult;
 import com.oovoo.sdk.interfaces.ooVooSdkResultListener;
-import com.pdmanager.call.CNMessage;
 import com.pdmanager.R;
-import com.pdmanager.settings.VideoSettings;
+import com.pdmanager.call.CNMessage;
 import com.pdmanager.services.CustomTimer;
+import com.pdmanager.settings.VideoSettings;
 import com.pdmanager.views.call.CustomVideoPanel;
 import com.telerik.common.TrackedApplication;
 
@@ -61,30 +61,6 @@ import java.util.UUID;
 public abstract class VideoApp extends TrackedApplication implements VideoControllerListener, LoggerListener, AVChatListener, AudioControllerListener, MessagingListener {
 
     public static final String TAG = "PDManagerApp";
-
-
-    public enum Operation {
-        Authorized, LoggedIn, Processing, AVChatJoined, AVChatCall, AVChatDisconnected, Error;
-        private String description = "";
-        private Operation forOperation = null;
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public Operation forOperation() {
-            return forOperation;
-        }
-
-        public void setForOperation(Operation state) {
-            forOperation = state;
-        }
-    }
-
     private ooVooClient sdk = null;
     private Context mContext = null;
     private Handler operation_handler = null;
@@ -105,8 +81,10 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
     private boolean isInConference = false;
     private CameraListener cameraListener = null;
     private Hashtable<String, CustomTimer> timers = new Hashtable<String, CustomTimer>();
-
     private Map<String, Boolean> muted = new HashMap<String, Boolean>();
+    private boolean restart_samera_after_close = false;
+    private VideoRender render_preview = null;
+    private ooVooSdkResultListener end_of_call_listener = null;
 
     @Override
     public void onCreate() {
@@ -278,10 +256,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         fireApplicationStateEvent(Operation.Error, Operation.Authorized, autorize_result.getDescription());
     }
 
-    public interface OperationChangeListener {
-        void onOperationChange(Operation state);
-    }
-
     public synchronized void login(final String username, String displayName, final boolean isDoctor) {
         m_iscameraopened = false;
         m_previewopened = false;
@@ -331,8 +305,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
                 sdk.getAVChat().getVideoController().openPreview();
         }
     }
-
-    private boolean restart_samera_after_close = false;
 
     @Override
     public void onCameraStateChanged(ooVooCamera.ooVooCameraState state, String deviceId, int width, int height, int fps, sdk_error error) {
@@ -460,8 +432,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
                 break;
         }
     }
-
-    private VideoRender render_preview = null;
 
     public void bindPreviewPanel(VideoRender render) {
         if (render instanceof CustomVideoPanel) {
@@ -724,16 +694,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         return participants;
     }
 
-    public interface ParticipantsListener {
-        void onParticipantJoined(String userId, String userData);
-
-        void onParticipantLeft(String userId);
-
-        void onRemoteVideoStateChanged(String userId, RemoteVideoState state, sdk_error error);
-
-        void onTransmitStateChanged(boolean state, sdk_error err);
-    }
-
     @Override
     public void onAudioReceiveStateChanged(boolean arg0, sdk_error arg1) {
         try {
@@ -835,9 +795,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         return sdk.getAVChat().getVideoController().getDeviceList();
     }
 
-
-    private ooVooSdkResultListener end_of_call_listener = null;
-
     private void doLeave() {
         doLeave(null);
     }
@@ -904,28 +861,24 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         doLeave(listener);
     }
 
-    public interface CallControllerListener {
-        void updateController();
-    }
-
     public void setControllerListener(CallControllerListener controllerListener) {
         this.controllerListener = controllerListener;
-    }
-
-    public void setMicMuted(boolean muted) {
-        sdk.getAVChat().getAudioController().setRecordMuted(muted);
     }
 
     public boolean isMicMuted() {
         return sdk.getAVChat().getAudioController().isRecordMuted();
     }
 
-    public void setSpeakerMuted(boolean muted) {
-        sdk.getAVChat().getAudioController().setPlaybackMuted(muted);
+    public void setMicMuted(boolean muted) {
+        sdk.getAVChat().getAudioController().setRecordMuted(muted);
     }
 
     public boolean isSpeakerMuted() {
         return sdk.getAVChat().getAudioController().isPlaybackMuted();
+    }
+
+    public void setSpeakerMuted(boolean muted) {
+        sdk.getAVChat().getAudioController().setPlaybackMuted(muted);
     }
 
     @Override
@@ -1078,16 +1031,9 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         return ooVooClient.getSdkVersion();
     }
 
-    public interface NetworkListener {
-        void onNetworkSignalStrength(int level);
-
-        void onNetworkSecurityState(boolean isSecure);
-    }
-
     public boolean isTablet() {
         return ooVooClient.isTablet();
     }
-
 
     public boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -1103,7 +1049,6 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         }
         return false;
     }
-
 
     public int getDeviceDefaultOrientation() {
         if (ooVooClient.isTablet()) {
@@ -1125,24 +1070,12 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         ooVooClient.setLogLevel(LogLevel.fromString(logLevel));
     }
 
-    public interface MessageCompletionHandler {
-        void onHandle(boolean sent);
-    }
-
-    public interface CallNegotiationListener {
-        void onMessageReceived(final CNMessage cnMessage);
-    }
-
     public void addCallNegotiationListener(CallNegotiationListener listener) {
         callNegotiationListeners.add(listener);
     }
 
     public void removeCallNegotiationListener(CallNegotiationListener listener) {
         callNegotiationListeners.remove(listener);
-    }
-
-    public interface CameraListener {
-        void onCameraClosed();
     }
 
     public void setCameraListener(CameraListener listener) {
@@ -1325,12 +1258,12 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
         this.conferenceId = UUID.randomUUID().toString();
     }
 
-    public void setConferenceId(String conferenceId) {
-        this.conferenceId = conferenceId;
-    }
-
     public String getConferenceId() {
         return conferenceId;
+    }
+
+    public void setConferenceId(String conferenceId) {
+        this.conferenceId = conferenceId;
     }
 
     public boolean isInConference() {
@@ -1424,6 +1357,64 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
                 }
             }
         });
+    }
+
+    public enum Operation {
+        Authorized, LoggedIn, Processing, AVChatJoined, AVChatCall, AVChatDisconnected, Error;
+        private String description = "";
+        private Operation forOperation = null;
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public Operation forOperation() {
+            return forOperation;
+        }
+
+        public void setForOperation(Operation state) {
+            forOperation = state;
+        }
+    }
+
+    public interface OperationChangeListener {
+        void onOperationChange(Operation state);
+    }
+
+    public interface ParticipantsListener {
+        void onParticipantJoined(String userId, String userData);
+
+        void onParticipantLeft(String userId);
+
+        void onRemoteVideoStateChanged(String userId, RemoteVideoState state, sdk_error error);
+
+        void onTransmitStateChanged(boolean state, sdk_error err);
+    }
+
+    public interface CallControllerListener {
+        void updateController();
+    }
+
+    public interface NetworkListener {
+        void onNetworkSignalStrength(int level);
+
+        void onNetworkSecurityState(boolean isSecure);
+    }
+
+    public interface MessageCompletionHandler {
+        void onHandle(boolean sent);
+    }
+
+    public interface CallNegotiationListener {
+        void onMessageReceived(final CNMessage cnMessage);
+    }
+
+    public interface CameraListener {
+        void onCameraClosed();
     }
 
 }

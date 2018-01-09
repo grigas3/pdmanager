@@ -55,14 +55,14 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
         setUp();
     }
 
-    public void setUp (   ) {
-        final SoundFeedbackActivity rootView=this;
-        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(),this);
+    public void setUp() {
+        final SoundFeedbackActivity rootView = this;
+        final DirectSenderTask sender = new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(), this);
 
         busyIndicator = (RelativeLayout) rootView.findViewById(R.id.busy_BusyIndicator);
 
         busyIndicator.setVisibility(View.INVISIBLE);
-        layout=(RelativeLayout)  rootView.findViewById(R.id.mainLayout);
+        layout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
         selectedActivityViews = new ArrayList<>();
 //        diaryContainer = (LinearLayout) rootView.findViewById(R.id.container_diary_select);
 
@@ -83,27 +83,26 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
             @Override
             public void onClick(View v) {
 
-                    Date date1 = new Date();
-                    date1.setHours(0);
-                    date1.setMinutes(0);
-                    //Date date2= new java.util.Date(t2);
-                    Calendar cal1 = Calendar.getInstance();
-                    //Calendar cal2 = Calendar.getInstance();
-                    cal1.setTime(date1);
+                Date date1 = new Date();
+                date1.setHours(0);
+                date1.setMinutes(0);
+                //Date date2= new java.util.Date(t2);
+                Calendar cal1 = Calendar.getInstance();
+                //Calendar cal2 = Calendar.getInstance();
+                cal1.setTime(date1);
 
-                    String patientCode= RecordingSettings.GetRecordingSettings(rootView).getPatientID();
+                String patientCode = RecordingSettings.GetRecordingSettings(rootView).getPatientID();
 
-                    ArrayList<Observation> observations=new ArrayList<Observation>();
-                    int pv=Integer.parseInt( selectedMoodView.getTag().toString());
-                    observations.add( new Observation(pv, patientCode, "DIARY", cal1.getTimeInMillis()));
-                    busyIndicator.setVisibility(View.VISIBLE);
-                    layout.setVisibility(View.INVISIBLE);
-                    sender.execute(observations);
-                 //   Toast.makeText(rootView, "selectedMood="+selectedMood+", selectedActivities="+selectedActivities+"\nTODO: Send this values to server, disable toast.", Toast.LENGTH_LONG).show();
-                 //   Log.d(LOG_TAG, "selectedMood=" + selectedMood + ", selectedActivities=" + selectedActivities);
+                ArrayList<Observation> observations = new ArrayList<Observation>();
+                int pv = Integer.parseInt(selectedMoodView.getTag().toString());
+                observations.add(new Observation(pv, patientCode, "DIARY", cal1.getTimeInMillis()));
+                busyIndicator.setVisibility(View.VISIBLE);
+                layout.setVisibility(View.INVISIBLE);
+                sender.execute(observations);
+                //   Toast.makeText(rootView, "selectedMood="+selectedMood+", selectedActivities="+selectedActivities+"\nTODO: Send this values to server, disable toast.", Toast.LENGTH_LONG).show();
+                //   Log.d(LOG_TAG, "selectedMood=" + selectedMood + ", selectedActivities=" + selectedActivities);
 
-
-                    //post selectedMood and selectedActivites to the server and open XY fragment
+                //post selectedMood and selectedActivites to the server and open XY fragment
 
             }
         });
@@ -120,7 +119,7 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
     }
 
     public void changeMood(View view) {
-        if( selectedMoodView != null)
+        if (selectedMoodView != null)
             selectedMoodView.setSelected(false);
         selectedMoodView = view;
         selectedMoodView.setSelected(true);
@@ -136,7 +135,6 @@ public class DiaryTrackingActivity extends SoundFeedbackActivity implements IDir
     public void onPostDirectSend(boolean result) {
         busyIndicator.setVisibility(View.INVISIBLE);
         layout.setVisibility(View.VISIBLE);
-
 
 
         finishTest();

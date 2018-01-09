@@ -3,7 +3,6 @@ package com.pdmanager.medication;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +59,7 @@ public class MedCursorAdapter extends CursorAdapter {
             TextView text1 = (TextView) view.findViewById(android.R.id.text1);
             TextView text2 = (TextView) view.findViewById(android.R.id.text2);
             int doseIndex = cursor.getColumnIndexOrThrow(DBHandler.COLUMN_DOSE);
-            text1.setText(cursor.getString(messageIndex)+"  ("+  cursor.getString(doseIndex)+")");
+            text1.setText(cursor.getString(messageIndex) + "  (" + cursor.getString(doseIndex) + ")");
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String shortTimeStr = sdf.format(new Date(cursor.getLong(timeIndex) * 1000).getTime());
             text2.setText(shortTimeStr);

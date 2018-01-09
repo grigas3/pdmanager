@@ -85,6 +85,7 @@ public class MedManager implements IMedManager {
 
     /**
      * Add Medication Order
+     *
      * @param medOrder A med order to add
      * @return
      */
@@ -331,8 +332,6 @@ public class MedManager implements IMedManager {
     }
 
 
-
-
     public int pendingMedicationTest(long testtime) {
         SQLiteDatabase db = null;
         JsonStorage result = null;
@@ -397,21 +396,18 @@ public class MedManager implements IMedManager {
     }
 
 
-    private String getMessage(String s,long time)
-    {
+    private String getMessage(String s, long time) {
 
-        String message=s;
+        String message = s;
 
         try {
             Calendar cal1 = Calendar.getInstance();
             cal1.setTimeInMillis(time);
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String shortTimeStr = sdf.format(cal1.getTime());
-             message = mContext.getString(R.string.medalertpart1) + " " + s + " " + mContext.getString(R.string.medalertpart2) + " " + shortTimeStr;
+            message = mContext.getString(R.string.medalertpart1) + " " + s + " " + mContext.getString(R.string.medalertpart2) + " " + shortTimeStr;
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
         }
         return message;
@@ -442,9 +438,9 @@ public class MedManager implements IMedManager {
             } else {
 
                 int id = cursor.getInt(0);
-                long time=cursor.getLong(3);
-                String s= cursor.getString(1);
-                getMessage(s,time);
+                long time = cursor.getLong(3);
+                String s = cursor.getString(1);
+                getMessage(s, time);
                 result = new UserAlert(Integer.toString(id), cursor.getString(1), cursor.getString(2), "MED", unixTime, cursor.getLong(3), Integer.toString(medid));
                 return result;
             }

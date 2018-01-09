@@ -30,7 +30,7 @@ import java.util.Set;
 /**
  * Created by George on 1/30/2016.
  */
-public class PDPilotAppContext extends Application implements Application.ActivityLifecycleCallbacks  {
+public class PDPilotAppContext extends Application implements Application.ActivityLifecycleCallbacks {
 
     public static final String INTENT_CONTROL_ID = "CONTROL_ID";
     public static final String INTENT_Action_ID = "Action_ID";
@@ -38,7 +38,7 @@ public class PDPilotAppContext extends Application implements Application.Activi
     public static final String INTENT_PATIENT_CODE = "PATIENT_CODE";
     public static final String INTENT_ACCESS_TOKEN = "ACCESS_TOKEN";
     public static final String INTENT_ALERT_ID = "ALERT_ID";
-    public static final String INTENT_ALERT_TYPE= "ALERT_TYPE";
+    public static final String INTENT_ALERT_TYPE = "ALERT_TYPE";
 
     public static final String INTENT_SELECTED_DAY = "DAY";
     public static final String INTENT_PATIENT_NAME = "PATIENT_NAME";
@@ -120,8 +120,6 @@ public class PDPilotAppContext extends Application implements Application.Activi
     }
 
 
-
-
     private void resetActionsCounter() {
         this.openedActionsCount = 0;
         this.editor.putInt(OPENED_ActionS_COUNT_KEY, 0);
@@ -133,8 +131,6 @@ public class PDPilotAppContext extends Application implements Application.Activi
         this.analyticsLearned = learned;
         editor.commit();
     }
-
-
 
 
     public boolean analyticsActive() {
@@ -241,7 +237,6 @@ public class PDPilotAppContext extends Application implements Application.Activi
     }
 
 
-
     private void savePreferences() {
         // Workaround for the problem where the stored set must be immutable bellow API 17
         editor.putStringSet(FAVORITES, new HashSet<String>(this.favorites));
@@ -252,7 +247,6 @@ public class PDPilotAppContext extends Application implements Application.Activi
     private void parseActions() {
 
     }
-
 
 
     public void openActivity(Activity callingActivity, Class<?> newActivity) {

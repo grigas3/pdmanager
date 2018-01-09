@@ -1,84 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:gravity="center_horizontal|center_vertical"
-    android:background="@color/black" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/black"
+              android:gravity="center_horizontal|center_vertical"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@color/black" >
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="15dp"
+                  android:background="@color/black"
+                  android:orientation="vertical">
 
-        <TextView android:text="@string/fttTwoTvInstructions"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="10dp"
-            android:textSize="20dp"
-            android:textColor="#FFF" />
+            android:text="@string/fttTwoTvInstructions"
+            android:textColor="#FFF"
+            android:textSize="20dp"/>
 
         <ProgressBar
             android:id="@+id/progressBar1"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
             android:indeterminate="false"
-            android:progress="100"
             android:minHeight="50dp"
-            android:minWidth="200dp" />
+            android:minWidth="200dp"
+            android:progress="100"/>
 
         <TextView
+            android:id="@+id/fttTwoTvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/fttTwoTvTime"
-            android:id="@+id/fttTwoTvTime"
             android:textColor="#CCC" />
 
         <TextView
+            android:id="@+id/fttTwoTvNumberOfTaps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/fttTwoTvTimeNumberOfTaps"
-            android:id="@+id/fttTwoTvNumberOfTaps"
             android:textColor="#CCC" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
-            android:background="@drawable/button_round"
-            style="@style/button_text"
-            android:scaleType="centerCrop"
-            android:layout_height="150dp"
-            android:layout_width="150dp"
-            android:text="1"
             android:id="@+id/click1"
-            android:layout_weight="0.5" />
+            style="@style/button_text"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_round"
+            android:scaleType="centerCrop"
+            android:text="1"/>
 
         <Button
-            android:background="@drawable/button_round"
-            style="@style/button_text"
-            android:layout_height="150dp"
-            android:layout_width="150dp"
-            android:text="2"
             android:id="@+id/click2"
-            android:layout_weight="0.5" />
+            style="@style/button_text"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_round"
+            android:text="2"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -31,7 +31,6 @@ import java.util.Calendar;
 import java.util.Locale;
 
 /**
- *
  * London Towers Test
  *
  * @authors Miguel Páramo (mparamo@lst.tfo.upm.es)
@@ -39,43 +38,42 @@ import java.util.Locale;
  * @license: GPL3
  */
 
-public class LondonTowersTest extends SoundFeedbackActivity
-{
+public class LondonTowersTest extends SoundFeedbackActivity {
     private final String LOGGER_TAG = "London_Towers_test";
 
     private String
-        test = "TowersOfLondon.csv",
-        header = "Timestamp, "
-                + "number of correct trials, "
-                + "number of errors, "
-                + "number of repetitions, "
-                + "max. level reached, "
-                + "mean time per trial (s), "
-                + "STD time per trial (s), "
-                + "max time per trial (s), "
-                + "min time per trial (s), "
-                + "Total time (s)" + "\r\n";
+            test = "TowersOfLondon.csv",
+            header = "Timestamp, "
+                    + "number of correct trials, "
+                    + "number of errors, "
+                    + "number of repetitions, "
+                    + "max. level reached, "
+                    + "mean time per trial (s), "
+                    + "STD time per trial (s), "
+                    + "max time per trial (s), "
+                    + "min time per trial (s), "
+                    + "Total time (s)" + "\r\n";
     private RNG rng;
     private LondonTowersGame london;
     private View s0, s1, s2;
     private TextView tvLevel, tvMoves;
     private ImageView
-        ivHand, feedback,
-        ts00, ts01, ts02, ts10, ts11, ts12, ts20, ts21, ts22,
-        s00, s01, s02, s10, s11, s12, s20, s21, s22;
+            ivHand, feedback,
+            ts00, ts01, ts02, ts10, ts11, ts12, ts20, ts21, ts22,
+            s00, s01, s02, s10, s11, s12, s20, s21, s22;
 
     private Animation fadeIn, fadeOut;
     private AnimationSet anim;
 
     private boolean success = true;
     private int
-        maxErrors = 3,
-        errors = 0;
+            maxErrors = 3,
+            errors = 0;
 
     private int
-        level = 0,
-        moves = 0,
-        maxLevel = 10;
+            level = 0,
+            moves = 0,
+            maxLevel = 10;
 
     private Integer handPeg = null;
 
@@ -84,50 +82,36 @@ public class LondonTowersTest extends SoundFeedbackActivity
     private int nRepetitions;
     private int maxLevelReached = 0;
     private ArrayList<Double> timePerTrial;
-    private OnClickListener oclStack = new OnClickListener()
-    {
+    private OnClickListener oclStack = new OnClickListener() {
         @Override
-        public void onClick(View v)
-        {
+        public void onClick(View v) {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
             double startTime = System.currentTimeMillis();
-            String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+            String date = dateFormat.format(Calendar.getInstance().getTime());
 
-            if (v==s0)
-            {
-                if (handPeg!=null)
-                {
+            if (v == s0) {
+                if (handPeg != null) {
                     london.init.p0.push(handPeg);
                     handPeg = null;
                     moves++;
-                }
-                else handPeg = london.init.p0.pop();
-            }
-            else if (v==s1)
-            {
-                if (handPeg!=null)
-                {
+                } else handPeg = london.init.p0.pop();
+            } else if (v == s1) {
+                if (handPeg != null) {
                     london.init.p1.push(handPeg);
                     handPeg = null;
                     moves++;
-                }
-                else handPeg = london.init.p1.pop();
-            }
-            else if (v==s2)
-            {
-                if (handPeg!=null)
-                {
+                } else handPeg = london.init.p1.pop();
+            } else if (v == s2) {
+                if (handPeg != null) {
                     london.init.p2.push(handPeg);
                     handPeg = null;
                     moves++;
-                }
-                else handPeg = london.init.p2.pop();
+                } else handPeg = london.init.p2.pop();
             }
             updateCurrentTowers();
             updateHand();
-            if (london.isResolved())
-            {
+            if (london.isResolved()) {
                 double endTime = System.currentTimeMillis();
                 double totalTime = (endTime - startTime);
                 timePerTrial.add(totalTime);
@@ -135,8 +119,7 @@ public class LondonTowersTest extends SoundFeedbackActivity
 
                 tvMoves.setText(getString(R.string.movement) + ": " + moves + "/" + london.minMoves);
                 updateFeedback(true);
-            }
-            else updateMoves();
+            } else updateMoves();
         }
     };
 
@@ -158,31 +141,26 @@ public class LondonTowersTest extends SoundFeedbackActivity
         } else start();
     }
 
-    private void updateMoves()
-    {
+    private void updateMoves() {
         tvMoves.setText(getString(R.string.movement) + ": " + moves + "/" + london.minMoves);
-        if (moves>london.minMoves) updateFeedback(false);
+        if (moves > london.minMoves) updateFeedback(false);
     }
 
-    private void updateHand()
-    {
-        if (handPeg==null) ivHand.setImageResource(R.drawable.handempty);
-        else if (handPeg==LondonTowersGraph.R) ivHand.setImageResource(R.drawable.handred);
-        else if (handPeg== LondonTowersGraph.G) ivHand.setImageResource(R.drawable.handyellow);
-        else if (handPeg==LondonTowersGraph.B) ivHand.setImageResource(R.drawable.handblue);
+    private void updateHand() {
+        if (handPeg == null) ivHand.setImageResource(R.drawable.handempty);
+        else if (handPeg == LondonTowersGraph.R) ivHand.setImageResource(R.drawable.handred);
+        else if (handPeg == LondonTowersGraph.G) ivHand.setImageResource(R.drawable.handyellow);
+        else if (handPeg == LondonTowersGraph.B) ivHand.setImageResource(R.drawable.handblue);
     }
 
-    private void updateFeedback(boolean s)
-    {
+    private void updateFeedback(boolean s) {
         success = s;
         int icon = R.drawable.red_cross;
-        if (success)
-        {
+        if (success) {
             icon = R.drawable.green_tick;
             tones.ackBeep();
             nCorrect++;
-        }
-        else {
+        } else {
             tones.nackBeep();
             nErrors++;
         }
@@ -191,15 +169,14 @@ public class LondonTowersTest extends SoundFeedbackActivity
         feedback.startAnimation(anim);
     }
 
-    private void start()
-    {
+    private void start() {
         setContentView(R.layout.london_towers);
-        tvLevel = (TextView)findViewById(R.id.tvLevel);
-        tvMoves = (TextView)findViewById(R.id.tvMovements);
+        tvLevel = (TextView) findViewById(R.id.tvLevel);
+        tvMoves = (TextView) findViewById(R.id.tvMovements);
 
-        ivHand = (ImageView)findViewById(R.id.imgHand);
+        ivHand = (ImageView) findViewById(R.id.imgHand);
 
-        feedback = (ImageView)findViewById(R.id.ivFeedback);
+        feedback = (ImageView) findViewById(R.id.ivFeedback);
         s0 = findViewById(R.id.s0);
         s0.setOnClickListener(oclStack);
         s1 = findViewById(R.id.s1);
@@ -208,45 +185,43 @@ public class LondonTowersTest extends SoundFeedbackActivity
         s2.setOnClickListener(oclStack);
 
         // Target
-        ts00 = (ImageView)findViewById(R.id.ts00);
-        ts01 = (ImageView)findViewById(R.id.ts01);
-        ts02 = (ImageView)findViewById(R.id.ts02);
-        ts10 = (ImageView)findViewById(R.id.ts10);
-        ts11 = (ImageView)findViewById(R.id.ts11);
-        ts12 = (ImageView)findViewById(R.id.ts12);
-        ts20 = (ImageView)findViewById(R.id.ts20);
-        ts21 = (ImageView)findViewById(R.id.ts21);
-        ts22 = (ImageView)findViewById(R.id.ts22);
+        ts00 = (ImageView) findViewById(R.id.ts00);
+        ts01 = (ImageView) findViewById(R.id.ts01);
+        ts02 = (ImageView) findViewById(R.id.ts02);
+        ts10 = (ImageView) findViewById(R.id.ts10);
+        ts11 = (ImageView) findViewById(R.id.ts11);
+        ts12 = (ImageView) findViewById(R.id.ts12);
+        ts20 = (ImageView) findViewById(R.id.ts20);
+        ts21 = (ImageView) findViewById(R.id.ts21);
+        ts22 = (ImageView) findViewById(R.id.ts22);
 
         // Game
-        s00 = (ImageView)findViewById(R.id.s00);
-        s01 = (ImageView)findViewById(R.id.s01);
-        s02 = (ImageView)findViewById(R.id.s02);
-        s10 = (ImageView)findViewById(R.id.s10);
-        s11 = (ImageView)findViewById(R.id.s11);
-        s12 = (ImageView)findViewById(R.id.s12);
-        s20 = (ImageView)findViewById(R.id.s20);
-        s21 = (ImageView)findViewById(R.id.s21);
-        s22 = (ImageView)findViewById(R.id.s22);
+        s00 = (ImageView) findViewById(R.id.s00);
+        s01 = (ImageView) findViewById(R.id.s01);
+        s02 = (ImageView) findViewById(R.id.s02);
+        s10 = (ImageView) findViewById(R.id.s10);
+        s11 = (ImageView) findViewById(R.id.s11);
+        s12 = (ImageView) findViewById(R.id.s12);
+        s20 = (ImageView) findViewById(R.id.s20);
+        s21 = (ImageView) findViewById(R.id.s21);
+        s22 = (ImageView) findViewById(R.id.s22);
 
         nCorrect = 0;
         nErrors = 0;
         nRepetitions = 0;
         timePerTrial = new ArrayList<>();
-       // results = new ArrayList<String>();
+        // results = new ArrayList<String>();
 
         nextGame();
     }
 
-    private void retryLevel()
-    {
+    private void retryLevel() {
         moves = 0;
         errors++;
         nRepetitions++;
         double startTime = System.currentTimeMillis();
         tvLevel.setText(getString(R.string.level) + ": " + level + "/" + maxLevel);
-        if (errors==maxErrors)
-        {
+        if (errors == maxErrors) {
             double endTime = System.currentTimeMillis();
             double totalTime = (endTime - startTime);
             timePerTrial.add(totalTime);
@@ -254,52 +229,43 @@ public class LondonTowersTest extends SoundFeedbackActivity
             getTestResult();
             writeFile(test, header);
             finishTest();
-        }
-        else
-        {
+        } else {
             shuffleTowersWithDifficulty(london.minMoves);
             updateMoves();
             updateGUITowers();
         }
     }
 
-    private void nextGame()
-    {
+    private void nextGame() {
         moves = 0;
         errors = 0;
         level++;
         tvLevel.setText(getString(R.string.level) + ": " + level + "/" + maxLevel);
-        if (level==maxLevel+1)
-        {
-            maxLevelReached = level -1;
+        if (level == maxLevel + 1) {
+            maxLevelReached = level - 1;
             getTestResult();
             writeFile(test, header);
             finishTest();
-        }
-        else
-        {
+        } else {
             shuffleTowers();
             updateMoves();
             updateGUITowers();
         }
     }
 
-    private void updatePeg(ImageView iv, Integer n)
-    {
-        if (n==null) iv.setImageResource(R.drawable.pegvoid);
-        else if (n==LondonTowersGame.R) iv.setImageResource(R.drawable.pegred);
-        else if (n==LondonTowersGame.G) iv.setImageResource(R.drawable.pegyellow);
-        else if (n==LondonTowersGame.B) iv.setImageResource(R.drawable.pegblue);
+    private void updatePeg(ImageView iv, Integer n) {
+        if (n == null) iv.setImageResource(R.drawable.pegvoid);
+        else if (n == LondonTowersGame.R) iv.setImageResource(R.drawable.pegred);
+        else if (n == LondonTowersGame.G) iv.setImageResource(R.drawable.pegyellow);
+        else if (n == LondonTowersGame.B) iv.setImageResource(R.drawable.pegblue);
     }
 
-    private void updateGUITowers()
-    {
+    private void updateGUITowers() {
         updateTargetTowers();
         updateCurrentTowers();
     }
 
-    private void updateTargetTowers()
-    {
+    private void updateTargetTowers() {
         updatePeg(ts00, london.target.p0.top);
         updatePeg(ts01, london.target.p0.middle);
         updatePeg(ts02, london.target.p0.bottom);
@@ -313,8 +279,7 @@ public class LondonTowersTest extends SoundFeedbackActivity
         updatePeg(ts22, london.target.p2.bottom);
     }
 
-    private void updateCurrentTowers()
-    {
+    private void updateCurrentTowers() {
         updatePeg(s00, london.init.p0.top);
         updatePeg(s01, london.init.p0.middle);
         updatePeg(s02, london.init.p0.bottom);
@@ -329,40 +294,42 @@ public class LondonTowersTest extends SoundFeedbackActivity
     }
 
 
-    private void shuffleTowers()
-    {
+    private void shuffleTowers() {
         boolean shuffleAgain = setDifficulty();
-        while (shuffleAgain) { shuffleAgain = setDifficulty(); }
+        while (shuffleAgain) {
+            shuffleAgain = setDifficulty();
+        }
     }
 
-    private boolean setDifficulty()
-    {
+    private boolean setDifficulty() {
         london.reset();
         boolean res = false;
-        if (level<=3) { res = (london.minMoves>2); }
-        else if (level<=6) { res = (london.minMoves!=3 && london.minMoves!=4); }
-        else if (london.minMoves<5) res = true;
+        if (level <= 3) {
+            res = (london.minMoves > 2);
+        } else if (level <= 6) {
+            res = (london.minMoves != 3 && london.minMoves != 4);
+        } else if (london.minMoves < 5) res = true;
         return res;
     }
 
-    private void shuffleTowersWithDifficulty(int difficulty)
-    {
+    private void shuffleTowersWithDifficulty(int difficulty) {
         boolean shuffleAgain = setDifficulty(difficulty);
-        while (shuffleAgain) { shuffleAgain = setDifficulty(difficulty); }
+        while (shuffleAgain) {
+            shuffleAgain = setDifficulty(difficulty);
+        }
     }
 
-    private boolean setDifficulty(int difficulty)
-    {
+    private boolean setDifficulty(int difficulty) {
         london.reset();
-        boolean res = (london.minMoves!=difficulty);
+        boolean res = (london.minMoves != difficulty);
         return res;
     }
 
-    private void getTestResult () {
+    private void getTestResult() {
 
         double[] times = new double[timePerTrial.size()];
 
-        for (int i= 0; i<timePerTrial.size(); i++) {
+        for (int i = 0; i < timePerTrial.size(); i++) {
             times[i] = timePerTrial.get(i);
         }
 
@@ -371,7 +338,7 @@ public class LondonTowersTest extends SoundFeedbackActivity
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         String meanTimePerTrial = String.format(Locale.ENGLISH, "%.2f", stTimesPerTrial.getMean());
         String stdTimePerTrial = String.format(Locale.ENGLISH, "%.2f", stTimesPerTrial.getStdDev());
@@ -396,8 +363,8 @@ public class LondonTowersTest extends SoundFeedbackActivity
                 Double.parseDouble(maxTimePerTrial), Double.parseDouble(minTimePerTrial));
     }
 
-    public void sendObservations (int nCorrect, int nErrors, int nRepetitions, int maxLevelReached,
-                                  double meanTime, double maxTime, double minTime) {
+    public void sendObservations(int nCorrect, int nErrors, int nRepetitions, int maxLevelReached,
+                                 double meanTime, double maxTime, double minTime) {
         //Observations
         try {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());
@@ -407,7 +374,7 @@ public class LondonTowersTest extends SoundFeedbackActivity
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsTOLCorr = new Observation (nCorrect, patientCode, "PDTTOL_CORR", time);
+            Observation obsTOLCorr = new Observation(nCorrect, patientCode, "PDTTOL_CORR", time);
             obsTOLCorr.PatientId = patientCode;
             Observation obsTOLErrors = new Observation(nErrors, patientCode, "PDTTOL_ERRORS", time);
             obsTOLErrors.PatientId = patientCode;
@@ -471,17 +438,16 @@ public class LondonTowersTest extends SoundFeedbackActivity
         } catch (Exception e) {}
     }
 */
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rng = new RNG();
         london = new LondonTowersGame();
         infoTest();
 
         final int
-            durationFadeIn = 1000,
-            gap = 2000,
-            durationFadeOut = 500;
+                durationFadeIn = 1000,
+                gap = 2000,
+                durationFadeOut = 500;
         fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setDuration(durationFadeIn);
         fadeIn.setInterpolator(new AccelerateInterpolator());
@@ -493,17 +459,20 @@ public class LondonTowersTest extends SoundFeedbackActivity
         anim = new AnimationSet(false);
         anim.addAnimation(fadeIn);
         anim.addAnimation(fadeOut);
-        anim.setAnimationListener(new Animation.AnimationListener()
-        {
-            @Override public void onAnimationRepeat(Animation animation) {}
-            @Override public void onAnimationStart(Animation animation)
-            {
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
                 s0.setEnabled(false);
                 s1.setEnabled(false);
                 s2.setEnabled(false);
             }
-            @Override public void onAnimationEnd(Animation animation)
-            {
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
                 s0.setEnabled(true);
                 s1.setEnabled(true);
                 s2.setEnabled(true);

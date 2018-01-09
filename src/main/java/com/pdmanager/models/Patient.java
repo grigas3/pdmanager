@@ -77,6 +77,11 @@ public class Patient extends PDEntity implements Parcelable {
      * Clinical Information
      */
     public String ClinicalInfo;
+    /***
+     * Dss Information
+     */
+    public String DssInfo;
+
 
     protected Patient(Parcel in) {
         Code = in.readString();
@@ -119,7 +124,8 @@ public class Patient extends PDEntity implements Parcelable {
 
         if (Telecom != null && Telecom.size() > 0) {
 
-            return Telecom.get(0).value;
+            //return Telecom.get(0).value;
+            return "no phone";
         }
 
         return "-";
@@ -165,6 +171,30 @@ public class Patient extends PDEntity implements Parcelable {
         }
 
         return new ArrayList<ClinicalInfo>();
+
+    }
+
+    public List<DssInfo> getDssInfo() {
+
+        try {
+
+            //DssInfo=ClinicalInfo;//TMP TMP TMP
+            DssInfo = "[{\"Code\":\"Decision\",\"Value\":\"CHANGE\",\"Category\":\"PD\",\"Priority\":\"Normal\",\"CreatedBy\":\"Dss System\",\"Timestamp\":1466866597},{\"Code\":\"Rule\",\"Value\":\"The patient seems to have ……\",\"Category\":\"PD\",\"Priority\":\"Normal\",\"CreatedBy\":\"System\",\"Timestamp\":1466866597},{\"Code\":\"Medication_change\",\"Value\":\"Suggested modification of the treatment plan is Levodopa twice a day\",\"Category\":\"PD\",\"Priority\":\"Normal\",\"CreatedBy\":\"System\",\"Timestamp\":1466866597}]";
+            if (DssInfo != null) {
+
+                Gson gson = new Gson();
+                List<DssInfo> dssInformation = gson.fromJson(DssInfo, new TypeToken<List<DssInfo>>() {
+                }.getType());
+
+                return dssInformation;
+            }
+
+        } catch (Exception ex) {
+
+            Log.d("ERROR", "Converting Clinical info");
+        }
+
+        return new ArrayList<DssInfo>();
 
     }
 

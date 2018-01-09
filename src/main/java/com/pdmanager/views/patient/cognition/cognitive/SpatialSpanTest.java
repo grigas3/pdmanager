@@ -42,26 +42,26 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
     private final int NUMBER_OF_TRIALS = 3;
     private final int MIN_NUMBER_OF_TOKENS = 2;
     private final int NUMBER_OF_LEVELS = 7;
-        private String
-        test = "SpatialSpan.csv",
-        header = "Timestamp, " +
-                "max. level reached, " +
-                "mean number errors per trial, " +
-                "max. number errors per trial, " +
-                "min. number errors per trial, " +
-                "total errors, " +
-                "mean time trial (s), " +
-                "STD time trial (s), " +
-                "max time trial (s), " +
-                "min time trial (s), " +
-                "Total time (s)" +
-                "\r\n";
-    private int[] boxesID ={R.id.imageButton1,R.id.imageButton2,R.id.imageButton3,R.id.imageButton4,R.id.imageButton5,
-            R.id.imageButton6,R.id.imageButton7,R.id.imageButton8,R.id.imageButton9,R.id.imageButton10,
-            R.id.imageButton11,R.id.imageButton12,R.id.imageButton13,R.id.imageButton14,R.id.imageButton15,
-            R.id.imageButton16,R.id.imageButton17,R.id.imageButton19,R.id.imageButton21,R.id.imageButton23};
+    private String
+            test = "SpatialSpan.csv",
+            header = "Timestamp, " +
+                    "max. level reached, " +
+                    "mean number errors per trial, " +
+                    "max. number errors per trial, " +
+                    "min. number errors per trial, " +
+                    "total errors, " +
+                    "mean time trial (s), " +
+                    "STD time trial (s), " +
+                    "max time trial (s), " +
+                    "min time trial (s), " +
+                    "Total time (s)" +
+                    "\r\n";
+    private int[] boxesID = {R.id.imageButton1, R.id.imageButton2, R.id.imageButton3, R.id.imageButton4, R.id.imageButton5,
+            R.id.imageButton6, R.id.imageButton7, R.id.imageButton8, R.id.imageButton9, R.id.imageButton10,
+            R.id.imageButton11, R.id.imageButton12, R.id.imageButton13, R.id.imageButton14, R.id.imageButton15,
+            R.id.imageButton16, R.id.imageButton17, R.id.imageButton19, R.id.imageButton21, R.id.imageButton23};
 
-    private int[] levelShowedBoxesID =new int[NUMBER_OF_BOXES];
+    private int[] levelShowedBoxesID = new int[NUMBER_OF_BOXES];
     private int[] trialShowedTokensID;
     private int[] orderTrialTokensID;
     private int[] selectedTrialTokensID;
@@ -130,15 +130,15 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         }
     }
 
-    private void setNewLevel(){
+    private void setNewLevel() {
 
-        if (level!=0) {
+        if (level != 0) {
             writeFile(test, header);
         }
 
         level++;
 
-        if (level>NUMBER_OF_LEVELS){
+        if (level > NUMBER_OF_LEVELS) {
             if (timerTask != null) {
                 timerTask.cancel();
             }
@@ -146,22 +146,22 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             finishTest();
         } else {
             if (level != 1) {
-                nMoves ++;
+                nMoves++;
             }
 
             nTrial = 1;
             nCorrectTrials = 0;
-            indexShowedToken=-2;
+            indexShowedToken = -2;
 
             startNewLevel();
         }
     }
 
-    private void startNewLevel(){
+    private void startNewLevel() {
 
         setContentView(R.layout.cognitive_ssp_test);
 
-        for (int i=0; i<boxesID.length; i++) {
+        for (int i = 0; i < boxesID.length; i++) {
             ImageButton image = (ImageButton) findViewById(boxesID[i]);
             image.setVisibility(View.INVISIBLE);
         }
@@ -185,12 +185,12 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         }.start();
     }
 
-    private void setRandomLevelBoxes () {
+    private void setRandomLevelBoxes() {
 
         ArrayList<Integer> randomShowedBoxes = new ArrayList<>();
 
-        for (int i= 0; i<boxesID.length; i++) {
-            if (i<NUMBER_OF_BOXES) {
+        for (int i = 0; i < boxesID.length; i++) {
+            if (i < NUMBER_OF_BOXES) {
                 randomShowedBoxes.add(1);
             } else {
                 randomShowedBoxes.add(0);
@@ -200,7 +200,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         Collections.shuffle(randomShowedBoxes);
 
         int index = 0;
-        for (int i=0; i<randomShowedBoxes.size(); i++) {
+        for (int i = 0; i < randomShowedBoxes.size(); i++) {
             ImageButton image = (ImageButton) findViewById(boxesID[i]);
             image.setImageResource(R.drawable.white_square);
 
@@ -215,12 +215,12 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
     }
 
-    private void setRandomTrialTokens () {
+    private void setRandomTrialTokens() {
 
         ArrayList<Integer> randomShowedTokens = new ArrayList<>();
 
-        for (int i= 0; i<levelShowedBoxesID.length; i++) {
-            if (i<nMoves) {
+        for (int i = 0; i < levelShowedBoxesID.length; i++) {
+            if (i < nMoves) {
                 randomShowedTokens.add(1);
             } else {
                 randomShowedTokens.add(0);
@@ -232,7 +232,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         ArrayList<Integer> orderTokens = new ArrayList<>();
 
         int index = 0;
-        for (int i=0; i<randomShowedTokens.size(); i++) {
+        for (int i = 0; i < randomShowedTokens.size(); i++) {
 
             if (randomShowedTokens.get(i) == 1) {
                 trialShowedTokensID[index] = levelShowedBoxesID[i];
@@ -243,11 +243,11 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
         Collections.shuffle(orderTokens);
 
-        for (int i=0; i<orderTokens.size(); i++) {
+        for (int i = 0; i < orderTokens.size(); i++) {
             orderTrialTokensID[i] = orderTokens.get(i);
         }
 
-        for (int i=0; i<levelShowedBoxesID.length; i++) {
+        for (int i = 0; i < levelShowedBoxesID.length; i++) {
             ImageButton image = (ImageButton) findViewById(levelShowedBoxesID[i]);
             image.setImageResource(R.drawable.white_square);
             image.setVisibility(View.VISIBLE);
@@ -255,9 +255,9 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
     }
 
-    private void setNewTrial(){
+    private void setNewTrial() {
 
-        for (int i=0; i<levelShowedBoxesID.length; i++) {
+        for (int i = 0; i < levelShowedBoxesID.length; i++) {
             ImageButton image = (ImageButton) findViewById(levelShowedBoxesID[i]);
             image.setVisibility(View.INVISIBLE);
         }
@@ -328,7 +328,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         }.start();
     }
 
-    private void startNewTrial(){
+    private void startNewTrial() {
 
         isTrialStarted = true;
         startTimeTrial = System.currentTimeMillis();
@@ -337,18 +337,16 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
             final ArrayList<ImageButton> buttons = new ArrayList<>();
 
-            for (int i= 0; i<levelShowedBoxesID.length; i++) {
+            for (int i = 0; i < levelShowedBoxesID.length; i++) {
                 ImageButton btn = (ImageButton) findViewById(levelShowedBoxesID[i]);
                 buttons.add(btn);
             }
 
             View.OnClickListener listener = new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
-                    if (nTap>=nMoves) isTrialStarted = false;
-                    else
-                    {
+                public void onClick(View v) {
+                    if (nTap >= nMoves) isTrialStarted = false;
+                    else {
                         final ImageButton pressedBtn = (ImageButton) v;
                         final ImageButton correctBtn = (ImageButton) findViewById(orderTrialTokensID[nTap]);
 
@@ -378,7 +376,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                             }
                         }.start();
 
-                        if (isTrialStarted && nTap<nMoves) {
+                        if (isTrialStarted && nTap < nMoves) {
                             selectedTrialTokensID[nTap] = pressedBtn.getId();
                             nTap++;
 
@@ -403,7 +401,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                 }
             };
 
-            for (ImageButton btn: buttons) {
+            for (ImageButton btn : buttons) {
                 btn.setOnClickListener(listener);
             }
 
@@ -422,7 +420,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
             if (orderTrialTokensID[i] != selectedTrialTokensID[i]) {
                 isCorrect = false;
-                trialErrors ++;
+                trialErrors++;
 
 
             }
@@ -435,8 +433,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
         errors.add(trialErrors);
 
-
-        if ( (nTrial == NUMBER_OF_TRIALS && nCorrectTrials >=2)) {
+        if ((nTrial == NUMBER_OF_TRIALS && nCorrectTrials >= 2)) {
 
             timer = new CountDownTimer(TIME_MILLISECONDS_TRANSITIONS, TIME_MILLISECONDS_TRANSITIONS) {
                 @Override
@@ -449,7 +446,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                 }
             }.start();
 
-        } else if (nTrial == NUMBER_OF_TRIALS && nCorrectTrials <2) {
+        } else if (nTrial == NUMBER_OF_TRIALS && nCorrectTrials < 2) {
             if (timerTask != null) {
                 timerTask.cancel();
             }
@@ -476,16 +473,16 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
 
     }
 
-    private void getTestResult () {
+    private void getTestResult() {
 
         double[] errorsPerTrial = new double[errors.size()];
         double[] timesPerTrial = new double[timePerTrial.size()];
 
-        for (int i= 0; i<errors.size(); i++) {
+        for (int i = 0; i < errors.size(); i++) {
             errorsPerTrial[i] = errors.get(i);
         }
 
-        for (int i= 0; i<timePerTrial.size(); i++) {
+        for (int i = 0; i < timePerTrial.size(); i++) {
             timesPerTrial[i] = timePerTrial.get(i);
         }
 
@@ -495,7 +492,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         String meanErrorsPerTrial = String.format(Locale.ENGLISH, "%.2f", stErrorsPerTrial.getMean());
         String maxErrorPerTrial = String.format(Locale.ENGLISH, "%.2f", stErrorsPerTrial.getMax());
@@ -525,8 +522,8 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
                 Double.parseDouble(maxTimePerTrial), Double.parseDouble(minTimePerTrial));
     }
 
-    public void sendObservations (int maxLevel, double meanErrors, double maxErrors, double minErrors, double totalErrors,
-                                  double meanTime, double maxTime, double minTime) {
+    public void sendObservations(int maxLevel, double meanErrors, double maxErrors, double minErrors, double totalErrors,
+                                 double meanTime, double maxTime, double minTime) {
         //Observations
         try {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());
@@ -536,7 +533,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsSSPLevel = new Observation (maxLevel, patientCode, "PDTSSP_MAXLEVEL", time);
+            Observation obsSSPLevel = new Observation(maxLevel, patientCode, "PDTSSP_MAXLEVEL", time);
             obsSSPLevel.PatientId = patientCode;
             Observation obsSSPMeanErrors = new Observation(meanErrors, patientCode, "PDTSSP_MEAN_ERRORS", time);
             obsSSPMeanErrors.PatientId = patientCode;
@@ -544,9 +541,9 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             obsSSPMaxErrors.PatientId = patientCode;
             Observation obsSSPMinErrors = new Observation(minErrors, patientCode, "PDTSSP_MIN_ERRORS", time);
             obsSSPMinErrors.PatientId = patientCode;
-            Observation obsSSPTotalErrors = new Observation (totalErrors, patientCode, "PDTSSP_TOTAL_ERRORS", time);
+            Observation obsSSPTotalErrors = new Observation(totalErrors, patientCode, "PDTSSP_TOTAL_ERRORS", time);
             obsSSPTotalErrors.PatientId = patientCode;
-            Observation obsSSPMeanTime = new Observation (meanTime, patientCode, "PDTSSP_MEAN_TIME", time);
+            Observation obsSSPMeanTime = new Observation(meanTime, patientCode, "PDTSSP_MEAN_TIME", time);
             obsSSPMeanTime.PatientId = patientCode;
             Observation obsSSPMaxTime = new Observation(maxTime, patientCode, "PDTSSP_MAX_TIME", time);
             obsSSPMaxTime.PatientId = patientCode;
@@ -570,7 +567,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
     }
 
     @Override
-    protected void finishTest(){
+    protected void finishTest() {
 
         try {
 
@@ -611,8 +608,7 @@ public class SpatialSpanTest extends SoundFeedbackActivity {
             });
             */
 
-
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
         super.finishTest();

@@ -9,7 +9,6 @@ import java.util.Date;
  */
 
 
-
 public abstract class SensorData<T> extends BaseSensorData implements ISensorData {
 
 

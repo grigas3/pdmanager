@@ -34,6 +34,7 @@ public class JsonSerializationHelper {
 
 
     }
+
     static <T extends PDEntity> String toJson(T[] items) {
 
         Gson gson = new Gson();
@@ -51,6 +52,7 @@ public class JsonSerializationHelper {
 
 
     }
+
     static File CreateObsFile(String type) {
 
 
@@ -90,7 +92,7 @@ public class JsonSerializationHelper {
 
     }
 
-    static  <T extends PDEntity> void toJsonFile(T items,String type) {
+    static <T extends PDEntity> void toJsonFile(T items, String type) {
 
         Gson gson = new Gson();
 
@@ -127,7 +129,7 @@ public class JsonSerializationHelper {
         }
     }
 
-    static  <T extends PDEntity> void toJsonFile(ArrayList<T> items,String type) {
+    static <T extends PDEntity> void toJsonFile(ArrayList<T> items, String type) {
 
         Gson gson = new Gson();
 

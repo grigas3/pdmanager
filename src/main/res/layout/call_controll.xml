@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/controller_grey">
-   
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/controller_grey"
+                android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/devicesControlLayout"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/vc_controller_height"
-        android:background="@color/controller_grey"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal" >
+        android:background="@color/controller_grey"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/microphoneButton"
@@ -40,24 +40,25 @@
             android:id="@+id/endOfCallButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/controller_hangup_selector" 
-        	android:layout_gravity="center_vertical"        
-       	 	android:cropToPadding="true"
-       	 	android:keepScreenOn="true" />
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/controller_hangup_selector"
+            android:cropToPadding="true"
+            android:keepScreenOn="true"/>
+
         <Button
             android:id="@+id/effectButton"
             android:layout_width="@dimen/vc_controller_button_size"
             android:layout_height="@dimen/vc_controller_button_size"
             android:layout_gravity="center_vertical"
             android:background="@drawable/effect_selector" />
-        
+
         <Button
             android:id="@+id/videoResolution"
             android:layout_width="@dimen/vc_controller_button_size"
             android:layout_height="@dimen/vc_controller_button_size"
             android:layout_gravity="center_vertical"
             android:background="@drawable/resolution_selector" />
-        
+
         <Button
             android:id="@+id/audioRoutes"
             android:layout_width="@dimen/vc_controller_button_size"

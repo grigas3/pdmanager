@@ -11,40 +11,6 @@ import com.google.gson.annotations.SerializedName;
  */
 public class UsageStatistic extends PDEntity implements Parcelable {
 
-    @SerializedName("Timestamp")
-    private long Timestamp;
-    @SerializedName("Value")
-    private double Value;
-    @SerializedName("CodeId")
-    private String CodeId;
-    @SerializedName("PatientIdentifier")
-    private String PatientIdentifier = "PAT01";
-
-    @SerializedName("DeviceId")
-    private String DeviceId = "DEV01";
-
-    public UsageStatistic(double value, String code, long t, String patient,String deviceId) {
-
-        Id = "newid";
-        this.Value = value;
-        this.CodeId = code;
-        this.Timestamp = t;
-
-        this.PatientIdentifier = patient;
-        this.DeviceId = deviceId;
-        //SetPatientIdentifier();
-    }
-
-
-
-    protected UsageStatistic(Parcel in) {
-        Timestamp = in.readLong();
-        Value = in.readDouble();
-        CodeId = in.readString();
-        PatientIdentifier = in.readString();
-        DeviceId = in.readString();
-    }
-
     public static final Creator<UsageStatistic> CREATOR = new Creator<UsageStatistic>() {
         @Override
         public UsageStatistic createFromParcel(Parcel in) {
@@ -56,6 +22,37 @@ public class UsageStatistic extends PDEntity implements Parcelable {
             return new UsageStatistic[size];
         }
     };
+    @SerializedName("Timestamp")
+    private long Timestamp;
+    @SerializedName("Value")
+    private double Value;
+    @SerializedName("CodeId")
+    private String CodeId;
+    @SerializedName("PatientIdentifier")
+    private String PatientIdentifier = "PAT01";
+    @SerializedName("DeviceId")
+    private String DeviceId = "DEV01";
+
+
+    public UsageStatistic(double value, String code, long t, String patient, String deviceId) {
+
+        Id = "newid";
+        this.Value = value;
+        this.CodeId = code;
+        this.Timestamp = t;
+
+        this.PatientIdentifier = patient;
+        this.DeviceId = deviceId;
+        //SetPatientIdentifier();
+    }
+
+    protected UsageStatistic(Parcel in) {
+        Timestamp = in.readLong();
+        Value = in.readDouble();
+        CodeId = in.readString();
+        PatientIdentifier = in.readString();
+        DeviceId = in.readString();
+    }
 
     /*
         private void SetPatientIdentifier()

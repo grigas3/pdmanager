@@ -55,14 +55,14 @@ public class RegistrationIntentService extends IntentService {
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 */
-    /**
-     * Persist registration to third-party servers.
-     *
-     * Modify this method to associate the user's GCM registration token with any server-side account
-     * maintained by your application.
-     *
-     * @param token The new token.
-     */
+/**
+ * Persist registration to third-party servers.
+ * <p>
+ * Modify this method to associate the user's GCM registration token with any server-side account
+ * maintained by your application.
+ *
+ * @param token The new token.
+ */
     /*private void sendRegistrationToServer(String token) {
 
         VideoApp application = (VideoApp) getApplication();

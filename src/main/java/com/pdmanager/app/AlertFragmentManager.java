@@ -2,8 +2,8 @@ package com.pdmanager.app;
 
 
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import com.pdmanager.alerting.IUserAlertManager;
@@ -20,34 +20,22 @@ import java.util.TimerTask;
  * The alert fragment manager is used by the patient activity
  * to display the proper fragment based on the user alert
  * TODO: Maybe the alert is not the proper word
- *
+ * <p>
  * Created by george on 15/1/2017.
  */
 
 public class AlertFragmentManager implements IAlertFragmentManager {
 
 
-    private static final String TAG="AlertFragmentManager";
+    private static final String TAG = "AlertFragmentManager";
 
     FragmentActivity mainActivity;
     IUserAlertManager alertManager;
- //   AlertPDFragment defaultFragment;
-    boolean onDefaultFragment=true;
+    //   AlertPDFragment defaultFragment;
+    boolean onDefaultFragment = true;
 
     HashMap<String, AlertPDFragment> fragmentCache = new HashMap<String, AlertPDFragment>();
-
-
-    /**
-     * AlertFragmentManager constructor
-     * @param activity Activity
-     */
-    public AlertFragmentManager(FragmentActivity activity,IUserAlertManager pAlertManager)
-    {
-
-        this.alertManager=pAlertManager;
-        this.mainActivity=activity;
-
-    }
+    private Timer timer = null;
 
 
     /*
@@ -72,44 +60,18 @@ public class AlertFragmentManager implements IAlertFragmentManager {
     }
 
     */
+    private boolean timeRunning = false;// timer = null;
 
 
+    /**
+     * AlertFragmentManager constructor
+     *
+     * @param activity Activity
+     */
+    public AlertFragmentManager(FragmentActivity activity, IUserAlertManager pAlertManager) {
 
-    private AlertPDFragment getNextFragment() {
-        onDefaultFragment=true;
-        UserAlert alert=alertManager.getFirstActive();
-
-    /*    if (alert != null) {
-
-            //Get Fragment based on alert
-            AlertPDFragment fragment= getFragmentByAlert(alert);
-              onDefaultFragment=false;
-
-            return fragment;
-            
-
-        } else {
-
-
-            return null;
-        }
-        */
-
-        return null;
-    }
-
-
-    private void CheckForUserAlerts()
-    {
-
-
-        boolean hasActiveAlert=alertManager.anyActive();
-
-
-        if(hasActiveAlert)
-        {
-            setFragment(getNextFragment());
-        }
+        this.alertManager = pAlertManager;
+        this.mainActivity = activity;
 
     }
   /*  public void gotoAlertFragment(String id)
@@ -146,11 +108,43 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         
     }
     */
-    
+
+    private AlertPDFragment getNextFragment() {
+        onDefaultFragment = true;
+        UserAlert alert = alertManager.getFirstActive();
+
+    /*    if (alert != null) {
+
+            //Get Fragment based on alert
+            AlertPDFragment fragment= getFragmentByAlert(alert);
+              onDefaultFragment=false;
+
+            return fragment;
+
+
+        } else {
+
+
+            return null;
+        }
+        */
+
+        return null;
+    }
+
+    private void CheckForUserAlerts() {
+
+        boolean hasActiveAlert = alertManager.anyActive();
+
+        if (hasActiveAlert) {
+            setFragment(getNextFragment());
+        }
+
+    }
+
     protected void setFragment(AlertPDFragment fragment) {
 
-
-        if(fragment!=null) {
+        if (fragment != null) {
             FragmentManager fragmentManager = mainActivity.getSupportFragmentManager();
             FragmentTransaction fragmentTransaction =
                     fragmentManager.beginTransaction();
@@ -158,12 +152,11 @@ public class AlertFragmentManager implements IAlertFragmentManager {
             fragmentTransaction.addToBackStack(null);
             fragment.show(fragmentTransaction, "dialog");
 
-        }
-        else
+        } else
 
         {
 
-            Log.e("FRAGMENT_MANAGER","Null Fragment");
+            Log.e("FRAGMENT_MANAGER", "Null Fragment");
 
         }
 
@@ -174,14 +167,10 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         */
     }
 
-    private Timer timer = null;
-    private boolean timeRunning=false;// timer = null;
-
     public void startAutoUpdate() {
 
-
-        if(!timeRunning) {
-            timeRunning=true;
+        if (!timeRunning) {
+            timeRunning = true;
             timer = new Timer();
             timer.scheduleAtFixedRate(new mainTask(), 10000, 60000);
 
@@ -193,7 +182,7 @@ public class AlertFragmentManager implements IAlertFragmentManager {
             timer.cancel();
             timer.purge();
             timer = null;
-            timeRunning=false;
+            timeRunning = false;
         }
 
 
@@ -209,15 +198,13 @@ public class AlertFragmentManager implements IAlertFragmentManager {
         public mainTask() {
 
 
-
         }
 
         public void run() {
 
 
-
             ///Check if we running with default fragment
-            if(onDefaultFragment)
+            if (onDefaultFragment)
                 CheckForUserAlerts();
 
 

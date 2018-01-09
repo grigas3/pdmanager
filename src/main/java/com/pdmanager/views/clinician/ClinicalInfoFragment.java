@@ -89,6 +89,7 @@ public class ClinicalInfoFragment extends BasePDFragment implements PatientChart
 
         //    listView.setHeaderView(headerView);
         TextView emptyList = (TextView) rootView.findViewById(R.id.busy_EmptyIndicator);
+
         List<ClinicalInfo> clinicalInfo = patient.getClinicalInfo();
         if (clinicalInfo == null || clinicalInfo.size() == 0) {
 

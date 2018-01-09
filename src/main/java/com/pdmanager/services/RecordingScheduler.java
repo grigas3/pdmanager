@@ -24,51 +24,48 @@ public class RecordingScheduler implements IDataProcessor {
     private static int durationHours = 7;
     //MAIN BAND FREQ IS 62.5 ==125/2
     private static int samplesPerInterval = 5 * 125 * baseInterval / 2;
-    private boolean isEnabled=true;
-    private int samplesAcquired=0;
-    private int nonWearing=0;
-    private boolean postPone=false;
-    private boolean nonWearingPostPone=true;
-    private int intervalsToAcquire=1;
-    private  int lastSampleTick=0;
-    private int intervalToNoWearingRation=5;
+    private boolean isEnabled = true;
+    private int samplesAcquired = 0;
+    private int nonWearing = 0;
+    private boolean postPone = false;
+    private boolean nonWearingPostPone = true;
+    private int intervalsToAcquire = 1;
+    private int lastSampleTick = 0;
+    private int intervalToNoWearingRation = 5;
     private int currentStopReason = STOPREASON_SCHEDULEDPAUSE;
-    private  int notWearingIntervalsFound=0;
+    private int notWearingIntervalsFound = 0;
     private int notWearingPauseInterval = 5 * 60 * 1000;
-    private long lastAcquisition=0;
+    private long lastAcquisition = 0;
     private long lastStop = 0;
     private long plannedStop = 0;
 
     private boolean isPaused = false;
 
 
-    public RecordingScheduler(int startHour,int endHour)
-    {
+    public RecordingScheduler(int startHour, int endHour) {
 
-        calculateSkip(startHour,endHour);
+        calculateSkip(startHour, endHour);
     }
 
-    public static long calculateSkipTest(int startHour,int endHour)
-    {
-        RecordingScheduler r=new RecordingScheduler(startHour,endHour);
+    public static long calculateSkipTest(int startHour, int endHour) {
+        RecordingScheduler r = new RecordingScheduler(startHour, endHour);
         return r.plannedStop;
 
     }
 
     //Planned stop after 5 minutes
-    private void calculateSkip(int startHour,int endHour)
-    {
+    private void calculateSkip(int startHour, int endHour) {
 
-        double r=endHour-startHour;
-        double p=durationHours;
+        double r = endHour - startHour;
+        double p = durationHours;
 
-        double skipMinutes=(Math.max(0,-(5*(p - r))/p));
+        double skipMinutes = (Math.max(0, -(5 * (p - r)) / p));
         //  skipIntervals=(int)Math.floor((endHour-startHour)/durationHours)-1;
-        intervalsToAcquire=1;
+        intervalsToAcquire = 1;
 
 
         //IN MILLISECONDS
-        plannedStop=(long)(skipMinutes*baseInterval*1000);
+        plannedStop = (long) (skipMinutes * baseInterval * 1000);
 
         Log.d(TAG, "PLANNED STOP =" + ((long) (skipMinutes * baseInterval)));
     }
@@ -185,7 +182,7 @@ public class RecordingScheduler implements IDataProcessor {
     public boolean isPaused() {
 
         return isPaused;
-     }
+    }
 
     public boolean shouldResume() {
 
@@ -197,11 +194,9 @@ public class RecordingScheduler implements IDataProcessor {
     }
 
 
-    public int shouldPause()
-    {
+    public int shouldPause() {
 
-        if(intervalsToAcquire<=0)
-        {
+        if (intervalsToAcquire <= 0) {
             currentStopReason = STOPREASON_SCHEDULEDPAUSE;
             return STOPREASON_SCHEDULEDPAUSE;
         } else if (nonWearingPostPone) {
@@ -216,7 +211,6 @@ public class RecordingScheduler implements IDataProcessor {
     }
 
 
-
     @Override
     public boolean isEnabled() {
         return isEnabled;
@@ -224,13 +218,13 @@ public class RecordingScheduler implements IDataProcessor {
 
     @Override
     public void setEnabled(boolean enabled) {
-        isEnabled=enabled;
+        isEnabled = enabled;
     }
 
 
     public void increaseInterval() {
-        nonWearing=0;
-        nonWearingPostPone=false;
+        nonWearing = 0;
+        nonWearingPostPone = false;
         intervalsToAcquire++;
     }
 }

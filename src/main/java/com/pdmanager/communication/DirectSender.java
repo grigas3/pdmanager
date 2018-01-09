@@ -18,21 +18,20 @@ public class DirectSender implements IJsonRequestHandler {
 
     public DirectSender(String a) {
         accessToken = a;
-        this.mContext=null;
+        this.mContext = null;
     }
-    public DirectSender(String a,Context context) {
+
+    public DirectSender(String a, Context context) {
         accessToken = a;
-        this.mContext=context;
+        this.mContext = context;
     }
+
     @Override
     public void addRequest(JsonStorage request) {
 
+        if (mContext != null) {
 
-        if(mContext!=null)
-        {
-
-            if(!NetworkStatus.IsNetworkConnected(mContext))
-            {
+            if (!NetworkStatus.IsNetworkConnected(mContext)) {
 
                 persist(request);
                 return;
@@ -57,11 +56,11 @@ public class DirectSender implements IJsonRequestHandler {
 
     }
 
-    public  boolean add(JsonStorage s) {
+    public boolean add(JsonStorage s) {
 
         boolean ret = false;
 
-        if(mContext!=null) {
+        if (mContext != null) {
 
             DBHandler helper = null;
             SQLiteDatabase db = null;
@@ -92,16 +91,13 @@ public class DirectSender implements IJsonRequestHandler {
     }
 
 
+    public boolean persist(JsonStorage s) {
+        boolean ret = false;
 
-
-    public boolean persist(JsonStorage s)
-    {
-              boolean ret = false;
-
-        DBHandler helper=null;
+        DBHandler helper = null;
         SQLiteDatabase db = null;
         try {
-            helper=DBHandler.getInstance(mContext);
+            helper = DBHandler.getInstance(mContext);
             db = helper.getWritableDatabase();
 
             ContentValues values = new ContentValues();
@@ -110,7 +106,6 @@ public class DirectSender implements IJsonRequestHandler {
             values.put(DBHandler.COLUMN_JSON, s.getJson());
 
             db.insert(DBHandler.TABLE_JREQUESTS, null, values);
-
 
 
             ret = true;

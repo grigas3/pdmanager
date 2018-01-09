@@ -12,8 +12,19 @@ import com.google.gson.annotations.SerializedName;
 public class Device extends PDEntity implements Parcelable {
 
 
-        @SerializedName("Identifier")
-        public String Identifier;
+    public static final Creator<Device> CREATOR = new Creator<Device>() {
+        @Override
+        public Device createFromParcel(Parcel in) {
+            return new Device(in);
+        }
+
+        @Override
+        public Device[] newArray(int size) {
+            return new Device[size];
+        }
+    };
+    @SerializedName("Identifier")
+    public String Identifier;
     @SerializedName("OrganizationId")
     public String OrganizationId;
     @SerializedName("Type")
@@ -29,9 +40,6 @@ public class Device extends PDEntity implements Parcelable {
     @SerializedName("Version")
     public String Version;
 
-
-
-
     public Device(Parcel in) {
         Identifier = in.readString();
         PatientId = in.readString();
@@ -45,26 +53,14 @@ public class Device extends PDEntity implements Parcelable {
         Version = in.readString();
     }
 
-    public static final Creator<Device> CREATOR = new Creator<Device>() {
-        @Override
-        public Device createFromParcel(Parcel in) {
-            return new Device(in);
-        }
-
-        @Override
-        public Device[] newArray(int size) {
-            return new Device[size];
-        }
-    };
-
     public Device(String patientId, String id, String android, String deviceName) {
         super();
 
-        PatientId=patientId;
-        Identifier=id;
-        Type=android;
-        Model=deviceName;
-        Status="ACTIVE";
+        PatientId = patientId;
+        Identifier = id;
+        Type = android;
+        Model = deviceName;
+        Status = "ACTIVE";
 
     }
 
@@ -92,5 +88,7 @@ public class Device extends PDEntity implements Parcelable {
     }
 
 
-    public void setStatus(String s){ Status=s;}
+    public void setStatus(String s) {
+        Status = s;
+    }
 }

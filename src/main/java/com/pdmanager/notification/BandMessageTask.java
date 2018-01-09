@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import com.microsoft.band.BandClient;
 import com.microsoft.band.notifications.MessageFlags;
 import com.microsoft.band.notifications.VibrationType;
-import com.pdmanager.models.UserAlert;
 
 import java.util.UUID;
 
@@ -17,21 +16,19 @@ import java.util.UUID;
 public class BandMessageTask extends AsyncTask<BandMessage, Void, Void> {
 
 
-
     private BandClient mClient;
     private String mTileUUID;
-    public BandMessageTask(BandClient client, String tileUID)
-    {
-        this.mClient=client;
-        this.mTileUUID=tileUID;
+
+    public BandMessageTask(BandClient client, String tileUID) {
+        this.mClient = client;
+        this.mTileUUID = tileUID;
 
 
     }
 
-    public static BandMessageTask newInstance(BandClient client, String tileUID)
-    {
+    public static BandMessageTask newInstance(BandClient client, String tileUID) {
 
-        return new BandMessageTask(client,tileUID);
+        return new BandMessageTask(client, tileUID);
 
     }
 
@@ -40,14 +37,12 @@ public class BandMessageTask extends AsyncTask<BandMessage, Void, Void> {
     protected Void doInBackground(BandMessage... params) {
 
 
-
         try {
 
-            if(mTileUUID!=null) {
+            if (mTileUUID != null) {
                 BandMessage alert = params[0];
 
-
-               if(alert!=null) {
+                if (alert != null) {
                     if (alert.isMessage()) {
                         mClient.getNotificationManager().sendMessage(UUID.fromString(mTileUUID),
                                 alert.getTitle(), alert.getMessage(), new java.util.Date(alert.getTimestamp()), MessageFlags.NONE).await();

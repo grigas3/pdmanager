@@ -23,7 +23,6 @@ import java.util.Collections;
 import java.util.Locale;
 
 /**
- *
  * Cognitive Test Paired Associates Learning
  *
  * @authors Thibaud Pacquetet, Samanta Villanueva (svillanueva@lst.tfo.upm.es ), Jorge Cancela (jcancela@lst.tfo.upm.es)
@@ -46,54 +45,54 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
     // These are the 6 Image Views. TODO this can be optimized in the future
     private int[] imgArray = {R.id.case1, R.id.case2, R.id.case3, R.id.case4, R.id.case5, R.id.case6};
-    private int[] imgBisArray = {R.id.case1bis, R.id.case2bis, R.id.case3bis, R.id.case4bis,R.id.case5bis, R.id.case6bis};
+    private int[] imgBisArray = {R.id.case1bis, R.id.case2bis, R.id.case3bis, R.id.case4bis, R.id.case5bis, R.id.case6bis};
 
     // These are the 8 Image Views (for levels 7 and 8)
     private int[] imgArrayLastLevels = {R.id.box1, R.id.box2, R.id.box3, R.id.box4, R.id.box5, R.id.box6, R.id.box7, R.id.box8};
-    private int[] imgBisArrayLastLevels = {R.id.box1bis, R.id.box2bis, R.id.box3bis, R.id.box4bis, R.id.box5bis, R.id.box6bis,R.id.box7bis, R.id.box8bis};
+    private int[] imgBisArrayLastLevels = {R.id.box1bis, R.id.box2bis, R.id.box3bis, R.id.box4bis, R.id.box5bis, R.id.box6bis, R.id.box7bis, R.id.box8bis};
 
     // These are the different stimuli to show
-    private int[] imgResArray = {R.drawable.pal1,R.drawable.pal2,R.drawable.pal3,R.drawable.pal4,R.drawable.pal5,
-            R.drawable.pal6,R.drawable.pal7,R.drawable.pal8,R.drawable.pal9,R.drawable.pal10,
-            R.drawable.pal11,R.drawable.pal12,R.drawable.pal13,R.drawable.pal14,R.drawable.pal15,
-            R.drawable.pal16,R.drawable.pal17,R.drawable.pal18,R.drawable.pal19,R.drawable.pal20,
-            R.drawable.pal21,R.drawable.pal22,R.drawable.pal23,R.drawable.pal24,R.drawable.pal25,
-            R.drawable.pal26,R.drawable.pal27,R.drawable.pal28,R.drawable.pal29,R.drawable.pal30,
-            R.drawable.pal31,R.drawable.pal32,R.drawable.pal33,R.drawable.pal34,R.drawable.pal35,
-            R.drawable.pal36,R.drawable.pal37,R.drawable.pal38,R.drawable.pal39,R.drawable.pal40,
-            R.drawable.pal41,R.drawable.pal42,R.drawable.pal43,R.drawable.pal44,R.drawable.pal45,
-            R.drawable.pal46,R.drawable.pal47,R.drawable.pal48,R.drawable.pal49,R.drawable.pal50,
-            R.drawable.pal51,R.drawable.pal52,R.drawable.pal53,R.drawable.pal54,R.drawable.pal55,
-            R.drawable.pal56,R.drawable.pal57,R.drawable.pal58,R.drawable.pal59,R.drawable.pal60,
-            R.drawable.pal61,R.drawable.pal62,R.drawable.pal63,R.drawable.pal64,R.drawable.pal65,
-            R.drawable.pal66,R.drawable.pal67,R.drawable.pal68,R.drawable.pal69,R.drawable.pal70,
-            R.drawable.pal71,R.drawable.pal72,R.drawable.pal73,R.drawable.pal74,R.drawable.pal75,
-            R.drawable.pal76,R.drawable.pal77,R.drawable.pal78,R.drawable.pal79,R.drawable.pal80,
-            R.drawable.pal81,R.drawable.pal82,R.drawable.pal83,R.drawable.pal84,R.drawable.pal85,
-            R.drawable.pal86,R.drawable.pal87,R.drawable.pal88,R.drawable.pal89,R.drawable.pal90,
-            R.drawable.pal91,R.drawable.pal92,R.drawable.pal93,R.drawable.pal94,R.drawable.pal95,
-            R.drawable.pal96,R.drawable.pal97,R.drawable.pal98,R.drawable.pal99,R.drawable.pal100,
-            R.drawable.pal101,R.drawable.pal102,R.drawable.pal103,R.drawable.pal104,R.drawable.pal105,
-            R.drawable.pal106,R.drawable.pal107,R.drawable.pal108,R.drawable.pal109,R.drawable.pal110,
-            R.drawable.pal111,R.drawable.pal112,R.drawable.pal113,R.drawable.pal114,R.drawable.pal115,
-            R.drawable.pal116,R.drawable.pal117,R.drawable.pal118,R.drawable.pal119,R.drawable.pal120,
-            R.drawable.pal121,R.drawable.pal122,R.drawable.pal123,R.drawable.pal124,R.drawable.pal125,
-            R.drawable.pal126,R.drawable.pal127,R.drawable.pal128,R.drawable.pal129,R.drawable.pal130,
-            R.drawable.pal131,R.drawable.pal132,R.drawable.pal133,R.drawable.pal134,R.drawable.pal135};
+    private int[] imgResArray = {R.drawable.pal1, R.drawable.pal2, R.drawable.pal3, R.drawable.pal4, R.drawable.pal5,
+            R.drawable.pal6, R.drawable.pal7, R.drawable.pal8, R.drawable.pal9, R.drawable.pal10,
+            R.drawable.pal11, R.drawable.pal12, R.drawable.pal13, R.drawable.pal14, R.drawable.pal15,
+            R.drawable.pal16, R.drawable.pal17, R.drawable.pal18, R.drawable.pal19, R.drawable.pal20,
+            R.drawable.pal21, R.drawable.pal22, R.drawable.pal23, R.drawable.pal24, R.drawable.pal25,
+            R.drawable.pal26, R.drawable.pal27, R.drawable.pal28, R.drawable.pal29, R.drawable.pal30,
+            R.drawable.pal31, R.drawable.pal32, R.drawable.pal33, R.drawable.pal34, R.drawable.pal35,
+            R.drawable.pal36, R.drawable.pal37, R.drawable.pal38, R.drawable.pal39, R.drawable.pal40,
+            R.drawable.pal41, R.drawable.pal42, R.drawable.pal43, R.drawable.pal44, R.drawable.pal45,
+            R.drawable.pal46, R.drawable.pal47, R.drawable.pal48, R.drawable.pal49, R.drawable.pal50,
+            R.drawable.pal51, R.drawable.pal52, R.drawable.pal53, R.drawable.pal54, R.drawable.pal55,
+            R.drawable.pal56, R.drawable.pal57, R.drawable.pal58, R.drawable.pal59, R.drawable.pal60,
+            R.drawable.pal61, R.drawable.pal62, R.drawable.pal63, R.drawable.pal64, R.drawable.pal65,
+            R.drawable.pal66, R.drawable.pal67, R.drawable.pal68, R.drawable.pal69, R.drawable.pal70,
+            R.drawable.pal71, R.drawable.pal72, R.drawable.pal73, R.drawable.pal74, R.drawable.pal75,
+            R.drawable.pal76, R.drawable.pal77, R.drawable.pal78, R.drawable.pal79, R.drawable.pal80,
+            R.drawable.pal81, R.drawable.pal82, R.drawable.pal83, R.drawable.pal84, R.drawable.pal85,
+            R.drawable.pal86, R.drawable.pal87, R.drawable.pal88, R.drawable.pal89, R.drawable.pal90,
+            R.drawable.pal91, R.drawable.pal92, R.drawable.pal93, R.drawable.pal94, R.drawable.pal95,
+            R.drawable.pal96, R.drawable.pal97, R.drawable.pal98, R.drawable.pal99, R.drawable.pal100,
+            R.drawable.pal101, R.drawable.pal102, R.drawable.pal103, R.drawable.pal104, R.drawable.pal105,
+            R.drawable.pal106, R.drawable.pal107, R.drawable.pal108, R.drawable.pal109, R.drawable.pal110,
+            R.drawable.pal111, R.drawable.pal112, R.drawable.pal113, R.drawable.pal114, R.drawable.pal115,
+            R.drawable.pal116, R.drawable.pal117, R.drawable.pal118, R.drawable.pal119, R.drawable.pal120,
+            R.drawable.pal121, R.drawable.pal122, R.drawable.pal123, R.drawable.pal124, R.drawable.pal125,
+            R.drawable.pal126, R.drawable.pal127, R.drawable.pal128, R.drawable.pal129, R.drawable.pal130,
+            R.drawable.pal131, R.drawable.pal132, R.drawable.pal133, R.drawable.pal134, R.drawable.pal135};
 
     // Array with the order pattern of buttons
-    private int[] imgPlaceArray = new int[N_LEVELS-2];
+    private int[] imgPlaceArray = new int[N_LEVELS - 2];
     private int[] imgPlaceArrayLastLevels = new int[N_LEVELS];
 
     // Array with the stimuli to show in level
-    private int[] imgTabArray = new int[N_LEVELS-2];
+    private int[] imgTabArray = new int[N_LEVELS - 2];
     private int[] imgTabArrayLastLevels = new int[N_LEVELS];
 
     private int nTotalErrors;
     private int nCurrentErrors;
     private int nAnswers;
-    private int level=0;
-    private int arrayIndex =0;
+    private int level = 0;
+    private int arrayIndex = 0;
     private int nPattern;
 
     // To store results, time between taps and order of presentation of stimuli
@@ -112,14 +111,14 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
     private CountDownTimer timer;
 
     private String
-        test = "PAL_Results.csv",
-        header = "Timestamp, " +
-            "Level, " +
-            "Number of errors, " +
-            "Mean time between taps (s), " +
-            "Time between taps (s) STD, " +
-            "Total time (s)" +
-            "\r\n";
+            test = "PAL_Results.csv",
+            header = "Timestamp, " +
+                    "Level, " +
+                    "Number of errors, " +
+                    "Mean time between taps (s), " +
+                    "Time between taps (s) STD, " +
+                    "Total time (s)" +
+                    "\r\n";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +126,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
         try {
             startPAL();
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
@@ -150,21 +149,21 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
                     speakerSilence();
 
-                timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
+                    timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK) {
 
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                    }
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                        }
 
-                    @Override
-                    public void onFinish() {
-                        finishTest();
-                    }
-                }.start();
+                        @Override
+                        public void onFinish() {
+                            finishTest();
+                        }
+                    }.start();
 
-                level ++;
-                showNewLevelMessage();
-                startNewLevel();
+                    level++;
+                    showNewLevelMessage();
+                    startNewLevel();
                 }
             });
         } else {
@@ -173,12 +172,12 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         }
     }
 
-    private void setRandomPatternsLevel(){
+    private void setRandomPatternsLevel() {
 
         int nBoxes;
 
-        if (level<=(N_LEVELS-2)) {
-            nBoxes = N_LEVELS-2;
+        if (level <= (N_LEVELS - 2)) {
+            nBoxes = N_LEVELS - 2;
         } else {
             nBoxes = N_LEVELS;
         }
@@ -187,12 +186,12 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         ArrayList<Integer> numbersCells = new ArrayList<>();
         orderStimuli = new ArrayList<>();
 
-        for(int u=0;u<nBoxes;u++){
+        for (int u = 0; u < nBoxes; u++) {
             numbersCells.add(u);
         }
 
         ArrayList<Integer> numbersStimuli = new ArrayList<>();
-        for(int u=0;u<=imgResArray.length-1;u++){
+        for (int u = 0; u <= imgResArray.length - 1; u++) {
             numbersStimuli.add(u);
         }
 
@@ -200,26 +199,26 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         Collections.shuffle(numbersCells);
         Collections.shuffle(numbersStimuli);
 
-        for (Integer i: numbersCells) {
+        for (Integer i : numbersCells) {
             orderStimuli.add(i);
         }
         //shuffle the number in the list
         Collections.shuffle(orderStimuli);
 
-        for (int round=0; round<level; round++) {
+        for (int round = 0; round < level; round++) {
             ImageButton imageBisButton;
 
             //choose image button by number in the array
-            if (level <= (N_LEVELS-2)) {
-                imgPlaceArray[round]=(numbersCells.get(round));
+            if (level <= (N_LEVELS - 2)) {
+                imgPlaceArray[round] = (numbersCells.get(round));
                 imageBisButton = (ImageButton) findViewById(imgBisArray[imgPlaceArray[round]]);
             } else {
-                imgPlaceArrayLastLevels[round]=(numbersCells.get(round));
+                imgPlaceArrayLastLevels[round] = (numbersCells.get(round));
                 imageBisButton = (ImageButton) findViewById(imgBisArrayLastLevels[imgPlaceArrayLastLevels[round]]);
             }
 
             //set a random image to the image button
-            if (level <= (N_LEVELS-2)) {
+            if (level <= (N_LEVELS - 2)) {
                 imgTabArray[round] = (numbersStimuli.get(round));
                 imageBisButton.setImageResource(imgResArray[imgTabArray[round]]);
             } else {
@@ -229,9 +228,9 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         }
     }
 
-    private void showNewMessage (String msg) {
+    private void showNewMessage(String msg) {
 
-        if (level <=(N_LEVELS-2)) {
+        if (level <= (N_LEVELS - 2)) {
             setContentView(R.layout.cognitive_pal_test);
         } else {
             setContentView(R.layout.cognitive_pal_test_two);
@@ -242,9 +241,9 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         tvPALInfo.setText(msg);
     }
 
-    private void showNewLevelMessage () {
+    private void showNewLevelMessage() {
 
-        if (level <=(N_LEVELS-2)) {
+        if (level <= (N_LEVELS - 2)) {
             setContentView(R.layout.cognitive_pal_test);
         } else {
             setContentView(R.layout.cognitive_pal_test_two);
@@ -257,7 +256,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         tvPALInfo.setText(message);
     }
 
-    private void startNewLevel () {
+    private void startNewLevel() {
 
         if (level != 0) {
             writeFile(test, header);
@@ -270,8 +269,8 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         isWaitingAnswer = false;
         tStartLevel = System.currentTimeMillis();
         nAnswers = 0;
-        arrayIndex =0;
-        nPattern =1;
+        arrayIndex = 0;
+        nPattern = 1;
 
         showNewLevelMessage();
 
@@ -297,7 +296,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
     private void repeatLastLevel() {
 
-        arrayIndex =0;
+        arrayIndex = 0;
         nPattern = 1;
         nCurrentErrors = 0;
         isWaitingAnswer = false;
@@ -315,9 +314,9 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
                 TextView tvPALInfo = (TextView) findViewById(R.id.pal_info);
                 tvPALInfo.setVisibility(View.GONE);
 
-                for (int round=0; round<level; round++) {
+                for (int round = 0; round < level; round++) {
 
-                    if (level <= (N_LEVELS-2)) {
+                    if (level <= (N_LEVELS - 2)) {
                         ImageButton imageBisButton = (ImageButton) findViewById(imgBisArray[imgPlaceArray[round]]);
                         imageBisButton.setImageResource(imgResArray[imgTabArray[round]]);
                     } else {
@@ -334,7 +333,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
         final ImageButton imageButton;
 
-        if (level <= (N_LEVELS-2)) {
+        if (level <= (N_LEVELS - 2)) {
             imageButton = (ImageButton) findViewById(imgArray[orderStimuli.get(arrayIndex)]);
         } else {
             imageButton = (ImageButton) findViewById(imgArrayLastLevels[orderStimuli.get(arrayIndex)]);
@@ -359,7 +358,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
                 imageButton.setVisibility(View.VISIBLE);
                 int length;
-                if (level <=(N_LEVELS-2)) {
+                if (level <= (N_LEVELS - 2)) {
                     length = imgArray.length;
                 } else {
                     length = imgArrayLastLevels.length;
@@ -373,7 +372,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
                     arrayIndex = arrayIndex + 1;
                     showPatternsLevel();
                 }
-             }
+            }
         }.start();
 
     }
@@ -388,17 +387,17 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
             final ImageButton imageTestButton;
             ArrayList<ImageButton> imgButton = new ArrayList<>();
 
-            if (level <=(N_LEVELS-2)) {
+            if (level <= (N_LEVELS - 2)) {
                 patternViewer.setImageResource(imgResArray[imgTabArray[nPattern - 1]]);
                 imageTestButton = (ImageButton) findViewById(imgArray[imgPlaceArray[nPattern - 1]]);
-                for (int i: imgArray) {
+                for (int i : imgArray) {
                     ImageButton im = (ImageButton) findViewById(i);
                     imgButton.add(im);
                 }
             } else {
                 patternViewer.setImageResource(imgResArray[imgTabArrayLastLevels[nPattern - 1]]);
                 imageTestButton = (ImageButton) findViewById(imgArrayLastLevels[imgPlaceArrayLastLevels[nPattern - 1]]);
-                for (int i: imgArrayLastLevels) {
+                for (int i : imgArrayLastLevels) {
                     ImageButton im = (ImageButton) findViewById(i);
                     imgButton.add(im);
                 }
@@ -483,7 +482,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
                                         showNewMessage(res.getString(R.string.pal_all_correct));
                                         double tsLevel = ((tsEndPattern - tStartLevel) / 1000D);
                                         double[] timeTaps = new double[timeBetweenTaps.size()];
-                                        for (int i=0; i<timeBetweenTaps.size(); i++) {
+                                        for (int i = 0; i < timeBetweenTaps.size(); i++) {
                                             timeTaps[i] = timeBetweenTaps.get(i);
                                         }
 
@@ -512,11 +511,11 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
 
                                         }.start();
 
-                                    } else
-                                    {
+                                    } else {
                                         accumulatedErrors++;
                                         level++;
-                                        if (level>N_LEVELS || accumulatedErrors>=maxErrors) finishTest();
+                                        if (level > N_LEVELS || accumulatedErrors >= maxErrors)
+                                            finishTest();
                                         else startNewLevel();
 
                                         /*
@@ -571,7 +570,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
             }
 
 
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e. " + e.toString());
         }
 
@@ -582,7 +581,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         String ts = String.format(Locale.ENGLISH, "%.2f", tsLevel);
         String meanTime = String.format(Locale.ENGLISH, "%.2f", meanTapsTime);
@@ -599,7 +598,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
     }
 
     @Override
-    protected void finishTest(){
+    protected void finishTest() {
 
         try {
 
@@ -645,7 +644,7 @@ public class PairedAssociatesLearningTest extends SoundFeedbackActivity {
             });
             */
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
     }

@@ -80,7 +80,7 @@ public class ISO8601Utils {
     /**
      * Format a date into 'yyyy-MM-ddThh:mm:ss[.sss]Z' (GMT timezone)
      *
-     * @param date the date to format
+     * @param date   the date to format
      * @param millis true to include millis precision otherwise false
      * @return the date formatted as 'yyyy-MM-ddThh:mm:ss[.sss]Z'
      */
@@ -91,9 +91,9 @@ public class ISO8601Utils {
     /**
      * Format date into yyyy-MM-ddThh:mm:ss[.sss][Z|[+-]hh:mm]
      *
-     * @param date the date to format
+     * @param date   the date to format
      * @param millis true to include millis precision otherwise false
-     * @param tz timezone to use for the formatting (UTC will produce 'Z')
+     * @param tz     timezone to use for the formatting (UTC will produce 'Z')
      * @return the date formatted as yyyy-MM-ddThh:mm:ss[.sss][Z|[+-]hh:mm]
      */
     public static String format(Date date, boolean millis, TimeZone tz) {
@@ -148,7 +148,7 @@ public class ISO8601Utils {
      * [yyyy-MM-dd|yyyyMMdd][T(hh:mm[:ss[.sss]]|hhmm[ss[.sss]])]?[Z|[+-]hh:mm]]
      *
      * @param date ISO string to parse in the appropriate format.
-     * @param pos The position to start parsing from, updated to where parsing stopped.
+     * @param pos  The position to start parsing from, updated to where parsing stopped.
      * @return the parsed date
      * @throws ParseException if the date is not in the appropriate format
      */
@@ -204,7 +204,8 @@ public class ISO8601Utils {
                     char c = date.charAt(offset);
                     if (c != 'Z' && c != '+' && c != '-') {
                         seconds = parseInt(date, offset, offset += 2);
-                        if (seconds > 59 && seconds < 63) seconds = 59; // truncate up to 3 leap seconds
+                        if (seconds > 59 && seconds < 63)
+                            seconds = 59; // truncate up to 3 leap seconds
                         // milliseconds can be optional in the format
                         if (checkOffset(date, offset, '.')) {
                             offset += 1;
@@ -264,13 +265,13 @@ public class ISO8601Utils {
                          */
                         String cleaned = act.replace(":", "");
                         if (!cleaned.equals(timezoneId)) {
-                            throw new IndexOutOfBoundsException("Mismatching time zone indicator: "+timezoneId+" given, resolves to "
-                                    +timezone.getID());
+                            throw new IndexOutOfBoundsException("Mismatching time zone indicator: " + timezoneId + " given, resolves to "
+                                    + timezone.getID());
                         }
                     }
                 }
             } else {
-                throw new IndexOutOfBoundsException("Invalid time zone indicator '" + timezoneIndicator+"'");
+                throw new IndexOutOfBoundsException("Invalid time zone indicator '" + timezoneIndicator + "'");
             }
 
             Calendar calendar = new GregorianCalendar(timezone);
@@ -297,7 +298,7 @@ public class ISO8601Utils {
         String input = (date == null) ? null : ('"' + date + '"');
         String msg = fail.getMessage();
         if (msg == null || msg.isEmpty()) {
-            msg = "("+fail.getClass().getName()+")";
+            msg = "(" + fail.getClass().getName() + ")";
         }
         ParseException ex = new ParseException("Failed to parse date " + input + ": " + msg, pos.getIndex());
         ex.initCause(fail);
@@ -307,8 +308,8 @@ public class ISO8601Utils {
     /**
      * Check if the expected character exist at the given offset in the value.
      *
-     * @param value the string to check at the specified offset
-     * @param offset the offset to look for the expected character
+     * @param value    the string to check at the specified offset
+     * @param offset   the offset to look for the expected character
      * @param expected the expected character
      * @return true if the expected character exist at the given offset
      */
@@ -319,9 +320,9 @@ public class ISO8601Utils {
     /**
      * Parse an integer located between 2 given offsets in a string
      *
-     * @param value the string to parse
+     * @param value      the string to parse
      * @param beginIndex the start index for the integer in the string
-     * @param endIndex the end index for the integer in the string
+     * @param endIndex   the end index for the integer in the string
      * @return the int
      * @throws NumberFormatException if the value is not a number
      */
@@ -355,7 +356,7 @@ public class ISO8601Utils {
      * Zero pad a number to a specified length
      *
      * @param buffer buffer to use for padding
-     * @param value the integer value to pad if necessary.
+     * @param value  the integer value to pad if necessary.
      * @param length the length of the string we should zero pad
      */
     private static void padInt(StringBuilder buffer, int value, int length) {

@@ -166,7 +166,6 @@
     </string-array>
 
 
-
     <!--OIDC  TokensExpiredDialog -->
     <string name="loginButtonText">Log in with OpenID Connect</string>
     <string name="editConfButton">OpenId Connect Client Configuration</string>
@@ -215,7 +214,7 @@
     <string name="room_title">Room</string>
     <string name="make_call_title">Make call</string>
     <string name="use_custom_render">Use custom video render</string>
-	<string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
         send downstream messages to this app.</string>
     <string name="registering_message">Generating InstanceID token...</string>
     <string name="token_error_message">An error occurred while either fetching the InstanceID token,
@@ -406,7 +405,7 @@
     <string name="choose_hour1">Indicare quando l\'utente effettuera i test (dopo le 12:00)</string>
     <string name="choose_dow">Scegliere i giorni della settimana in cui l\'utente effettuera i test.</string>
     <string name="config_ok">La configurazione e stata completata con successo.</string>
-     <string name="smonday">Lu</string>
+    <string name="smonday">Lu</string>
     <string name="stuesday">Ma</string>
     <string name="swednesday">Me</string>
     <string name="sthursday">Gi</string>
@@ -422,10 +421,6 @@
     <string name="start_speech">Inizia!</string>
 
 
-
-
-
-
     <string name="thanksMsg">Grazie, questo compito è terminato.</string>
     <string name="cognitiveAlertMsg">Ciao! E’ il momento di un nuovo test.</string>
     <string name="task_number" formatted="false">Ci sono %1$d test da eseguire.</string>
@@ -435,17 +430,17 @@
     <string name="noTestForNow">Non ci sono altri test per il momento. </string>
 
 
-<string name="next_day" formatted="false">Prossimo test tra %1$d giorno/i</string>
-<string name="next_hour" formatted="false"> Prossimo test tra %1$d ora/e</string>
-<string name="next_minute" formatted="false"> Prossimo test tra %1$d minuto/i</string>
-<string name="patient_med_instructions" > Prema Sì, se fin’ora ha preso tutte le sue medicine. Altrimenti prema No.</string>
+    <string name="next_day" formatted="false">Prossimo test tra %1$d giorno/i</string>
+    <string name="next_hour" formatted="false"> Prossimo test tra %1$d ora/e</string>
+    <string name="next_minute" formatted="false"> Prossimo test tra %1$d minuto/i</string>
+    <string name="patient_med_instructions"> Prema Sì, se fin’ora ha preso tutte le sue medicine. Altrimenti prema No.</string>
 
-<string name="diaryMsg">Per favore, indichi come si è sentito finora.</string>
-<string name="offMsg">Rigido e lento.</string>
-<string name="onMsg">Posso muovermi facilmente e sono più veloce.</string>
-<string name="onDysMsg">Posso muovermi facilmente ma ho dei movimenti involontari.</string>
-<string name="onSevereDysMsg">Posso muovermi facilmente ma ho dei movimenti involontari fastidiosi.</string>
+    <string name="diaryMsg">Per favore, indichi come si è sentito finora.</string>
+    <string name="offMsg">Rigido e lento.</string>
+    <string name="onMsg">Posso muovermi facilmente e sono più veloce.</string>
+    <string name="onDysMsg">Posso muovermi facilmente ma ho dei movimenti involontari.</string>
+    <string name="onSevereDysMsg">Posso muovermi facilmente ma ho dei movimenti involontari fastidiosi.</string>
 
     <string name="test_home_title">Esegui un test</string>
     <string name="test_home_description">Premere qui se vuoi eseguire un test!</string>
-    </resources>
+</resources>

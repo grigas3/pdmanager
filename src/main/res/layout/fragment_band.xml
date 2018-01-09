@@ -1,270 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
     <ProgressBar
         android:id="@+id/sync_progress"
         android:layout_width="wrap_content"
-        android:visibility="invisible"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
     <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-<ScrollView
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
         android:layout_height="match_parent">
-        <RelativeLayout
+
+        <ScrollView
+
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/setting_vertical_margin"
-            android:paddingLeft="@dimen/setting_horizontal_margin"
-            android:paddingRight="@dimen/setting_horizontal_margin"
-            android:paddingTop="@dimen/setting_vertical_margin"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/buttonRequirePermissions"
-
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-
-                android:text="PERMISSIONS"
-                />
-            <TextView
-                android:id="@+id/textFilePermission"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/buttonRequirePermissions"
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="10dp"
-                android:text="Device Permissions"
-                android:textColor="@color/red_dark_color"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textStyle="bold" />
-
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/setting_vertical_margin"
-            android:paddingLeft="@dimen/setting_horizontal_margin"
-            android:paddingRight="@dimen/setting_horizontal_margin"
-            android:paddingTop="@dimen/setting_vertical_margin"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/buttonLogin"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:checked="true"
-                android:enabled="true"
-                android:text="LOGIN"
-                />
-
-            <TextView
-                android:id="@+id/textLoggedIn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/buttonLogin"
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="10dp"
-                android:text="Patient is not logged in "
-                android:textColor="@color/red_dark_color"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textStyle="bold" />
-
-
-
-        </RelativeLayout>
-
-
-
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/setting_vertical_margin"
-            android:paddingLeft="@dimen/setting_horizontal_margin"
-            android:paddingRight="@dimen/setting_horizontal_margin"
-            android:paddingTop="@dimen/setting_vertical_margin">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:layout_marginTop="2dp">
-                <Button
-                    android:id="@+id/buttonGetDevice"
-                    android:layout_width="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:checked="true"
-                    android:enabled="true"
-                    android:text="Register"
-                    />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="fill_horizontal"
-                android:layout_marginTop="2dp">
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/setting_vertical_margin"
+                    android:paddingLeft="@dimen/setting_horizontal_margin"
+                    android:paddingRight="@dimen/setting_horizontal_margin"
+                    android:paddingTop="@dimen/setting_vertical_margin">
+
+                    <Button
+                        android:id="@+id/buttonRequirePermissions"
+
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="PERMISSIONS"/>
+
+                    <TextView
+                        android:id="@+id/textFilePermission"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toRightOf="@+id/buttonRequirePermissions"
+                        android:text="Device Permissions"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/red_dark_color"
+                        android:textStyle="bold"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Register Patient Device"
-                    android:id="@+id/textGetDevice"
-                    android:textColor="@color/red_dark_color"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_marginLeft="10dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/setting_vertical_margin"
+                    android:paddingLeft="@dimen/setting_horizontal_margin"
+                    android:paddingRight="@dimen/setting_horizontal_margin"
+                    android:paddingTop="@dimen/setting_vertical_margin">
+
+                    <Button
+                        android:id="@+id/buttonLogin"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:checked="true"
+                        android:enabled="true"
+                        android:text="LOGIN"/>
+
+                    <TextView
+                        android:id="@+id/textLoggedIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toRightOf="@+id/buttonLogin"
+                        android:text="Patient is not logged in "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/red_dark_color"
+                        android:textStyle="bold"/>
 
 
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/textDeviceId"
-                    android:layout_width="wrap_content"
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="No device"
-                    android:layout_marginLeft="10dp"
-                    android:textStyle="bold" />
-                </LinearLayout>
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/setting_vertical_margin"
+                    android:paddingLeft="@dimen/setting_horizontal_margin"
+                    android:paddingRight="@dimen/setting_horizontal_margin"
+                    android:paddingTop="@dimen/setting_vertical_margin">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginTop="2dp">
+
+                        <Button
+                            android:id="@+id/buttonGetDevice"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:checked="true"
+                            android:enabled="true"
+                            android:text="Register"/>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="fill_horizontal"
+                            android:layout_marginTop="2dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textGetDevice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="Register Patient Device"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/red_dark_color"
+                                android:textStyle="bold"/>
 
 
+                            <TextView
+                                android:id="@+id/textDeviceId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="No device"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
 
 
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/sepMedications"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/setting_vertical_margin"
+                    android:paddingLeft="@dimen/setting_horizontal_margin"
+                    android:paddingRight="@dimen/setting_horizontal_margin"
+                    android:paddingTop="@dimen/setting_vertical_margin">
+
+                    <Button
+                        android:id="@+id/buttonConnect"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dip"
+                        android:layout_marginLeft="10dip"
+                        android:background="#00ff00"
+                        android:enabled="false"
+                        android:src="@drawable/ic_action_play"
+                        android:text="@string/connect_label"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/buttonConnect"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/textConnectionStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/monitoringstatus_label"
+                            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                        <TextView
+                            android:id="@+id/textSensorStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/sepManagement"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/setting_vertical_margin"
+                    android:paddingLeft="@dimen/setting_horizontal_margin"
+                    android:paddingRight="@dimen/setting_horizontal_margin"
+                    android:paddingTop="@dimen/setting_vertical_margin">
+
+                    >
+
+                    <Button
+                        android:id="@+id/buttonGetMSHealth"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:enabled="false"
+                        android:text="SYNC"/>
+
+                    <TextView
+                        android:id="@+id/textMSHealth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toRightOf="@+id/buttonGetMSHealth"
+                        android:text="Sync MS Health"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/red_dark_color"
+                        android:textStyle="bold"/>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/sepMSHealth"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/buttonGetMSHealth"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/darker_gray"/>
             </LinearLayout>
-
-        </RelativeLayout>
-
-        <View
-            android:id="@+id/sepMedications"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/setting_vertical_margin"
-        android:paddingLeft="@dimen/setting_horizontal_margin"
-        android:paddingRight="@dimen/setting_horizontal_margin"
-        android:paddingTop="@dimen/setting_vertical_margin">
-        <Button
-            android:id="@+id/buttonConnect"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
-            android:layout_marginBottom="8dip"
-            android:enabled="false"
-            android:src="@drawable/ic_action_play"
-            android:text="@string/connect_label"
-            android:background="#00ff00" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_toRightOf="@+id/buttonConnect">
-
-
-            <TextView
-                android:id="@+id/textConnectionStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="@string/monitoringstatus_label"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/textSensorStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-        <View
-            android:id="@+id/sepManagement"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-
-            android:layout_marginBottom="6dp"
-            android:layout_marginTop="6dp"
-            android:background="@android:color/darker_gray" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/setting_vertical_margin"
-        android:paddingLeft="@dimen/setting_horizontal_margin"
-        android:paddingRight="@dimen/setting_horizontal_margin"
-        android:paddingTop="@dimen/setting_vertical_margin">
-
-       >
-        <Button
-            android:id="@+id/buttonGetMSHealth"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:enabled="false"
-            android:text="SYNC"
-            />
-        <TextView
-            android:id="@+id/textMSHealth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/buttonGetMSHealth"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="10dp"
-            android:text="Sync MS Health"
-            android:textColor="@color/red_dark_color"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textStyle="bold" />
-
-
-
-
-
-
-    </RelativeLayout>
-        <View
-            android:id="@+id/sepMSHealth"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/buttonGetMSHealth"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+        </ScrollView>
     </LinearLayout>
-</ScrollView>
-    </LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>

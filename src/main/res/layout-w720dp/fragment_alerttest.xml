@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/fragment_alert_test"
-    android:orientation="vertical">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/fragment_alert_test"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
     <ProgressBar
         android:id="@+id/busy_BusyIndicator"
         android:layout_width="wrap_content"
@@ -30,6 +31,7 @@
             android:text="DID YOU TAKE THE 14:50 LEVODOPA PILL?"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/alertDescription"
             android:layout_width="wrap_content"
@@ -45,23 +47,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/alertDescription"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="false"
             android:layout_marginBottom="2dip"
+            android:layout_marginTop="@dimen/nfg_button_topmargin"
             android:enabled="false"
             android:src="@drawable/ic_action_confirm"
             android:text="@string/connect_label"
-            app:cb_color="#00ff00"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/nfg_button_topmargin" />
+            app:cb_color="#00ff00"/>
+
         <TextView
             android:id="@+id/confirmText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="YES!"
-            android:layout_centerHorizontal="true"
-
             android:layout_below="@+id/confirm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+
+            android:text="YES!"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
 
@@ -71,24 +74,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/confirm"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="false"
             android:layout_marginBottom="8dip"
+            android:layout_marginTop="@dimen/nfg_button_topmargin"
             android:enabled="false"
             android:src="@drawable/ic_action_nfg"
             android:text="@string/connect_label"
-            app:cb_color="#ff0000"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/nfg_button_topmargin" />
+            app:cb_color="#ff0000"/>
 
         <TextView
             android:id="@+id/rejectText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_below="@+id/reject"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="false"
+            android:layout_marginBottom="5dp"
             android:text="NO!"
-            android:layout_below="@+id/reject"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
 

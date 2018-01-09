@@ -11,6 +11,7 @@ public interface IDataProcessor {
     /**
      * Requires data
      * The main data handler when new data are received checks whether a data processor "needs" those data
+     *
      * @param dataType Data Type defined in com.pdmanager.common.DataTypes
      * @return
      */
@@ -18,6 +19,7 @@ public interface IDataProcessor {
 
     /**
      * Add data
+     *
      * @param data
      */
     void addData(ISensorData data);

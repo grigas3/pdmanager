@@ -32,7 +32,7 @@ public class APIUtility {
      */
     public static Map getJson(OIDCAccountManager accountManager, String url, Account account,
                               AccountManagerCallback<Bundle> callback)
-            throws IOException, UserNotAuthenticatedWrapperException, AuthenticatorException, OperationCanceledException,TokenDecryptionException {
+            throws IOException, UserNotAuthenticatedWrapperException, AuthenticatorException, OperationCanceledException, TokenDecryptionException {
 
         String jsonString = makeRequest(accountManager, HttpRequest.METHOD_GET, url, account, callback);
         return new Gson().fromJson(jsonString, Map.class);
@@ -40,30 +40,28 @@ public class APIUtility {
 
     /**
      * Makes an arbitrary HTTP request using the provided account.
-     *
+     * <p>
      * If the request doesn't execute successfully on the first try, the tokens will be refreshed
      * and the request will be retried. If the second try fails, an exception will be raised.
      */
     public static String makeRequest(OIDCAccountManager accountManager, String method, String url, Account account,
                                      AccountManagerCallback<Bundle> callback)
-            throws IOException, UserNotAuthenticatedWrapperException, AuthenticatorException, OperationCanceledException,TokenDecryptionException {
+            throws IOException, UserNotAuthenticatedWrapperException, AuthenticatorException, OperationCanceledException, TokenDecryptionException {
 
         return makeRequest(accountManager, method, url, account, true, callback);
     }
 
     private static String makeRequest(OIDCAccountManager accountManager, String method, String url, Account account,
                                       boolean doRetry, AccountManagerCallback<Bundle> callback)
-            throws IOException, UserNotAuthenticatedWrapperException, AuthenticatorException, OperationCanceledException,TokenDecryptionException {
+            throws IOException, UserNotAuthenticatedWrapperException, AuthenticatorException, OperationCanceledException, TokenDecryptionException {
 
 
         String accessToken = null;
 
         try {
-            accessToken=  accountManager.getAccessToken(account, callback);
+            accessToken = accountManager.getAccessToken(account, callback);
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
 
             throw new TokenDecryptionException();

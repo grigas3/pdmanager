@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.pdmanager.R;
 import com.telerik.widget.list.ListViewAdapter;
 import com.telerik.widget.list.ListViewHolder;

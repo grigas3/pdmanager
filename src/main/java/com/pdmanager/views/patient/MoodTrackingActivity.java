@@ -46,7 +46,7 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
     private LinearLayout actSocial;
     private EditText actOther;
     private TextView chooseText;
-//    private Button buttonBack;
+    //    private Button buttonBack;
     private RelativeLayout buttonNext;
     View.OnClickListener moodClickListener = new View.OnClickListener() {
         @Override
@@ -70,14 +70,14 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
         setUp();
     }
 
-    public void setUp (  ) {
+    public void setUp() {
 
-        final DirectSenderTask sender=new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(),this);
+        final DirectSenderTask sender = new DirectSenderTask(RecordingSettings.GetRecordingSettings(this).getToken(), this);
 
         busyIndicator = (RelativeLayout) this.findViewById(R.id.busy_BusyIndicator);
 
         busyIndicator.setVisibility(View.INVISIBLE);
-        layout=(RelativeLayout)  this.findViewById(R.id.mainLayout);
+        layout = (RelativeLayout) this.findViewById(R.id.mainLayout);
         selectedActivityViews = new ArrayList<>();
         moodContainer = (LinearLayout) this.findViewById(R.id.container_mood_select);
         actContainer = (LinearLayout) this.findViewById(R.id.container_act_select);
@@ -117,11 +117,10 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.length() > 0) {
+                if (s.length() > 0) {
                     buttonNext.setVisibility(View.VISIBLE);
                     chooseText.setVisibility(View.GONE);
-                }
-                else if (selectedActivityViews.size() < 1) {
+                } else if (selectedActivityViews.size() < 1) {
                     buttonNext.setVisibility(View.GONE);
                     chooseText.setVisibility(View.VISIBLE);
                 }
@@ -132,7 +131,7 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(moodContainer.getVisibility() == View.VISIBLE) {
+                if (moodContainer.getVisibility() == View.VISIBLE) {
                     moodContainer.setVisibility(View.GONE);
                     actContainer.setVisibility(View.VISIBLE);
                     buttonNext.setVisibility(View.GONE);
@@ -147,27 +146,27 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
                     //Calendar cal2 = Calendar.getInstance();
                     cal1.setTime(date1);
 
-                    String patientCode= RecordingSettings.GetRecordingSettings(getApplicationContext()).getPatientID();
+                    String patientCode = RecordingSettings.GetRecordingSettings(getApplicationContext()).getPatientID();
 
-                    ArrayList<Observation> observations=new ArrayList<Observation>();
+                    ArrayList<Observation> observations = new ArrayList<Observation>();
                     selectedMood = selectedMoodView.getTag().toString();
-                    observations.add( new Observation(1, patientCode, "PQMOOD", cal1.getTimeInMillis()));
+                    observations.add(new Observation(1, patientCode, "PQMOOD", cal1.getTimeInMillis()));
 
 
                     selectedActivities = new ArrayList<String>();
-                    for(View view : selectedActivityViews) {
-                        observations.add(new Observation(1, patientCode,view.getTag().toString(), cal1.getTimeInMillis()));
+                    for (View view : selectedActivityViews) {
+                        observations.add(new Observation(1, patientCode, view.getTag().toString(), cal1.getTimeInMillis()));
                         selectedActivities.add(view.getTag().toString());
                     }
-                    if(actOther.getText().length() > 0) {
-                        observations.add(new Observation(1, patientCode,actOther.getText().toString(), cal1.getTimeInMillis()));
+                    if (actOther.getText().length() > 0) {
+                        observations.add(new Observation(1, patientCode, actOther.getText().toString(), cal1.getTimeInMillis()));
                         selectedActivities.add(actOther.getText().toString());
                     }
                     busyIndicator.setVisibility(View.VISIBLE);
                     layout.setVisibility(View.INVISIBLE);
                     sender.execute(observations);
-                 //   Toast.makeText(rootView, "selectedMood="+selectedMood+", selectedActivities="+selectedActivities+"\nTODO: Send this values to server, disable toast.", Toast.LENGTH_LONG).show();
-                 //   Log.d(LOG_TAG, "selectedMood=" + selectedMood + ", selectedActivities=" + selectedActivities);
+                    //   Toast.makeText(rootView, "selectedMood="+selectedMood+", selectedActivities="+selectedActivities+"\nTODO: Send this values to server, disable toast.", Toast.LENGTH_LONG).show();
+                    //   Log.d(LOG_TAG, "selectedMood=" + selectedMood + ", selectedActivities=" + selectedActivities);
 
 
                     //post selectedMood and selectedActivites to the server and open XY fragment
@@ -187,7 +186,7 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
     }
 
     public void changeMood(View view) {
-        if( selectedMoodView != null)
+        if (selectedMoodView != null)
             selectedMoodView.setSelected(false);
         selectedMoodView = view;
         selectedMoodView.setSelected(true);
@@ -195,9 +194,9 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
         buttonNext.setVisibility(View.VISIBLE);
     }
 
-    public void activityClicked (View view) {
-        if(selectedActivityViews.size() > 0) {
-            if(selectedActivityViews.remove(view)) {
+    public void activityClicked(View view) {
+        if (selectedActivityViews.size() > 0) {
+            if (selectedActivityViews.remove(view)) {
                 view.setSelected(false);
             } else {
                 selectedActivityViews.add(view);
@@ -207,10 +206,10 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
             selectedActivityViews.add(view);
             view.setSelected(true);
         }
-        if(selectedActivityViews.size() > 0) {
+        if (selectedActivityViews.size() > 0) {
             buttonNext.setVisibility(View.VISIBLE);
             chooseText.setVisibility(View.GONE);
-        } else if (actOther.getText().toString().length() < 1){
+        } else if (actOther.getText().toString().length() < 1) {
             buttonNext.setVisibility(View.GONE);
             chooseText.setVisibility(View.VISIBLE);
         }
@@ -226,7 +225,7 @@ public class MoodTrackingActivity extends SoundFeedbackActivity implements IDire
         busyIndicator.setVisibility(View.INVISIBLE);
         layout.setVisibility(View.VISIBLE);
 
-       finishTest();
+        finishTest();
     }
 
     @Override

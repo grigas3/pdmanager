@@ -2,9 +2,9 @@ package com.pdmanager.views.patient.cognition;
 
 /**
  * Main menu, starting point of the application.
- *
+ * <p>
  * It shows two different buttons to launch the cognitive test or the finger tapping tests
- *
+ * <p>
  * Main menu to launch the different cognitive tests
  *
  * @authors Quentin DELEPIERRE, Thibaud PACQUETET, Jorge CANCELA (jcancela@lst.tfo.upm.es)
@@ -28,8 +28,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     Button buttonCognitive, buttonFTT, buttonVoice, buttonBack;
 
     @Override
-    protected  void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         //speak.shutdown();
     }
@@ -43,7 +42,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             finish();
         }
 
-        buttonCognitive= (Button) findViewById(R.id.buttonMenuCognitive);
+        buttonCognitive = (Button) findViewById(R.id.buttonMenuCognitive);
         buttonFTT = (Button) findViewById(R.id.buttonMenuFTT);
         buttonVoice = (Button) findViewById(R.id.buttonMenuVoice);
         buttonBack = (Button) findViewById(R.id.buttonBack);
@@ -79,7 +78,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 break;
         }
     }
-
 
 
 }

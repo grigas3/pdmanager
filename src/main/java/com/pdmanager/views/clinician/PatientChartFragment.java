@@ -285,6 +285,17 @@ public class PatientChartFragment extends BasePDFragment implements IBasePatient
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
             transaction.commit();
 
+        } else if (item == 6) {
+            DssFragment newFragment = new DssFragment();
+            newFragment.setPatient(patient);
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.container, newFragment);
+
+            transaction.addToBackStack(null);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+            transaction.commit();
+
         } else
 
         {
@@ -370,6 +381,10 @@ public class PatientChartFragment extends BasePDFragment implements IBasePatient
         Destination motorSymptoms = new Destination("Motor symptoms", "Check patient motor symptoms ", R.drawable.communication, Color.parseColor("#D06744"));
 
         destinations.add(motorSymptoms);
+
+        Destination dss = new Destination("DSS", "DSS support for the specific patient", R.drawable.communication, Color.parseColor("#555555"));
+
+        destinations.add(dss);
         return destinations;
     }
 

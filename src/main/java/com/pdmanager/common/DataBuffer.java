@@ -2,8 +2,6 @@ package com.pdmanager.common;
 
 import android.os.Environment;
 
-import com.pdmanager.common.data.BaseSensorData;
-import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.math.DoubleMath;
 
 import java.io.BufferedOutputStream;
@@ -28,6 +26,7 @@ public abstract class DataBuffer<T> {
     private final String folder;
     private final long maxTotalBuffer;
     private final long rowSize;
+    private final String newline = "\r\n";
     File saveFilePath = null;
     private Object lock1 = new Object();
     private long count = 0;
@@ -35,8 +34,7 @@ public abstract class DataBuffer<T> {
     private long byteWritten = 0;
     private boolean mHeaderCreated = false;
     private boolean needSave = false;
-    private final  String newline = "\r\n";
-    private int itemCount=0;
+    private int itemCount = 0;
 
 
     public DataBuffer(long mBuffer, long mTBuffer, String pfolder, String pfileName) {
@@ -82,7 +80,7 @@ public abstract class DataBuffer<T> {
 
             //tmpItems.addAll(items);
 
-            final ArrayList<T> tmpItems=(ArrayList<T>)items.clone();
+            final ArrayList<T> tmpItems = (ArrayList<T>) items.clone();
             count = 0;
             items.clear();
 

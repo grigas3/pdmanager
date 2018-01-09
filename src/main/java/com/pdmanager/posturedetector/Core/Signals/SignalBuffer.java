@@ -164,6 +164,7 @@ public class SignalBuffer extends BaseMath {
             s += buffer[j] * buffer[j];
         return s;
     }
+
     public double sum_diff_energy() {
 
         double s = 0;

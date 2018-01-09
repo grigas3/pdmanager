@@ -13,46 +13,46 @@
 
 
     <ImageView
+        android:id="@+id/healthim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
         android:layout_centerHorizontal="true"
-        android:id="@+id/healthim"
+        android:layout_marginTop="20px"
         android:src="@drawable/mshealth" />
 
     <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-                android:indeterminate="true"
-        android:visibility="invisible"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="Syncing with Microsoft health...."
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:indeterminate="true"
+        android:visibility="invisible"/>
+
+    <TextView
         android:id="@+id/textView6"
-    android:visibility="invisible"
-        android:layout_marginTop="81dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/healthim"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp"
+        android:text="Syncing with Microsoft health...."
+        android:textAppearance="?android:textAppearanceLarge"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/mssyncButton"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textView6"
         android:background="#8EB4F5"
         android:text="Sync with Microsoft Health"
-        android:textStyle="bold"
         android:textAppearance="?android:textAppearanceLarge"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textStyle="bold"/>
 
 
 </RelativeLayout>

@@ -96,7 +96,6 @@ public class MedicationOrder extends PDEntity implements Parcelable {
     }
 
 
-
     public MedicationOrder() {
     }
 
@@ -123,11 +122,10 @@ public class MedicationOrder extends PDEntity implements Parcelable {
 
     }
 
-    public void setTimings(List<MedTiming> timings)
-    {
+    public void setTimings(List<MedTiming> timings) {
 
         Gson json = new Gson();
-        Timing= json.toJson(timings, new TypeToken<List<MedTiming>>(){
+        Timing = json.toJson(timings, new TypeToken<List<MedTiming>>() {
         }.getType());
     }
 

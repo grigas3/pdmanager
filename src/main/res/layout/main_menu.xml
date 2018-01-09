@@ -12,68 +12,69 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-    <ScrollView
 
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonBack"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        <ScrollView
 
-        <LinearLayout
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_above="@+id/buttonBack"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
 
-            <Button
-                android:id="@+id/buttonMenuFTT"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/shape_button"
-                android:gravity="left|center_vertical"
-                android:padding="15dp"
-                android:text="@string/menuFirst"
-                android:textAllCaps="false"
-                android:textColor="@color/White"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonMenuCognitive"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/shape_button"
-                android:gravity="left|center_vertical"
-                android:padding="15dp"
-                android:text="@string/menuSecond"
-                android:textAllCaps="false"
-                android:textColor="@color/White"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                <Button
+                    android:id="@+id/buttonMenuFTT"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/shape_button"
+                    android:gravity="left|center_vertical"
+                    android:padding="15dp"
+                    android:text="@string/menuFirst"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
 
-            <Button
-                android:id="@+id/buttonMenuVoice"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/shape_button"
-                android:gravity="left|center_vertical"
-                android:padding="15dp"
-                android:text="@string/menuThird"
-                android:textAllCaps="false"
-                android:textColor="@color/White"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                <Button
+                    android:id="@+id/buttonMenuCognitive"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/shape_button"
+                    android:gravity="left|center_vertical"
+                    android:padding="15dp"
+                    android:text="@string/menuSecond"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/buttonMenuVoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/shape_button"
+                    android:gravity="left|center_vertical"
+                    android:padding="15dp"
+                    android:text="@string/menuThird"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
 
         <Button
             android:id="@+id/buttonBack"

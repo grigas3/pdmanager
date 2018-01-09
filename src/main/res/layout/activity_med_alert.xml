@@ -16,11 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
-        <ndroid.support.v4.app.Fragment android:name="com.pdmanager.views.patient.MedAlertFragment"
+
+        <ndroid.support.v4.app.Fragment
             android:id="@+id/medalert_fragment"
-            android:layout_weight="1"
+            android:name="com.pdmanager.views.patient.MedAlertFragment"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
     </FrameLayout>
 
 </FrameLayout>

@@ -11,6 +11,17 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Alert extends PDEntity implements Parcelable {
 
+    public static final Creator<Alert> CREATOR = new Creator<Alert>() {
+        @Override
+        public Alert createFromParcel(Parcel in) {
+            return new Alert(in);
+        }
+
+        @Override
+        public Alert[] newArray(int size) {
+            return new Alert[size];
+        }
+    };
     @SerializedName("Title")
     public String Title;
     @SerializedName("Message")
@@ -21,24 +32,22 @@ public class Alert extends PDEntity implements Parcelable {
     public long Expiration;
     @SerializedName("Timestamp")
     public long Timestamp;
-
     @SerializedName("Source")
     public String Source = "PAT01";
-
     @SerializedName("UserNotified")
     public boolean UserNotified;
 
     /**
      * Alert Constructor
-
-     * @param pTitle Alert Title
-     * @param pMessage Alert Message
-     * @param pCode Alert Code
+     *
+     * @param pTitle      Alert Title
+     * @param pMessage    Alert Message
+     * @param pCode       Alert Code
      * @param pTimestamp
      * @param pExpiration
      * @param pSource
      */
-    public Alert(String pTitle, String pMessage, String pCode, long pTimestamp, long pExpiration,String pSource) {
+    public Alert(String pTitle, String pMessage, String pCode, long pTimestamp, long pExpiration, String pSource) {
 
         Id = "newid";
         this.Title = pTitle;
@@ -47,17 +56,17 @@ public class Alert extends PDEntity implements Parcelable {
         this.Type = pCode;
         this.Expiration = pExpiration;
         this.Source = pSource;
-        UserNotified=false;
+        UserNotified = false;
 
     }
+
     /**
      * Alert Constructor
-
-     * @param pTitle Alert Title
-     * @param pMessage Alert Message
-     * @param pCode Alert Code
+     *
+     * @param pTitle     Alert Title
+     * @param pMessage   Alert Message
+     * @param pCode      Alert Code
      * @param pTimestamp
-
      * @param pSource
      */
     public Alert(String pTitle, String pMessage, String pCode, long pTimestamp, String pSource) {
@@ -70,32 +79,35 @@ public class Alert extends PDEntity implements Parcelable {
         this.Type = pCode;
         this.Expiration = 0;
         this.Source = pSource;
-        UserNotified=false;
+        UserNotified = false;
 
     }
+
     /**
      * Alert Constructor
-     * @param pid Id
-     * @param pTitle Alert Title
-     * @param pMessage Alert Message
-     * @param pCode Alert Code
+     *
+     * @param pid         Id
+     * @param pTitle      Alert Title
+     * @param pMessage    Alert Message
+     * @param pCode       Alert Code
      * @param pTimestamp
      * @param pExpiration
      * @param pSource
      */
-    public Alert(String pid,String pTitle, String pMessage, String pCode,long pTimestamp, long pExpiration,  String pSource) {
+    public Alert(String pid, String pTitle, String pMessage, String pCode, long pTimestamp, long pExpiration, String pSource) {
 
-
-        Id =pid;
+        Id = pid;
         this.Title = pTitle;
         this.Message = pMessage;
         this.Timestamp = pTimestamp;
         this.Type = pCode;
         this.Expiration = pExpiration;
         this.Source = pSource;
-        UserNotified=false;
+        UserNotified = false;
 
     }
+
+
     protected Alert(Parcel in) {
 
         Id = "newid";
@@ -107,20 +119,6 @@ public class Alert extends PDEntity implements Parcelable {
         Source = in.readString();
 
     }
-
-
-
-    public static final Creator<Alert> CREATOR = new Creator<Alert>() {
-        @Override
-        public Alert createFromParcel(Parcel in) {
-            return new Alert(in);
-        }
-
-        @Override
-        public Alert[] newArray(int size) {
-            return new Alert[size];
-        }
-    };
 
     public String getId() {
         return Id;
@@ -159,7 +157,6 @@ public class Alert extends PDEntity implements Parcelable {
     public void setMessage(String mMessage) {
         this.Message = mMessage;
     }
-
 
 
     public long getExpiration() {

@@ -9,18 +9,16 @@ import com.oovoo.sdk.api.LogSdk;
  */
 public class GLESUtils {
 
-    public static String    TAG	= GLESUtils.class.getSimpleName();
+    public static String TAG = GLESUtils.class.getSimpleName();
 
-    public static void cleanGlError()
-    {
+    public static void cleanGlError() {
         int error = GLES20.glGetError();
         while (error != GLES20.GL_NO_ERROR) {
             error = GLES20.glGetError();
         }
     }
 
-    public static boolean checkGlError(String op)
-    {
+    public static boolean checkGlError(String op) {
         int error;
         while ((error = GLES20.glGetError()) != GLES20.GL_NO_ERROR) {
             LogSdk.e(TAG, op + ": glError " + error);
@@ -29,8 +27,7 @@ public class GLESUtils {
         return false;
     }
 
-    private static int loadShader(int shaderType, String source)
-    {
+    private static int loadShader(int shaderType, String source) {
         int shader = GLES20.glCreateShader(shaderType);
         if (shader != 0) {
             GLES20.glShaderSource(shader, source);
@@ -47,8 +44,7 @@ public class GLESUtils {
         return shader;
     }
 
-    public static int createProgram(String vertexSource, String fragmentSource)
-    {
+    public static int createProgram(String vertexSource, String fragmentSource) {
         int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, vertexSource);
         if (vertexShader == 0) {
             return 0;
@@ -86,8 +82,7 @@ public class GLESUtils {
     }
 
     public static int createAndLinkProgram(final int vertexShaderHandle, final int fragmentShaderHandle,
-                                           final String[] attributes)
-    {
+                                           final String[] attributes) {
         int programHandle = GLES20.glCreateProgram();
 
         if (programHandle != 0) {

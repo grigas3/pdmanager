@@ -27,28 +27,27 @@
                 android:paddingTop="@dimen/activity_vertical_margin">
 
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Language"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"/>
 
-                    <Spinner
-                        android:id="@+id/langSpin"
+                <Spinner
+                    android:id="@+id/langSpin"
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                        android:layout_alignParentRight="true"
+                    android:layout_alignParentRight="true"
 
-                        android:layout_marginRight="10dp"
-                        android:background="@android:color/holo_blue_light"
-                        android:enabled="true"
-                        android:popupBackground="@android:color/holo_green_dark"
-                        android:spinnerMode="dialog"
-                        android:textAlignment="textEnd"/>
-
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:enabled="true"
+                    android:popupBackground="@android:color/holo_green_dark"
+                    android:spinnerMode="dialog"
+                    android:textAlignment="textEnd"/>
 
 
             </RelativeLayout>
@@ -90,8 +89,7 @@
                     android:layout_alignLeft="@id/diarytitle"
                     android:layout_below="@id/diarytitle"
                     android:maxLines="5"
-                    android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"
-                    />
+                    android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"/>
 
 
                 <Switch
@@ -156,8 +154,7 @@
                     android:layout_below="@id/bandSensorTitle"
                     android:maxLines="3"
                     android:minLines="3"
-                    android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"
-                    />
+                    android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"/>
 
 
             </RelativeLayout>
@@ -198,8 +195,7 @@
                     android:layout_below="@id/devSensorTitle"
                     android:maxLines="3"
                     android:minLines="3"
-                    android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"
-                    />
+                    android:text="Check to record band data. If a MS Band is not available the app will collect mobile phone location and test data"/>
 
                 <Switch
                     android:id="@+id/switchDeviceSensors"
@@ -250,8 +246,7 @@
                     android:layout_alignLeft="@id/delayTitle"
                     android:layout_below="@id/delayTitle"
                     android:maxLines="2"
-                    android:text="Set Sensor delay"
-                    />
+                    android:text="Set Sensor delay"/>
 
                 <Spinner
                     android:id="@+id/sensorDelaySpinner"
@@ -305,8 +300,7 @@
                     android:layout_alignLeft="@id/detectorsTitle"
                     android:layout_below="@id/detectorsTitle"
                     android:maxLines="2"
-                    android:text="Check to perform symptom evaluation. DO NOT CHECK FOR PILOTS."
-                    />
+                    android:text="Check to perform symptom evaluation. DO NOT CHECK FOR PILOTS."/>
 
                 <Switch
                     android:id="@+id/switchUseDetectors"
@@ -354,8 +348,7 @@
                     android:layout_alignLeft="@id/recordFileTitle"
                     android:layout_below="@id/recordFileTitle"
                     android:maxLines="2"
-                    android:text="Check to record data files"
-                    />
+                    android:text="Check to record data files"/>
 
                 <Switch
                     android:id="@+id/switchRecordFile"
@@ -404,8 +397,7 @@
                     android:layout_below="@id/deviceLockTitle"
                     android:maxLines="3"
                     android:minLines="3"
-                    android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"
-                    />
+                    android:text="In order to continuously record data this options MUST be enabled. Caution! This option leads to baterry drain!"/>
 
 
                 <Switch
@@ -455,8 +447,7 @@
                     android:layout_below="@id/useSpeechTitle"
                     android:maxLines="3"
                     android:minLines="3"
-                    android:text="Use speech to dictate tests and tasks for the patient."
-                    />
+                    android:text="Use speech to dictate tests and tasks for the patient."/>
 
 
                 <Switch

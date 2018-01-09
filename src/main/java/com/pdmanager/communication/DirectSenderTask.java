@@ -20,8 +20,7 @@ public class DirectSenderTask extends AsyncTask<ArrayList<Observation>, Void, Bo
 
     public DirectSenderTask(String a, IDirectSendCallback c) {
 
-
-        this.callback=c;
+        this.callback = c;
         this.accessToken = a;
     }
 
@@ -32,21 +31,16 @@ public class DirectSenderTask extends AsyncTask<ArrayList<Observation>, Void, Bo
         try {
 
 
-
-
-
-
             DirectSender sender = new DirectSender(accessToken);
             CommunicationManager mCommManager = new CommunicationManager(sender);
 
             ArrayList<Observation> obsC = clientParams[0];
-            mCommManager.SendItems(obsC,true);
+            mCommManager.SendItems(obsC, true);
             return true;
 
         } catch (Exception ex) {
 
-
-            Log.e("DIRECTSENDER",ex.getMessage(),ex.getCause());
+            Log.e("DIRECTSENDER", ex.getMessage(), ex.getCause());
             //Util.handleException("Getting data", ex);
             return false;
             // handle BandException
@@ -54,12 +48,9 @@ public class DirectSenderTask extends AsyncTask<ArrayList<Observation>, Void, Bo
     }
 
 
-
-
     protected void onPostExecute(Boolean result) {
 
-
-        if(callback!=null) {
+        if (callback != null) {
 
             callback.onPostDirectSend(result);
         }

@@ -57,7 +57,7 @@ import java.util.TimerTask;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PatientHomeFragment extends AlertPDFragment implements IServiceStatusListener,ISensorStatusListener,IAlertDisplay {
+public class PatientHomeFragment extends AlertPDFragment implements IServiceStatusListener, ISensorStatusListener, IAlertDisplay {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -84,8 +84,8 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     private LinearLayout mNoTaskLayout;
     private ImageView mSensorsAct;
     private TextView mSensorsText;
-    private Map<String,LinearLayout> codeLayoutMapping;
-    private Map<String,TextView> codeTextMapping;
+    private Map<String, LinearLayout> codeLayoutMapping;
+    private Map<String, TextView> codeTextMapping;
     private LinearLayout mMedication;
     private LinearLayout mMood;
     private LinearLayout mCognition1;
@@ -122,9 +122,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_patient_home, container, false);
 
-
-
-        final Context context=this.getContext();
+        final Context context = this.getContext();
 
         mNoTaskLayout = (LinearLayout) rootView.findViewById(R.id.patient_home_notasks);
 
@@ -150,36 +148,32 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         mCognition2 = (LinearLayout) rootView.findViewById(R.id.patient_home_cognition2);
         mSpeech = (LinearLayout) rootView.findViewById(R.id.patient_home_speech);
 
-        codeTextMapping=new HashMap<>();
+        codeTextMapping = new HashMap<>();
 
         codeTextMapping.put("med", (TextView) rootView.findViewById(R.id.patient_home_meds_text));
         codeTextMapping.put("cogn1", (TextView) rootView.findViewById(R.id.patient_home_mood_text));
-        codeTextMapping.put("cogn2",(TextView) rootView.findViewById(R.id.patient_home_cognition_text1));
+        codeTextMapping.put("cogn2", (TextView) rootView.findViewById(R.id.patient_home_cognition_text1));
         codeTextMapping.put("speech", (TextView) rootView.findViewById(R.id.patient_home_cognition_text2));
-        codeTextMapping.put("mood",(TextView) rootView.findViewById(R.id.patient_home_speech_text));
+        codeTextMapping.put("mood", (TextView) rootView.findViewById(R.id.patient_home_speech_text));
 
-        codeTextMapping.put("ft",(TextView) rootView.findViewById(R.id.patient_home_fingertapping_text));
-        codeTextMapping.put("va",(TextView) rootView.findViewById(R.id.patient_home_visualanalogue_text));
-        codeTextMapping.put("vt",(TextView) rootView.findViewById(R.id.patient_home_voicetest_text));
+        codeTextMapping.put("ft", (TextView) rootView.findViewById(R.id.patient_home_fingertapping_text));
+        codeTextMapping.put("va", (TextView) rootView.findViewById(R.id.patient_home_visualanalogue_text));
+        codeTextMapping.put("vt", (TextView) rootView.findViewById(R.id.patient_home_voicetest_text));
 
-        codeTextMapping.put("diary",mDiaryText);
+        codeTextMapping.put("diary", mDiaryText);
 
+        codeLayoutMapping = new HashMap<>();
 
+        codeLayoutMapping.put("ft", mFingerTapping);
+        codeLayoutMapping.put("vt", mVoiceTest);
+        codeLayoutMapping.put("va", mVisualAnalogue);
 
-
-        codeLayoutMapping=new HashMap<>();
-
-
-        codeLayoutMapping.put("ft",mFingerTapping);
-        codeLayoutMapping.put("vt",mVoiceTest);
-        codeLayoutMapping.put("va",mVisualAnalogue);
-
-        codeLayoutMapping.put("med",mMedication);
-        codeLayoutMapping.put("cogn1",mCognition1);
-        codeLayoutMapping.put("cogn2",mCognition2);
-        codeLayoutMapping.put("speech",mSpeech);
-        codeLayoutMapping.put("mood",mMood);
-        codeLayoutMapping.put("diary",mDiary);
+        codeLayoutMapping.put("med", mMedication);
+        codeLayoutMapping.put("cogn1", mCognition1);
+        codeLayoutMapping.put("cogn2", mCognition2);
+        codeLayoutMapping.put("speech", mSpeech);
+        codeLayoutMapping.put("mood", mMood);
+        codeLayoutMapping.put("diary", mDiary);
 
         //MainMenu
 
@@ -202,14 +196,13 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View view) {
 
                 Log.d(TAG, "VA test");
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts("VA");
 
 
                 Intent menuPALIntent =
                         new Intent(getActivity(), VisualAnalogueScaleTest.class);
                 startActivity(menuPALIntent);
-
 
 
             }
@@ -220,7 +213,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             public void onClick(View view) {
 
                 Log.d("LOG", "test");
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.DIARY);
 
 
@@ -233,18 +226,15 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         });
 
 
-
-
         mFingerTapping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("LOG", "test");
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.FT);
                 Intent menuPALIntent =
                         new Intent(getActivity(), FingerTappingTestOne.class);
                 startActivity(menuPALIntent);
-
 
 
             }
@@ -254,12 +244,11 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             @Override
             public void onClick(View view) {
                 Log.d("LOG", "test");
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.VT);
                 Intent menuPALIntent =
                         new Intent(getActivity(), SpeechTest.class);
                 startActivity(menuPALIntent);
-
 
 
             }
@@ -270,7 +259,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             @Override
             public void onClick(View view) {
                 Log.d("LOG", "test");
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.COGN1);
 
 
@@ -283,7 +272,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             @Override
             public void onClick(View view) {
                 Log.d("LOG", "test");
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.COGN2);
                 startCognitiveTest();
             }
@@ -294,7 +283,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             @Override
             public void onClick(View v) {
 
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.MOOD);
 
                 Intent menuPALIntent =
@@ -315,7 +304,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             @Override
             public void onClick(View v) {
 
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.MED);
                 Intent menuPALIntent =
                         new Intent(getActivity(), MedAlertActivity.class);
@@ -329,7 +318,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
             @Override
             public void onClick(View v) {
-                UserAlertManager manager=new UserAlertManager(context);
+                UserAlertManager manager = new UserAlertManager(context);
                 manager.updateAlerts(UserTaskCodes.SPEECH);
                 SpeechAnalysisFragment speechAnalysisFragment = new SpeechAnalysisFragment();
                 FragmentTransaction fragmentTransaction =
@@ -340,7 +329,6 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         });
 
 
-
         return rootView;
     }
 
@@ -348,18 +336,17 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     /**
      * Start a random cognitive test
      */
-    private void startCognitiveTest()
-    {
+    private void startCognitiveTest() {
 
 
         Random rn = new Random();
         int n = 8 + 1;
         int i = rn.nextInt() % n;
 
-        if(i>8)
-            i=8;
+        if (i > 8)
+            i = 8;
 
-        switch(i) {
+        switch (i) {
             case 0:
                 Intent menuPALPRMIntent =
                         new Intent(getActivity(), PALPRM.class);
@@ -411,7 +398,6 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                 break;
 
 
-
             case 7:
                 Intent intent = new Intent(getActivity(), WisconsinCardSorting.class);
                 startActivity(intent);
@@ -426,8 +412,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
         }
     }
 
-    public void onDestroy()
-    {
+    public void onDestroy() {
         if (myTimer != null) {
             myTimer.cancel();
             myTimer.purge();
@@ -447,7 +432,6 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     }
 
     private void refreshControls() {
-
 
 
     }
@@ -478,14 +462,14 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
 
     }
-    private void startTimer()
-    {
+
+    private void startTimer() {
 
         if (myTimer == null) {
             try {
                 myTimer = new Timer();
                 HomeTimerTask myTask = new HomeTimerTask();
-                myTimer.schedule(myTask,1000, 60000);
+                myTimer.schedule(myTask, 1000, 60000);
 
             } catch (Exception ex) {
 
@@ -517,18 +501,17 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                 @Override
                 public void run() {
 
-                    if(message!=null)
-                    message.setText(messageTxt);
+                    if (message != null)
+                        message.setText(messageTxt);
 
                 }
             });
         }
     }
 
-    private void showMonitoringError(String error)
-    {
+    private void showMonitoringError(String error) {
 
-        if(mSensors!=null) {
+        if (mSensors != null) {
             mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_red));
             //   mSensorsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
             mSensorsTitle.setTextColor(Color.WHITE);
@@ -538,9 +521,9 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
             mSensorsText.setText(error);
         }
     }
-    private void showMonitoringOK()
-    {
-        if(mSensors!=null) {
+
+    private void showMonitoringOK() {
+        if (mSensors != null) {
             mSensors.setVisibility(View.GONE);
          /*   mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_green));
             //   mSensorsImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_check_sm_g));
@@ -553,9 +536,9 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
 
     }
-    private void showNotMonitoring()
-    {
-        if(mSensors!=null) {
+
+    private void showNotMonitoring() {
+        if (mSensors != null) {
 
 
             mSensors.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.button_patient_home_grey));
@@ -573,11 +556,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
     }
 
 
-    void updateUIAlerts()
-    {
-        final Context context=this.getContext();
-       final UserAlertManager manager=new UserAlertManager((this.getContext()));
-       final Activity activity = getActivity();
+    void updateUIAlerts() {
+        final Context context = this.getContext();
+        final UserAlertManager manager = new UserAlertManager((this.getContext()));
+        final Activity activity = getActivity();
         if (activity != null) {
 
             activity.runOnUiThread(new Runnable() {
@@ -691,7 +673,7 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                                 }
                                 */
 
-                                if (d <=0) {
+                                if (d <= 0) {
                                     codeLayoutMapping.get(a.getAlertType()).setVisibility(View.VISIBLE);
 
                                 }
@@ -731,24 +713,17 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                             }
                         }
 
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
 
-                        Log.e(TAG,"Home Timer", e.getCause());
+                        Log.e(TAG, "Home Timer", e.getCause());
                     }
 
 
                 }
 
 
-
             });
         }
-
-
-
-
 
 
     }
@@ -767,16 +742,14 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
                     @Override
                     public void run() {
 
-                        RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
+                        RecordingSettings settings = RecordingSettings.GetRecordingSettings(getActivity());
                         RecordingService service = RecordingServiceHandler.getInstance().getService();
                         if (service != null && settings.getSessionRunning()) {
 
                             updateUIAlerts();
                             //   mTestMenu.setVisibility(View.VISIBLE);
-                        //   mMonitoringStatus.setTextColor(Color.GREEN);
-                      //     mMonitoringStatus.setText("monitoring");
-
-
+                            //   mMonitoringStatus.setTextColor(Color.GREEN);
+                            //     mMonitoringStatus.setText("monitoring");
 
 
                             //    mSensorStatus.setVisibility(View.VISIBLE);
@@ -787,53 +760,50 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                                 } else
 */
+                            {
+
+                                showMonitoringOK();
+                                if (service.hasFatalError())
+
                                 {
 
-                                    showMonitoringOK();
-                                    if (service.hasFatalError())
-
-                                    {
-
-
-                                        if (service.getFatalErrorCode() == 2) {
+                                    if (service.getFatalErrorCode() == 2) {
 //                                            mSensorStatus.setText("Band is not recording...please move phone close to your Band");
-
-
-                                        }
-
-                                        if (service.getFatalErrorCode() == 1) {
-                                            //mMonitoringStatus.setText("SOMETHING IS WROKGBand is not paired...please re-pair your Band from the band device...PLEASE ASK YOUR TECHNICIAN IF YOU NEED MORE INFO");
-                                            showMonitoringError("Something is wrong");
-
-
-                                        } else
-
-                                        {
-
-                                        //    mSensorStatus.setText("Exception while connecting to Band");
-
-                                        }
-
-                                    } else {
-
-                                      //  mSensorStatus.setText("Something is wrong...restart the application");
 
                                     }
 
+                                    if (service.getFatalErrorCode() == 1) {
+                                        //mMonitoringStatus.setText("SOMETHING IS WROKGBand is not paired...please re-pair your Band from the band device...PLEASE ASK YOUR TECHNICIAN IF YOU NEED MORE INFO");
+                                        showMonitoringError("Something is wrong");
+
+
+                                    } else
+
+                                    {
+
+                                        //    mSensorStatus.setText("Exception while connecting to Band");
+
+                                    }
+
+                                } else {
+
+                                    //  mSensorStatus.setText("Something is wrong...restart the application");
 
                                 }
 
 
+                            }
+
 
                         } else {
 
-                        showNotMonitoring();
+                            showNotMonitoring();
 
                             mTaskTitle.setVisibility(View.INVISIBLE);
                             mNoTaskLayout.setVisibility(View.INVISIBLE);
                             //mTestMenu.setVisibility(View.INVISIBLE);
-                           // if (mSensorStatus != null)
-                             //   mSensorStatus.setVisibility(View.INVISIBLE);
+                            // if (mSensorStatus != null)
+                            //   mSensorStatus.setVisibility(View.INVISIBLE);
                         }
 
                     }

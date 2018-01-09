@@ -33,7 +33,6 @@ import java.util.Locale;
 
 
 /**
- *
  * PAL / PRM Test
  *
  * @authors Miguel Páramo (mparamo@lst.tfo.upm.es)
@@ -41,8 +40,7 @@ import java.util.Locale;
  * @license: GPL3
  */
 
-public class PALPRM extends SoundFeedbackActivity
-{
+public class PALPRM extends SoundFeedbackActivity {
     private final String LOGGER_TAG = "PALPRM_test";
     private RNG rng;
     private TextView tvTitle;
@@ -84,21 +82,21 @@ public class PALPRM extends SoundFeedbackActivity
                     + "STD time level (s), "
                     + "max time level (s), "
                     + "min time level (s), "
-                    + "total time (s)" +"\r\n";
+                    + "total time (s)" + "\r\n";
 
     private int[]
-            cat0 = { R.drawable.cat0a, R.drawable.cat0b, R.drawable.cat0c, R.drawable.cat0d, R.drawable.cat0e },
-            cat1 = { R.drawable.cat1a, R.drawable.cat1b, R.drawable.cat1c, R.drawable.cat1d, R.drawable.cat1e },
-            cat2 = { R.drawable.cat2a, R.drawable.cat2b, R.drawable.cat2c, R.drawable.cat2d, R.drawable.cat2e },
-            cat3 = { R.drawable.cat3a, R.drawable.cat3b, R.drawable.cat3c, R.drawable.cat3d, R.drawable.cat3e },
-            cat4 = { R.drawable.cat4a, R.drawable.cat4b, R.drawable.cat4c, R.drawable.cat4d, R.drawable.cat4e },
-            cat5 = { R.drawable.cat5a, R.drawable.cat5b, R.drawable.cat5c, R.drawable.cat5d, R.drawable.cat5e },
-            cat6 = { R.drawable.cat6a, R.drawable.cat6b, R.drawable.cat6c, R.drawable.cat6d, R.drawable.cat6e },
-            cat7 = { R.drawable.cat7a, R.drawable.cat7b, R.drawable.cat7c, R.drawable.cat7d, R.drawable.cat7e },
-            cat8 = { R.drawable.cat8a, R.drawable.cat8b, R.drawable.cat8c, R.drawable.cat8d, R.drawable.cat8e },
-            cat9 = { R.drawable.cat9a, R.drawable.cat9b, R.drawable.cat9c, R.drawable.cat9d, R.drawable.cat9e };
+            cat0 = {R.drawable.cat0a, R.drawable.cat0b, R.drawable.cat0c, R.drawable.cat0d, R.drawable.cat0e},
+            cat1 = {R.drawable.cat1a, R.drawable.cat1b, R.drawable.cat1c, R.drawable.cat1d, R.drawable.cat1e},
+            cat2 = {R.drawable.cat2a, R.drawable.cat2b, R.drawable.cat2c, R.drawable.cat2d, R.drawable.cat2e},
+            cat3 = {R.drawable.cat3a, R.drawable.cat3b, R.drawable.cat3c, R.drawable.cat3d, R.drawable.cat3e},
+            cat4 = {R.drawable.cat4a, R.drawable.cat4b, R.drawable.cat4c, R.drawable.cat4d, R.drawable.cat4e},
+            cat5 = {R.drawable.cat5a, R.drawable.cat5b, R.drawable.cat5c, R.drawable.cat5d, R.drawable.cat5e},
+            cat6 = {R.drawable.cat6a, R.drawable.cat6b, R.drawable.cat6c, R.drawable.cat6d, R.drawable.cat6e},
+            cat7 = {R.drawable.cat7a, R.drawable.cat7b, R.drawable.cat7c, R.drawable.cat7d, R.drawable.cat7e},
+            cat8 = {R.drawable.cat8a, R.drawable.cat8b, R.drawable.cat8c, R.drawable.cat8d, R.drawable.cat8e},
+            cat9 = {R.drawable.cat9a, R.drawable.cat9b, R.drawable.cat9c, R.drawable.cat9d, R.drawable.cat9e};
 
-    private int[][] cats = { cat0, cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9 };
+    private int[][] cats = {cat0, cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9};
     private ArrayList<Integer> freeIcons;
     private int
             testPhase = 1,
@@ -117,23 +115,19 @@ public class PALPRM extends SoundFeedbackActivity
             nSemanticPairsL3;
     private ArrayList<Double> times;
     private ArrayList<Integer> indexSemantic;
-    private OnClickListener oclCardOk = new OnClickListener()
-    {
+    private OnClickListener oclCardOk = new OnClickListener() {
         @Override
-        public void onClick(View v)
-        {
+        public void onClick(View v) {
             disableButtons();
-            feedback = (ImageView)v;
+            feedback = (ImageView) v;
             updateFeedback(true);
         }
     };
-    private OnClickListener oclCardFail = new OnClickListener()
-    {
+    private OnClickListener oclCardFail = new OnClickListener() {
         @Override
-        public void onClick(View v)
-        {
+        public void onClick(View v) {
             disableButtons();
-            feedback = (ImageView)v;
+            feedback = (ImageView) v;
             updateFeedback(false);
         }
     };
@@ -155,36 +149,32 @@ public class PALPRM extends SoundFeedbackActivity
         } else start();
     }
 
-    private void updateFeedback(boolean success)
-    {
+    private void updateFeedback(boolean success) {
         long ts = System.currentTimeMillis();
         int icon = R.drawable.red_cross;
-        if (success)
-        {
+        if (success) {
             boolean isSemantic = false;
-            for (int i= 0; i<indexSemantic.size(); i++) {
+            for (int i = 0; i < indexSemantic.size(); i++) {
                 if (level == indexSemantic.get(i)) {
                     isSemantic = true;
                 }
             }
 
             if (isSemantic) {
-                if (testPhase==1) nCorrectSemanticL1++;
-                if (testPhase==2) nCorrectSemanticL2++;
-                if (testPhase==3) nCorrectSemanticL3++;
+                if (testPhase == 1) nCorrectSemanticL1++;
+                if (testPhase == 2) nCorrectSemanticL2++;
+                if (testPhase == 3) nCorrectSemanticL3++;
             } else {
-                if (testPhase==1) nCorrectNonSemanticL1++;
-                if (testPhase==2) nCorrectNonSemanticL2++;
-                if (testPhase==3) nCorrectNonSemanticL3++;
+                if (testPhase == 1) nCorrectNonSemanticL1++;
+                if (testPhase == 2) nCorrectNonSemanticL2++;
+                if (testPhase == 3) nCorrectNonSemanticL3++;
             }
 
 
             icon = R.drawable.green_tick;
             tones.ackBeep();
 
-        }
-        else
-        {
+        } else {
 
             tones.nackBeep();
         }
@@ -192,41 +182,38 @@ public class PALPRM extends SoundFeedbackActivity
         feedback.setVisibility(View.VISIBLE);
         feedback.startAnimation(anim);
 
-        double secondsToAnswer = (System.currentTimeMillis()-lastTimestamp)/1000;
+        double secondsToAnswer = (System.currentTimeMillis() - lastTimestamp) / 1000;
         timesToAnswer.add(secondsToAnswer);
 
     }
 
-    private void disableButtons()
-    {
+    private void disableButtons() {
         img0.setClickable(false);
         img1.setClickable(false);
         img2.setClickable(false);
         img3.setClickable(false);
     }
 
-    private void enableButtons()
-    {
+    private void enableButtons() {
         img0.setClickable(true);
         img1.setClickable(true);
         img2.setClickable(true);
         img3.setClickable(true);
     }
 
-    private void start()
-    {
+    private void start() {
         setContentView(R.layout.palprm);
 
-        tvTitle = (TextView)findViewById(R.id.tvTitle);
-        lPairs = (ViewGroup)findViewById(R.id.llPairs);
-            imgPair0 = (ImageView)findViewById(R.id.imgStack0);
-            imgPair1 = (ImageView)findViewById(R.id.imgStack1);
-        lGame = (ViewGroup)findViewById(R.id.llGame);
-            imgTarget = (ImageView)findViewById(R.id.imgTarget);
-            img0 = (ImageView)findViewById(R.id.img0);
-            img1 = (ImageView)findViewById(R.id.img1);
-            img2 = (ImageView)findViewById(R.id.img2);
-            img3 = (ImageView)findViewById(R.id.img3);
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
+        lPairs = (ViewGroup) findViewById(R.id.llPairs);
+        imgPair0 = (ImageView) findViewById(R.id.imgStack0);
+        imgPair1 = (ImageView) findViewById(R.id.imgStack1);
+        lGame = (ViewGroup) findViewById(R.id.llGame);
+        imgTarget = (ImageView) findViewById(R.id.imgTarget);
+        img0 = (ImageView) findViewById(R.id.img0);
+        img1 = (ImageView) findViewById(R.id.img1);
+        img2 = (ImageView) findViewById(R.id.img2);
+        img3 = (ImageView) findViewById(R.id.img3);
 
         nCorrectSemanticL1 = 0;
         nCorrectNonSemanticL1 = 0;
@@ -245,25 +232,24 @@ public class PALPRM extends SoundFeedbackActivity
     }
 
     // Sets the layout for showing the pairs
-    private void showPairs()
-    {
+    private void showPairs() {
         String title = getString(R.string.palprm_title0) + " (" + testPhase + "/" + maxPhase + ")";
         tvTitle.setText(title);
         lGame.setVisibility(View.GONE);
         lPairs.setVisibility(View.VISIBLE);
-        if (testPhase!=1) {
+        if (testPhase != 1) {
             ArrayList<Integer> lastIndexSemantic = new ArrayList<>();
             ArrayList<IconPair> lastQuestionSet = new ArrayList<>();
-            for (int i=0; i<indexSemantic.size(); i++) {
+            for (int i = 0; i < indexSemantic.size(); i++) {
                 lastIndexSemantic.add(indexSemantic.get(i));
             }
-            for (int i=0; i<questionSet.size(); i++) {
+            for (int i = 0; i < questionSet.size(); i++) {
                 lastQuestionSet.add(questionSet.get(i));
             }
             indexSemantic.clear();
             Collections.shuffle(questionSet);
-            for (int i=0; i<lastIndexSemantic.size(); i++) {
-                for (int j = 0; j<lastQuestionSet.size(); j++) {
+            for (int i = 0; i < lastIndexSemantic.size(); i++) {
+                for (int j = 0; j < lastQuestionSet.size(); j++) {
                     if (questionSet.get(lastIndexSemantic.get(i)) == lastQuestionSet.get(j)) {
                         indexSemantic.add(j);
                     }
@@ -275,8 +261,7 @@ public class PALPRM extends SoundFeedbackActivity
     }
 
     // Shows the actual test (5 icons) layout
-    private void showTests()
-    {
+    private void showTests() {
         tvTitle.setText(R.string.palprm_title1);
         lPairs.setVisibility(View.GONE);
         lGame.setVisibility(View.VISIBLE);
@@ -287,33 +272,26 @@ public class PALPRM extends SoundFeedbackActivity
     }
 
     // Shwos the next pair on the list
-    private void nextPair()
-    {
-        if (level!=maxLevel)
-        {
+    private void nextPair() {
+        if (level != maxLevel) {
             dealPair();
             level++;
-        }
-        else showTests();
+        } else showTests();
     }
 
-    private void createFreeIconsList()
-    {
+    private void createFreeIconsList() {
         freeIcons = new ArrayList<Integer>();
-        for (int i=0; i<cats.length; i++)
-        {
-            for (int j=0; j<cats[i].length; j++)
-            {
+        for (int i = 0; i < cats.length; i++) {
+            for (int j = 0; j < cats[i].length; j++) {
                 freeIcons.add(cats[i][j]);
             }
         }
     }
 
-    private IconPair getSemanticPair()
-    {
+    private IconPair getSemanticPair() {
         int
-            catsLen = cats.length-1,
-            catlen = cat0.length-1;
+                catsLen = cats.length - 1,
+                catlen = cat0.length - 1;
         int cp0, cp1, ip0, ip1;
         cp0 = rng.getIntInClosedRange(0, catsLen);
         cp1 = cp0;
@@ -323,11 +301,10 @@ public class PALPRM extends SoundFeedbackActivity
         return new IconPair(cp0, ip0, cp1, ip1);
     }
 
-    private IconPair getNonSemanticPair()
-    {
+    private IconPair getNonSemanticPair() {
         int
-            catsLen = cats.length-1,
-            catlen = cat0.length-1;
+                catsLen = cats.length - 1,
+                catlen = cat0.length - 1;
         int cp0, cp1, ip0, ip1;
         cp0 = rng.getIntInClosedRange(0, catsLen);
         cp1 = rng.getIntInClosedRangeAvoiding(0, catsLen, cp0);
@@ -336,23 +313,19 @@ public class PALPRM extends SoundFeedbackActivity
         return new IconPair(cp0, ip0, cp1, ip1);
     }
 
-    private void createInitialPairs()
-    {
+    private void createInitialPairs() {
         createFreeIconsList();
-        for (int i=0; i<maxLevel; i++)
-        {
+        for (int i = 0; i < maxLevel; i++) {
             IconPair ip = null;
-            isSemanticRelated = (level%2==0);
-            if (isSemanticRelated)
-            {
+            isSemanticRelated = (level % 2 == 0);
+            if (isSemanticRelated) {
                 boolean generate = true;
-                while (generate)
-                {
+                while (generate) {
                     ip = getSemanticPair();
                     boolean
-                        g0 = freeIcons.contains(new Integer(cats[ip.card0Cat][ip.card0Icon])),
-                        g1 = freeIcons.contains(new Integer(cats[ip.card1Cat][ip.card1Icon]));
-                    generate = !(g0&&g1);
+                            g0 = freeIcons.contains(new Integer(cats[ip.card0Cat][ip.card0Icon])),
+                            g1 = freeIcons.contains(new Integer(cats[ip.card1Cat][ip.card1Icon]));
+                    generate = !(g0 && g1);
                 }
                 indexSemantic.add(i);
                 /*if (testPhase == 1) {
@@ -362,17 +335,14 @@ public class PALPRM extends SoundFeedbackActivity
                 } else {
                     nSemanticPairsL3++;
                 }*/
-            }
-            else
-            {
+            } else {
                 boolean generate = true;
-                while (generate)
-                {
+                while (generate) {
                     ip = getNonSemanticPair();
                     boolean
-                        g0 = freeIcons.contains(new Integer(cats[ip.card0Cat][ip.card0Icon])),
-                        g1 = freeIcons.contains(new Integer(cats[ip.card1Cat][ip.card1Icon]));
-                    generate = !(g0&&g1);
+                            g0 = freeIcons.contains(new Integer(cats[ip.card0Cat][ip.card0Icon])),
+                            g1 = freeIcons.contains(new Integer(cats[ip.card1Cat][ip.card1Icon]));
+                    generate = !(g0 && g1);
                 }
             }
             questionSet.add(ip);
@@ -380,11 +350,10 @@ public class PALPRM extends SoundFeedbackActivity
             freeIcons.remove(new Integer(cats[ip.card1Cat][ip.card1Icon]));
             level++;
         }
-        level=0;
+        level = 0;
     }
 
-    private void dealPair()
-    {
+    private void dealPair() {
         final IconPair ip = questionSet.get(level);
 
         // Show First One
@@ -395,41 +364,47 @@ public class PALPRM extends SoundFeedbackActivity
 
         final int shownTime = 1000;
         final CountDownTimer
-            showingBoth = new CountDownTimer(shownTime, shownTime)
-            {
-                @Override public void onTick(long millisUntilFinished) {}
-                @Override public void onFinish()
-                {
-                    nextPair();
-                }
-            },
+                showingBoth = new CountDownTimer(shownTime, shownTime) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
 
-            showingSecond = new CountDownTimer(shownTime, shownTime)
-            {
-                @Override public void onTick(long millisUntilFinished) {}
-                @Override public void onFinish() {
-                    imgPair0.setVisibility(View.VISIBLE);
-                    showingBoth.start();
-                }
-            },
+            @Override
+            public void onFinish() {
+                nextPair();
+            }
+        },
 
-            showingFirst = new CountDownTimer(shownTime, shownTime)
-            {
-                @Override public void onTick(long millisUntilFinished) {}
-                @Override public void onFinish() {
-                    imgPair0.setVisibility(View.INVISIBLE);
-                    imgPair1.setVisibility(View.VISIBLE);
-                    showingSecond.start();
-                }
-            };
-            showingFirst.start();
+                showingSecond = new CountDownTimer(shownTime, shownTime) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        imgPair0.setVisibility(View.VISIBLE);
+                        showingBoth.start();
+                    }
+                },
+
+                showingFirst = new CountDownTimer(shownTime, shownTime) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        imgPair0.setVisibility(View.INVISIBLE);
+                        imgPair1.setVisibility(View.VISIBLE);
+                        showingSecond.start();
+                    }
+                };
+        showingFirst.start();
     }
 
-    private void nextTest()
-    {
-        if (level!=maxLevel) dealTest();
-        else
-        {
+    private void nextTest() {
+        if (level != maxLevel) dealTest();
+        else {
 
             level = 0;
             testPhase++;
@@ -437,9 +412,8 @@ public class PALPRM extends SoundFeedbackActivity
             times.add(levelTime);
 
             //nSemanticPairs = 0;
-            if (testPhase<=maxPhase) showPairs();
-            else
-            {
+            if (testPhase <= maxPhase) showPairs();
+            else {
                 /*String
                         test = "PALPRM_Results.csv",
                         header = "Timestamp, " + "Number of semantic related pairs, " +
@@ -471,53 +445,56 @@ public class PALPRM extends SoundFeedbackActivity
         }
     }
 
-    private void dealTest()
-    {
+    private void dealTest() {
         enableButtons();
         lastTimestamp = System.currentTimeMillis();
         IconPair ip = questionSet.get(level);
         int targetFrame = rng.getIntInClosedRange(0, 3);
         ImageView view;
-        switch (targetFrame)
-        {
-            case 0: { view = img0; break; }
-            case 1: { view = img1; break; }
-            case 2: { view = img2; break; }
-            default: { view = img3; break; }
+        switch (targetFrame) {
+            case 0: {
+                view = img0;
+                break;
+            }
+            case 1: {
+                view = img1;
+                break;
+            }
+            case 2: {
+                view = img2;
+                break;
+            }
+            default: {
+                view = img3;
+                break;
+            }
         }
-        if (rng.getBoolean())
-        {
+        if (rng.getBoolean()) {
             imgTarget.setImageResource(cats[ip.card0Cat][ip.card0Icon]);
             view.setImageResource(cats[ip.card1Cat][ip.card1Icon]);
-        }
-        else
-        {
+        } else {
             imgTarget.setImageResource(cats[ip.card1Cat][ip.card1Icon]);
             view.setImageResource(cats[ip.card0Cat][ip.card0Icon]);
         }
 
         int
-            icon0 = randomIcon(),
-            icon1 = randomIcon(icon0),
-            icon2 = randomIcon(icon0, icon1),
-            icon3 = randomIcon(icon0, icon1, icon2);
-        if (view!=img0)
-        {
+                icon0 = randomIcon(),
+                icon1 = randomIcon(icon0),
+                icon2 = randomIcon(icon0, icon1),
+                icon3 = randomIcon(icon0, icon1, icon2);
+        if (view != img0) {
             img0.setOnClickListener(oclCardFail);
             img0.setImageResource(icon0);
         }
-        if (view!=img1)
-        {
+        if (view != img1) {
             img1.setOnClickListener(oclCardFail);
             img1.setImageResource(icon1);
         }
-        if (view!=img2)
-        {
+        if (view != img2) {
             img2.setOnClickListener(oclCardFail);
             img2.setImageResource(icon2);
         }
-        if (view!=img3)
-        {
+        if (view != img3) {
             img3.setOnClickListener(oclCardFail);
             img3.setImageResource(icon3);
         }
@@ -525,26 +502,23 @@ public class PALPRM extends SoundFeedbackActivity
         level++;
     }
 
-    private int randomIcon(int... excluding)
-    {
-        int pos = rng.getIntInClosedRange(0, freeIcons.size()-1);
+    private int randomIcon(int... excluding) {
+        int pos = rng.getIntInClosedRange(0, freeIcons.size() - 1);
         int icon = freeIcons.get(pos);
-        boolean generate = (excluding.length>0);
-        while (generate)
-        {
-            pos = rng.getIntInClosedRange(0, freeIcons.size()-1);
+        boolean generate = (excluding.length > 0);
+        while (generate) {
+            pos = rng.getIntInClosedRange(0, freeIcons.size() - 1);
             icon = freeIcons.get(pos);
             boolean matchesExclusion = false;
-            for (int i:excluding)
-            {
-                if (icon==i) matchesExclusion=true;
+            for (int i : excluding) {
+                if (icon == i) matchesExclusion = true;
                 generate = matchesExclusion;
             }
         }
         return icon;
     }
 
-    private void getTestResult () {
+    private void getTestResult() {
 
         int nCorrectLevel1 = nCorrectSemanticL1 + nCorrectNonSemanticL1;
         int nCorrectLevel2 = nCorrectSemanticL2 + nCorrectNonSemanticL2;
@@ -553,14 +527,14 @@ public class PALPRM extends SoundFeedbackActivity
         int nCorrectSemantic = nCorrectSemanticL1 + nCorrectSemanticL2 + nCorrectSemanticL3;
         int nCorrectNonSemantic = nCorrectNonSemanticL1 + nCorrectNonSemanticL2 + nCorrectNonSemanticL3;
         int nTotalSemanticPairs = nSemanticPairsL1 + nSemanticPairsL2 + nSemanticPairsL3;
-        int nTotalNonSemanticPairs = maxPhase*maxLevel - nTotalSemanticPairs;
+        int nTotalNonSemanticPairs = maxPhase * maxLevel - nTotalSemanticPairs;
 
-        double correctSemanticPerCent = (nCorrectSemantic*100.00)/nTotalSemanticPairs;
-        double correctNonSemanticPerCent = (nCorrectNonSemantic*100.00)/nTotalNonSemanticPairs;
+        double correctSemanticPerCent = (nCorrectSemantic * 100.00) / nTotalSemanticPairs;
+        double correctNonSemanticPerCent = (nCorrectNonSemantic * 100.00) / nTotalNonSemanticPairs;
 
         double[] levelTimes = new double[times.size()];
 
-        for (int i= 0; i<times.size(); i++) {
+        for (int i = 0; i < times.size(); i++) {
             levelTimes[i] = times.get(i);
         }
 
@@ -570,7 +544,7 @@ public class PALPRM extends SoundFeedbackActivity
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         String correctSemantic = String.format(Locale.ENGLISH, "%.2f", correctSemanticPerCent);
         String correctNonSemantic = String.format(Locale.ENGLISH, "%.2f", correctNonSemanticPerCent);
@@ -611,8 +585,8 @@ public class PALPRM extends SoundFeedbackActivity
                 nCorrectSemanticL3, nCorrectNonSemanticL3, Double.parseDouble(timeLevel1), Double.parseDouble(timeLevel2), Double.parseDouble(timeLevel3));
     }
 
-    public void sendObservations (int nCorrectSemanticL1, int nCorrectNonSemanticL1, int nCorrectSemanticL2, int nCorrectNonSemanticL2,
-                                  int nCorrectSemanticL3, int nCorrectNonSemanticL3, double timeLevel1, double timeLevel2, double timeLevel3) {
+    public void sendObservations(int nCorrectSemanticL1, int nCorrectNonSemanticL1, int nCorrectSemanticL2, int nCorrectNonSemanticL2,
+                                 int nCorrectSemanticL3, int nCorrectNonSemanticL3, double timeLevel1, double timeLevel2, double timeLevel3) {
         //Observations
         try {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());
@@ -622,7 +596,7 @@ public class PALPRM extends SoundFeedbackActivity
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsVLCSL1 = new Observation (nCorrectSemanticL1, patientCode, "PDTVL_CS_L1", time);
+            Observation obsVLCSL1 = new Observation(nCorrectSemanticL1, patientCode, "PDTVL_CS_L1", time);
             obsVLCSL1.PatientId = patientCode;
             Observation obsVLCNSL1 = new Observation(nCorrectNonSemanticL1, patientCode, "PDTVL_CNS_L1", time);
             obsVLCNSL1.PatientId = patientCode;
@@ -630,9 +604,9 @@ public class PALPRM extends SoundFeedbackActivity
             obsVLCSL2.PatientId = patientCode;
             Observation obsVLCNSL2 = new Observation(nCorrectNonSemanticL2, patientCode, "PDTVL_CNS_L2", time);
             obsVLCNSL2.PatientId = patientCode;
-            Observation obsVLCSL3 = new Observation (nCorrectSemanticL3, patientCode, "PDTVL_CS_L3", time);
+            Observation obsVLCSL3 = new Observation(nCorrectSemanticL3, patientCode, "PDTVL_CS_L3", time);
             obsVLCSL3.PatientId = patientCode;
-            Observation obsVLCNSL3 = new Observation (nCorrectNonSemanticL3, patientCode, "PDTVL_CNS_L3", time);
+            Observation obsVLCNSL3 = new Observation(nCorrectNonSemanticL3, patientCode, "PDTVL_CNS_L3", time);
             obsVLCNSL3.PatientId = patientCode;
             Observation obsVLTimeL1 = new Observation(timeLevel1, patientCode, "PDTVL_TIME_L1", time);
             obsVLTimeL1.PatientId = patientCode;
@@ -743,8 +717,7 @@ public class PALPRM extends SoundFeedbackActivity
         return UserTaskCodes.COGN + "_" + LOGGER_TAG;
     }
 
-    private class IconPair
-    {
+    private class IconPair {
         public int card0Cat, card0Icon, card1Cat, card1Icon;
 
         public IconPair(int c0c, int c0i, int c1c, int c1i) {

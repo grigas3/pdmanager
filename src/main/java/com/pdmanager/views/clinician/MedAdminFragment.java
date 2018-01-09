@@ -154,9 +154,6 @@ public class MedAdminFragment extends BasePDFragment {
     }
 
 
-
-
-
     private class SaveMedicationTask extends AsyncTask<MedicationIntake, Void, Boolean> {
 
         private String accessToken;
@@ -178,13 +175,9 @@ public class MedAdminFragment extends BasePDFragment {
                 MedicationIntake params = clientParams[0];
 
 
-
-
                 DirectSender sender = new DirectSender(accessToken);
                 CommunicationManager mCommManager = new CommunicationManager(sender);
                 mCommManager.SendItem(params);
-
-
 
 
                 if (params.Note != null && params.getTaken()) {
@@ -246,7 +239,6 @@ public class MedAdminFragment extends BasePDFragment {
 
         }
     }
-
 
 
     private class GetMedicationTask extends AsyncTask<Void, Void, PatientMedicationResult> {

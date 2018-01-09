@@ -17,92 +17,22 @@ import java.util.ArrayList;
  */
 public class CNMessage extends Message {
 
-    public enum CNMessageType {
-        Calling,
-        AnswerAccept,
-        AnswerDecline,
-        Cancel,
-        Busy,
-        EndCall,
-        Unknown
-    }
-
-    private static final String MESSAGE_TYPE    = "type";
-    private static final String CONFERENCE_ID   = "conference id";
-    private static final String DISPLAY_NAME    = "display name";
-    private static final String UNIQUE_ID       = "unique id";
-    private static final String EXTRA_MESSAGE   = "extra message";
-
-    private static final String TYPE_CALLING    = "calling";
+    private static final String MESSAGE_TYPE = "type";
+    private static final String CONFERENCE_ID = "conference id";
+    private static final String DISPLAY_NAME = "display name";
+    private static final String UNIQUE_ID = "unique id";
+    private static final String EXTRA_MESSAGE = "extra message";
+    private static final String TYPE_CALLING = "calling";
     private static final String TYPE_ANS_ACCEPT = "accept";
-    private static final String TYPE_ANS_DECLINE= "decline";
-    private static final String TYPE_CANCEL		= "cancel";
-    private static final String TYPE_BUSY		= "busy";
-    private static final String TYPE_END_CALL	= "end_call";
-
+    private static final String TYPE_ANS_DECLINE = "decline";
+    private static final String TYPE_CANCEL = "cancel";
+    private static final String TYPE_BUSY = "busy";
+    private static final String TYPE_END_CALL = "end_call";
     private CNMessageType messageType;
     private String conferenceId;
     private String displayName;
     private String extraMessage;
     private String uniqueId;
-
-    private static String CNMessageTypeToString(CNMessageType type){
-        switch(type){
-            case Calling:
-                return TYPE_CALLING;
-            case AnswerAccept:
-                return TYPE_ANS_ACCEPT;
-            case AnswerDecline:
-                return TYPE_ANS_DECLINE;
-            case Cancel:
-            	return TYPE_CANCEL;
-            case Busy:
-                return TYPE_BUSY;
-            case EndCall:
-                return TYPE_END_CALL;
-            default:
-                return null;
-        }
-    }
-
-    private static CNMessageType CNMessageStringToType(String typeStr){
-        if(typeStr.equals(TYPE_CALLING))
-            return CNMessageType.Calling;
-        else if(typeStr.equals(TYPE_ANS_ACCEPT))
-            return CNMessageType.AnswerAccept;
-        else if(typeStr.equals(TYPE_ANS_DECLINE))
-            return CNMessageType.AnswerDecline;
-        else if(typeStr.equals(TYPE_CANCEL))
-            return CNMessageType.Cancel;
-        else if(typeStr.equals(TYPE_BUSY))
-            return CNMessageType.Busy;
-        else if(typeStr.equals(TYPE_END_CALL))
-            return CNMessageType.EndCall;
-        else
-            return CNMessageType.Unknown;
-    }
-
-    private static String buildMessageBody(CNMessageType type, String confId, String name, String uid, String extra){
-        try {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
-            writer.beginObject();
-            writer.name(MESSAGE_TYPE).value(CNMessageTypeToString(type));
-            writer.name(CONFERENCE_ID).value(confId);
-            writer.name(EXTRA_MESSAGE).value(extra);
-            writer.name(DISPLAY_NAME).value(name);
-            writer.name(UNIQUE_ID).value(uid);
-            writer.endObject();
-            writer.close();
-            byte[] out_array = out.toByteArray();
-
-            return new String(out_array);//android.util.Base64.encodeToString(out_array, 0, out_array.length, Base64.DEFAULT);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
 
     public CNMessage(String to, CNMessageType type, String confId, String name, String uid) throws InstantiationException {
         this(to, type, confId, name, uid, "");
@@ -137,10 +67,68 @@ public class CNMessage extends Message {
         parseMessageBody(message);
     }
 
+    private static String CNMessageTypeToString(CNMessageType type) {
+        switch (type) {
+            case Calling:
+                return TYPE_CALLING;
+            case AnswerAccept:
+                return TYPE_ANS_ACCEPT;
+            case AnswerDecline:
+                return TYPE_ANS_DECLINE;
+            case Cancel:
+                return TYPE_CANCEL;
+            case Busy:
+                return TYPE_BUSY;
+            case EndCall:
+                return TYPE_END_CALL;
+            default:
+                return null;
+        }
+    }
+
+    private static CNMessageType CNMessageStringToType(String typeStr) {
+        if (typeStr.equals(TYPE_CALLING))
+            return CNMessageType.Calling;
+        else if (typeStr.equals(TYPE_ANS_ACCEPT))
+            return CNMessageType.AnswerAccept;
+        else if (typeStr.equals(TYPE_ANS_DECLINE))
+            return CNMessageType.AnswerDecline;
+        else if (typeStr.equals(TYPE_CANCEL))
+            return CNMessageType.Cancel;
+        else if (typeStr.equals(TYPE_BUSY))
+            return CNMessageType.Busy;
+        else if (typeStr.equals(TYPE_END_CALL))
+            return CNMessageType.EndCall;
+        else
+            return CNMessageType.Unknown;
+    }
+
+    private static String buildMessageBody(CNMessageType type, String confId, String name, String uid, String extra) {
+        try {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
+            writer.beginObject();
+            writer.name(MESSAGE_TYPE).value(CNMessageTypeToString(type));
+            writer.name(CONFERENCE_ID).value(confId);
+            writer.name(EXTRA_MESSAGE).value(extra);
+            writer.name(DISPLAY_NAME).value(name);
+            writer.name(UNIQUE_ID).value(uid);
+            writer.endObject();
+            writer.close();
+            byte[] out_array = out.toByteArray();
+
+            return new String(out_array);//android.util.Base64.encodeToString(out_array, 0, out_array.length, Base64.DEFAULT);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
     public void parseMessageBody(Message message) throws InstantiationException {
         String body = message.getBody();
-        LogSdk.d("CNMessage ","CNMessage :: "+body);
-        if(body == null)
+        LogSdk.d("CNMessage ", "CNMessage :: " + body);
+        if (body == null)
             return;
 
         try {
@@ -149,23 +137,23 @@ public class CNMessage extends Message {
             JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
             reader.setLenient(true);
             reader.beginObject();
-            while(reader.hasNext()){
+            while (reader.hasNext()) {
                 String name = reader.nextName();
-                if(name.equals(MESSAGE_TYPE)){
+                if (name.equals(MESSAGE_TYPE)) {
                     messageType = CNMessageStringToType(reader.nextString());
-                } else if(name.equals(CONFERENCE_ID)){
+                } else if (name.equals(CONFERENCE_ID)) {
                     conferenceId = reader.nextString();
-                } else if(name.equals(EXTRA_MESSAGE)){
+                } else if (name.equals(EXTRA_MESSAGE)) {
                     extraMessage = reader.nextString();
-                } else if(name.equals(DISPLAY_NAME)){
+                } else if (name.equals(DISPLAY_NAME)) {
                     displayName = reader.nextString();
-                } else if(name.equals(UNIQUE_ID)){
+                } else if (name.equals(UNIQUE_ID)) {
                     uniqueId = reader.nextString();
                 }
             }
             reader.endObject();
             reader.close();
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -188,5 +176,15 @@ public class CNMessage extends Message {
 
     public String getUniqueId() {
         return uniqueId;
+    }
+
+    public enum CNMessageType {
+        Calling,
+        AnswerAccept,
+        AnswerDecline,
+        Cancel,
+        Busy,
+        EndCall,
+        Unknown
     }
 }

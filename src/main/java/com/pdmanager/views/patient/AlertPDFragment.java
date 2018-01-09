@@ -5,7 +5,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.pdmanager.R;
-import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.interfaces.IAlertFragmentManager;
 import com.pdmanager.models.UserAlert;
 import com.pdmanager.settings.RecordingSettings;
@@ -23,31 +22,28 @@ public abstract class AlertPDFragment extends DialogFragment {
     protected Speak speak;
     protected Tones tones;
     protected Preferences prefs;
+    IAlertFragmentManager fragmentManager;
+    private UserAlert currentAlert;
 
     @Override
-    public  void onPause()
-    {
+    public void onPause() {
         super.onPause();
         speak.silence();
         tones.shutdown();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         speak = Speak.getInstance(getContext());
         tones = Tones.getInstance();
         prefs = new Preferences(getContext());
     }
 
-    private UserAlert currentAlert;
-    IAlertFragmentManager fragmentManager;
     /**
      * Release alert
      */
-    public void release()
-    {
+    public void release() {
       /*  if(currentAlert!=null)
         {
             UserAlertManager.newInstance(getContext()).setNotActive(currentAlert.Id);
@@ -56,23 +52,21 @@ public abstract class AlertPDFragment extends DialogFragment {
         }
         */
     }
-    public void setFragmentManager(IAlertFragmentManager pfragmentManager)
-    {
-        this.fragmentManager=pfragmentManager;
+
+    public void setFragmentManager(IAlertFragmentManager pfragmentManager) {
+        this.fragmentManager = pfragmentManager;
 
     }
 
 
-    public void notifyFragmentManager()
-    {
-       // if(this.fragmentManager!=null)
-         //   this.fragmentManager.gotoNextFragment();;
+    public void notifyFragmentManager() {
+        // if(this.fragmentManager!=null)
+        //   this.fragmentManager.gotoNextFragment();;
 
     }
 
 
-    protected void activateMainFragment()
-    {
+    protected void activateMainFragment() {
         PatientHomeFragment patientHomeFragment = new PatientHomeFragment();
         FragmentTransaction fragmentTransaction =
                 getFragmentManager().beginTransaction();

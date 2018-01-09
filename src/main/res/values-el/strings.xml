@@ -171,7 +171,6 @@
     </string-array>
 
 
-
     <!--OIDC  TokensExpiredDialog -->
     <string name="loginButtonText">Log in with OpenID Connect</string>
     <string name="editConfButton">OpenId Connect Client Configuration</string>
@@ -220,7 +219,7 @@
     <string name="room_title">Room</string>
     <string name="make_call_title">Make call</string>
     <string name="use_custom_render">Use custom video render</string>
-	<string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
         send downstream messages to this app.</string>
     <string name="registering_message">Generating InstanceID token...</string>
     <string name="token_error_message">An error occurred while either fetching the InstanceID token,
@@ -436,8 +435,6 @@
 
 
     <string name="patient_home_notask" formatted="false">Δεν έχετε κάποια δοκιμασία προς το παρών</string>
-
-
 
 
     <string name="diaryMsg">Παρακάλω επιλέξτε πως αισθάνεσται αυτήν την στιγμή</string>

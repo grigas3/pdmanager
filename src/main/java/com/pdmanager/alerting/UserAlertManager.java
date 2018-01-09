@@ -24,7 +24,7 @@ import java.util.TimeZone;
 public class UserAlertManager implements IUserAlertManager {
 
 
-    private final  static String TAG="USERALERTMANAGER";
+    private final static String TAG = "USERALERTMANAGER";
     private Context mContext;
 
     public UserAlertManager(Context context) {
@@ -214,7 +214,6 @@ public class UserAlertManager implements IUserAlertManager {
     }
 
 
-
     @Override
     public List<UserAlert> getAlerts() {
         SQLiteDatabase db = null;
@@ -222,11 +221,11 @@ public class UserAlertManager implements IUserAlertManager {
         DBHandler helper = null;
         Cursor cursor = null;
 
-        ArrayList<UserAlert> alerts=new ArrayList<UserAlert>();
+        ArrayList<UserAlert> alerts = new ArrayList<UserAlert>();
 
         long unixTime = System.currentTimeMillis();
         long exunixTime = System.currentTimeMillis() + 60 * 60 * 1000L;
-        String whereClause =  DBHandler.COLUMN_ALERTACTIVE + " = ? ";
+        String whereClause = DBHandler.COLUMN_ALERTACTIVE + " = ? ";
 
         String[] whereArgs = new String[]{
                 "1"
@@ -244,7 +243,6 @@ public class UserAlertManager implements IUserAlertManager {
             } else {
 
 
-
                 do {
 
 
@@ -252,8 +250,7 @@ public class UserAlertManager implements IUserAlertManager {
                     result = new UserAlert(Integer.toString(id), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getLong(4), cursor.getLong(5), cursor.getString(6));
                     alerts.add(result);
 
-                }while(cursor.moveToNext());
-
+                } while (cursor.moveToNext());
 
 
             }
@@ -284,7 +281,7 @@ public class UserAlertManager implements IUserAlertManager {
         DBHandler helper = null;
         Cursor cursor = null;
 
-        ArrayList<UserAlert> alerts=new ArrayList<UserAlert>();
+        ArrayList<UserAlert> alerts = new ArrayList<UserAlert>();
 
         long unixTime = System.currentTimeMillis();
         long exunixTime = System.currentTimeMillis() + 60 * 60 * 1000L;
@@ -307,16 +304,14 @@ public class UserAlertManager implements IUserAlertManager {
             } else {
 
 
-
                 do {
 
 
                     int id = cursor.getInt(0);
                     result = new UserAlert(Integer.toString(id), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getLong(4), cursor.getLong(5), cursor.getString(6));
-                  alerts.add(result);
+                    alerts.add(result);
 
-                }while(cursor.moveToNext());
-
+                } while (cursor.moveToNext());
 
 
             }
@@ -354,8 +349,8 @@ public class UserAlertManager implements IUserAlertManager {
         Cursor cursor = null;
 
         long unixTime = System.currentTimeMillis();
-        long exunixTime = System.currentTimeMillis() ;
-        String whereClause =DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTCREATED + " = ? ";
+        long exunixTime = System.currentTimeMillis();
+        String whereClause = DBHandler.COLUMN_EXPIRATION + " <  ? and " + DBHandler.COLUMN_ALERTCREATED + " = ? ";
 
         String[] whereArgs = new String[]{
                 Long.toString(exunixTime),
@@ -554,14 +549,11 @@ public class UserAlertManager implements IUserAlertManager {
             mContext.getContentResolver().notifyChange(DBHandler.URI_TABLE_ALERTS, null);
             ret = true;
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
-            Log.e(TAG,e.getMessage(),e.getCause());
+            Log.e(TAG, e.getMessage(), e.getCause());
 
-        }
-        finally {
+        } finally {
 
             if (db != null)
                 db.close();
@@ -660,8 +652,7 @@ public class UserAlertManager implements IUserAlertManager {
         }
     }
 
-    private boolean updateAlertInDB(String code)
-    {
+    private boolean updateAlertInDB(String code) {
         Cursor cursor = null;
         SQLiteDatabase db = null;
         JsonStorage result = null;
@@ -688,27 +679,23 @@ public class UserAlertManager implements IUserAlertManager {
 
                     ContentValues data = new ContentValues();
                     int id = cursor.getInt(0);
-                    long exp=cursor.getLong(5);
-                    data.put(DBHandler.COLUMN_EXPIRATION,getNewExpirationDate(exp,code));
+                    long exp = cursor.getLong(5);
+                    data.put(DBHandler.COLUMN_EXPIRATION, getNewExpirationDate(exp, code));
                     data.put(DBHandler.COLUMN_ALERTCREATED, 0);
                     db.update(DBHandler.TABLE_ALERTS, data, DBHandler.COLUMN_ID + " = " + id, null);
 
-                }while(cursor.moveToNext());
-
+                } while (cursor.moveToNext());
 
 
             }
 
 
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
 
-            Log.e(TAG,ex.getMessage());
-            throw  ex;
+            Log.e(TAG, ex.getMessage());
+            throw ex;
 
-        }
-        finally {
+        } finally {
             if (cursor != null) {
                 cursor.close();
             }
@@ -742,16 +729,16 @@ public class UserAlertManager implements IUserAlertManager {
      * @param currentType Alert type
      * @return
      */
-    public long getNewExpirationDate(long oldExpDate,String currentType) {
+    public long getNewExpirationDate(long oldExpDate, String currentType) {
 
-        long expDate= 1000 * 24 * 60 * 60;
+        long expDate = 1000 * 24 * 60 * 60;
 
 
         if (currentType != null) {
-            if (currentType.toLowerCase().equals("med") || currentType.toLowerCase().equals( "mood")) {
+            if (currentType.toLowerCase().equals("med") || currentType.toLowerCase().equals("mood")) {
 
                 //Add a day
-                expDate =  1000 * 24 * 60 * 60;
+                expDate = 1000 * 24 * 60 * 60;
             } else if (currentType.toLowerCase().startsWith("cogn")) {
 
                 //Add 7 days and substract 12 hours
@@ -765,14 +752,13 @@ public class UserAlertManager implements IUserAlertManager {
 
                 Date date = new Date(oldExpDate);
                 cal1.setTime(date);
-                int hour=cal1.get(Calendar.HOUR_OF_DAY)+1;
-                int startHour=RecordingSettings.GetRecordingSettings(mContext).getStartHour();
-                int stopHour=RecordingSettings.GetRecordingSettings(mContext).getStopHour();
-                if(hour>stopHour)
-                    expDate+=(startHour-hour+1)*1000 *  60 * 60;
+                int hour = cal1.get(Calendar.HOUR_OF_DAY) + 1;
+                int startHour = RecordingSettings.GetRecordingSettings(mContext).getStartHour();
+                int stopHour = RecordingSettings.GetRecordingSettings(mContext).getStopHour();
+                if (hour > stopHour)
+                    expDate += (startHour - hour + 1) * 1000 * 60 * 60;
                 else
-                    expDate+=1000 *  60 * 60;
-
+                    expDate += 1000 * 60 * 60;
 
 
             }
@@ -780,8 +766,7 @@ public class UserAlertManager implements IUserAlertManager {
 
         }
 
-
-        return expDate+oldExpDate;
+        return expDate + oldExpDate;
 
 
     }
@@ -829,28 +814,28 @@ public class UserAlertManager implements IUserAlertManager {
      */
     private long getNewExpirationDate(UserAlert alert) {
 
-                long expDate=0;
-                String currentType = alert.getAlertType();
-                long currentExpDate = alert.getExpiration();
+        long expDate = 0;
+        String currentType = alert.getAlertType();
+        long currentExpDate = alert.getExpiration();
 
-                if (currentType != null) {
-                    if (currentType.toLowerCase() == "med" || currentType.toLowerCase() == "mood") {
+        if (currentType != null) {
+            if (currentType.toLowerCase() == "med" || currentType.toLowerCase() == "mood") {
 
-                        //Add a day
-                        expDate = currentExpDate + 1000 * 24 * 60 * 60;
-                    } else if (currentType.toLowerCase().startsWith("cogn")) {
+                //Add a day
+                expDate = currentExpDate + 1000 * 24 * 60 * 60;
+            } else if (currentType.toLowerCase().startsWith("cogn")) {
 
-                        //Add 7 days and substract 12 hours
-                        expDate = currentExpDate + 1000 * 24 * 60 * 60 * 7 - 1000 * 12 * 60 * 60;
-                    } else if (currentType.toLowerCase().startsWith("diary")) {
+                //Add 7 days and substract 12 hours
+                expDate = currentExpDate + 1000 * 24 * 60 * 60 * 7 - 1000 * 12 * 60 * 60;
+            } else if (currentType.toLowerCase().startsWith("diary")) {
 
-                        ///Every 3 days
-                        expDate = currentExpDate + 1000 * 24 * 60 * 60 * 3;
+                ///Every 3 days
+                expDate = currentExpDate + 1000 * 24 * 60 * 60 * 3;
 
-                    }
+            }
 
 
-                }
+        }
 
 
         return expDate;
@@ -887,12 +872,9 @@ public class UserAlertManager implements IUserAlertManager {
 
             ret = true;
 
-        }
-        catch (Exception e)
-        {
-            Log.e(TAG,e.getMessage(),e.getCause());
-        }
-        finally {
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e.getCause());
+        } finally {
 
             if (db != null)
                 db.close();
@@ -1078,16 +1060,13 @@ public class UserAlertManager implements IUserAlertManager {
     }
 
 
-
-
-
     @Override
     public void setNotified(String id) {
 
         try {
 
-            UserAlert alert=getAlert(id);
-            if(alert!=null) {
+            UserAlert alert = getAlert(id);
+            if (alert != null) {
                 doSetNotified(alert);
 
             }

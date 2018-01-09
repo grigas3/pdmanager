@@ -157,10 +157,9 @@ public class CreateMedicationOrderFragment extends BasePDFragment implements Vie
         dataForm.setCommitMode(CommitMode.MANUAL);
 
 
-
         rootView.findViewById(R.id.data_form_done_button).setOnClickListener(this);
         rootView.findViewById(R.id.data_form_cancel_button).setOnClickListener(this);
-      
+
         return rootView;
     }
 

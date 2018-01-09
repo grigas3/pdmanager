@@ -17,11 +17,11 @@ import android.widget.TextView;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
-import com.pdmanager.controls.CircleButton;
 import com.pdmanager.R;
 import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.communication.CommunicationManager;
 import com.pdmanager.communication.DirectSender;
+import com.pdmanager.controls.CircleButton;
 import com.pdmanager.medication.MedManager;
 import com.pdmanager.models.MedTiming;
 import com.pdmanager.models.MedicationOrder;
@@ -46,10 +46,13 @@ public class NotFeelingGoodFragment extends DialogFragment {
 
     TextView mTextNotEnabled;
     TextView message;
+    Timer timer = null;
     private CircleButton mButtonPatients;
     private Button mButtonCancel;
     private RelativeLayout busyIndicator;
     private RelativeLayout layout;
+    private boolean timeRunning = false;
+
     public NotFeelingGoodFragment() {
     }
 
@@ -73,8 +76,8 @@ public class NotFeelingGoodFragment extends DialogFragment {
 
         message = (TextView) rootView.findViewById(R.id.textManagement);
 
-        mButtonPatients=(CircleButton) rootView.findViewById(R.id.buttonNotFeelingGood);
-        mButtonCancel=(Button) rootView.findViewById(R.id.cancel_btn);
+        mButtonPatients = (CircleButton) rootView.findViewById(R.id.buttonNotFeelingGood);
+        mButtonCancel = (Button) rootView.findViewById(R.id.cancel_btn);
 
         mButtonPatients.setOnClickListener(new View.OnClickListener() {
 
@@ -96,24 +99,21 @@ public class NotFeelingGoodFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-
-                    dismiss();
+                dismiss();
             }
         });
 
-        layout=(RelativeLayout)  rootView.findViewById(R.id.mainLayout);
+        layout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
 
-        mTextNotEnabled=(TextView) rootView.findViewById(R.id.textNotEnabled);
+        mTextNotEnabled = (TextView) rootView.findViewById(R.id.textNotEnabled);
 
         busyIndicator = (RelativeLayout) rootView.findViewById(R.id.busy_BusyIndicator);
 
         busyIndicator.setVisibility(View.INVISIBLE);
 
-
-      //  fragment.update(alert);
+        //  fragment.update(alert);
 
         updateLayout();
-
 
 
         return rootView;
@@ -127,6 +127,7 @@ public class NotFeelingGoodFragment extends DialogFragment {
 
 
     }
+
     protected String getPatientCode() {
 
         RecordingSettings settings = getSettings();
@@ -157,63 +158,53 @@ public class NotFeelingGoodFragment extends DialogFragment {
 
     }
 
-
-
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
 
         if (timer != null) {
             timer.cancel();
             timer.purge();
             timer = null;
-            timeRunning=false;
+            timeRunning = false;
         }
 
         super.onDestroy();
 
     }
 
-private boolean timeRunning=false;
-
-    Timer timer=null;
-
-
-    private void updateLayout()
-    {
+    private void updateLayout() {
 
 
         //Update on UI Thread
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                long t=(System.currentTimeMillis());
+                long t = (System.currentTimeMillis());
 
-                if((t- RecordingSettings.newInstance(getContext()).getLastNFG())>5/**60*/*1000) {
+                if ((t - RecordingSettings.newInstance(getContext()).getLastNFG()) > 5/**60*/ * 1000) {
 
-                    if(mButtonPatients!=null) {
+                    if (mButtonPatients != null) {
                         mButtonPatients.setEnabled(true);
                         mButtonPatients.setColor(Color.RED);
 
 
                     }
 
-                    if(mTextNotEnabled!=null)
+                    if (mTextNotEnabled != null)
                         mTextNotEnabled.setVisibility(View.INVISIBLE);
 
-                }
-                else
+                } else
 
                 {
-                    if(mButtonPatients!=null) {
+                    if (mButtonPatients != null) {
                         mButtonPatients.setEnabled(false);
                         mButtonPatients.setColor(Color.GRAY);
                     }
 
-                    if(mTextNotEnabled!=null)
+                    if (mTextNotEnabled != null)
                         mTextNotEnabled.setVisibility(View.VISIBLE);
-                    if(!timeRunning) {
-                        timeRunning=true;
+                    if (!timeRunning) {
+                        timeRunning = true;
                         timer = new Timer();
                         timer.scheduleAtFixedRate(new mainTask(), 30000, 30000);
 
@@ -222,7 +213,6 @@ private boolean timeRunning=false;
                 }
             }
         });
-
 
 
     }
@@ -241,6 +231,7 @@ private boolean timeRunning=false;
             updateLayout();
         }
     }
+
     private class SaveNotFeelingGoodTask extends AsyncTask<Void, Void, Boolean> {
 
         private String accessToken;
@@ -258,32 +249,22 @@ private boolean timeRunning=false;
             BandPendingResult<ConnectionState> pendingResult = null;
             try {
 
-
-
-
-
-
-                DirectSender sender = new DirectSender(accessToken,getContext());
+                DirectSender sender = new DirectSender(accessToken, getContext());
                 CommunicationManager mCommManager = new CommunicationManager(sender);
 
+                Date date1 = new Date();
+                date1.setHours(0);
+                date1.setMinutes(0);
+                //Date date2= new java.util.Date(t2);
+                Calendar cal1 = Calendar.getInstance();
+                //Calendar cal2 = Calendar.getInstance();
+                cal1.setTime(date1);
+                Observation obs = new Observation(1, patientCode, "NFG", cal1.getTimeInMillis());
+                obs.PatientId = patientCode;
 
-
-
-                    Date date1 = new Date();
-                    date1.setHours(0);
-                    date1.setMinutes(0);
-                    //Date date2= new java.util.Date(t2);
-                    Calendar cal1 = Calendar.getInstance();
-                    //Calendar cal2 = Calendar.getInstance();
-                    cal1.setTime(date1);
-                    Observation obs = new Observation(1, patientCode, "NFG", cal1.getTimeInMillis());
-                    obs.PatientId = patientCode;
-
-                    ArrayList<Observation> obsC = new ArrayList<>();
-                    obsC.add((obs));
-                    mCommManager.SendItems(obsC,true);
-
-
+                ArrayList<Observation> obsC = new ArrayList<>();
+                obsC.add((obs));
+                mCommManager.SendItems(obsC, true);
 
 
                 return true;
@@ -297,40 +278,35 @@ private boolean timeRunning=false;
         }
 
 
-
-
         protected void onPostExecute(Boolean result) {
 
             busyIndicator.setVisibility(View.INVISIBLE);
             layout.setVisibility(View.VISIBLE);
 
-            long t=(System.currentTimeMillis());
+            long t = (System.currentTimeMillis());
             //TODO PROPERLY CHECK CONNECTION
 
+            UserAlertManager amanager = new UserAlertManager(getContext());
+            MedManager manager = new MedManager(getContext());
+            amanager.clearAll();
+            manager.clearAll();
+            MedicationOrder order = new MedicationOrder();
+            order.Instructions = "Test";
+            order.PatientId = "01";
+            order.MedicationId = "LEVODOPA";
+            order.Reason = "Test";
 
+            ArrayList<MedTiming> timings = new ArrayList<MedTiming>();
+            MedTiming timing = new MedTiming();
+            timing.Dose = "100mg";
 
-           UserAlertManager amanager=new UserAlertManager(getContext());
-            MedManager manager=new MedManager(getContext());
-           amanager.clearAll();
-          manager.clearAll();
-            MedicationOrder order=new MedicationOrder();
-            order.Instructions="Test";
-            order.PatientId="01";
-            order.MedicationId="LEVODOPA";
-            order.Reason="Test";
-
-            ArrayList<MedTiming> timings=new ArrayList<MedTiming>();
-            MedTiming timing=new MedTiming();
-            timing.Dose="100mg";
-
-            timing.Time=t+1*60*1000;
+            timing.Time = t + 1 * 60 * 1000;
             timings.add(timing);
             order.setTimings(timings);
 
             manager.addMedicationOrder(order);
 
             //LocalNotificationTask.newInstance(getContext()).execute(new UserAlert("Test","Test","MED",0,0,"MED"));
-
 
 
             RecordingSettings.newInstance(getContext()).setLastNFG(t);
@@ -341,8 +317,6 @@ private boolean timeRunning=false;
 
         }
     }
-
-
 
 
 }

@@ -1,7 +1,7 @@
 package com.pdmanager.views.call;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,42 +13,39 @@ import com.pdmanager.R;
 
 
 public class SplashScreen extends Fragment {
-	private static final String TAG = "SplashScreen";
+    private static final String TAG = "SplashScreen";
 
-	public SplashScreen() {
-
-	}
-
-	@Override
-    public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
+    public SplashScreen() {
 
     }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		View view = inflater.inflate(R.layout.splash_layout, container, false);
+    }
 
-		TextView errorTextView = (TextView)view.findViewById(R.id.error_label);
-		errorTextView.setVisibility(View.INVISIBLE);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		if (!ooVooClient.isDeviceSupported()) {
-			errorTextView.setVisibility(View.VISIBLE);
-			errorTextView.setText(getActivity().getResources().getString(R.string.device_is_not_supported));
-		}
+        View view = inflater.inflate(R.layout.splash_layout, container, false);
 
-		return view;
-	}
+        TextView errorTextView = (TextView) view.findViewById(R.id.error_label);
+        errorTextView.setVisibility(View.INVISIBLE);
 
-	public void onBackPressed()
-	{
-		try
-		{
-			this.getActivity().finish();
-		}
-		catch(Exception err){
-			Log.e(TAG,"onBackPressed "+err);
-		}
-	}
+        if (!ooVooClient.isDeviceSupported()) {
+            errorTextView.setVisibility(View.VISIBLE);
+            errorTextView.setText(getActivity().getResources().getString(R.string.device_is_not_supported));
+        }
+
+        return view;
+    }
+
+    public void onBackPressed() {
+        try {
+            this.getActivity().finish();
+        } catch (Exception err) {
+            Log.e(TAG, "onBackPressed " + err);
+        }
+    }
 }

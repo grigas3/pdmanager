@@ -103,13 +103,13 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
         try {
             startSST();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
 
     private void startSST() {
-        try{
+        try {
             if (!isStarted) {
 
                 setContentView(R.layout.activity_start);
@@ -151,30 +151,30 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                         setNewLevel();
                     }
                 });
-            }  else {
+            } else {
                 setNewLevel();
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
 
     private void setNewLevel() {
 
-        try{
+        try {
 
-            if (level !=0) {
+            if (level != 0) {
                 writeFile(test, header);
             }
 
-            for (int i=0; i<NUMBER_OF_TRIALS; i++) {
+            for (int i = 0; i < NUMBER_OF_TRIALS; i++) {
                 correctDirections[i] = -1;
             }
 
             level++;
 
-            if (level > NUMBER_OF_LEVELS){
+            if (level > NUMBER_OF_LEVELS) {
                 speakerSilence();
                 if (timer != null) {
                     timer.cancel();
@@ -185,8 +185,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 tones.stopTone();
                 getTestResult();
                 finishTest();
-            }
-            else {
+            } else {
                 if (level == 2) { //Second part
 
                     if (timerTask != null) {
@@ -200,7 +199,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 }
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
@@ -237,7 +236,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 }
             });
 
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
@@ -252,38 +251,38 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             if (level == 1) { // GO
                 ArrayList<Integer> directions = new ArrayList<>();
 
-                int nTypes = NUMBER_OF_TRIALS/ NUMBER_OF_TYPES_FIRST_PART;
-                if ((NUMBER_OF_TRIALS% NUMBER_OF_TYPES_FIRST_PART) != 0) {
+                int nTypes = NUMBER_OF_TRIALS / NUMBER_OF_TYPES_FIRST_PART;
+                if ((NUMBER_OF_TRIALS % NUMBER_OF_TYPES_FIRST_PART) != 0) {
                     nTypes++;
                 }
 
-                for (int i=0; i<nTypes; i++) {
-                    for (int j=0; j< NUMBER_OF_TYPES_FIRST_PART; j++) {
+                for (int i = 0; i < nTypes; i++) {
+                    for (int j = 0; j < NUMBER_OF_TYPES_FIRST_PART; j++) {
                         directions.add(j);
                     }
                 }
 
                 Collections.shuffle(directions);
-                for (int i = 0; i<NUMBER_OF_TRIALS; i++) {
+                for (int i = 0; i < NUMBER_OF_TRIALS; i++) {
                     correctDirections[i] = directions.get(i);
                 }
 
             } else { // NO GO
 
                 ArrayList<Integer> directions = new ArrayList<>();
-                int nTypes = NUMBER_OF_TRIALS/ NUMBER_OF_TYPES_SECOND_PART;
-                if ((NUMBER_OF_TRIALS% NUMBER_OF_TYPES_SECOND_PART) != 0) {
+                int nTypes = NUMBER_OF_TRIALS / NUMBER_OF_TYPES_SECOND_PART;
+                if ((NUMBER_OF_TRIALS % NUMBER_OF_TYPES_SECOND_PART) != 0) {
                     nTypes++;
                 }
 
-                for (int i=0; i<nTypes; i++) {
-                    for (int j=0; j< NUMBER_OF_TYPES_SECOND_PART; j++) {
+                for (int i = 0; i < nTypes; i++) {
+                    for (int j = 0; j < NUMBER_OF_TYPES_SECOND_PART; j++) {
                         directions.add(j);
                     }
                 }
 
                 Collections.shuffle(directions);
-                for (int i = 0; i<NUMBER_OF_TRIALS; i++) {
+                for (int i = 0; i < NUMBER_OF_TRIALS; i++) {
                     correctDirections[i] = directions.get(i);
                 }
             }
@@ -295,7 +294,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
             startNewTrial();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
@@ -306,11 +305,11 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
             ImageButton rightButton = (ImageButton) findViewById(R.id.rightImageButton);
             ImageButton leftButton = (ImageButton) findViewById(R.id.leftImageButton);
-            TextView number=(TextView)findViewById(R.id.textView13);
+            TextView number = (TextView) findViewById(R.id.textView13);
             number.setText(getResources().getString(R.string.sst_trial) + ": " + String.valueOf(nTrial) + "/" + String.valueOf(NUMBER_OF_TRIALS));
             final ImageView circle = (ImageView) findViewById(R.id.imageView3);
             circle.setImageResource(R.drawable.white_circle);
-            final TextView feedback = (TextView)findViewById(R.id.bottom);
+            final TextView feedback = (TextView) findViewById(R.id.bottom);
 
 
             timer = new CountDownTimer(TIME_MILLISECONDS_TRANSITIONS, TIME_MILLISECONDS_TRANSITIONS) {
@@ -323,7 +322,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 @Override
                 public void onFinish() {
 
-                    if (nTrial <=NUMBER_OF_TRIALS) {
+                    if (nTrial <= NUMBER_OF_TRIALS) {
 
                         if (correctDirections[nTrial - 1] == 0) { //Arrow pointing right, no sound
                             circle.setImageResource(R.drawable.white_circle_right_arrow);
@@ -352,10 +351,10 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             thread = new Runnable() {
                 @Override
                 public void run() {
-                    if (nTrial<=NUMBER_OF_TRIALS) {
+                    if (nTrial <= NUMBER_OF_TRIALS) {
                         long time = System.currentTimeMillis();
                         double reactionTime = (time - timeLastTrial);
-                        if (level==1) {
+                        if (level == 1) {
                             reactionTimesGO.add(reactionTime);
                         } else {
                             reactionTimesNoGO.add(reactionTime);
@@ -364,7 +363,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
                         if (correctDirections[nTrial - 1] == 0 || correctDirections[nTrial - 1] == 1) { // user too late (GO),
 
-                            if (level==1) {
+                            if (level == 1) {
                                 nTimeoutErrorsGO++;
                             } else {
                                 nTimeoutErrorsNoGO++;
@@ -375,7 +374,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
                     }
 
-                    timer = new CountDownTimer(TIME_MILLISECONDS_TRANSITIONS*2, TIME_MILLISECONDS_TRANSITIONS*2) {
+                    timer = new CountDownTimer(TIME_MILLISECONDS_TRANSITIONS * 2, TIME_MILLISECONDS_TRANSITIONS * 2) {
 
                         @Override
                         public void onTick(long millisUntilFinished) {
@@ -388,10 +387,9 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                     }.start();
 
                     nTrial++;
-                    if(nTrial<=NUMBER_OF_TRIALS) {
+                    if (nTrial <= NUMBER_OF_TRIALS) {
                         startNewTrial();
-                    }
-                    else{
+                    } else {
 
                         setNewLevel();
                     }
@@ -421,7 +419,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                         timeLastTrial = time;
 
                         if (correctDirections[nTrial - 1] == 0) {// errorDirection
-                            if (level==1) {
+                            if (level == 1) {
                                 nDirectionErrorsGO++;
                             } else {
                                 nDirectionErrorsNoGO++;
@@ -432,10 +430,10 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
                         if (correctDirections[nTrial - 1] == 2) {// tapError && errorDirection
                             if (level == 1) {
-                                nDirectionErrorsGO ++;
+                                nDirectionErrorsGO++;
                                 nTapErrorsGO++;
                             } else {
-                                nDirectionErrorsNoGO ++;
+                                nDirectionErrorsNoGO++;
                                 nTapErrorsNoGO++;
                             }
                             feedback.setText(getResources().getString(R.string.sst_wrong));
@@ -443,7 +441,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                         }
 
                         if (correctDirections[nTrial - 1] == 3) {// tapError
-                            if (level==1) {
+                            if (level == 1) {
                                 nTapErrorsGO++;
                             } else {
                                 nTapErrorsNoGO++;
@@ -481,85 +479,85 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 @Override
                 public void onClick(View v) {
 
-                        handler.removeCallbacks(thread);
+                    handler.removeCallbacks(thread);
 
-                        if (nTrial <= NUMBER_OF_TRIALS) {
-                            long time = System.currentTimeMillis();
-                            double reactionTime = (time - timeLastTrial);
-                            if (level==1) {
-                                reactionTimesGO.add(reactionTime);
-                            } else {
-                                reactionTimesNoGO.add(reactionTime);
-                            }
-                            timeLastTrial = time;
-
-                            if (correctDirections[nTrial - 1] == 1) {// errorDirection
-                                if (level==1) {
-                                    nDirectionErrorsGO++;
-                                } else {
-                                    nDirectionErrorsNoGO++;
-                                }
-                                feedback.setText(getResources().getString(R.string.sst_wrong));
-                                feedback.setVisibility(View.VISIBLE);
-                            }
-
-                            if (correctDirections[nTrial - 1] == 2) {// tapError
-                                if (level==1) {
-                                    nTapErrorsGO++;
-                                } else {
-                                    nTapErrorsNoGO++;
-                                }
-                                feedback.setText(getResources().getString(R.string.sst_wrong));
-                                feedback.setVisibility(View.VISIBLE);
-                            }
-
-                            if (correctDirections[nTrial - 1] == 3) {// tapError && errorDirection
-
-                                if (level==1) {
-                                    nDirectionErrorsGO++;
-                                    nTapErrorsGO++;
-                                } else {
-                                    nDirectionErrorsNoGO++;
-                                    nTapErrorsNoGO++;
-                                }
-
-                                feedback.setText(getResources().getString(R.string.sst_wrong));
-                                feedback.setVisibility(View.VISIBLE);
-                            }
-                        }
-
-                        timer = new CountDownTimer(TIME_MILLISECONDS_TRANSITIONS * 2, TIME_MILLISECONDS_TRANSITIONS * 2) {
-
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-
-                            }
-
-                            @Override
-                            public void onFinish() {
-                                feedback.setVisibility(View.INVISIBLE);
-                            }
-                        }.start();
-
-                        nTrial++;
-
-                        if (nTrial <= NUMBER_OF_TRIALS) {
-                            startNewTrial();
+                    if (nTrial <= NUMBER_OF_TRIALS) {
+                        long time = System.currentTimeMillis();
+                        double reactionTime = (time - timeLastTrial);
+                        if (level == 1) {
+                            reactionTimesGO.add(reactionTime);
                         } else {
-
-                            setNewLevel();
+                            reactionTimesNoGO.add(reactionTime);
                         }
+                        timeLastTrial = time;
+
+                        if (correctDirections[nTrial - 1] == 1) {// errorDirection
+                            if (level == 1) {
+                                nDirectionErrorsGO++;
+                            } else {
+                                nDirectionErrorsNoGO++;
+                            }
+                            feedback.setText(getResources().getString(R.string.sst_wrong));
+                            feedback.setVisibility(View.VISIBLE);
+                        }
+
+                        if (correctDirections[nTrial - 1] == 2) {// tapError
+                            if (level == 1) {
+                                nTapErrorsGO++;
+                            } else {
+                                nTapErrorsNoGO++;
+                            }
+                            feedback.setText(getResources().getString(R.string.sst_wrong));
+                            feedback.setVisibility(View.VISIBLE);
+                        }
+
+                        if (correctDirections[nTrial - 1] == 3) {// tapError && errorDirection
+
+                            if (level == 1) {
+                                nDirectionErrorsGO++;
+                                nTapErrorsGO++;
+                            } else {
+                                nDirectionErrorsNoGO++;
+                                nTapErrorsNoGO++;
+                            }
+
+                            feedback.setText(getResources().getString(R.string.sst_wrong));
+                            feedback.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    timer = new CountDownTimer(TIME_MILLISECONDS_TRANSITIONS * 2, TIME_MILLISECONDS_TRANSITIONS * 2) {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            feedback.setVisibility(View.INVISIBLE);
+                        }
+                    }.start();
+
+                    nTrial++;
+
+                    if (nTrial <= NUMBER_OF_TRIALS) {
+                        startNewTrial();
+                    } else {
+
+                        setNewLevel();
+                    }
                 }
             });
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
 
     }
 
 
-    private void getTestResult () {
+    private void getTestResult() {
 
         int nErrorsGO = nDirectionErrorsGO + nTapErrorsGO + nTimeoutErrorsGO;
         int nErrorsNoGO = nDirectionErrorsNoGO + nTapErrorsNoGO + nTimeoutErrorsNoGO;
@@ -567,27 +565,26 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
         double totalErrorsGOPerCent;
         double totalErrorsNoGOPerCent;
 
-        if ((nErrorsGO + nErrorsNoGO)==0) {
+        if ((nErrorsGO + nErrorsNoGO) == 0) {
             totalErrorsGOPerCent = 0;
             totalErrorsNoGOPerCent = 0;
         } else {
-            totalErrorsGOPerCent = (nErrorsGO*100.00)/(nErrorsGO+nErrorsNoGO);
-            totalErrorsNoGOPerCent = (nErrorsNoGO*100.00)/(nErrorsGO+nErrorsNoGO);
+            totalErrorsGOPerCent = (nErrorsGO * 100.00) / (nErrorsGO + nErrorsNoGO);
+            totalErrorsNoGOPerCent = (nErrorsNoGO * 100.00) / (nErrorsGO + nErrorsNoGO);
         }
 
-
-        double errorsPerCent = ((nErrorsGO + nErrorsNoGO)*100.00)/(NUMBER_OF_TRIALS*NUMBER_OF_LEVELS);
+        double errorsPerCent = ((nErrorsGO + nErrorsNoGO) * 100.00) / (NUMBER_OF_TRIALS * NUMBER_OF_LEVELS);
 
         double[] reactionTimesLevel1 = new double[reactionTimesGO.size()];
         double[] reactionTimesLevel2 = new double[reactionTimesNoGO.size()];
         double[] reactionTimes = new double[reactionTimesNoGO.size() + reactionTimesGO.size()];
 
-        for (int i= 0; i<reactionTimesGO.size(); i++) {
+        for (int i = 0; i < reactionTimesGO.size(); i++) {
             reactionTimesLevel1[i] = reactionTimesGO.get(i);
             reactionTimes[i] = reactionTimesGO.get(i);
         }
 
-        for (int i= 0; i<reactionTimesNoGO.size(); i++) {
+        for (int i = 0; i < reactionTimesNoGO.size(); i++) {
             reactionTimesLevel2[i] = reactionTimesNoGO.get(i);
             reactionTimes[reactionTimesGO.size() + i] = reactionTimesNoGO.get(i);
         }
@@ -599,7 +596,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         String errorsGO = String.format(Locale.ENGLISH, "%.2f", totalErrorsGOPerCent);
         String errorsNoGO = String.format(Locale.ENGLISH, "%.2f", totalErrorsNoGOPerCent);
@@ -650,9 +647,9 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 Double.parseDouble(minReactionTimeNoGO));
     }
 
-    public void sendObservations (int dirErrorsGO, int dirErrorsNoGO, int tapErrorsGO, int tapErrorsNoGO, int timeoutErrorsGO,
-                                  int timeoutErrorsNoGO, int nStimuli, double meanRTGO, double maxRTGO, double minRTGO,
-                                  double meanRTNoGO, double maxRTNoGO, double minRTNoGO) {
+    public void sendObservations(int dirErrorsGO, int dirErrorsNoGO, int tapErrorsGO, int tapErrorsNoGO, int timeoutErrorsGO,
+                                 int timeoutErrorsNoGO, int nStimuli, double meanRTGO, double maxRTGO, double minRTGO,
+                                 double meanRTNoGO, double maxRTNoGO, double minRTNoGO) {
         //Observations
         try {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());
@@ -662,7 +659,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsSSTDirGO = new Observation (dirErrorsGO, patientCode, "PDTSST_DIR_GO", time);
+            Observation obsSSTDirGO = new Observation(dirErrorsGO, patientCode, "PDTSST_DIR_GO", time);
             obsSSTDirGO.PatientId = patientCode;
             Observation obsSSTDirNoGO = new Observation(dirErrorsNoGO, patientCode, "PDTSST_DIR_NOGO", time);
             obsSSTDirNoGO.PatientId = patientCode;
@@ -670,9 +667,9 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             obsSSTTapGO.PatientId = patientCode;
             Observation obsSSTTapNoGO = new Observation(tapErrorsNoGO, patientCode, "PDTSST_TAP_NOGO", time);
             obsSSTTapNoGO.PatientId = patientCode;
-            Observation obsSSTTimeoutGO = new Observation (timeoutErrorsGO, patientCode, "PDTSST_TIMEOUT_GO", time);
+            Observation obsSSTTimeoutGO = new Observation(timeoutErrorsGO, patientCode, "PDTSST_TIMEOUT_GO", time);
             obsSSTTimeoutGO.PatientId = patientCode;
-            Observation obsSSTTimeoutNoGO = new Observation (timeoutErrorsNoGO, patientCode, "PDTSST_TIMEOUT_NOGO", time);
+            Observation obsSSTTimeoutNoGO = new Observation(timeoutErrorsNoGO, patientCode, "PDTSST_TIMEOUT_NOGO", time);
             obsSSTTimeoutNoGO.PatientId = patientCode;
             Observation obsSSTStimuli = new Observation(nStimuli, patientCode, "PDTSST_STIMULI", time);
             obsSSTStimuli.PatientId = patientCode;
@@ -712,10 +709,10 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
 
 
     @Override
-    protected void finishTest(){
+    protected void finishTest() {
 
         try {
-            writeFile (test, header);
+            writeFile(test, header);
 
             speakerSilence();
 
@@ -723,7 +720,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 timerTask.cancel();
             }
 
-            if (timer !=null) {
+            if (timer != null) {
                 timer.cancel();
             }
 
@@ -757,7 +754,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             });
            */
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
         super.finishTest();
@@ -775,7 +772,7 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
                 timerTask.cancel();
             }
 
-            if (timer !=null) {
+            if (timer != null) {
                 timer.cancel();
             }
 
@@ -814,11 +811,11 @@ public class StopSignalTaskTest extends SoundFeedbackActivity {
             timerTask.cancel();
         }
 
-        if (timer !=null) {
+        if (timer != null) {
             timer.cancel();
         }
 
-        if (handler!=null) handler.removeCallbacks(thread);
+        if (handler != null) handler.removeCallbacks(thread);
         isPaused = true;
     }
 

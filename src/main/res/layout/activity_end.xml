@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:gravity="center_horizontal|center_vertical"
-    android:background="@color/White" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/White"
+              android:gravity="center_horizontal|center_vertical"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fttEndMessage"
-        android:id="@+id/textView2"
-        android:layout_marginBottom="20dip"
         android:layout_gravity="center_horizontal"
         android:layout_margin="6dp"
-        android:textSize="24dp"
+        android:layout_marginBottom="20dip"
+        android:text="@string/fttEndMessage"
         android:textColor="@color/Dark_grey"
-    />
+        android:textSize="24dp"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@drawable/shape_button"
-        android:textColor="@color/White"
-        android:layout_marginTop="10dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:text="@string/fttEndButtonRepeat"
-        android:visibility="gone"
-        android:textAllCaps="false"
         android:id="@+id/buttonFTTEndRepeat"
-        android:layout_gravity="center_horizontal|center_vertical"
-    />
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@drawable/shape_button"
-        android:textColor="@color/White"
+        android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginTop="10dp"
+        android:background="@drawable/shape_button"
+        android:text="@string/fttEndButtonRepeat"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="@string/fttEndButtonExit"
-        android:visibility="gone"
-        android:textAllCaps="false"
+        android:visibility="gone"/>
+
+    <Button
         android:id="@+id/buttonFTTEndExit"
-        android:layout_gravity="center_horizontal|center_vertical" />
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_button"
+        android:text="@string/fttEndButtonExit"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
 </LinearLayout>

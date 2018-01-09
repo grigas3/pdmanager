@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.telerik.viewmodels.MenuAction;
 
 import java.util.ArrayList;
@@ -38,9 +38,6 @@ public class PatientDrawerActionsListAdapter extends ArrayAdapter<MenuAction> {
         this.controls = new ArrayList<MenuAction>();
 
 
-
-
-
         MenuAction meds = new MenuAction();
         meds.setActionInfo("Medications");
         meds.setHeaderText("Medications");
@@ -54,10 +51,8 @@ public class PatientDrawerActionsListAdapter extends ArrayAdapter<MenuAction> {
         fileList.setFragmentName("ChatFragment");
 
 
-
         this.controls.add(meds);
         this.controls.add(fileList);
-
 
 
     }

@@ -2,9 +2,6 @@ package com.pdmanager;
 
 import android.text.format.Time;
 
-import com.pdmanager.common.DataBuffer;
-import com.pdmanager.common.DataTypes;
-import com.pdmanager.common.data.ISensorData;
 import com.pdmanager.buffers.AccDataBuffer;
 import com.pdmanager.buffers.AccDevCDataBuffer;
 import com.pdmanager.buffers.AccDevDataBuffer;
@@ -15,6 +12,9 @@ import com.pdmanager.buffers.HRDataBuffer;
 import com.pdmanager.buffers.LocationDataBuffer;
 import com.pdmanager.buffers.OrientationDataBuffer;
 import com.pdmanager.buffers.STDataBuffer;
+import com.pdmanager.common.DataBuffer;
+import com.pdmanager.common.DataTypes;
+import com.pdmanager.common.data.ISensorData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -118,7 +118,7 @@ public class FileDataProcessor extends BaseDataProcessor {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
 
-       // String recfolder = CreateFolder(today);
+        // String recfolder = CreateFolder(today);
 
 
         String recfolder = "PD_Manager";

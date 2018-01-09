@@ -29,52 +29,52 @@ import java.util.Locale;
  * @license: GPL3
  */
 
-    public class VisualAnalogueScaleTest2 extends SoundFeedbackActivity implements SeekBar.OnSeekBarChangeListener {
+public class VisualAnalogueScaleTest2 extends SoundFeedbackActivity implements SeekBar.OnSeekBarChangeListener {
 
     private final String LOGGER_TAG = "VAS_test";
     private final int TIME_MILLISECONDS_TASK = 5 * 60 * 1000;
     private final int QUESTIONS_NUMBER = 8;
-        private TextView tv0, tv1, tv2, tv3, tv4;
-        private CustomSeekBar seekbarAnswer;
-        private String
-                test = "VAS_Results.csv",
-                header = "Timestamp, " +
-                        "Question number, " +
-                        "Min value - Max Value, " +
-                        "Answer (%) " +
-                        "Time (s), " +
-                        "\r\n";
-        private int questionNumber = 0;
+    private TextView tv0, tv1, tv2, tv3, tv4;
+    private CustomSeekBar seekbarAnswer;
+    private String
+            test = "VAS_Results.csv",
+            header = "Timestamp, " +
+                    "Question number, " +
+                    "Min value - Max Value, " +
+                    "Answer (%) " +
+                    "Time (s), " +
+                    "\r\n";
+    private int questionNumber = 0;
 
-        private boolean isStarted = false;
-        private boolean isPaused = false;
+    private boolean isStarted = false;
+    private boolean isPaused = false;
 
-        private ArrayList<String> results;
+    private ArrayList<String> results;
 
-        //private CountDownTimer timerTask;
+    //private CountDownTimer timerTask;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            startVAS();
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        startVAS();
+    }
 
-        private void startVAS() {
+    private void startVAS() {
 
-            // Introduction to the task
-            if (!isStarted) {
-                setContentView(R.layout.activity_start);
+        // Introduction to the task
+        if (!isStarted) {
+            setContentView(R.layout.activity_start);
 
-                TextView textViewToChange = (TextView) findViewById(R.id.level);
-                textViewToChange.setText(getResources().getString(R.string.vas_instruction));
-                speakFlush(getResources().getString(R.string.vas_instruction));
+            TextView textViewToChange = (TextView) findViewById(R.id.level);
+            textViewToChange.setText(getResources().getString(R.string.vas_instruction));
+            speakFlush(getResources().getString(R.string.vas_instruction));
 
-                Button buttonStart = (Button) findViewById(R.id.play);
-                buttonStart.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            Button buttonStart = (Button) findViewById(R.id.play);
+            buttonStart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                        speakerSilence();
+                    speakerSilence();
                         /*
                         timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK)
                         {
@@ -85,65 +85,62 @@ import java.util.Locale;
                         }.start();
                         */
 
-                        isStarted = true;
-                        setContentView(R.layout.cognitive_vas_test_agreement);
-                        startGUI();
+                    isStarted = true;
+                    setContentView(R.layout.cognitive_vas_test_agreement);
+                    startGUI();
 
-                        results = new ArrayList<String>();
-                        questionNumber = 0;
-                        getQuestion();
-                    }
-                });
-            }else{
-                getQuestion();
-            }
+                    results = new ArrayList<String>();
+                    questionNumber = 0;
+                    getQuestion();
+                }
+            });
+        } else {
+            getQuestion();
         }
+    }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            // Inflate the menu; this adds items to the action bar if it is present.
-            return true;
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        return true;
+    }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            return true;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return true;
 
 
-        }
+    }
 
-    private void startGUI()
-    {
+    private void startGUI() {
 
-        final View.OnClickListener oclSelection = new View.OnClickListener()
-        {
+        final View.OnClickListener oclSelection = new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 final int nSteps = 4;
                 int
-                    half = seekbarAnswer.getMax()/2,
-                    step = seekbarAnswer.getMax()/nSteps;
-                if (v==tv0) seekbarAnswer.setProgress(0);
-                else if (v==tv1) seekbarAnswer.setProgress(step);
-                else if (v==tv2) seekbarAnswer.setProgress(half);
-                else if (v==tv3) seekbarAnswer.setProgress(3*step);
-                else if (v==tv4) seekbarAnswer.setProgress(seekbarAnswer.getMax());
+                        half = seekbarAnswer.getMax() / 2,
+                        step = seekbarAnswer.getMax() / nSteps;
+                if (v == tv0) seekbarAnswer.setProgress(0);
+                else if (v == tv1) seekbarAnswer.setProgress(step);
+                else if (v == tv2) seekbarAnswer.setProgress(half);
+                else if (v == tv3) seekbarAnswer.setProgress(3 * step);
+                else if (v == tv4) seekbarAnswer.setProgress(seekbarAnswer.getMax());
             }
         };
 
-        tv0 = (TextView)findViewById(R.id.seekbar_minValue);
+        tv0 = (TextView) findViewById(R.id.seekbar_minValue);
         tv0.setOnClickListener(oclSelection);
-        tv1 = (TextView)findViewById(R.id.seekbar_minMidValue);
+        tv1 = (TextView) findViewById(R.id.seekbar_minMidValue);
         tv1.setOnClickListener(oclSelection);
-        tv2 = (TextView)findViewById(R.id.seekbar_midValue);
+        tv2 = (TextView) findViewById(R.id.seekbar_midValue);
         tv2.setOnClickListener(oclSelection);
-        tv3 = (TextView)findViewById(R.id.seekbar_maxMidValue);
+        tv3 = (TextView) findViewById(R.id.seekbar_maxMidValue);
         tv3.setOnClickListener(oclSelection);
-        tv4 = (TextView)findViewById(R.id.seekbar_maxValue);
+        tv4 = (TextView) findViewById(R.id.seekbar_maxValue);
         tv4.setOnClickListener(oclSelection);
 
         /*
@@ -160,81 +157,82 @@ import java.util.Locale;
         */
     }
 
-        private void getQuestion() {
+    private void getQuestion() {
 
-            if (questionNumber != 0) {  writeFile(test, header); }
+        if (questionNumber != 0) {
+            writeFile(test, header);
+        }
 
-            results.clear();
-            questionNumber++;
+        results.clear();
+        questionNumber++;
 
-            if (questionNumber > QUESTIONS_NUMBER)
-            {
-                //if (timerTask != null) { timerTask.cancel(); }
-                finishTest();
+        if (questionNumber > QUESTIONS_NUMBER) {
+            //if (timerTask != null) { timerTask.cancel(); }
+            finishTest();
+        } else {
+            setQuestion();
+        }
+    }
+
+    private void setQuestion() {
+        TextView textQuestion = (TextView) findViewById(R.id.textView_vasQuestion);
+
+        Button buttonNext = (Button) findViewById(R.id.buttonNext);
+        seekbarAnswer = (CustomSeekBar) findViewById(R.id.seekBar_vasAnswer);
+        seekbarAnswer.setOnSeekBarChangeListener(this);
+
+        Resources res = getResources();
+
+        //set question and bounds text
+        String question = "vas_question" + Integer.toString(questionNumber);
+
+        textQuestion.setText(res.getString(res.getIdentifier(question, "string", getPackageName())));
+        final String minValueText = res.getString(R.string.vas2_s0);
+        final String maxValueText = res.getString(R.string.vas2_s4);
+
+        final Long tsStart = System.currentTimeMillis();
+
+        seekbarAnswer.setProgress(50);
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Long tsEnd = System.currentTimeMillis();
+                Double ts = ((tsEnd - tsStart) / 1000D);
+                int answerQuestion = seekbarAnswer.getProgress();
+                saveNewAnswer(questionNumber, ts, minValueText, maxValueText, answerQuestion);
+                getQuestion();
             }
-            else { setQuestion(); }
-        }
+        });
+    }
 
-        private void setQuestion()
-        {
-            TextView textQuestion = (TextView) findViewById(R.id.textView_vasQuestion);
+    private void saveNewAnswer(int number, double ts, String minValue, String maxValue, int answer) {
+        StringBuilder resultInfo = new StringBuilder();
 
-            Button buttonNext = (Button) findViewById(R.id.buttonNext);
-            seekbarAnswer = (CustomSeekBar)findViewById(R.id.seekBar_vasAnswer);
-            seekbarAnswer.setOnSeekBarChangeListener(this);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
-            Resources res = getResources();
+        String time = String.format(Locale.ENGLISH, "%.2f", ts);
 
-            //set question and bounds text
-            String question = "vas_question" + Integer.toString(questionNumber);
+        resultInfo.append(date + ", ");
+        resultInfo.append(String.valueOf(number) + ", ");
+        resultInfo.append(minValue + " - " + maxValue + ", ");
+        resultInfo.append(String.valueOf(answer) + ", ");
+        resultInfo.append(time + "\r\n");
 
-            textQuestion.setText(res.getString(res.getIdentifier(question, "string", getPackageName())));
-            final String minValueText = res.getString(R.string.vas2_s0);
-            final String maxValueText = res.getString(R.string.vas2_s4);
+        results.add(String.valueOf(resultInfo));
+    }
 
-            final Long tsStart = System.currentTimeMillis();
+    @Override
+    protected void finishTest() {
 
-            seekbarAnswer.setProgress(50);
+        try {
+            writeFile(test, header);
 
-            buttonNext.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            speakerSilence();
 
-                    Long tsEnd = System.currentTimeMillis();
-                    Double ts = ((tsEnd - tsStart)/1000D);
-                    int answerQuestion = seekbarAnswer.getProgress();
-                    saveNewAnswer(questionNumber, ts, minValueText, maxValueText, answerQuestion);
-                    getQuestion();
-                }
-            });
-        }
-
-        private void saveNewAnswer(int number, double ts, String minValue, String maxValue, int answer) {
-            StringBuilder resultInfo = new StringBuilder();
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-            String date = dateFormat.format(Calendar.getInstance().getTime()) ;
-
-            String time = String.format(Locale.ENGLISH, "%.2f", ts);
-
-            resultInfo.append(date + ", ");
-            resultInfo.append(String.valueOf(number) + ", ");
-            resultInfo.append(minValue + " - " + maxValue + ", ");
-            resultInfo.append(String.valueOf(answer) + ", ");
-            resultInfo.append(time + "\r\n");
-
-            results.add(String.valueOf(resultInfo));
-        }
-
-        @Override
-        protected void finishTest(){
-
-            try {
-                writeFile (test, header);
-
-                speakerSilence();
-
-                //if (timerTask != null) { timerTask.cancel(); }
+            //if (timerTask != null) { timerTask.cancel(); }
 
              /*   setContentView(R.layout.activity_end);
 
@@ -262,42 +260,41 @@ import java.util.Locale;
                 });
 
                 */
-            }catch (Exception e){
-                Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
-            }
-            super.finishTest();
+        } catch (Exception e) {
+            Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
+        super.finishTest();
+    }
 
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
-        {
-            float
-                pYes = (progress - 50)/2,
-                pNo = (50 - progress)/2;
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        float
+                pYes = (progress - 50) / 2,
+                pNo = (50 - progress) / 2;
 
-        }
+    }
 
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-        }
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
 
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-        }
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+    }
 
-        @Override
-        public void onResume() {
-            super.onResume();
+    @Override
+    public void onResume() {
+        super.onResume();
 
-            if (isPaused) {
+        if (isPaused) {
 
-                speakerSilence();
+            speakerSilence();
 
-                //if (timerTask != null) { timerTask.cancel(); }
+            //if (timerTask != null) { timerTask.cancel(); }
 
-                isStarted = false;
-                isPaused = true;
-                speakerSilence();
+            isStarted = false;
+            isPaused = true;
+            speakerSilence();
 
                 /*
                         timerTask = new CountDownTimer(TIME_MILLISECONDS_TASK, TIME_MILLISECONDS_TASK)
@@ -309,24 +306,24 @@ import java.util.Locale;
                         }.start();
                 */
 
-                isStarted = true;
-                setContentView(R.layout.cognitive_vas_test_agreement);
-                startGUI();
+            isStarted = true;
+            setContentView(R.layout.cognitive_vas_test_agreement);
+            startGUI();
 
-                results = new ArrayList<String>();
-                questionNumber = 0;
-                getQuestion();
-            }
+            results = new ArrayList<String>();
+            questionNumber = 0;
+            getQuestion();
         }
+    }
 
-        @Override
-        public void onPause() {
-            super.onPause();
+    @Override
+    public void onPause() {
+        super.onPause();
 
-            speakerSilence();
-            isPaused = true;
-            //if (timerTask != null) { timerTask.cancel(); }
-        }
+        speakerSilence();
+        isPaused = true;
+        //if (timerTask != null) { timerTask.cancel(); }
+    }
 
     @Override
     protected String getTestCode() {

@@ -18,7 +18,6 @@ import java.util.Hashtable;
 
 public class VideoSettings extends Hashtable<String, String> {
 
-    private static final String TOKEN = "MDAxMDAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpWAzdb6VuXFZ6da%2B%2BNfHpnNrAKtiTNi9q8tB0zF0NdysT3wxqFClN8sj8GPkFedtMEmqIK01yFpvaO4FHT5isd2%2FjEbccmFv9BgJYch6m%2BlzAeglFeKUNZ%2BtutOODlTwiIoY7qQkYi86Z62kWbsB"; // Put your application token here
     public static final String Token = "token";
     public static final String Username = "username";
     public static final String IsDoctor = "false";
@@ -32,11 +31,12 @@ public class VideoSettings extends Hashtable<String, String> {
     public static final String VideoOrientationAnimKey = "video_orientation_anim";
     public static final String UseCustomRender = "use_custom_render";
     public static final String SecurityState = "security_state";
-    private static final long serialVersionUID = 1L;
     public static final String TAG = "VideoSettings";
     public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
     public static final String REGISTRATION_COMPLETE = "registrationComplete";
     public static final String PREVIEW_ID = "";
+    private static final String TOKEN = "MDAxMDAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpWAzdb6VuXFZ6da%2B%2BNfHpnNrAKtiTNi9q8tB0zF0NdysT3wxqFClN8sj8GPkFedtMEmqIK01yFpvaO4FHT5isd2%2FjEbccmFv9BgJYch6m%2BlzAeglFeKUNZ%2BtutOODlTwiIoY7qQkYi86Z62kWbsB"; // Put your application token here
+    private static final long serialVersionUID = 1L;
     private Context appcontext = null;
 
     public VideoSettings(Context appcontext) {
@@ -58,7 +58,6 @@ public class VideoSettings extends Hashtable<String, String> {
 
     public void load() {
         try {
-
 
 
             FileInputStream stream = appcontext.openFileInput("VideoSettings");

@@ -46,17 +46,17 @@ public class ScrollingTab extends ActionBar.Tab {
     }
 
     @Override
+    public ScrollingTab setCustomView(int layoutResId) {
+        return null;
+    }
+
+    @Override
     public ScrollingTab setCustomView(View view) {
         mCustomView = view;
         if (mPosition >= 0) {
             owner.updateTab(mPosition);
         }
         return this;
-    }
-
-    @Override
-    public ScrollingTab setCustomView(int layoutResId) {
-        return null;
     }
 
     public ScrollingTabView.TabView getView() {
@@ -73,17 +73,17 @@ public class ScrollingTab extends ActionBar.Tab {
     }
 
     @Override
+    public ScrollingTab setIcon(int resId) {
+        return setIcon(owner.getContext().getResources().getDrawable(resId));
+    }
+
+    @Override
     public ScrollingTab setIcon(Drawable icon) {
         mIcon = icon;
         if (mPosition >= 0) {
             owner.updateTab(mPosition);
         }
         return this;
-    }
-
-    @Override
-    public ScrollingTab setIcon(int resId) {
-        return setIcon(owner.getContext().getResources().getDrawable(resId));
     }
 
     @Override
@@ -101,17 +101,17 @@ public class ScrollingTab extends ActionBar.Tab {
     }
 
     @Override
+    public ScrollingTab setText(int resId) {
+        return setText(owner.getContext().getResources().getText(resId));
+    }
+
+    @Override
     public ScrollingTab setText(CharSequence text) {
         mText = text;
         if (mPosition >= 0) {
             owner.updateTab(mPosition);
         }
         return this;
-    }
-
-    @Override
-    public ScrollingTab setText(int resId) {
-        return setText(owner.getContext().getResources().getText(resId));
     }
 
     @Override

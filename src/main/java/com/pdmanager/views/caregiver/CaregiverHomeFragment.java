@@ -6,12 +6,9 @@ package com.pdmanager.views.caregiver;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.util.Log;
@@ -31,49 +28,19 @@ import com.pdmanager.R;
 import com.pdmanager.alerting.ActiveAlertLoader;
 import com.pdmanager.alerting.AlertAdapter;
 import com.pdmanager.alerting.AlertCursorAdapter;
-import com.pdmanager.alerting.AlertLoader;
 import com.pdmanager.alerting.AlertObserver;
 import com.pdmanager.alerting.IAlertDisplay;
 import com.pdmanager.alerting.UserAlertManager;
-import com.pdmanager.interfaces.ISensorStatusListener;
-import com.pdmanager.interfaces.IServiceStatusListener;
-import com.pdmanager.medication.MedObserver;
-import com.pdmanager.models.UserAlert;
 import com.pdmanager.persistence.DBHandler;
-import com.pdmanager.sensor.RecordingServiceHandler;
-import com.pdmanager.services.RecordingService;
 import com.pdmanager.views.patient.AlertPDFragment;
-import com.pdmanager.views.patient.DiaryTrackingActivity;
-import com.pdmanager.views.patient.MainActivity;
-import com.pdmanager.views.patient.MedAlertActivity;
-import com.pdmanager.views.patient.MoodTrackingActivity;
-import com.pdmanager.views.patient.SpeechAnalysisFragment;
-import com.pdmanager.views.patient.cognition.cognitive.AttentionSwitchingTaskTest;
-import com.pdmanager.views.patient.cognition.cognitive.LondonTowersTest;
-import com.pdmanager.views.patient.cognition.cognitive.PALPRM;
-import com.pdmanager.views.patient.cognition.cognitive.PairedAssociatesLearningTest;
-import com.pdmanager.views.patient.cognition.cognitive.PatternRecognitionMemoryTest;
-import com.pdmanager.views.patient.cognition.cognitive.SpatialSpanTest;
-import com.pdmanager.views.patient.cognition.cognitive.SpatialWorkingMemoryTest;
-import com.pdmanager.views.patient.cognition.cognitive.StopSignalTaskTest;
-import com.pdmanager.views.patient.cognition.cognitive.VisualAnalogueScaleTest;
-import com.pdmanager.views.patient.cognition.cognitive.WisconsinCardSorting;
-import com.pdmanager.views.patient.cognition.fingertapping.FingerTappingTestOne;
-import com.pdmanager.views.patient.cognition.speech.SpeechTest;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisplay,LoaderManager.LoaderCallbacks<Cursor> {
+public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisplay, LoaderManager.LoaderCallbacks<Cursor> {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -83,6 +50,8 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
     final Handler handler = new Handler();
     TextView mTextNextMed;
     TextView message;
+    AbsListView listView;
+    AlertCursorAdapter mAdapter;
     private Button mButtonNGG;
     private Button mButtonMood;
     //private TextView mSensorStatus;
@@ -92,19 +61,16 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
     private TextView mDiaryTitle;
     private ImageView mDiaryAct;
     private TextView mDiaryText;
-
-
     private LinearLayout mMedication;
     private LinearLayout mMood;
-
-    AbsListView listView;
-    AlertCursorAdapter mAdapter;
     private AlertAdapter dbQ;
     private int LOADER_ID = 2;
 
 
     private boolean debugToggle = false;
     private RelativeLayout layout;
+    private Timer myTimer;
+
     public CaregiverHomeFragment() {
     }
 
@@ -119,22 +85,21 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initAdapter(getActivity());
 
 
-
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_caregiver_home, container, false);
 
-
-
-        final Context context=this.getContext();
+        final Context context = this.getContext();
 
         try {
 
@@ -142,7 +107,7 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
 
             if (mAdapter != null) {
                 listView.setAdapter(mAdapter);
-                listView.setEmptyView( rootView.findViewById(R.id.patient_home_notasks));
+                listView.setEmptyView(rootView.findViewById(R.id.patient_home_notasks));
                 getLoaderManager().initLoader(LOADER_ID, null, this).forceLoad();
 
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -150,13 +115,13 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
                     public void onItemClick(AdapterView<?> parent, View view, int position,
                                             long id) {
 
-                        Log.d(TAG,Long.toString(id));
+                        Log.d(TAG, Long.toString(id));
 
                         //
-                        Cursor cursor= (Cursor)mAdapter.getItem(position);
-                        UserAlertManager manager=new UserAlertManager(getContext());
+                        Cursor cursor = (Cursor) mAdapter.getItem(position);
+                        UserAlertManager manager = new UserAlertManager(getContext());
                         manager.setNotified(cursor.getString(0));
-                       // ListEntry entry = (ListEntry) parent.getItemAtPosition(position);
+                        // ListEntry entry = (ListEntry) parent.getItemAtPosition(position);
 
 
                     }
@@ -164,20 +129,15 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
             }
         } catch (Exception ex) {
 
-            Log.e(TAG,ex.getMessage());
+            Log.e(TAG, ex.getMessage());
 
         }
-
 
 
         return rootView;
     }
 
-
-
-
-    public void onDestroy()
-    {
+    public void onDestroy() {
         if (myTimer != null) {
             myTimer.cancel();
             myTimer.purge();
@@ -186,14 +146,6 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
         super.onDestroy();
 
     }
-
-
-
-
-
-
-
-    private Timer myTimer;
 
     @Override
     public void onPause() {
@@ -221,14 +173,14 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
 
 
     }
-    private void startTimer()
-    {
+
+    private void startTimer() {
 
         if (myTimer == null) {
             try {
                 myTimer = new Timer();
                 HomeTimerTask myTask = new HomeTimerTask();
-                myTimer.schedule(myTask,1000, 60000);
+                myTimer.schedule(myTask, 1000, 60000);
 
             } catch (Exception ex) {
 
@@ -246,7 +198,6 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
     }
 
 
-
     @Override
     public void setAlertDisplay(final String messageTxt) {
 
@@ -257,35 +208,32 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
                 @Override
                 public void run() {
 
-                    if(message!=null)
-                    message.setText(messageTxt);
+                    if (message != null)
+                        message.setText(messageTxt);
 
                 }
             });
         }
     }
 
-    private void showMonitoringError(String error)
-    {
+    private void showMonitoringError(String error) {
 
     }
-    private void showMonitoringOK()
-    {
 
+    private void showMonitoringOK() {
 
 
     }
-    private void showNotMonitoring()
-    {
+
+    private void showNotMonitoring() {
 
     }
 
 
-    void updateUIAlerts()
-    {
-        final Context context=this.getContext();
-       final UserAlertManager manager=new UserAlertManager((this.getContext()));
-       final Activity activity = getActivity();
+    void updateUIAlerts() {
+        final Context context = this.getContext();
+        final UserAlertManager manager = new UserAlertManager((this.getContext()));
+        final Activity activity = getActivity();
         if (activity != null) {
 
             activity.runOnUiThread(new Runnable() {
@@ -293,18 +241,11 @@ public class CaregiverHomeFragment extends AlertPDFragment implements IAlertDisp
                 public void run() {
 
 
-
-
                 }
-
 
 
             });
         }
-
-
-
-
 
 
     }

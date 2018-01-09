@@ -14,10 +14,10 @@ public class DeviceRegistrer {
     String patientId;
     Context mContext;
 
-    public DeviceRegistrer(String pid, String paccessToken,Context pContext) {
+    public DeviceRegistrer(String pid, String paccessToken, Context pContext) {
         this.patientId = pid;
         this.accessToken = paccessToken;
-        this.mContext=pContext;
+        this.mContext = pContext;
 
     }
 
@@ -56,8 +56,7 @@ public class DeviceRegistrer {
 
     public void Register(String id) {
 
-
-        DirectSender sender = new DirectSender(accessToken,mContext);
+        DirectSender sender = new DirectSender(accessToken, mContext);
         CommunicationManager mCommManager = new CommunicationManager(sender);
         mCommManager.SendItem(getDevice(id));
     }

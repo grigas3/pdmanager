@@ -34,8 +34,7 @@ public class LocalNotificationTask extends AsyncTask<UserAlert, Void, Void> {
 
     }
 
-    public static LocalNotificationTask newInstance(Context context)
-    {
+    public static LocalNotificationTask newInstance(Context context) {
 
         return new LocalNotificationTask(context);
     }
@@ -51,7 +50,7 @@ public class LocalNotificationTask extends AsyncTask<UserAlert, Void, Void> {
 
 
         UserAlert alert = params[0];
-        if(alert!=null) {
+        if (alert != null) {
             try {
 
                 Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);

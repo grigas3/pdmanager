@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:windowSoftInputMode="adjustResize">
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:windowSoftInputMode="adjustResize">
 
-	<FrameLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:layout_weight="1">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
 
-		<com.pdmanager.ui.views.CustomScrollView
-			android:id="@+id/scroll_view"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:fillViewport="true"
-			android:orientation="vertical" >
+        <com.pdmanager.ui.views.CustomScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:orientation="vertical">
 
-			<LinearLayout
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-				<com.pdmanager.ui.views.ConferenceView
-					android:id="@+id/conference_view"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:visibility="visible">
-				</com.pdmanager.ui.views.ConferenceView>
+                <com.pdmanager.ui.views.ConferenceView
+                    android:id="@+id/conference_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"></com.pdmanager.ui.views.ConferenceView>
 
-			</LinearLayout>
+            </LinearLayout>
 
-		</com.pdmanager.ui.views.CustomScrollView>
+        </com.pdmanager.ui.views.CustomScrollView>
 
-	</FrameLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="fill_parent"
@@ -42,42 +40,42 @@
         android:layout_weight="1">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-        <LinearLayout
-            android:id="@+id/call_controll_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:orientation="horizontal">
-
-            <include layout="@layout/call_controll"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/call_controll_layout"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-        </LinearLayout>
+                android:gravity="bottom"
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/call_controll_layout1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:orientation="horizontal">
+                <include
+                    layout="@layout/call_controll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
 
-            <EditText
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/call_controll_layout1"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/callNotes"
-                android:layout_weight="1" />
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/callNotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textMultiLine"/>
 
 
-        </LinearLayout>
-
+            </LinearLayout>
 
 
         </LinearLayout>

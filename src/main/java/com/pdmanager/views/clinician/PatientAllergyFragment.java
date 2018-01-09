@@ -19,7 +19,6 @@ import com.telerik.widget.list.RadListView;
 import java.util.List;
 
 /**
- *
  * Fragment from Pient Chart showing patient Allergies
  * Created by George on 6/5/2016.
  */

@@ -84,14 +84,15 @@ public class RESTClient {
             if (code == HttpStatus.SC_OK) {
                 Gson gson = new Gson();
 
-                String resMessage=convertInputStreamToString(response.getEntity().getContent());
+                String resMessage = convertInputStreamToString(response.getEntity().getContent());
 
-                Log.d(TAG,resMessage);
-                Type type = new TypeToken<LoginResult>(){}.getType();
+                Log.d(TAG, resMessage);
+                Type type = new TypeToken<LoginResult>() {
+                }.getType();
                 LoginResult obj = gson.fromJson(resMessage, type);
 
-                Log.d(TAG,"Role "+obj.role);
-                Log.d(TAG,"TOKEN "+obj.access_token);
+                Log.d(TAG, "Role " + obj.role);
+                Log.d(TAG, "TOKEN " + obj.access_token);
 
                 obj.success = true;
                 return obj;
@@ -99,7 +100,7 @@ public class RESTClient {
 
             {
 
-                Log.e(TAG,response.toString());
+                Log.e(TAG, response.toString());
                 LoginResult res = new LoginResult();
                 res.success = false;
                 return res;
@@ -108,7 +109,7 @@ public class RESTClient {
 
 
         } catch (Exception e) {
-            Log.e(TAG, e.getMessage(),e.getCause());
+            Log.e(TAG, e.getMessage(), e.getCause());
             LoginResult res = new LoginResult();
             res.success = false;
             return res;

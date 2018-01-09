@@ -364,13 +364,12 @@ public class MSSyncActivity extends Activity implements ILogHandler {
     }
 
 
-
     private class ProtectedResTask extends AsyncTask<Account, Void, Map> {
 
         Date startDate;
-        public ProtectedResTask(Date pstartDate)
-        {
-            this.startDate=pstartDate;
+
+        public ProtectedResTask(Date pstartDate) {
+            this.startDate = pstartDate;
 
 
         }
@@ -394,7 +393,7 @@ public class MSSyncActivity extends Activity implements ILogHandler {
                 ISO8601DateFormat df = new ISO8601DateFormat();
 
                 Log.v("test", APIUtility.getJson(accountManager, protectedResUrl, account, null).toString());
-                return APIUtility.getJson(accountManager, protectedResUrl+"?startTime="+df.format(startDate), account, null);
+                return APIUtility.getJson(accountManager, protectedResUrl + "?startTime=" + df.format(startDate), account, null);
             } catch (AuthenticatorException | OperationCanceledException | TokenDecryptionException | IOException e) {
                 e.printStackTrace();
             } catch (UserNotAuthenticatedWrapperException e) {

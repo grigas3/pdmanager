@@ -137,8 +137,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
             mService.background();
 
-            if(patientHomeFragment!=null)
-            mService.registerListener(patientHomeFragment);
+            if (patientHomeFragment != null)
+                mService.registerListener(patientHomeFragment);
 
 
             RecordingServiceHandler.getInstance().setService(mService);
@@ -177,12 +177,10 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     @Override
     public void onBackPressed() {
 
+        if (patientHomeFragment != null && patientHomeFragment.isInLayout()) {
 
-        if(patientHomeFragment!=null&&patientHomeFragment.isInLayout()) {
-
-           // return false;
-        }
-        else
+            // return false;
+        } else
             super.onBackPressed();
     }
 
@@ -190,8 +188,8 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    //    application = (VideoApp) getApplication();
-      //  application.setContext(this);
+        //    application = (VideoApp) getApplication();
+        //  application.setContext(this);
 
 
         // application.addOperationChangeListener(this);
@@ -200,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         //  TelerikActivityHelper.updateActivityTaskDescription(this);
         try {
-            String languageToLoad  = RecordingSettings.newInstance(this.getApplicationContext()).getLang(); // your language
+            String languageToLoad = RecordingSettings.newInstance(this.getApplicationContext()).getLang(); // your language
             Locale locale = new Locale(languageToLoad);
             Locale.setDefault(locale);
             Configuration config = new Configuration();
@@ -215,9 +213,9 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             setContentView(R.layout.activity_main);
             Toolbar tb = (Toolbar) this.findViewById(R.id.toolbar);
             this.setSupportActionBar(tb);
-            if( tb != null) {
+            if (tb != null) {
                 tb.setTitleTextColor(Color.WHITE);
-                setOverflowButtonColor(tb,Color.WHITE);
+                setOverflowButtonColor(tb, Color.WHITE);
             }
             actionBar = getSupportActionBar();
 
@@ -232,15 +230,12 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
             ///Set Brightness
             float SysBackLightValue = 255f;
 
-
-          //  android.provider.Settings.System.putInt(BatteryBoosterActivity.this.getContentResolver(),   android.provider.Settings.System.SCREEN_BRIGHTNESS,(int) SysBackLightValue);
-          //  Window myWindow =BatteryBoosterActivity.this. getWindow();
-          //  WindowManager.LayoutParams winParams = myWindow.getAttributes();                                    winParams.screenBrightness = 255f;
-          //  myWindow.setAttributes(winParams);
-        }
-        catch (Exception ex)
-        {
-            Log.e("MAINACTIVITY","RES",ex.getCause());
+            //  android.provider.Settings.System.putInt(BatteryBoosterActivity.this.getContentResolver(),   android.provider.Settings.System.SCREEN_BRIGHTNESS,(int) SysBackLightValue);
+            //  Window myWindow =BatteryBoosterActivity.this. getWindow();
+            //  WindowManager.LayoutParams winParams = myWindow.getAttributes();                                    winParams.screenBrightness = 255f;
+            //  myWindow.setAttributes(winParams);
+        } catch (Exception ex) {
+            Log.e("MAINACTIVITY", "RES", ex.getCause());
 
         }
 
@@ -266,29 +261,23 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         }
         try {
-        Bundle extras=this.getIntent().getExtras();
+            Bundle extras = this.getIntent().getExtras();
 
-        if(extras!=null) {
+            if (extras != null) {
 
-            String alertType = extras.getString(PDApplicationContext.INTENT_ALERT_TYPE);
-            String alertId =extras.getString(PDApplicationContext.INTENT_ALERT_ID);
+                String alertType = extras.getString(PDApplicationContext.INTENT_ALERT_TYPE);
+                String alertId = extras.getString(PDApplicationContext.INTENT_ALERT_ID);
 
+                if (alertType != null && alertId != null) {
 
+                    Log.d("MAINACTIVITY", alertType);
 
-            if (alertType != null && alertId != null) {
-
-                Log.d("MAINACTIVITY",alertType);
-
+                } else {
+                    Log.d("MAINACTIVITY", "NULL Alert type");
+                }
             }
-            else
-            {
-                Log.d("MAINACTIVITY","NULL Alert type");
-            }
-        }
-        }
-        catch (Exception ex)
-        {
-            Log.e("MAINACTIVITY","INTENT",ex.getCause());
+        } catch (Exception ex) {
+            Log.e("MAINACTIVITY", "INTENT", ex.getCause());
 
         }
 
@@ -297,17 +286,17 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
     }
 
 
-    private void initFragment()
-    {
-        patientHomeFragment=new PatientHomeFragment();
+    private void initFragment() {
+        patientHomeFragment = new PatientHomeFragment();
         FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, patientHomeFragment);
         fragmentTransaction.commit();
     }
+
     private void setupAlertFragmentManager() {
 
-      //  this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
+        //  this.alertFragmentManager = new AlertFragmentManager(this, new UserAlertManager(this));
 
     }
 
@@ -317,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         super.onDestroy();
         if (mBound) {
 
-            if(mService!=null)
+            if (mService != null)
                 mService.unregisterListener(patientHomeFragment);
 
             unbindService(mConnection);
@@ -364,12 +353,13 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
         } else
             bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
 
-       // if (alertFragmentManager != null)
-         //   alertFragmentManager.startAutoUpdate();
+        // if (alertFragmentManager != null)
+        //   alertFragmentManager.startAutoUpdate();
     }
 
 
@@ -378,7 +368,7 @@ public class MainActivity extends AppCompatActivity implements /*PatientDrawerFr
 
         // Unbind from the service
 
-      //  alertFragmentManager.stopAutoUpdate();
+        //  alertFragmentManager.stopAutoUpdate();
         if (mBound) {
 
             if (mService != null)

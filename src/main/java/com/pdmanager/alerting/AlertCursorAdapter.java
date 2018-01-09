@@ -13,9 +13,6 @@ import android.widget.TextView;
 
 import com.pdmanager.R;
 import com.pdmanager.persistence.DBHandler;
-import com.pdmanager.views.patient.DiaryTrackingActivity;
-
-import java.util.Date;
 
 /**
  * Created by george on 20/11/2015.
@@ -68,18 +65,17 @@ public class AlertCursorAdapter extends CursorAdapter {
             TextView text2 = (TextView) view.findViewById(R.id.alert_text);
             text1.setText(cursor.getString(titleIndex));
             text2.setText(cursor.getString(messageIndex));
-            String type=cursor.getString(typeIndex);
+            String type = cursor.getString(typeIndex);
 
-            if(type.equals("warn")) {
+            if (type.equals("warn")) {
 
                 layout.setBackground(mContext.getResources().getDrawable(R.drawable.button_patient_home_red));
             }
 
 
-
         } catch (Exception ex) {
 
-            Log.e(LOG_TAG,ex.getMessage());
+            Log.e(LOG_TAG, ex.getMessage());
         }
 
     }

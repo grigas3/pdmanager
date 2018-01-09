@@ -9,6 +9,7 @@ public interface ISensorData {
 
     /**
      * Data Type (See DataTypes)
+     *
      * @return
      */
     int getDataType();
@@ -16,12 +17,14 @@ public interface ISensorData {
 
     /**
      * Display for logging
+     *
      * @return
      */
     String getDisplay();
 
     /**
      * Raw Display  (not used)
+     *
      * @return
      */
     String getRawDisplay();

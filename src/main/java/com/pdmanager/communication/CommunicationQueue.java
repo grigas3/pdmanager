@@ -14,7 +14,7 @@ import java.util.Calendar;
 /**
  * Created by george on 11/1/2016.
  */
-public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements IJsonRequestHandler,ICommunicationQueue
+public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements IJsonRequestHandler, ICommunicationQueue
 
 {
 
@@ -24,7 +24,6 @@ public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements 
 
 
     }
-
 
 
     public static File CreateQueueFile() {
@@ -72,14 +71,13 @@ public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements 
 
         super.add(jsonRequest);
     }
+
     @Override
     public boolean push(JsonStorage s) {
         try {
             super.add(s);
             return true;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
             return false;
         }
@@ -99,7 +97,7 @@ public class CommunicationQueue extends FileObjectQueue<JsonStorage> implements 
 
     @Override
     public JsonStorage poll() {
-        JsonStorage res=super.peek();
+        JsonStorage res = super.peek();
         super.remove();
         return res;
     }

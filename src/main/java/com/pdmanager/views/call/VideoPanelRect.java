@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import com.oovoo.sdk.api.ui.VideoPanel;
 
 public class VideoPanelRect extends VideoPanel {
-	
-	public VideoPanelRect(Context context, AttributeSet attrs) {
+
+    public VideoPanelRect(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -23,7 +23,7 @@ public class VideoPanelRect extends VideoPanel {
             width = point.x;
             height = point.y;
         }
-        
+
         setMeasuredDimension(width, height);
     }
 }

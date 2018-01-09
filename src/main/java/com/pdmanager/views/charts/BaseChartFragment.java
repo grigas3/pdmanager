@@ -80,10 +80,7 @@ public abstract class BaseChartFragment extends BasePDFragment {
 
         if (savedInstanceState != null) {
 
-
             restoreVariables(savedInstanceState);
-
-
         }
 
 

@@ -43,8 +43,6 @@ public class MedAdapter {
     }
 
 
-
-
     public Cursor fetchMeds() {
 
 

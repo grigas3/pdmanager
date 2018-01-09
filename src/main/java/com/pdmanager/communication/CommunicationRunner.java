@@ -79,8 +79,7 @@ public class CommunicationRunner implements Runnable {
     /**
      * Run with quue
      */
-    private void runWithQueue()
-    {
+    private void runWithQueue() {
 
         JsonStorage request = null;
         boolean executeNext = true;
@@ -143,7 +142,7 @@ public class CommunicationRunner implements Runnable {
                         //SendPing();
                         executeNext = true;
                         ///Longer sleep if quueu is empty
-                        for (int i = 0; i < 10*60 && queueRunning; i++)
+                        for (int i = 0; i < 10 * 60 && queueRunning; i++)
                             Thread.sleep(1000);
                     }
 
@@ -154,7 +153,7 @@ public class CommunicationRunner implements Runnable {
 
 
                     ///Very long sleep if no internet connections
-                    for (int i = 0; i <  5*60 && queueRunning; i++)
+                    for (int i = 0; i < 5 * 60 && queueRunning; i++)
                         Thread.sleep(1000);
 
 
@@ -164,7 +163,6 @@ public class CommunicationRunner implements Runnable {
             } catch (Exception ex) {
 
                 Log.e("Queue Thread", "An error occured");
-
 
 
             }
@@ -178,12 +176,11 @@ public class CommunicationRunner implements Runnable {
     /**
      * Run with List instead of blocking queue
      */
-    private void runWithList()
-    {
+    private void runWithList() {
         ArrayList<JsonStorage> request = new ArrayList<>();
         boolean executeNext = true;
         boolean loggedIn = true;
-        int n=5;
+        int n = 5;
         while (queueRunning) {
 
             try {
@@ -194,8 +191,7 @@ public class CommunicationRunner implements Runnable {
                     if (executeNext)
                         request.addAll(mqueue.getLastN(n));
 
-
-                    if (request.size()>0) {
+                    if (request.size() > 0) {
 
                         boolean res = true;
                         if (tokenUpdater.hasTokenExpired()) {
@@ -217,8 +213,7 @@ public class CommunicationRunner implements Runnable {
 
                         if (loggedIn) {
 
-
-                            for(JsonStorage req:request) {
+                            for (JsonStorage req : request) {
 
                                 res = mRClient.Post(req.getUri(), req.getJson());
 
@@ -240,10 +235,6 @@ public class CommunicationRunner implements Runnable {
                             }
 
 
-
-
-
-
                         }
 
                         //Clear requests
@@ -257,7 +248,7 @@ public class CommunicationRunner implements Runnable {
                         //SendPing();
                         executeNext = true;
                         ///Longer sleep if quueu is empty
-                        for (int i = 0; i < 10*60 && queueRunning; i++)
+                        for (int i = 0; i < 10 * 60 && queueRunning; i++)
                             Thread.sleep(1000);
                     }
 
@@ -268,7 +259,7 @@ public class CommunicationRunner implements Runnable {
 
 
                     ///Very long sleep if no internet connections
-                    for (int i = 0; i <  5*60 && queueRunning; i++)
+                    for (int i = 0; i < 5 * 60 && queueRunning; i++)
                         Thread.sleep(1000);
 
 
@@ -280,20 +271,18 @@ public class CommunicationRunner implements Runnable {
                 Log.e("Queue Thread", "An error occured");
 
 
-
             }
 
         }
         Log.e("WARN", "Queue Stopped");
     }
+
     @Override
     public void run() {
 
 
-
         runWithList();
     }
-
 
 
 }

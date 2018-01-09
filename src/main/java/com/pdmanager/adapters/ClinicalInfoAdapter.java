@@ -55,7 +55,15 @@ public class ClinicalInfoAdapter extends ListViewDataSourceAdapter {
 
 
         recipeViewHolder.itemCode.setText(recipe.Code);
+
+        if (recipe.Code.equals("Greater Trochanter_Ground Distance") || recipe.Code.equals("Acromion_Stylion Distance")) {
+            recipeViewHolder.wrapperFrameLayout.setVisibility(View.GONE);
+        } else {
+            recipeViewHolder.wrapperFrameLayout.setVisibility(View.VISIBLE);
+        }
+
         recipeViewHolder.itemText.setText(recipe.Value);
+
     }
 
     @Override

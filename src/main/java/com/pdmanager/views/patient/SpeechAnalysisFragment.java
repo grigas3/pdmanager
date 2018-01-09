@@ -32,7 +32,7 @@ public class SpeechAnalysisFragment extends AlertPDFragment implements FragmentL
     }
 
 
-    public void setUp (  View rootView ) {
+    public void setUp(View rootView) {
         buttonRecord = (RelativeLayout) rootView.findViewById(R.id.button_record);
         buttonReRecord = (RelativeLayout) rootView.findViewById(R.id.button_re_record);
         buttonDone = (RelativeLayout) rootView.findViewById(R.id.button_rec_done);
@@ -76,11 +76,12 @@ public class SpeechAnalysisFragment extends AlertPDFragment implements FragmentL
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
     }
+
     @Override
     public void onStop() {
         super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
     }
 }

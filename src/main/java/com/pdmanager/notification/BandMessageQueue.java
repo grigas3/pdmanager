@@ -1,13 +1,5 @@
 package com.pdmanager.notification;
 
-import android.content.Context;
-
-import com.squareup.tape.ObjectQueue;
-
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingDeque;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**

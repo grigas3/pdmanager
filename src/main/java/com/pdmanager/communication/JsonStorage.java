@@ -20,16 +20,17 @@ public class JsonStorage {
 
 
     }
-    public JsonStorage(int id,String json, String uri) {
 
+    public JsonStorage(int id, String json, String uri) {
 
-        this.mid=id;
+        this.mid = id;
         this.mJson = json;
         this.mUri = uri;
         this.method = "POST";
 
 
     }
+
     public JsonStorage(String json, String uri, String m) {
 
 
@@ -41,8 +42,10 @@ public class JsonStorage {
     }
 
 
+    public int getId() {
+        return mid;
+    }
 
-    public int getId(){ return mid;}
     public String getMethod() {
         return this.method;
 

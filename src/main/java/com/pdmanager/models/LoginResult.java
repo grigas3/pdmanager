@@ -10,6 +10,17 @@ import com.google.gson.annotations.SerializedName;
  */
 public class LoginResult implements Parcelable {
 
+    public static final Creator<LoginResult> CREATOR = new Creator<LoginResult>() {
+        @Override
+        public LoginResult createFromParcel(Parcel in) {
+            return new LoginResult(in);
+        }
+
+        @Override
+        public LoginResult[] newArray(int size) {
+            return new LoginResult[size];
+        }
+    };
     @SerializedName("access_token")
     public String access_token;
     @SerializedName("token_type")
@@ -25,10 +36,10 @@ public class LoginResult implements Parcelable {
     @SerializedName("rolemapid")
     public String rolemapid;
 
-    public LoginResult()
-    {
+    public LoginResult() {
 
     }
+
     protected LoginResult(Parcel in) {
         access_token = in.readString();
         token_type = in.readString();
@@ -38,18 +49,6 @@ public class LoginResult implements Parcelable {
         role = in.readString();
         rolemapid = in.readString();
     }
-
-    public static final Creator<LoginResult> CREATOR = new Creator<LoginResult>() {
-        @Override
-        public LoginResult createFromParcel(Parcel in) {
-            return new LoginResult(in);
-        }
-
-        @Override
-        public LoginResult[] newArray(int size) {
-            return new LoginResult[size];
-        }
-    };
 
     @Override
     public int describeContents() {

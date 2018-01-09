@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.ConnectionState;
@@ -34,6 +35,7 @@ import com.pdmanager.views.drawers.IBasePatientChartFragment;
 import com.telerik.primitives.CustomTextRenderer;
 import com.telerik.primitives.PDAnnotationRenderer;
 import com.telerik.widget.chart.engine.axes.common.AxisLabelFitMode;
+import com.telerik.widget.chart.engine.axes.common.TimeInterval;
 import com.telerik.widget.chart.engine.databinding.FieldNameDataPointBinding;
 import com.telerik.widget.chart.visualization.annotations.cartesian.CartesianCustomAnnotation;
 import com.telerik.widget.chart.visualization.annotations.cartesian.CartesianGridLineAnnotation;
@@ -53,8 +55,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class ObservationChartFragment extends AreaFragment implements View.OnClickListener, IBasePatientChartFragment {
-    private static final float VERTICAL_AXIS_SINGLE_STEP = 1;
+    private static final double VERTICAL_AXIS_SINGLE_STEP = 1;
     private static final float VERTICAL_AXIS_SINGLE_MIN = 60;
+    private static final float VERTICAL_AXIS_HALF_SINGLE_STEP = 30;
     private static final float VERTICAL_AXIS_SINGLE_MAX = 90;
     LinearAxis vAxis;
     DateTimeContinuousAxis hAxis;
@@ -70,6 +73,8 @@ public class ObservationChartFragment extends AreaFragment implements View.OnCli
     Date to = null;
     EditText fromDateEtxt;
     EditText toDateEtxt;
+    TextView xAxisTextVIew;
+    TextView yAxisTextVIew;
     private LineSeries series;
     private SimpleDateFormat dateFormatter;
     private int selectedAggr = 2;
@@ -116,6 +121,9 @@ public class ObservationChartFragment extends AreaFragment implements View.OnCli
     @Override
     protected void prepareAreaChart() {
 
+        xAxisTextVIew = (TextView) rootView.findViewById(R.id.xAxisLegend);
+        yAxisTextVIew = (TextView) rootView.findViewById(R.id.yAxisLegend);
+
 
         if (patient != null) {
 
@@ -137,12 +145,24 @@ public class ObservationChartFragment extends AreaFragment implements View.OnCli
 
 
         vAxis = new LinearAxis();
-        //   vAxis.setMinimum(VERTICAL_AXIS_SINGLE_MIN);
-        //    vAxis.setMaximum(VERTICAL_AXIS_SINGLE_MAX);
-        // vAxis.setMajorStep(VERTICAL_AXIS_SINGLE_STEP);
+//         vAxis.setMinimum(VERTICAL_AXIS_SINGLE_MIN);
+//         vAxis.setMaximum(VERTICAL_AXIS_SINGLE_MAX);
+//         vAxis.setMajorStep(VERTICAL_AXIS_HALF_SINGLE_STEP);
 
         hAxis = new DateTimeContinuousAxis();
+        hAxis.setMajorStepUnit(TimeInterval.MINUTE);
+        hAxis.setMajorStep(30);
+
+        hAxis.setShowLabels(true);
+        // hAxis.setLabelRenderer(CustomLabelRenderer);
+
         hAxis.setLabelFitMode(AxisLabelFitMode.ROTATE);
+
+        hAxis.setLabelTextColor(R.color.axesVolumeColor);
+        //hAxis.setLabelFormat("TIME");
+
+//        vAxis.setShowLabels(true);
+//        vAxis.setLabelFormat("UPDRS");
 
 
         FieldNameDataPointBinding p1 = new FieldNameDataPointBinding("Date");
@@ -175,8 +195,9 @@ public class ObservationChartFragment extends AreaFragment implements View.OnCli
         cartesianChart.setVerticalAxis(vAxis);
         cartesianChart.setHorizontalAxis(hAxis);
         cartesianChart.getSeries().add(series);
-        cartesianChart.getSeries().add(bollingerBands);
+        // cartesianChart.getSeries().add(bollingerBands);
         cartesianChart.getSeries().add(movingAverage);
+
 
         ChartPanAndZoomBehavior panZoom = new ChartPanAndZoomBehavior();
         panZoom.setPanMode(ChartPanZoomMode.BOTH);
@@ -209,7 +230,26 @@ public class ObservationChartFragment extends AreaFragment implements View.OnCli
         initCodeSpinner();
         enableSpinnerListener = true;
 
+        mAggSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String aggSpinnerItemValue = mAggSpinner.getSelectedItem().toString();
 
+                xAxisTextVIew.setVisibility(View.VISIBLE);
+                yAxisTextVIew.setVisibility(View.VISIBLE);
+
+                if (aggSpinnerItemValue.equals("Day")) {
+                    xAxisTextVIew.setText("TIME OF DAY");
+                } else {
+                    xAxisTextVIew.setText("TIME");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private void initCodeSpinner() {

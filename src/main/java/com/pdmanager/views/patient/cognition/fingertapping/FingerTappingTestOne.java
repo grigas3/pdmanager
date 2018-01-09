@@ -20,7 +20,6 @@ import java.util.Vector;
 
 
 /**
- *
  * Finger Tapping Test Activity
  *
  * @authors Quentin DELEPIERRE, Jorge CANCELA (jcancela@lst.tfo.upm.es)
@@ -36,8 +35,8 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
     public static final String INTENT_MAX_ONE = "maxTimeOne";
     public static final String INTENT_MIN_ONE = "minTimeOne";
     public static final String INTENT_TAPS_NUMBER_ONE = "tapsNumberOne";
-    public final int DURATION_TEST_MILLISECONDS= 10000;
-    public final int REFRESH_PERIOD_MILLISECONDS= 100;
+    public final int DURATION_TEST_MILLISECONDS = 10000;
+    public final int REFRESH_PERIOD_MILLISECONDS = 100;
     public final int TIME_MILLISECONDS_SLEEP = 1000;
     private String LOGGER_TAG = "FingerTappingTestOne";
     private TextView tvNumberTaps = null;
@@ -49,89 +48,89 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
 
     private ProgressBar mProgress;
 
-    private boolean test=true;
+    private boolean test = true;
 
     private Vector vect = new Vector();
 
     private CountDownTimer sdTimer = null;
-    private View.OnClickListener clickButton=new View.OnClickListener() {
+    private View.OnClickListener clickButton = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        speak.silence();
+            speak.silence();
 
-        if (test) {
-            startTime = Double.longBitsToDouble(SystemClock.uptimeMillis());
-            restart();
-            test= false;
+            if (test) {
+                startTime = Double.longBitsToDouble(SystemClock.uptimeMillis());
+                restart();
+                test = false;
 
-            sdTimer = new CountDownTimer(DURATION_TEST_MILLISECONDS, REFRESH_PERIOD_MILLISECONDS) {
+                sdTimer = new CountDownTimer(DURATION_TEST_MILLISECONDS, REFRESH_PERIOD_MILLISECONDS) {
 
-                public void onTick(long millisUntilFinished) {
+                    public void onTick(long millisUntilFinished) {
 
-                    mProgress.setProgress((int) millisUntilFinished);
+                        mProgress.setProgress((int) millisUntilFinished);
 
-                    tvTime.setText(getResources().getString(R.string.fttoneTvTime) + " : "
-                            + new DecimalFormat(DECIMAL_FORMAT_TIME).format(Double.valueOf(millisUntilFinished / Double.valueOf(1000)))
-                            + " " + getResources().getString(R.string.fttoneTvSeconds));
+                        tvTime.setText(getResources().getString(R.string.fttoneTvTime) + " : "
+                                + new DecimalFormat(DECIMAL_FORMAT_TIME).format(Double.valueOf(millisUntilFinished / Double.valueOf(1000)))
+                                + " " + getResources().getString(R.string.fttoneTvSeconds));
 
-                }
+                    }
 
-                public void onFinish() {
+                    public void onFinish() {
 
-                    setContentView(R.layout.splash);
+                        setContentView(R.layout.splash);
 
-                    Thread welcomeThread = new Thread() {
+                        Thread welcomeThread = new Thread() {
 
-                        @Override
-                        public void run() {
-                        try {
-                            super.run();
-                            sleep(TIME_MILLISECONDS_SLEEP) ; //Delay of 3 seconds
-                        } catch (Exception e) {
+                            @Override
+                            public void run() {
+                                try {
+                                    super.run();
+                                    sleep(TIME_MILLISECONDS_SLEEP); //Delay of 3 seconds
+                                } catch (Exception e) {
 
-                        } finally {
+                                } finally {
 
-                            Intent intent = new Intent(FingerTappingTestOne.this, FingerTappingTestTwo.class);
+                                    Intent intent = new Intent(FingerTappingTestOne.this, FingerTappingTestTwo.class);
 
-                            double[] myData = new double[vect.size()];
+                                    double[] myData = new double[vect.size()];
 
-                            for (int i = 0; i < vect.size() - 1; i++) {
-                                Double o = (Double) vect.elementAt(i);
-                                Double p = (Double) vect.elementAt(i + 1);
-                                myData[i] = (p - o);
+                                    for (int i = 0; i < vect.size() - 1; i++) {
+                                        Double o = (Double) vect.elementAt(i);
+                                        Double p = (Double) vect.elementAt(i + 1);
+                                        myData[i] = (p - o);
+                                    }
+
+                                    Statistics myStats = new Statistics(myData);
+
+                                    Double meanTime = myStats.getMean();
+                                    Double stdTime = myStats.getStdDev();
+                                    Double medianTime = myStats.median();
+                                    Double maxTime = myStats.getMax();
+                                    Double minTime = myStats.getMin();
+
+                                    intent.putExtra(INTENT_TAPS_NUMBER_ONE, numberOfTaps);
+                                    intent.putExtra(INTENT_MEAN_ONE, meanTime);
+                                    intent.putExtra(INTENT_STD_ONE, stdTime);
+                                    intent.putExtra(INTENT_MEDIAN_ONE, medianTime);
+                                    intent.putExtra(INTENT_MAX_ONE, maxTime);
+                                    intent.putExtra(INTENT_MIN_ONE, minTime);
+
+                                    startActivity(intent);
+                                    finish();
+                                }
                             }
+                        };
+                        welcomeThread.start();
+                    }
+                }.start();
+            }
 
-                            Statistics myStats = new Statistics(myData);
+            numberOfTaps++;
+            tvNumberTaps.setText(String.valueOf(numberOfTaps) + " " + getResources().getString(R.string.fttoneTvTimeNumberOfTaps));
 
-                            Double meanTime = myStats.getMean();
-                            Double stdTime = myStats.getStdDev();
-                            Double medianTime = myStats.median();
-                            Double maxTime = myStats.getMax();
-                            Double minTime = myStats.getMin();
+            timeInMilli = SystemClock.uptimeMillis() - Double.valueOf(startTime);
 
-                            intent.putExtra(INTENT_TAPS_NUMBER_ONE, numberOfTaps);
-                            intent.putExtra(INTENT_MEAN_ONE, meanTime);
-                            intent.putExtra(INTENT_STD_ONE, stdTime);
-                            intent.putExtra(INTENT_MEDIAN_ONE, medianTime);
-                            intent.putExtra(INTENT_MAX_ONE, maxTime);
-                            intent.putExtra(INTENT_MIN_ONE, minTime);
-
-                            startActivity(intent);
-                            finish();
-                        }
-                        }
-                    };
-                    welcomeThread.start();
-                }
-            }.start();
-        }
-
-        numberOfTaps++;
-        tvNumberTaps.setText(String.valueOf(numberOfTaps) + " " + getResources().getString(R.string.fttoneTvTimeNumberOfTaps));
-
-        timeInMilli= SystemClock.uptimeMillis() - Double.valueOf(startTime);
-
-        vect.addElement(timeInMilli);
+            vect.addElement(timeInMilli);
         }
     };
 
@@ -183,12 +182,12 @@ public class FingerTappingTestOne extends SoundFeedbackActivity {
         }
     }
 
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         restart();
     }
 
-    public void onPause(){
+    public void onPause() {
         super.onPause();
 
         restart();

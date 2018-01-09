@@ -140,7 +140,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
                     setNewLevel();
                 }
             });
-        }else{
+        } else {
             setNewLevel();
         }
 
@@ -182,7 +182,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
                 }
             });
 
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception e: " + e.toString());
         }
     }
@@ -225,30 +225,26 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
     }
 
 
-
-    private void startLevel()
-    {
-        final int timeToRespond = 5*1000;
-        final CountDownTimer cdt = new CountDownTimer(timeToRespond, timeToRespond)
-        {
-            @Override public void onTick(long millisUntilFinished) {}
+    private void startLevel() {
+        final int timeToRespond = 5 * 1000;
+        final CountDownTimer cdt = new CountDownTimer(timeToRespond, timeToRespond) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
 
             @Override
-            public void onFinish()
-            {
+            public void onFinish() {
                 isAnswered = false;
                 if (level == 1) {
                     nErrorsTimeoutCongruency++;
                 } else {
                     nErrorsTimeoutIncongruency++;
                 }
-                if (nTrial < NUMBER_OF_TRIALS)
-                {
+                if (nTrial < NUMBER_OF_TRIALS) {
                     nTrial++;
                     getTaskNumber();
                     startLevel();
-                }
-                else setNewLevel();
+                } else setNewLevel();
             }
         };
         cdt.start();
@@ -305,7 +301,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
                     }
                     isAnswered = true;
 
-                    if ((level == 1 &&(taskNumber == 2 || taskNumber == 4)) || (level == 2 &&(taskNumber == 3 || taskNumber == 4))) {
+                    if ((level == 1 && (taskNumber == 2 || taskNumber == 4)) || (level == 2 && (taskNumber == 3 || taskNumber == 4))) {
                         feedback.setImageResource(R.drawable.green_tick);
                         tones.ackBeep();
 
@@ -437,7 +433,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
         return true;
     }
 
-    private void getTaskNumber () {
+    private void getTaskNumber() {
         int randomNumber = (int) (Math.random() * (NUMBER_OF_TASKS - 1)) + 1;
 
         if (lastTaskNumber == randomNumber) {
@@ -451,24 +447,23 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
     }
 
 
-
-    private void getTestResult () {
+    private void getTestResult() {
 
         int nErrorsCongruency = nErrorsDirectionCongruency + nErrorsPositionCongruency + nErrorsTimeoutCongruency;
         int nErrorsIncongruency = nErrorsDirectionIncongruency + nErrorsPositionIncongruency + nErrorsTimeoutIncongruency;
 
-        double errorsPerCent = ((nErrorsCongruency + nErrorsIncongruency)*100.00)/(NUMBER_OF_TRIALS*NUMBER_OF_LEVELS);
+        double errorsPerCent = ((nErrorsCongruency + nErrorsIncongruency) * 100.00) / (NUMBER_OF_TRIALS * NUMBER_OF_LEVELS);
 
         double[] congruencyReactionTimes = new double[reactionTimesCongruency.size()];
         double[] incongruencyReactionTimes = new double[reactionTimesIncongruency.size()];
         double[] reactionTimes = new double[reactionTimesCongruency.size() + reactionTimesIncongruency.size()];
 
-        for (int i= 0; i<reactionTimesCongruency.size(); i++) {
+        for (int i = 0; i < reactionTimesCongruency.size(); i++) {
             congruencyReactionTimes[i] = reactionTimesCongruency.get(i);
             reactionTimes[i] = reactionTimesCongruency.get(i);
         }
 
-        for (int i= 0; i<reactionTimesIncongruency.size(); i++) {
+        for (int i = 0; i < reactionTimesIncongruency.size(); i++) {
             incongruencyReactionTimes[i] = reactionTimesIncongruency.get(i);
             reactionTimes[reactionTimesCongruency.size() + i] = reactionTimesIncongruency.get(i);
         }
@@ -480,7 +475,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
         StringBuilder resultInfo = new StringBuilder();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-        String date = dateFormat.format(Calendar.getInstance().getTime()) ;
+        String date = dateFormat.format(Calendar.getInstance().getTime());
 
         String errors = String.format(Locale.ENGLISH, "%.2f", errorsPerCent);
         String meanReactionTimeCongruency = String.format(Locale.ENGLISH, "%.2f", stReactionTimeCongruency.getMean());
@@ -529,9 +524,9 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
                 Double.parseDouble(maxReactionTimeIncongruency), Double.parseDouble(minReactionTimeIncongruency));
     }
 
-    public void sendObservations (int dirErrorsC, int dirErrorsI, int posErrorsC, int posErrorsI, int timeoutErrorsC,
-                                  int timeoutErrorsI, double meanTimeC, double maxTimeC, double minTimeC,
-                                  double meanTimeI, double maxTimeI, double minTimeI) {
+    public void sendObservations(int dirErrorsC, int dirErrorsI, int posErrorsC, int posErrorsI, int timeoutErrorsC,
+                                 int timeoutErrorsI, double meanTimeC, double maxTimeC, double minTimeC,
+                                 double meanTimeI, double maxTimeI, double minTimeI) {
         //Observations
         try {
             RecordingSettings settings = new RecordingSettings(getApplicationContext());
@@ -541,7 +536,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             DirectSender sender = new DirectSender(token);
             CommunicationManager mCommManager = new CommunicationManager(sender);
             Long time = Calendar.getInstance().getTimeInMillis();
-            Observation obsASTDirC = new Observation (dirErrorsC, patientCode, "PDTAST_DIR_C", time);
+            Observation obsASTDirC = new Observation(dirErrorsC, patientCode, "PDTAST_DIR_C", time);
             obsASTDirC.PatientId = patientCode;
             Observation obsASTDirI = new Observation(dirErrorsI, patientCode, "PDTAST_DIR_I", time);
             obsASTDirI.PatientId = patientCode;
@@ -549,9 +544,9 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             obsASTPosC.PatientId = patientCode;
             Observation obsASTPosI = new Observation(posErrorsI, patientCode, "PDTAST_POS_I", time);
             obsASTPosI.PatientId = patientCode;
-            Observation obsASTTimeoutC = new Observation (timeoutErrorsC, patientCode, "PDTAST_TIMEOUT_C", time);
+            Observation obsASTTimeoutC = new Observation(timeoutErrorsC, patientCode, "PDTAST_TIMEOUT_C", time);
             obsASTTimeoutC.PatientId = patientCode;
-            Observation obsASTTimeoutI = new Observation (timeoutErrorsI, patientCode, "PDTAST_TIMEOUT_I", time);
+            Observation obsASTTimeoutI = new Observation(timeoutErrorsI, patientCode, "PDTAST_TIMEOUT_I", time);
             obsASTTimeoutI.PatientId = patientCode;
             Observation obsASTMeanRTC = new Observation(meanTimeC, patientCode, "PDTAST_MEAN_C", time);
             obsASTMeanRTC.PatientId = patientCode;
@@ -587,7 +582,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
     }
 
     @Override
-    public void finishTest(){
+    public void finishTest() {
 
         try {
             writeFile(test, header);
@@ -632,7 +627,7 @@ public class AttentionSwitchingTaskTest extends SoundFeedbackActivity {
             buttonExit.setVisibility(View.GONE);
             */
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.v(LOGGER_TAG, "Exception finishing activity: " + e.toString());
         }
         super.finishTest();

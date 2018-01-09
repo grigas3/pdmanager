@@ -49,17 +49,17 @@ public class ConferenceViewController implements View.OnClickListener {
 
     public ConferenceViewController(final View view, Context context, VideoApp application) {
         conferenceView = (ConferenceView) view.findViewById(R.id.conference_view);
-        scrollView = (CustomScrollView)view.findViewById(R.id.scroll_view);
+        scrollView = (CustomScrollView) view.findViewById(R.id.scroll_view);
         inflater = LayoutInflater.from(context);
         this.application = application;
 
         mainLooper = new Handler(Looper.getMainLooper());
 
-        final Window window = ((Activity)application.getContext()).getWindow();
+        final Window window = ((Activity) application.getContext()).getWindow();
         final int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
 
         displayMetrics = new DisplayMetrics();
-        ((Activity)application.getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        ((Activity) application.getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         conferenceView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -151,7 +151,7 @@ public class ConferenceViewController implements View.OnClickListener {
     private VideoViewItem findItem(String userId) {
         for (VideoViewItem item : items) {
             if (item.userId.equals(userId)) {
-                return  item;
+                return item;
             }
         }
 
@@ -167,33 +167,31 @@ public class ConferenceViewController implements View.OnClickListener {
         int x, y;
 
         for (int i = 0; i < childCount; i++) {
-            View v = conferenceView.getChildAt( i );
-            if( v.getVisibility() != View.GONE ) {
+            View v = conferenceView.getChildAt(i);
+            if (v.getVisibility() != View.GONE) {
 
                 x = column * childWidth;
                 y = row * childHeight;
 
-                if( isFullScreenMode && v == clickedView ) {
+                if (isFullScreenMode && v == clickedView) {
 
-                    conferenceView.layoutView( v, 0, 0, childWidth * 2, childHeight * 2 );
-                    v.setVisibility( View.VISIBLE );
+                    conferenceView.layoutView(v, 0, 0, childWidth * 2, childHeight * 2);
+                    v.setVisibility(View.VISIBLE);
 
-                }
-                else if( isFullScreenMode ) {
+                } else if (isFullScreenMode) {
 
-                    conferenceView.layoutView( v, x, y, x + 1, y + 1 );
-                    v.setVisibility( View.INVISIBLE );
+                    conferenceView.layoutView(v, x, y, x + 1, y + 1);
+                    v.setVisibility(View.INVISIBLE);
 
-                }
-                else if( ! isFullScreenMode ) {
+                } else if (!isFullScreenMode) {
 
-                    conferenceView.layoutView( v, x, y, x + childWidth, y + childHeight );
-                    v.setVisibility( View.VISIBLE );
+                    conferenceView.layoutView(v, x, y, x + childWidth, y + childHeight);
+                    v.setVisibility(View.VISIBLE);
                 }
 
                 column = column + 1;
 
-                if( column >= COLUMNS_NUMBER ) {
+                if (column >= COLUMNS_NUMBER) {
                     column = 0;
                     row = row + 1;
                 }
@@ -203,10 +201,10 @@ public class ConferenceViewController implements View.OnClickListener {
 
     public void onConfigurationChanged() {
 
-        final Window window = ((Activity)application.getContext()).getWindow();
+        final Window window = ((Activity) application.getContext()).getWindow();
         int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
 
-        ((Activity)application.getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        ((Activity) application.getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         int w = displayMetrics.widthPixels;
         int h = displayMetrics.heightPixels - contentViewTop - contentViewBottom;
@@ -246,13 +244,13 @@ public class ConferenceViewController implements View.OnClickListener {
     }
 
     public class VideoViewItem {
+        private final String userId;
+        private final String userData;
         private View view = null;
         private TextView displayNameTextView = null;
         private TextView noVideoMessage = null;
         private ImageView avatarImageView = null;
         private VideoRender videoRender = null;
-        private final String userId;
-        private final String userData;
         private VideoPanel.VideoRenderStateChangeListener listener = null;
 
         public VideoViewItem(String userId, String userData) {
@@ -267,7 +265,7 @@ public class ConferenceViewController implements View.OnClickListener {
             } else {
                 videoRender = (VideoRender) view.findViewById(R.id.video_panel_view);
 
-                VideoPanel videoPanel = (VideoPanel)videoRender;
+                VideoPanel videoPanel = (VideoPanel) videoRender;
                 String videoModeValue = application.getSettings().get(VideoSettings.VideoModeKey);
                 if (videoModeValue != null) {
                     videoPanel.setVideoFittingMode(VideoPanel.FittingMode.fromString(videoModeValue));
@@ -329,19 +327,19 @@ public class ConferenceViewController implements View.OnClickListener {
 
         public void setVideoRenderStateChangeListener(VideoRender video, VideoPanel.VideoRenderStateChangeListener listener) {
             if (video instanceof CustomVideoPanel) {
-                ((CustomVideoPanel)video).setVideoRenderStateChangeListener(listener);
+                ((CustomVideoPanel) video).setVideoRenderStateChangeListener(listener);
             } else if (video instanceof VideoPanel) {
-                ((VideoPanel)video).setVideoRenderStateChangeListener(listener);
+                ((VideoPanel) video).setVideoRenderStateChangeListener(listener);
             }
         }
 
         public void showVideo() {
-            ((View)videoRender).setVisibility(View.VISIBLE);
+            ((View) videoRender).setVisibility(View.VISIBLE);
         }
 
         public void showAvatar() {
             avatarImageView.setVisibility(View.VISIBLE);
-            ViewGroup vg = (ViewGroup)avatarImageView.getParent() ;
+            ViewGroup vg = (ViewGroup) avatarImageView.getParent();
             vg.bringChildToFront(avatarImageView);
             vg.bringChildToFront(displayNameTextView);
             avatarImageView.invalidate();
@@ -358,7 +356,7 @@ public class ConferenceViewController implements View.OnClickListener {
         public void showNoVideoMessage() {
             noVideoMessage.setVisibility(View.VISIBLE);
 
-            ViewGroup vg = (ViewGroup)noVideoMessage.getParent() ;
+            ViewGroup vg = (ViewGroup) noVideoMessage.getParent();
             vg.bringChildToFront(noVideoMessage);
         }
 

@@ -73,6 +73,7 @@ public class LogAdapter {
         */
 
     }
+
     public Cursor fetchLogs() {
 
 

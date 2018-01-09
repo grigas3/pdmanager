@@ -154,7 +154,7 @@
     <string name="label_your_email">Email</string>
     <string name="hint_your_name">e.g. Larry</string>
     <string name="hint_your_email">Optional</string>
-    
+
 
     <string name="submit_confirm_message">Are you sure?</string>
     <string name="submit_confirm_button">Submit</string>
@@ -221,7 +221,7 @@
     <string name="room_title">Room</string>
     <string name="make_call_title">Make call</string>
     <string name="use_custom_render">Use custom video render</string>
-	<string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
         send downstream messages to this app.</string>
     <string name="registering_message">Generating InstanceID token...</string>
     <string name="token_error_message">An error occurred while either fetching the InstanceID token,
@@ -250,10 +250,10 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <!--<string name="welcome">Welcome!</string>-->
-	
-	<!-- cognition -->
 
-	<string name="emotion_recognition_task">Emotion Recognition Task</string>
+    <!-- cognition -->
+
+    <string name="emotion_recognition_task">Emotion Recognition Task</string>
     <string name="paired_associates_learning">Paired Associates Learning</string>
     <string name="pattern_recognition_memory">Pattern Recognition Memory</string>
     <string name="spatial_working_memory">Spatial Working Memory</string>
@@ -263,10 +263,10 @@
     <string name="visual_analogue_scale">Visual Analogue Scale</string>
     <string name="wisconsin_card_sorting_test">Wisconsin Card Sorting</string>
     <string name="london_towers_test">London Towers</string>
-        <string name="target">Target:</string>
-        <string name="movement">Movement</string>
+    <string name="target">Target:</string>
+    <string name="movement">Movement</string>
     <string name="level">Level</string>
-	<string name="title_menu10">Visual Learning</string>
+    <string name="title_menu10">Visual Learning</string>
 
     <string name="menuFirst">Finger Tapping Test</string>
     <string name="menuSecond">Cognitive Tests</string>
@@ -280,7 +280,7 @@
     <string name="title_menu7">AST</string>
     <string name="title_menu8">VAS</string>
     <string name="title_menu9">WCS</string>
-	
+
     <string name="start">Start</string>
     <!--<string name="next">Next</string>-->
     <string name="True">True</string>
@@ -316,15 +316,15 @@
     <string name="swm_instruction">You will see some coloured boxes on the screen. In one box will be a blue token. Touch the boxes to look for a blue token. You have to collect enough tokens to fill the black hole on the right of the screen. To collect the token, touch the black hole. A token will never appear in the same box more than once.</string>
     <string name="swm_results">Results of Spatial Working Memory Task:</string>
     <string name="swm_levels">Level</string>
-	<string name="instruction_start_swm">You will see different boxes containing a blue square or not. Find the square and put it in the column on the left.</string>
-    
+    <string name="instruction_start_swm">You will see different boxes containing a blue square or not. Find the square and put it in the column on the left.</string>
+
     <string name="ssp_instruction">For this test, you will see some squares on the screen and these will change colour one by one. Remember the order in which the squares changes colour. You will hear a tone to tell you the sequence has finished. Then, touch the squares in the same order that they changed colour.</string>
     <string name="ssp_results">Results of Spatial Span Task:</string>
     <string name="spatialSpan_instruction">You will see a sequence of purple squares appear, touch the boxes in the same order.</string>
     <string name="ssp_levels">Level</string>
     <string name="ssp_trial">Trial</string>
     <string name="ssp_patterns">patterns</string>
-	
+
     <string name="sst_instruction_first">First part of test: an arrow will appear in a circle, pointing either to the left or to the right. When you see the arrow pointing to the left, press the left arrow button. When you see the arrow pointing to the right, press the right arrow button. Press the buttons as quickly as you can, whilst trying to avoid making mistakes.</string>
     <string name="sst_instruction_second">Second part of test: an arrow will appear in a circle, pointing either to the left or to the right. When you see the arrow pointing to the left, press the left arrow button. When you see the arrow pointing to the right, press the right arrow button. BUT, if you hear a BEEP immediately after an arrow appears, DO NOT press either button. Press the buttons as quickly as you can, whilst trying to avoid making mistakes.</string>
     <string name="sst_results">Results of Stop Signal Task:</string>
@@ -375,7 +375,7 @@
     <string name="vas2_s2">\nNeutral</string>
     <string name="vas2_s3">Agree</string>
     <string name="vas2_s4">Strongly\nagree</string>
-	<string name="vas2_question1">Do you feel happy today?</string>
+    <string name="vas2_question1">Do you feel happy today?</string>
 
     <string name="palprm_instruction">Now you will see a series of coupled pictures. Please, try to remember the couples because, then, you will be presented only with one picture of the couple and you will have to choose the other one, picking the right one among 4 options. You will repeat the same exercise three time, with the same couples, so you will get more familiar with them.</string>
     <string name="london_towers_instruction">Here you have 3 gray boxes and different colored 3 coins. You will have to arrange these coins according to the disposition displayed in the figure on the left side of the screen. Tap the coin to select it and then tap the destination box. Please try to make less moves as possible.</string>
@@ -396,7 +396,7 @@
     <string name="fttEndMessage">Well done! you have finished.</string>
     <string name="fttEndButtonRepeat">Take another test</string>
     <string name="fttEndButtonExit">Exit</string>
-    
+
     <string name="palprm_title0">Remember the following pair of icons</string>
     <string name="palprm_title1">Choose the icon that matches the pair previously shown with the left icon</string>
 
@@ -440,9 +440,7 @@
     <string name="task_number" formatted="false">Welcome. You have  %1$d pending task(s).</string>
 
     <string name="patient_home_notask" formatted="false">You DON\'T have any pending tasks!</string>
-    <string name="patient_med_instructions" >Press yes if you have taken all your medication today up to now. If not please press not.</string>
-
-
+    <string name="patient_med_instructions">Press yes if you have taken all your medication today up to now. If not please press not.</string>
 
 
     <string name="diaryMsg">Please enter how you were feeling  until now</string>

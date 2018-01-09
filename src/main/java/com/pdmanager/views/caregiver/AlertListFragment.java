@@ -24,7 +24,6 @@ import com.pdmanager.R;
 import com.pdmanager.alerting.AlertAdapter;
 import com.pdmanager.alerting.AlertCursorAdapter;
 import com.pdmanager.alerting.AlertLoader;
-
 import com.pdmanager.alerting.AlertObserver;
 import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.views.BasePDFragment;
@@ -33,7 +32,7 @@ import com.pdmanager.views.FragmentListener;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class AlertListFragment extends BasePDFragment implements FragmentListener,LoaderManager.LoaderCallbacks<Cursor> {
+public class AlertListFragment extends BasePDFragment implements FragmentListener, LoaderManager.LoaderCallbacks<Cursor> {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -63,14 +62,15 @@ public class AlertListFragment extends BasePDFragment implements FragmentListene
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initAdapter(getActivity());
 
 
-
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,8 +86,6 @@ public class AlertListFragment extends BasePDFragment implements FragmentListene
                 getLoaderManager().initLoader(LOADER_ID, null, this).forceLoad();
             }
         } catch (Exception ex) {
-
-
 
 
         }
@@ -109,6 +107,7 @@ public class AlertListFragment extends BasePDFragment implements FragmentListene
             }
         }
     }
+
     private void initAdapter(Context context) {
 
 
@@ -160,8 +159,6 @@ public class AlertListFragment extends BasePDFragment implements FragmentListene
 
         mAdapter.swapCursor(null);
     }
-
-
 
 
 }

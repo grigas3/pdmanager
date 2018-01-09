@@ -12,13 +12,12 @@ public class BandMessage {
     private final long mTimestamp;
     private final boolean mBandMessage;
 
-    public BandMessage(String title, String message, long timestamp,boolean bandMes) {
+    public BandMessage(String title, String message, long timestamp, boolean bandMes) {
 
-
-        this.mTitle=title;
-        this.mMessage=message;
-        this.mTimestamp=timestamp;
-        this.mBandMessage=bandMes;
+        this.mTitle = title;
+        this.mMessage = message;
+        this.mTimestamp = timestamp;
+        this.mBandMessage = bandMes;
     }
 
 
@@ -28,14 +27,12 @@ public class BandMessage {
         return mTitle;
     }
 
-    public String getMessage()
-    {
+    public String getMessage() {
 
         return mMessage;
     }
 
-    public long getTimestamp()
-    {
+    public long getTimestamp() {
 
         return mTimestamp;
     }

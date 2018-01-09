@@ -8,9 +8,13 @@ import java.util.ArrayList;
 
 public interface ICommunicationQueue {
     JsonStorage poll();
+
     boolean push(JsonStorage s);
+
     boolean delete(String id);
+
     void close();
+
     ArrayList<JsonStorage> getLastN(int n);
 
 }

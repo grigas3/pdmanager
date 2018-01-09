@@ -24,7 +24,6 @@ public abstract class BaseDataLogger {
     protected abstract String getTag();
 
 
-
     protected ISensorDataHandler getSensorHandler() {
 
         return mHandler;

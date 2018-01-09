@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <RelativeLayout
         android:id="@+id/busy_BusyIndicator"
         android:layout_width="match_parent"
@@ -10,6 +11,7 @@
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:textAppearance="?android:attr/textAppearanceLarge">
+
         <TextView
             android:id="@+id/textSending"
             android:layout_width="wrap_content"
@@ -17,14 +19,15 @@
             android:layout_centerInParent="true"
             android:text="@string/savingString"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold"/>
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textSending"
             android:layout_centerInParent="true" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
@@ -72,6 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:src="@drawable/mood_excellent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
@@ -95,6 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:src="@drawable/mood_good"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
@@ -118,6 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:src="@drawable/mood_okay"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
@@ -141,6 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:src="@drawable/mood_bad"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
@@ -164,6 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:src="@drawable/mood_awfull"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
@@ -457,20 +465,20 @@
             </LinearLayout>
 
 
-
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
             android:background="#CDCDCD"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
-            <View android:id="@+id/halfparent"
-                  android:layout_width="0dp"
-                  android:layout_height="0dp"
-                  android:layout_centerHorizontal="true"/>
+            <View
+                android:id="@+id/halfparent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"/>
 
             <!--<Button-->
             <!--android:id="@+id/button_mood_back"-->
@@ -537,7 +545,6 @@
 
         </RelativeLayout>
     </RelativeLayout>
-
 
 
 </RelativeLayout>

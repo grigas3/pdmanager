@@ -123,7 +123,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     WatchdogAlarmReceiver alarm = new WatchdogAlarmReceiver();
 
 
-
     private Button mButtonConnect;
     private Button mButtonChooseBand;
     private Button mButtonSetLimits;
@@ -336,11 +335,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                     }
                     //       else {
 //
-                        ///IN ANDROID 23+ WE NEED TO ASK FOR EXTRA STORAGE PERMISSIONS
-                        requirePermissions(getActivity());
-                        busyIndicator.setVisibility(View.VISIBLE);
-                        layout.setVisibility(View.INVISIBLE);
-                        new StartServiceTask(settings.getPatientID(), settings.getToken()).execute();
+                    ///IN ANDROID 23+ WE NEED TO ASK FOR EXTRA STORAGE PERMISSIONS
+                    requirePermissions(getActivity());
+                    busyIndicator.setVisibility(View.VISIBLE);
+                    layout.setVisibility(View.INVISIBLE);
+                    new StartServiceTask(settings.getPatientID(), settings.getToken()).execute();
 
 
 //                    }
@@ -376,10 +375,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
         cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), hour, 0, 0);
 
+        return cal1.getTimeInMillis() + 24 * 60 * 60 * 1000;
 
-        return cal1.getTimeInMillis()+24*60*60*1000;
-
- //       return cal1.getTimeInMillis();
+        //       return cal1.getTimeInMillis();
     }
 
     private void initAlerts(RecordingSettings settings) {
@@ -404,7 +402,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         manager.add(new UserAlert("PD_Manager", msg, "COGN2", date1.getTime(), getTimeFromHour(cognHour2), "SYSTEM"));
 
 
-
         // Med Test 1
         manager.add(new UserAlert("PD_Manager", msg, "MED", date1.getTime(), getTimeFromHour(medHour1), "SYSTEM"));
         // Med Question 2
@@ -415,7 +412,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         //Test
         //getTimeFromHour(diary)
 
-        if(settings.getEnableDiary()) {
+        if (settings.getEnableDiary()) {
             manager.add(new UserAlert("PD_Manager", msg, "DIARY", date1.getTime(), getTimeFromHour(diary), "SYSTEM"));
 
         }
@@ -474,7 +471,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         int permission6 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
         if (permission6 != PackageManager.PERMISSION_GRANTED) {
 
-             return false;
+            return false;
         }
     /*    try {
             BandClientManager manager = BandClientManager.getInstance();
@@ -814,11 +811,10 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         mbuttonMSHealthSync = (Button) rootView.findViewById(R.id.buttonGetMSHealth);
         mbuttonMSHealthSync.setOnClickListener(mbuttonMSHealthSyncListener);
 
-            mButtonLogin = (Button) rootView.findViewById(R.id.buttonLogin);
+        mButtonLogin = (Button) rootView.findViewById(R.id.buttonLogin);
         mButtonLogin.setOnClickListener(mbuttonLoginListener);
 
-
-        mTextMSHealth=(TextView) rootView.findViewById(R.id.textMSHealth);
+        mTextMSHealth = (TextView) rootView.findViewById(R.id.textMSHealth);
 
         mMonitoringStatus = (TextView) rootView.findViewById(R.id.textConnectionStatus);
         mSensorStatus = (TextView) rootView.findViewById(R.id.textSensorStatus);
@@ -837,8 +833,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             mTextPermissions.setTextColor(Color.GREEN);
         }
 
-        if(getSettings().getMSSynced())
-        {
+        if (getSettings().getMSSynced()) {
             mTextMSHealth.setTextColor(Color.GREEN);
         }
 
@@ -888,13 +883,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         RecordingSettings settings = getSettings();
         if (settings != null) {
 
-            if(settings.getMSSynced())
-            {
+            if (settings.getMSSynced()) {
 
                 mTextLoggedIn.setTextColor(Color.GREEN);
 
-            }
-            else
+            } else
                 mTextLoggedIn.setTextColor(Color.RED);
 
             if (settings.getLoggedIn()) {
@@ -963,8 +956,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                                 mbuttonMSHealthSync.setEnabled((true));
 
 
-
-
                             }
 
 
@@ -994,11 +985,9 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         try {
             sensorManager.requestHeartRateConsent(getActivity(), this);
 
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
 
-            Log.e(TAG,ex.getMessage());
+            Log.e(TAG, ex.getMessage());
         }
 
     }
@@ -1066,35 +1055,35 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                             if (mSensorStatus != null) {
                                 mSensorStatus.setVisibility(View.VISIBLE);
 
-                                    if (service.hasFatalError())
+                                if (service.hasFatalError())
+
+                                {
+
+                                    if (service.getFatalErrorCode() == 2) {
+                                        mSensorStatus.setText("Band is not recording...please move phone close to your Band");
+
+
+                                    }
+
+                                    if (service.getFatalErrorCode() == 1) {
+                                        mSensorStatus.setText("Band is not paired...please re-pair your Band from the band device");
+
+
+                                    } else
 
                                     {
 
-                                        if (service.getFatalErrorCode() == 2) {
-                                            mSensorStatus.setText("Band is not recording...please move phone close to your Band");
-
-
-                                        }
-
-                                        if (service.getFatalErrorCode() == 1) {
-                                            mSensorStatus.setText("Band is not paired...please re-pair your Band from the band device");
-
-
-                                        } else
-
-                                        {
-
-                                            mSensorStatus.setText("Exception while connecting to Band");
-
-                                        }
-                                        mSensorStatus.setTextColor(Color.RED);
-
-                                    } else {
-
-                                        mSensorStatus.setText("ALL OK");
-                                        mSensorStatus.setTextColor(Color.GREEN);
+                                        mSensorStatus.setText("Exception while connecting to Band");
 
                                     }
+                                    mSensorStatus.setTextColor(Color.RED);
+
+                                } else {
+
+                                    mSensorStatus.setText("ALL OK");
+                                    mSensorStatus.setTextColor(Color.GREEN);
+
+                                }
 
                             }
 
@@ -1130,7 +1119,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
         @Override
         protected Void doInBackground(Void... clientParams) {
 
-            RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
+            RecordingSettings settings = RecordingSettings.GetRecordingSettings(getActivity());
             settings.setSessionRunning(false);
             getService().StopRecording();
 
@@ -1138,7 +1127,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
             DataReceiver receiver = new DataReceiver(accessToken);
 
-            UserAlertManager manager=new UserAlertManager(getActivity());
+            UserAlertManager manager = new UserAlertManager(getActivity());
 
             manager.clearAll();
 
@@ -1160,12 +1149,10 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
                 }
             }
 
-
-
-
-                return null;
+            return null;
 
         }
+
         protected void onPostExecute(Void result) {
             mButtonConnect.setEnabled(false);
             mButtonConnect.setBackgroundColor(Color.GRAY);
@@ -1185,10 +1172,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             this.accessToken = a;
 
         }
+
         @Override
         protected Void doInBackground(Void... clientParams) {
 
-            RecordingSettings settings=RecordingSettings.GetRecordingSettings(getActivity());
+            RecordingSettings settings = RecordingSettings.GetRecordingSettings(getActivity());
 
 
             Time today = new Time(Time.getCurrentTimezone());
@@ -1227,6 +1215,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             return null;
 
         }
+
         protected void onPostExecute(Void result) {
             mButtonConnect.setEnabled(false);
             mButtonConnect.setBackgroundColor(Color.GRAY);
@@ -1303,9 +1292,6 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
             }
 
 
-
-
-
         }
 
     }
@@ -1335,36 +1321,33 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
                 List<Device> devices = receiver.GetDevices(code);
 
-                boolean deviceFound=false;
+                boolean deviceFound = false;
                 if (devices.size() > 0) {
 
                     for (Device d : devices) {
 
-
-                        Log.d(TAG,"Device Id" +d.Id);
-                        Log.d(TAG,"Device PatientId" +d.PatientId);
-                        Log.d(TAG,"Device Model" +d.Model);
-                        if (d.PatientId!=null&&d.PatientId.equals(code)) {
+                        Log.d(TAG, "Device Id" + d.Id);
+                        Log.d(TAG, "Device PatientId" + d.PatientId);
+                        Log.d(TAG, "Device Model" + d.Model);
+                        if (d.PatientId != null && d.PatientId.equals(code)) {
                             res.DeviceId = d.Id;
-                            deviceFound=true;
+                            deviceFound = true;
                         }
 
                     }
-                    if(!deviceFound)
-                    {
+                    if (!deviceFound) {
 
-                        res.Error="No Device Found For Patient "+code;
-                        res.HasError=true;
+                        res.Error = "No Device Found For Patient " + code;
+                        res.HasError = true;
 
-                    }
-                    else
-                    res.HasError = false;
+                    } else
+                        res.HasError = false;
 
 
                 }
             } catch (Exception e) {
 
-                Log.e(TAG,e.getMessage(),e.getCause());
+                Log.e(TAG, e.getMessage(), e.getCause());
                 res.HasError = true;
             }
 
@@ -1383,16 +1366,11 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
 
                 mTextGetDevice.setTextColor(Color.GREEN);
-            }
-            else
-            {
+            } else {
                 mTextGetDevice.setText(result.Error);
                 mTextGetDevice.setTextColor(Color.RED);
 
             }
-
-
-
 
 
         }

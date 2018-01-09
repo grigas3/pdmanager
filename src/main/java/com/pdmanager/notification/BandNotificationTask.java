@@ -13,19 +13,16 @@ import com.microsoft.band.notifications.VibrationType;
 public class BandNotificationTask extends AsyncTask<Void, Void, Void> {
 
 
-
     private BandClient mClient;
     private String mTileUUID;
-    public BandNotificationTask(BandClient client)
-    {
-        this.mClient=client;
 
+    public BandNotificationTask(BandClient client) {
+        this.mClient = client;
 
 
     }
 
-    public static BandNotificationTask newInstance(BandClient client)
-    {
+    public static BandNotificationTask newInstance(BandClient client) {
 
         return new BandNotificationTask(client);
 
@@ -34,7 +31,6 @@ public class BandNotificationTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-
 
 
         try {

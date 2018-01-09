@@ -1,109 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/fragment_alert_med"
-    android:background="@color/white" >
+                android:id="@+id/fragment_alert_med"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
     <ProgressBar
         android:id="@+id/busy_BusyIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
     <RelativeLayout
         android:id="@+id/mainLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/alertText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:textSize="26sp"
-                android:textStyle="bold|italic"
-                android:text="@string/medicationConfirm"
-                android:textColor="#000"
-                android:background="@drawable/mood_title_background"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"/>
+        <TextView
+            android:id="@+id/alertText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/mood_title_background"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="@string/medicationConfirm"
+            android:textColor="#000"
+            android:textSize="26sp"
+            android:textStyle="bold|italic"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                >
-                <LinearLayout
-                    android:id="@+id/confirm"
-                    android:tag="0"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginBottom="90dp"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
+                android:id="@+id/confirm"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="90dp"
+                android:background="@drawable/selected_rounded_background"
+                android:clickable="true"
+                android:padding="10dp"
+                android:tag="0">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_meds_yes"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="36sp"
-                        android:gravity="center_vertical"
-                        android:text="Yes"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_meds_yes"/>
 
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/reject"
-                    android:tag="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/selected_rounded_background">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_meds_no"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#1D89E4"
-                        android:textSize="36sp"
-                        android:gravity="center_vertical"
-                        android:text="No"/>
-
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Yes"
+                    android:textColor="#1D89E4"
+                    android:textSize="36sp"/>
 
             </LinearLayout>
 
-        </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/reject"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/selected_rounded_background"
+                android:clickable="true"
+                android:padding="10dp"
+                android:tag="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_meds_no"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="No"
+                    android:textColor="#1D89E4"
+                    android:textSize="36sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:background="#CDCDCD"
-        >
+        android:orientation="horizontal">
 
-        <View android:id="@+id/halfparent"
+        <View
+            android:id="@+id/halfparent"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_centerHorizontal="true"/>
-
 
 
         <TextView
@@ -111,45 +114,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textStyle="bold|italic"
-            android:textColor="#555"
             android:text="Choose"
+            android:textAllCaps="true"
+            android:textColor="#555"
             android:textSize="18sp"
-            android:textAllCaps="true"/>
+            android:textStyle="bold|italic"/>
 
         <RelativeLayout
             android:id="@+id/button_mood_next"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/halfparent"
+            android:background="@drawable/button_blue_corner_radius"
+            android:paddingBottom="8dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@id/halfparent"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/button_blue_corner_radius"
             android:visibility="gone">
 
             <TextView
                 android:id="@+id/mood_act_done_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginRight="10dp"
                 android:text="Done"
                 android:textColor="#FFF"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="-20dp"
-                android:layout_marginRight="10dp"/>
+                android:textStyle="bold"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_chevron_right"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/mood_act_done_txt"/>
+                android:layout_toRightOf="@+id/mood_act_done_txt"
+                android:src="@drawable/ic_chevron_right"/>
 
         </RelativeLayout>
 

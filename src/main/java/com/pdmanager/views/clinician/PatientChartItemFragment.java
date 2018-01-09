@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.pdmanager.R;
 import com.pdmanager.views.BasePDFragment;
-import com.pdmanager.views.clinician.PatientChartFragment;
 import com.telerik.widget.list.ListViewAdapter;
 import com.telerik.widget.list.RadListView;
 
