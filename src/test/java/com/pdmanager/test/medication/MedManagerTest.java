@@ -5,9 +5,7 @@ package com.pdmanager.test.medication; /**
 
 
 import com.pdmanager.BuildConfig;
-import com.pdmanager.alerting.UserAlertManager;
 import com.pdmanager.medication.MedManager;
-import com.pdmanager.models.Alert;
 import com.pdmanager.models.MedTiming;
 import com.pdmanager.models.MedicationOrder;
 import com.pdmanager.models.UserAlert;
@@ -19,7 +17,6 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

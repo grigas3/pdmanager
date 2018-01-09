@@ -369,7 +369,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
     }
 
     private long getTimeFromHour(int hour) {
-        Date date1 = new java.util.Date();
+        Date date1 = new Date();
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
 
@@ -382,7 +382,7 @@ public class RecordingServiceFragment extends BasePDFragment implements Fragment
 
     private void initAlerts(RecordingSettings settings) {
 
-        Date date1 = new java.util.Date();
+        Date date1 = new Date();
 
         int cognHour1 = settings.getCognHour1();
 

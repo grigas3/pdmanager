@@ -5,9 +5,6 @@ package com.pdmanager.test.communication; /**
 
 
 import com.pdmanager.BuildConfig;
-import com.pdmanager.alerting.UserAlertManager;
-import com.pdmanager.models.Alert;
-import com.pdmanager.models.UserAlert;
 import com.pdmanager.persistence.DBHandler;
 import com.pdmanager.persistence.SyncManager;
 

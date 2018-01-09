@@ -2,10 +2,10 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 14 //before 21
         targetSdkVersion 23
         versionCode 2
         multiDexEnabled true

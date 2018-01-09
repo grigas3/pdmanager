@@ -254,10 +254,10 @@ public class MedManager implements IMedManager {
 
     private boolean shouldTake(long time) {
 
-        Date date1 = new java.util.Date(time);
+        Date date1 = new Date(time);
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
-        Date date2 = new java.util.Date();
+        Date date2 = new Date();
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(date2);
         int time2 = cal2.get(Calendar.HOUR_OF_DAY) * 60 + cal2.get(Calendar.MINUTE);
@@ -467,10 +467,10 @@ public class MedManager implements IMedManager {
 
     private boolean isNext(long time) {
 
-        Date date1 = new java.util.Date(time);
+        Date date1 = new Date(time);
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
-        Date date2 = new java.util.Date();
+        Date date2 = new Date();
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(date2);
         int time2 = cal2.get(Calendar.HOUR_OF_DAY) * 60 + cal2.get(Calendar.MINUTE);
@@ -482,10 +482,10 @@ public class MedManager implements IMedManager {
 
 
     private long convertToDay(long time) {
-        Date date1 = new java.util.Date(time);
+        Date date1 = new Date(time);
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
-        Date date2 = new java.util.Date();
+        Date date2 = new Date();
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(date2);
         long t2 = cal2.getTimeInMillis();

@@ -594,10 +594,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                             if (codeTextMapping.containsKey(a.getAlertType())) {
 
-                                Date date1 = new java.util.Date(a.getExpiration());
+                                Date date1 = new Date(a.getExpiration());
                                 Calendar cal1 = Calendar.getInstance();
                                 cal1.setTime(date1);
-                                Date date2 = new java.util.Date();
+                                Date date2 = new Date();
                                 Calendar cal2 = Calendar.getInstance();
                                 cal2.setTime(date2);
                                 long d = (date1.getTime() - date2.getTime()) / 1000 / 60;
@@ -651,10 +651,10 @@ public class PatientHomeFragment extends AlertPDFragment implements IServiceStat
 
                             if (codeLayoutMapping.containsKey(a.getAlertType())) {
 
-                                Date date1 = new java.util.Date(a.getExpiration());
+                                Date date1 = new Date(a.getExpiration());
                                 Calendar cal1 = Calendar.getInstance();
                                 cal1.setTime(date1);
-                                Date date2 = new java.util.Date();
+                                Date date2 = new Date();
                                 Calendar cal2 = Calendar.getInstance();
                                 cal2.setTime(date2);
                                 long d = (date1.getTime() - date2.getTime()) / 1000 / 60;

@@ -302,7 +302,7 @@ public abstract class BaseTestActivity extends FragmentActivity implements
                 DirectSender sender = new DirectSender(accessToken);
                 CommunicationManager mCommManager = new CommunicationManager(sender);
 
-                Date date1 = new java.util.Date();
+                Date date1 = new Date();
                 Calendar cal1 = Calendar.getInstance();
                 cal1.setTime(date1);
                 ArrayList<Observation> obsC = new ArrayList<>();

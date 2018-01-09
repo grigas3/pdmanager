@@ -49,8 +49,8 @@ public class VitalMonitoring implements IDataProcessor {
 
     {
 
-        Date date1 = new java.util.Date();
-        Date date2 = new java.util.Date(lastDataSend);
+        Date date1 = new Date();
+        Date date2 = new Date(lastDataSend);
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -169,7 +169,7 @@ public class VitalMonitoring implements IDataProcessor {
 
 
             if (!sameDay()) {
-                Date date1 = new java.util.Date();
+                Date date1 = new Date();
                 Calendar cal1 = Calendar.getInstance();
                 cal1.setTime(date1);
 

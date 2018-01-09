@@ -1096,7 +1096,7 @@ public abstract class VideoApp extends TrackedApplication implements VideoContro
                         LogSdk.d(TAG, "sendAcknowledgement sent delivered acknowledgement");
                         sdk.getMessaging().sendAcknowledgement(Messaging.MessageAcknowledgeState.Read, message, new ooVooSdkResultListener() {
                             @Override
-                            public void onResult(ooVooSdkResult ooVooSdkResult) {
+                            public void onResult(com.oovoo.sdk.interfaces.ooVooSdkResult ooVooSdkResult) {
                                 if (ooVooSdkResult.getResult() != sdk_error.OK) {
                                     LogSdk.e(TAG, "Error on sending read acknowledgement: " + ooVooSdkResult.getDescription());
                                 } else {

@@ -101,7 +101,7 @@ public class JsonSerializationHelper {
         try {
             outputStream = new FileOutputStream(file);
             BufferedWriter bufferedWriter;
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,
                         StandardCharsets.UTF_8));
             } else {
@@ -138,7 +138,7 @@ public class JsonSerializationHelper {
         try {
             outputStream = new FileOutputStream(file);
             BufferedWriter bufferedWriter;
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,
                         StandardCharsets.UTF_8));
             } else {

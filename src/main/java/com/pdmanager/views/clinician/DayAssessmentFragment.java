@@ -151,7 +151,7 @@ public class DayAssessmentFragment extends BasePDFragment implements IObservatio
 
         ArrayList<String> codes = new ArrayList<String>();
 
-        Date date1 = new java.util.Date(day);
+        Date date1 = new Date(day);
         date1.setHours(0);
         date1.setMinutes(0);
         //Date date2= new java.util.Date(t2);

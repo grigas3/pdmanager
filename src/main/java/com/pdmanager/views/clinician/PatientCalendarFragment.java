@@ -531,8 +531,8 @@ public class PatientCalendarFragment extends BaseCalendarFragment {
 
         {
 
-            Date date1 = new java.util.Date(t1);
-            Date date2 = new java.util.Date(t2);
+            Date date1 = new Date(t1);
+            Date date2 = new Date(t2);
             Calendar cal1 = Calendar.getInstance();
             Calendar cal2 = Calendar.getInstance();
             cal1.setTime(date1);

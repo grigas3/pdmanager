@@ -1,4 +1,4 @@
-/*package com.medlab.pdmanagerhome.communication;
+package com.pdmanager.communication;/*package com.medlab.pdmanagerhome.communication;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -23,8 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.R;
+import com.pdmanager.app.PDApplicationContext;
 import com.pdmanager.settings.RecordingSettings;
 import com.pdmanager.views.common.AboutFragment;
 import com.pdmanager.views.common.LoginActivity;
