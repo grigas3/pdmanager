@@ -38,13 +38,13 @@ public class DssInfoAdapter extends ListViewDataSourceAdapter {
 
         DssInfo recipe = (DssInfo) entity;
 
-        recipeViewHolder.itemSubscriber.setText(recipe.CreatedBy);
-        recipeViewHolder.itemDate.setText(recipe.getDate().toString());
+        //recipeViewHolder.itemSubscriber.setText(recipe.CreatedBy);
+       // recipeViewHolder.itemDate.setText(recipe.getDate().toString());
 
-        if (recipe.Code != null && recipe.Code.toLowerCase().equals("high")) {
+        if (recipe.Value != null && (recipe.Value.toLowerCase().equals("high")||recipe.Value.toLowerCase().equals("severe")||recipe.Value.toLowerCase().equals("change")||recipe.Value.toLowerCase().equals("problematic"))) {
 
             recipeViewHolder.itemText.setTextColor(Color.parseColor("#ff2222"));
-        } else if (recipe.Code != null && recipe.Code.toLowerCase().equals("normal")) {
+        } else if (recipe.Value != null && (recipe.Code.toLowerCase().equals("normal")||recipe.Code.toLowerCase().equals("moderate"))) {
             recipeViewHolder.itemText.setTextColor(Color.parseColor("#22ff22"));
 
         } else
@@ -53,15 +53,15 @@ public class DssInfoAdapter extends ListViewDataSourceAdapter {
         //    recipeViewHolder.itemPriority.setText(recipe.Priority);
         //recipeViewHolder.itemStatus.setTextColor(Color.parseColor("#224422"));
 
-        recipeViewHolder.itemCode.setText(recipe.Code);
-        if (recipe.Code.equals("Decision")) {
+        recipeViewHolder.itemCode.setText(recipe.Name);
+      /*  if (recipe.Code.equals("Decision")) {
             recipeViewHolder.itemCode.setText("Suggestion regarding the medication");
         } else if (recipe.Code.equals("Rule")) {
             recipeViewHolder.itemCode.setText("Reasoning");
         } else if (recipe.Code.equals("Medication_change")) {
             recipeViewHolder.itemCode.setText("The suggested modification is");
         }
-
+*/
         recipeViewHolder.itemText.setText(recipe.Value);
         // off for now  recipeViewHolder.itemCode.setText("CHANGE");
         // off for now recipeViewHolder.itemText.setText("The patient seems to have many issues and problems and");

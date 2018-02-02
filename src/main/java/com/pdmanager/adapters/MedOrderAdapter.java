@@ -24,35 +24,6 @@ public class MedOrderAdapter extends ListViewDataSourceAdapter {
 
     }
 
-/*
-    @Override
-    public void onBindSwipeContentHolder(ListViewHolder holder, int position) {
-        RelativeLayout mainLayout = (RelativeLayout)holder.itemView;
-        LinearLayout leftLayout = (LinearLayout)mainLayout.getChildAt(0);
-        LinearLayout rightLayout = (LinearLayout)mainLayout.getChildAt(1);
-
-        MedicationOrder recipe = (MedicationOrder) getItem(position);
-
-        if(recipe.Status.toLowerCase().equals("active")) {
-
-
-            super.onBindSwipeContentHolder(holder,position);
-            Button leftButton = new Button(mainLayout.getContext());
-            leftButton.setText("replace");
-
-            Button rightButton = new Button(mainLayout.getContext());
-            rightButton.setText("cancel");
-
-            leftLayout.removeAllViews();
-            leftLayout.addView(leftButton);
-
-            rightLayout.removeAllViews();
-            rightLayout.addView(rightButton);
-
-        }
-    }
-*/
-
     @Override
     public ListViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -100,39 +71,3 @@ public class MedOrderAdapter extends ListViewDataSourceAdapter {
 
 
 }
-
-/*
-public class CityAdapter extends ListViewAdapter {
-    public CityAdapter(List items) {
-        super(items);
-    }
-
-    @Override
-    public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.city_list_item, parent, false);
-        return new CityViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ListViewHolder holder, int position) {
-        CityViewHolder viewHolder = (CityViewHolder)holder;
-        City city = (City)getItems().get(position);
-        viewHolder.nameView.setText(city.getName());
-        viewHolder.countryView.setText(city.getCountry());
-    }
-
-    public static class CityViewHolder extends ListViewHolder {
-
-        TextView nameView;
-        TextView countryView;
-
-        public CityViewHolder(View itemView) {
-            super(itemView);
-
-            nameView = (TextView)itemView.findViewById(R.id.nameView);
-            countryView = (TextView)itemView.findViewById(R.id.countryView);
-        }
-    }
-}
- */

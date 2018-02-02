@@ -85,12 +85,42 @@ public class DataReceiver {
 
     }
 
+
+
+    public List<com.pdmanager.models.DssInfo> GetDss(String code,String patientCode) throws Exception {
+
+
+        CommunicationManager manager = new CommunicationManager(accessToken);
+        String param = "";
+        try {
+            param = "?code="+code+"&patientid=" + patientCode;
+        } catch (Exception ex) {
+
+        }
+        String jsonResponse = manager.Get("DSS", param);
+
+        try {
+            List<com.pdmanager.models.DssInfo> meds = gson.fromJson(jsonResponse, new TypeToken<List<com.pdmanager.models.DssInfo>>() {
+            }.getType());
+
+            return meds;
+        } catch (Exception e) {
+
+            Log.e("DATARECEIVER", "Get DSS Input", e.getCause());
+            throw e;
+        }
+
+        //   MedOrderListResult res=new MedOrderListResult();
+        //  res.Data=meds;
+
+
+    }
     public PatientListResult GetPatients() {
 
 
         CommunicationManager manager = new CommunicationManager(accessToken);
 
-        String jsonResponse = manager.Get("Patient", "/find?take=10&skip=0&filter=none&sort=none&sortdir=false&lastmodified=");
+        String jsonResponse = manager.Get("Patient", "/find?take=0&skip=0&filter=none&sort=none&sortdir=false&lastmodified=");
         List<Patient> patients = gson.fromJson(jsonResponse, new TypeToken<List<Patient>>() {
         }.getType());
         PatientListResult result = new PatientListResult();

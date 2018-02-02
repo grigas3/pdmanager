@@ -1,6 +1,7 @@
 package com.pdmanager.views.clinician;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -80,11 +81,24 @@ public class PatientChartFragment extends BasePDFragment implements IBasePatient
         }
         rootView = inflater.inflate(R.layout.fragment_patientchart, container, false);
         listView = (RadListView) rootView.findViewById(R.id.listView);
+        int screenSize = getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3);
 
-        //listView.getLayoutManager().se.setItemSpacing(20);
-        listView.setLayoutManager(layoutManager);
+        switch(screenSize) {
+            case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3);
+                listView.setLayoutManager(layoutManager);
+                break;
+
+            default:
+              break;
+        }
+
+
+
+
+
         if (patient != null) {
 
             PatientBaseChartFragmentManager manager = new PatientBaseChartFragmentManager(this);
@@ -102,9 +116,8 @@ public class PatientChartFragment extends BasePDFragment implements IBasePatient
         listView.addItemClickListener(new RadListView.ItemClickListener() {
             @Override
             public void onItemClick(int itemPosition, MotionEvent motionEvent) {
-//                if (itemPosition == slideLayoutManager.getCurrentPosition()) {
+
                 navigateToDetailsFragment(itemPosition);
-                //              }
             }
 
             @Override

@@ -208,7 +208,7 @@ public class PatientChartActivity extends ActionBarActivity implements PatientCh
 
     private void addFragmentForSection(String section, boolean addToBackStack) {
 
-        if (section.equalsIgnoreCase(PatientChartDrawerFragment.NAV_DRAWER_SECTION_LIST)) {
+        if (section.equalsIgnoreCase(PatientChartDrawerFragment.NAV_DRAWER_SECTION_LIST)||section.equalsIgnoreCase(PatientChartDrawerFragment.NAV_DRAWER_SECTION_LIST1)) {
 
             Intent mainActivity = new Intent(this, ClinicianActivity.class);
 

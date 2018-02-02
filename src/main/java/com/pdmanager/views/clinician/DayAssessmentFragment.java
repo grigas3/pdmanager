@@ -114,30 +114,7 @@ public class DayAssessmentFragment extends BasePDFragment implements IObservatio
                 if (navigator != null)
                     navigator.navigate(obs.getCode());
 
-/*
-                if (obs.getCategoryCode().equals("MOTOR") || obs.getCategoryCode().equals("ACT")) {
 
-                    DayObsChartFragment newFragment = new DayObsChartFragment();
-                    newFragment.setPatient(patient);
-
-                    Bundle args = new Bundle();
-
-                    args.putString("selectedCode", obs.getCode());
-                    newFragment.setArguments(args);
-
-
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                    transaction.replace(R.id.container, newFragment);
-
-                    transaction.addToBackStack(null);
-                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-                    transaction.commit();
-
-                }
-
-
-*/
             }
 
             @Override
@@ -169,8 +146,9 @@ public class DayAssessmentFragment extends BasePDFragment implements IObservatio
         codes.add("ACT_STAND");
         codes.add("TEST_BS11");
         codes.add("TEST_NMSS");*/
+        //TODO: Change those to the final codes
         if (patient != null)
-            FetchData(patient.Id, "LID;TREMOR_C;OFF;FOG;GAIT;BRAD;MED_ADH;TEST_BIS11;TEST_NMSS;NUTR_NRS2002;NUTR_MOP", day1, day1 + 24 * 60 * 60 * 1000, 4);
+            FetchData(patient.Id, "LID;TREMOR_C;OFF;STFOG;STUPDRSG;BRAD;MED_ADH;TEST_BIS11;TEST_NMSS;NUTR_NRS2002;NUTR_MOP", day1, day1 + 24 * 60 * 60 * 1000, 4);
 
 
         //new GetObservationsTask(getAccessToken()).execute();

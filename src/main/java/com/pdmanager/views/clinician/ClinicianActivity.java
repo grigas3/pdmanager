@@ -167,13 +167,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        // this.lastNavigationItemIndex = savedInstanceState.getInt("spinner_selection", this.lastNavigationItemIndex);
-       /* Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
-        if (currentFragment instanceof BasePDFragment) {
-            this.invalidateActionbar();
-            this.actionBar.setSelectedNavigationItem(this.lastNavigationItemIndex);
-        }
-        */
 
     }
 
@@ -208,8 +201,6 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         //THIS FUNCTIONALITY WILL BE USED IN THE NEXT VERSION OF THE EXAMPLES.
         Fragment controlsFragment = this.getSupportFragmentManager().findFragmentById(R.id.container);
-
-
         this.lastNavigationItemIndex = itemPosition;
 
         return false;
@@ -231,26 +222,12 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
 
         this.manageTipsPresenter(newFragment);
 
-     /*   if (newFragment instanceof BasePDFragment) {
-            BasePDFragment typedFragment = (BasePDFragment) newFragment;
-            if (this.lastNavigationItemIndex == 0) {
-                typedFragment.showAll();
-            } else if (this.lastNavigationItemIndex == 1) {
-                typedFragment.showHighlighted();
-            }
-        }
-       */
+
 
         this.app.loadFragment(this, newFragment, R.id.container, addToBackStack);
-    /*    if (newFragment instanceof FavoritesFragment) {
-            this.app.trackEvent(TrackedApplication.HOME_SCREEN, TrackedApplication.EVENT_SHOW_FAVOURITES);
-        }else if (newFragment instanceof AboutFragment){
-            this.app.trackEvent(TrackedApplication.HOME_SCREEN, TrackedApplication.EVENT_SHOW_ABOUT);
-        }
-        */
         this.invalidateOptionsMenu();
 
-//        this.invalidateOptionsMenu();
+
     }
 
     private void manageTipsPresenter(Fragment newFragment) {
@@ -316,13 +293,10 @@ public class ClinicianActivity extends ActionBarActivity implements ClinicianDra
         if (currentFragment instanceof PatientListFragment) {
             this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             this.actionBar.setTitle("Patient List");
-        } /* else if (currentFragment instanceof PatientListFragment) {
-            this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-            this.actionBar.setTitle(R.string.favoritesStringPascalCase);
-        }*/ else {
+        }  else {
             this.actionBar.setTitle("Home");
             this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-            //this.actionBar.setSelectedNavigationItem(this.lastNavigationItemIndex);
+
         }
     }
 

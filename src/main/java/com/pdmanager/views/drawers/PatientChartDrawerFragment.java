@@ -34,14 +34,15 @@ import com.telerik.viewmodels.MenuAction;
 public class PatientChartDrawerFragment extends Fragment {
 
     public static final String NAV_DRAWER_SECTION_HOME = "Home";
-    public static final String NAV_DRAWER_SECTION_CHART = "com.pdmanager.views.clinician.PatientChartFragment";
-    public static final String NAV_DRAWER_SECTION_CALENDAR = "com.pdmanager.views.clinician.PatientCalendarFragment";
-    public static final String NAV_DRAWER_SECTION_OBS = "com.pdmanager.views.clinician.ObservationChartFragment";
-    public static final String NAV_DRAWER_SECTION_DIST = "com.pdmanager.views.clinician.DistributionChartFragment";
-    public static final String NAV_DRAWER_SECTION_ASS = "com.pdmanager.views.clinician.AssessmentFragment";
-    public static final String NAV_DRAWER_SECTION_LIST = "com.pdmanager.views.clinician.ClinicianActivity";
+    public static final String NAV_DRAWER_SECTION_CHART = "com.pdmanager.views.PatientChartFragment";
+    public static final String NAV_DRAWER_SECTION_CALENDAR = "com.pdmanager.views.PatientCalendarFragment";
+    public static final String NAV_DRAWER_SECTION_OBS = "com.pdmanager.views.ObservationChartFragment";
+    public static final String NAV_DRAWER_SECTION_DIST = "com.pdmanager.views.DistributionChartFragment";
+    public static final String NAV_DRAWER_SECTION_ASS = "com.pdmanager.views.AssessmentFragment";
+    public static final String NAV_DRAWER_SECTION_LIST = "com.pdmanager.views.ClinicianActivity";
+    public static final String NAV_DRAWER_SECTION_LIST1 = "com.pdmanager.views.ClinicianActivity";
     public static final String NAV_DRAWER_SECTION_FAVORITES = "Favorites";
-    public static final String NAV_DRAWER_SECTION_DSS = "com.pdmanager.views.clinician.DssFragment";
+    public static final String NAV_DRAWER_SECTION_DSS = "com.pdmanager.views.DssFragment";
     /**
      * Remember the position of the selected item.
      */
@@ -282,6 +283,8 @@ public class PatientChartDrawerFragment extends Fragment {
     private void selectNavigationDrawerControl(int position) {
         this.updateSelectedSection(null);
         MenuAction control = (MenuAction) this.controlsList.getItemAtPosition(position);
+        if(control==null)
+            return;
         if (mDrawerLayout != null) {
             mDrawerLayout.closeDrawer(mFragmentContainerView);
         }

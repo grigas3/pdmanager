@@ -24,26 +24,23 @@ public class DssInfo implements Parcelable {
     };
     public String Code;
     public String Value;
+    public String Name;
     public String Category;
     public String Priority;
     public String CreatedBy;
-    public long Timestamp;
+
 
     protected DssInfo(Parcel in) {
         Code = in.readString();
         Value = in.readString();
+        Name = in.readString();
         Category = in.readString();
         Priority = in.readString();
         CreatedBy = in.readString();
-        Timestamp = in.readLong();
-    }
-
-    public Date getDate() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date(Timestamp));
-        return calendar.getTime();
 
     }
+
+
 
     public String getCategory() {
 
@@ -64,9 +61,10 @@ public class DssInfo implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(Code);
         dest.writeString(Value);
+        dest.writeString(Name);
         dest.writeString(Category);
         dest.writeString(Priority);
         dest.writeString(CreatedBy);
-        dest.writeLong(Timestamp);
+
     }
 }

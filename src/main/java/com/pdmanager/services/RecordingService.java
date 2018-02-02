@@ -591,7 +591,7 @@ public class RecordingService extends Service implements ISensorDataHandler, IPD
                 }
 
                 Log.v(TAG, str.toString());
-                ProcessLog("INFO", str.toString());
+                //ProcessLog("INFO", str.toString());
 
 
                 //Check for Medication User Alert

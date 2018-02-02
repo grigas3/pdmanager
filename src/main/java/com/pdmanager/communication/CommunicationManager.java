@@ -70,6 +70,8 @@ public class CommunicationManager {
         codemap.put("Alert", "http://pdmanager.3dnetmedical.com/api/logs");
         codemap.put("MedicationIntake", "http://pdmanager.3dnetmedical.com/api/medicationadministrations");
         codemap.put("Device", "http://pdmanager.3dnetmedical.com/api/devices");
+        codemap.put("DSS", "http://195.130.121.79:8086/api/dss");
+
     }
 
     private void initCodeMap() {
@@ -83,7 +85,7 @@ public class CommunicationManager {
         codemap.put("Log", "http://195.130.121.79/PD/api/Log");
         codemap.put("Alert", "http://195.130.121.79/PD/api/Alert");
         codemap.put("UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
-
+        codemap.put("DSS", "http://195.130.121.79/PD/api/v1/dsseval");
 
     }
 
@@ -213,9 +215,12 @@ public class CommunicationManager {
         String uri = codemap.get(itemCode);
         if (params != null)
             uri = uri + params;//"UsageStatistic", "http://195.130.121.79/PD/api/UsageStatistic");
-
+        Log.d("COMMMManager",uri);
 
         String response = client.Get(uri);
+
+
+        Log.d("COMMMManager",response);
 
 
         return response;

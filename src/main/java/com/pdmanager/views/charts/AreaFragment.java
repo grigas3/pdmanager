@@ -74,9 +74,9 @@ public abstract class AreaFragment extends BaseChartFragment {
                 new ObservationCode("Tremor", "TREMOR_C", "UPDRS"));
 
         codes.add(
-                new ObservationCode("Gait", "GAIT", "UPDRS"));
+                new ObservationCode("Gait", "STUPDRSG", "UPDRS"));
         codes.add(
-                new ObservationCode("FOG", "FOG", "UPDRS"));
+                new ObservationCode("FOG", "STFOG", "UPDRS"));
 
         //codes.add(
         //      new ObservationCode("Standing time", "ACT_STAND", "%"));

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by George on 6/14/2016.
  */
-public class MedicationOrder extends PDEntity implements Parcelable {
+public class MedicationOrder extends PDEntity implements Parcelable, Comparable<MedicationOrder> {
     public static final Creator<MedicationOrder> CREATOR = new Creator<MedicationOrder>() {
         @Override
         public MedicationOrder createFromParcel(Parcel in) {
@@ -181,23 +181,30 @@ public class MedicationOrder extends PDEntity implements Parcelable {
         dest.writeString(Timing);
         dest.writeLong(Timestamp);
     }
-    /// <summary>
-    /// Medication
-    /// </summary>
-
-    //[Required]
-    //public PrescribedMedication medication { get; set; }
 
 
-    /// <summary>
-    /// Patient
-    /// </summary>
 
+    public int getStatusPriority()
+    {
+        if(this.Status.equals("active"))
+            return 0;
+        else return 3;
 
-    /// <summary>
-    /// Prescriber
-    /// </summary>
-    //public virtual  Prescriber { get; set; }
+    }
 
+    @Override
+    public int compareTo(MedicationOrder f) {
+
+        if (getStatusPriority() > f.getStatusPriority()) {
+                return 1;
+        }
+        else if (getStatusPriority() <  f.getStatusPriority()) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+
+    }
 
 }

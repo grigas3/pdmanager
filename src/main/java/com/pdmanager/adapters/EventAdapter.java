@@ -49,9 +49,9 @@ public class EventAdapter extends ListViewDataSourceAdapter {
             return "Time spent with off ";//+Integer.toString((int)(obs.getValue()*100))+"%";
         else if (obs.getCode() != null && obs.getCode().toLowerCase().startsWith("brad"))
             return "Average Brad. UPDRS ";
-        else if (obs.getCode() != null && obs.getCode().toLowerCase().startsWith("gait"))
+        else if (obs.getCode() != null && obs.getCode().toLowerCase().startsWith("stupdrsg"))
             return "Average Gait UPDRS ";
-        else if (obs.getCode() != null && obs.getCode().toLowerCase().startsWith("fog"))
+        else if (obs.getCode() != null && obs.getCode().toLowerCase().startsWith("stfog"))
             return "Number of FOG events per day ";//+Integer.toString((int)(obs.getValue()*100))+"%";
         else if (obs.getCode() != null && obs.getCode().toLowerCase().startsWith("act_stand"))
             return "Time standing ";//+Integer.toString((int)(obs.getValue()*100))+"%";

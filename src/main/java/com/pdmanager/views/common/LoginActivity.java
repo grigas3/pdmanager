@@ -557,8 +557,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      */
     public boolean requirePermissions(Activity activity) {
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            // Check if we have write permission
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            // Check if we have write permission
 
             reqPermissions = false;
 
@@ -646,9 +646,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 Log.e(TAG, e.getMessage());
 
             }
-        } else {
-            reqPermissions = true;
-        }
+//        } else {
+//            reqPermissions = true;
+//        }
 
         return reqPermissions;
     }

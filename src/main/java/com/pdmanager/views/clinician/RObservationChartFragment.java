@@ -161,10 +161,7 @@ public class RObservationChartFragment extends AreaFragment implements IBasePati
 
 
             TextView header = (TextView) rootView.findViewById(R.id.headerTextView);
-
             header.setText(selectedCode);
-
-
             FetchData(patient.Id, selectedCode, from, to, selectedAggr);
 
         }

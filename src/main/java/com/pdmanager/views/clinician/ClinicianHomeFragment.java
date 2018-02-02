@@ -39,15 +39,10 @@ public class ClinicianHomeFragment extends BasePDFragment {
             PatientListFragment newFragment = new PatientListFragment();
 
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            //                  ((OnDestinationSelectedListener)newFragment).onDestinationSelected((Destination)adapter.getItem(slideLayoutManager.getCurrentPosition()));
             transaction.replace(R.id.container, newFragment);
-//
             transaction.addToBackStack(null);
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
             transaction.commit();
-            //new GetObservationsTask().execute(new ObservationParams("TEST01","001"));
-
-            //new GetCodesTask().execute();
 
 
         }

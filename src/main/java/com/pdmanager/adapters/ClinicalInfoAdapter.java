@@ -11,6 +11,8 @@ import com.telerik.widget.list.ListViewDataSourceAdapter;
 import com.telerik.widget.list.ListViewHolder;
 import com.telerik.widget.list.ListViewTextHolder;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -39,7 +41,10 @@ public class ClinicalInfoAdapter extends ListViewDataSourceAdapter {
         ClinicalInfo recipe = (ClinicalInfo) entity;
 
         recipeViewHolder.itemSubscriber.setText(recipe.CreatedBy);
-        recipeViewHolder.itemDate.setText(recipe.getDate().toString());
+
+        Format formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String s = formatter.format(recipe.getDate());
+        recipeViewHolder.itemDate.setText(s);
 
         if (recipe.Priority != null && recipe.Priority.toLowerCase().equals("high")) {
 
@@ -54,7 +59,7 @@ public class ClinicalInfoAdapter extends ListViewDataSourceAdapter {
         //recipeViewHolder.itemStatus.setTextColor(Color.parseColor("#224422"));
 
 
-        recipeViewHolder.itemCode.setText(recipe.Code);
+        recipeViewHolder.itemCode.setText(recipe.Name);
 
         if (recipe.Code.equals("Greater Trochanter_Ground Distance") || recipe.Code.equals("Acromion_Stylion Distance")) {
             recipeViewHolder.wrapperFrameLayout.setVisibility(View.GONE);

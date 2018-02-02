@@ -23,6 +23,7 @@ public class ClinicalInfo implements Parcelable {
         }
     };
     public String Code;
+    public String Name;
     public String Value;
     public String Category;
     public String Priority;
@@ -31,6 +32,7 @@ public class ClinicalInfo implements Parcelable {
 
     protected ClinicalInfo(Parcel in) {
         Code = in.readString();
+        Name = in.readString();
         Value = in.readString();
         Category = in.readString();
         Priority = in.readString();
@@ -63,6 +65,7 @@ public class ClinicalInfo implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(Code);
+        dest.writeString(Name);
         dest.writeString(Value);
         dest.writeString(Category);
         dest.writeString(Priority);

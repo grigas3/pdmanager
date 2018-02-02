@@ -153,33 +153,7 @@ public class DyskinesiaEvaluator extends BaseAggregator implements IDataProcesso
                     post2 = 0;
                 }
 
-              /*  if (count == 18750) {
 
-                    int res=0;
-
-                    if(cpost2>0)
-                    {
-
-                        post2/=cpost2;
-
-
-                        if(post2>0.5)
-                            res=1;
-                    }
-
-
-
-                    SendObservation(res, "LID", ((AccData) data).getTicks());
-
-
-                    count=0;
-
-                    cpost2=0;
-                    post2=0;
-
-
-                }
-            */
             } catch (Exception ex) {
 
                 Log.d("Error", "Error");
